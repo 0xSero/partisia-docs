@@ -34,9 +34,6 @@ plugins:
           securityLevel: 'loose'
           theme: forest # we want also that to work
 
-markdown_extensions:
-  - toc:
-      toc_depth: 3
 
 theme:
   name: material
@@ -44,3 +41,17 @@ theme:
     - toc.integrate
     - navigation.expand
     - navigation.sections
+    - navigation.instant
+  # palette:
+  #   - scheme: default
+  #     primary: indigo
+  #     accent: indigo
+  #     toggle:
+  #       icon: material/toggle-switch-off-outline
+  #       name: Switch to dark mode
+  #   - scheme: slate
+  #     primary: red
+  #     accent: red
+  #     toggle:
+  #       icon: material/toggle-switch
+  #       name: Switch to light mode
