@@ -5,6 +5,7 @@ image:
 pages:
   script:
   - mkdocs build --site-dir public
+  only: master
   artifacts:
     paths:
     - public
