@@ -7,9 +7,7 @@ nav:
       Blocks: block.md
       Shards: shards
       Public key cryptography: keys.md
-  - Running a node:
-      Getting started: operator.md
-  
+  - Running a node: operator.md
 
 extra_css:
   - stylesheets/extra.css

@@ -1,4 +1,4 @@
-# Getting started
+# Getting started with PBC
 
 Starting and running a PBC node is fairly simple but requires some prerequisites:
 
@@ -6,7 +6,6 @@ Starting and running a PBC node is fairly simple but requires some prerequisites
 1. You know how to edit a file in the terminal
 1. You understand basic file permissions
 1. You have access to a server/VPS running Docker
-
 
 ## Linux terminal basics
 
@@ -22,7 +21,6 @@ And if you prefer your text printed on trees of yore, there are plenty of afford
 - [The Linux Command Line Beginner's Guide](https://www.amazon.com/Linux-Command-Line-Beginners-Guide-ebook/dp/B007CD3SOI/ref=sr_1_9?dchild=1&keywords=linux+terminal&qid=1623401267&sr=8-9)
 - [Linux Pocket Guide, 3rd edition](https://www.amazon.com/Linux-Pocket-Guide-Essential-Commands/dp/1491927577/ref=sr_1_11?dchild=1&keywords=linux+terminal&qid=1623401267&sr=8-11)
 
-
 ## A note on text editors
 
 There are many different text editors available on the terminal. The most widely used are `vi` and `nano`. Both assume some prior experience but `nano` is generally considered more user-friendly than `vi`. 
@@ -33,11 +31,11 @@ For the rest of the text we will assume you are using `nano`.
 
 The recommended technical requirements are:
 
-* Quad-core CPU
-* 8 GB RAM
-* 40 GB SSD
-* Docker or compatible container runtime
-* Publicly accessible IP with ports `9888` to `9897` open
+- Quad-core CPU
+- 8 GB RAM
+- 40 GB SSD
+- Docker or compatible container runtime
+- Publicly accessible IP with ports `9888` to `9897` open
 
 ## Starting a node
 
@@ -60,7 +58,7 @@ sudo chmod 500 /opt/pbc-betanet/conf
 sudo chmod 700 /opt/pbc-betanet/storage
 ````
 
-The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root. 
+The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
 
 ### Creating `genesis.json` and the node `config.json`
 
@@ -179,7 +177,6 @@ sudo docker login -u <GitLab e-mail address> registry.gitlab.com
 
 **Note:** If you have two-factor login enabled in GitLab you need to create a [personal access token](https://gitlab.com/-/profile/personal_access_tokens).
 
-
 You can now start the node:
 
 ````bash
@@ -188,13 +185,11 @@ sudo docker-compose up -d
 
 This should pull the latest image and start the reader node in the background. If the command was executed succesfully it won't print anything. To verify that the node is running run:
 
-
 ````bash
 sudo docker logs -f pbc-betanet-reader
 ````
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
-
 
 ## Logs and storage
 
