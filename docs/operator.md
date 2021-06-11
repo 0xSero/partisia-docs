@@ -148,7 +148,7 @@ nano docker-compose.yml
 
 The contents of the file should be the following:
 
-````yml
+````yaml
 version: "2.1"
 pbc-betanet-reader:
   image: registry.gitlab.com/privacyblockchain/demo/betanet-public:latest
