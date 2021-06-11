@@ -23,7 +23,7 @@ And if you prefer your text printed on trees of yore, there are plenty of afford
 
 ## A note on text editors
 
-There are many different text editors available on the terminal. The most widely used are `vi` and `nano`. Both assume some prior experience but `nano` is generally considered more user-friendly than `vi`. 
+There are many different text editors available on the terminal. The most widely used are `vi` and `nano`. Both assume some prior experience but `nano` is generally considered more user-friendly than `vi`.
 
 For the rest of the text we will assume you are using `nano`.
 
