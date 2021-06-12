@@ -153,6 +153,7 @@ version: "2.1"
 pbc-betanet-reader:
   image: registry.gitlab.com/privacyblockchain/demo/betanet-public:latest
   container_name: pbc-betanet-reader
+  user: "1500:1500"
   restart: always
   expose:
   - "80"
