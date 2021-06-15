@@ -45,9 +45,9 @@ To run a node you need the following software :
 
 To run a PBC node you need a private key, the genesis state, your own node config and the Docker image containing the application. For the rest of the guide we assume you are running Ubuntu 18.04 with Docker installed.
 
-We have a asciicast you can watch or just follow the guide below.
+We have a asciicast you can watch or just follow the written guide below.
 
-[![asciicast](https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3.svg)](https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3)
+[<img src="https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3.svg" width="600px">](https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3)
 
 ### Creating the folders
 

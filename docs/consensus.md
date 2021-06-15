@@ -6,3 +6,4 @@ If the proposer fails to produce valid blocks, either by losing network connecti
 
 Consensus is achieved using Proof-of-Justification (PoJ) and Proof-of-Finalization (PoF). PoJ is a list of 2/3 or more signatures confirming the validity of a block. This PoJ then becomes PoF for the previous block. Since the validity of the current block depends on the state of the previous, the previous block is considered final. This proof indirect and therefore is not flooded. It can be derived by any node that has access to the chain state.
 
+Only Baker nodes run the ledger with a FastTrack plugin enabled and they communicate with the other Baker nodes for their specific [shard](shards.md). A separate consensus protocol runs for each available shard.

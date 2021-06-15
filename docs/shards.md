@@ -1,5 +1,5 @@
 # Shards
 
-PBC is a blockchain that has the state, contracts and accounts distributed across mutliple groups of nodes. These groups are called *shards*. Each shard has it's own independent block time and it's own block producer which  enables parallel execution of transactions that do not depend on the same state.
+PBC is a blockchain that has the state, contracts and accounts distributed across mutliple groups of nodes. These groups are called *shards*. Each shard has it's own independent block time and it's own block producer which  enables parallel execution of transactions that do not depend on the same state. Every account and every contract live on a specific shard.
 
-Every account and contract live on a specific shard.  Cross-shard communication happens with [events](events.md) that can be spawned by any transaction.
+Shards have their own consensus and the current proposer/block time can drift freely between the shards. When an account holder sends a transaction he/she does so to the shard his/her accout lives on. The transaction spawns an event transaction that is then routed to the relevant shard and executed. If the destination contract lives on the same shard, the event is executed inline, otherwise it is flodded through the network to a node on the relevant shard.
