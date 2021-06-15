@@ -29,17 +29,25 @@ For the rest of the text we will assume you are using `nano`.
 
 ## Recommended machine specs
 
-The recommended technical requirements are:
+The recommended specs are:
 
 - Quad-core CPU
 - 8 GB RAM
 - 40 GB SSD
-- Docker or compatible container runtime
 - Publicly accessible IP with ports `9888` to `9897` open
+
+To run a node you need the following software :
+
+- [Docker](https://docs.docker.com/engine/install/) (Note that the version in your repository may be too old)
+- docker-compose
 
 ## Starting a node
 
 To run a PBC node you need a private key, the genesis state, your own node config and the Docker image containing the application. For the rest of the guide we assume you are running Ubuntu 18.04 with Docker installed.
+
+We have a asciicast you can watch or just follow the guide below.
+
+[![asciicast](https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3.svg)](https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3)
 
 ### Creating the folders
 
@@ -49,16 +57,6 @@ In this guide we will be running the nodes from the folder `/opt/pbc-betanet` wi
 sudo mkdir -p /opt/pbc-betanet/conf
 sudo mkdir -p /opt/pbc-betanet/storage
 ````
-
-Now we need to make sure the the user with uid `1500` has the needed access to the files:
-
-```` bash
-sudo chown -R "1500:1500" /opt/pbc-betanet
-sudo chmod 500 /opt/pbc-betanet/conf    
-sudo chmod 700 /opt/pbc-betanet/storage
-````
-
-The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
 
 ### Creating `genesis.json` and the node `config.json`
 
@@ -115,14 +113,6 @@ Then paste the following:
 ````
 
 To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
-Next ensure that the newly created files have the correct permissions:
-
-````bash
-sudo chown "1500:1500" /opt/pbc-betanet/conf/genesis.json
-sudo chown "1500:1500" /opt/pbc-betanet/conf/config.json
-sudo chmod 400 /opt/pbc-betanet/conf/genesis.json
-sudo chmod 400 /opt/pbc-betanet/conf/config.json
-````
 
 You can verify the contents of the files are what you expect by opening them with `cat`:
 
@@ -133,6 +123,20 @@ sudo cat /opt/pbc-betanet/conf/genesis.json
 sudo cat /opt/pbc-betanet/conf/config.json
 # The config file should be printed here
 ````
+
+### Setting file permissions
+
+Now we need to make sure the the user with uid `1500` has the needed access to the files:
+
+```` bash
+sudo chown -R "1500:1500" /opt/pbc-betanet
+sudo chmod 500 /opt/pbc-betanet/conf    
+sudo chmod 700 /opt/pbc-betanet/storage
+sudo chmod 400 /opt/pbc-betanet/conf/genesis.json
+sudo chmod 400 /opt/pbc-betanet/conf/config.json
+````
+
+The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
 
 ### Start the node
 
@@ -149,7 +153,6 @@ nano docker-compose.yml
 The contents of the file should be the following:
 
 ````yaml
-version: "2.1"
 pbc-betanet-reader:
   image: registry.gitlab.com/privacyblockchain/demo/betanet-public:latest
   container_name: pbc-betanet-reader
