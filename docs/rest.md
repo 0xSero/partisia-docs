@@ -103,13 +103,7 @@ This method gets the transaction for the given hash. If no transaction is found 
 | `events` | An array of events spawned by this transaction. See below for details. |
 | `finalized` | Whether or not the transaction is finalized |
 
-The `events` field holds an array of references to event transaction. These have the following fields:
-
-| Field | Description |
-|-------|------|
-| `identifier`   | The event transaction identifier, a SHA256 hash |
-| `destinationShard`   | The identifier of the shard receiving the event |
-
+The `events` field holds an array of references to event transaction. See `GET /blockchain/events/{hash}` for details.
 
 ### `GET  /blockchain/blocks/latest`
 
@@ -140,10 +134,31 @@ See the description of `/blockchain/blocks/latest` for details about the result.
 
 ### `PUT  /blockchain/transaction/`
 
+Send a signed transaction to the blockchain.
+The body is a simple JSON object with the actual binary transaction encoded in BASE64 in the `transcationPayload` field. 
 
+
+| Field | Description |
+|-------|------|
+| `transactionPayload`   | The transaction on binary form encoded as BASE64.|
+
+To construct a valid signed binary transaction you should use the PBC client library.
 
 ### `PUT  /blockchain/event/`
+
+This sends an event transaction through this node.
+This is for internal use only. For further details consult the source code.
+
 ### `GET  /blockchain/event/{event hash}`
+
+Gets the event identified by the given hash.
+
+
+| Field | Description |
+|-------|------|
+| `identifier`   | The event transaction identifier, a SHA256 hash |
+| `destinationShard`   | The identifier of the shard receiving the event |
+
 
 ### `POST /blockchain/accountPlugin/global`
 ### `POST /blockchain/accountPlugin/local`
