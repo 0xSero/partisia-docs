@@ -97,7 +97,7 @@ Then paste the following:
       }
     }
   ],
-  "restPort": 80,
+  "restPort": 8080,
   "floodingPort": 9888,
   "knownPeers": [
     "188.180.83.49:9090",
@@ -159,7 +159,7 @@ pbc-betanet-reader:
   user: "1500:1500"
   restart: always
   expose:
-  - "80"
+  - "8080"
   ports:
   - "9888-9897:9888-9897"
   command: [ "/conf/config.json", "/conf/genesis.json", "/storage/" ]
