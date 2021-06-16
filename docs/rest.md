@@ -53,6 +53,8 @@ Given an account address this method returns the account state for the given acc
 }
 ````
 
+Nonce is a 64 bit signed integer.
+
 
 ### `GET  /blockchain/contracts/{address}`
 
@@ -84,12 +86,43 @@ An example result:
 | `storageLength` | 64 bit signed number |
 | `seriallizedContract` | The actual state of the contract. This will vary between contracts since it's implementation-specific | 
 
-
-### `PUT  /blockchain/transaction/`
 ### `GET  /blockchain/transaction/{transaction hash}`
+
+This method gets the transaction for the given hash. If no transaction is found it returns a `404 Not Found`.
+
+
+| Field | Type |
+|-------|------|
+| `transactionPayload`    | The payload of the transaction, BASE64 encoded. |
+| `block`   | The block identifier, a SHA256 hash |
+| `from`   | Account address |
+| `identifier`   | The transaction identifier, a SHA256 hash |
+| `interactionJarHash`   | The hash of the contract jar, a SHA256 hash. This should be `null` if the transaction is not an interaction. |
+| `interactionContractType`   | The type of contract receiving the interaction. One of: `SYSTEM`, `PUBLIC` or `ZERO_KNOWLEDGE`. |
+| `executionSucceeded` | Whether or not the transaction was a success. |
+| `events` | An array of events spawned by this transaction. See below for details. |
+| `finalized` | Whether or not the transaction is finalized |
+
+The `events` field holds an array of references to event transaction. These have the following fields:
+
+| Field | Type |
+|-------|------|
+| `identifier`   | The event transaction identifier, a SHA256 hash |
+| `destinationShard`   | The identifier of the shard receiving the event |
+
+
+
+
+
 ### `GET  /blockchain/blocks/latest`
 ### `GET  /blockchain/blocks/{block hash}`
 ### `GET  /blockchain/blocks/blockTime/{block time}`
+
+
+### `PUT  /blockchain/transaction/`
+
+
+
 ### `PUT  /blockchain/event/`
 ### `GET  /blockchain/event/{event hash}`
 
