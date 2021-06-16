@@ -14,8 +14,14 @@ extra_css:
 
 extra_javascript:
   - js/mermaid.min.js
+  - js/mathjax-conf.js
+  - js/polyfill.min.js
+  - js/tex-mml-chtml.js
+
 
 markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.highlight
   - pymdownx.superfences:
       # make exceptions to highlighting of code:
