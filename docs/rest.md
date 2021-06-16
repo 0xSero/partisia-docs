@@ -77,7 +77,7 @@ An example result:
 }
 ````
 
-| Field | Type |
+| Field | Description |
 |-------|------|
 | `type`    | One of: `SYSTEM`, `PUBLIC` or `ZERO_KNOWLEDGE`. |
 | `owner`   | Account address |
@@ -91,7 +91,7 @@ An example result:
 This method gets the transaction for the given hash. If no transaction is found it returns a `404 Not Found`.
 
 
-| Field | Type |
+| Field | Description |
 |-------|------|
 | `transactionPayload`    | The payload of the transaction, BASE64 encoded. |
 | `block`   | The block identifier, a SHA256 hash |
@@ -105,19 +105,38 @@ This method gets the transaction for the given hash. If no transaction is found 
 
 The `events` field holds an array of references to event transaction. These have the following fields:
 
-| Field | Type |
+| Field | Description |
 |-------|------|
 | `identifier`   | The event transaction identifier, a SHA256 hash |
 | `destinationShard`   | The identifier of the shard receiving the event |
 
 
-
-
-
 ### `GET  /blockchain/blocks/latest`
+
+Gets the latest block on the chain.
+
+
+| Field | Description |
+|-------|------|
+| `parentBlock`   | The identifier of the parent block, a SHA256 hash |
+| `blockTIme`   | The block time |
+| `productionTime`   | The block production time |
+| `transactions`   | An array of transaction hashes included in this block |
+| `identifer` | The block identifier, a SHA256 hash |
+| `state` | The hash of the state at this block time |
+
+
 ### `GET  /blockchain/blocks/{block hash}`
+
+Gets a block on the chain based on the hash. It returns `404 Not Found` if the block does not exist.
+
+See the description of `/blockchain/blocks/latest` for details about the result.
+
 ### `GET  /blockchain/blocks/blockTime/{block time}`
 
+Gets a block on the chain based on the block time. It returns `404 Not Found` if the block does not exist.
+
+See the description of `/blockchain/blocks/latest` for details about the result. 
 
 ### `PUT  /blockchain/transaction/`
 
