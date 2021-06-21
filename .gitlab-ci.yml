@@ -1,0 +1,20 @@
+image: 
+  name: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
+
+pages:
+  script:
+  - mkdocs build --site-dir public
+  only: 
+  - master
+  artifacts:
+    paths:
+    - public
+
+pages-dev:
+  script:
+  - mkdocs build --site-dir public
+  except: 
+  - master
+  artifacts:
+    paths:
+    - public
