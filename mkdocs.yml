@@ -43,6 +43,7 @@ plugins:
 
 theme:
   logo: assets/pbclogo.png
+  favicon: assets/pbclogo.png
   name: material
   features:
     - toc.integrate
