@@ -1,4 +1,4 @@
-site_name: Privacy BlockChain
+site_name: Partisia BlockChain
 nav:
   - Home: index.md
   - Concepts: 
@@ -7,8 +7,9 @@ nav:
       Blocks: block.md
       Shards: shards
       Public key cryptography: keys.md
-  - REST API: rest.md
-  - Running a node: operator.md
+  - Getting started:
+      Running a PBC node: operator.md
+      REST API documentation: rest
 
 extra_css:
   - stylesheets/extra.css
@@ -41,6 +42,7 @@ plugins:
 
 
 theme:
+  logo: assets/pbclogo.png
   name: material
   features:
     - toc.integrate
