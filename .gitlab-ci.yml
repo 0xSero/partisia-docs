@@ -1,6 +1,5 @@
 image: 
   name: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
-  entrypoint: [""]
 
 pages:
   script:
