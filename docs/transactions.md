@@ -52,6 +52,6 @@ Transactions are priced according to the type and size of the transaction. The t
 
 Create transactions cost a base fee of 10,000 gas + the size of the contract being deployed.
 
-Interact transactions cost a base fee of 100? gas plus the size of the  contract the transaction interacts with.
+Interact transactions cost a base fee of 100 gas plus the size of the  contract the transaction interacts with.
 
 Remove transactions cost 2500 gas.
