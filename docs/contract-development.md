@@ -26,7 +26,7 @@ If you look at lib.rs file in your IDE, you will see the contract utilizes three
 
 ## Step 3
 
-Open the Interact menu in the [dashboard](https://dashboard.partisiablockchain.com/info/account). It contains the actions that your contracts do. Try minting some tokens to see if everything is working.
+Open the Interact menu in the [dashboard](https://dashboard.partisiablockchain.com/wallet/voting_contracts). It contains the actions that your contracts do. Try minting some tokens to see if everything is working.
 See demo video below, details in dashboard may change due to ongoing development.
 
 [DemoVid](https://youtu.be/qV2grtWDxUE)
