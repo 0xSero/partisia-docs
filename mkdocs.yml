@@ -3,7 +3,7 @@ nav:
   - Home: index.md
   - Concepts: 
       Transactions: transactions.md
-      Contract developement: contract-developement.md
+      Contract development: contract-development.md
       Accounts: accounts.md
       Blocks: block.md
       Shards: shards
