@@ -85,7 +85,7 @@ Now do the same for `config.json`:
 sudo nano /opt/pbc-betanet/conf/config.json
 ````
 
-Then paste the following:
+For a Reader Node paste the following:
 
 ````json
 {
@@ -111,6 +111,41 @@ Then paste the following:
   ]
 }
 ````
+For a Block Producing Node paste the following:
+````json
+{
+  "modules": [
+    {
+      "fullyQualifiedClass": "io.privacyblockchain.server.rest.RestNode",
+      "configuration": {
+        "enabled": true
+      }
+    },
+    {
+      "fullyQualifiedClass": "io.privacyblockchain.consensus.fasttrack.FastTrackNode",
+      "configuration": {
+        "producerKey": "PRIVATE_KEY_FOR_PRODUCTION_IN_HEX",
+        "timeout": 30000,
+        "networkDelay": 3000
+      }
+    }
+  ],
+  "restPort": 80,
+  "floodingPort": 9888,
+  "knownPeers": [
+    "188.180.83.49:9090",
+    "188.180.83.49:9190",
+    "188.180.83.49:9290",
+    "188.180.83.49:9390",
+    "174.138.2.217:9888",
+    "172.93.110.125:9888",
+    "164.68.103.244:9888",
+    "176.78.42.5:9888"
+  ]
+}
+````
+
+
 
 To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
