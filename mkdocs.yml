@@ -1,6 +1,8 @@
 site_name: Partisia BlockChain
 nav:
   - Home: index.md
+  - Latest developments:
+  Launch of MainNet: mainnet.md
   - Concepts: 
       Transactions: transactions.md
       Contract development: contract-development.md
