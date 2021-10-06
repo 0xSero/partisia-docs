@@ -2,10 +2,12 @@ site_name: Partisia BlockChain
 nav:
   - Home: index.md
   - Latest developments:
-  Launch of MainNet: mainnet.md
+      News for Node Operators: newkeypair.md
+      Launch of MainNet: mainnet.md
   - Concepts: 
       Transactions: transactions.md
       Contract development: contract-development.md
+      Zero knowledge contracts: vickrey.md
       Accounts: accounts.md
       BYOC and gas: byoc.md
       Blocks: block.md
