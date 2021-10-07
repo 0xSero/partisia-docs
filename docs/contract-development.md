@@ -17,7 +17,7 @@ Price (See Transactions fees)
 
 ## Step 1
 
-Go to [Archives](https://partisiablockchain.gitlab.io/documentation/index.html)
+Go to [Archives](docs\TransferContractEG.zip)
 Download the zip-archives containing the Rust project files. The project contains a basic contract template for minting and transferring your own token. Follow the readme file for path of extraction and command lines for compilation.
 
 ## Step 2
