@@ -14,7 +14,7 @@ The lower box generate BLS keypairs
 *BlockchainAddress* - The sale address you see on the list of block producers
 
 - **The 2end set** is for network authentication and block production
-*PrivateKey* - The private key is registered in config.json as networkKey
+*PrivateKey* - The private key is registered in config.json as networkKey  
 *PublicKey* - The public key is registered in the survey as producer key
 
 - **The 3rd set** needs to be generated with a key generation algorithm for BLS keypair. and is in the box below the other set  
