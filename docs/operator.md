@@ -89,14 +89,6 @@ For a Reader Node paste the following:
 
 ````json
 {
-  "modules": [
-    {
-      "fullyQualifiedClass": "io.privacyblockchain.server.rest.RestNode",
-      "configuration": {
-        "enabled": true
-      }
-    }
-  ],
   "restPort": 8080,
   "floodingPort": 9888,
   "knownPeers": [
