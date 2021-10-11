@@ -98,53 +98,20 @@ For a Reader Node paste the following:
     "188.180.83.49:9390",
     "174.138.2.217:9888",
     "172.93.110.125:9888",
-    "164.68.103.244:9888",
+    "107.189.1.171:9888",
     "176.78.42.5:9888"
   ]
 }
 ````
-For a Block Producing Node paste the following:    
-- NB. Before 2021 October 11th 12 UTC the config needs to be updated to the new version further below.
-````json
-{
-  "modules": [
-    {
-      "fullyQualifiedClass": "io.privacyblockchain.server.rest.RestNode",
-      "configuration": {
-        "enabled": true
-      }
-    },
-    {
-      "fullyQualifiedClass": "io.privacyblockchain.consensus.fasttrack.FastTrackNode",
-      "configuration": {
-        "producerKey": "PRIVATE_KEY_FOR_PRODUCTION_IN_HEX",
-        "timeout": 30000,
-        "networkDelay": 3000
-      }
-    }
-  ],
-  "restPort": 80,
-  "floodingPort": 9888,
-  "knownPeers": [
-    "188.180.83.49:9090",
-    "188.180.83.49:9190",
-    "188.180.83.49:9290",
-    "188.180.83.49:9390",
-    "174.138.2.217:9888",
-    "172.93.110.125:9888",
-    "164.68.103.244:9888",
-    "176.78.42.5:9888"
-  ]
-}
-````
-New config for block producing node must be updated before 2021 October 11th 12 UTC:
+
+Config for block producing node (Including Oracle and ZK nodes):
 ````json
 {
   "restPort": 80,
   "floodingPort": 9888,
   "networkKey": "PRIVATE_KEY_FOR_PRODUCTION_IN_HEX",
   "producerConfig": {
-    "accountKey": "PRIVATE_KEY_FROM_KYC",
+    "accountKey": "PRIVATE_KEY_FROM_NODE_OPERATOR_ACCOUNT",
     "finalizationKey": "PRIVATE_KEY_FOR_BLS",
     "ethereumUrl": "ETHEREUM_ROPSTEN_HTTP_ENDPOINT"
   },
@@ -155,7 +122,7 @@ New config for block producing node must be updated before 2021 October 11th 12 
     "188.180.83.49:9390",
     "174.138.2.217:9888",
     "172.93.110.125:9888",
-    "164.68.103.244:9888",
+    "107.189.1.171:9888",
     "176.78.42.5:9888"
   ]
 }
