@@ -111,7 +111,7 @@ Config for block producing node (Including Oracle and ZK nodes):
   "floodingPort": 9888,
   "networkKey": "PRIVATE_KEY_FOR_PRODUCTION_IN_HEX",
   "producerConfig": {
-    "accountKey": "Node operator account key",
+    "accountKey": "PRIVATE_KEY_FROM_NODE_OPERATOR_ACCOUNT",
     "finalizationKey": "PRIVATE_KEY_FOR_BLS",
     "ethereumUrl": "ETHEREUM_ROPSTEN_HTTP_ENDPOINT"
   },

@@ -11,10 +11,10 @@ The lower box generate BLS keypairs
 
 **The 1st set** is your Node operator account which will hold your stake:  
 PrivateKey - This is the private key for config.json.   
-BlockchainAddress - The sale address you see on the list of block producers
+BlockchainAddress - The Baker address you see on the list of block producers
 
 
-**The 2end set** is for network authentication and block production:  
+**The 2nd set** is for network authentication and block production:  
 PrivateKey - The private key is registered in config.json as networkKey  
 PublicKey - The public key is registered in the survey as producer key  
 
