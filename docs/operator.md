@@ -107,7 +107,7 @@ For a Reader Node paste the following:
 Config for block producing node (Including Oracle and ZK nodes):
 ````json
 {
-  "restPort": 80,
+  "restPort": 8080,
   "floodingPort": 9888,
   "networkKey": "PRIVATE_KEY_FOR_PRODUCTION_IN_HEX",
   "producerConfig": {
