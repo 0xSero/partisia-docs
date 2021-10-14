@@ -184,7 +184,7 @@ pbc-betanet-reader:
   - /opt/pbc-betanet/conf:/conf
   - /opt/pbc-betanet/storage:/storage
   environment:
-  - JAVA_TOOL_OPTIONS="-Xmx1G"
+  - JAVA_TOOL_OPTIONS="-Xmx2G"
 ````
 
 Save the file by presssing `CTRL+O` and then `ENTER` and then `CTRL+X`.
