@@ -107,7 +107,7 @@ For a Reader Node paste the following:
 Config for block producing node (Including Oracle and ZK nodes):
 ````json
 {
-  "restPort": 80,
+  "restPort": 8080,
   "floodingPort": 9888,
   "networkKey": "PRIVATE_KEY_FOR_PRODUCTION_IN_HEX",
   "producerConfig": {
@@ -184,7 +184,7 @@ pbc-betanet-reader:
   - /opt/pbc-betanet/conf:/conf
   - /opt/pbc-betanet/storage:/storage
   environment:
-  - JAVA_TOOL_OPTIONS="-Xmx1G"
+  - JAVA_TOOL_OPTIONS="-Xmx2G"
 ````
 
 Save the file by presssing `CTRL+O` and then `ENTER` and then `CTRL+X`.
