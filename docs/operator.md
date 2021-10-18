@@ -232,7 +232,6 @@ Updating the PBC node is a simple 4-step process:
 
 ```` bash
 cd ~/pbc
-sudo docker-compose down
 sudo docker-compose pull
 sudo docker-compose up -d
 ````
