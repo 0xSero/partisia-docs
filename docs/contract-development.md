@@ -17,17 +17,16 @@ Price (See Transactions fees)
 
 ## Step 1
 
-Go to [Archives](docs\TransferContractEG.zip)
-Download the zip-archives containing the Rust project files. The project contains a basic contract template for minting and transferring your own token. Follow the readme file for path of extraction and command lines for compilation.
+Go to [Archives](docs\TransferContractEG2.zip)
+Download the zip-archives containing the Rust project files and the ABI. The project contains a basic contract template for minting and transferring your own token. Follow the readme file for path of extraction and command lines for compilation.
 
 ## Step 2
 
-If you look at lib.rs file in your IDE, you will see the contract utilizes three functions denoted with the initial fn. These functions allow you to perform the basic operations needed for a transfer. The functions are initialize, mint, and transfer.
+If you look at lib.rs file in your IDE, you will see the contract utilizes several functions denoted with the initial *fn*. Three of these functions are actions that allow you to perform the basic operations needed for a transfer. The functions are *initialize*, *mint*, and *transfer*. After deployment, you can call the functions from the terminal or from the dashboard. When you perform an action it changes the contract state. If you inspect the contract you can see the serialized data showing the contract state. You can make sense of the data and see the actual contract state by applying the reader function `fn read_from` from the contract to the datastream. reader
 
 ## Step 3
 
-Open the Interact menu in the [dashboard](https://dashboard.partisiablockchain.com/wallet/voting_contracts). It contains the actions that your contracts do. Try minting some tokens to see if everything is working.
-See demo video below, details in dashboard may change due to ongoing development.
+Open the wallet in the [dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm). Select the `token_contract.wasm` and the `token_contract.abi`. In the Init field you put the number of tokens you want minted for total supply of the contract from the moment of deployment.
 
 [DemoVid](https://youtu.be/qV2grtWDxUE)
 
