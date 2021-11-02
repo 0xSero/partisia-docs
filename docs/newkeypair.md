@@ -6,7 +6,7 @@ The keys are randomly generated at [KeyGen](https://dashboard.partisiablockchain
 
 You need three sets of keys from the upper box
 
-You need one  set from the lower box which generate BLS keypairs
+You need one set from the lower box which generate BLS keypairs
 
 
 **The 1st set** is your Node operator account which will hold your stake:  
