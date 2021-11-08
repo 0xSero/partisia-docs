@@ -4,7 +4,6 @@ We are soon launching MainNet. This means that a myriad of opportunities are eme
 ## WASM smart contracts on PBC
 
 - External users are able to compile and deploy own contract
-- ABI does not have to be auto generated, but can be handwritten by the programmer
 - Has a metered interpreter for CPU fees
 - It is possible to auto generate ABI files from the rust source
 - Contracts should be able to pay for outbound events instead of the user
