@@ -27,4 +27,3 @@ BlockchainAddress - This is the address associated with your KYC. It is register
 **The 4th set** needs to be generated with a key generation algorithm for BLS keypair and is in the box below the other set:  
 PrivateKey - Goes in the config.json as "finalizationKey"  
 PublicKey - Goes in the survey as "Producer key (BLS12-381)"
-
