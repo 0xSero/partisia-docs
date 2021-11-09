@@ -216,7 +216,7 @@ This should print a bunch of log statements. All the timestamps are in [UTC](htt
 
 ***Signing*** - All is well.  
 ***Not signing as shutdown is active*** - You may assume all is well.  
-***Not signing*** - This is not a good sign, you are not signing blocks. First, check if you are on the list of block producers, if you are not and you have already filled out the survey, then you need to notify us so we can update betanet and have you added. If you are on the list and still get “Not signing” then you almost certainly have some problem in your `config.json` Probably you have a wrong or no key in `producerKey`: (This is the key associated with your sale address. You got that key when you filled out the KYC. If you can’t remember, you can find your key here: [KYC Portal](https://kyc.partisiablockchain.com/)  
+***Not signing*** - This is not a good sign, you are not signing blocks. First, check if you are on the list of block producers, if you are not and you have already filled out the survey, then you need to notify us so we can update betanet and have you added. If you are on the list and still get “Not signing” then you almost certainly have some problem in your `config.json` Probably you have a wrong or no key in the fields `accountKey`, `networkKey` or `finalizationKey`.  
 ***Got a message with wrong protocol identifier*** - This message comes every time a shutdown has occurred (in other words whenever a producer has not produced the block he is supposed to). So, on its own that message does not indicate a problem. But, if the log just repeats and don't change to a new message saying *Executing Block…* it could suggest you are running an outdated version of our software, a version that does not pull the newest docker image automatically.
 
 
