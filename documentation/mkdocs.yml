@@ -1,0 +1,58 @@
+site_name: Partisia BlockChain
+nav:
+  - Home: index.md
+  - ABI:
+      Version 1: abiv1.md
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - js/mermaid.min.js
+  - js/mathjax-conf.js
+  - js/polyfill.min.js
+  - js/tex-mml-chtml.js
+
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          #format: !!python/name:mermaid2.fence_mermaid_custom
+          format: !!python/name:pymdownx.superfences.fence_div_format
+
+plugins:
+    - search
+    - mermaid2:
+        arguments:
+          securityLevel: 'loose'
+          theme: forest # we want also that to work
+
+
+theme:
+  logo: assets/pbclogo.png
+  favicon: assets/pbclogo.png
+  name: material
+  features:
+    - toc.integrate
+    - navigation.expand
+    - navigation.sections
+    - navigation.instant
+  # palette:
+  #   - scheme: default
+  #     primary: indigo
+  #     accent: indigo
+  #     toggle:
+  #       icon: material/toggle-switch-off-outline
+  #       name: Switch to dark mode
+  #   - scheme: slate
+  #     primary: red
+  #     accent: red
+  #     toggle:
+  #       icon: material/toggle-switch
+  #       name: Switch to light mode
