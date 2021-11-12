@@ -1,8 +1,8 @@
-site_name: Partisia BlockChain
+site_name: Partisia BlockChain contract ABI specificartion
 nav:
   - Home: index.md
-  - ABI:
-      Version 1: abiv1.md
+  - ABIs:
+      Version 1.0 draft: abiv1.md
 
 extra_css:
   - stylesheets/extra.css
