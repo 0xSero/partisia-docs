@@ -1,4 +1,4 @@
-# Draft: PBC contract ABI version 1
+# Draft: PBC contract ABI version 1.0
 
 ## Basic types
 
