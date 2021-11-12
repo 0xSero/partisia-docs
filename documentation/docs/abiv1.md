@@ -8,11 +8,20 @@
 | u16 | 2 |16-bit integers |
 | u32 | 4 |32-bit integers |
 | u32 | 4 |32-bit integers |
-| Vector\<T\> | 4 + n T's | u32 length followed by n elements.  |
-| String | 4 + n | u32 length followed by n *bytes* UTF-8 encoded characters.  |
-| Optional\<T\> | 1 + n | Boolean as u8 followed the element of n length |
+| Vector<T\> | 2 + n T's | u16 length followed by n elements|
+| String | 2 + n | u16 length followed by n *bytes* UTF-8\*|
+| Optional<T\> | 1 + n | Boolean as u8 followed the element of n length |
 
-All integers are big endian.
+\* UTF-8 characters are between 1 and 4 bytes each. The length here denotes the number of bytes and
+*NOT* the number of character codepoints.
+
+## Structure
+
+| Name | Type | Description |
+|---    |--- |---|
+| Header | 6* u8 | `PBCABI` in ASCII| 
+| Version | u16 | The version number
+| Contract ABI | ContractAbi | The actual contract ABI
 
 ## Complex types
 
@@ -39,7 +48,7 @@ All integers are big endian.
 |---    |--- |---|
 | Datatype | Optional<u8> | Denotes the type of the field. `0` marks a user-defined, named struct. Positive integers denote a built-in type, see below.
 | Type index     | u8 | The index of the user-defined struct in the Types vector.
-| Fields   | Vec\<FieldAbi\> | A vector of FieldAbi elements, one for each field of the user-defined struct.
+| Fields   | Vec<FieldAbi\> | A vector of FieldAbi elements, one for each field of the user-defined struct.
 
 Built-in types are the following:
 
@@ -56,17 +65,17 @@ Built-in types are the following:
 8  |  i32
 9  |  i64
 10 |  i128
-11 |  Vec\<T\> \*
-12 |  BTreeMap\<S, T\> \*\*
+11 |  Vec<T\> \*
+12 |  BTreeMap<S, T\> \*\*
 13 |  BTreeSet
-14 |  \[u8; 1\]
-15 |  \[u8; 2\]
-.. |
-46 |  \[u8; 32\]
+14 |  \[u8; n\] \*\*\*
 
 \* T is written as a single u8 denoting the type index of T in the Types vector in the parent
-ContractAbi.  
+ContractAbi.
+
 \*\* Same as Vec but two bytes one for S and one for T.
+
+\*\*\* n denotes the length as an u8. Currently we support a max length of 32.
 
 ### ArgumentAbi
 
@@ -75,13 +84,4 @@ ContractAbi.
 | Name | String | The name of the field
 | Type index     | u8 | The index of the user-defined struct in the Types vector.
 
-
-## Structure
-
-| Name | Type | Description |
-|---    |--- |---|
-| Header | 6* u8 | `PBCABI` in ASCII| 
-| Version | u16 | The version number
-| Shortname length | u8 | The length of the shortname field
-| Types | Vec<TypeAbi> | A vector of TypeAbi elements. 
 
