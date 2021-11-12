@@ -1,20 +1,8 @@
 # Draft: PBC contract ABI version 1.0
 
-## Basic types used to serialize the ABI
+## ABI serialization
 
-| Name | Length | Description |
-|---|---|---|
-| u8             | 1         |  8-bit integers
-| u16            | 2         | 16-bit integers
-| u32            | 4         | 32-bit integers
-| Vector<T\>     | 2 + n T's | u16 length followed by n elements
-| String         | 4 + n     | u32 length followed by n *bytes* UTF-8\*
-| Optional<T\>   | 1 + n     | Boolean as u8 followed the element of n length
-
-\* UTF-8 characters are between 1 and 4 bytes each. The length here denotes the number of bytes and
-*NOT* the number of character codepoints.
-
-## Basic types used to serialize RPC calls and contract state
+### Basic types used to serialize RPC calls and contract state
 
 | Value | Length  | Corresponding Rust type
 |---|---|---| 
@@ -31,9 +19,10 @@
 | 10    | 16                 | i128
 | 11    | 4 + n \* T         | Vec<T\> \*
 | 12    | 1 + 1 + n \* (S+T) | BTreeMap<S, T\> \*\*
-| 13    | 1 + n \* T         | BTreeSet<T>                       
-| 14    | 1 + n              | \[u8; n\] \*\*\*
-                             
+| 13    | 1 + n \* T         | BTreeSet<T>
+| 14    | 21                 | Address
+| 15    | 1 + n              | \[u8; n\] \*\*\*
+
 \* T is written as a single u8 denoting the type index of T in the Types vector in the parent
 ContractAbi.
 
@@ -41,7 +30,21 @@ ContractAbi.
 
 \*\*\* n denotes the length as an u8. Currently we support a max length of 32.
 
-## Structure
+### Basic types used to serialize the ABI
+
+| Name | Length | Description |
+|---|---|---|
+| u8             | 1         |  8-bit integers
+| u16            | 2         | 16-bit integers
+| u32            | 4         | 32-bit integers
+| Vector<T\>     | 2 + n T's | u16 length followed by n elements
+| String         | 4 + n     | u32 length followed by n *bytes* UTF-8\*
+| Optional<T\>   | 1 + n     | Boolean as u8 followed the element of n length
+
+\* UTF-8 characters are between 1 and 4 bytes each. The length here denotes the number of bytes and
+*NOT* the number of character codepoints.
+
+### Structure of the ABI
 
 | Name         | Type        | Description |
 |---|---|---|
@@ -49,26 +52,26 @@ ContractAbi.
 | Version      | u16         | The version number
 | Contract ABI | ContractAbi | The actual contract ABI
 
-## Complex types
+### Complex types
 
-### ContractAbi
+#### ContractAbi
 
 | Name | Type | Description |
 |---|---|---|
-| Shortname length | u8           | The length of the shortname field
+| Shortname length | u8           | The length of the action short name. See *Calling a function* below.
 | Types            | Vec<TypeAbi> | A vector of TypeAbi elements representing all the legal state and RPC types
 | Init             | FunctionAbi  | A single FunctionAbi representing the contract initializer
 | Actions          | Vec<TypeAbi> | A vector of TypeAbi elements representing the contract actions
 | State            | String       | A string denoting the state type of the contract
 
-### TypeAbi
+#### TypeAbi
 
 | Name | Type | Description |
 |---|--- |---|
 | Name      | String           | The name of the type
 | Fields    | Vector<FieldAbi> | A vector of FieldAbi elements, one for each field in the struct.
 
-### FieldAbi
+#### FieldAbi
 
 | Name | Type | Description |
 |---|---|---|
@@ -76,11 +79,47 @@ ContractAbi.
 | Type index   | u8             | The index of the user-defined struct in the Types vector.
 | Fields       | Vec<FieldAbi\> | A vector of FieldAbi elements, one for each field of the user-defined struct.
 
-### ArgumentAbi
+#### ArgumentAbi
 
 | Name | Type | Description |
 |---|---|---|
 | Name           | String | The name of the field
 | Type index     | u8     | The index of the user-defined struct in the Types vector.
+
+#### Address
+
+Blockchain addresses are 21 bytes.
+
+| Name | Type | Description |
+|---|--- |---|
+| Type      | u8         | The type of the address
+| Value     | \[u8; 20]  | 20 bytes containing the address value.
+
+#### Shortname
+
+The shortname of a function is the first four bytes of the function name's SHA-256 hash.
+
+## Serialization of RPC and contract state
+
+The ABI describes how to serialize a type.
+
+
+## Calling a function
+
+Calling a function requires you to use the shortname of the function followed by the RPC for said
+function.
+
+As an example if you have an action that looks like the following:
+
+````rust
+pub fn my_action(ctx: ContractContext, state: MyState, address: Address, some_value: u32) -> MyState {
+    let new_state = state.clone();
+    // do something with address and some_value
+    new_state
+}
+````
+
+
+TODO
 
 
