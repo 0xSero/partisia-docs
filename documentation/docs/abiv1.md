@@ -7,7 +7,6 @@
 | u8  | 1 | 8-bit integers | 
 | u16 | 2 |16-bit integers |
 | u32 | 4 |32-bit integers |
-| u32 | 4 |32-bit integers |
 | Vector<T\> | 2 + n T's | u16 length followed by n elements|
 | String | 2 + n | u16 length followed by n *bytes* UTF-8\*|
 | Optional<T\> | 1 + n | Boolean as u8 followed the element of n length |
