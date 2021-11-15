@@ -19,7 +19,7 @@
 | 10    | 16                 | i128
 | 11    | 4 + n \* T         | Vec<T\> \*
 | 12    | 1 + 1 + n \* (S+T) | BTreeMap<S, T\> \*\*
-| 13    | 1 + n \* T         | BTreeSet<T>
+| 13    | 1 + n \* T         | BTreeSet<T\> \*
 | 14    | 21                 | Address
 | 15    | 1 + n              | \[u8; n\] \*\*\*
 
@@ -29,6 +29,9 @@ ContractAbi.
 \*\* Same as Vec but two bytes one for S and one for T.
 
 \*\*\* n denotes the length as an u8. Currently we support a max length of 32.
+
+**NOTE:** `BTreeMap` and `BTreeSet` cannot be used as RPC arguments since it's not possible for a
+caller to check equality and sort order of the elements without running the code.
 
 ### Basic types used to serialize the ABI
 
@@ -58,11 +61,11 @@ ContractAbi.
 
 | Name | Type | Description |
 |---|---|---|
-| Shortname length | u8           | The length of the action short name. See *Calling a function* below.
-| Types            | Vec<TypeAbi> | A vector of TypeAbi elements representing all the legal state and RPC types
-| Init             | FunctionAbi  | A single FunctionAbi representing the contract initializer
-| Actions          | Vec<TypeAbi> | A vector of TypeAbi elements representing the contract actions
-| State            | String       | A string denoting the state type of the contract
+| Shortname length | u8           | The length of the action short name. See *Calling a function* below. 
+| Types | Vec<TypeAbi> | A vector of TypeAbi elements representing all the legal state and RPC types 
+| Init | FunctionAbi | A single FunctionAbi representing the contract initializer 
+| Actions | Vec<TypeAbi> | A vector of TypeAbi elements representing the contract actions 
+| State | String | A string denoting the state type of the contract
 
 #### TypeAbi
 
@@ -103,7 +106,6 @@ The shortname of a function is the first four bytes of the function name's SHA-2
 
 The ABI describes how to serialize a type.
 
-
 ## Calling a function
 
 Calling a function requires you to use the shortname of the function followed by the RPC for said
@@ -119,7 +121,19 @@ pub fn my_action(ctx: ContractContext, state: MyState, address: Address, some_va
 }
 ````
 
+The first two arguments are supplied by the runtime. The first is the `ContractContext` which has
+information about the transaction, the sender etc. The second argument is a copy of the state of the
+contract at call time. The rest of the arguments make up the RPC of the action. The result of the
+action is a new contract state that is persisted on chain.
+
+If we want to call the above with the address  `001111111111111111111111111111111111111111` and
+some_value `42`, we read the shortname of the action in the ABI (in our example it is `9c3897ac`)
+the following RPC to the contract:
+
+```
+9c3897ac                                   // 4 bytes shortname
+001111111111111111111111111111111111111111 // 21 address bytes
+0000002a                                   // 42 in big endian
+```
 
 TODO
-
-
