@@ -61,33 +61,41 @@ caller to check equality and sort order of the elements without running the code
 
 | Name | Type | Description |
 |---|---|---|
-| Shortname length | u8           | The length of the action short name. See *Calling a function* below. 
-| Types | Vec<TypeAbi> | A vector of TypeAbi elements representing all the legal state and RPC types 
-| Init | FunctionAbi | A single FunctionAbi representing the contract initializer 
-| Actions | Vec<TypeAbi> | A vector of TypeAbi elements representing the contract actions 
-| State | String | A string denoting the state type of the contract
+| Shortname length | u8           | The length of the action short name. See *Calling a function* below.
+| Types            | Vec<TypeAbi\> | A vector of TypeAbi elements representing all the legal state and RPC types
+| Init             | FunctionAbi  | A single FunctionAbi representing the contract initializer
+| Actions          | Vec<TypeAbi\> | A vector of TypeAbi elements representing the contract actions
+| State            | String       | A string denoting the state type of the contract
 
 #### TypeAbi
 
 | Name | Type | Description |
 |---|--- |---|
 | Name      | String           | The name of the type
-| Fields    | Vector<FieldAbi> | A vector of FieldAbi elements, one for each field in the struct.
+| Fields    | Vector<FieldAbi\> | A vector of FieldAbi elements, one for each field in the struct.
+ 
+#### FunctionAbi
 
+| Name | Type | Description |
+|---|--- |---|
+| Name       | String           | The name of the type
+| Parameters | Vector<FieldAbi\> | A vector of ArgumentAbi elements, one for each argument in the function.
+ 
 #### FieldAbi
 
 | Name | Type | Description |
 |---|---|---|
-| Datatype     | Optional<u8>   | Denotes the type of the field. `0` marks a user-defined, named struct. Positive integers denote a built-in type, see below.
-| Type index   | u8             | The index of the user-defined struct in the Types vector.
-| Fields       | Vec<FieldAbi\> | A vector of FieldAbi elements, one for each field of the user-defined struct.
+| Datatype   | u8     | Denotes the type of the field. `0` marks a user-defined, named struct. Positive integers denote a built-in type, see below.
+| Type index | u8     | The index of the user-defined struct in the Types vector. Always present but unused if `datatype != 0`.
+| Name       | String | The name of the field.
 
 #### ArgumentAbi
 
 | Name | Type | Description |
 |---|---|---|
-| Name           | String | The name of the field
-| Type index     | u8     | The index of the user-defined struct in the Types vector.
+| Datatype   | u8     | Denotes the type of the field. `0` marks a user-defined, named struct. Positive integers denote a built-in type, see below.
+| Type index | u8     | The index of the user-defined struct in the Types vector. Always present but unused if `datatype != 0`.
+| Name       | String | The name of the argument.
 
 #### Address
 
