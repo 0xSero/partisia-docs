@@ -2,28 +2,59 @@
 
 ## ABI serialization
 
-### Basic types used to serialize RPC calls and contract state
+### BNF for types
+$$
+\begin{align*}
+<\text{Type}> \ := \ &\text{SimpleType} \\
+| \ &\text{CompositeType} \\
+| \ &\text{CustomStruct} \\
+\\
+<\text{CustomStruct}> \ := \ &\mathtt{0x00} \ \text{Index}:\mathtt{0xnn} \Rightarrow Types(\text{Index}) \\
+\\
+<\text{SimpleType}> \ := \ &\mathtt{0x01} \ \Rightarrow \text{u8} \\
+| \ &\mathtt{0x02} \ \Rightarrow \text{u16} \\
+| \ &\mathtt{0x03} \ \Rightarrow \text{u32} \\
+| \ &\mathtt{0x04} \ \Rightarrow \text{u64} \\
+| \ &\mathtt{0x05} \ \Rightarrow \text{u128} \\
+| \ &\mathtt{0x06} \ \Rightarrow \text{i8} \\
+| \ &\mathtt{0x07} \ \Rightarrow \text{i16} \\
+| \ &\mathtt{0x08} \ \Rightarrow \text{i32} \\
+| \ &\mathtt{0x09} \ \Rightarrow \text{i64} \\
+| \ &\mathtt{0x0a} \ \Rightarrow \text{i128} \\
+| \ &\mathtt{0x0b} \ \Rightarrow \text{String} \\
+| \ &\mathtt{0x0c} \ \Rightarrow \text{bool} \\
+| \ &\mathtt{0x0d} \ \Rightarrow \text{Address} \\
+\\
+<\text{CompositeType}> \ := \ &\mathtt{0x0d} \text{ T:}\text{Type} \Rightarrow \text{Vec}<\text{T}> \\
+| \ &\mathtt{0x0f} \text{ K:}\text{Type}\text{ V:}\text{Type} \Rightarrow \text{BTreeMap}<\text{K}, \text{V}> \\
+| \ &\mathtt{0x10} \text{ T:}\text{Type} \Rightarrow \text{BTreeSet}<\text{T}> \\
+| \ &\mathtt{0x11} \text{ L:}\mathtt{0xnn} \Rightarrow \text{[u8; }\text{L}\text{]} & (\mathtt{0x01} \leq L \leq \mathtt{0x20}) \\
+\\
+\end{align*}
+$$
 
-| Value | Length  | Corresponding Rust type
+### Sizes for basic types declarations
+
+| Value | Nr of bytes  | Corresponding Rust type
 |---|---|---| 
-| 0     | 1 + n              | CUSTOM_STRUCT
+| 0     | 1 + 1 + Size(Custom_Struct) | Custom_Struct
 | 1     | 1                  | u8
-| 2     | 2                  | u16
-| 3     | 4                  | u32
-| 4     | 8                  | u64
-| 5     | 16                 | u128
+| 2     | 1                  | u16
+| 3     | 1                  | u32
+| 4     | 1                  | u64
+| 5     | 1                 | u128
 | 6     | 1                  | i8
-| 7     | 2                  | i16
-| 8     | 4                  | i32
-| 9     | 8                  | i64
-| 10    | 16                 | i128
-| 11    | 4 + n \* T         | Vec<T\> \*
-| 12    | 1 + 1 + n \* (S+T) | BTreeMap<S, T\> \*\*
-| 13    | 1 + n \* T         | BTreeSet<T\> \*
-| 14    | 21                 | Address
-| 15    | 1 + n              | \[u8; n\] \*\*\*
+| 7     | 1                  | i16
+| 8     | 1                  | i32
+| 9     | 1                  | i64
+| 10    | 1                 | i128
+| 11    | 1 + Size(T)         | Vec<T\> \*
+| 12    | 1 + Size(K) + Size(V) | BTreeMap<K, V\> \*\*
+| 13    | 1 + Size(T)         | BTreeSet<T\> \*
+| 14    | 1                 | Address
+| 15    | 1 + 1             | \[u8; n\] \*\*\*
 
-\* T is written as a single u8 denoting the type index of T in the Types vector in the parent
+\* T is written as a single u8 deno ting the type index of T in the Types vector in the parent
 ContractAbi.
 
 \*\* Same as Vec but two bytes one for S and one for T.
