@@ -90,6 +90,18 @@ caller to check equality and sort order of the elements without running the code
 
 #### ContractAbi
 
+$$
+\begin{align*}
+<\text{Name}> \ := \ &\text{String} \\
+<\text{TypeAbi}> \ := \{ \ &\text{Name},\ \ \text{Vec<FieldAbi>}  \ \}\\
+<\text{FunctionAbi}> \ := \{ \ &\text{Name},\ \ \text{Vec<ArgumentAbi>}  \ \}\\
+<\text{FieldAbi}> \ := \{ \ &\text{Type},\ \ \text{Index}, \text{Name} \ \}\\
+<\text{ArgumentAbi}> \ := \{ \ &\text{Type},\ \ \text{Index}, \text{Name} \ \}\\
+<\text{ContractAbi}> \ := \{ \ &\text{Shortname Length : u8}\ ,\ \ \text{Types : Vec<TypeAbi>},\ \ \text{Init : FunctionAbi}, \ \ \text{Actions : Vec<TypeAbi>}, \ \ \text{State name : String}  \ \}\\
+\end{align*}
+$$
+
+
 | Name | Type | Description |
 |---|---|---|
 | Shortname length | u8           | The length of the action short name. See *Calling a function* below.
@@ -98,44 +110,6 @@ caller to check equality and sort order of the elements without running the code
 | Actions          | Vec<TypeAbi\> | A vector of TypeAbi elements representing the contract actions
 | State            | String       | A string denoting the state type of the contract
 
-#### TypeAbi
-
-| Name | Type | Description |
-|---|--- |---|
-| Name      | String           | The name of the type
-| Fields    | Vector<FieldAbi\> | A vector of FieldAbi elements, one for each field in the struct.
- 
-#### FunctionAbi
-
-| Name | Type | Description |
-|---|--- |---|
-| Name       | String           | The name of the type
-| Parameters | Vector<FieldAbi\> | A vector of ArgumentAbi elements, one for each argument in the function.
- 
-#### FieldAbi
-
-| Name | Type | Description |
-|---|---|---|
-| Datatype   | u8     | Denotes the type of the field. `0` marks a user-defined, named struct. Positive integers denote a built-in type, see below.
-| Type index | u8     | The index of the user-defined struct in the Types vector. Always present but unused if `datatype != 0`.
-| Name       | String | The name of the field.
-
-#### ArgumentAbi
-
-| Name | Type | Description |
-|---|---|---|
-| Datatype   | u8     | Denotes the type of the field. `0` marks a user-defined, named struct. Positive integers denote a built-in type, see below.
-| Type index | u8     | The index of the user-defined struct in the Types vector. Always present but unused if `datatype != 0`.
-| Name       | String | The name of the argument.
-
-#### Address
-
-Blockchain addresses are 21 bytes.
-
-| Name | Type | Description |
-|---|--- |---|
-| Type      | u8         | The type of the address
-| Value     | \[u8; 20]  | 20 bytes containing the address value.
 
 #### Shortname
 
