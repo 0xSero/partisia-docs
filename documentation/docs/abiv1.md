@@ -95,8 +95,8 @@ $$
 <\text{Name}> \ := \ &\text{String} \\
 <\text{TypeAbi}> \ := \{ \ &\text{Name},\ \ \text{Vec<FieldAbi>}  \ \}\\
 <\text{FunctionAbi}> \ := \{ \ &\text{Name},\ \ \text{Vec<ArgumentAbi>}  \ \}\\
-<\text{FieldAbi}> \ := \{ \ &\text{Type},\ \ \text{Index}, \text{Name} \ \}\\
-<\text{ArgumentAbi}> \ := \{ \ &\text{Type},\ \ \text{Index}, \text{Name} \ \}\\
+<\text{FieldAbi}> \ := \{ \ &\text{Type}, \text{Name} \ \}\\
+<\text{ArgumentAbi}> \ := \{ \ &\text{Type}, \text{Name} \ \}\\
 <\text{ContractAbi}> \ := \{ \ &\text{Shortname Length : u8}\ ,\ \ \text{Types : Vec<TypeAbi>},\ \ \text{Init : FunctionAbi}, \ \ \text{Actions : Vec<TypeAbi>}, \ \ \text{State name : String}  \ \}\\
 \end{align*}
 $$
