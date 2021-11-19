@@ -25,7 +25,7 @@ $$
 | \ &\mathtt{0x0c} \ \Rightarrow \text{bool} \\
 | \ &\mathtt{0x0d} \ \Rightarrow \text{Address} \\
 \\
-<\text{CompositeType}> \ := \ &\mathtt{0x0d} \text{ T:}\text{Type} \Rightarrow \text{Vec}<\text{T}> \\
+<\text{CompositeType}> \ := \ &\mathtt{0x0e} \text{ T:}\text{Type} \Rightarrow \text{Vec}<\text{T}> \\
 | \ &\mathtt{0x0f} \text{ K:}\text{Type}\text{ V:}\text{Type} \Rightarrow \text{BTreeMap}<\text{K}, \text{V}> \\
 | \ &\mathtt{0x10} \text{ T:}\text{Type} \Rightarrow \text{BTreeSet}<\text{T}> \\
 | \ &\mathtt{0x11} \text{ L:}\mathtt{0xnn} \Rightarrow \text{[u8; }\text{L}\text{]} & (\mathtt{0x01} \leq L \leq \mathtt{0x20}) \\
