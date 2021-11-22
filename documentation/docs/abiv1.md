@@ -39,60 +39,8 @@ $$\definecolor{mathcolor}{RGB}{33,33,33}
 }
 $$
 
-### Sizes for basic types declarations
-
-| Value | Nr of bytes  | Corresponding Rust type
-|---|---|---| 
-| 0     | 1 + 1 + Size(Custom_Struct) | Custom_Struct
-| 1     | 1                  | u8
-| 2     | 1                  | u16
-| 3     | 1                  | u32
-| 4     | 1                  | u64
-| 5     | 1                 | u128
-| 6     | 1                  | i8
-| 7     | 1                  | i16
-| 8     | 1                  | i32
-| 9     | 1                  | i64
-| 10    | 1                 | i128
-| 11    | 1 + Size(T)         | Vec<T\> \*
-| 12    | 1 + Size(K) + Size(V) | BTreeMap<K, V\> \*\*
-| 13    | 1 + Size(T)         | BTreeSet<T\> \*
-| 14    | 1                 | Address
-| 15    | 1 + 1             | \[u8; n\] \*\*\*
-
-\* T is written as a single u8 deno ting the type index of T in the Types vector in the parent
-ContractAbi.
-
-\*\* Same as Vec but two bytes one for S and one for T.
-
-\*\*\* n denotes the length as an u8. Currently we support a max length of 32.
-
 **NOTE:** `BTreeMap` and `BTreeSet` cannot be used as RPC arguments since it's not possible for a
 caller to check equality and sort order of the elements without running the code.
-
-### Basic types used to serialize the ABI
-
-| Name | Length | Description |
-|---|---|---|
-| u8             | 1         |  8-bit integers
-| u16            | 2         | 16-bit integers
-| u32            | 4         | 32-bit integers
-| Vector<T\>     | 2 + n T's | u16 length followed by n elements
-| String         | 4 + n     | u32 length followed by n *bytes* UTF-8\*
-| Optional<T\>   | 1 + n     | Boolean as u8 followed the element of n length
-
-\* UTF-8 characters are between 1 and 4 bytes each. The length here denotes the number of bytes and
-*NOT* the number of character codepoints.
-
-### Structure of the ABI
-
-| Name         | Type        | Description |
-|---|---|---|
-| Header       | 6* u8       | `PBCABI` in ASCII
-| Version      | u16         | The version number
-| Contract ABI | ContractAbi | The actual contract ABI
-
-### Complex types
 
 #### ContractAbi
 
@@ -101,8 +49,8 @@ $$
 \textcolor{mathcolor}{
 \begin{align*}
 \text{<AbiFile>} \ := \ \{ \
-&\text{Header: 6* u8}, \\
-&\text{Version: u16} \ \\
+&\text{Header: 6* u8},  &\text{The header is always "PBCABI" in ASCII}\\
+&\text{AbiVersion: u16} \ \\
 &\text{Contract ABI: ContractAbi} \ \} \\
 \\
 \text{<ContractAbi>} \ := \ \{ \
@@ -132,18 +80,31 @@ $$
 }
 $$
 
-| Name | Type | Description |
-|---|---|---|
-| Shortname length | u8           | The length of the action short name. See *Calling a function* below.
-| Types            | Vec<TypeAbi\> | A vector of TypeAbi elements representing all the legal state and RPC types
-| Init             | FunctionAbi  | A single FunctionAbi representing the contract initializer
-| Actions          | Vec<TypeAbi\> | A vector of TypeAbi elements representing the contract actions
-| State            | Index: u8      | The index of the state type in Types
-
-
 #### Shortname
 
 The shortname of a function is the first four bytes of the function name's SHA-256 hash.
+
+#### Byte size of instantiated Types
+| Type  | Size in bytes | Description
+|---|---|---|
+| Custom_Struct     | 1 + 1 + Size(Custom_Struct)   | Type index + 
+| u8                | 1                             | 
+| u16               | 2                             | 
+| u32               | 3                             | 
+| u64               | 4                             | 
+| u128              | 5                             | 
+| i8                | 1                             |
+| i16               | 2                             | 
+| i32               | 3                             | 
+| i64               | 4                             | 
+| i128              | 5                             |
+| bool              | 1                             |
+| String            | 1 +                              |
+| Vec<T\>           | 1 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
+| BTreeMap<K, V\>   | 1 + Size(K) + Size(V)         | 
+| BTreeSet<T\> \*   | 1 + Size(T)                   | 
+| Address           | 1                             | 
+| \[u8; n\]         | 1 + 1                         | 
 
 ## Serialization of RPC and contract state
 
