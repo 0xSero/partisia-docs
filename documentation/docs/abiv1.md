@@ -3,34 +3,40 @@
 ## ABI serialization
 
 ### BNF for types
-$$
+$$\definecolor{mathcolor}{RGB}{33,33,33}
+\definecolor{mathgray}{RGB}{100,100,100}
+\newcommand{\hexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor}\mathtt{#1}}}
+\newcommand{\nnhexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor} #1}}
+\newcommand{\Rightarrowx}{{\color{mathgray} \  \Rightarrow \ \ }}
+\textcolor{mathcolor}{
 \begin{align*}
-<\text{Type}> \ := \ &\text{SimpleType} \\
+\text{<Type>} \ := \ &\text{SimpleType} \\
 | \ &\text{CompositeType} \\
 | \ &\text{CustomStruct} \\
 \\
-<\text{CustomStruct}> \ := \ &\mathtt{0x00} \ \text{Index}:\mathtt{0xnn} \Rightarrow Types(\text{Index}) \\
+\text{<CustomStruct>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx Types(\text{Index}) \\
 \\
-<\text{SimpleType}> \ := \ &\mathtt{0x01} \ \Rightarrow \text{u8} \\
-| \ &\mathtt{0x02} \ \Rightarrow \text{u16} \\
-| \ &\mathtt{0x03} \ \Rightarrow \text{u32} \\
-| \ &\mathtt{0x04} \ \Rightarrow \text{u64} \\
-| \ &\mathtt{0x05} \ \Rightarrow \text{u128} \\
-| \ &\mathtt{0x06} \ \Rightarrow \text{i8} \\
-| \ &\mathtt{0x07} \ \Rightarrow \text{i16} \\
-| \ &\mathtt{0x08} \ \Rightarrow \text{i32} \\
-| \ &\mathtt{0x09} \ \Rightarrow \text{i64} \\
-| \ &\mathtt{0x0a} \ \Rightarrow \text{i128} \\
-| \ &\mathtt{0x0b} \ \Rightarrow \text{String} \\
-| \ &\mathtt{0x0c} \ \Rightarrow \text{bool} \\
-| \ &\mathtt{0x0d} \ \Rightarrow \text{Address} \\
+\text{<SimpleType>} \ := \ &\hexi{01} \ \Rightarrowx \text{u8} \\
+| \ &\hexi{02} \ \Rightarrowx \text{u16} \\
+| \ &\hexi{03} \ \Rightarrowx \text{u32} \\
+| \ &\hexi{04} \ \Rightarrowx \text{u64} \\
+| \ &\hexi{05} \ \Rightarrowx \text{u128} \\
+| \ &\hexi{06} \ \Rightarrowx \text{i8} \\
+| \ &\hexi{07} \ \Rightarrowx \text{i16} \\
+| \ &\hexi{08} \ \Rightarrowx \text{i32} \\
+| \ &\hexi{09} \ \Rightarrowx \text{i64} \\
+| \ &\hexi{0a} \ \Rightarrowx \text{i128} \\
+| \ &\hexi{0b} \ \Rightarrowx \text{String} \\
+| \ &\hexi{0c} \ \Rightarrowx \text{bool} \\
+| \ &\hexi{0d} \ \Rightarrowx \text{Address} \\
 \\
-<\text{CompositeType}> \ := \ &\mathtt{0x0e} \text{ T:}\text{Type} \Rightarrow \text{Vec}<\text{T}> \\
-| \ &\mathtt{0x0f} \text{ K:}\text{Type}\text{ V:}\text{Type} \Rightarrow \text{BTreeMap}<\text{K}, \text{V}> \\
-| \ &\mathtt{0x10} \text{ T:}\text{Type} \Rightarrow \text{BTreeSet}<\text{T}> \\
-| \ &\mathtt{0x11} \text{ L:}\mathtt{0xnn} \Rightarrow \text{[u8; }\text{L}\text{]} & (\mathtt{0x01} \leq L \leq \mathtt{0x20}) \\
+\text{<CompositeType>} \ := \ &\hexi{0e} \text{ T:}\text{Type} \Rightarrowx \text{Vec<}\text{T>} \\
+| \ &\hexi{0f} \text{ K:}\text{Type}\text{ V:}\text{Type} \Rightarrowx \text{BTreeMap <}\text{K}, \text{V>} \\
+| \ &\hexi{10} \text{ T:}\text{Type} \Rightarrowx \text{BTreeSet<}\text{T>} \\
+| \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]} & (\hexi{01} \leq L \leq \hexi{20}) \\
 \\
 \end{align*}
+}
 $$
 
 ### Sizes for basic types declarations
@@ -91,16 +97,40 @@ caller to check equality and sort order of the elements without running the code
 #### ContractAbi
 
 $$
+\definecolor{mathcolor}{RGB}{33, 33, 33}
+\textcolor{mathcolor}{
 \begin{align*}
-<\text{Name}> \ := \ &\text{String} \\
-<\text{TypeAbi}> \ := \{ \ &\text{Name},\ \ \text{Vec<FieldAbi>}  \ \}\\
-<\text{FunctionAbi}> \ := \{ \ &\text{Name},\ \ \text{Vec<ArgumentAbi>}  \ \}\\
-<\text{FieldAbi}> \ := \{ \ &\text{Type}, \text{Name} \ \}\\
-<\text{ArgumentAbi}> \ := \{ \ &\text{Type}, \text{Name} \ \}\\
-<\text{ContractAbi}> \ := \{ \ &\text{Shortname Length : u8}\ ,\ \ \text{Types : Vec<TypeAbi>},\ \ \text{Init : FunctionAbi}, \ \ \text{Actions : Vec<TypeAbi>}, \ \ \text{State name : String}  \ \}\\
+\text{<AbiFile>} \ := \ \{ \
+&\text{Header: 6* u8}, \\
+&\text{Version: u16} \ \\
+&\text{Contract ABI: ContractAbi} \ \} \\
+\\
+\text{<ContractAbi>} \ := \ \{ \
+&\text{ShortnameLength: u8}, \\
+&\text{Types: Vec<TypeAbi>}, \\
+&\text{Init: FnAbi}, \\
+&\text{Actions: Vec<FnAbi>}, \\
+&\text{State: Index} \ \} \\
+\\
+\text{<TypeAbi>} \ := \ \{ \
+&\text{Name: String}, \\
+&\text{Fields: Vec<FieldAbi>} \ \} \\
+\\
+\text{<FnAbi>} \ := \ \{ \
+&\text{Name: String}, \\
+&\text{Arguments: Vec<ArgumentAbi>} \ \} \\
+\\
+\text{<FieldAbi>} \ := \ \{ \
+&\text{Name: String}, \\
+&\text{Type: Type} \ \} \\
+\\
+\text{<ArgumentAbi>} \ := \ \{ \
+&\text{Name: String}, \\
+&\text{Type: Type} \ \} \\
+\\
 \end{align*}
+}
 $$
-
 
 | Name | Type | Description |
 |---|---|---|
@@ -108,7 +138,7 @@ $$
 | Types            | Vec<TypeAbi\> | A vector of TypeAbi elements representing all the legal state and RPC types
 | Init             | FunctionAbi  | A single FunctionAbi representing the contract initializer
 | Actions          | Vec<TypeAbi\> | A vector of TypeAbi elements representing the contract actions
-| State            | String       | A string denoting the state type of the contract
+| State            | Index: u8      | The index of the state type in Types
 
 
 #### Shortname
