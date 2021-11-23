@@ -1,6 +1,7 @@
-# PBC Smart Contracts as a means to strengthen democracy and transparency
+# Create a smart contract for a specific scenario e.g. transparancy in parliament
 
-## Case - Voting record of MPs
+
+## Case - Voting record of MPs as a means to strengthen democracy and transparency
 The newly founded republic of Faraway is plagued by corruption. To ensure transparency and public mandate behind the parliamentary process the voting record of the elected MPs is added to the blockchain via smart contracts. Using smart contracts enables the public to see how MPs exercise their mandate. Laws that are passed through the smart contract are added to the immutable record, giving all citizens access to the official legal code.
 
 
@@ -105,3 +106,14 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
     new_state
 }
  ````
+Go to the [Archive](TransferContractv3.zip).
+Download the zip-archive containing the Rust project files and the ABI. (The handwritten ABI will soon be replaced with the ABI-generator, this will allow you to customize the functions of the contract in accordance with your own imagination) The project contains the rust contract layed out above. If you are working with a linux shell from Windows or Mac you need to 
+extract the archive in `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`
+To compile run the following commands after changing directory to the  
+voting-contract folder:
+```` bash
+cargo build --target wasm32-unknown-unknown --release
+````
+Now you will find a .wasm-file in called *voting_contract.wasm* in: 
+`\\wsl$\Ubuntu\tmp\pbc-rust-wasm\voting-contract\target\wasm32-unknown-unknown\release\`  
+The resulting wasm contract and ABI should be equivalent to this: [Archivewasm and abi](WASMandABI.zip)
