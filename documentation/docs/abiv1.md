@@ -2,7 +2,7 @@
 
 ## ABI serialization
 
-### BNF for types
+### Type Specifier binary format
 $$\definecolor{mathcolor}{RGB}{33,33,33}
 \definecolor{mathgray}{RGB}{100,100,100}
 \newcommand{\hexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor}\mathtt{#1}}}
@@ -10,13 +10,13 @@ $$\definecolor{mathcolor}{RGB}{33,33,33}
 \newcommand{\Rightarrowx}{{\color{mathgray} \  \Rightarrow \ \ }}
 \textcolor{mathcolor}{
 \begin{align*}
-\text{<Type>} \ := \ &\text{SimpleType} \\
-| \ &\text{CompositeType} \\
-| \ &\text{CustomStruct} \\
+\text{<TypeSpec>} \ := \ &\text{SimpleTypeSpec} \\
+| \ &\text{CompositeTypeSpec} \\
+| \ &\text{StructTypeSpec} \\
 \\
-\text{<CustomStruct>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx Types(\text{Index}) \\
+\text{<StructTypeSpec>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx StructTypes(\text{Index}) \\
 \\
-\text{<SimpleType>} \ := \ &\hexi{01} \ \Rightarrowx \text{u8} \\
+\text{<SimpleTypeSpec>} \ := \ &\hexi{01} \ \Rightarrowx \text{u8} \\
 | \ &\hexi{02} \ \Rightarrowx \text{u16} \\
 | \ &\hexi{03} \ \Rightarrowx \text{u32} \\
 | \ &\hexi{04} \ \Rightarrowx \text{u64} \\
@@ -30,9 +30,9 @@ $$\definecolor{mathcolor}{RGB}{33,33,33}
 | \ &\hexi{0c} \ \Rightarrowx \text{bool} \\
 | \ &\hexi{0d} \ \Rightarrowx \text{Address} \\
 \\
-\text{<CompositeType>} \ := \ &\hexi{0e} \text{ T:}\text{Type} \Rightarrowx \text{Vec<}\text{T>} \\
-| \ &\hexi{0f} \text{ K:}\text{Type}\text{ V:}\text{Type} \Rightarrowx \text{BTreeMap <}\text{K}, \text{V>} \\
-| \ &\hexi{10} \text{ T:}\text{Type} \Rightarrowx \text{BTreeSet<}\text{T>} \\
+\text{<CompositeTypeSpec>} \ := \ &\hexi{0e} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Vec<}\text{T>} \\
+| \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{BTreeMap <}\text{K}, \text{V>} \\
+| \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{BTreeSet<}\text{T>} \\
 | \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]} & (\hexi{01} \leq L \leq \hexi{20}) \\
 \\
 \end{align*}
@@ -42,25 +42,25 @@ $$
 **NOTE:** `BTreeMap` and `BTreeSet` cannot be used as RPC arguments since it's not possible for a
 caller to check equality and sort order of the elements without running the code.
 
-#### ContractAbi
+#### ABI File binary format
 
 $$
 \definecolor{mathcolor}{RGB}{33, 33, 33}
 \textcolor{mathcolor}{
 \begin{align*}
-\text{<AbiFile>} \ := \ \{ \
+\text{<FileAbi>} \ := \ \{ \
 &\text{Header: 6* u8},  &\text{The header is always "PBCABI" in ASCII}\\
 &\text{AbiVersion: u16} \ \\
-&\text{Contract ABI: ContractAbi} \ \} \\
+&\text{Contract: ContractAbi} \ \} \\
 \\
 \text{<ContractAbi>} \ := \ \{ \
 &\text{ShortnameLength: u8}, \\
-&\text{Types: Vec<TypeAbi>}, \\
+&\text{StructTypes: Vec<StructTypeAbi>}, \\
 &\text{Init: FnAbi}, \\
 &\text{Actions: Vec<FnAbi>}, \\
-&\text{State: Index} \ \} \\
+&\text{StateType: Index} \ \} &\text{Index in StructTypes}\\
 \\
-\text{<TypeAbi>} \ := \ \{ \
+\text{<StructTypeAbi>} \ := \ \{ \
 &\text{Name: String}, \\
 &\text{Fields: Vec<FieldAbi>} \ \} \\
 \\
@@ -70,11 +70,11 @@ $$
 \\
 \text{<FieldAbi>} \ := \ \{ \
 &\text{Name: String}, \\
-&\text{Type: Type} \ \} \\
+&\text{Type: TypeSpec} \ \} \\
 \\
 \text{<ArgumentAbi>} \ := \ \{ \
 &\text{Name: String}, \\
-&\text{Type: Type} \ \} \\
+&\text{Type: TypeSpec} \ \} \\
 \\
 \end{align*}
 }
