@@ -15,9 +15,9 @@ nav:
       The keys you need: newkeypair.md
       REST API documentation: rest
   - Getting started as a developer:
-      Token Contract: contract-development.md
-      Voting Contract: voting-contract.md
-      Zero Knowledge Contract: vicrey.md
+      What is a smart contract - token contract example: contract-development.md
+      Create a smart contract for a specific scenario: voting-contract.md
+      Zero Knowledge Contract - vickrey auction example: vicrey.md
 
 
 extra_css:
