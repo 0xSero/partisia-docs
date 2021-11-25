@@ -158,10 +158,7 @@ last person missing the voting is closed.
 pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> VotingContractState {
     assert_eq!(state.closed, 0, "The poll is closed");
     assert!(state.mp_addresses.contains(&context.sender), "Only members of the parliament can vote");
-    assert!(
-        vote == 0 || vote == 1,
-        "Only \"yes\" and \"no\" votes are allowed"
-    );
+    assert!(vote == 0 || vote == 1, "Only \"yes\" and \"no\" votes are allowed");
 
     let mut new_state = state;
     new_state.register_vote(context.sender, vote);
