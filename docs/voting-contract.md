@@ -69,7 +69,6 @@ pub fn initialize(
     mp_addresses: Vec<Address>,
 ) -> VotingContractState {
     assert_ne!(mp_addresses.len(), 0, "Cannot start a poll without parliament members");
-
     let mut address_set = BTreeSet::new();
     for mp_address in mp_addresses.iter() {
         address_set.insert(*mp_address);
