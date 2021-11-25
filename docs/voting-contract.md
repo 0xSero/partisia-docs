@@ -33,7 +33,10 @@ use pbc_traits::*;
 ````
 
 **2) Defining contract state and generic functions:**  
- You will need a proposal id, so you can identify what propasal the vote is concerned with. Only people with woting rights in the parliment should be allowed to vote, so the contract also needs a list of MP adresses. The votes themselves are contained in a map pairing the votes and voter. Finally, to limit when you can interact with the contract the state also needs to answer if the vote is closed or open. Types in Rust are immutable by default, but the lists and maps that our contract holds needs are not of much use if we cannot change their content. We do that with non static methods using an ````&mut self```` wich is a mutable reference point. That allows the interactions to change the list in the contract state, so when an MP give her ````vote```` it is added with the her ````address```` to the ````votes````. The vote is closed after everybody have voted. We could also choose to make closing the vote depending on when the majority was reached or make an action, where the chairman of the parlament closes the vote after some deadline. We could also add a result to the contract state if we want make the contract more informative. But, the idea here was a voting record, so what we have now will suffice.
+You will need a proposal id, so you can identify what proposal the vote is concerned with. Only people with voting rights in the parliament should be allowed to vote, so the contract also needs a list of MP addresses. The votes themselves are contained in a map pairing the votes and voter. 
+Finally, to limit when you can interact with the contract the state also needs to answer if the vote is closed or open. 
+Types in Rust are immutable by default, but the lists and maps that our contract holds are not of much use if we cannot change their content. We do that with non-static methods on our state by having a `&mut self` as the first parameter. This denotes that the method mutates the state. That allows the interactions to change the list in the contract state, so when an MP casts her `vote`, it is recorded in the `votes` map with her `address`.
+The voting is automatically closed after everybody has voted. We could also choose to make closing the vote depend on when the majority was reached, or make an action where the chairman of the parliament closes the vote after some deadline. We could also add a result to the contract state if we want to make the contract more informative. The idea here was a simple voting record, so what we have now will suffice.
 
 ````rust
 #[state]
@@ -58,7 +61,7 @@ impl VotingContractState {
 ````
 
  **3) Defining the initialization:**  
- To initialize the contract we need to identify the proposal and constrain who can vote. When we initialize, the beforemetioned contract state becomes live on the chain.
+ To initialize the contract we need to identify the proposal and constrain who can vote. When we initialize, the aforementioned contract state becomes live on the chain.
 
 ````rust
 #[init]
@@ -108,8 +111,7 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 ````
 
 Go to the [Archive](TransferContractv3.zip).
-Download the zip-archive containing the Rust project files and the ABI. (The handwritten ABI will soon be replaced with the ABI-generator, this will allow you to customize the functions of the contract in accordance with your own imagination) The project contains the rust contract layed out above. If you are working with a linux shell from Windows or Mac you need to 
-extract the archive in `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`
+Download the zip-archive containing the Rust project files and the ABI. (The handwritten ABI will soon be replaced with the ABI-generator, this will allow you to customize the functions of the contract in accordance with your own imagination) The project contains the rust contract laid out above. If you are working with a WSL shell on Windows you need to extract the archive to `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`.
 To compile run the following commands after changing directory to the  
 voting-contract folder:
 
