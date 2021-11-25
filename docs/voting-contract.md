@@ -117,3 +117,6 @@ cargo build --target wasm32-unknown-unknown --release
 Now you will find a .wasm-file in called *voting_contract.wasm* in: 
 `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\voting-contract\target\wasm32-unknown-unknown\release\`  
 The resulting wasm contract and ABI should be equivalent to this: [wasm and abi](WASMandABI.zip)
+You can deploy the contract from the Deploy WASM Contract menu in the [dashboard](https://dashboard.partisiablockchain.com/). Successful deployment will look like this:  
+
+![deployment](deployment.png) 
