@@ -5,6 +5,7 @@ The newly founded republic of Faraway is plagued by corruption. To ensure transp
 
 
 **The setup of our scenario**
+
 - The parliament has 197 MPs.
 - Each MP has a key set. The public key enables the public to follow the MP’s voting record on the blockchain. The private key is known only by the individual MP and is used to sign their vote.
 - Each time the parliament votes on an issue they do it through a smart contract vote. Laws that passed are therefore also added to the immutable record.
@@ -22,18 +23,13 @@ extern crate create_type_derive;
 #[macro_use]
 extern crate pbc_contract_codegen;
 extern crate pbc_contract_common;
-extern crate read_write_derive;
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::io::{Read, Write};
 
-use pbc_contract_common::abi::field::FieldAbi;
-use pbc_contract_common::abi::func::FnAbi;
-use pbc_contract_common::abi::types::TypeAbi;
 use pbc_contract_common::address::Address;
 use pbc_contract_common::context::ContractContext;
-use pbc_contract_common::serialization::{ReadInt, ReadWrite};
-use pbc_contract_common::typing::CreateType;
+use pbc_traits::*;
 ````
 
 **2) Defining contract state and generic functions:**  
@@ -72,7 +68,7 @@ pub fn initialize(
     mp_addresses: Vec<Address>,
 ) -> VotingContractState {
     assert_ne!(mp_addresses.len(), 0, "Cannot start a poll without parliament members");
-
+ 
     let mut address_set = BTreeSet::new();
     for mp_address in mp_addresses.iter() {
         address_set.insert(*mp_address);
@@ -85,13 +81,13 @@ pub fn initialize(
         votes: BTreeMap::new(),
         closed: 0,
     }
+}
 ````
 
 **4) Defining the actions of the contract:**  
 The only interaction users need to do in this case is voting. We are only allowed to vote when the vote is open and we have an MP address.
 
 ````rust
-
 #[action]
 pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> VotingContractState {
     assert_eq!(state.closed, 0, "The poll is closed");
