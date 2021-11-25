@@ -63,8 +63,10 @@ For our voting contract the contract state has the following parts:
   Therefore, the contract the state also includes information about whether the voting is open or
   closed.
 
-We can have to define methods associated with the state struct that read or write to the state. For
-our voting contract we have defined two state methods:
+We can also define methods associated with the state struct that read or write to the state. In Rust
+these methods are defined inside an `impl` block associated with the state struct.
+
+For our voting contract we have defined two state methods:
 
 - `register_vote` When an MP cast her vote, it is recorded in the votes map.
 - `close_if_finished_vote` The voting process automatically closes after everybody has voted.
@@ -136,11 +138,12 @@ pub fn initialize(
 
 ### 4) Defining the actions of the contract
 
-When a smart contract is live on the blockchain people can interact with the contract by creating
-transactions that initiate execution of _actions_ of the smart contract.
+When a smart contract is live on the blockchain, people can interact with the contract by creating a
+transaction that initiate execution of an _action_ of the smart contract.
 
 The only way of changing the state of a smart contract is through the defined actions. The smart
-contract actions hereby define the exact conditions and rules for changing the contract state.
+contract actions hereby define the exact conditions and rules for changing the contract state. A
+smart contract can have multiple defined actions.
 
 In Rust you define a smart contract action by coding a function and marking it with `#[action]`. The
 function receives the existing state and the inputs from the user initiating the action, and it can
