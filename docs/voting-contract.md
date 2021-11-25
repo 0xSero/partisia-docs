@@ -153,7 +153,7 @@ For our voting contract the only action users can perform is to cast their vote.
 checking that the voting is still open, that the sender is among the people allowed to vote and that
 the delivered vote is one of the allowed voting options. If the checks succeed the code creates a
 new state where the vote of the sender is registered in the vote map. Also, if this vote was the
-last person missing the voting is closed.
+last one and everyone has now voted, then voting is closed.
 
 ````rust
 #[action]
