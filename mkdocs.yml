@@ -2,20 +2,23 @@ site_name: Partisia BlockChain
 nav:
   - Home: index.md
   - Latest developments:
-      News for Node Operators: newkeypair.md
       Launch of MainNet: mainnet.md
   - Concepts: 
       Transactions: transactions.md
-      Contract development: contract-development.md
-      Zero knowledge contracts: vickrey.md
       Accounts: accounts.md
       BYOC and gas: byoc.md
       Blocks: block.md
       Shards: shards
       Public key cryptography: keys.md
-  - Getting started:
+  - Getting started as a node operator:
       Running a PBC node: operator.md
+      The keys you need: newkeypair.md
       REST API documentation: rest
+  - Getting started as a developer:
+      What is a smart contract - token contract example: contract-development.md
+      Create a smart contract for a specific scenario: voting-contract.md
+      Zero Knowledge Contract - vickrey auction example: vicrey.md
+
 
 extra_css:
   - stylesheets/extra.css
