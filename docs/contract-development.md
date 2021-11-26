@@ -17,8 +17,11 @@ For price see [Transaction fees](transactions.md).
 
 ## Step 1
 
-Go to [Archive](TransferContractv3.zip)
-Download the zip-archive containing the Rust project files and the ABI. The project contains a basic contract template for minting and transferring your own token. If you are working with a linux shell from Windows or Mac you need to extract the archive in `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`
+Go to the [Archive](TransferContractv3.zip). Download the zip-archive containing the Rust project
+files and the ABI generator. The ABI generator
+allows you to customize the functions of the contract in accordance with your own imagination. The
+project contains the rust contract. If you are working with a WSL shell on Windows
+you need to extract the archive to `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`.
 To compile run the following commands after changing directory to the  token-contract folder:
 ```` bash
 cargo build --target wasm32-unknown-unknown --release
