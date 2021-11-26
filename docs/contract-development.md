@@ -17,7 +17,7 @@ For price see [Transaction fees](transactions.md).
 
 ## Step 1
 
-Go to the [Archive](TransferContractv3.zip). Download the zip-archive containing the Rust project
+Go to the [Archive](rust-contract-sdk-rc4.zip). Download the zip-archive containing the Rust project
 files and the ABI generator. The ABI generator
 allows you to customize the functions of the contract in accordance with your own imagination. The
 project contains the rust contract. If you are working with a WSL shell on Windows
@@ -27,6 +27,8 @@ To compile run the following commands after changing directory to the  token-con
 cargo build --target wasm32-unknown-unknown --release
 ````
 Now you will find a .wasm-file in called *token_contract.wasm* in: `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\token-contract\target\wasm32-unknown-unknown\release\`
+
+The resulting wasm contract and ABI should be equivalent to this: [wasm and abi](WASMandABI_tokenContract.zip)
 
 ## Step 2
 
