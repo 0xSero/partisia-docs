@@ -145,7 +145,7 @@ The only way of changing the state of a smart contract is through the defined ac
 contract actions hereby define the exact conditions and rules for changing the contract state. A
 smart contract can have multiple defined actions.
 
-In Rust you define a smart contract action by coding a function and marking it with `#[action]`. The
+In Rust, you define a smart contract action by coding a function and marking it with `#[action]`. The
 function receives the existing state and the inputs from the user initiating the action, and it can
 then produce and return a new updated state reflecting the changes.
 
@@ -171,7 +171,7 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 
 ## Building and testing the voting contract
 
-Go to the [Archive](TransferContractv3.zip). Download the zip-archive containing the Rust contract SDK, the example project files and the ABI generator. The contract and parts the SDK are compiled into a single WASM file while the ABI generator is a separate executable. The ABI generator allows you to customize the functions of the contract in accordance with your own imagination. 
+Go to the [Archive](rust-contract-sdk-rc4.zip). Download the zip-archive containing the Rust contract SDK, the example project files and the ABI generator. The contract and parts the SDK are compiled into a single WASM file while the ABI generator is a separate executable. The ABI generator allows you to customize the functions of the contract in accordance with your own imagination. 
 
 ### Compiling the contract
 
@@ -189,7 +189,7 @@ Now you will find a .wasm-file in called *voting_contract.wasm* in:
 
 ### Generating the ABI and deploying
 
-The ABI (application binary interface) describes how the shape of the contract state and the action input parameters. The ABI is a single, compact binary file that describes how to read/write all the fields of the state and all parameters of the actions. In essence it allows the dashboard to construct a graphical user interface for your contract.
+The ABI (application binary interface) describes how the shape of the contract state and the action input parameters. The ABI is a single, compact binary file that describes how to read/write all the fields of the state and all parameters of the actions. In essence, it allows the dashboard to construct a graphical user interface for your contract.
 
 The generator lives in the folder `pbc-abigen`. First you need to compile it using: `cargo build --release`. You can now generate your ABI file by pointing `pbc-abigen` to your contract:
 
