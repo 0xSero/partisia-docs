@@ -172,8 +172,8 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 ## Building and testing the voting contract
 
 Go to the [Archive](TransferContractv3.zip). Download the zip-archive containing the Rust project
-files and the ABI. (The handwritten ABI will soon be replaced with the ABI-generator, this will
-allow you to customize the functions of the contract in accordance with your own imagination) The
+files and the ABI generator. The ABI generator
+allows you to customize the functions of the contract in accordance with your own imagination. The
 project contains the rust contract laid out above. If you are working with a WSL shell on Windows
 you need to extract the archive to `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`. To compile run the following
 commands after changing directory to the  
