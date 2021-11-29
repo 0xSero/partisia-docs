@@ -20,7 +20,7 @@ nav:
   - Getting started as a developer:
       What is a smart contract - token contract example: contract-development.md
       Create a smart contract for a specific scenario: voting-contract.md
-      Zero Knowledge Contract - vickrey auction example: vicrey.md
+      Zero Knowledge Contract - vickrey auction example: vickrey.md
 
 
 extra_css:
