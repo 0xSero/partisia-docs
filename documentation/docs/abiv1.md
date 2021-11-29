@@ -90,14 +90,14 @@ The shortname of a function is the first four bytes of the function name's SHA-2
 | Custom_Struct     | 1 + 1 + Size(Custom_Struct)   | Type index + 
 | u8                | 1                             | 
 | u16               | 2                             | 
-| u32               | 3                             | 
-| u64               | 4                             | 
-| u128              | 5                             | 
+| u32               | 4                             | 
+| u64               | 8                             | 
+| u128              | 16                             | 
 | i8                | 1                             |
 | i16               | 2                             | 
-| i32               | 3                             | 
-| i64               | 4                             | 
-| i128              | 5                             |
+| i32               | 4                             | 
+| i64               | 8                             | 
+| i128              | 16                             |
 | bool              | 1                             |
 | String            | 1 +                              |
 | Vec<T\>           | 1 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
