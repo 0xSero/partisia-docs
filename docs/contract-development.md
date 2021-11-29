@@ -37,7 +37,7 @@ If you look at lib.rs file in your IDE, you will see the contract utilizes sever
 ## Step 3
 
 Open the wallet in the [dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm). Select the `token_contract.wasm` and the `token_contract.abi`. In the Init field you put the number of tokens you want minted for total supply of the contract from the moment of deployment. After you send the contract to the chain a box appears below. You are provided with the following information fields *Execution status*, *Hash*, *Invocation* and *Deployed at*.
-You are now ready to interact with the contract. Copy the address of deployment and pate it into the menu *Interact Wasm Contract*. Now you can mint and transfer your tokens.
+You are now ready to interact with the contract. Copy the address of deployment and paste it into the menu *Interact Wasm Contract*. Now you can mint and transfer your tokens.
 
 [DemoVid](https://youtu.be/qV2grtWDxUE)
 
