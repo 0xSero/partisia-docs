@@ -87,24 +87,24 @@ The shortname of a function is the first four bytes of the function name's SHA-2
 #### Byte size of instantiated Types
 | Type  | Size in bytes | Description
 |---|---|---|
-| Custom_Struct     | 1 + 1 + Size(Custom_Struct)   | Type index + 
+| Custom_Struct     | Size(Custom_Struct)           | Type index + 
 | u8                | 1                             | 
 | u16               | 2                             | 
 | u32               | 4                             | 
 | u64               | 8                             | 
-| u128              | 16                             | 
+| u128              | 16                            | 
 | i8                | 1                             |
 | i16               | 2                             | 
 | i32               | 4                             | 
 | i64               | 8                             | 
-| i128              | 16                             |
+| i128              | 16                            |
 | bool              | 1                             |
-| String            | 1 +                              |
-| Vec<T\>           | 1 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
-| BTreeMap<K, V\>   | 1 + Size(K) + Size(V)         | 
-| BTreeSet<T\> \*   | 1 + Size(T)                   | 
-| Address           | 1                             | 
-| \[u8; n\]         | 1 + 1                         | 
+| String            | 4 + n                         |
+| Vec<T\>           | 4 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
+| BTreeMap<K, V\>   | 4 + Size(K) + Size(V)         | 
+| BTreeSet<T\> \*   | 4 + Size(T)                   | 
+| Address           | 4 + 20                        | 
+| \[u8; n\]         | n                             | 
 
 ## Serialization of RPC and contract state
 
