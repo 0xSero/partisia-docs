@@ -176,7 +176,7 @@ Go to the [Archive](rust-contract-sdk-rc4.zip). Download the zip-archive contain
 ### Compiling the contract
 
 The project contains the rust contract laid out above. If you are working with a WSL shell on Windows
-you need to extract the archive to `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`. To compile run the following
+you need to extract the archive to `\tmp\pbc-rust-wasm\`. To compile run the following
 commands after changing directory to the  
 voting-contract folder:
 
@@ -185,16 +185,16 @@ cargo build --target wasm32-unknown-unknown --release
 ````
 
 Now you will find a .wasm-file in called *voting_contract.wasm* in:
-`\\wsl$\Ubuntu\tmp\pbc-rust-wasm\voting-contract\target\wasm32-unknown-unknown\release\`.
+`\tmp\pbc-rust-wasm\rust-example-voting-contract\target\wasm32-unknown-unknown\release\`.
 
 ### Generating the ABI and deploying
 
-The ABI (application binary interface) describes how the shape of the contract state and the action input parameters. The ABI is a single, compact binary file that describes how to read/write all the fields of the state and all parameters of the actions. In essence, it allows the dashboard to construct a graphical user interface for your contract.
+Firstly, you need to [generate the WASM contract](#compiling-the-contract). The ABI (application binary interface) describes how the shape of the contract state and the action input parameters. The ABI is a single, compact binary file that describes how to read/write all the fields of the state and all parameters of the actions. In essence, it allows the dashboard to construct a graphical user interface for your contract.
 
-The generator lives in the folder `pbc-abigen`. First you need to compile it using: `cargo build --release`. You can now generate your ABI file by pointing `pbc-abigen` to your contract:
+The generator lives in the folder `pbc-abigen`. First you need to navigate to the location of the generator and compile it using: `cargo build --release`. You can now generate your ABI file by pointing `pbc-abigen` to your contract:
 
 ````bash
-pbc-abigen /tmp/pbc-rust-wasm/voting-contract/target/wasm32-unknown-unknown/release/voting.wasm voting.abi
+./pbc-abigen /tmp/pbc-rust-wasm/rust-example-voting-contract/target/wasm32-unknown-unknown/release/voting_contract.wasm voting.abi
 ````
 
 The resulting wasm contract and ABI should be equivalent to this: [wasm and abi](WASMandABI.zip)
