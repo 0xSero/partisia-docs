@@ -1,4 +1,4 @@
- # Create a smart contract for a specific scenario e.g. transparency in parliament
+# Create a smart contract for a specific scenario e.g. transparency in parliament
 
 ## Case - Voting record of MPs as a means to strengthen democracy and transparency
 
@@ -185,7 +185,7 @@ cargo build --target wasm32-unknown-unknown --release
 ````
 
 Now you will find a .wasm-file in called *voting_contract.wasm* in:
-`\tmp\pbc-rust-wasm\voting-contract\target\wasm32-unknown-unknown\release\`.
+`\tmp\pbc-rust-wasm\rust-example-voting-contract\target\wasm32-unknown-unknown\release\`.
 
 ### Generating the ABI and deploying
 
