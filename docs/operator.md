@@ -170,21 +170,23 @@ nano docker-compose.yml
 The contents of the file should be the following:
 
 ````yaml
-pbc-betanet-reader:
-  image: registry.gitlab.com/privacyblockchain/demo/betanet-public:latest
-  container_name: pbc-betanet-reader
-  user: "1500:1500"
-  restart: always
-  expose:
-  - "8080"
-  ports:
-  - "9888-9897:9888-9897"
-  command: [ "/conf/config.json", "/conf/genesis.json", "/storage/" ]
-  volumes:
-  - /opt/pbc-betanet/conf:/conf
-  - /opt/pbc-betanet/storage:/storage
-  environment:
-  - JAVA_TOOL_OPTIONS="-Xmx2G"
+version: "2.0"
+services:
+  pbc-betanet-reader:
+    image: registry.gitlab.com/privacyblockchain/demo/betanet-public:latest
+    container_name: pbc-betanet-reader
+    user: "1500:1500"
+    restart: always
+    expose:
+    - "8080"
+    ports:
+    - "9888-9897:9888-9897"
+    command: [ "/conf/config.json", "/conf/genesis.json", "/storage/" ]
+    volumes:
+    - /opt/pbc-betanet/conf:/conf
+    - /opt/pbc-betanet/storage:/storage
+    environment:
+    - JAVA_TOOL_OPTIONS="-Xmx2G"
 ````
 
 Save the file by presssing `CTRL+O` and then `ENTER` and then `CTRL+X`.
