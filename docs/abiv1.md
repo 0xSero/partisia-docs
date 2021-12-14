@@ -103,10 +103,10 @@ The shortname of a function is the first four bytes of the function name's SHA-2
 | String            | 4 + n                         |
 | Vec<T\>           | 4 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
 | BTreeMap<K, V\>   | 4 + Size(K) + Size(V)         | 
-| BTreeSet<T\> \*   | 4 + Size(T)                   | 
+| BTreeSet<T\>      | 4 + Size(T)                   | 
 | Address           | 4 + 20                        | 
 | \[u8; n\]         | n                             |
-| Option<T\> \*     | 1 + Size(T)                   |
+| Option<T\>        | 1 + Size(T)                   |
 
 ## Serialization of RPC and contract state
 
