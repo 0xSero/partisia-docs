@@ -140,5 +140,3 @@ the following RPC to the contract:
 001111111111111111111111111111111111111111 // 21 address bytes
 0000002a                                   // 42 in big endian
 ```
-
-TODO
