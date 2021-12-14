@@ -34,6 +34,7 @@ $$\definecolor{mathcolor}{RGB}{33,33,33}
 | \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{BTreeMap <}\text{K}, \text{V>} \\
 | \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{BTreeSet<}\text{T>} \\
 | \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]} & (\hexi{01} \leq L \leq \hexi{20}) \\
+| \ &\hexi{12} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Option<}\text{T>} \\
 \\
 \end{align*}
 }
