@@ -51,3 +51,10 @@
 .md-nav__title {
     font-size: 1.2em;
 }
+
+div.arithmatex mjx-container mjx-assistive-mml {
+    height: 0;
+}
+div.arithmatex mjx-container {
+    font-size: 100% !important;
+}
