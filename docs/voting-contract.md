@@ -1,4 +1,4 @@
- # Create a smart contract for a specific scenario e.g. transparency in parliament
+# Create a smart contract for a specific scenario e.g. transparency in parliament
 
 ## Case - Voting record of MPs as a means to strengthen democracy and transparency
 
