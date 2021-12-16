@@ -45,7 +45,7 @@ To run a node you need the following software :
 
 To run a PBC node you need a private key, the genesis state, your own node config and the Docker image containing the application. For the rest of the guide we assume you are running Ubuntu 18.04 with Docker installed.
 
-We have a asciicast you can watch or just follow the written guide below.
+We have an asciicast you can watch or just follow the written guide below.
 
 [<img src="https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3.svg" width="600px">](https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3)
 
@@ -143,7 +143,7 @@ sudo cat /opt/pbc-betanet/conf/config.json
 
 ### Setting file permissions
 
-Now we need to make sure the the user with uid `1500` has the needed access to the files:
+Now we need to make sure the user with uid `1500` has the needed access to the files:
 
 ```` bash
 sudo chown -R "1500:1500" /opt/pbc-betanet
@@ -186,11 +186,11 @@ pbc-betanet-reader:
   environment:
   - JAVA_TOOL_OPTIONS="-Xmx2G"
 ````
+**Note: If your have the recommended memory of 8 GB RAM it is OK to increase JVM memory up to 6 GB, just be aware of the issues  this can cause for your garbage collector**
+Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
 
-Save the file by presssing `CTRL+O` and then `ENTER` and then `CTRL+X`.
-Keep an eye on the indentation since YAML is whitespace sensitive and it won't work if the indentaion is off.
-
-You don't yet have access to the Partisia container repository so you first need to login.
+You don't yet have access to the Partisia container repository, so you first need to log in.
 
 ````bash
 sudo docker login -u <GitLab e-mail address> registry.gitlab.com
@@ -204,7 +204,7 @@ You can now start the node:
 sudo docker-compose up -d
 ````
 
-This should pull the latest image and start the reader node in the background. If the command was executed succesfully it won't print anything. To verify that the node is running run:
+This should pull the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running, run:
 
 ````bash
 sudo docker logs -f pbc-betanet-reader
@@ -216,7 +216,7 @@ This should print a bunch of log statements. All the timestamps are in [UTC](htt
 
 ***Signing*** - All is well.  
 ***Not signing as shutdown is active*** - You may assume all is well.  
-***Not signing*** - This is not a good sign, you are not signing blocks. First, check if you are on the list of block producers, if you are not and you have already filled out the survey, then you need to notify us so we can update betanet and have you added. If you are on the list and still get “Not signing” then you almost certainly have some problem in your `config.json` Probably you have a wrong or no key in the fields `accountKey`, `networkKey` or `finalizationKey`.  
+***Not signing*** - This is not a good sign, you are not signing blocks. First, check if you are on the list of block producers, if you are not, and you have already filled out the survey, then you need to notify us, so we can update betanet and have you added. If you are on the list and still get “Not signing” then you almost certainly have some problem in your `config.json` Probably you have a wrong or no key in the fields `accountKey`, `networkKey` or `finalizationKey`.  
 ***Got a message with wrong protocol identifier*** - This message comes every time a shutdown has occurred (in other words whenever a producer has not produced the block he is supposed to). So, on its own that message does not indicate a problem. But, if the log just repeats and don't change to a new message saying *Executing Block…* it could suggest you are running an outdated version of our software, a version that does not pull the newest docker image automatically.
 
 
