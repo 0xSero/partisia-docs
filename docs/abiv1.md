@@ -60,7 +60,7 @@ $$
 &\text{StructTypes: Vec<StructTypeAbi>}, \\
 &\text{Init: FnAbi}, \\
 &\text{Actions: Vec<FnAbi>}, \\
-&\text{StateType: Index} \ \} &\text{Index in StructTypes}\\
+&\text{StateType: TypeSpec} \ \} 
 \\
 \text{<StructTypeAbi>} \ := \ \{ \
 &\text{Name: String}, \\
