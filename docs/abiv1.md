@@ -57,18 +57,18 @@ $$
 \\
 \text{<ContractAbi>} \ := \ \{ \
 &\text{ShortnameLength: u8}, \\
-&\text{StructTypes: Vec<StructTypeAbi>}, \\
+&\text{StructTypes: List<StructTypeAbi>}, \\
 &\text{Init: FnAbi}, \\
-&\text{Actions: Vec<FnAbi>}, \\
+&\text{Actions: List<FnAbi>}, \\
 &\text{StateType: TypeSpec} \ \} 
 \\
 \text{<StructTypeAbi>} \ := \ \{ \
 &\text{Name: String}, \\
-&\text{Fields: Vec<FieldAbi>} \ \} \\
+&\text{Fields: List<FieldAbi>} \ \} \\
 \\
 \text{<FnAbi>} \ := \ \{ \
 &\text{Name: String}, \\
-&\text{Arguments: Vec<ArgumentAbi>} \ \} \\
+&\text{Arguments: List<ArgumentAbi>} \ \} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
 &\text{Name: String}, \\
@@ -102,7 +102,7 @@ The shortname of a function is the first four bytes of the function name's SHA-2
 | i128              | 16                            |
 | bool              | 1                             |
 | String            | 4 + n                         |
-| Vec<T\>           | 4 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
+| List<T\>           | 4 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
 | Map<K, V\>   | 4 + Size(K) + Size(V)         | 
 | Set<T\>      | 4 + Size(T)                   | 
 | Address           | 4 + 20                        | 
