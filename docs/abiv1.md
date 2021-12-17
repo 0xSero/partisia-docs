@@ -51,7 +51,8 @@ $$
 \begin{align*}
 \text{<FileAbi>} \ := \ \{ \
 &\text{Header: 6* u8},  &\text{The header is always "PBCABI" in ASCII}\\
-&\text{AbiVersion: u16} \ \\
+&\text{VersionBinder: 3* u8} \ \\
+&\text{VersionClient: 3* u8} \ \\
 &\text{Contract: ContractAbi} \ \} \\
 \\
 \text{<ContractAbi>} \ := \ \{ \
