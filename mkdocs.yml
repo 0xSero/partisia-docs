@@ -16,6 +16,7 @@ nav:
   - Getting started as a node operator:
       Running a PBC node: operator.md
       The keys you need: newkeypair.md
+      Get your node included in the network: bpinclusion.md
       REST API documentation: rest
   - Getting started as a developer:
       What is a smart contract - token contract example: contract-development.md
