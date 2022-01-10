@@ -11,7 +11,7 @@ You need one set from the lower box which generate BLS keypairs
 
 
 
-**The 1st set**  are Account keys of your PBC account, that you get through KYC the process:
+**The 1st set**  are Account keys of your PBC account, that you get through KYC the process:  
 PrivateKey - This is the private key for your PBC account that holds the MPC Tokens that you are staking.
 BlockchainAddress - This is the address associated with your PBC account. It is listed in the Register Transaction as "Identity"
 
