@@ -13,8 +13,8 @@ The sign-up is a four-step process:
 - Name (Legal name)
 - Website (Company or personal webpage)
 - Address (Company or personal address)
-- PublicKey (PublicKey of your PBC Account)
-- BLS PublicKey (BLS12-381 PublicKey of your PBC account)
+- PublicKey (PublicKey of your Network keyset)
+- BLS PublicKey (BLS12-381 PublicKey of your BLS keyset)
 - EntityJurisdiction (Your country of residence - ISO 3166-1: 3-digit code referring to a country)
 - ServerJurisdiction (Location of the server where you operate the node - ISO 3166-1: 3-digit code referring to a country)
 
