@@ -20,8 +20,7 @@ The sign-up is a four-step process:
 
 ## Content of Staking Transaction
 
-- Account (Node Operator Account address - the account that will be holding the stake) 
-- Identity (BlockchainAddress of your PBC account)
+- Amount (The amount of MPC Tokens you are staking)
 
 ## Conditions for inclusion
 
@@ -30,4 +29,5 @@ Formal conditions for inclusion in the network is stipulated in the [Yellow Pape
 - The public information regarding the node given by the operator must be validated.
 - Sufficient stakes committed.
 - Test run is successful.
-- The transaction fees of Register Transaction has been paid.
+- The transaction fees of Register and Staking Transaction have been paid.
+- 
