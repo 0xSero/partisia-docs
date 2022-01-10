@@ -10,9 +10,11 @@ nav:
       Blocks: block.md
       Shards: shards
       Public key cryptography: keys.md
-  - Getting started as a node operator:
-      Running a PBC node: operator.md
-      The keys you need: newkeypair.md
+  - Getting started as a Node Operator:
+      What is a Node Operator: whatisano.md
+      How to become a Node Operator: bpinclusion.md
+      Creating the keys: newkeypair.md
+      Running a PBC Node: operator.md
       REST API documentation: rest
   - Getting started as a developer:
       What is a smart contract - token contract example: contract-development.md
