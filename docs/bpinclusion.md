@@ -5,7 +5,7 @@ The sign-up is a four-step process:
 1. Buy the required stake of MPC tokens.   
 2. Rent or buy a server where you can run the node.   
 3. Configure the node in accordance with the description [here](operator.md).  
-4. Send a Register Transaction through the [MPC Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) 
+4. Send a Register Transaction and a Staking Transaction through the [MPC Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) 
 
 ## Content of the Register Transaction
 
@@ -18,6 +18,10 @@ The sign-up is a four-step process:
 - EntityJurisdiction (Your country of residence - ISO 3166-1: 3-digit code referring to a country)
 - ServerJurisdiction (Location of the server where you operate the node - ISO 3166-1: 3-digit code referring to a country)
 
+## Content of Staking Transaction
+
+- Account (Node Operator Account address - the account that will be holding the stake) 
+- Identity (BlockchainAddress of your PBC account)
 ## Conditions for inclusion
 
 Formal conditions for inclusion in the network is stipulated in the [Yellow Paper](accounts@pbc.foundation) (YP_0.95 Ch. 2.3.1 pp. 11-12):
