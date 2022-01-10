@@ -13,6 +13,7 @@ PBC has four types of nodes:
 **The Stake**  
 If you want to be a node operator you are required to have a stake in the network. A stake is basically a deposit strengthening the security and user confidence of the network. The stake means that the node operator has something to lose, if they try to cheat or damage the network.
 Staking means that the node operator buy the required stake of MPC Tokens. Services have a hierarchy of cost and security ass well as payment. Therefore, higher paid services require a higher stake. To acquire MPC Tokens go through this [contact page](https://kyc.partisiablockchain.com/).  
+
 The current stakes are:
 
 - Reader Node is free, since it does not perform paid services.
