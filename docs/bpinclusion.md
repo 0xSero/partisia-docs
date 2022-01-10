@@ -22,6 +22,7 @@ The sign-up is a four-step process:
 
 - Account (Node Operator Account address - the account that will be holding the stake) 
 - Identity (BlockchainAddress of your PBC account)
+
 ## Conditions for inclusion
 
 Formal conditions for inclusion in the network is stipulated in the [Yellow Paper](accounts@pbc.foundation) (YP_0.95 Ch. 2.3.1 pp. 11-12):
