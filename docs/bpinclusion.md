@@ -1,6 +1,7 @@
 # How to get your node included in the network
 
 The sign-up is a four-step process:  
+
 1. Buy the required stake of MPC tokens.   
 2. Rent or buy a server where you can run the node.   
 3. Configure the node in accordance with the description [here](operator.md).  
