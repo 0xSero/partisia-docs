@@ -14,6 +14,7 @@ nav:
       Shards: shards
       Public key cryptography: keys.md
   - Getting started as a Node Operator:
+      What is a Node Operator: whatisano.md
       How to become a Node Operator: bpinclusion.md
       Creating the keys: newkeypair.md
       Running a PBC Node: operator.md
