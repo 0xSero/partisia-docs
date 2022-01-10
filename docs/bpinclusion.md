@@ -1,10 +1,10 @@
 # How to get your node included in the network
 
 The sign-up is a four-step process:
-1) Buy the required stake of MPC tokens. 
-2) Rent or buy a server where you can run the node. 
-3) Configure the node in accordance with the description [here](operator.md). 
-4) Send a Register Transaction through the [MPC Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh)
+1. Buy the required stake of MPC tokens. 
+2. Rent or buy a server where you can run the node. 
+3. Configure the node in accordance with the description [here](operator.md). 
+4. Send a Register Transaction through the [MPC Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh)
 
 ## Content of the Register Transaction
 
@@ -19,7 +19,7 @@ The sign-up is a four-step process:
 
 ## Conditions for inclusion
 
-Formal conditions for inclusion in the network is stipulated in the Yellow Paper (YP_0.95 Ch. 2.3.1 pp. 11-12):
+Formal conditions for inclusion in the network is stipulated in the [Yellow Paper](accounts@pbc.foundation) (YP_0.95 Ch. 2.3.1 pp. 11-12):
 
 - The public information regarding the node given by the operator must be validated.
 - Sufficient stakes committed.
