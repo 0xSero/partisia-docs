@@ -9,7 +9,6 @@ The sign-up is a four-step process:
 
 ## Content of the Register Transaction
 
-- Identity (BlockchainAddress of your PBC account)
 - Name (Legal name)
 - Website (Company or personal webpage)
 - Address (Company or personal address)
@@ -30,4 +29,3 @@ Formal conditions for inclusion in the network is stipulated in the [Yellow Pape
 - Sufficient stakes committed.
 - Test run is successful.
 - The transaction fees of Register and Staking Transaction have been paid.
-- 
