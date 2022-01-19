@@ -31,8 +31,8 @@ $$\definecolor{mathcolor}{RGB}{33,33,33}
 | \ &\hexi{0d} \ \Rightarrowx \text{Address} \\
 \\
 \text{<CompositeTypeSpec>} \ := \ &\hexi{0e} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Vec<}\text{T>} \\
-| \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{BTreeMap <}\text{K}, \text{V>} \\
-| \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{BTreeSet<}\text{T>} \\
+| \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{Map <}\text{K}, \text{V>} \\
+| \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Set<}\text{T>} \\
 | \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]} & (\hexi{01} \leq L \leq \hexi{20}) \\
 | \ &\hexi{12} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Option<}\text{T>} \\
 \\
@@ -40,7 +40,7 @@ $$\definecolor{mathcolor}{RGB}{33,33,33}
 }
 $$
 
-**NOTE:** `BTreeMap` and `BTreeSet` cannot be used as RPC arguments since it's not possible for a
+**NOTE:** `Map` and `Set` cannot be used as RPC arguments since it's not possible for a
 caller to check equality and sort order of the elements without running the code.
 
 #### ABI File binary format
@@ -51,23 +51,24 @@ $$
 \begin{align*}
 \text{<FileAbi>} \ := \ \{ \
 &\text{Header: 6* u8},  &\text{The header is always "PBCABI" in ASCII}\\
-&\text{AbiVersion: u16} \ \\
+&\text{VersionBinder: 3* u8} \ \\
+&\text{VersionClient: 3* u8} \ \\
 &\text{Contract: ContractAbi} \ \} \\
 \\
 \text{<ContractAbi>} \ := \ \{ \
 &\text{ShortnameLength: u8}, \\
-&\text{StructTypes: Vec<StructTypeAbi>}, \\
+&\text{StructTypes: List<StructTypeAbi>}, \\
 &\text{Init: FnAbi}, \\
-&\text{Actions: Vec<FnAbi>}, \\
-&\text{StateType: Index} \ \} &\text{Index in StructTypes}\\
+&\text{Actions: List<FnAbi>}, \\
+&\text{StateType: TypeSpec} \ \} 
 \\
 \text{<StructTypeAbi>} \ := \ \{ \
 &\text{Name: String}, \\
-&\text{Fields: Vec<FieldAbi>} \ \} \\
+&\text{Fields: List<FieldAbi>} \ \} \\
 \\
 \text{<FnAbi>} \ := \ \{ \
 &\text{Name: String}, \\
-&\text{Arguments: Vec<ArgumentAbi>} \ \} \\
+&\text{Arguments: List<ArgumentAbi>} \ \} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
 &\text{Name: String}, \\
@@ -101,9 +102,9 @@ The shortname of a function is the first four bytes of the function name's SHA-2
 | i128              | 16                            |
 | bool              | 1                             |
 | String            | 4 + n                         |
-| Vec<T\>           | 4 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
-| BTreeMap<K, V\>   | 4 + Size(K) + Size(V)         | 
-| BTreeSet<T\>      | 4 + Size(T)                   | 
+| List<T\>           | 4 + n \* Size(T)              | Number of elements (n) + n \* Size(T)
+| Map<K, V\>   | 4 + Size(K) + Size(V)         | 
+| Set<T\>      | 4 + Size(T)                   | 
 | Address           | 4 + 20                        | 
 | \[u8; n\]         | n                             |
 | Option<T\>        | 1 + Size(T)                   |
