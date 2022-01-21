@@ -161,10 +161,6 @@ $$
 }
 $$
 
-#### Shortname
-
-The shortname of a function is the first four bytes of the function name's SHA-256 hash.
-
 #### Byte size of instantiated Types
 | Type  | Size in bytes | Description
 |---|---|---|
@@ -188,36 +184,3 @@ The shortname of a function is the first four bytes of the function name's SHA-2
 | \[u8; n\]         | n                             |
 | Option<T\>        | 1 + Size(T)                   |
 
-## Serialization of RPC and contract state
-
-The ABI describes how to serialize a type.
-
-## Calling a function
-
-Calling a function requires you to use the shortname of the function followed by the RPC for said
-function.
-
-As an example if you have an action that looks like the following:
-
-````rust
-pub fn my_action(ctx: ContractContext, state: MyState, address: Address, some_value: u32) -> MyState {
-    let new_state = state.clone();
-    // do something with address and some_value
-    new_state
-}
-````
-
-The first two arguments are supplied by the runtime. The first is the `ContractContext` which has
-information about the transaction, the sender etc. The second argument is a copy of the state of the
-contract at call time. The rest of the arguments make up the RPC of the action. The result of the
-action is a new contract state that is persisted on chain.
-
-If we want to call the above with the address  `001111111111111111111111111111111111111111` and
-some_value `42`, we read the shortname of the action in the ABI (in our example it is `9c3897ac`)
-the following RPC to the contract:
-
-```
-9c3897ac                                   // 4 bytes shortname
-001111111111111111111111111111111111111111 // 21 address bytes
-0000002a                                   // 42 in big endian
-```
