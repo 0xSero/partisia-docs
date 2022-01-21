@@ -1,6 +1,85 @@
-# Draft: PBC contract ABI version 1.0
+# Partisia Blockchain Smart Contract Binary Formats
 
-## ABI serialization
+A Partisia Smart Contract utilizes three distinct binary formats, which are described in detail below.
+
+- _RPC Format_: When an _action_ of the smart function is invoked the payload is sent to the action as binary data. The payload identifies which action is invoked and the values for all parameters to the action.
+- _State Format_: The _state_ of a smart contract is stored as binary data in the blockchain state. The state holds the value of all smart contract state variables. 
+- _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.   
+
+## RPC Binary Format
+
+The RPC payload identifies which action is invoked and the values for all parameters to the action.
+
+To decode the payload binary format you have to know which argument types each action expects, 
+since the format of the argument values depends on the argument type. 
+The _ABI Format_ holds exactly the meta-data needed for finding types of the arguments for each action. 
+
+The RPC payload contains the short name identifying the action being called followed by each of the arguments for the action.
+
+$$\definecolor{mathcolor}{RGB}{33,33,33}
+\definecolor{mathgray}{RGB}{100,100,100}
+\newcommand{\Rightarrowx}{{\color{mathgray} \  \Rightarrow \ \ }}
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<PayloadRpc>} \ := \ & \text{action:}\text{ShortName}\ \text{arguments:}\text{ArgumentRpc}\text{*}  \Rightarrowx \text{action(arguments)}  \\
+\end{align*}
+}
+$$
+
+The short name of an action is an u32 integer identifier that uniquely identifies the action within the smart contract.
+The short name is encoded as unsigned [LEB128 format](https://en.wikipedia.org/wiki/LEB128#Unsigned_LEB128), which means that short names have variable lengths.
+It is easy to determine how many bytes a LEB128 encoded number contains by examining bit 7 of each byte.
+
+$$\definecolor{mathcolor}{RGB}{33,33,33}
+\definecolor{mathgray}{RGB}{100,100,100}
+\newcommand{\Rightarrowx}{{\color{mathgray} \  \Rightarrow \ \ }}
+\newcommand{\nnhexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor} #1}}
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<ShortName>} \ := \ & \text{pre:}\nnhexi{nn}\text{*}\ \text{last:}\nnhexi{nn}\ \Rightarrowx \text{Action}  &\text{(where pre is 0-4 bytes that are &ge;0x80 and last&lt;0x80)} \\
+\end{align*}
+}
+$$
+
+The argument binary format depends on the type of the argument. The argument types for each action is defined by the contract, and can be read from the ABI format. 
+
+$$\definecolor{mathcolor}{RGB}{33,33,33}
+\definecolor{mathgray}{RGB}{100,100,100}
+\newcommand{\Rightarrowx}{{\color{mathgray} \  \Rightarrow \ \ }}
+\newcommand{\nnhexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor} #1}}
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<ArgumentRpc>} \ := \ & \nnhexi{nn} \ \Rightarrowx \text{u8/i8} & \text{(i8 is twos complement)} \\
+| \ & \nnhexi{nn}\text{*2} \ \Rightarrowx \text{u16/i16} & \text{(big endian, i16 is two's complement)} \\
+| \ & \nnhexi{nn}\text{*4} \ \Rightarrowx \text{u32/i32} & \text{(big endian, i32 is two's complement)} \\
+| \ & \nnhexi{nn}\text{*8} \ \Rightarrowx \text{u64/i64} & \text{(big endian, i64 is two's complement)} \\
+| \ & \nnhexi{nn}\text{*16} \ \Rightarrowx \text{u128/i128} & \text{(big endian, i128 is two's complement)} \\
+| \ & \text{b:}\nnhexi{nn} \ \Rightarrowx \text{bool} & \text{(false if b==0, true otherwise)} \\
+| \ & \nnhexi{nn}\text{*21} \ \Rightarrowx \text{Address} \\
+| \ & \nnhexi{nn}\text{*len} \ \Rightarrowx \text{Array }\text{[u8;len]} & \text{(containing the len u8 values)} \\
+| \ & \text{len:}\text{LengthRpc} \ \text{utf8:}\nnhexi{nn}\text{*len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
+| \ & \text{len:}\text{LengthRpc} \ \text{elems:}\text{ArgumentRpc}\text{*len} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
+| \ & \text{b:}\nnhexi{nn} \ \text{arg:}\text{ArgumentRpc} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
+\end{align*}
+}
+$$
+
+For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a big endian 32-bit unsigned integer.  
+
+$$\definecolor{mathcolor}{RGB}{33,33,33}
+\definecolor{mathgray}{RGB}{100,100,100}
+\newcommand{\Rightarrowx}{{\color{mathgray} \  \Rightarrow \ \ }}
+\newcommand{\nnhexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor} #1}}
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<LengthRpc>} \ := \ & \nnhexi{nn}\text{*4} \ \Rightarrowx \text{u32}  &\text{(big endian)} \\
+\end{align*}
+}
+$$
+
+## State Binary Format
+
+## ABI Binary Format
 
 ### Type Specifier binary format
 $$\definecolor{mathcolor}{RGB}{33,33,33}
