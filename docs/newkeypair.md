@@ -17,7 +17,7 @@ BlockchainAddress - This is the address associated with your PBC account. When y
 
 **The 2nd set** are Network Keys for network identification:   
 PrivateKey - The private key is registered in config.json as "networkKey"  
-PublicKey - This is the public key of your PBC account it goes in the Register Transaction as "PublicKey"
+PublicKey - This is the public key of your network keypair it goes in the Register Transaction as "PublicKey"
 
 **The 3rd set** needs to be generated with a key generation algorithm for BLS keypair and is in the box below the other set:  
 PrivateKey - Goes in the config.json as "finalizationKey"  
