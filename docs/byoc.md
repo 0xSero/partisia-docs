@@ -1,7 +1,7 @@
 # BYOC and Gas 
 
 **What is BYOC and gas**  
-BYOC means bring your own coin. The idea is that you can bring liquid cryptocurrencies onto PBC. A very small unit of BYOC is called gas. This is a tterm also used on other blockchains. Gas in the blockchain ecosystem is analogous with the fuel you need to get the machines moving. So to move something to the blockchain and change the state of things fuel is needed.
+BYOC means bring your own coin. The idea is that you can bring liquid cryptocurrencies onto PBC. A very small unit of BYOC is called gas. This is a term also used on other blockchains. Gas in the blockchain ecosystem is analogous with the fuel you need to get the machines moving. So to move something to the blockchain and change the state of things fuel is needed.
 
 To pay the gas costs of transactions you need to have some amount of BYOC in your account. The economics of the Mainnet Beta is fueled by test ETH. When the chain economy goes real, the cost will be measured in ETH not test ETH. For now, gas can be bought by paying with test ETH, which you can get for free. Still, the measuring in test ETH allow users to estimate what future cost different transactions will be. That knowledge can be used both by the people who write contracts and by the node operators to find out how to optimize potential financial gains from using the chain.
 
