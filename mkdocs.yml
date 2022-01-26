@@ -5,9 +5,9 @@ nav:
       Launch of MainNet: mainnet.md
   - Concepts: 
       Transactions: transactions.md
+      Blocks: block.md
       Accounts: accounts.md
       BYOC and gas: byoc.md
-      Blocks: block.md
       Shards: shards
       Public key cryptography: keys.md
   - Getting started as a Node Operator:
