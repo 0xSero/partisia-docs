@@ -27,7 +27,7 @@ $$\definecolor{mathcolor}{RGB}{33,33,33}
 $$
 
 The short name of an action is an u32 integer identifier that uniquely identifies the action within the smart contract.
-The short name is encoded as unsigned [LEB128 format](https://en.wikipedia.org/wiki/LEB128#Unsigned_LEB128), which means that short names have variable lengths.
+The short name is encoded as [unsigned LEB128 format](https://en.wikipedia.org/wiki/LEB128#Unsigned_LEB128), which means that short names have variable lengths.
 It is easy to determine how many bytes a LEB128 encoded number contains by examining bit 7 of each byte.
 
 $$\definecolor{mathcolor}{RGB}{33,33,33}
