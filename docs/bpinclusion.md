@@ -13,7 +13,7 @@ The sign-up is a four-step process:
 - Website (Company or personal webpage)
 - Address (Company or personal address)
 - PublicKey (PublicKey of your Network keyset)
-- BLS PublicKey (BLS12-381 PublicKey of your BLS keyset)
+- BLS PublicKey (BLS12-381 PublicKey of your BLS keyset) - the form generates the BLS public key when you sign with the BLS private key.
 - EntityJurisdiction (Your country of residence - ISO 3166-1: 3-digit code referring to a country)
 - ServerJurisdiction (Location of the server where you operate the node - ISO 3166-1: 3-digit code referring to a country)
 
