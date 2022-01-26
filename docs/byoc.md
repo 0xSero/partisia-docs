@@ -18,7 +18,7 @@ The easiest way to make a deposit of ETH s to use the PBC Token Bridge.
 2. Install Metamask [app](https://metamask.io/) or [extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn).
 3. Make an Ethereum account, you can use Metamask to do it. 
 4. Change the network in Metamask to Ropsten Test Network in upper right corner, you will first have to enable the test networks in settings.
-5. You can get Ropstens test ETH from Faucet. There are many to chose from.
+5. You can get Ropstens test ETH from a Faucet. There are many to chose from.
 6. Use the  [PBC Token bridge](https://bridge.mpcexplorer.com/) to transfer test ETH from the Ethereum account into the PBC account.
 
 You get a confirmation as seen below if the deposit is successful. Your gas balance in the wallet should now be positive. This means that you can deploy or interact with smart contracts on the blockchain. Read more about smart contracts [here](contract-development.md). 
