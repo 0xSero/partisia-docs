@@ -18,7 +18,9 @@ A blockchain exists on a distributed network of computers, therefore it does not
 
 
 ### What happens when I use a blockchain
-One very popular way in which users interact with the blockchain is to buy NFTs. Here you can see how the user action affect the blockchain.
+One very popular way in which users interact with the blockchain is to buy NFTs. In the illustration below you can see how the user action affect the blockchain.  
+On the surface level your phone or computer is connected to the internet. Apps and webpages can get you in contact with the blockchain through the internet just like using any other online service like e-mail. The Partisia blockchain lives on a network of computers connected to each other through the internet. When you use an app to facilitate a transaction on the blockchain the transaction is first validated by the network, then it is put in a package with other incoming transactions called a block. The transactions are then executed by the computers on the network. When the block's transactions has been validated and executed by a 2/3 majority, next block is introduced, when that block has been through the same process, then our transaction is finalized. This means that it is on an immutable record. In our example of an buying an NFT, this would mean that there is a timestamped unchangable record of that purchase, proving the ownership.  
+If we move down to a more technical level the transaction of buying the NFT is an expression of a change of state of an active [smart contract](contract-development.md). The contract related to the NFT has actions available such as transferring the NFT to the users [account](accounts.md).
 
 ![Diagram](userexperience.jpg)
 
