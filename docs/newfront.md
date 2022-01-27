@@ -15,7 +15,7 @@ The blocks are connected cryptographically. The hash of each block is produced a
 
 ![Diagram0](blockchain.jpg)  
 
-A blockchain exists on a distributed network of computers, therefore it does not rely on a single point like a centralized database and this eliminates the problem of trusting the database. A breach of one point in a distributed database still leaves the majority of servers intact and consequently the control of the data remains in the network.
+A blockchain exists on a distributed network of computers called [nodes](whatisano.md), therefore it does not rely on a single point like a centralized database and this eliminates the problem of trusting the database. A breach of one point in a distributed database still leaves the majority of servers intact and consequently the control of the data remains in the network.
 
 ### What happens when I use a blockchain
 One very popular way in which users interact with the blockchain is to buy NFTs. In the illustrations below you can see how the user action affect the blockchain.  
@@ -45,7 +45,8 @@ pub struct TokenContractState {
 
 The advantages of a public blockchain comes with a tradeoff. The fact that everything that happens on the public blockchain is added to a permanent record limits the scope of their use. You can only use a public ledger for things you want everyone to know. Imagine you want to make use of the public blockchain to prevent voter fraud in a general election. The public blockchain can give you a transparent election without fraud, but the price will be compromising the privacy of the voters.
 
-Partisia Blockchain comes with an extra privacy layer. This allows for zero knowledge computations (link to definition) to happen in parallel with the activities on the public blockchain. For our example that would mean that PBC could provide an election without the possibility of voter fraud and at the same time keep all votes secret. This way PBC expands the scope of use for a blockchain into much broader domains.
+Partisia Blockchain comes with an extra privacy layer. This allows for [zero knowledge computations](https://medium.com/partisia-blockchain/mpc-techniques-series-part-8-zero-knowledge-proofs-what-are-they-and-what-are-they-good-for-2f39ed0eab39) to happen in parallel with the activities on the public blockchain. For our example that would mean that PBC could provide an election without the possibility of voter fraud and at the same time keep all votes secret. This way PBC expands the scope of use for a blockchain into much broader domains.  
+For zero knowledge computation to happen simultaneous with the public activities on the blockchain it is necessary to allocate part of the nodes of the network to focus on these tasks. To increase security of these services even further nodes that partake in them are selected through an economic staking model. This means that the owners of the computers handling the sensitive data has a common interest with the users of Partisia Blockchain to protect the data and preserve their privacy. 
 
 ### Find out more
 
@@ -55,3 +56,4 @@ Partisia Blockchain comes with an extra privacy layer. This allows for zero know
 
 [**What is a smart contract?**](contract-development.md)
 
+[**How can I add zero knowledge computation to a smart contract?**](vickrey.md)

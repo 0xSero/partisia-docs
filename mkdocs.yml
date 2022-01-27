@@ -1,6 +1,6 @@
 site_name: Partisia BlockChain
 nav:
-  - Home: index.md
+  - Home: newfront.md
   - Latest developments:
       Launch of MainNet: mainnet.md
   - Concepts: 
