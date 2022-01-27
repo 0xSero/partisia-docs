@@ -11,18 +11,34 @@ Blockchains are a means to make an immutable record of transactions on a decentr
 A blockchain is a public database where any update is added sequentially. Since all information is time stamped. You can add information in the present, but you cannot edit past information. In this way a blockchain creates an immutable ledger.
 
 The name blockchain means that information added to the ledger comes in discrete bundles called blocks. A block points to the block before it. That way a chain is created that connects the changes on the ledger from the beginning to the present.
-The blocks are connected cryptographically. The hash of each block is produced as a function of the hash of the transactions and the hash of the previous block.
+The blocks are connected cryptographically. The hash of each block is produced as a function of the hash of the transactions and the hash of the previous block.  
+
+![Diagram0](blockchain.jpg)  
 
 A blockchain exists on a distributed network of computers, therefore it does not rely on a single point like a centralized database and this eliminates the problem of trusting the database. A breach of one point in a distributed database still leaves the majority of servers intact and consequently the control of the data remains in the network.
 
-
-
 ### What happens when I use a blockchain
-One very popular way in which users interact with the blockchain is to buy NFTs. In the illustration below you can see how the user action affect the blockchain.  
-On the surface level your phone or computer is connected to the internet. Apps and webpages can get you in contact with the blockchain through the internet just like using any other online service like e-mail. The Partisia blockchain lives on a network of computers connected to each other through the internet. When you use an app to facilitate a transaction on the blockchain the transaction is first validated by the network, then it is put in a package with other incoming transactions called a block. The transactions are then executed by the computers on the network. When the block's transactions has been validated and executed by a 2/3 majority, next block is introduced, when that block has been through the same process, then our transaction is finalized. This means that it is on an immutable record. In our example of an buying an NFT, this would mean that there is a timestamped unchangable record of that purchase, proving the ownership.  
-If we move down to a more technical level the transaction of buying the NFT is an expression of a change of state of an active [smart contract](contract-development.md). The contract related to the NFT has actions available such as transferring the NFT to the users [account](accounts.md).
+One very popular way in which users interact with the blockchain is to buy NFTs. In the illustrations below you can see how the user action affect the blockchain.  
+On the surface level your phone or computer is connected to the internet. Apps and webpages can get you in contact with the blockchain through the internet just like using any other online service like e-mail.   
 
-![Diagram](userexperience.jpg)
+![Diagram1](surface.jpg)  
+
+The Partisia blockchain lives on a network of computers connected to each other through the internet. When you use an app to facilitate a transaction on the blockchain the transaction is first validated by the network, then it is put in a package with other incoming transactions called a block. The transactions are then executed by the computers on the network. When the block's transactions has been validated and executed by a 2/3 majority, next block is introduced, when that block has been through the same process, then our transaction is finalized. This means that it is on an immutable record. In our example of an buying an NFT, this would mean that there is a timestamped unchangable record of that purchase, proving the ownership.  
+
+![Diagram2](conceptualchange.jpg)
+
+If we move down to a more technical level the transaction of buying the NFT is an expression of a change of state of an active [smart contract](contract-development.md). The contract related to the NFT has actions available such as transferring the NFT to the users [account](accounts.md). When our transaction invoke the transfer of the NFT to the user's account, the contract state *balances* change. The token balance of the user now includes the NFT.
+
+
+````json
+#[state]
+pub struct TokenContractState {
+    symbol: [u8; 16],
+    owner: Address,
+    total_supply: u64,
+    balances: BTreeMap<Address, u64>,
+}
+````
 
 
 ### What is special about Partisia Blockchain? - A privacy preserving blockchain
