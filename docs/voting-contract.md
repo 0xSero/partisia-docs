@@ -171,7 +171,7 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 
 ## Building and testing the voting contract
 
-Go to the [Archive](rust-contract-sdk-rc4.zip). Download the zip-archive containing the Rust contract SDK, the example project files and the ABI generator. The contract and parts the SDK are compiled into a single WASM file while the ABI generator is a separate executable. The ABI generator allows you to customize the functions of the contract in accordance with your own imagination. 
+Go to the [Archive](rust-contract-sdk-rc5.zip). Download the zip-archive containing the Rust contract SDK, the example project files and the ABI generator. The contract and parts the SDK are compiled into a single WASM file while the ABI generator is a separate executable. The ABI generator allows you to customize the functions of the contract in accordance with your own imagination. 
 
 ### Compiling the contract
 
