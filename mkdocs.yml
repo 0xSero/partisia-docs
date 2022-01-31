@@ -18,6 +18,7 @@ nav:
   - Economic Ecosystem:
       Accounts: accounts.md
       BYOC and gas: byoc.md
+      MPC tokens: mpc-tokens.md
   - Concepts:
       Transactions: transactions.md
       Blocks: block.md
