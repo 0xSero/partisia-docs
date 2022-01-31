@@ -1,5 +1,10 @@
 # Accounts
 
+An PBC account holds the information necessary to enabling the user to perform transactions. This information includes:
+
+ - A unique identity called an address, it is derived from the [public key](keys.md)
+ - The account balance of [BYOC](byoc.md)
+ - Balance of [MPC Tokens](mpc-tokens.md)
 An account on PBC is identified by a unique address that is derived from the [public key](keys.md).
 The account state holds a single piece of information: The nonce. This is a number that is incremented each time a transaction signed by an account is executed.
 
