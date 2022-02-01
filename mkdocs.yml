@@ -3,7 +3,7 @@ nav:
   - Home: index.md
   - Latest developments:
       Launch of MainNet: mainnet.md
-  - Concepts: 
+  - Concepts:
       Transactions: transactions.md
       Blocks: block.md
       Accounts: accounts.md
@@ -21,6 +21,7 @@ nav:
       Create a smart contract for a specific scenario: voting-contract.md
       Zero Knowledge Contract - vickrey auction example: vickrey.md
       ABI specification: abiv1.md
+      Programmer's Guide to PBC SDK: programmers_guide.md
 
 
 extra_css:
