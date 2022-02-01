@@ -223,7 +223,7 @@ caller to check equality and sort order of the elements without running the code
 
 #### ABI File binary format
 
-All `RustId` names must be [valid Rust identifiers](https://doc.rust-lang.org/reference/identifiers.html); other strings are reserved for future extensions.
+All `Identifier` names must be [valid Rust identifiers](https://doc.rust-lang.org/reference/identifiers.html); other strings are reserved for future extensions.
 
 $$
 \definecolor{mathcolor}{RGB}{33, 33, 33}
@@ -243,23 +243,23 @@ $$
 &\text{StateType: TypeSpec} \ \}
 \\
 \text{<StructTypeAbi>} \ := \ \{ \
-&\text{Name: RustId}, \\
+&\text{Name: Identifier}, \\
 &\text{Fields: List<FieldAbi>} \ \} \\
 \\
 \text{<FnAbi>} \ := \ \{ \
-&\text{Name: RustId}, \\
+&\text{Name: Identifier}, \\
 &\text{Arguments: List<ArgumentAbi>} \ \} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
-&\text{Name: RustId}, \\
+&\text{Name: Identifier}, \\
 &\text{Type: TypeSpec} \ \} \\
 \\
 \text{<ArgumentAbi>} \ := \ \{ \
-&\text{Name: RustId}, \\
+&\text{Name: Identifier}, \\
 &\text{Type: TypeSpec} \ \} \\
 \\
-\text{<RustId>} \ := \ \phantom{\{} \
-&\text{String} & \text{Only if String is valid Rust identifier}\\
+\text{<Identifier>} \ := \ \phantom{\{} \
+&\text{len:}\text{u32} \ \text{utf8:}\nnhexi{nn}\text{*len} & \text{utf8 must be Rust identifier, len is big endian}
 \\
 \end{align*}
 }
