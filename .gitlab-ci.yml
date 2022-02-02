@@ -14,7 +14,7 @@ prepare-zip:
   stage: prepare
   only:
     refs:
-    - par-2228
+    - master
     changes:
     - version.txt
   script:
