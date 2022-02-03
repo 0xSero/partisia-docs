@@ -238,6 +238,7 @@ $$
 \\
 \text{<FnAbi>} \ := \ \{ \
 &\text{Name: Identifier}, \\
+&\text{Shortname: LEB128}, \\
 &\text{Arguments: List<ArgumentAbi>} \ \} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
@@ -249,7 +250,10 @@ $$
 &\text{Type: TypeSpec} \ \} \\
 \\
 \text{<Identifier>} \ := \ \phantom{\{} \
-&\text{len:}\bytes{4} \ \text{utf8:}\bytes{len} & \text{utf8 must be Rust identifier, len is big endian}
+&\text{len:}\bytes{4} \ \text{utf8:}\bytes{len} & \text{utf8 must be Rust identifier, len is big endian} \\
+\\
+\text{<LEB128>} \ := \ \phantom{\{} \
+&\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).}
 \\
 \end{align*}
 }
