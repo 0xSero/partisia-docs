@@ -18,25 +18,22 @@ The blocks are connected cryptographically. The hash of each block is produced a
 A blockchain exists on a distributed network of computers called [nodes](whatisano.md), therefore it does not rely on a single point like a centralized database and this eliminates the problem of trusting the database. A breach of one point in a distributed database still leaves the majority of servers intact and consequently the control of the data remains in the network.
 
 ### What happens when I use a blockchain
-One very popular way in which users interact with the blockchain is to buy NFTs. In the illustrations below you can see how the user action affect the blockchain.  
+One very popular way in which users interact with the blockchain is to buy NFTs. In the illustrations and text below we will explore how a user action like purchase of NFTs affect the blockchain.  
 On the surface level your phone or computer is connected to the internet. Apps and webpages can get you in contact with the blockchain through the internet just like using any other online service like e-mail.   
 
 ![Diagram1](surface.jpg)  
 
-The Partisia blockchain lives on a network of computers connected to each other through the internet. When you use an app to facilitate a transaction on the blockchain the transaction is first validated by the network, then it is put in a package with other incoming transactions called a block. The transactions are then executed by the computers on the network. When the block's transactions has been validated and executed by a 2/3 majority, next block is introduced, when that block has been through the same process, then our transaction is finalized. This means that it is on an immutable record. In our example of an buying an NFT, this would mean that there is a timestamped unchangable record of that purchase, proving the ownership.  
+The Partisia blockchain lives on a network of computers connected to each other through the internet. When you use an app to facilitate a transaction on the blockchain the transaction is first checked for validity, this means living up to four conditions relating to signature, solvency of account, matching of nonce and expiration time. The conditions are specified [here](transactions.md). If the transaction is valid then it is put in a package with other incoming transactions called a block. This is done by a node chosen for the task, this node is referred to as the block proposer or sequencer. The proposer executes all transactions in the block and then send it to all immediate connected nodes for further execution. This way of spreading the information in the network is called flooding. When a node as executed all transactions in a block, it sends a proof of verification (information resulting from successful execution) to its sender node and signs the block. After a node has executed a block and sent proof to the sender, the process repeats and the node sends the block to its own connections and wait for proof of verification. When the block has been executed signed by a 2/3 majority constituting a proof of justification (PoJ), next block is introduced, when that block has been through the same process and a new (PoJ) is achieved, then original block is said to be finalized, meaning it cannot be rolled back. In other words, it is on an immutable record. In our example of buying an NFT, this would mean that there is a timestamped unchangeable record of that purchase, proving the ownership.  
 
 ![Diagram2](conceptualchange.jpg)
 
-If we move down to a more technical level the transaction of buying the NFT is an expression of a change of state of an active [smart contract](contract-development.md). The contract related to the NFT has actions available such as transferring the NFT to the users [account](accounts.md). When our transaction invoke the transfer of the NFT to the user's account, the contract state *balances* change. The token balance of the user now includes the NFT.
+If we move down to the conceptual layer, the transaction of buying the NFT is an expression of a change of state of active [smart contracts](contract-development.md). The contract related to the NFT has a state. The state of a contract stipulates the variables of the contract that are subject to being changed by transactions (Transactions that can change the state of a specific contract are referred to as the actions of the contract). In our NFT contract the state has an inventory listing the NFTs available and the [accounts](accounts.md) that own the individual NFTs. A user account has a plugin tracking their balance of liquid funds called [BYOC](byoc.md). When our account holder buys the NFT he does it by paying some of his BYOC into the account of the NFT's current owner. If the conditions for change of state are met, the state of the NFT contract is changed, namely the owner address associated with the purchased NFT has changed.
 
 
 ````json
 #[state]
-pub struct TokenContractState {
-    symbol: [u8; 16],
-    owner: Address,
-    total_supply: u64,
-    balances: BTreeMap<Address, u64>,
+pub struct NFTContractState {
+    NFTS: Vec<(Address,NFTId)>,
 }
 ````
 
