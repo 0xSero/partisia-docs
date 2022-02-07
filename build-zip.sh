@@ -26,9 +26,15 @@ sdk_version=$(get_current_version)
 filename="partisia-sdk-${sdk_version}.zip"
 
 
+# Make zip build directory
 mkdir -p build_zip
+
+# Copy readme into the directory
+cp sdk-readme.md build_zip/README.md
+
 pushd build_zip || exit
 
+# Create the examples folder
 mkdir -p examples
 
 for content in ${!content@}; do
@@ -40,7 +46,10 @@ for content in ${!content@}; do
     clone_and_clean "$url" "$folder" "$ref" "$post_process"
 done
 
+# Compress everything in the build_zip folder to sdk.zip
 zip -9r "sdk.zip" *
+
+# Rename sdk.zip to partisia-sdk-<version>.zip
 mv sdk.zip "$filename"
 
 url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/partisia-sdk/${sdk_version}/${filename}?select=package_file"
