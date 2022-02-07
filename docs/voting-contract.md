@@ -1,44 +1,82 @@
-# Create a smart contract for a specific scenario e.g. transparancy in parliament
-
+# Create a smart contract for a specific scenario e.g. transparency in parliament
 
 ## Case - Voting record of MPs as a means to strengthen democracy and transparency
-The newly founded republic of Faraway is plagued by corruption. To ensure transparency and public mandate behind the parliamentary process the voting record of the elected MPs is added to the blockchain via smart contracts. Using smart contracts enables the public to see how MPs exercise their mandate. Laws that are passed through the smart contract are added to the immutable record, giving all citizens access to the official legal code.
 
+The newly founded republic of Faraway is plagued by corruption. To ensure transparency and public
+mandate behind the parliamentary process the voting record of the elected MPs is added to the
+blockchain via smart contracts. Using smart contracts enables the public to see how MPs exercise
+their mandate. Laws that are passed through the smart contract are added to the immutable record,
+giving all citizens access to the official legal code.
 
 **The setup of our scenario**
+
 - The parliament has 197 MPs.
-- Each MP has a key set. The public key enables the public to follow the MP’s voting record on the blockchain. The private key is known only by the individual MP and is used to sign their vote.
-- Each time the parliament votes on an issue they do it through a smart contract vote. Laws that passed are therefore also added to the immutable record.
+- Each MP has a key set. The public key enables the public to follow the MP’s voting record on the
+  blockchain. The private key is known only by the individual MP and is used to sign their vote.
+- Each time the parliament votes on an issue they do it through a smart contract vote. Laws that
+  passed are therefore also added to the immutable record.
 
+**NB.** No ZK computation is necessary since the both individual votes and voting results are
+supposed to be public.
 
-**NB.** No ZK computations necessary since the both individual votes and voting results are supposed to be public.
-  
-## How to code a smart contract equivalent to our scenario in Rust  
+## How to program the voting smart contract in Rust
 
-**1) Importing libraries:**  
-First we need to import macros and allow use of common library containing functions and types.
- ````rust
+In the following the different parts of a smart contract implementing the voting scenario is
+explained.
+
+You can see the complete Rust source code of the contract [here](voting-contract-source.md).
+
+### 1) Importing libraries
+
+First we need to include a few libraries to get access to the functions and types needed for
+programming a smart contract. It is not necessary to understand exactly what the includes here do in
+order to create your own smart contracts.
+
+````rust
+#![allow(unused_variables)]
 extern crate create_type_derive;
 #[macro_use]
 extern crate pbc_contract_codegen;
 extern crate pbc_contract_common;
-extern crate read_write_derive;
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::io::{Read, Write};
 
-use pbc_contract_common::abi::field::FieldAbi;
-use pbc_contract_common::abi::func::FnAbi;
-use pbc_contract_common::abi::types::TypeAbi;
 use pbc_contract_common::address::Address;
 use pbc_contract_common::context::ContractContext;
-use pbc_contract_common::serialization::{ReadInt, ReadWrite};
-use pbc_contract_common::typing::CreateType;
- ````
+use pbc_traits::*;
+````
 
-**2) Defining contract state and generic functions:**  
- You will need a proposal id, so you can identify what propasal the vote is concerned with. Only people with woting rights in the parliment should be allowed to vote, so the contract also needs a list of MP adresses. The votes themselves are contained in a map pairing the votes and voter. Finally, to limit when you can interact with the contract the state also needs to answer if the vote is closed or open. Types in Rust are immutable by default, but the lists and maps that our contract holds needs are not of much use if we cannot change their content. We do that with non static methods using an ````&mut self```` wich is a mutable reference point. That allows the interactions to change the list in the contract state, so when an MP give her ````vote```` it is added with the her ````address```` to the ````votes````. The vote is closed after everybody have voted. We could also choose to make closing the vote depending on when the majority was reached or make an action, where the chairman of the parlament closes the vote after some deadline. We could also add a result to the contract state if we want make the contract more informative. But, the idea here was a voting record, so what we have now will suffice.
- ````rust
+### 2) Defining the contract state
+
+When programming a smart contract we have to define the _state_ of the contract. We do this in Rust
+by creating a struct and marking it with ``#[state]``.
+
+For our voting contract the contract state has the following parts:
+
+- `proposal_id` A proposal id, so you can identify what proposal the vote is concerned with.
+- `mp_addresses` The list of people that are allowed to vote on the proposal. Only people with
+  voting rights in the parliament should be allowed to vote, so the contract also needs a list of MP
+  addresses.
+- `votes` The actual votes cast are contained in a map pairing each person with their vote.
+- `closed` Finally, when the voting ends people must no longer be able to change their vote.
+  Therefore, the contract the state also includes information about whether the voting is open or
+  closed.
+
+We can also define methods associated with the state struct that read or write to the state. In Rust
+these methods are defined inside an `impl` block associated with the state struct.
+
+For our voting contract we have defined two state methods:
+
+- `register_vote` When an MP cast her vote, it is recorded in the votes map.
+- `close_if_finished_vote` The voting process automatically closes after everybody has voted.
+
+We could have chosen to make closing the vote depend on when the majority was reached, or to make an
+action where the chairman of the parliament closes the vote after some deadline. We could also add a
+result to the contract state if we want to make the contract more informative. The idea here was a
+simple voting record, so what we have now will suffice.
+
+````rust
 #[state]
 pub struct VotingContractState {
     proposal_id: u64,
@@ -58,9 +96,23 @@ impl VotingContractState {
         };
     }
 }
- ````
- **3) Defining the initialization:**  
- To initialize the contract we need to identify the proposal and constrain who can vote. When we initialize, the beforemetioned contract state becomes live on the chain.
+````
+
+### 3) Defining the initialization of the contract
+
+When deploying a smart contract on the blockchain the state of the contract has to be initialized
+properly.
+
+When programming the smart contract in Rust we can define how the initialization takes place by
+creating a function and marking it with `#[init]`
+
+To initialize our voting contract the user deploying the contract has to supply the proposal id and
+the list of people eligible to vote. Our initialization code checks that the supplied input is
+valid (i.e. the list of people allowed to vote has at least one person and has no duplicates) and
+creates the initial state object for the contract from the input.
+
+After successful initialization, the contract state becomes live on the blockchain.
+
 ````rust
 #[init]
 pub fn initialize(
@@ -81,41 +133,74 @@ pub fn initialize(
         votes: BTreeMap::new(),
         closed: 0,
     }
+}
 ````
 
-**4) Defining the actions of the contract:**  
-The only interaction users need to do in this case is voting. We are only allowed to vote when the vote is open and we have an MP address.
- ````rust
+### 4) Defining the actions of the contract
 
+When a smart contract is live on the blockchain, people can interact with the contract by creating a
+transaction that initiate execution of an _action_ of the smart contract.
+
+The only way of changing the state of a smart contract is through the defined actions. The smart
+contract actions hereby define the exact conditions and rules for changing the contract state. A
+smart contract can have multiple defined actions.
+
+In Rust, you define a smart contract action by coding a function and marking it with `#[action]`. The
+function receives the existing state and the inputs from the user initiating the action, and it can
+then produce and return a new updated state reflecting the changes.
+
+For our voting contract the only action users can perform is to cast their vote. The code starts by
+checking that the voting is still open, that the sender is among the people allowed to vote and that
+the delivered vote is one of the allowed voting options. If the checks succeed the code creates a
+new state where the vote of the sender is registered in the vote map. Also, if this vote was the
+last one and everyone has now voted, then voting is closed.
+
+````rust
 #[action]
 pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> VotingContractState {
     assert_eq!(state.closed, 0, "The poll is closed");
-    assert!(
-        state.mp_addresses.contains(&context.sender),
-        "Only members of the parliament can vote"
-    );
-    assert!(
-        vote == 0 || vote == 1,
-        "Only \"yes\" and \"no\" votes are allowed"
-    );
+    assert!(state.mp_addresses.contains(&context.sender), "Only members of the parliament can vote");
+    assert!(vote == 0 || vote == 1, "Only \"yes\" and \"no\" votes are allowed");
 
     let mut new_state = state;
     new_state.register_vote(context.sender, vote);
     new_state.close_if_finished();
     new_state
 }
- ````
-Go to the [Archive](TransferContractv3.zip).
-Download the zip-archive containing the Rust project files and the ABI. (The handwritten ABI will soon be replaced with the ABI-generator, this will allow you to customize the functions of the contract in accordance with your own imagination) The project contains the rust contract layed out above. If you are working with a linux shell from Windows or Mac you need to 
-extract the archive in `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`
-To compile run the following commands after changing directory to the  
+````
+
+## Building and testing the voting contract
+
+Go to the [Archive](rust-contract-sdk-rc4.zip). Download the zip-archive containing the Rust contract SDK, the example project files and the ABI generator. The contract and parts the SDK are compiled into a single WASM file while the ABI generator is a separate executable. The ABI generator allows you to customize the functions of the contract in accordance with your own imagination. 
+
+### Compiling the contract
+
+The project contains the rust contract laid out above. If you are working with a WSL shell on Windows
+you need to extract the archive to `\tmp\pbc-rust-wasm\`. To compile run the following
+commands after changing directory to the  
 voting-contract folder:
+
 ```` bash
 cargo build --target wasm32-unknown-unknown --release
 ````
-Now you will find a .wasm-file in called *voting_contract.wasm* in: 
-`\\wsl$\Ubuntu\tmp\pbc-rust-wasm\voting-contract\target\wasm32-unknown-unknown\release\`  
-The resulting wasm contract and ABI should be equivalent to this: [wasm and abi](WASMandABI.zip)
-You can deploy the contract from the Deploy WASM Contract menu in the [dashboard](https://dashboard.partisiablockchain.com/). Successful deployment will look like this:  
 
-![deployment](deployment.png) 
+Now you will find a .wasm-file in called *voting_contract.wasm* in:
+`\tmp\pbc-rust-wasm\rust-example-voting-contract\target\wasm32-unknown-unknown\release\`.
+
+### Generating the ABI and deploying
+
+Firstly, you need to [generate the WASM contract](#compiling-the-contract). The ABI (application binary interface) describes how the shape of the contract state and the action input parameters. The ABI is a single, compact binary file that describes how to read/write all the fields of the state and all parameters of the actions. In essence, it allows the dashboard to construct a graphical user interface for your contract.
+
+The generator lives in the folder `pbc-abigen`. First you need to navigate to the location of the generator and compile it using: `cargo build --release`. You can now generate your ABI file by pointing `pbc-abigen` to your contract:
+
+````bash
+./pbc-abigen /tmp/pbc-rust-wasm/rust-example-voting-contract/target/wasm32-unknown-unknown/release/voting_contract.wasm voting.abi
+````
+
+The resulting wasm contract and ABI should be equivalent to this: [wasm and abi](WASMandABI.zip)
+
+You can deploy the contract from the Deploy WASM Contract menu in
+the [dashboard](https://dashboard.partisiablockchain.com/). Successful deployment will look like
+this:
+
+![deployment](deployment.png)

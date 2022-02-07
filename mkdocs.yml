@@ -2,17 +2,7 @@ site_name: Partisia BlockChain
 nav:
   - Home: newfront.md
   - Latest developments:
-      News for Node Operators: newkeypair.md
       Launch of MainNet: mainnet.md
-  - Concepts: 
-      Transactions: transactions.md
-      Contract development: contract-development.md
-      Zero knowledge contracts: vickrey.md
-      Accounts: accounts.md
-      BYOC and gas: byoc.md
-      Blocks: block.md
-      Shards: shards
-      Public key cryptography: keys.md
   - Getting started as a Node Operator:
       What is a Node Operator: whatisano.md
       How to become a Node Operator: bpinclusion.md
@@ -20,10 +10,20 @@ nav:
       Running a PBC Node: operator.md
       REST API documentation: rest
   - Getting started as a developer:
-      What is a smart contract - token contract example: contract-development.md
+      What is a smart contract and why develop on PBC: contract-development.md
+      Develop your first contract - token contract example: token-contract.md
       Create a smart contract for a specific scenario: voting-contract.md
       Zero Knowledge Contract - vickrey auction example: vickrey.md
       ABI specification: abiv1.md
+  - Economic Ecosystem:
+      Accounts: accounts.md
+      BYOC and gas: byoc.md
+      MPC tokens: mpc-tokens.md
+  - Concepts:
+      Transactions: transactions.md
+      Blocks: block.md
+      Shards: shards
+      Public key cryptography: keys.md
 
 
 extra_css:
