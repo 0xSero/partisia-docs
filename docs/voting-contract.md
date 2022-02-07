@@ -197,8 +197,6 @@ The generator lives in the folder `pbc-abigen`. First you need to navigate to th
 ./pbc-abigen /tmp/pbc-rust-wasm/rust-example-voting-contract/target/wasm32-unknown-unknown/release/voting_contract.wasm voting.abi
 ````
 
-The resulting wasm contract and ABI should be equivalent to this: [wasm and abi](WASMandABI.zip)
-
 You can deploy the contract from the Deploy WASM Contract menu in
 the [dashboard](https://dashboard.partisiablockchain.com/). Successful deployment will look like
 this:
