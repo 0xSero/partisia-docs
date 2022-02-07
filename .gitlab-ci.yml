@@ -6,7 +6,6 @@ variables:
 stages:
 - prepare
 - build
-- postprocess
 - deploy
 
 prepare-zip:
@@ -17,6 +16,14 @@ prepare-zip:
     - master
     changes:
     - version.txt
+  script:
+  - ./build-zip.sh
+
+prepare-zip-dev:
+  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  stage: prepare
+  except:
+  - master
   script:
   - ./build-zip.sh
 

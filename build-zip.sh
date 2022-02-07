@@ -9,11 +9,14 @@ function clone_and_clean() {
 
   pushd "$2" || exit
   echo "Checking tags/$3"
-  git checkout "tags/$3"
+  git checkout "$3"
 
   echo "Removing git indices and pipeline definition"
   rm -rf .git/
   rm .gitlab-ci.yml
+
+  echo "Running post_process: '$post_process'"
+  eval "$4"
 
   popd || exit
 }
@@ -21,12 +24,15 @@ function clone_and_clean() {
 mkdir -p build_zip
 pushd build_zip || exit
 
+mkdir -p examples
+
 for content in ${!content@}; do
     url="https://gitlab-ci-token:${CI_JOB_TOKEN}@${content[repo]}"
-    tag="${content[version_tag]}"
+    ref="${content[version_ref]}"
     folder="${content[output]}"
+    post_process="${content[post_process]}"
 
-    clone_and_clean "$url" "$folder" "$tag"
+    clone_and_clean "$url" "$folder" "$ref" "$post_process"
 done
 
 sdk_version=$(head -n 1 ../version.txt)
