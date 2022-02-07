@@ -2,8 +2,16 @@ function replace_dependency_path() {
   echo "Removing dependencies folder"
   rm -rf dependencies/
   echo "Patching Cargo.toml"
-  sed 's/"dependencies/"..\/../g' Cargo.toml >Cargo2.toml
-  mv Cargo2.toml Cargo.toml
+  sed -i 's/"dependencies/"..\/../g' Cargo.toml
+}
+
+function get_current_version() {
+  sdk_version=$(head -n 1 version.txt)
+  if [[ "$CI_COMMIT_REF_NAME" != "$CI_DEFAULT_BRANCH" ]]; then
+    echo "${sdk_version}-${CI_COMMIT_SHORT_SHA}"
+  else
+    echo "${sdk_version}"
+  fi
 }
 
 declare -A content0=(

@@ -25,8 +25,6 @@ prepare-zip-dev:
   except:
   - master
   script:
-  - sdk_version=$(head -n 1 version.txt)
-  - echo "${sdk_version}-${CI_COMMIT_SHORT_SHA}">version.txt
   - ./build-zip.sh
 
 build-site:
@@ -56,8 +54,6 @@ pages-dev:
   dependencies:
   - build-site
   script:
-  - sdk_version=$(head -n 1 version.txt)
-  - echo "${sdk_version}-${CI_COMMIT_SHORT_SHA}">version.txt
   - ./replace-zip-version.sh
   except:
   - master

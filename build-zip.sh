@@ -21,6 +21,11 @@ function clone_and_clean() {
   popd || exit
 }
 
+# Version
+sdk_version=$(get_current_version)
+filename="partisia-sdk-${sdk_version}.zip"
+
+
 mkdir -p build_zip
 pushd build_zip || exit
 
@@ -34,9 +39,6 @@ for content in ${!content@}; do
 
     clone_and_clean "$url" "$folder" "$ref" "$post_process"
 done
-
-sdk_version=$(head -n 1 ../version.txt)
-filename="partisia-sdk-${sdk_version}.zip"
 
 zip -9r "sdk.zip" *
 mv sdk.zip "$filename"
