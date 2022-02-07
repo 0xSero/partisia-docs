@@ -171,34 +171,5 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 
 ## Building and testing the voting contract
 
-Go to the [Archive](LINK_TO_RUST_CONTRACT_SDK). Download the zip-archive containing the Rust contract SDK, the example project files and the ABI generator. The contract and parts the SDK are compiled into a single WASM file while the ABI generator is a separate executable. The ABI generator allows you to customize the functions of the contract in accordance with your own imagination. 
-
-### Compiling the contract
-
-The project contains the rust contract laid out above. If you are working with a WSL shell on Windows
-you need to extract the archive to `\tmp\pbc-rust-wasm\`. To compile run the following
-commands after changing directory to the  
-voting-contract folder:
-
-```` bash
-cargo build --target wasm32-unknown-unknown --release
-````
-
-Now you will find a .wasm-file in called *voting_contract.wasm* in:
-`\tmp\pbc-rust-wasm\rust-example-voting-contract\target\wasm32-unknown-unknown\release\`.
-
-### Generating the ABI and deploying
-
-Firstly, you need to [generate the WASM contract](#compiling-the-contract). The ABI (application binary interface) describes how the shape of the contract state and the action input parameters. The ABI is a single, compact binary file that describes how to read/write all the fields of the state and all parameters of the actions. In essence, it allows the dashboard to construct a graphical user interface for your contract.
-
-The generator lives in the folder `pbc-abigen`. First you need to navigate to the location of the generator and compile it using: `cargo build --release`. You can now generate your ABI file by pointing `pbc-abigen` to your contract:
-
-````bash
-./pbc-abigen /tmp/pbc-rust-wasm/rust-example-voting-contract/target/wasm32-unknown-unknown/release/voting_contract.wasm voting.abi
-````
-
-You can deploy the contract from the Deploy WASM Contract menu in
-the [dashboard](https://dashboard.partisiablockchain.com/). Successful deployment will look like
-this:
-
-![deployment](deployment.png)
+The process is the same for the voting contract as it is for the token contract. 
+The instructions can be found [here](contract-development.md#develop-your-first-contract). 
