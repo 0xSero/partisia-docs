@@ -2,7 +2,8 @@ function replace_dependency_path() {
   echo "Removing dependencies folder"
   rm -rf dependencies/
   echo "Patching Cargo.toml"
-  sed 's/"dependencies/"..\/../g' Cargo.toml >Cargo.toml
+  sed 's/"dependencies/"..\/../g' Cargo.toml >Cargo2.toml
+  mv Cargo2.toml Cargo.toml
 }
 
 declare -A content0=(
