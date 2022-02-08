@@ -5,7 +5,7 @@ MPC tokens are used for staking on a Node. This works like buying a deposit. Whe
 The staking requirements for different tasks can be read [here](whatisano.md).  
 On the outset the MPC Tokens are locked, this means the tokens reside on the account that originally bought them. The MPC Tokens are released to the market and  sold in limited sales rounds. Tokens bought from a specific sales round has a specific date where the tokens become unlocked. Unlocked tokens that are not staked can be traded and transferred freely between the PBC accounts.  
 
-**Functions of MPC tokens:**
-- A stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services.
-- The staked MPC tokens provide an additional guaranty. Since the stake can be used to pay compensation for misconduct committed by a node operator.
-- The staked MPC tokens create an incentive structure that allign the user's security interest with the financial interests of the node operators who facilitate the transactions on the network.
+**Functions of MPC tokens:**  
+- A stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services.  
+- The staked MPC tokens provide an additional guaranty. Since the stake can be used to pay compensation for misconduct committed by a node operator.  
+- The staked MPC tokens create an incentive structure that allign the user's security interest with the financial interests of the node operators who facilitate the transactions on the network.  

@@ -23,7 +23,7 @@ nav:
       Transactions: transactions.md
       Blocks: block.md
       Consensus Model: consensus.md
-      Shards: shards
+      Shards: shards.md
       Public key cryptography: keys.md
 
 
