@@ -15,15 +15,16 @@ The blocks are connected cryptographically. The hash of each block is produced a
 
 ![Diagram0](blockchain.jpg)  
 
-A blockchain exists on a distributed network of computers called [nodes](whatisano.md), therefore it does not rely on a single point like a centralized database and this eliminates the problem of trusting the database. A breach of one point in a distributed database still leaves the majority of servers intact and consequently the control of the data remains in the network.
-
+A blockchain exists on a distributed network of computers called [nodes](whatisano.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
+Conversely, a blockchain is a decentralized database. Therefore, data on the blockchain remains secure even if a computer in the network is hacked, short circuits or loose connection to the internet. 
 ### What happens when I use a blockchain
-One very popular way in which users interact with the blockchain is to buy NFTs. In the illustrations and text below we will explore how a user action like purchase of NFTs affect the blockchain.  
+In the following paragraph we will examine user interactions with the blockchain using a purchase of an NFT as our case example. We will explore how a user action like purchase of NFTs affect the blockchain on different levels.  
 On the surface level your phone or computer is connected to the internet. Apps and webpages can get you in contact with the blockchain through the internet just like using any other online service like e-mail.   
 
 ![Diagram1](surface.jpg)  
 
-The Partisia blockchain lives on a network of computers connected to each other through the internet. When you use an app to facilitate a transaction on the blockchain the transaction is first checked for validity, this means living up to four conditions relating to signature, solvency of account, matching of nonce and expiration time. The conditions are specified [here](transactions.md). If the transaction is valid then it is put in a package with other incoming transactions called a block. This is done by a node chosen for the task, this node is referred to as the block proposer or sequencer. The proposer executes all transactions in the block and then send it to all immediate connected nodes for further execution. This way of spreading the information in the network is called flooding. When a node as executed all transactions in a block, it sends a proof of verification (information resulting from successful execution) to its sender node and signs the block. After a node has executed a block and sent proof to the sender, the process repeats and the node sends the block to its own connections and wait for proof of verification. When the block has been executed signed by a 2/3 majority constituting a proof of justification (PoJ), next block is introduced, when that block has been through the same process and a new (PoJ) is achieved, then original block is said to be finalized, meaning it cannot be rolled back. In other words, it is on an immutable record. In our example of buying an NFT, this would mean that there is a timestamped unchangeable record of that purchase, proving the ownership.  
+The Partisia blockchain lives on a network of computers connected to each other through the internet. The blockchain comes with a software architecture which allows for binding trackable transactions to happen very fast.
+A puchase of an NFT is a transaction on the blockchain. Specifically it is an action.
 
 ![Diagram2](conceptualchange.jpg)
 
