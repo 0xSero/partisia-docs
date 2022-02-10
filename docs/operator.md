@@ -104,7 +104,7 @@ For a Reader Node paste the following:
 }
 ````
 
-Config for block producing node (Including Oracle and ZK nodes):
+Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes:
 ````json
 {
   "restPort": 8080,
