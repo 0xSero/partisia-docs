@@ -8,7 +8,7 @@ function clone_and_clean() {
   git clone --recursive "$1" "$2"
 
   pushd "$2" || exit
-  echo "Checking tags/$3"
+  echo "Checking $3"
   git checkout "$3"
 
   echo "Removing git indices and pipeline definition"
