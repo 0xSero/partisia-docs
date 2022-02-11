@@ -24,21 +24,11 @@ On the surface level your phone or computer is connected to the internet. Apps a
 ![Diagram1](surface.jpg)  
 
 The Partisia blockchain lives on a network of computers connected to each other through the internet. The blockchain comes with a software architecture which allows for binding trackable transactions to happen very fast.
-A puchase of an NFT is a transaction on the blockchain. Specifically it is an action.
+A puchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](contract-development.md). 
 
-![Diagram2](conceptualchange.jpg)
+![Diagram2](Contract.jpg)
 
-If we move down to the conceptual layer, the transaction of buying the NFT is an expression of a change of state of active [smart contracts](contract-development.md). The contract related to the NFT has a state. The state of a contract stipulates the variables of the contract that are subject to being changed by transactions (Transactions that can change the state of a specific contract are referred to as the actions of the contract). In our NFT contract the state has an inventory listing the NFTs available and the [accounts](accounts.md) that own the individual NFTs. A user account has a plugin tracking their balance of liquid funds called [BYOC](byoc.md). When our account holder buys the NFT he does it by paying some of his BYOC into the account of the NFT's current owner. If the conditions for change of state are met, the state of the NFT contract is changed, namely the owner address associated with the purchased NFT has changed.
-
-
-````json
-#[state]
-pub struct NFTContractState {
-    NFTS: Vec<(Address,NFTId)>,
-}
-````
-
-
+Smart contracts hold some information which can be changed, that information is called the state. The state of our NFT contract holds an inventory of NFTs and their owners. The contract action *Transfer* can change the ownership of an NFT by changing an owner address in the inventory. Actions of contracts are themselves transactions on the blockchain. When they have been added to a block and executed, the resulting state change of the contract becomes part of the blockchain state. We now have a permanent timestamped record of the purchase.
 ### What is special about Partisia Blockchain? - A privacy preserving blockchain
 
 The advantages of a public blockchain comes with a tradeoff. The fact that everything that happens on the public blockchain is added to a permanent record limits the scope of their use. You can only use a public ledger for things you want everyone to know. Imagine you want to make use of the public blockchain to prevent voter fraud in a general election. The public blockchain can give you a transparent election without fraud, but the price will be compromising the privacy of the voters.
