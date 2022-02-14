@@ -1,16 +1,16 @@
 # Example of a smart contract on PBC - Vickrey Auction
-One of the smart contracts you will be able to implement on PBC is a Vickrey Auction, which is a sealed bid auction where the second highest bid wins. 
+One of the smart contracts you will be able to implement on PBC is a Vickrey Auction, which is a sealed bid auction where the highest bid wins and second-highest bid determines the price. 
 When some valuable item changes hands through an auction it is desirable to have the change in ownership registered on an immutable record.  It is however highly undesirable that individual maximum bids are public, since the seller can use a third party to drive up the price to the highest possible price. One of the great advantages of PBC over other blockchains is that zero knowledge computations can be performed on the network parallel to the public transactions on the blockchain.
 The second price auction takes as input a list of prices for each account, ordered in arrival by a number. When the computation is initiated by the contract owner, the zero knowledge computation nodes reads the collected input and then create a bit vector consisting of prices and the ordering number. The list of bit vectors is now sorted in MPC. The winner is the first entry (the bidder with the highest price-bid), the price is determined by the size of the second highest bid.
 
 The contract follows these phases: 
-- Input
+- Input:  
 Each participant in the computation delivers their input to the computation. Either via the blockchain with the shares in encrypted form (making the nodes stateless) or directly to the nodes (making the data information-theoretic secure). In both cases the inputter provides commitments stored on the blockchain of each share so the nodes can ensure internal consistency among the nodes.
-- Computation
-The computation takes the input and runs the designated computation, the separation into phases makes the computation rerunnable without any data leaks. This means that the computation can be restarted in case of a server failure or any other unexpected problem.
+- Computation:  
+The computation takes the input and runs the designated computation, the separation into phases makes the computation re-runnable without any data leaks. This means that the computation can be restarted in case of a server failure or any other unexpected problem.
 - Commitment of output
 Each node sends a commit to the chain of each of their shares. When the smart contract has received the shares from every node, the smart contract initiates the next phase.
-- Output.
+- Output:  
 Every node now sends their shares to the smart contract, when a majority has released their shares, the contract has complete information and can open the result up.
 
 Below you can see the Java implementation of the zero knowledge smart contract for the Vickrey Auction:
