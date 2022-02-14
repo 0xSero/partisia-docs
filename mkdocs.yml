@@ -1,8 +1,6 @@
 site_name: Partisia BlockChain
 nav:
   - Home: newfront.md
-  - Latest developments:
-      Launch of MainNet: mainnet.md
   - Getting started as a Node Operator:
       What is a Node Operator: whatisano.md
       How to become a Node Operator: bpinclusion.md
@@ -12,9 +10,11 @@ nav:
   - Getting started as a developer:
       What is a smart contract and why develop on PBC: contract-development.md
       Develop your first contract - token contract example: token-contract.md
-      Create a smart contract for a specific scenario: voting-contract.md
-      Zero Knowledge Contract - vickrey auction example: vickrey.md
+      Programmer's Guide to PBC SDK: programmers_guide.md
       ABI specification: abiv1.md
+      Create a smart contract for a specific scenario: voting-contract.md
+  - Zero knowledge contracts:
+      Zero Knowledge Contract - vickrey auction example: vickrey.md
   - Economic Ecosystem:
       Accounts: accounts.md
       BYOC and gas: byoc.md

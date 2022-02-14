@@ -1,7 +1,7 @@
 # The PBC Ecosystem
 
-**Welcome to the documentation page of Partisia Blockchain.**  
-Here you can find information that enables you to get the most out of Partisia Blockchain. If you are interested in making money by operating a node, or you want to use PBC as a platform for an app or use smart contracts, then you have come to the right place.  
+**Welcome to the documentation hub of Partisia Blockchain.**  
+Here you can find information that enables you to get the most out of the platform. If you are interested in making money by operating a node, or you want to use PBC as a platform for an app or use smart contracts, then you have come to the right place.  
 Below is a small introduction to the some of the core concepts of blockchains and an explanation of what make PBC different from other blockchains. On webpage you can find topic specific guides that will help you to interact with PBC and get the maximal utility of our platform.
 
 
