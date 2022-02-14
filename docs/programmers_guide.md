@@ -105,6 +105,12 @@ pub fn vote(
 
 Further reading: [action macro documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_contract_codegen/attr.action.html)
 
+#### A note on functional contracts
+
+Contracts are _functional_: Each interaction point, whether `init` or `action` take some input, and return some output. Interactions cannot produce side effects, visible or not. The state will thus not be changed should a transaction fail while running the contract code, whether due to panics or insufficient gas.
+
+Of further interest here, is that the entire contract is essentially "reset" after every interaction. Any [`static mut` items](https://doc.rust-lang.org/reference/items/static-items.html) will possess their initial value, once again. The only state your contract can possess is the state returned from interactions.
+
 ### `#[init]`
 
 Similar to `#[action]` macro, but declares how the contract can be initialized.
