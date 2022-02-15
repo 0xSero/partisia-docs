@@ -2,7 +2,7 @@
 
 A Partisia Smart Contract utilizes three distinct binary formats, which are described in detail below.
 
-- _RPC Format_: An _action_ of the smart function is invoked when the payload is sent to the action as binary data. The payload identifies which action is invoked and the values for all parameters of the action.
+- _RPC Format_: When an _action_ of the smart function is invoked, the payload is sent to the action as binary data. The payload identifies which action is invoked and the values for all parameters to the action.
 - _State Format_: The _state_ of a smart contract is stored as binary data in the blockchain state. The state holds the value of all smart contract state variables.
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
