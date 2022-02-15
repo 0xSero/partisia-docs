@@ -7,7 +7,7 @@ For price see [Transaction fees](transactions.md).
 
 ## Step 1
 
-Go to the [Archive](rust-contract-sdk-rc4.zip). Download the zip-archive containing the Rust project
+Go to the [Archive](rust-contract-sdk-rc5.zip). Download the zip-archive containing the Rust project
 files and the ABI generator. The ABI generator
 allows you to customize the functions of the contract in accordance with your own imagination. The
 project contains the rust contract. If you are working with a WSL shell on Windows

@@ -1,6 +1,6 @@
 site_name: Partisia BlockChain
 nav:
-  - Home: newfront.md
+  - Home: index.md
   - Getting started as a Node Operator:
       What is a Node Operator: whatisano.md
       How to become a Node Operator: bpinclusion.md
