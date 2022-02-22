@@ -201,20 +201,18 @@ All interactions in an `EventGroup` shares gas costs uniformly.
 
 Further reading: [events module documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_contract_common/events/index.html)
 
-## Cheap memcpy
+## State serialization gas considerations
 
-The SDK also exposes cheaper versions of the `memcpy` and `memmove` functions.
-Most Rust code is already compiled with some version of these functions, as
-they are commonly used for copying data, but rarely called directly from Rust,
-due to their memory [`unsafe`](https://doc.rust-lang.org/std/keyword.unsafe.html) nature.
-The `pbc_lib` crate overwrites these functions with versions that directly
-interact with the PBC WASM Interpreter to trigger the interpreters built-in
-support for quickly copying data around.
+Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically for [CopySerializable](abiv1.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
 
-To take advantage of these overwrites, each contract is required to:
+If quick lookups are required, and the data structure rarely changes, it might be feasible to maintain a sorted `Vec` in state, and use [`[T]::binary_search_by_key`](https://doc.rust-lang.org/std/primitive.slice.html#method.binary_search_by_key) for lookups, essentially creating your own map structure.
 
-- Depend upon `pbc_lib` crate.
-- Ensuring linkage with `pbc_lib` crate.
+Ensure you [depend upon and link against the `pbc_lib` crate](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_lib/index.html). This _should_ automatically lower gas costs.
+
+### Cheap memcpy (or _why_ you should definitely link `pbc_lib`)
+
+The SDK exposes cheaper (in terms of gas) versions of the `memcpy` and `memmove` functions. These functions are commonly used for copying bytes around directly, but are (thankfully) rarely manually used in Rust, though they may still occur in compiled programs due to lower-level libraries and compiler optimizations. Your compiled contracts will be using `memcpy` for (de)serialization, hence why the SDK defines these alternatives.
+
+The `pbc_lib` crate overwrites these functions with versions that directly interact with the PBC WASM Interpreter to trigger the interpreter's built-in support for quickly copying data around.
 
 Further reading: [`pbc_lib` crate documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_lib/index.html)
-

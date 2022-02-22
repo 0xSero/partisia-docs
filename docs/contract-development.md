@@ -1,7 +1,4 @@
-# How to create a WASM smart contract
-
-
-## What is a smart contract?
+# What is a smart contract?
 
 Creating a smart contract is one of the basic ways you can utilize the Partisia Blockchain. A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. So, you do not need a bank or a lawyer to set up a binding agreement anymore, since you have ultimate control over the conditions necessary to make the change happen. Smart contracts are the tool for you if you need to buy, sell, facilitate auctions or administrate portfolios of diverse assets.
 
@@ -9,38 +6,12 @@ Creating a smart contract is one of the basic ways you can utilize the Partisia 
 
 What makes the smart contract on Partisia Blockchain different from contracts on other blockchains is that we allow you to add a privacy layer parallel with the immutable ledger. This means that you through your contract will allocate nodes in the blockchain to handle Zero Knowledge computation. If you for example want to make an auction, you can keep the identity of the current bidder and account information secret and off the record, while the identity of the winner and seller will be added to the immutable record. This will secure a record of change in ownership while at the same time preserving the privacy of all interested parties that don’t give the winning bid. This principle of a combination of a privacy layer and a public record means that the Patisia Blockchain effectively can replace the trustee in binding transactions.
 
-## Develop your first contract
- 
-If you are here you should already have familiarised yourself with the prerequisites. 
-You have an account and have your Linux terminal and Rust environment up and running.
-For price see [Transaction fees](transactions.md).
+## The different contract types and their life on the blockchain
 
-## Step 1
+There are three types of smart contracts on PBC:   
+- **System smart contracts:** The permanent contracts maintaining the PBC Ecosystem, they are involved in the deployment and eventual destruction of the public and private smart contracts as well as a larger number of other essential duties, such as block producer orchestration, preprocessing of data for zero knowledge contracts and changes to procedures on the chain.   
+- **Public smart contracts:**  Public smart contracts are written in the PBC contract language which is based on Rust. A contract has a state which include the variables subject to change. When a user deploys a contract it is sent as a WASM file to a system contract which check the content for type and format validity. Then the public contract is initialized. It is now deployed on the chain and the state of the contract can be changed by the available actions made stipulated in the contract. Actions cannot only change the state of their own contract, but also affect the actions and state of other public smart contracts. An action of a contract affecting an action in another contract is called an interaction (also referred to as event transaction). The transactions constituting the deployment and actions of a contract has a [gas cost](byoc.md). A public smart contract will be destroyed by a system contract when it hits the expiration date set by the contract creator or if it runs out of gas. You can see the life stages below.   
 
-Go to the [Archive](rust-contract-sdk-rc5.zip). Download the zip-archive containing the Rust project
-files and the ABI generator. The ABI generator
-allows you to customize the functions of the contract in accordance with your own imagination. The
-project contains the rust contract. If you are working with a WSL shell on Windows
-you need to extract the archive to `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\`.
-To compile run the following commands after changing directory to the  token-contract folder:
-```` bash
-cargo build --target wasm32-unknown-unknown --release
-````
-Now you will find a .wasm-file in called *token_contract.wasm* in: `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\token-contract\target\wasm32-unknown-unknown\release\`
+![contract_life_stages](deployment2.jpg)
 
-The resulting wasm contract and ABI should be equivalent to this: [wasm and abi](WASMandABI_tokenContract.zip)
-
-## Step 2
-
-If you look at lib.rs file in your IDE, you will see the contract utilizes several functions denoted with the initial *fn*. Three of these functions are actions that allow you to perform the basic operations needed for a transfer. The functions are *initialize*, *mint*, and *transfer*. After deployment, you can call the functions from the dashboard. When you perform an action it changes the contract state. If you inspect the contract you can see the serialized data showing the contract state. You can make sense of the data and see the actual contract state by applying the reader function `fn read_from` from the contract to the datastream.
-
-## Step 3
-
-Open the wallet in the [dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm). Select the `token_contract.wasm` and the `token_contract.abi`. In the Init field you put the number of tokens you want minted for total supply of the contract from the moment of deployment. After you send the contract to the chain a box appears below. You are provided with the following information fields *Execution status*, *Hash*, *Invocation* and *Deployed at*.
-You are now ready to interact with the contract. Copy the address of deployment and paste it into the menu *Interact Wasm Contract*. Now you can mint and transfer your tokens.
-
-[DemoVid](https://youtu.be/qV2grtWDxUE)
-
-
-Congratulations! You have now created an active smart-contract on the Partisa Blockchain. You can add your personalized functions according to your wishes.  
-
+- **Private smart contracts** - Are just like public smart contracts except that the contract stipulates some actions of the contract taking place on the special private layer of the PBC. These actions are zero knowledge computations. Famously PBC supports secure multiparty computation called MPC giving name to the blockcain's native token.
