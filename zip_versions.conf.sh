@@ -14,6 +14,7 @@ function get_current_version() {
   fi
 }
 
+# shellcheck disable=SC2034
 declare -A content0=(
   [repo]='gitlab.com/privacyblockchain/language/cargo-partisia-contract.git'
   [output]='cargo-partisia-contract'
@@ -21,6 +22,7 @@ declare -A content0=(
   [post_process]='true'
 )
 
+# shellcheck disable=SC2034
 declare -A content1=(
   [repo]='gitlab.com/privacyblockchain/language/rust-contract-sdk.git'
   [output]='rust-contract-sdk'
@@ -28,6 +30,7 @@ declare -A content1=(
   [post_process]='true'
 )
 
+# shellcheck disable=SC2034
 declare -A content2=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-token-contract.git'
   [output]='examples/rust-example-token-contract'
@@ -35,6 +38,7 @@ declare -A content2=(
   [post_process]='replace_dependency_path'
 )
 
+# shellcheck disable=SC2034
 declare -A content3=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-voting-contract.git'
   [output]='examples/rust-example-voting-contract'
@@ -42,4 +46,5 @@ declare -A content3=(
   [post_process]='replace_dependency_path'
 )
 
+# shellcheck disable=SC2034
 declare -n content
