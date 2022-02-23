@@ -35,7 +35,7 @@ cd examples/rust-example-token-contract
 cargo partisia-contract build --release
 ````
 
-Now you will find a .wasm-file in called *token_contract.wasm* in: `/tmp/pbc-rust-wasm/token-contract/target/wasm32-unknown-unknown/release`, which is `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\token-contract\target\wasm32-unknown-unknown\release\` in WSL.
+Now you will find a .wasm-file in called *token_contract.wasm* in: `/tmp/pbc-rust-wasm/examples/rust-example-token-contract/target/wasm32-unknown-unknown/release`, which is `\\wsl$\Ubuntu\tmp\pbc-rust-wasm\token-contract\target\wasm32-unknown-unknown\release\` in WSL.
 
 If you look at lib.rs file in your IDE, you will see the contract utilizes several functions denoted with the initial *fn*. Three of these functions are actions that allow you to perform the basic operations needed for a transfer. The functions are *initialize*, *mint*, and *transfer*. After deployment, you can call the functions from the dashboard. When you perform an action it changes the contract state. If you inspect the contract you can see the serialized data showing the contract state. You can make sense of the data and see the actual contract state by applying the reader function `fn read_from` from the contract to the datastream.
 
