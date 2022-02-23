@@ -1,6 +1,6 @@
 # Accounts
 
-When you create an account on Partisia Blockchain you randomly generate a private key known only to you. When you sign transactions you use the private key.  
+When you create an account on Partisia Blockchain you randomly generate a private key (or a mnemonic phrase) known only to you. When you sign transactions you use the private key.  
 
 An PBC account holds the information necessary to enabling the user to perform transactions. This information includes:
 
