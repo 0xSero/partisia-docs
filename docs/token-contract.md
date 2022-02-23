@@ -1,6 +1,6 @@
 ## Develop your first contract
 
-**Must have for this section:**
+**Must have for this section:**  
 1. An account on PBC - can be created in [wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh), if you do not have one from [purchase of MPC tokens](https://kyc.partisiablockchain.com/).  
 2. [Get some gas to cover transaction costs](byoc.md).
 
