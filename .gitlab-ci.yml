@@ -1,19 +1,61 @@
-image: 
+image:
   name: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
 
-pages:
+stages:
+- prepare
+- build
+- deploy
+
+prepare-zip:
+  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  stage: prepare
+  only:
+    refs:
+    - master
+    changes:
+    - version.txt
+  script:
+  - ./build-zip.sh
+
+prepare-zip-dev:
+  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  stage: prepare
+  except:
+  - master
+  script:
+  - ./build-zip.sh
+
+build-site:
+  stage: build
   script:
   - mkdocs build --site-dir public
-  only: 
+  artifacts:
+    paths:
+    - public
+
+pages:
+  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  stage: deploy
+  dependencies:
+  - build-site
+  script:
+  - ./replace-zip-version.sh
+  only:
   - master
   artifacts:
     paths:
     - public
 
 pages-dev:
+  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  stage: deploy
+  dependencies:
+  - build-site
   script:
-  - mkdocs build --site-dir public
-  except: 
+  - ./replace-zip-version.sh
+  except:
   - master
   artifacts:
     paths:
