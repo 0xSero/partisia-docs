@@ -9,9 +9,9 @@ Now add the wasm32 target:
 rustup update
 rustup target add wasm32-unknown-unknown
 ```
-If Working from a Windows machine you must either:
-- [Get Visual Studio with C++  build tools](https://visualstudio.microsoft.com/downloads/) - In Visual Studio Installer choose *Desktop development with C++*.
-- [Install Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install)
+If Working from a Windows machine you must either:   
+- [Get Visual Studio with C++  build tools](https://visualstudio.microsoft.com/downloads/) - In Visual Studio Installer choose *Desktop development with C++*.   
+- [Install Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install)   
 
 ### Step 2: Download Partisia Contract SDK
 
@@ -45,7 +45,7 @@ If you look at lib.rs file in your IDE, you will see the contract utilizes sever
 
 ## Step 5: Upload the contract to the blockchain
 
-Open the wallet in the [Dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm) or use [Partisia Blockchain Explorer](https://mpcexplorer.com/deploy-contract) Select the `token_contract.wasm` and the `token_contract.abi`. In the *total_supply* field you put the number of tokens you want minted for total supply of the contract from the moment of deployment. The *decimals* field indicates placement of decimal point in total supply. E.g. total supply: 1050 decimals: 3 will mint supply of 1.050 token. After you send the contract to the chain a box appears below. You are provided with the following information fields *Execution status*, *Hash*, *Invocation* and *Deployed at*.  Successful deployment will look like
+To deploy a smart contract you need an [account](accounts.md) with [gas](byoc.md) to cover transaction costs. Open the wallet in the [Dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm) or use [Partisia Blockchain Explorer](https://mpcexplorer.com/deploy-contract) Select the `token_contract.wasm` and the `token_contract.abi`. In the *total_supply* field you put the number of tokens you want minted for total supply of the contract from the moment of deployment. The *decimals* field indicates placement of decimal point in total supply. E.g. total supply: 1050 decimals: 3 will mint supply of 1.050 token. After you send the contract to the chain a box appears below. You are provided with the following information fields *Execution status*, *Hash*, *Invocation* and *Deployed at*.  Successful deployment will look like
 this:
 
 ![deployment](deployment.png)
