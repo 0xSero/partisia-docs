@@ -8,18 +8,16 @@ nav:
       Running a PBC Node: operator.md
       REST API documentation: rest
   - Getting started as a developer:
-      What is a smart contract and why develop on PBC: contract-development.md
+      What is a smart contract: contract-development.md
       Develop your first contract - token contract example: token-contract.md
       Programmer's Guide to PBC SDK: programmers_guide.md
       ABI specification: abiv1.md
       Create a smart contract for a specific scenario: voting-contract.md
-  - Zero knowledge contracts:
-      Zero Knowledge Contract - vickrey auction example: vickrey.md
-  - Economic Ecosystem:
+      Zero Knowledge Contracts: vickrey.md
+  - Concepts:
       Accounts: accounts.md
       BYOC and gas: byoc.md
       MPC tokens: mpc-tokens.md
-  - Concepts:
       Transactions: transactions.md
       Blocks: block.md
       Consensus Model: consensus.md

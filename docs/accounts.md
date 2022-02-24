@@ -1,6 +1,8 @@
 # Accounts
 
-When you create an account on Partisia Blockchain you randomly generate a private key (or a mnemonic phrase) known only to you. When you sign transactions you use the private key.  
+Create an account through the [wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) or when you buy [MPC tokens](https://kyc.partisiablockchain.com/) for staking on a node.
+
+Every account has an individual private key used for signing transactions, this key has a public counterpart called a public key.
 
 An PBC account holds the information necessary to enabling the user to perform transactions. This information includes:
 
