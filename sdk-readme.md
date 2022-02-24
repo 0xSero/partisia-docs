@@ -16,7 +16,9 @@ rustup install 1.56
 rustup target add --toolchain 1.56 wasm32-unknown-unknown
 rustup default 1.56
 ```
- 
+**NB.** You must acquire *C++ build tools for Windows*, if you work in Git Bash or PowerShell:  
+[Download Visual Studio with C++](https://visualstudio.microsoft.com/downloads/) In Visual Studio Installer choose *Desktop development with C++*.  
+
 ## Compile and install the cargo `partisia-contract` command
 
 In this zip  there is a folder called `cargo-partisia-contract`. 
@@ -29,7 +31,12 @@ cargo install --path .
 ```
 Test that it worked by executing: `cargo partisia-contract --version`. This should print the version of the command.
 
-To compile a contract you simply write: `cargo partisia-contract build`
+To compile a contract you simply change directory to one of the rust-example-contracts and compile: 
+```bash
+cd ..
+cd examples/rust-example-token-contract/
+cargo partisia-contract build
+```
 
 To compile a contract in release mode you include the `--release` flag: `cargo partisia-contract build --release`
 
