@@ -13,7 +13,7 @@ prepare-zip:
   stage: prepare
   only:
     refs:
-    - master
+    - main
     changes:
     - version.txt
   script:
@@ -23,7 +23,7 @@ prepare-zip-dev:
   image: registry.gitlab.com/partisia/dockerimages/rust:latest
   stage: prepare
   except:
-  - master
+  - main
   script:
   - ./build-zip.sh
 
@@ -43,7 +43,7 @@ pages:
   script:
   - ./replace-zip-version.sh
   only:
-  - master
+  - main
   artifacts:
     paths:
     - public
@@ -56,7 +56,7 @@ pages-dev:
   script:
   - ./replace-zip-version.sh
   except:
-  - master
+  - main
   artifacts:
     paths:
     - public
