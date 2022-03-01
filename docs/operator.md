@@ -1,4 +1,4 @@
-# Getting started with PBC
+# Run a node on Partisia Blockchain
 
 Starting and running a PBC node is fairly simple but requires some prerequisites:
 
