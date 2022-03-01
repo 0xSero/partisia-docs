@@ -2,7 +2,8 @@
 
 MPC is the name used for the PBC native token. MPC tokens are used for staking on a Node.   
 
-**Functions of MPC tokens:**   
+**Functions of MPC tokens:**
+   
 - A stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services. The staking requirements for different tasks can be read [here](whatisano.md).   
 - The staked MPC tokens provide an additional guaranty. Since the stake can be used to pay compensation for misconduct committed by a node operator.   
 - The staked MPC tokens create an incentive structure that align the user's security interest with the financial interests of the node operators who facilitate the transactions on the network.   
