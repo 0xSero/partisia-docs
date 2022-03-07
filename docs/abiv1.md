@@ -70,6 +70,8 @@ $$
 }
 $$
 
+Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
+
 For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a big endian 32-bit unsigned integer.
 
 $$
@@ -105,6 +107,8 @@ $$
 \end{align*}
 }
 $$
+
+Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
 For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a little endian 32-bit unsigned integer.
 
@@ -202,7 +206,7 @@ $$
 \text{<CompositeTypeSpec>} \ := \ &\hexi{0e} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Vec<}\text{T>} \\
 | \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{Map <}\text{K}, \text{V>} \\
 | \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Set<}\text{T>} \\
-| \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]} & (\hexi{01} \leq L \leq \hexi{20}) \\
+| \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]} & (\hexi{00} \leq L \leq \hexi{7F}) \\
 | \ &\hexi{12} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Option<}\text{T>} \\
 \\
 \end{align*}
@@ -211,6 +215,8 @@ $$
 
 **NOTE:** `Map` and `Set` cannot be used as RPC arguments since it's not possible for a
 caller to check equality and sort order of the elements without running the code.
+
+Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
 #### ABI File binary format
 
@@ -258,3 +264,30 @@ $$
 \end{align*}
 }
 $$
+
+<!-- fix syntax highlighting* -->
+
+## Wasm contract result format
+
+The format used by Wasm contracts to return results is a section-based format defined as following:
+
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<Result>} \ :=
+  \ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
+\text{<Section >} \ :=
+  \ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len} & \ \text{(len is big endian)} \\
+\end{align*}
+}
+$$
+<!-- fix syntax highlighting* -->
+
+Note that section must occur in order of increasing ids. Two ids are
+"well-known" and specially handled by the interpreter:
+
+- `0x01`: Stores event information.
+- `0x02`: Stores state.
+
+Section ids `0x00` to `0x0F` are reserved for "well-known" usage. All others
+are passed through the interpreter without modification.
