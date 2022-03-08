@@ -31,8 +31,8 @@ For the rest of the text we will assume you are using `nano`.
 
 The recommended specs are:
 
-- Quad-core CPU
-- 8 GB RAM
+- 8 vCPU or 8 cores
+- 8 GB RAM (4 GB is absolute minimum)
 - 40 GB SSD
 - Publicly accessible IP with ports `9888` to `9897` open
 
@@ -187,9 +187,9 @@ services:
     - /opt/pbc-betanet/conf:/conf
     - /opt/pbc-betanet/storage:/storage
     environment:
-    - JAVA_TOOL_OPTIONS="-Xmx2G"
+    - JAVA_TOOL_OPTIONS="-Xmx8G"
 ````
-**Note: If your have the recommended memory of 8 GB RAM it is OK to increase JVM memory up to 6 GB, just be aware of the issues  this can cause for your garbage collector**
+**Note: If your have the recommended memory of 8 GB RAM it is OK to increase JVM memory up to 8 GB, just be aware of the issues  this can cause for your garbage collector**
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
 
