@@ -189,7 +189,6 @@ services:
     environment:
     - JAVA_TOOL_OPTIONS="-Xmx8G"
 ````
-**Note: If your have the recommended memory of 8 GB RAM it is OK to increase JVM memory up to 8 GB, just be aware of the issues  this can cause for your garbage collector**
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
 
