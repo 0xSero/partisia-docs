@@ -231,7 +231,7 @@ The storage of the node is based on RocksDB. It is write-heavy and will increase
 
 ## Updating
 
-Updating the PBC node is a simple 4-step process:
+Updating the PBC node is a simple 3-step process:
 
 ```` bash
 cd ~/pbc
