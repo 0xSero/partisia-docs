@@ -32,7 +32,7 @@ For the rest of the text we will assume you are using `nano`.
 The recommended specs are:
 
 - 8 vCPU or 8 cores
-- 8 GB RAM (4 GB is absolute minimum)
+- 10 GB RAM (8 GB allocated JVM, 4 GB is absolute minimum)
 - 40 GB SSD
 - Publicly accessible IP with ports `9888` to `9897` open
 
