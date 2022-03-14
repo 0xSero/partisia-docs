@@ -1,14 +1,14 @@
 # Run a node on Partisia Blockchain
 
 
->**Topics covered:** 
+>**Topics covered:**  
 >- Hardware and software for running your node.   
 >- Terminal commands you run for starting and updating the node. And the commands for creating the necessary directories, folders and files and setting their permissions.   
 >
->**Skills you need:**   
+>**Skills you need:**     
 >- You can use a text editor and change file permissions from a Linux terminal.   
 >
->**Scope:**
+>**Scope:**   
 >- When you finish this guide you know the necessary node hardware and software. You know how to start and update a node. If you want to know the formal conditions for paticipation in the network you should read [how to become a node operator](bpinclusion.md).   
 
 
