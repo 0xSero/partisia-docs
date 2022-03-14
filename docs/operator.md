@@ -3,9 +3,13 @@
 
 >**Topics covered:** 
 >- Hardware and software for running your node. 
->- Terminal commands you run for starting and updating the node. And for creating the necessary directories, folders and files. 
->**Prerequisites:** You have
+>- Terminal commands you run for starting and updating the node. And the commands for creating the necessary directories, folders and files and setting their permissions. 
+>
+>**Skills you need:**   
+>- You can use a text editor and change file permissions from a Linux terminal.
+>
 >**Scope:**
+>- When you finish this guide you know the necessary node hardware and software. You know how to start and update a node. If you want to know the formal conditions for paticipation in the network you should read [how to become a node operator](bpinclusion.md).  
 
 
 
@@ -21,6 +25,7 @@
 
 - [Docker](https://docs.docker.com/engine/install/) (Note that the version in your repository may be too old)
 - Linux (In this tutorial Ubuntu 20.04.3 was used)
+- A text editor (In this tutorial nano 4.3 was used)
 
 ## Start your node
 
