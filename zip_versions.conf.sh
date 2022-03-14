@@ -34,7 +34,7 @@ declare -A content1=(
 declare -A content2=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-token-contract.git'
   [output]='examples/rust-example-token-contract'
-  [version_ref]='0.2.1-a-sdk-3.1.0'
+  [version_ref]='tags/0.2.1-a-sdk-3.1.0'
   [post_process]='replace_dependency_path'
 )
 
@@ -42,7 +42,7 @@ declare -A content2=(
 declare -A content3=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-voting-contract.git'
   [output]='examples/rust-example-voting-contract'
-  [version_ref]='0.2.2-sdk-3.1.0'
+  [version_ref]='tags/0.2.2-sdk-3.1.0'
   [post_process]='replace_dependency_path'
 )
 
