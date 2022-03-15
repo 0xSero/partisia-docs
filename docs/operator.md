@@ -10,7 +10,7 @@
 >
 >**Scope:**   
 > - When you finish this guide you know the necessary node hardware and software. You know how to start and update a node. If you want to know the formal conditions for paticipation in the network you should read [how to become a node operator](bpinclusion.md).   
-
+> 
 
 
 ## Recommended machine specs
