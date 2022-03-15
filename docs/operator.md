@@ -3,7 +3,7 @@
 
 >**Topics covered:**  
 >
-- Hardware and software for running your node.   
+>- Hardware and software for running your node.   
 > - Terminal commands you run for starting and updating the node. And the commands for creating the necessary directories, folders and files and setting their permissions.   
 >
 >**Skills you need:**     
