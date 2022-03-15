@@ -123,7 +123,8 @@ You can verify the contents of the files are what you expect by opening them wit
 ````bash
 sudo cat /opt/pbc-betanet/conf/genesis.json
 # The genesis file should be printed here
-
+````
+````bash
 sudo cat /opt/pbc-betanet/conf/config.json
 # The config file should be printed here
 ````
@@ -134,9 +135,17 @@ Now we need to make sure the user with uid `1500` has the needed access to the f
 
 ```` bash
 sudo chown -R "1500:1500" /opt/pbc-betanet
-sudo chmod 500 /opt/pbc-betanet/conf    
+````
+````bash
+sudo chmod 500 /opt/pbc-betanet/conf
+````
+````bash
 sudo chmod 700 /opt/pbc-betanet/storage
+````
+````bash
 sudo chmod 400 /opt/pbc-betanet/conf/genesis.json
+````
+````bash
 sudo chmod 400 /opt/pbc-betanet/conf/config.json
 ````
 
@@ -150,7 +159,11 @@ Start by creating a directory `pbc` and add a file named `docker-compose.yml`.
 
 ````bash
 mkdir -p pbc
+````
+````bash
 cd pbc
+````
+````bash
 nano docker-compose.yml
 ````
 
@@ -212,9 +225,13 @@ The storage of the node is based on RocksDB. It is write-heavy and will increase
 
 Updating the PBC node is a simple 3-step process:
 
-```` bash
+````bash
 cd ~/pbc
+````
+````bash
 sudo docker-compose pull
+````
+````bash
 sudo docker-compose up -d
 ````
 
