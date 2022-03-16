@@ -6,7 +6,7 @@ The sign-up is a five-step process:
 2. Rent or buy a server where you can run the node.
 3. Send the public IP of the server hosting the node, your PBC Address and e-mail to *@Kristian Hu#7382* in a direct message on the Node Operator Discord Channel. E-mail is necessary for access to the Gitlab repository, the IP establish contact between the node and network. We check if we can reach you. (This step is only temporary and will be replaced by an automated process).
 4. Configure the node in accordance with the description [here](operator.md).
-5. Send a Register Transaction and a Staking Transaction through the [MPC Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) 
+5. Send a Register Transaction and a Staking Transaction by connecting your [MPC Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) to the [Partisia Blochain Explorer](https://mpcexplorer.com/) 
 
 ## Content of the Register Transaction
 
@@ -17,6 +17,8 @@ The sign-up is a five-step process:
 - BLS PublicKey (BLS12-381 PublicKey of your BLS keyset) - the form generates the BLS public key when you sign with the BLS private key.
 - EntityJurisdiction (Your country of residence - ISO 3166-1: 3-digit code referring to a country)
 - ServerJurisdiction (Location of the server where you operate the node - ISO 3166-1: 3-digit code referring to a country)
+
+**NB.** You can change your public information from the Register Transaction by doing an [Update Transaction](update-transaction.md)
 
 ## Content of Staking Transaction
 
