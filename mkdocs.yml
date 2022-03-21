@@ -3,9 +3,9 @@ nav:
   - Home: index.md
   - Getting started as a Node Operator:
       What is a Node Operator: whatisano.md
-      How to become a Node Operator: bpinclusion.md
-      Creating the keys: newkeypair.md
-      Running a PBC Node: operator-6-bp.md
+      How to become a Node Operator: operator-0-introduction.md
+      Creating the keys: operator-6-keys.md
+      Running a PBC Node: operator-7-bp.md
       REST API documentation: rest
   - Getting started as a developer:
       What is a smart contract: contract-development.md

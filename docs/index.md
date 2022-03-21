@@ -8,10 +8,8 @@
 
 ## Getting started as a Node Operator
 
-- [What is a Node Operator?](whatisano.md)   
-- [How to become a Node Operator](bpinclusion.md)
-- [Creating the keys](newkeypair.md)  
-- [Running a PBC Node](operator.md)
+- [What is a Node Operator?](whatisano.md)
+- [Run a node on PBC](operator-0-introduction.md)
 
 ## Getting started as a developer
 - [What is a Smart Contract](contract-development.md)

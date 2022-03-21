@@ -1,4 +1,4 @@
-# Run a Block Producing node on Partisia Blockchain
+# Run a block producing node on Partisia Blockchain
 
 
 >**Topics covered:**  

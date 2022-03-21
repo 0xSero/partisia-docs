@@ -1,4 +1,4 @@
-# Run a node Part 1 - Recommended hardware and software
+# Run a node Part 1 - Recommended hardware, software and access to Git repository
 
 
 >**Topics covered:**
@@ -27,3 +27,7 @@
 - [Docker](https://docs.docker.com/engine/install/) (Note that the version in your repository may be too old)
 - Linux (In this tutorial Ubuntu 20.04.3 was used)
 - A text editor (In this tutorial nano 4.3 was used)
+
+## Access to Gitlab Repository
+
+- Send your e-mail address to *@Kristian Hu#7382* in a direct message on the Partisia Blockchain Discord Channel for access to Partisia's Gitlab Repository. If you are not already a member of the node of our Discord channel write a direct message to @bryanpartisia on Telegram, he will add you to the group. 
