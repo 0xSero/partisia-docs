@@ -32,7 +32,7 @@ Consider for example a basic public voting contract:
 > - Vote subject, Voters and Deadline are all permanent attributes of the vote,
 >   and so should be set in the initializer.
 
-Contracts' state and actions must be declared in an [Contract ABI file](abiv1.md#ABI Binary Format);
+Contracts' state and actions must be declared in an [Contract ABI file](abiv_latest.md#ABI Binary Format);
 a concise description of the contract's interface and internal state
 representation, that must be uploaded together with the contract code when
 initializing the contract.  Without an ABI file, it might be impossible for the
@@ -151,9 +151,9 @@ The SDK exposes traits that provides serialization methods. These traits are
 important for the operation of PBC contracts, but should rarely be implemented
 manually; prefer using the built-in derive methods.
 
-- ReadWriteState: Serialization for [State serialization format](abiv1.md#State Binary Format).
-- ReadWriteRPC: Serialization for [RPC argument serialization format](abiv1.md#RPC Binary Format).
-- CreateTypeSpec: Serialization for [ABI serialization format](abiv1.md#ABI Binary Format).
+- ReadWriteState: Serialization for [State serialization format](abiv_latest.md#State Binary Format).
+- ReadWriteRPC: Serialization for [RPC argument serialization format](abiv_latest.md#RPC Binary Format).
+- CreateTypeSpec: Serialization for [ABI serialization format](abiv_latest.md#ABI Binary Format).
 
 Further reading: [`pbc_traits` crate documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_traits/index.html)
 
@@ -203,7 +203,7 @@ Further reading: [events module documentation](https://privacyblockchain.gitlab.
 
 ## State serialization gas considerations
 
-Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically for [CopySerializable](abiv1.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
+Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically for [CopySerializable](abiv_latest.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
 
 If quick lookups are required, and the data structure rarely changes, it might be feasible to maintain a sorted `Vec` in state, and use [`[T]::binary_search_by_key`](https://doc.rust-lang.org/std/primitive.slice.html#method.binary_search_by_key) for lookups, essentially creating your own map structure.
 
