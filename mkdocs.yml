@@ -3,9 +3,15 @@ nav:
   - Home: index.md
   - Getting started as a Node Operator:
       What is a Node Operator: whatisano.md
-      How to become a Node Operator: operator-0-introduction.md
-      Creating the keys: operator-6-keys.md
-      Running a PBC Node: operator-7-bp.md
+      Run a node - introduction and index: operator-0-introduction.md
+      Run a node 1: operator-1-specs.md
+      Run a node 2: operator-2-reader.md
+      Run a node 3: operator-3-vps.md
+      Run a node 4: operator-4-security.md
+      Run a node 5: operator-5-reader-vps.md
+      Run a node 6: operator-6-keys.md
+      Run a node 7: operator-7-bp.md
+      Run a node 8: operator-8-registration.md
       REST API documentation: rest
   - Getting started as a developer:
       What is a smart contract: contract-development.md
