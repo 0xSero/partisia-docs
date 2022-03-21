@@ -1,9 +1,9 @@
-# Run a node on Partisia Blockchain
+# Run a Block Producing node on Partisia Blockchain
 
 
 >**Topics covered:**  
 >
->- Hardware and software for running your node.   
+> - Hardware and software for running your node.   
 > - Terminal commands you run for starting and updating the node. And the commands for creating the necessary directories, folders and files and setting their permissions.   
 >
 >**Skills you need:**    
@@ -13,25 +13,6 @@
 >**Scope:**
 > 
 > - When you finish this guide you know the necessary node hardware and software. You know how to start and update a node. If you want to know the formal conditions for paticipation in the network you should read [how to become a node operator](bpinclusion.md).   
-
-
-## Recommended machine specs
-
-
-- 8 vCPU or 8 cores
-- 10 GB RAM (8 GB allocated JVM, 4 GB is absolute minimum)
-- 40 GB SSD
-- Publicly accessible IP with ports `9888` to `9897` open
-
-## Necessary software
-
-- [Docker](https://docs.docker.com/engine/install/) (Note that the version in your repository may be too old)
-- Linux (In this tutorial Ubuntu 20.04.3 was used)
-- A text editor (In this tutorial nano 4.3 was used)
-
-## Start your node
-
-This [video](https://asciinema.org/a/UnZCs1xHiIwmg1lPx6WZe6SA3) show the steps below. If you want an overview before you run the commands.
 
 ### Step 1 - Creating the folders
 
@@ -69,25 +50,6 @@ Now do the same for `config.json`:
 
 ````bash
 sudo nano /opt/pbc-betanet/conf/config.json
-````
-
-For a Reader Node paste the following:
-
-````json
-{
-  "restPort": 8080,
-  "floodingPort": 9888,
-  "knownPeers": [
-    "188.180.83.49:9090",
-    "188.180.83.49:9190",
-    "188.180.83.49:9290",
-    "188.180.83.49:9390",
-    "174.138.2.217:9888",
-    "172.93.110.125:9888",
-    "107.189.1.171:9888",
-    "176.78.42.5:9888"
-  ]
-}
 ````
 
 Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes:

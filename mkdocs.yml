@@ -5,7 +5,7 @@ nav:
       What is a Node Operator: whatisano.md
       How to become a Node Operator: bpinclusion.md
       Creating the keys: newkeypair.md
-      Running a PBC Node: operator.md
+      Running a PBC Node: operator-6-bp.md
       REST API documentation: rest
   - Getting started as a developer:
       What is a smart contract: contract-development.md
