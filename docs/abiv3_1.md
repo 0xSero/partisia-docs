@@ -6,13 +6,6 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _State Format_: The _state_ of a smart contract is stored as binary data in the blockchain state. The state holds the value of all smart contract state variables.
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
-## ABI Version changes
-
-- Version **3.1** to **4.0**
-    * Added `Kind: FnKind` field to `FnAbi`.
-    * Removed `Init` field from `ContractAbi`.
-    * Added zero-knowledge related `FnKind`s, for use in Zk contracts.
-
 ## RPC Binary Format
 
 The RPC payload identifies which action is invoked and the values for all parameters of the action.
@@ -241,8 +234,9 @@ $$
 \text{<ContractAbi>} \ := \ \{ \
 &\text{ShortnameLength: }\byte{}, \\
 &\text{StructTypes: List<StructTypeAbi>}, \\
-&\text{Hooks: List<FnAbi>}, \\
-&\text{StateType: TypeSpec} \ \} \\
+&\text{Init: FnAbi}, \\
+&\text{Actions: List<FnAbi>}, \\
+&\text{StateType: TypeSpec} \ \}
 \\
 \text{<StructTypeAbi>} \ := \ \{ \
 &\text{Name: Identifier}, \\
@@ -251,7 +245,6 @@ $$
 \text{<FnAbi>} \ := \ \{ \
 &\text{Name: Identifier}, \\
 &\text{Shortname: LEB128}, \\
-&\text{Kind: FnKind}, \\
 &\text{Arguments: List<ArgumentAbi>} \ \} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
@@ -266,18 +259,8 @@ $$
 &\text{len:}\bytes{4} \ \text{utf8:}\bytes{len} & \text{utf8 must be Rust identifier, len is big endian} \\
 \\
 \text{<LEB128>} \ := \ \phantom{\{} \
-&\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).} \\
+&\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).}
 \\
-\text{<FnKind>} \ := \ \
-&\text{Init} & \text{(1 byte enum. Discriminant 0x01)} \\
-|\ &\text{Action}  & \text{(0x02)} \\
-|\ &\text{Callback}  & \text{(0x03)} \\
-|\ &\text{ZkSecretInput}  & \text{(0x10)} \\
-|\ &\text{ZkVarInputted}  & \text{(0x11)} \\
-|\ &\text{ZkVarRejected}  & \text{(0x12)} \\
-|\ &\text{ZkComputeComplete}  & \text{(0x13)} \\
-|\ &\text{ZkVarOpened}  & \text{(0x14)} \\
-|\ &\text{ZkUserVarOpened}  & \text{(0x15)}
 \end{align*}
 }
 $$
