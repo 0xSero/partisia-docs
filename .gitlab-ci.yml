@@ -30,7 +30,7 @@ prepare-zip-dev:
 build-site:
   stage: build
   script:
-  - mkdocs build --site-dir public
+  - mkdocs build --site-dir public --strict
   artifacts:
     paths:
     - public
