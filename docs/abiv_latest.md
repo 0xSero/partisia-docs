@@ -249,9 +249,9 @@ $$
 &\text{Fields: List<FieldAbi>} \ \} \\
 \\
 \text{<FnAbi>} \ := \ \{ \
+&\text{Kind: FnKind}, \\
 &\text{Name: Identifier}, \\
 &\text{Shortname: LEB128}, \\
-&\text{Kind: FnKind}, \\
 &\text{Arguments: List<ArgumentAbi>} \ \} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
@@ -269,15 +269,15 @@ $$
 &\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).} \\
 \\
 \text{<FnKind>} \ := \ \
-&\text{Init} & \text{(1 byte enum. Discriminant 0x01)} \\
-|\ &\text{Action}  & \text{(0x02)} \\
-|\ &\text{Callback}  & \text{(0x03)} \\
-|\ &\text{ZkSecretInput}  & \text{(0x10)} \\
-|\ &\text{ZkVarInputted}  & \text{(0x11)} \\
-|\ &\text{ZkVarRejected}  & \text{(0x12)} \\
-|\ &\text{ZkComputeComplete}  & \text{(0x13)} \\
-|\ &\text{ZkVarOpened}  & \text{(0x14)} \\
-|\ &\text{ZkUserVarOpened}  & \text{(0x15)}
+&\hexi{01} \ \Rightarrowx \text{Init} \\
+|\ &\hexi{02} \ \Rightarrowx \text{Action} \\
+|\ &\hexi{03} \ \Rightarrowx \text{Callback} \\
+|\ &\hexi{10} \ \Rightarrowx \text{ZkSecretInput} \\
+|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted} \\
+|\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected} \\
+|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete} \\
+|\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened} \\
+|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened}
 \end{align*}
 }
 $$
