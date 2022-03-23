@@ -1,5 +1,6 @@
 site_name: Partisia Blockchain
-site_url: https://partisiablockchain.gitlab.io/documentation/
+site_url:
+use_directory_urls: False
 nav:
   - Home: index.md
   - Getting started as a Node Operator:
