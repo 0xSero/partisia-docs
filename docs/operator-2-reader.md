@@ -114,7 +114,7 @@ cd
 ````bash
 mkdir -p pbc
 ````
-We put the docker in home directory to prevent users who access docker from gaining easy access to information in the `config.json`
+We put the docker in home directory to prevent users who access docker from gaining easy access to information in the `config.json`. Therefor you can execute the following docker commands without superuser privileges.
 ````bash
 cd pbc
 ````
