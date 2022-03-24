@@ -15,7 +15,7 @@
 
 ### Step 1 - Creating the folders
 
-In this guide we will be running the nodes from the folder `/opt/pbc-betanet` with user:group `1500:1500`. First we need to create the `conf` and `storage` folders for the application:
+First we need to create the `conf` and `storage` folders for the application:
 
 ```` bash
 sudo mkdir -p /opt/pbc-betanet/conf
@@ -108,7 +108,9 @@ The above commands set conservative permissions on the folders the node is using
 You can run the node using the `docker` terminal command or using the slightly more readable `docker-compose`. The latter is not installed by default.
 
 Start by creating a directory `pbc` and add a file named `docker-compose.yml`.
-
+````bash
+cd
+````
 ````bash
 mkdir -p pbc
 ````
@@ -146,7 +148,7 @@ Keep an eye on the indentation since YAML is whitespace sensitive, and it won't 
 You don't yet have access to the Partisia container repository, so you first need to log in.
 
 ````bash
-sudo docker login -u <GitLab e-mail address> registry.gitlab.com
+docker login -u <GitLab e-mail address> registry.gitlab.com
 ````
 
 **Note:** If you have two-factor login enabled in GitLab you need to create a [personal access token](https://gitlab.com/-/profile/personal_access_tokens).
@@ -154,13 +156,13 @@ sudo docker login -u <GitLab e-mail address> registry.gitlab.com
 You can now start the node:
 
 ````bash
-sudo docker-compose up -d
+docker-compose up -d
 ````
 
 This should pull the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running, run:
 
 ````bash
-sudo docker logs -f pbc-betanet-reader
+docker logs -f pbc-betanet-reader
 ````
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
@@ -181,10 +183,10 @@ Updating the PBC node is a simple 3-step process:
 cd ~/pbc
 ````
 ````bash
-sudo docker-compose pull
+docker-compose pull
 ````
 ````bash
-sudo docker-compose up -d
+docker-compose up -d
 ````
 
 First you change the directory to where you put your `docker-compose.yml` file. You then stop the currently running container, pull the newest image and start it again. You should now be running the newest version of the software.
