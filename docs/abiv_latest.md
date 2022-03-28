@@ -8,7 +8,7 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 
 ## ABI Version changes
 
-- Version **3.1** to **4.0**
+- [Version **3.1**](abiv3_1.md) to **4.0**:
     * Added `Kind: FnKind` field to `FnAbi`.
     * Removed `Init` field from `ContractAbi`.
     * Added zero-knowledge related `FnKind`s, for use in Zk contracts.
@@ -269,18 +269,21 @@ $$
 &\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).} \\
 \\
 \text{<FnKind>} \ := \ \
-&\hexi{01} \ \Rightarrowx \text{Init} \\
-|\ &\hexi{02} \ \Rightarrowx \text{Action} \\
-|\ &\hexi{03} \ \Rightarrowx \text{Callback} \\
-|\ &\hexi{10} \ \Rightarrowx \text{ZkSecretInput} \\
-|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted} \\
-|\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected} \\
-|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete} \\
-|\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened} \\
-|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened}
+&\hexi{01} \ \Rightarrowx \text{Init} &\text{(Num allowed: 1)} \\
+|\ &\hexi{02} \ \Rightarrowx \text{Action}  &\text{(0..}\infty\text{)}\\
+|\ &\hexi{03} \ \Rightarrowx \text{Callback}  &\text{(0..}\infty\text{)}\\
+|\ &\hexi{10} \ \Rightarrowx \text{ZkSecretInput}  &\text{(0..}\infty\text{)}\\
+|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..1)}\\
+|\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected}  &\text{(0..1)}\\
+|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..1)}\\
+|\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
+|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}
 \end{align*}
 }
 $$
+
+Note that a `ContractAbi` is only valid if the `Hooks` list contains a specific
+number of hooks of each type, as specified in `FnKind`.
 
 <!-- fix syntax highlighting* -->
 
