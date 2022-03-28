@@ -14,7 +14,7 @@ nav:
       Run a node 6: operator-6-keys.md
       Run a node 7: operator-7-bp.md
       Run a node 8: operator-8-registration.md
-      REST API documentation: rest
+      REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - Getting started as a developer:
       What is a smart contract: contract-development.md
       Develop your first contract - token contract example: token-contract.md
