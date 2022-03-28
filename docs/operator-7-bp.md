@@ -3,50 +3,27 @@
 
 >**Topics covered:**  
 >
-> - Hardware and software for running your node.   
-> - Terminal commands you run for starting and updating the node. And the commands for creating the necessary directories, folders and files and setting their permissions.   
+> - How you change the node from a reader node to a block producing node   
 >
 >**Skills you need:**    
 > 
-> - You can use a text editor and change file permissions from a Linux terminal.   
+> - You can use a text editor and change file permissions from a Linux terminal. Finishing the previous two sections([Reader node on VPS](operator-5-reader-vps.md) and [Keys for BP](operator-6-keys.md)) is a prerequisite.   
 >
 >**Scope:**
 > 
-> - When you finish this guide you know the necessary node hardware and software. You know how to start and update a node. If you want to know the formal conditions for participation in the network you should read [here](operator-8-registration.md).   
+> - When you finish this section you can change your reader node `config.json` by adding keys. After that you only need to finish [registration](operator-8-registration.md) to become a block producer on Partisia Blockchain.    
 
-### Step 1 - Creating the folders
-
-In this guide we will be running the nodes from the folder `/opt/pbc-betanet` with user:group `1500:1500`. First we need to create the `conf` and `storage` folders for the application:
+### Step 1 - Stop your reader node
 
 ```` bash
-sudo mkdir -p /opt/pbc-betanet/conf
-````
-```` bash
-sudo mkdir -p /opt/pbc-betanet/storage
+docker stop yourContainerNamer
 ````
 
-### Step 2 - Creating `genesis.json` and the node `config.json`
+### Step 2 - Change `config.json` to support block production
 
-The genesis file specifies the root account of the blockchain and which chain the node is running on. These are combined into the *genesis block* and define the initial state when the blockchain is booted. All nodes on the blockchain share the same `genesis.json`.
 
-Start by opening the file in `nano`:
+Start by opening the `config.json` in `nano`:
 
-````bash
-sudo nano /opt/pbc-betanet/conf/genesis.json
-````
-
-Now paste the following contents:
-
-````json
-{
- "chainId": "PARTISIA beta net with accounts",
- "rootAccount": "00047a53311c64239ecdc70ff5bbfd769175b64df0"
-}
-````
-
-To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
-
-Now do the same for `config.json`:
 
 ````bash
 sudo nano /opt/pbc-betanet/conf/config.json
@@ -76,84 +53,18 @@ Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes:
   ]
 }
 ````
-
+**NB.** Put your private [keys](operator-6-keys.md) inside the quotation marks. The IP address must be a public IPv4.
 
 To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 You can verify the contents of the files are what you expect by opening them with `cat`:
 
 ````bash
-sudo cat /opt/pbc-betanet/conf/genesis.json
-# The genesis file should be printed here
-````
-````bash
 sudo cat /opt/pbc-betanet/conf/config.json
 # The config file should be printed here
 ````
 
-### Step 3 - Setting file permissions
-
-Now we need to make sure the user with uid `1500` has the needed access to the files:
-
-```` bash
-sudo chown -R "1500:1500" /opt/pbc-betanet
-````
-````bash
-sudo chmod 500 /opt/pbc-betanet/conf
-````
-````bash
-sudo chmod 700 /opt/pbc-betanet/storage
-````
-````bash
-sudo chmod 400 /opt/pbc-betanet/conf/genesis.json
-````
-````bash
-sudo chmod 400 /opt/pbc-betanet/conf/config.json
-````
-
-The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
-
-### Step 4 - Pull docker image
-
-You can run the node using the `docker` terminal command or using the slightly more readable `docker-compose`. The latter is not installed by default.
-
-Start by creating a directory `pbc` and add a file named `docker-compose.yml`.
-
-````bash
-mkdir -p pbc
-````
-````bash
-cd pbc
-````
-````bash
-nano docker-compose.yml
-````
-
-The contents of the file should be the following:
-
-````yaml
-version: "2.0"
-services:
-  pbc-betanet-reader:
-    image: registry.gitlab.com/privacyblockchain/demo/betanet-public:latest
-    container_name: pbc-betanet-reader
-    user: "1500:1500"
-    restart: always
-    expose:
-    - "8080"
-    ports:
-    - "9888-9897:9888-9897"
-    command: [ "/conf/config.json", "/conf/genesis.json", "/storage/" ]
-    volumes:
-    - /opt/pbc-betanet/conf:/conf
-    - /opt/pbc-betanet/storage:/storage
-    environment:
-    - JAVA_TOOL_OPTIONS="-Xmx8G"
-````
-Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
-Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
-
-You don't yet have access to the Partisia container repository, so you first need to log in.
+Log in to the Partisia container repository:
 
 ````bash
 docker login -u <GitLab e-mail address> registry.gitlab.com
@@ -161,7 +72,7 @@ docker login -u <GitLab e-mail address> registry.gitlab.com
 
 **Note:** If you have two-factor login enabled in GitLab you need to create a [personal access token](https://gitlab.com/-/profile/personal_access_tokens).
 
-You can now start the node:
+## Start your block producing node
 
 ````bash
 docker-compose up -d
