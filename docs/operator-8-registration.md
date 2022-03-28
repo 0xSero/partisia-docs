@@ -1,7 +1,7 @@
 #Register your node
 
 1) Go to the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register).
-2) Connect your wallet.
+2) Connect your [MPC Wallet](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) by clicking *Connect Wallet*.
 3) Stake the MPC tokens.
 4) Send Register Transaction
 5) Send the public IP of the server hosting the node, your PBC Address to @Kristian Hu#7382 in a direct message on the Node Operator Discord Channel.
