@@ -15,6 +15,14 @@
 
 ### Step 1 - Stop your reader node
 
+Find the reader node container name:
+
+```` bash
+docker ps
+````
+
+Stop the reader node:
+
 ```` bash
 docker stop yourContainerNamer
 ````
