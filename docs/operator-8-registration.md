@@ -27,7 +27,7 @@
 
 ## Conditions for inclusion
 
-Formal conditions for inclusion in the network is stipulated in the [Yellow Paper](accounts@pbc.foundation) (YP_0.95 Ch. 2.3.1 pp. 11-12):
+Formal conditions for inclusion in the network is stipulated in the soon-to-be published Yellow Paper (YP_0.95 Ch. 2.3.1 pp. 11-12):
 
 - The public information regarding the node given by the operator must be validated.
 - Sufficient stakes committed.

@@ -22,7 +22,7 @@ The current stakes are:
 - Oracle Node 100,000 $ in MPC Tokens.
 
 **The Machine**  
-In addition to the stake you need a computer to run the node. Most node operators rent a server, but some keep the machine running the node in their own home. Machine Specs are in the [section](operator.md) about running the node.
+In addition to the stake you need a computer to run the node. Most node operators rent a server, but some keep the machine running the node in their own home. Machine Specs are in the [section](operator-1-specs.md) about running the node.
 
 **The Keys**  
 When a block of transactions is validated, the node signs off on it with a unique digital signature. The signature has a public and private version, the node signs with a private version and the public version of the signature is visible to the network in general. A node operator needs several of these signatures called keys. They come in pairs with a private key and a public key resulting from the private. The different keys play different roles. One keypair references your account with the stake, another refers to your identity on the network and in the PBC internal register. A full description of the keys you will need kan be found in this [section](keys.md).

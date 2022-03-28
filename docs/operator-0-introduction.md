@@ -10,5 +10,5 @@ If you do the steps of the guide in order, you should know how to set up your no
 5. [Run a reader node on a VPS](operator-5-reader-vps.md)
 6. [Create keys for config and registration](operator-6-keys.md)
 7. [Run a block producing node on the VPS](operator-7-bp.md)
-8. [Register your node](operator-7-registration.md)
+8. [Register your node](operator-8-registration.md)
 
