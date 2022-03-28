@@ -146,7 +146,7 @@ Keep an eye on the indentation since YAML is whitespace sensitive, and it won't 
 You don't yet have access to the Partisia container repository, so you first need to log in.
 
 ````bash
-sudo docker login -u <GitLab e-mail address> registry.gitlab.com
+docker login -u <GitLab e-mail address> registry.gitlab.com
 ````
 
 **Note:** If you have two-factor login enabled in GitLab you need to create a [personal access token](https://gitlab.com/-/profile/personal_access_tokens).
@@ -154,13 +154,13 @@ sudo docker login -u <GitLab e-mail address> registry.gitlab.com
 You can now start the node:
 
 ````bash
-sudo docker-compose up -d
+docker-compose up -d
 ````
 
 This should pull the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running, run:
 
 ````bash
-sudo docker logs -f pbc-betanet-reader
+docker logs -f pbc-betanet-reader
 ````
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
@@ -181,10 +181,10 @@ Updating the PBC node is a simple 3-step process:
 cd ~/pbc
 ````
 ````bash
-sudo docker-compose pull
+docker-compose pull
 ````
 ````bash
-sudo docker-compose up -d
+docker-compose up -d
 ````
 
 First you change the directory to where you put your `docker-compose.yml` file. You then stop the currently running container, pull the newest image and start it again. You should now be running the newest version of the software.
