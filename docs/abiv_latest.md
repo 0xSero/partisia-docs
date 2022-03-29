@@ -12,7 +12,6 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
     * Added `Kind: FnKind` field to `FnAbi`.
     * Removed `Init` field from `ContractAbi`.
     * Added zero-knowledge related `FnKind`s, for use in Zk contracts.
-    * Renamed `StructTypeSpec` to `StructTypeRef` and `StructTypeAbi` to `StructTypeSpec`.
 
 ## RPC Binary Format
 
