@@ -192,9 +192,9 @@ $$
 \begin{align*}
 \text{<TypeSpec>} \ := \ &\text{SimpleTypeSpec} \\
 | \ &\text{CompositeTypeSpec} \\
-| \ &\text{StructTypeSpec} \\
+| \ &\text{StructTypeRef} \\
 \\
-\text{<StructTypeSpec>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx StructTypes(\text{Index}) \\
+\text{<StructTypeRef>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx StructTypes(\text{Index}) \\
 \\
 \text{<SimpleTypeSpec>} \ := \ &\hexi{01} \ \Rightarrowx \text{u8} \\
 | \ &\hexi{02} \ \Rightarrowx \text{u16} \\
@@ -240,11 +240,11 @@ $$
 \\
 \text{<ContractAbi>} \ := \ \{ \
 &\text{ShortnameLength: }\byte{}, \\
-&\text{StructTypes: List<StructTypeAbi>}, \\
+&\text{StructTypes: List<StructTypeSpec>}, \\
 &\text{Hooks: List<FnAbi>}, \\
 &\text{StateType: TypeSpec} \ \} \\
 \\
-\text{<StructTypeAbi>} \ := \ \{ \
+\text{<StructTypeSpec>} \ := \ \{ \
 &\text{Name: Identifier}, \\
 &\text{Fields: List<FieldAbi>} \ \} \\
 \\
