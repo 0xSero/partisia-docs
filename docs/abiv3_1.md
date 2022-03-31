@@ -6,6 +6,13 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _State Format_: The _state_ of a smart contract is stored as binary data in the blockchain state. The state holds the value of all smart contract state variables.
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
+## ABI Version changes
+
+- Version **2.0** to **3.1**:
+    * Shortnames are now encoded as LEB128; `ShortnameLength` field have been
+      removed.
+    * Added explicit, easily extensible return result format.
+
 ## RPC Binary Format
 
 The RPC payload identifies which action is invoked and the values for all parameters of the action.
@@ -232,7 +239,6 @@ $$
 &\text{Contract: ContractAbi} \ \} \\
 \\
 \text{<ContractAbi>} \ := \ \{ \
-&\text{ShortnameLength: }\byte{}, \\
 &\text{StructTypes: List<StructTypeAbi>}, \\
 &\text{Init: FnAbi}, \\
 &\text{Actions: List<FnAbi>}, \\
