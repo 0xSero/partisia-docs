@@ -82,6 +82,12 @@ Allow specific ports for Secure Shell (SSH) and Partisia:
 sudo ufw allow your-SSH-port-number
 ````
 
+Enable rate limiting on your SSH connection
+
+````bash
+sudo ufw limit your-SSH-port-number
+````
+
 ````bash
 sudo ufw allow sudo ufw allow 9888:9897/tcp
 ````
