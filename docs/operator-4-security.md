@@ -60,6 +60,18 @@ sudo service ntp start
 sudo systemctl status ntp
 ````
 
+### Install Htop
+
+It is useful to be able to monitor CPU and memory use on your server. For this purpose install Htop:
+
+````bash
+sudo apt install htop
+````
+
+### Secure shell (SSH)
+
+It is sensible to use SSH when connection to your server. Most VPS hosting sites have a SSH guide specific to their hosting platform, so you should follow the specifics of your hosting provider's SSH guide.
+
 ### Configure your firewall
 
 Disable firewall off, set default to block incoming traffic and allow outgoing:
