@@ -12,6 +12,10 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
     * Added `Kind: FnKind` field to `FnAbi`.
     * Removed `Init` field from `ContractAbi`.
     * Added zero-knowledge related `FnKind`s, for use in Zk contracts.
+- Version **2.0** to **3.1**:
+    * Shortnames are now encoded as LEB128; `ShortnameLength` field have been
+      removed.
+    * Added explicit, easily extensible return result format.
 
 ## RPC Binary Format
 
@@ -192,9 +196,9 @@ $$
 \begin{align*}
 \text{<TypeSpec>} \ := \ &\text{SimpleTypeSpec} \\
 | \ &\text{CompositeTypeSpec} \\
-| \ &\text{StructTypeSpec} \\
+| \ &\text{StructTypeRef} \\
 \\
-\text{<StructTypeSpec>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx StructTypes(\text{Index}) \\
+\text{<StructTypeRef>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx StructTypes(\text{Index}) \\
 \\
 \text{<SimpleTypeSpec>} \ := \ &\hexi{01} \ \Rightarrowx \text{u8} \\
 | \ &\hexi{02} \ \Rightarrowx \text{u16} \\
@@ -239,12 +243,11 @@ $$
 &\text{Contract: ContractAbi} \ \} \\
 \\
 \text{<ContractAbi>} \ := \ \{ \
-&\text{ShortnameLength: }\byte{}, \\
-&\text{StructTypes: List<StructTypeAbi>}, \\
+&\text{StructTypes: List<StructTypeSpec>}, \\
 &\text{Hooks: List<FnAbi>}, \\
 &\text{StateType: TypeSpec} \ \} \\
 \\
-\text{<StructTypeAbi>} \ := \ \{ \
+\text{<StructTypeSpec>} \ := \ \{ \
 &\text{Name: Identifier}, \\
 &\text{Fields: List<FieldAbi>} \ \} \\
 \\
