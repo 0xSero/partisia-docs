@@ -109,7 +109,7 @@ You can run the node using the `docker` terminal command or using the slightly m
 
 Start by creating a directory `pbc` and add a file named `docker-compose.yml`.
 ````bash
-cd
+cd ~
 ````
 ````bash
 mkdir -p pbc
