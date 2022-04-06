@@ -24,7 +24,7 @@
 
 ## Recommended software
 
-- [Docker](https://docs.docker.com/engine/install/) (Note that the version in your repository may be too old)
+- [Docker](https://docs.docker.com/engine/install/)
 - Linux (In this tutorial Ubuntu 20.04.3 was used)
 - A text editor (In this tutorial nano 4.3 was used)
 
