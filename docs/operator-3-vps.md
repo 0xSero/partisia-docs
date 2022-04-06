@@ -35,7 +35,7 @@ Many users ask, "Is it OK if I keep the server at home?". You can make it work, 
 
 **Home server**
 - Pets, children and spouses unplug your internet connection.
-- You boil water when the toaster is on, and you loose power.
+- You boil water when the toaster is on, and you lose power.
 - You need to clean the basement or garage, you must move the server.
 - You get a new job and have to move.
 
