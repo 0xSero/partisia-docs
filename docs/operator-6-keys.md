@@ -1,4 +1,4 @@
-# Node operators will need to generate 3 sets of keys
+# Node operators will need 3 sets of keys
 
 >**Topics covered:**
 >
@@ -14,9 +14,13 @@
 
 The keys are randomly generated at [KeyGen](https://dashboard.partisiablockchain.com/keygen)
 
-You need two sets of keys from the upper box (**NB.** you get the 1st keyset when you go through the KYC process and get your PBC account).
+### Steps:
+1) Find your PBC account private key and address
+2) Generate The Network key pair.
+3) Generate the BLS key pair.
 
-You need one set from the lower box which generate BLS key pairs.
+### Description of the functions of the keys and where to use them: 
+
 
 **The 1st set**  are Account keys of your PBC account, that you get through KYC the process:  
 PrivateKey - This is the private key for your PBC account that holds the MPC Tokens that you are staking. When you use the wallet to send the Register Transaction, the transaction is signed with this key. Goes in config.json as "accountKey" unless you are operating a genesis node, then you put the private key referring to the account you have chosen to hold your stake as "accountKey".  

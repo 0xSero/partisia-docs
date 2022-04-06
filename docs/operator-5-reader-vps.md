@@ -13,6 +13,8 @@
 >
 > - After completing this guide You know how to start and update a reader node. This will help you to run a Block producing node later, because all the terminal commands are the same.
 
+The following steps are the same as you went through setting up a reader node on your local machine. You should use the non-root user you created in the previous [step](operator-4-security.md). You need to install the [recommended software](operator-1-specs.md) before you start.
+
 ### Step 1 - Creating the folders
 
 In this guide we will be running the nodes from the folder `/opt/pbc-betanet` with user:group `1500:1500`. First we need to create the `conf` and `storage` folders for the application:
