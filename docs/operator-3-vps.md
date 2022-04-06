@@ -15,7 +15,7 @@
 
 ## What is VPS
 
-A VPS is a Virtual Private server. Just like you can have a virtual machines on your PC, it is possible to rent server space for virtual machine from an internet hosting service (IHS). That is called a VPS. You choose a VPS just like you would choose a PC. You decide on an operating system (OS), for running nodes on Partisia Blockchain you choose Unix based OS (In this guide we used Ubuntu).
+A VPS is a Virtual Private server. Just like you can have a virtual machines on your PC, it is possible to rent server space for virtual machine from an internet hosting service (IHS). That is called a VPS. You choose a VPS just like you would choose a PC. You decide on an operating system (OS), for running nodes on Partisia Blockchain you choose Linux based OS (In this guide we used Ubuntu).
 Your VPS is physically capable of running the node if you align it with the [recommended machine specs](operator-1-specs.md).
 
 ## Where you get a VPS
