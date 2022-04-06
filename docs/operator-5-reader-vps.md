@@ -105,7 +105,7 @@ The above commands set conservative permissions on the folders the node is using
 
 ### Step 4 - Pull docker image
 
-You can run the node using the `docker` terminal command or using the slightly more readable `docker-compose`. The latter is not installed by default.
+You can run the node using the `docker-compose`.
 
 Start by creating a directory `pbc` and add a file named `docker-compose.yml`.
 
