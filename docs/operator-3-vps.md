@@ -33,13 +33,13 @@ There are numerous choices in service providers when it comes to VPS. In the ill
 
 Many users ask, "Is it OK if I keep the server at home?". You can make it work, but we advise against it. Servers at home suffers from the following problems:
 
-**Home server**
-- Pets, children and spouses unplug your internet connection.
-- You boil water when the toaster is on, and you lose power.
-- You need to clean the basement or garage, you must move the server.
-- You get a new job and have to move.
+**Home server**   
+- Pets, children and spouses unplug your internet connection.   
+- You boil water when the toaster is on, and you lose power.   
+- You need to clean the basement or garage, you must move the server.   
+- You get a new job and have to move.   
 
-**VPS**
-- Stable internet and power connection.
-- Cloud hosting allows for backup of your server.
-- Renting a VPS is fairly cheap, and switching to a new one with different specs is much faster than getting a new physical server.
+**VPS**   
+- Stable internet and power connection.   
+- Cloud hosting allows for backup of your server.   
+- Renting a VPS is fairly cheap, and switching to a new one with different specs is much faster than getting a new physical server.   
