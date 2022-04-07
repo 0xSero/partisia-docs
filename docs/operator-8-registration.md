@@ -24,7 +24,7 @@ You need the same 3 private keys you have put in the `config.json`. You use the 
 - Address (Company or personal address)
 - Put in network private key
 - Put in finalization private key (The BLS key)
-- EntityJurisdiction (Your country of residence - [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1): 3-digit code referring to a country)
+- EntityJurisdiction (Node owner's (company or person) country of residence - [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1): 3-digit code referring to a country)
 - ServerJurisdiction (Location of the server where you operate the node - ISO 3166-1: 3-digit code referring to a country)
 
 **NB.** You can change your public information from the Register Transaction by doing an [Update Transaction](update-transaction.md)
