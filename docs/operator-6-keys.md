@@ -6,7 +6,7 @@
 > 
 >**Skills you need:**
 >
-> - You can write down a copy of your keys in a safe place.
+> - You can store a copy of your keys in a safe place.
 >
 >**Scope:**
 >
@@ -21,16 +21,18 @@ In the next two pages you will see how to fill out a config.json for a block pro
 
 The network and finalization keypair are randomly generated at [KeyGen](https://dashboard.partisiablockchain.com/keygen).
 
-### Description of the functions of the keys and where to use them: 
+### Description of the functions of the keys and where to use them:
+
+You only need the private keys for the node configuration and registration. **It is essential to keep private keys safe, since they cannot be recovered.** Public keys and addresses are generated as a function of the private key and can be recovered if forgotten. Nonetheless, you should the public keys as well for practical purposes. You PBC address works as your public identity on the blockchain, you use it to find your node performance in metrics. Active block producers on PBC are [listed](https://mpcexplorer.com/validators) and identified with by address. So you will be using it a lot.
 
 **The 1st set**  are Account keys of your PBC account, that you get through KYC the process:  
- - This is the private key for your PBC account that holds the MPC Tokens that you are staking. When you use the wallet to send the Register Transaction, the transaction is signed with this key. Goes in config.json as "accountKey" unless you are operating a genesis node, then you put the private key referring to the account you have chosen to hold your stake as "accountKey".  
+Account Private key - This is the private key for your PBC account that holds the MPC Tokens that you are staking. When you use the wallet to send the Register Transaction, the transaction is signed with this key. Goes in config.json as "accountKey" unless you are operating a genesis node, then you put the private key referring to the account you have chosen to hold your stake as "accountKey".  
 PBC address - This is the address associated with your PBC account. When you send the Register Transaction it is automatically registered as your "Identity" when you sign the transaction.
 
 **The 2nd set** are Network Keys for network identification:   
-PrivateKey - The private key is registered in config.json as "networkKey"  
-PublicKey - This is the public key of your network keypair it goes in the Register Transaction as "PublicKey"
+Network PrivateKey - The private key is registered in config.json as "networkKey"  
+Network PublicKey - Store for practical purposes
 
 **The 3rd set** needs to be generated with a key generation algorithm for BLS keypair and is in the box below the other set:  
-PrivateKey - Goes in the config.json as "finalizationKey"  
-PublicKey - Goes in the Register Transaction as "BLS PublicKey"
+Finalization PrivateKey - Goes in the config.json as "finalizationKey"  
+Finalization PublicKey - Store for practical purposes
