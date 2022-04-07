@@ -13,13 +13,16 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 
 - Amount (The amount of MPC Tokens you are staking)
 
-## Content of the Register Transaction
+## How to fill out the form for the Register Transaction
+
+You need the same 3 private keys you have put in the `config.json`. You use the private key of your account to log into your wallet and the Explorer. The form generates the public versions of the network and finalization key when you put in the private version. The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node. For this reason it is important to put trustworthy information in this form.
+
 
 - Name (Legal name)
 - Website (Company or personal webpage)
 - Address (Company or personal address)
-- PublicKey (PublicKey of your Network keyset) - - the form generates the public key when you sign with the Netwok private key.
-- BLS PublicKey (BLS12-381 PublicKey of your BLS keyset) - the form generates the BLS public key when you sign with the BLS private key.
+- Put in network private key
+- Put in finalization private key (The BLS key)
 - EntityJurisdiction (Your country of residence - ISO 3166-1: 3-digit code referring to a country)
 - ServerJurisdiction (Location of the server where you operate the node - ISO 3166-1: 3-digit code referring to a country)
 
