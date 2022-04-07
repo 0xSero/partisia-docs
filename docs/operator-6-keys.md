@@ -10,12 +10,12 @@
 >
 >**Scope:**
 >
-> - This section enables you to fill out you config.json and Register Transaction with correct information. The config.json and registration are described in detail in the folowing sections. 
+> - This section enables you to fill out you config.json and Register Transaction with correct information. The config.json and registration are described in detail in the following sections. 
 
 The keys are randomly generated at [KeyGen](https://dashboard.partisiablockchain.com/keygen)
 
 ### Steps:
-1) Find your PBC account private key and PBC address
+1) Find your PBC account private key and PBC address. 
 2) Generate The Network key pair.
 3) Generate the Finalization key pair.
 
