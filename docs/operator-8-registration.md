@@ -8,7 +8,7 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 4) Stake MPC Tokens: Put your PBC address in the search bar, then you get your account information. There is a staking button next to your balance of MPC Tokens.
 5) Click *Register Node* Connect your MPC Wallet by clicking *Connect Wallet*.    
 6) Send Register Transaction.   
-7) Send the public IP of the server hosting the node, your PBC Address to @Kristian Hu#7382 in a direct message on the Node Operator Discord Channel.   
+7) Send the public IP of the server hosting the node and your PBC Address to @Kristian Hu#7382 in a direct message on the Node Operator Discord Channel.   
 
 ## Content of Staking Transaction
 
