@@ -10,17 +10,16 @@
 >
 >**Scope:**
 >
-> - This section enables you to fill out you config.json and Register Transaction with correct information.
+> - This section enables you to fill out you config.json and Register Transaction with correct information. The config.json and registration are described in detail in the folowing sections. 
 
 The keys are randomly generated at [KeyGen](https://dashboard.partisiablockchain.com/keygen)
 
 ### Steps:
-1) Find your PBC account private key and address
+1) Find your PBC account private key and PBC address
 2) Generate The Network key pair.
-3) Generate the BLS key pair.
+3) Generate the Finalization key pair.
 
 ### Description of the functions of the keys and where to use them: 
-
 
 **The 1st set**  are Account keys of your PBC account, that you get through KYC the process:  
 PrivateKey - This is the private key for your PBC account that holds the MPC Tokens that you are staking. When you use the wallet to send the Register Transaction, the transaction is signed with this key. Goes in config.json as "accountKey" unless you are operating a genesis node, then you put the private key referring to the account you have chosen to hold your stake as "accountKey".  
