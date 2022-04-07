@@ -30,4 +30,4 @@ When a block of transactions is validated, the node signs off on it with a uniqu
 **The Skills**  
 Setting up the node require some technical skills. You need to be able to configure and run your node, or alternatively pay someone you trust to help you with the setup and upkeep of the node.
 
-The following sections take you through the signup process.
+The following sections take you through the signup process. If you do not yet have MPC tokens or an appropriate server for running a node you can still complete the firs part of the guide showing you how to run a reader node. A reader node is free. When you have completed the [introduction](operator-0-introduction.md), [first](operator-1-specs.md) and [second](operator-2-reader.md) step, then you should know if you have the skills required to run a node performing services on Partisia Blockchain. If you want to buy MPC Tokens, you can follow this [link](https://kyc.partisiablockchain.com/) for information about sale.
