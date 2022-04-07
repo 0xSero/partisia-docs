@@ -1,17 +1,7 @@
 # Run a block producing node on Partisia Blockchain
 
 
->**Topics covered:**  
->
-> - How you change the node from a reader node to a block producing node   
->
->**Skills you need:**    
-> 
-> - You can use a text editor and change file permissions from a Linux terminal. Finishing the previous two sections([Reader node on VPS](operator-5-reader-vps.md) and [Keys for BP](operator-6-keys.md)) is a prerequisite.   
->
->**Scope:**
-> 
-> - When you finish this section you can change your reader node `config.json` by adding keys. After that you only need to finish [registration](operator-8-registration.md) to become a block producer on Partisia Blockchain.    
+You must finish the previous two sections([Reader node on VPS](operator-5-reader-vps.md) and [Keys for BP](operator-6-keys.md)) is a prerequisite.
 
 ### Step 1 - Stop your reader node
 

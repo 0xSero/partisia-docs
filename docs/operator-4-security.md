@@ -1,17 +1,5 @@
 # Secure your VPS
 
->**Topics covered:**
->
-> - Linux terminal commands for changing root password, add a non-root user, add NTP and configuring a firewall.
->
->**Skills you need:**
->
-> - You can use the terminal to make changes on your VPS.
->
->**Scope:**
->
-> - This section teaches you to set up a basic level of security for your node. This will be relevant when you start a block producing node. This section is still in its infancy and will be expanded.
-
 ### Change root password
 
 When you get a VPS with Lixux OS you will be provided with a root password by the VPS provider. Change the root password:

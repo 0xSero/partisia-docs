@@ -1,17 +1,5 @@
 # Get a VPS where you can run your block producing node
 
->**Topics covered:**
->
-> - What is VPS. 
-> - Where, how and why you should get a VPS to run your node.
->
->**Skills you need:**
->
-> - No special skills required to get through this section.
->
->**Scope:**
->
-> - After completing this section you know what a VPS is and how to acquire one.
 
 ## What is VPS
 

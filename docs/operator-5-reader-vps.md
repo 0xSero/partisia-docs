@@ -1,18 +1,6 @@
 # Run a reader node on VPS
 
 
->**Topics covered:**
->
-> - The Linux terminal commands for creating the necessary directories, folders and files and setting their permissions. Then to start and update the node.
->
->**Skills you need:**
->
-> - You can use a text editor and change file permissions from a Linux terminal.
->
->**Scope:**
->
-> - After completing this guide You know how to start and update a reader node. This will help you to run a Block producing node later, because all the terminal commands are the same.
-
 The following steps are the same as you went through setting up a reader node on your local machine. You should use the non-root user you created in the previous [step](operator-4-security.md). You need to install the [recommended software](operator-1-specs.md) before you start.
 
 ### Step 1 - Creating the folders
