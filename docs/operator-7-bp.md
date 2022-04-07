@@ -72,14 +72,6 @@ sudo cat /opt/pbc-betanet/conf/config.json
 # The config file should be printed here
 ````
 
-Log in to the Partisia container repository:
-
-````bash
-docker login -u <GitLab e-mail address> registry.gitlab.com
-````
-
-**Note:** If you have two-factor login enabled in GitLab you need to create a [personal access token](https://gitlab.com/-/profile/personal_access_tokens).
-
 ## Start your block producing node
 
 ````bash
