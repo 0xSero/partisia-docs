@@ -37,16 +37,16 @@ Start by opening the `config.json` in `nano`:
 sudo nano /opt/pbc-betanet/conf/config.json
 ````
 
-Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes:
+Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](operator-6-keys.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
 ````json
 {
   "restPort": 8080,
   "floodingPort": 9888,
-  "networkKey": "PRIVATE_KEY_FOR_PRODUCTION_IN_HEX",
+  "networkKey": "NETWORK_PRIVATE_KEY",
   "producerConfig": {
-    "host": "PUBLIC_IP_OF_THIS_HOST",
+    "host": "PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE",
     "accountKey": "PRIVATE_KEY_FROM_ACCOUNT_HOLDING STAKE",
-    "finalizationKey": "PRIVATE_KEY_FOR_BLS",
+    "finalizationKey": "FINALIZATION_PRIVATE_KEY_BLS",
     "ethereumUrl": "ETHEREUM_ROPSTEN_HTTP_ENDPOINT"
   },
   "knownPeers": [
@@ -61,7 +61,6 @@ Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes:
   ]
 }
 ````
-**NB.** Put your private [keys](operator-6-keys.md) inside the quotation marks. The IP address must be a public IPv4.
 
 To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
