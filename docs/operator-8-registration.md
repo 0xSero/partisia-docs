@@ -3,9 +3,9 @@
 The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a stake of MPC Tokens and sending a registration form. Both are done with transaction you can perform in the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register).
 
 1) You need to be able to cover gas costs of transaction, click [here](byoc.md) for help to get gas in your account.
-2) Go to the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register).   
-3) Connect your [MPC Wallet](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) by clicking *Connect Wallet*.   
-4) Stake the MPC tokens.   
+2) Go to the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register). Log in.   
+3) Stake MPC Tokens: Put your PBC address in the search bar, then you get your account information. There is a staking button next to your balance of MPC Tokens.
+4) Click *Register Node* Connect your [MPC Wallet](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) by clicking *Connect Wallet*.    
 5) Send Register Transaction.   
 6) Send the public IP of the server hosting the node, your PBC Address to @Kristian Hu#7382 in a direct message on the Node Operator Discord Channel.   
 
