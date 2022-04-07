@@ -29,6 +29,13 @@ docker stop yourContainerNamer
 
 ### Step 2 - Change `config.json` to support block production
 
+To fill out the config.json for a block producing node you need to add the following information:
+
+- Network privateKey   
+- Account privateKey   
+- Finalization privateKey   
+- IP address of the server hosting your node (You get this from your VPS service provider)   
+- URL address of an Ethereum reader node on the Ropsten network (You should use a source you find trustworthy)   
 
 Start by opening the `config.json` in `nano`:
 
