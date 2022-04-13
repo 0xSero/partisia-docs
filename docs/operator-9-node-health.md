@@ -34,3 +34,5 @@ Derive from this: https://discord.com/channels/819902335567265792/82662288361481
 The logs of the node are written to the standard output of the container and are therefore managed using the tools provided by Docker. You can read about configuring Docker logs [here](https://docs.docker.com/config/containers/logging/configure/).
 
 The storage of the node is based on RocksDB. It is write-heavy and will increase in size for the foreseeable future. The number and size of reads and writes is entirely dependent on the traffic on the network.
+
+### Common log messages
