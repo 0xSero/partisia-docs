@@ -27,6 +27,7 @@ First you change the directory to where you put your `docker-compose.yml` file. 
 
 ## Automatic update
 
+Derive from this: https://discord.com/channels/819902335567265792/826622883614818384/899973806922285066
 
 ## Logs and storage
 
