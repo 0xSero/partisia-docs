@@ -18,21 +18,7 @@ The first cryptocurrency you are able to use in the BYOC system at PBC is Ethere
 
 - Network fee: 5 USD cents/kb.
 - CPU fee : 5 USD cents per 1000 instructions.
-- Storage fee (tentative): 1 USD cent/kb per year.
-
-### ZK and Oracle fees prices the Oracle services:
-- BYOC (tentative): 0,1% of the value transferred with a threshold of 25 USD as minimum transfer (equal to a BYOC fee of 2,5 USD cents).
-  ZK computation:
-- Basic blockchain services priced with Basic fees.
-- MPC multiplication fee (tentative): 5 USD cents per 1000 multiplications.
-- MPC triples fee (tentative): 5 USD cents per 1000 triples.
-- Staking fee (tentative): 1% of the locked staked value per month.
-  The locked stakes for ZK computations are set by the users.
-  Token Bridge
-  1 The prices are based on a subset of 3 ZK nodes and the MPC protocol REAL. Involving more ZK nodes
-  per cluster as well as other MPC protocols will impact the prices.
-  ■ 1% of the value transferred with a threshold of 25 USD as
-  minimum transfer (equal to a Token Bridge fee of 25 USD cents).
+- Storage fee (tentative): 1 USD cent/kb per year.  
 
 **NB.** Future prices may be subject to market mechanisms.
 
