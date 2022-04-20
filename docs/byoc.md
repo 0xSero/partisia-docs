@@ -1,6 +1,6 @@
 # BYOC and Gas 
 
-**What is BYOC and gas**  
+### What is BYOC and gas  
 BYOC means bring your own coin. The idea is that you can bring liquid cryptocurrencies onto PBC. A very small unit of BYOC is called gas. This is a term also used on other blockchains. Gas in the blockchain ecosystem is analogous with the fuel you need to get the machines moving. So to move something to the blockchain and change the state of things fuel is needed.
 
 To pay the gas costs of transactions you need to have some amount of BYOC in your account. The costs cover the payment of the node operators which are providing the services enabling the transactions to take place.  
@@ -11,7 +11,32 @@ The economics of the Mainnet Beta is fueled by test ETH. When the chain economy 
 To be able to spend and transfer your coins, twins are minted which can interact with the payment scheme of PBC. So, in essence you can deposit, withdraw and transfer Etherum or other cryptocurrencies with your PBC wallet. 
 The first cryptocurrency you are able to use in the BYOC system at PBC is Ethereum. 
 
-## How to get started
+
+## Gas payment and storage
+
+### Basic fees prices the basic blockchain services and consist of:
+
+- Network fee: 5 USD cents/kb.
+- CPU fee : 5 USD cents per 1000 instructions.
+- Storage fee (tentative): 1 USD cent/kb per year.
+
+### ZK and Oracle fees prices the Oracle services:
+- BYOC (tentative): 0,1% of the value transferred with a threshold of 25 USD as minimum transfer (equal to a BYOC fee of 2,5 USD cents).
+  ZK computation:
+- Basic blockchain services priced with Basic fees.
+- MPC multiplication fee (tentative): 5 USD cents per 1000 multiplications.
+- MPC triples fee (tentative): 5 USD cents per 1000 triples.
+- Staking fee (tentative): 1% of the locked staked value per month.
+  The locked stakes for ZK computations are set by the users.
+  Token Bridge
+  1 The prices are based on a subset of 3 ZK nodes and the MPC protocol REAL. Involving more ZK nodes
+  per cluster as well as other MPC protocols will impact the prices.
+  ■ 1% of the value transferred with a threshold of 25 USD as
+  minimum transfer (equal to a Token Bridge fee of 25 USD cents).
+
+**NB.** Future prices may be subject to market mechanisms.
+
+### How to get started
 
 The easiest way to make a deposit of ETH s to use the PBC Token Bridge. 
 
