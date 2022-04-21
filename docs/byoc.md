@@ -9,8 +9,7 @@ The economics of the Mainnet Beta is fueled by test ETH. When the chain economy 
 
 **How does it work**  
 To be able to spend and transfer your coins, twins are minted which can interact with the payment scheme of PBC. So, in essence you can deposit, withdraw and transfer Etherum or other cryptocurrencies with your PBC wallet. 
-The first cryptocurrency you are able to use in the BYOC system at PBC is Ethereum. 
-
+The first cryptocurrency you are able to use in the BYOC system at PBC is Ethereum.    
 
 ## The cost for using the blockchain
 
