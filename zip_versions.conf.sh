@@ -47,4 +47,12 @@ declare -A content3=(
 )
 
 # shellcheck disable=SC2034
+declare -A content4=(
+  [repo]='gitlab.com/privacyblockchain/language/rust-example-auction-contract.git'
+  [output]='examples/rust-example-auction-contract'
+  [version_ref]='tags/0.1.4-sdk-6.1.0'
+  [post_process]='replace_dependency_path'
+)
+
+# shellcheck disable=SC2034
 declare -n content
