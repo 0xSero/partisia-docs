@@ -17,8 +17,8 @@ The first cryptocurrency you are able to use in the BYOC system at PBC is Ethere
 ### Basic fees prices the basic blockchain services and consist of:
 
 - Network fee: 5 USD cents/kb.
-- CPU fee : 5 USD cents per 1000 instructions.
-- Storage fee (tentative): 1 USD cent/kb per year.  
+- CPU fee: 5 USD cents per 1000 instructions.
+- Storage fee: 1 USD cent/kb per year.  
 
 **NB.** Future prices may be subject to market mechanisms.
 
