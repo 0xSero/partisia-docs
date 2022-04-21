@@ -23,8 +23,7 @@ The initial conversion rate for gas and gas price for different services on the 
 
 ### How to get started
 
-The easiest way to make a deposit of ETH s to use the PBC Token Bridge. 
-
+The easiest way to make a deposit of ETH s to use the PBC Token Bridge.   
 
 1. Install the [Partisa Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
 2. Make a Partisia Account with the wallet (or use the one you have already). You can use the Partisia Wallet to make additional accounts.
