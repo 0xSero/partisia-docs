@@ -12,9 +12,9 @@ To be able to spend and transfer your coins, twins are minted which can interact
 The first cryptocurrency you are able to use in the BYOC system at PBC is Ethereum. 
 
 
-## Gas payment and storage
+## The cost for using the blockchain
 
-### Basic fees prices the basic blockchain services and consist of:
+The initial conversion rate for gas and gas price for different services on the blockchain has been chosen to roughly match the following prices in USD.
 
 - Network fee: 5 USD cents/kb.
 - CPU fee: 5 USD cents per 1000 instructions.
