@@ -70,7 +70,8 @@ The first number to notice is *resetBlockCount*, this number is in our case diff
 We can see in the *resetBlockCount* that 2 reset blocks were produced. They were caused by producers with index 10 and 18 being offline or misconfigured. The nodes with index 11 and 19 only produced 99 blocks because one reset block is expended when skipping the unavailable producer. The first and last producer on the list might look like they did not perform, but that is due to the time when we pull the list.    
 
 **medianFinalizationTime:**    
-Each node has a *medianFinalizationTime*, the median time used by the node to produce a block. If this number is significantly higher for your node than the rest on the list. Then your node might have to weak hardware or something is causing the node to under perform.
+Each node has a *medianFinalizationTime*, the median time used by the node to produce a block. If this number is significantly higher for your node than the rest on the list. Then your node might have to weak hardware or something is causing the node to under perform.   
+
 ````json
 {
   earliestBlockProductionTime: 1650838645989,
