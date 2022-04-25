@@ -44,10 +44,10 @@ Now you are ready to start.
 
 **1. Create the auto update script:**
 
-Go to the directory where docker-compose.yml is located, in this guide we assume you are using home directory.
+Go to the directory where docker-compose.yml is located, in this guide we assume you are using `~/pbc`.
 
 ````bash
-cd ~
+cd ~/pbc
 ````
 
 Open the file in nano:
@@ -64,7 +64,7 @@ Paste the following content into the file:
 DATETIME=`date -u`
 echo "$DATETIME"
 
-cd /home
+cd ~/pbc
 
 /usr/local/bin/docker-compose pull
 /usr/local/bin/docker-compose up -d
