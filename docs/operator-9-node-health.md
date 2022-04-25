@@ -5,7 +5,7 @@ This section covers how to:
 - Update your node   
 - Implement automatic updates   
 - Check your IP accessibility and version of Partisia Software   
-- Metrics of node performance  
+- Metrics of node performance   
 - Interpret log messages and debugging problems  
 
 
@@ -26,11 +26,86 @@ docker-compose up -d
 
 First you change the directory to where you put your `docker-compose.yml` file. You then pull the newest image and start it again. You should now be running the newest version of the software.
 
-## Automatic update
+## Get automatic updates
 
-There is a detailed guide here: 
-https://discord.com/channels/819902335567265792/826622883614818384/899973806922285066
+To setup automatic updates you will need Cron, which is a time based job scheduler. See if you have the Cron package installed:
 
+````bash
+dpkg -l cron
+````
+
+If not:   
+
+````bash
+apt-get install cron
+````
+
+Now you are ready to start.
+
+**1. Create the auto update script:**
+
+Go to the directory where docker-compose.yml is located, in this guide we assume you are using home directory.
+
+````bash
+cd ~
+````
+
+Open the file in nano:
+
+````bash
+sudo nano update_docker.sh
+````
+
+Paste the following content into the file:
+
+````yaml
+#!/bin/bash
+
+DATETIME=`date -u`
+echo "$DATETIME"
+
+cd /home
+
+/usr/local/bin/docker-compose pull
+/usr/local/bin/docker-compose up -d
+````
+Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+
+**2. Make the file executable:**
+
+````bash
+sudo chmod +x update_docker.sh
+````
+
+Type ``ls`` and confirm *update_docker.sh*  file name is shown in green, that means it is now executable.
+
+**3. Set update frequency to 30 minutes:**
+
+````bash
+crontab -e
+````
+This will let you chose your preferred text editor.
+
+````bash
+ */30 * * * * /home/update_docker.sh >> /home/update.log 2>&1
+````
+This rule will make the script run and thereby check for avalable updates every 30 minutes.
+
+To see if the script is working you can read the update log with the *cat command*
+
+````bash
+cat update.log
+````
+
+If your version is up-to-date, you should see:   
+````
+yourContainerName is up-to-date
+````
+If you are currently updating you should see:
+````
+Pulling pbc-betanet-reader ... pulling from privacyblockchain/de...
+````
+**NB.** Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
 ## Your personal status endpoint
 
 http://yourHostIP:9888/status
