@@ -289,7 +289,7 @@ docker logs --tail 1000 -f  nameOfDockerContainer
 ````
 You can add the ``-f`` after a command to continue the logs afterwards.
 
-**Sort for specific messages**
+**Sort for specific messages:**
 
 You can use the *grep command* to get logs containing a specific string.
 
