@@ -89,7 +89,7 @@ sudo ufw limit your-SSH-port-number
 ````
 
 ````bash
-sudo ufw allow sudo ufw allow 9888:9897/tcp
+sudo ufw allow 9888:9897/tcp
 ````
 
 Enable logging, start the firewall and check status:
