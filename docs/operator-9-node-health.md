@@ -89,7 +89,7 @@ This will let you chose your preferred text editor.
 ````bash
  */30 * * * * /home/update_docker.sh >> /home/update.log 2>&1
 ````
-This rule will make the script run and thereby check for avalable updates every 30 minutes.
+This rule will make the script run and thereby check for available updates every 30 minutes.
 
 To see if the script is working you can read the update log with the *cat command*
 
