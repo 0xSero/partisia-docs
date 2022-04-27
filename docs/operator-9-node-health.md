@@ -22,7 +22,10 @@ To optimize your nodes earning potential you should implement automatic updates 
 
 ## Updating
 
+In the following it is assumed we assume you are using `~/pbc` as directory for your `docker-compose.yml`.
+
 Updating the PBC node is a simple 3-step process:
+
 
 ````bash
 cd ~/pbc
@@ -34,7 +37,7 @@ docker-compose pull
 docker-compose up -d
 ````
 
-First you change the directory to where you put your `docker-compose.yml` file. You then pull the newest image and start it again. You should now be running the newest version of the software.
+First you change the directory to where you put your `docker-compose.yml`. You then pull the newest image and start it again. You should now be running the newest version of the software.
 
 ## Get automatic updates
 
@@ -54,7 +57,7 @@ Now you are ready to start.
 
 **1. Create the auto update script:**
 
-Go to the directory where `docker-compose.yml` is located, in this guide we assume you are using `~/pbc`.
+Go to the directory where `docker-compose.yml` is located.
 
 ````bash
 cd ~/pbc
@@ -63,7 +66,7 @@ cd ~/pbc
 Open the file in nano:
 
 ````bash
-sudo nano update_docker.sh
+nano update_docker.sh
 ````
 
 Paste the following content into the file:
@@ -84,10 +87,10 @@ Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 **2. Make the file executable:**
 
 ````bash
-sudo chmod +x update_docker.sh
+chmod +x update_docker.sh
 ````
 
-Type ``ls`` and confirm *update_docker.sh*  file name is shown in green, that means it is now executable.
+Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first attributes that means it is now executable.
 
 **3. Set update frequency to 30 minutes:**
 
