@@ -1,12 +1,22 @@
 # Node health and maintenance
 
-This section covers how to:
+If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your  node is not updated regularly, it is bound to fall out of committee. Only nodes up-to-date can participate in forming a new committee, so every time a new committee is formed from registered nodes, only nodes with newest version of Partisia Software can be included. 
+Your node can only perform services and by extension earn rewards when in the committee. After you are included you want to make sure your node is able to continue to participate.  
+To optimize your nodes earning potential you should implement automatic updates and check up on the node's performance regularly.
 
-- Update your node   
-- Implement automatic updates   
-- Check your IP accessibility and version of Partisia Software   
-- Metrics of node performance   
-- Interpret log messages and debugging problems  
+**Your node is working when:**
+- Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://dashboard.partisiablockchain.com/info/consensus). This can be affirmed in the metrics explained below.   
+- Your node is signing blocks.
+- Your node is running the newest version of Partisia Software.    
+
+
+### The following section covers how to:
+
+- Update your node manually.   
+- Implement automatic updates.   
+- Check your IP accessibility and version of Partisia Software.   
+- Metrics of node performance - See if your node is producing blocks and have a reasonable finalization time.   
+- Interpret log messages and debugging problems - See if your node is signing blocks.   
 
 
 
@@ -28,7 +38,7 @@ First you change the directory to where you put your `docker-compose.yml` file. 
 
 ## Get automatic updates
 
-To setup automatic updates you will need Cron, which is a time based job scheduler. See if you have the Cron package installed:
+To set up automatic updates you will need Cron, which is a time based job scheduler. See if you have the Cron package installed:
 
 ````bash
 dpkg -l cron
@@ -84,8 +94,9 @@ Type ``ls`` and confirm *update_docker.sh*  file name is shown in green, that me
 ````bash
 crontab -e
 ````
-This will let you chose your preferred text editor.
+This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to edit the cron rule. If you have not already chosen a preference.   
 
+Add the rule to the scheduler, "#" marks comments, so add the rule to an empty line.
 ````bash
  */30 * * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
 ````
