@@ -90,7 +90,7 @@ Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 chmod +x update_docker.sh
 ````
 
-Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first attributes that means it is now executable.
+Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now executable.
 
 **3. Set update frequency to 30 minutes:**
 
@@ -125,16 +125,16 @@ Pulling pbc-betanet-reader ... pulling from privacyblockchain/de...
 Your node can only get registered as a block producer and participate in the committee if your host IP is reachable, and you are running the newest version of the Partisia software. 
 Replace the letters in the URL below with the IP of the server hosting your node. This should navigate you to a page showing a JSON, with the following information:
 
-http://yourHostIP:9888/status
+http://PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE:9888/status
 
 
 ````json
 {
-versionIdentifier: "versionNumber",  
+versionIdentifier: "VERSION_NUMBER",  
 uptime: number,
 - knownPeersNetworkKeys: [listOfProducers],
-  networkKey: "yourNetworkPublicKey",
-  blockchainAddress: "blockchainAddress"
+  networkKey: "NETWORK_PUBLIC_KEY",
+  blockchainAddress: "BLOCKCHAIN_ADDRESS"
 ````
 You can see which version of Partisia software you are running. Uptime is measured in milliseconds, and show how long your IP has been reachable uninterrupted.
 
