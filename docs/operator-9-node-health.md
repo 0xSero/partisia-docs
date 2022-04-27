@@ -136,7 +136,7 @@ uptime: number,
   networkKey: "NETWORK_PUBLIC_KEY",
   blockchainAddress: "BLOCKCHAIN_ADDRESS"
 ````
-You can see which version of Partisia software you are running. Uptime is measured in milliseconds, and show how long your IP has been reachable uninterrupted.
+You can see which version of Partisia software you are running. Uptime is measured in milliseconds, and show how long your server has been running uninterrupted.
 
 If you cannot open your status endpoint there is probably a problem with the opening of ports of the VPS. See which ports are allowed through the firewall:   
 
