@@ -44,7 +44,7 @@ Now you are ready to start.
 
 **1. Create the auto update script:**
 
-Go to the directory where docker-compose.yml is located, in this guide we assume you are using `~/pbc`.
+Go to the directory where `docker-compose.yml` is located, in this guide we assume you are using `~/pbc`.
 
 ````bash
 cd ~/pbc
