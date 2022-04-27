@@ -117,11 +117,13 @@ If you are currently updating you should see:
 Pulling pbc-betanet-reader ... pulling from privacyblockchain/de...
 ````
 **NB.** Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
-## Your personal status endpoint
+## Check software version and uptime with your personal endpoint
+
+Your node can only get registered as a block producer and participate in the committee if your host IP is reachable, and you are running the newest version of the Partisia software. 
+Replace the letters in the URL below with the IP of the server hosting your node. This should navigate you to a page showing a JSON, with the following information:
 
 http://yourHostIP:9888/status
 
-Replace the letters in the URL with the IP of the server hosting your node. This should navigate you to a page showing a JSON, with the following information:
 
 ````json
 {
@@ -141,108 +143,78 @@ sudo ufw status
 ````
 Make sure you have opened for ports 9888-9897. If not consult instructions [here](operator-4-security.md).
 
-## Metrics of node performance
+## How to find and use metrics to measure performance
 
 You should visit the metrics, where you can get important indicators of your node's performance. It is possible to see metrics for one shard, or for the whole chain, you can also see specifics of your node.
 
-In this example I will look at the latest 11 hours on **Shard1**. Notice I add the time I wish to look back in the end of the URL, in this case 660 minutes. You can change shard number in the URL to see **Shard0** and **Shard2**
+**Make the metrics give you the information you are looking for:**
+In this example I will look at the latest 400 minutes on **Shard2**. Notice I add the time I wish to look back in the end of the URL, in this case 400 minutes. You can change shard number in the URL to see **Shard0** and **Shard1**
 
-https://betareader.partisiablockchain.com/shards/Shard1/metrics/blocks/660
+https://betareader.partisiablockchain.com/shards/Shard2/metrics/blocks/400
+
+In case of problems it makes sense  to look at each shard, because failures can be shard specific. And different tasks happen on different shards.
 
 It is highly recommendable to use a json extension for your browser, or paste the text into an IDE, otherwise it might be quite difficult to read the json file.     
-
-**resetBlockCount:**   
-The first number to notice is *resetBlockCount*, this number is in our case different from zero, which means some nodes in the network have performed suboptimally. A node produces 100 blocks each time it is chosen as producer, unless it has to produce leftover blocks from a previous producer, or if one or more reset blocks have been used to skip offline producers.
-We can see in the *resetBlockCount* that 2 reset blocks were produced. They were caused by producers with index 10 and 18 being offline or misconfigured. The nodes with index 11 and 19 only produced 99 blocks because one reset block is expended when skipping the unavailable producer. The first and last producer on the list might look like they did not perform, but that is due to the time when we pull the list.    
-
-**medianFinalizationTime:**    
-Each node has a *medianFinalizationTime*, the median time used by the node to produce a block. If this number is significantly higher for your node than the rest on the list. Then your node might have to weak hardware or something is causing the node to under perform.   
+Explanation of the terms in the output follows below.
+Your output should look like the ordered list you see here:   
 
 ````json
 {
-  earliestBlockProductionTime: 1650838645989,
-  latestBlockProductionTime: 1650878219379,
-  transactionCount: 1973,
-  eventTransactionCount: 3723,
-  blockCount: 1667,
-  resetBlockCount: 2,
+  earliestBlockProductionTime: 1651026257696,
+  latestBlockProductionTime: 1651050197085,
+  transactionCount: 1298,
+  eventTransactionCount: 15,
+  blockCount: 967,
+  resetBlockCount: 1,
   committees: {
     2: {
       producers: {
-        8: {
-          blocksProduced: 26,
-          medianFinalizationTime: -1
+        63: {
+          blocksProduced: 42,
+          medianFinalizationTime: 2704
         },
-        9: {
-          blocksProduced: 100,
-          medianFinalizationTime: 3647
-        },
-        11: {
+        65: {
           blocksProduced: 99,
-          medianFinalizationTime: 2491.5
+          medianFinalizationTime: 2726
         },
-        12: {
+        66: {
           blocksProduced: 100,
-          medianFinalizationTime: 2938.5
+          medianFinalizationTime: 3056
         },
-        13: {
+        67: {
           blocksProduced: 100,
-          medianFinalizationTime: 2801
+          medianFinalizationTime: 2799.5
         },
-        14: {
+        68: {
           blocksProduced: 100,
-          medianFinalizationTime: 2904
+          medianFinalizationTime: 3035
         },
-        15: {
+        69: {
           blocksProduced: 100,
-          medianFinalizationTime: 2676.5
+          medianFinalizationTime: 3159
         },
-        16: {
+        70: {
           blocksProduced: 100,
-          medianFinalizationTime: 4083.5
+          medianFinalizationTime: 3061
         },
-        17: {
+        71: {
           blocksProduced: 100,
-          medianFinalizationTime: 3326
+          medianFinalizationTime: 2853
         },
-        19: {
-          blocksProduced: 99,
-          medianFinalizationTime: 2884.5
-        },
-        20: {
+        72: {
           blocksProduced: 100,
-          medianFinalizationTime: 3506
+          medianFinalizationTime: 3259
         },
-        21: {
+        73: {
           blocksProduced: 100,
-          medianFinalizationTime: 3339.5
+          medianFinalizationTime: 3045
         },
-        22: {
-          blocksProduced: 100,
-          medianFinalizationTime: 3536
-        },
-        23: {
-          blocksProduced: 100,
-          medianFinalizationTime: 3336.5
-        },
-        24: {
-          blocksProduced: 100,
-          medianFinalizationTime: 2943
-        },
-        25: {
-          blocksProduced: 100,
-          medianFinalizationTime: 3887
-        },
-        26: {
-          blocksProduced: 100,
-          medianFinalizationTime: 3618
-        },
-        27: {
-          blocksProduced: 41,
-          medianFinalizationTime: 3297
+        74: {
+          blocksProduced: 25,
+          medianFinalizationTime: 3572
         },
         -1: {
-          blocksProduced: 2,
+          blocksProduced: 1,
           medianFinalizationTime: -1
         }
       }
@@ -250,16 +222,26 @@ Each node has a *medianFinalizationTime*, the median time used by the node to pr
   }
 }
 ````
+The index of your node on this list corresponds to the index of listed committee members [here](https://dashboard.partisiablockchain.com/info/consensus).   
+**NB.** You index can change every time a new committee is formed. 
 
-You can see blocks produced on the entire chain:   
+The number of blocks your node produced should be 100, unless a producer at the previous index was offline or did not finish producing their 100 blocks. If there is a quota of leftover blocks from the previous producer, they will be produced by your node minus one reset block to change current producer. So if the node before yours produced 20 blocks and then stopped, your node would optimally produce 79 blocks.
 
-https://betareader.partisiablockchain.com/metrics/blocks/660
 
-But in case of problems it makes sense  to look at each shard, because failures can be shard specific. And different tasks happen on different shards.
+**resetBlockCount:**   
+The first number to notice is *resetBlockCount*, this number is in our case different from zero, which means some nodes in the network have performed suboptimally. A node produces 100 blocks each time it is chosen as producer, unless it has to produce leftover blocks from a previous producer, or if one or more reset blocks have been used to skip offline producers.
+We can see in the *resetBlockCount* that 1 reset blocks were produced. The reset block was caused by the producer with index 64 offline or misconfigured. The nodes with index 65 only produced 99 blocks because one reset block is expended when skipping the unavailable producer. The first and last producer on the list might look like they did not perform, but that is due to the time when we pull the list.
+
+**medianFinalizationTime:**    
+Each node has a *medianFinalizationTime*, the median time used by the node to produce a block. If this number is significantly higher for your node than the rest on the list. Then your node might have to weak hardware or something is causing the node to under perform.   
+
+You can see blocks produced on the entire chain by modifying the URL:   
+
+https://betareader.partisiablockchain.com/metrics/blocks/
 
 ## Logs and storage
 
-The logs of the node are written to the standard output of the container and are therefore managed using the tools provided by Docker. You can read about configuring Docker logs [here](https://docs.docker.com/config/containers/logging/configure/).
+You use the docker logs to see activity on the chain and if your node is signing blocks. The logs of the node are written to the standard output of the container and are therefore managed using the tools provided by Docker. You can read about configuring Docker logs [here](https://docs.docker.com/config/containers/logging/configure/).
 
 The storage of the node is based on RocksDB. It is write-heavy and will increase in size for the foreseeable future. The number and size of reads and writes is entirely dependent on the traffic on the network.
 
