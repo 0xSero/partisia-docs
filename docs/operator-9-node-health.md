@@ -101,7 +101,7 @@ This command allows you to add a rule for a scheduled event. You will be asked t
 
 Add the rule to the scheduler, "#" marks comments, so add the rule to an empty line.
 ````bash
- */30 * * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
+*/30 * * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
 ````
 This rule will make the script run and thereby check for available updates every 30 minutes.
 
