@@ -120,7 +120,7 @@ YOUR_CONTAINER_NAME is up-to-date
 ````
 If you are currently updating you should see:
 ````
-Pulling pbc-betanet-reader ... pulling from privacyblockchain/de...
+Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 ````
 **NB.** Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
 
