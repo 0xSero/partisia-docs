@@ -99,17 +99,20 @@ crontab -e
 ````
 This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to edit the cron rule. If you have not already chosen a preference.   
 
-Add the rule to the scheduler, "#" marks comments, so add the rule to an empty line.
+Paste and add the rule to the scheduler. **NB**. No "#" in front of the rule:
 ````bash
 */30 * * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
 ````
+Press `CTRL+X` and then `Y` and then `ENTER`.
+
 This rule will make the script run and thereby check for available updates every 30 minutes.
 
-To see if the script is working you can read the update log with the *cat command*
+To see if the script is working you can read the update log with the *cat command*:
 
 ````bash
 cat update.log
 ````
+You might want to change the timing the first time, so you do not have to wait 30 minutes to confirm that it works.
 
 If your version is up-to-date, you should see:   
 ````
@@ -120,6 +123,7 @@ If you are currently updating you should see:
 Pulling pbc-betanet-reader ... pulling from privacyblockchain/de...
 ````
 **NB.** Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
+
 ## Check software version and uptime with your personal endpoint
 
 Your node can only get registered as a block producer and participate in the committee if your host IP is reachable, and you are running the newest version of the Partisia software. 
@@ -151,7 +155,8 @@ Make sure you have opened for ports 9888-9897. If not consult instructions [here
 You should visit the metrics, where you can get important indicators of your node's performance. It is possible to see metrics for one shard, or for the whole chain, you can also see specifics of your node.
 
 **Make the metrics give you the information you are looking for:**
-In this example I will look at the latest 400 minutes on **Shard2**. Notice I add the time I wish to look back in the end of the URL, in this case 400 minutes. You can change shard number in the URL to see **Shard0** and **Shard1**
+In this example I will look at the latest 400 minutes on **Shard2**. Notice, that you add the time you wish to look back in the end of the URL, in this case 400 minutes. You can change shard number in the URL to see **Shard0** and **Shard1**. It takes about a day (1500 minutes) for all producers to have had their turn. If there are a lot of votes due to reset blocks, it can take longer.
+
 
 https://betareader.partisiablockchain.com/shards/Shard2/metrics/blocks/400
 
@@ -250,7 +255,7 @@ The storage of the node is based on RocksDB. It is write-heavy and will increase
 
 ### Common log messages
 
-**Signing** - All is well.   
+**Signing BlockState** - All is well.   
 **Not signing as shutdown is active** - You may assume all is well. Shutdown happens when chosen producer fails to produce a block, a reset block is made, and then a new node is chosen for the role of producer.   
 **Not signing** - This is not a good sign, you are not signing blocks. First, check if you are on the list of [current committee members](https://mpcexplorer.com/validators), if you are not and you have already filled out the survey, then you need to notify us so we can update betanet and have you added. If you are on the list and still get “Not signing” then you almost certainly have some problem in your config.json Probably you have a wrong or no key in one of the fields: networkKey, accountKey or finalizationKey.   
 **Got a message with wrong protocol identifier** - This message comes every time a shutdown has occurred (in other words whenever a producer has not produced the block he is supposed to). So, on its own that message does not indicate a problem. But, if the log just repeats and don't change to a new message saying Executing Block… it could suggest you are running an outdated version of our software, a version that does not pull the newest docker image automatically.   
