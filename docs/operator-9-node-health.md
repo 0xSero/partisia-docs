@@ -5,6 +5,7 @@ Your node can only perform services and by extension earn rewards when in the co
 To optimize your nodes earning potential you should implement automatic updates and check up on the node's performance regularly.
 
 **Your node is working when:**   
+
 - Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://dashboard.partisiablockchain.com/info/consensus). This can be affirmed in the metrics explained below.   
 - Your node is signing blocks.   
 - Your node is running the newest version of Partisia Software.    
