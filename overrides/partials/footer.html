@@ -72,9 +72,8 @@
       </div>
     </a>
     {% endif %}
-    <a class="" data-md-component="top" href="#" style="top: 64px;">
+    <a class="md-top--footer md-icon" data-md-component="top" href="#" style="top: 64px;">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-      Back to top
     </a>
   </nav>
   {% endif %}
@@ -82,12 +81,19 @@
   <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      {% include "partials/copyright.html" %}
+      <div>
+        <img src="/assets/pbclogo.svg" class="logo">
 
-      <!-- Social links -->
-      {% if config.extra.social %}
-      {% include "partials/social.html" %}
-      {% endif %}
+        <!-- Social links -->
+        {% if config.extra.social %}
+        {% include "partials/social.html" %}
+        {% endif %}
+
+        {% include "partials/copyright.html" %}
+      </div>
+
+      {% include "partials/nav-2.html" %}
+
     </div>
   </div>
 </footer>
