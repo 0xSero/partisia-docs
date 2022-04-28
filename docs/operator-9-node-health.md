@@ -7,8 +7,8 @@ To optimize your nodes earning potential you should implement automatic updates 
 **Your node is working when:**   
 
 - Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://dashboard.partisiablockchain.com/info/consensus). This can be affirmed in the metrics explained below.   
-- Your node is signing blocks.   
-- Your node is running the newest version of Partisia Software.    
+- Your node is signing blocks. Can be checked in the logs as explained below.   
+- Your node is running the newest version of Partisia Software. The easiest way to assure this is by implementing automatic updates.    
 
 
 ### The following section covers how to:
@@ -18,7 +18,6 @@ To optimize your nodes earning potential you should implement automatic updates 
 - Check your IP accessibility and version of Partisia Software.   
 - Metrics of node performance - See if your node is producing blocks and have a reasonable finalization time.   
 - Interpret log messages and debugging problems - See if your node is signing blocks.   
-
 
 
 ## Updating
