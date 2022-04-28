@@ -116,7 +116,7 @@ You might want to change the timing the first time, so you do not have to wait 3
 
 If your version is up-to-date, you should see:   
 ````
-yourContainerName is up-to-date
+YOUR_CONTAINER_NAME is up-to-date
 ````
 If you are currently updating you should see:
 ````
