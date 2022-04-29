@@ -16,4 +16,4 @@
 
 ## Access to Gitlab Repository
 
-- Send your e-mail address to *@Kristian Hu#7382* in a direct message on the Partisia Blockchain Discord Channel for access to Partisia's Gitlab Repository. If you are not already a member of the node of our Discord channel write a direct message to @bryanpartisia on Telegram, he will add you to the group. 
+- Send your e-mail address to *@Kristian Hu#7382* in a direct message on the Partisia Blockchain Discord Server for access to Partisia's Gitlab Repository (Will soon be open source). If you are not already a member on the Partisia Discord Server click [here](https://discord.gg/V6zzFDQYg9).   
