@@ -55,6 +55,7 @@ pages-dev:
   - build-site
   script:
   - ./replace-zip-version.sh
+  - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   except:
   - main
   artifacts:
