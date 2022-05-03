@@ -158,7 +158,7 @@ You should visit the metrics, where you can get important indicators of your nod
 In this example I will look at the latest 400 minutes on **Shard2**. Notice, that you add the time you wish to look back in the end of the URL, in this case 400 minutes. You can change shard number in the URL to see **Shard0** and **Shard1**. It takes about a day (1500 minutes) for all producers to have had their turn. If there are a lot of votes due to reset blocks, it can take longer.
 
 
-https://betareader.partisiablockchain.com/shards/Shard2/metrics/blocks/400
+<https://betareader.partisiablockchain.com/shards/Shard2/metrics/blocks/400>
 
 In case of problems it makes sense  to look at each shard, because failures can be shard specific. And different tasks happen on different shards.
 
@@ -245,7 +245,7 @@ Each node has a *medianFinalizationTime*, the median time used by the node to pr
 
 You can see blocks produced on the entire chain by modifying the URL:   
 
-https://betareader.partisiablockchain.com/metrics/blocks/400
+<https://betareader.partisiablockchain.com/metrics/blocks/400>
 
 ## Logs and storage
 
