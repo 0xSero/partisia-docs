@@ -245,7 +245,7 @@ Each node has a *medianFinalizationTime*, the median time used by the node to pr
 
 You can see blocks produced on the entire chain by modifying the URL:   
 
-https://betareader.partisiablockchain.com/metrics/blocks/
+https://betareader.partisiablockchain.com/metrics/blocks/400
 
 ## Logs and storage
 
