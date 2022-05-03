@@ -16,11 +16,11 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 
 ## How to fill out the form for the Register Transaction
 
-You need the same 3 private keys you have put in the `config.json`. You use the private key of your account to log into your wallet and the Explorer. The form generates the public versions of the network and finalization key when you put in the private version. The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node. For this reason it is important to put trustworthy information in this form.   
+You need the same 3 private keys you have put in the `config.json`. You use the private key of your account to log into your wallet and the Explorer. The form generates the public versions of the network and finalization key when you put in the private version. The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node. For this reason it is important to put trustworthy information in this form. IP is cross-checked with server jurisdiction and address with entity jurisdiction. Mismatched information will not be approved.      
 
 
 - Name (Legal name)   
-- Website (Company or personal webpage)   
+- Website (Company or personal webpage - do not use Partisia in domain name)   
 - Address (Company or personal address)   
 - Put in network private key   
 - Put in finalization private key (The BLS key)   
