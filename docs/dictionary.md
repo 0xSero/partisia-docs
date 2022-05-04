@@ -84,4 +84,4 @@ The feature that allows you to deposit and withdraw BYOC.
 The smallest amount of information which can change the state of the blockchain Read more [here](transactions.md)
 
 #### WASM
-Abreviation for WebAssembly, a binary code format which is used for the smart contracts deployed at PBC.
+Abbreviation for WebAssembly, a binary code format which is used for the smart contracts deployed at PBC.
