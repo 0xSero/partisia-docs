@@ -1,9 +1,12 @@
 # Terms commonly used in relations to Partisia technology and infrastructure
 
-The following list is quite long, and you might want to search for the term you are looking for using `CTRL+F` instead of scrolling down.
+The following list is long and growing, so you might want to search for the term you are looking for using `CTRL+F` instead of scrolling down.
 
 ### ABI
 Application binary interface, it is needed when deploying a smart contract. An ABI helps the blockchain interpret the binary version of the contract file.
+
+### Account
+Every user on Partisia Blockchain has an account. The account holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](accounts.md).
 
 ### Baker Node
 A node performing baker services, but not ZK or Oracle services.
@@ -18,7 +21,7 @@ Block producing node. All nodes in the current [committee](https://mpcexplorer.c
 Bring your own coin, basically the idea, that you can bring a myriad of liquid currencies to PBC and interact with them through contracts.
 
 ### Consensus Node
-A node participating
+A node participating in the [FastTrack Consensus](consensus.md)
 
 ### Contracts  
 A contract is a program that sends information to the blockchain.
@@ -27,6 +30,7 @@ A contract is a program that sends information to the blockchain.
 A computer network where every node distributes packets to all it neighbors
 
 ### Large Oracle
+A reference to the entire committee when performing some vital task involving MPC, E.G. forming a new committee.
 
 ### MPC
 Secure multiparty computation (for the token see MPC token). The privacy layer of Partisia Blockchain utilizes several zero knowledge protocols. Most notably MPC.
@@ -38,35 +42,46 @@ A node in the PBC network which has been allocated for doing an MPC protocol.
 It is in a sense a cryptocurrency, but not liquid like Ethereum og Bitcoin
 
 ### MPC Wallet
+There is a [wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for the Google Chrome Browser. It allows for deployment and interactions with contracts, when connected with the [MPC Explorer](https://mpcexplorer.com/). 
 
 ### NFT 
 A technology which allows proof of ownership, and can thereby help ensure intellectual property rights for digital products.
 
-### Node - A machine or virtual machine linked in the network.
+### Node 
+A machine or virtual machine linked in the network. See more [here](whatisano.md)
 
 ### Oracle Node
+A node performing oracle services. These nodes are responsible for processes related to transfer, deposit and withdrawal of BYOC.
 
 ### PBC 
-Partisia Blockchain, different from other blockchains
-### PBC account
+Partisia Blockchain, read more about what seperates PBC from other blockchains [here](introduction.md).
+
+### PBC Account
+See Account
 
 ### PBC Ledger 
 The immutable record or ledger, where you can see transactions that have already taken place.
+
 ### Public Key Cryptography
+Public-key cryptography is a form of cryptography that uses pairs of keys: A public key that may be shared with anyone and a private key that must be kept secret. Read more [here](keys.md).
 
 ### Reader Node
+A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](operator-2-reader.md).
 
 ### Rest Server
-
-### Shamir secret sharing
+An infrastructure that allows for individual servers in a network to be offline without the remaining servers to be affected. 
 
 ### Shards
+The feature that allows PBC to be scalable. read more [here](shards.md)
 
 ### t<n/3 advantages
+It is possible to do secure multiparty computations with an extremely high degree of safety, when malicious parties in a group compose less than one third of the group.
 
 ### Token Bridges
 The feature that allows you to deposit and withdraw BYOC.
 
 ### Transactions
+The smallest amount of information which can change the state of the blockchain Read more [here](transactions.md)
 
 #### WASM
+Abreviation for WebAssembly, a binary code format which is used for the smart contracts deployed at PBC.
