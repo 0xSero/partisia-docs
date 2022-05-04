@@ -1,6 +1,5 @@
 # Terms commonly used in relations to Partisia technology and infrastructure
 
-The following list is long and growing, so you might want to search for the term you are looking for using `CTRL+F` instead of scrolling down.
 
 ### ABI
 Application binary interface, it is needed when deploying a smart contract. An ABI helps the blockchain interpret the binary version of the contract file.
