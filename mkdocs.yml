@@ -3,6 +3,8 @@ site_url:
 use_directory_urls: False
 nav:
   - Home: index.md
+  - Notation and definitions:
+      - PBC Dictionary: dictionary.md
   - Getting started as a node operator:
       - What is a node operator: whatisano.md
       - Run a node - Introduction and index: operator-0-introduction.md
