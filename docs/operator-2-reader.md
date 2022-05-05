@@ -155,26 +155,3 @@ docker logs -f pbc-betanet-reader
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
 
-
-
-## Logs and storage
-
-The logs of the node are written to the standard output of the container and are therefore managed using the tools provided by Docker. You can read about configuring Docker logs [here](https://docs.docker.com/config/containers/logging/configure/).
-
-The storage of the node is based on RocksDB. It is write-heavy and will increase in size for the foreseeable future. The number and size of reads and writes is entirely dependent on the traffic on the network.
-
-## Updating
-
-Updating the PBC node is a simple 3-step process:
-
-````bash
-cd ~/pbc
-````
-````bash
-docker-compose pull
-````
-````bash
-docker-compose up -d
-````
-
-First you change the directory to where you put your `docker-compose.yml` file. You then stop the currently running container, pull the newest image and start it again. You should now be running the newest version of the software.

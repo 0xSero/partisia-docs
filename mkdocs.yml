@@ -14,6 +14,7 @@ nav:
       - Run a node 6 - Keys for BP config and registration: operator-6-keys.md
       - Run a node 7 - Change node config from reader to block producer: operator-7-bp.md
       - Run a node 8 - Register your node in the MPC Explorer: operator-8-registration.md
+      - Run a node 9 - Node health and maintenance: operator-9-node-health.md
       - Update your node's public information: update-transaction.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - Getting started as a developer:

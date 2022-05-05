@@ -10,3 +10,4 @@ This guide has 8 parts. If you do the steps of the guide in order, you should kn
 6. [Create keys for config and registration](operator-6-keys.md)   
 7. [Run a block producing node on the VPS](operator-7-bp.md)   
 8. [Register your node](operator-8-registration.md)   
+9. [Node health and maintenance](operator-9-node-health.md)   
