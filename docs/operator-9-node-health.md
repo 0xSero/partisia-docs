@@ -18,6 +18,7 @@ To optimize your nodes earning potential you should implement automatic updates 
 - Check your IP accessibility and version of Partisia Software.   
 - Metrics of node performance - See if your node is producing blocks and have a reasonable finalization time.   
 - Interpret log messages and debugging problems - See if your node is signing blocks.   
+- How to migrate your node to a different VPS
 
 
 ## Updating
@@ -299,3 +300,26 @@ docker logs --since 1h pbc-betanet-reader | grep "Signing BlockState"
 ````
 
 This will give you the blocks you have signed the last hour. You might also want to look for blocks you created when you were chosen as producer ``| grep "Created Block"``.
+
+### How to migrate your node to a different VPS
+
+When changing VPS there are a few important precautions you take ensuring a problem free migration.
+
+**You may never run two nodes performing baker services at the same time.**
+Running two nodes with same config can be interpreted as malicious behavior.You can start a [reader node](operator-5-reader-vps.md) on the new VPS. Then, when you are ready to change the `config.json` to the BP version, you stop the node from running on the old server:
+
+````bash
+docker stop  nameOfDockerContainer
+````
+
+**If you change host IP, you need to correct your `config.json`**
+In `config.json` correct the IPv4:
+
+````json
+"host": "PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE",
+````
+
+**You must migrate certain files for your node to participate in voting on a new committee (Large Oracle)**   
+From the root directory of your old node host you move the 3 files below to the root directory of the new server:
+
+`large-oracle-backup-database.db`, `large-oracle-database.db` and `peers.json`
