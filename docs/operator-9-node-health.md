@@ -305,14 +305,14 @@ This will give you the blocks you have signed the last hour. You might also want
 
 When changing VPS there are a few important precautions you take ensuring a problem free migration.
 
-**You may never run two nodes performing baker services at the same time.**
+**You may never run two nodes performing baker services at the same time.**   
 Running two nodes with same config can be interpreted as malicious behavior.You can start a [reader node](operator-5-reader-vps.md) on the new VPS. Then, when you are ready to change the `config.json` to the BP version, you stop the node from running on the old server:
 
 ````bash
 docker stop  nameOfDockerContainer
 ````
 
-**If you change host IP, you need to correct your `config.json`**
+**If you change host IP, you need to correct your `config.json`**   
 In `config.json` correct the IPv4:
 
 ````json
