@@ -1,6 +1,6 @@
 # Run a node on Partisia Blockchain
 
-This guide has 8 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
+This guide has 9 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
 
 1. [Hardware and software for running the node](operator-1-specs.md)   
 2. [Run a reader node locally](operator-2-reader.md)   
