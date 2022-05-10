@@ -15,7 +15,9 @@ If Working from a Windows machine you must either:
 
 ### Step 2: Download Partisia Contract SDK
 
-[Download Partisia Contract SDK](LINK_TO_RUST_CONTRACT_SDK) - The archive contains the Rust project.
+[![button](Download.png)](LINK_TO_RUST_CONTRACT_SDK)   
+
+The archive contains the Rust project.
 files and the SDK. The archive contains the `partisia-contract` tool, the SDK and some example contracts.
 If you are working with a WSL shell on Windows you can locate files within WSL in the folder named `\\wsl$\Ubuntu\`.
 From now on we assume you have extracted the archive to `/tmp/pbc-rust-wasm`.  
