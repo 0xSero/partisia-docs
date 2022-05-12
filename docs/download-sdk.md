@@ -10,8 +10,9 @@ rustup update
 rustup target add wasm32-unknown-unknown
 ```
 If Working from a Windows machine you must either:   
+
 - [Get Visual Studio with C++  build tools](https://visualstudio.microsoft.com/downloads/) - In Visual Studio Installer choose *Desktop development with C++*.   
-- [Install Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install)   
+- [Install Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install)    
 
 ### 2) Download Partisia Contract SDK
 
