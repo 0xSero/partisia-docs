@@ -9,8 +9,20 @@ function replace_dependency_path() {
 
 function delete_sdk_tests() {
     echo "Deleting SDK test for each subfolder"
-    rm -rf tests/
     rm -r sdk_tests/
+    shopt -s globstar
+    for f in ./**/Cargo.toml; do
+      f="${f#./}"
+      # shellcheck disable=SC2034
+      child_folder="${f%%/Cargo.toml}"
+      # shellcheck disable=SC2164
+      pushd child_folder
+      rm -rf tests
+      rm -rf unit_tests
+      # shellcheck disable=SC2164
+      popd
+    done
+
 }
 
 function get_current_version() {
@@ -33,7 +45,7 @@ declare -A content0=(
 # shellcheck disable=SC2034
 declare -A content1=(
   [repo]='gitlab.com/privacyblockchain/language/rust-contract-sdk.git'
-  [output]='rust-contract-sdk'
+  [output]='contract-sdk'
   [version_ref]='tags/6.1.0'
   [post_process]='delete_sdk_tests'
 )
@@ -41,7 +53,7 @@ declare -A content1=(
 # shellcheck disable=SC2034
 declare -A content2=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-token-contract.git'
-  [output]='examples/rust-example-token-contract'
+  [output]='examples/example-token-contract'
   [version_ref]='tags/0.2.6-sdk-6.1.0'
   [post_process]='replace_dependency_path'
 )
@@ -49,7 +61,7 @@ declare -A content2=(
 # shellcheck disable=SC2034
 declare -A content3=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-voting-contract.git'
-  [output]='examples/rust-example-voting-contract'
+  [output]='examples/example-voting-contract'
   [version_ref]='tags/0.2.3-sdk-6.1.0'
   [post_process]='replace_dependency_path'
 )
@@ -57,7 +69,7 @@ declare -A content3=(
 # shellcheck disable=SC2034
 declare -A content4=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-auction-contract.git'
-  [output]='examples/rust-example-auction-contract'
+  [output]='examples/example-auction-contract'
   [version_ref]='tags/0.1.4-sdk-6.1.0'
   [post_process]='replace_dependency_path'
 )
