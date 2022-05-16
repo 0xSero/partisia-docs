@@ -16,7 +16,7 @@ function delete_sdk_tests() {
       f="${f#./}"
       # shellcheck disable=SC2034
       child_folder="${f%%/Cargo.toml}"
-      echo child_folder
+      echo "${child_folder}"
       # shellcheck disable=SC2164
       pushd child_folder
       rm -rf tests
