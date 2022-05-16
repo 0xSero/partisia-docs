@@ -12,6 +12,7 @@ function delete_sdk_tests() {
     rm -r sdk_tests/
     shopt -s globstar
     for f in ./**/Cargo.toml; do
+      echo "Found file"
       f="${f#./}"
       # shellcheck disable=SC2034
       child_folder="${f%%/Cargo.toml}"
