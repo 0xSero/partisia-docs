@@ -1,8 +1,16 @@
 function replace_dependency_path() {
   echo "Removing dependencies folder"
   rm -rf dependencies/
+  rm -rf binder-test/
+  rm -f binder-integration-test.sh
   echo "Patching Cargo.toml"
   sed -i 's/"dependencies/"..\/../g' Cargo.toml
+}
+
+function delete_sdk_tests() {
+    echo "Deleting SDK test for each subfolder"
+    rm -rf tests/
+    rm -r sdk_tests/
 }
 
 function get_current_version() {
@@ -27,7 +35,7 @@ declare -A content1=(
   [repo]='gitlab.com/privacyblockchain/language/rust-contract-sdk.git'
   [output]='rust-contract-sdk'
   [version_ref]='tags/6.1.0'
-  [post_process]='true'
+  [post_process]='delete_sdk_tests'
 )
 
 # shellcheck disable=SC2034
