@@ -13,6 +13,10 @@ function clone_and_clean() {
 
   echo "Removing git indices and pipeline definition"
   rm -rf .git/
+  rm -f .gitignore
+  rm -f .gitmodules
+  rm -rf binder-test/
+  rm -f binder-integration-test.sh
   rm .gitlab-ci.yml
 
   echo "Running post_process: '$post_process'"
