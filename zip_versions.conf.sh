@@ -3,28 +3,38 @@ function replace_dependency_path() {
   rm -rf dependencies/
   rm -rf binder-test/
   rm -f binder-integration-test.sh
+  rm -f version.txt
+  # shellcheck disable=SC2164
+  pushd src
+  rm -f test.rs
+  # shellcheck disable=SC2164
+  popd
   echo "Patching Cargo.toml"
-  sed -i 's/"dependencies/"..\/../g' Cargo.toml
+  sed -i 's/dependencies\/rust-/\.\.\/\.\.\//g' Cargo.toml
+}
+
+function delete_cargo_partisia_tests() {
+  echo "Removing testdata folder"
+  rm -rf testdata
 }
 
 function delete_sdk_tests() {
     echo "Deleting SDK test for each subfolder"
     rm -r sdk_tests/
     shopt -s globstar
-    for f in ./**/Cargo.toml; do
-      echo "Found file"
-      f="${f#./}"
-      # shellcheck disable=SC2034
-      child_folder="${f%%/Cargo.toml}"
-      echo "$f"
-      # shellcheck disable=SC2164
-      pushd child_folder
-      rm -rf tests
-      rm -rf unit_tests
-      # shellcheck disable=SC2164
-      popd
+    for f in *; do
+      # shellcheck disable=SC1073
+      if [ -d "$f" ]; then
+        # shellcheck disable=SC2164
+        pushd "${f}"
+        # shellcheck disable=SC2164
+        rm -rf tests
+        rm -rf unit_tests
+        rm -f .gitignore
+        # shellcheck disable=SC2164
+        popd
+      fi
     done
-
 }
 
 function get_current_version() {
@@ -41,7 +51,7 @@ declare -A content0=(
   [repo]='gitlab.com/privacyblockchain/language/cargo-partisia-contract.git'
   [output]='cargo-partisia-contract'
   [version_ref]='tags/0.2.8'
-  [post_process]='true'
+  [post_process]='delete_cargo_partisia_tests'
 )
 
 # shellcheck disable=SC2034
@@ -55,7 +65,7 @@ declare -A content1=(
 # shellcheck disable=SC2034
 declare -A content2=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-token-contract.git'
-  [output]='examples/example-token-contract'
+  [output]='contracts/example-token-contract'
   [version_ref]='tags/0.2.6-sdk-6.1.0'
   [post_process]='replace_dependency_path'
 )
@@ -63,7 +73,7 @@ declare -A content2=(
 # shellcheck disable=SC2034
 declare -A content3=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-voting-contract.git'
-  [output]='examples/example-voting-contract'
+  [output]='contracts/example-voting-contract'
   [version_ref]='tags/0.2.3-sdk-6.1.0'
   [post_process]='replace_dependency_path'
 )
@@ -71,7 +81,7 @@ declare -A content3=(
 # shellcheck disable=SC2034
 declare -A content4=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-auction-contract.git'
-  [output]='examples/example-auction-contract'
+  [output]='contracts/example-auction-contract'
   [version_ref]='tags/0.1.4-sdk-6.1.0'
   [post_process]='replace_dependency_path'
 )

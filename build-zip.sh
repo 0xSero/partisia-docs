@@ -37,7 +37,7 @@ cp sdk-readme.md build_zip/README.md
 pushd build_zip || exit
 
 # Create the examples folder
-mkdir -p examples
+mkdir -p contracts
 
 for content in ${!content@}; do
     url="https://gitlab-ci-token:${CI_JOB_TOKEN}@${content[repo]}"
