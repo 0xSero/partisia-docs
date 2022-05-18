@@ -11,7 +11,7 @@ function replace_dependency_path() {
   popd
   echo "Patching Cargo.toml"
   sed -i 's/dependencies\/rust-/\.\.\/\.\.\//g' Cargo.toml
-  sed -i 's/mod test\;//g' lib.rs
+  sed -i 's/mod test\;//g' src/lib.rs
 }
 
 function delete_cargo_partisia_tests() {
