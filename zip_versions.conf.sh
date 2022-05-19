@@ -1,9 +1,10 @@
-function replace_dependency_path() {
+function contract_cleanup() {
   echo "Removing dependencies folder"
   rm -rf dependencies/
   rm -rf binder-test/
   rm -f binder-integration-test.sh
   rm -f version.txt
+  rm -f README.md
   # shellcheck disable=SC2164
   pushd src
   rm -f test.rs
@@ -59,7 +60,7 @@ declare -A content0=(
 # shellcheck disable=SC2034
 declare -A content1=(
   [repo]='gitlab.com/privacyblockchain/language/rust-contract-sdk.git'
-  [output]='contract-sdk'
+  [output]='partisia-contract-sdk'
   [version_ref]='tags/7.0.0'
   [post_process]='delete_sdk_tests'
 )
@@ -69,7 +70,7 @@ declare -A content2=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-token-contract.git'
   [output]='contracts/example-token-contract'
   [version_ref]='tags/0.2.8-sdk-7.0.0'
-  [post_process]='replace_dependency_path'
+  [post_process]='contract_cleanup'
 )
 
 # shellcheck disable=SC2034
@@ -77,7 +78,7 @@ declare -A content3=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-voting-contract.git'
   [output]='contracts/example-voting-contract'
   [version_ref]='tags/0.2.4-sdk-7.0.0'
-  [post_process]='replace_dependency_path'
+  [post_process]='contract_cleanup'
 )
 
 # shellcheck disable=SC2034
@@ -85,7 +86,7 @@ declare -A content4=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-auction-contract.git'
   [output]='contracts/example-auction-contract'
   [version_ref]='tags/0.1.5-sdk-7.0.0'
-  [post_process]='replace_dependency_path'
+  [post_process]='contract_cleanup'
 )
 
 # shellcheck disable=SC2034

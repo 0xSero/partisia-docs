@@ -34,7 +34,7 @@ Test that it worked by executing: `cargo partisia-contract --version`. This shou
 To compile a contract you simply change directory to one of the rust-example-contracts and compile: 
 ```bash
 cd ..
-cd examples/rust-example-token-contract/
+cd contracts/example-token-contract/
 cargo partisia-contract build
 ```
 
@@ -44,8 +44,8 @@ To compile a contract in release mode you include the `--release` flag: `cargo p
 
 There are two contracts included in the zip:
 
-1. An ERC20 token contract located in `examples/rust-example-token-contract`
-2. A general purpose voting contract located in `examples/rust-example-voting-contract`
+1. An ERC20 token contract located in `contracts/example-token-contract`
+2. A general purpose voting contract located in `contracts/example-voting-contract`
 
 Both examples are described in great detail on the main site: https://partisiablockchain.gitlab.io/documentation
 
