@@ -11,7 +11,7 @@ function contract_cleanup() {
   # shellcheck disable=SC2164
   popd
   echo "Patching Cargo.toml"
-  sed -i 's/dependencies\/rust-/\.\.\/\.\.\//g' Cargo.toml
+  sed -i 's/dependencies\/rust-/\.\.\/\.\.\/partisia-/g' Cargo.toml
   echo "Patching lib.rs"
   sed -i 's/mod test\;//g' src/lib.rs
 }
