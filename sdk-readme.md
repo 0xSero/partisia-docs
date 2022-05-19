@@ -77,7 +77,7 @@ serialization code for the struct along with metadata that helps with the ABI.
 The initializer is marked with an `#[init]` macro. For the initializer to work the first parameter must
 be a `ContractContext`. The rest of the parameters are considered the payload and are deserialized
 using derived code. All parameters must derive `CreateTypeSpec`. The initializer must be a bare function
-and must return a 2-tuple of `(State, Vec<EventGroup>)`.
+and must return a `State`.
 
 ### Actions
 
@@ -85,7 +85,7 @@ Every action is marked with an `#[action]` macro. This generates ABI helpers and
 All the parameters must derive `CreateTypeSpec` for the macro to work properly. 
 
 For actions to work properly the first two parameters must be a `ContractContext` and the struct marked
-with a `#[state]` macro. The actions must be bare functions and must return a 2-tuple of `(State, Vec<EventGroup>)`.
+with a `#[state]` macro. The actions must be bare functions and must return a `State`.
 
 
 ### Events
