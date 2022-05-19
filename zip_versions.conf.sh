@@ -24,6 +24,7 @@ function delete_cargo_partisia_tests() {
 function delete_sdk_tests() {
     echo "Deleting SDK test for each subfolder"
     rm -r sdk_tests/
+    rm README.md
     shopt -s globstar
     for f in *; do
       # shellcheck disable=SC1073
