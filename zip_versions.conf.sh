@@ -52,7 +52,7 @@ function get_current_version() {
 declare -A content0=(
   [repo]='gitlab.com/privacyblockchain/language/cargo-partisia-contract.git'
   [output]='cargo-partisia-contract'
-  [version_ref]='tags/0.2.8'
+  [version_ref]='tags/0.2.9'
   [post_process]='delete_cargo_partisia_tests'
 )
 
@@ -60,7 +60,7 @@ declare -A content0=(
 declare -A content1=(
   [repo]='gitlab.com/privacyblockchain/language/rust-contract-sdk.git'
   [output]='contract-sdk'
-  [version_ref]='tags/6.1.0'
+  [version_ref]='tags/7.0.0'
   [post_process]='delete_sdk_tests'
 )
 
@@ -68,7 +68,7 @@ declare -A content1=(
 declare -A content2=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-token-contract.git'
   [output]='contracts/example-token-contract'
-  [version_ref]='tags/0.2.6-sdk-6.1.0'
+  [version_ref]='tags/0.2.8-sdk-7.0.0'
   [post_process]='replace_dependency_path'
 )
 
@@ -76,7 +76,7 @@ declare -A content2=(
 declare -A content3=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-voting-contract.git'
   [output]='contracts/example-voting-contract'
-  [version_ref]='tags/0.2.3-sdk-6.1.0'
+  [version_ref]='tags/0.2.4-sdk-7.0.0'
   [post_process]='replace_dependency_path'
 )
 
@@ -84,7 +84,7 @@ declare -A content3=(
 declare -A content4=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-auction-contract.git'
   [output]='contracts/example-auction-contract'
-  [version_ref]='tags/0.1.4-sdk-6.1.0'
+  [version_ref]='tags/0.1.5-sdk-7.0.0'
   [post_process]='replace_dependency_path'
 )
 
