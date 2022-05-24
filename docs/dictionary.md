@@ -75,7 +75,7 @@ The feature that allows PBC to be scalable. read more [here](shards.md)
 
 
 ### Token Bridges
-The feature that allows you to deposit and withdraw BYOC.
+The feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. See [BYOC](byoc.md).
 
 ### Transactions
 A transaction is an instruction from a user containing information used to change the state of the blockchain. Read more [here](transactions.md)
