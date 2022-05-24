@@ -13,6 +13,8 @@ function clone_and_clean() {
 
   echo "Removing git indices and pipeline definition"
   rm -rf .git/
+  rm -f .gitignore
+  rm -f .gitmodules
   rm .gitlab-ci.yml
 
   echo "Running post_process: '$post_process'"
@@ -35,7 +37,7 @@ cp sdk-readme.md build_zip/README.md
 pushd build_zip || exit
 
 # Create the examples folder
-mkdir -p examples
+mkdir -p contracts
 
 for content in ${!content@}; do
     url="https://gitlab-ci-token:${CI_JOB_TOKEN}@${content[repo]}"
