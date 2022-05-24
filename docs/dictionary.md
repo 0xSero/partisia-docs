@@ -56,7 +56,7 @@ A node performing oracle services. These nodes are responsible for processes rel
 Partisia Blockchain, read more about what seperates PBC from other blockchains [here](introduction.md).
 
 ### PBC Account
-See Account
+Same as *Account*, see entry above.
 
 ### PBC Ledger 
 The immutable record or ledger, where you can see transactions that have already taken place.
@@ -73,8 +73,6 @@ An infrastructure that allows for individual servers in a network to be offline 
 ### Shards
 The feature that allows PBC to be scalable. read more [here](shards.md)
 
-### t<n/3 advantages
-It is possible to do secure multiparty computations with an extremely high degree of safety, when malicious parties in a group compose less than one third of the group.
 
 ### Token Bridges
 The feature that allows you to deposit and withdraw BYOC.
