@@ -14,28 +14,9 @@ sudo mkdir -p /opt/pbc-betanet/conf
 sudo mkdir -p /opt/pbc-betanet/storage
 ````
 
-### Step 2 - Creating `genesis.json` and the node `config.json`
-
-The genesis file specifies the root account of the blockchain and which chain the node is running on. These are combined into the *genesis block* and define the initial state when the blockchain is booted. All nodes on the blockchain share the same `genesis.json`.
+### Step 2 - Creating the node `config.json`
 
 Start by opening the file in `nano`:
-
-````bash
-sudo nano /opt/pbc-betanet/conf/genesis.json
-````
-
-Now paste the following contents:
-
-````json
-{
- "chainId": "PARTISIA beta net with accounts",
- "rootAccount": "00047a53311c64239ecdc70ff5bbfd769175b64df0"
-}
-````
-
-To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
-
-Do the same for `config.json`:
 
 ````bash
 sudo nano /opt/pbc-betanet/conf/config.json
@@ -63,10 +44,6 @@ To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
 You can verify the contents of the files are what you expect by opening them with `cat`:
 
 ````bash
-sudo cat /opt/pbc-betanet/conf/genesis.json
-# The genesis file should be printed here
-````
-````bash
 sudo cat /opt/pbc-betanet/conf/config.json
 # The config file should be printed here
 ````
@@ -83,9 +60,6 @@ sudo chmod 500 /opt/pbc-betanet/conf
 ````
 ````bash
 sudo chmod 700 /opt/pbc-betanet/storage
-````
-````bash
-sudo chmod 400 /opt/pbc-betanet/conf/genesis.json
 ````
 ````bash
 sudo chmod 400 /opt/pbc-betanet/conf/config.json
@@ -123,7 +97,7 @@ services:
     - "8080"
     ports:
     - "9888-9897:9888-9897"
-    command: [ "/conf/config.json", "/conf/genesis.json", "/storage/" ]
+    command: [ "/conf/config.json", "/storage/" ]
     volumes:
     - /opt/pbc-betanet/conf:/conf
     - /opt/pbc-betanet/storage:/storage
