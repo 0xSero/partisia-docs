@@ -18,8 +18,10 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 
 You need the same 3 private keys you have put in the `config.json`. You use the private key of your account to log into your wallet and the Explorer. The form generates the public versions of the network and finalization key when you put in the private version. The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node. For this reason it is important to put trustworthy information in this form. IP is cross-checked with server jurisdiction and address with entity jurisdiction. Mismatched information will not be approved.      
 
+**Important rule for public information:**   
+You cannot use Partisia in the domain name. And you cannot call it a Partisia node, because that could imply the node to be operated by the company Partisia. Refering to a node as on Partisia Blockchain is fine. But I will emphazise the importance of the preposition. It is in the interest of all that the blockchain does not mistakenly appear to be less decentralized than it is. It should be clear for trust, which entity is running the node. And it should never appear to be controlled by Partisia or a subsidiary.
 
-- Name (Legal name)   
+- Name (Name of company or person operating the node)   
 - Website (Company or personal webpage - do not use Partisia in domain name)   
 - Address (Company or personal address)   
 - Put in network private key   
