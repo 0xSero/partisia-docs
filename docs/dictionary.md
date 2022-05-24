@@ -78,7 +78,7 @@ The feature that allows PBC to be scalable. read more [here](shards.md)
 The feature that allows you to deposit and withdraw BYOC.
 
 ### Transactions
-The smallest amount of information which can change the state of the blockchain Read more [here](transactions.md)
+A transaction is an instruction from a user containing information used to change the state of the blockchain. Read more [here](transactions.md)
 
 #### WASM
-Abbreviation for WebAssembly, a binary code format which is used for the smart contracts deployed at PBC.
+Abbreviation for WebAssembly, a standardized binary code format which is used for the smart contracts deployed at PBC.
