@@ -19,9 +19,6 @@ Block producing node. All nodes in the current [committee](https://mpcexplorer.c
 ### BYOC 
 The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, therefore aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual stable coin on native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain.
 
-### Smart Contracts  
-A contract is a program that sends information to the blockchain.
-
 ### Flooding Network 
 A computer network where every node distributes packets to all it neighbors
 
@@ -70,6 +67,8 @@ An infrastructure that allows for individual servers in a network to be offline 
 ### Shards
 The feature that allows PBC to be scalable. read more [here](shards.md)
 
+### Smart Contracts
+A contract is a program that sends information to the blockchain.
 
 ### Token Bridges
 The feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. See [BYOC](byoc.md).
