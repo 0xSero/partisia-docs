@@ -75,7 +75,7 @@ Paste the following content into the file:
 ````yaml
 #!/bin/bash
 
-DATETIME=`date -u`
+DATETIME=$(date -u)
 echo "$DATETIME"
 
 cd ~/pbc
