@@ -22,7 +22,7 @@ Bring your own coin, basically the idea, that you can bring a myriad of liquid c
 ### Consensus Node
 A node participating in the [FastTrack Consensus](consensus.md)
 
-### Contracts  
+### Smart Contracts  
 A contract is a program that sends information to the blockchain.
 
 ### Flooding Network 
