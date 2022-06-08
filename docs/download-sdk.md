@@ -1,7 +1,7 @@
 # Download the software development kit
 
 ### 1) Install Rust
-To develop and compile contracts for the Partisia Blockchain, you need to install Rust along with the wasm32 target. To install Rust for you platform follow the instructions on https://rustup.rs/.
+To develop and compile contracts for the Partisia Blockchain, you need to install Rust along with the wasm32 target. To install Rust for you platform follow the instructions on <https://rustup.rs/>.
 
 Now add the wasm32 target:
 
