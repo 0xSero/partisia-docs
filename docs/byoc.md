@@ -5,11 +5,10 @@ BYOC means bring your own coin. The idea is that you can bring liquid cryptocurr
 
 To pay the gas costs of transactions you need to have some amount of BYOC in your account. The costs cover the payment of the node operators which are providing the services enabling the transactions to take place.  
 
-The economics of the Mainnet Beta is fueled by test ETH. When the chain economy goes real, the cost will be measured in ETH not test ETH. For now, gas can be bought by paying with test ETH, which you can get for free. Still, the measuring in test ETH allow users to estimate what future cost different transactions will be. That knowledge can be used both by the people who write contracts and by the node operators to find out how to optimize potential financial gains from using the chain.
 
 **How does it work**  
 To be able to spend and transfer your coins, twins are minted which can interact with the payment scheme of PBC. So, in essence you can deposit, withdraw and transfer Etherum or other cryptocurrencies with your PBC wallet. 
-The first cryptocurrency you are able to use in the BYOC system at PBC is Ethereum.    
+The first cryptocurrency you are able to use in the BYOC system at PBC is Ethereum. Soon you will also be able to use USDC.    
 
 ## The cost for using the blockchain
 
@@ -29,9 +28,9 @@ The easiest way to make a deposit of ETH s to use the PBC Token Bridge.
 2. Make a Partisia Account with the wallet (or use the one you have already). You can use the Partisia Wallet to make additional accounts.
 3. Install Metamask [app](https://metamask.io/) or [extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn).
 4. Make an Ethereum account, you can use Metamask to do it.  
-5. Change the network in Metamask to Ropsten Test Network in upper right corner, you will first have to enable the test networks in settings.
-6. You can get Ropstens test ETH from a Faucet. There are many to chose from.
-7. Use the  [PBC Token bridge](https://bridge.mpcexplorer.com/) to transfer test ETH from the Ethereum account into the PBC account.
+5. Set the network in Metamask to Ethereum Mainnet in upper right corner.
+6. You can use Metamask to buy ETH. You can add funds with card or Apple Pay.
+7. Use the  [PBC Token bridge](https://bridge.mpcexplorer.com/) to transfer ETH from the Ethereum account into the PBC account.
 
 You get a confirmation as seen below if the deposit is successful. Your gas balance in the wallet should now be positive. This means that you can deploy or interact with smart contracts on the blockchain. Read more about smart contracts [here](contract-development.md). 
 
