@@ -65,7 +65,7 @@ A node that reads the state of the blockchain, but does not produce blocks or an
 An infrastructure that allows for individual servers in a network to be offline without the remaining servers to be affected. 
 
 ### Shards
-The feature that allows PBC to be scalable. read more [here](shards.md)
+PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of  information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the fast track consensus protocol the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](shards.md).
 
 ### Smart Contracts
 A contract is a program that sends information to the blockchain.
