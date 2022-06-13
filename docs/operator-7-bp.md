@@ -25,7 +25,7 @@ To fill out the config.json for a block producing node you need to add the follo
 - Account privateKey   
 - Finalization privateKey   
 - IP address of the server hosting your node (You get this from your VPS service provider)   
-- URL address of an Ethereum reader node on the Ropsten network (You should use a source you find trustworthy)   
+- Ethereum API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.      
 
 Start by opening the `config.json` in `nano`:
 
@@ -41,10 +41,10 @@ Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Pu
   "floodingPort": 9888,
   "networkKey": "NETWORK_PRIVATE_KEY",
   "producerConfig": {
-    "host": "PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE",
+    "host": "PUBLIC_IPV4_OF_SERVER_HOSTING_THIS_NODE",
     "accountKey": "PRIVATE_KEY_FROM_ACCOUNT_HOLDING STAKE",
     "finalizationKey": "FINALIZATION_PRIVATE_KEY_BLS",
-    "ethereumUrl": "ETHEREUM_ROPSTEN_HTTP_ENDPOINT"
+    "ethereumUrl": "ETHEREUM_MAINNET_HTTP_ENDPOINT"
   },
   "knownPeers": [
     "188.180.83.49:9090",
