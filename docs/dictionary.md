@@ -86,5 +86,5 @@ A smart contract is a program you run on the blockchain. The conditions of the c
 ### Transactions
 A transaction is an instruction from a user containing information used to change the state of the blockchain. Read more [here](transactions.md)
 
-#### WASM
+### WASM
 Abbreviation for WebAssembly, a standardized binary code format which is used for the smart contracts deployed at PBC.
