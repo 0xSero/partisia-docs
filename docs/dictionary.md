@@ -25,6 +25,9 @@ The feature that allows you to deposit and withdraw BYOC. Partista Blockchain ha
 ### BYOC 
 The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, therefore aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual stable coin on native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain.
 
+### ETH
+The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.  
+
 ### Flooding Network 
 A computer network where every node distributes packets to all it neighbors. In a blockchain blocks are propagated using a flooding protocol, which means nodes send the blocks they have processed and signed to all their peers for further validation.
 
