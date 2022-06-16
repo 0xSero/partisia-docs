@@ -7,17 +7,29 @@ An ABI (application binary interface) helps applications which need to communica
 ### Account
 Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](accounts.md).
 
+### Address
+In context of the Partisia blockchain an address refers to a hexadecimal number derived from the public key. Every account has an address. You use addresses when you deposit or withdraw BYOC. And when you transfer tokens to other accounts. Deployed contracts shows the owners account address. In public node information the address refers to the geographical address of the entity (person or company) operating the node. 
+
 ### Baker Node
 An upgraded Reader node whitelisted to participate in the Consensus layer. Whitelisting consist of a KYC process connected to token sale as well as an approval of public information in the node registration. A baker node must have staked sufficient (25000 MPC) to perform baker services - producing and signing blocks.
 
-### Blocks
+### Block
 A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](transactions.md) and [events](events.md) that have been executed at a given *block time*. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block. Read more [here](block.md).
+
+### Block (height, number, time)
+On each shard blocks have a number being incremented since the first block. This number is referred to as height in MPC Explorer. You can imagine the blocks being stacked on top of each other. If you combine the block's number with shard number and timestamp each block has an unambiguous identity. A specific block points to a shard and a time, so the number is also sometimes referred to as block time, since the order in which a block is produced also works as a reference in time.
+
+### Bridge
+The feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. For more information see [BYOC](byoc.md). Or to go directly to the bridge - click [here](https://bridge.mpcexplorer.com/).
 
 ### BYOC 
 The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, therefore aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual stable coin on native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain.
 
 ### Flooding Network 
 A computer network where every node distributes packets to all it neighbors. In a blockchain blocks are propagated using a flooding protocol, which means nodes send the blocks they have processed and signed to all their peers for further validation.
+
+### Gas
+Gas is a small fraction of BYOC. The cost of transactions on PBC is measured in gas. Your account holds your current balance of gas, you can see how much gas you have by viewing you account information in the [MPC Explorer](https://mpcexplorer.com/). The gas cost of using PBC goes to cover the fees to the Node Operators (The people running and maintaining the servers in the blockchain). 
 
 ### Large Oracle
 After each epoch (When all baker nodes have had their turn as producers) a large Oracle consisting of all Baker nodes or the blockchain as a whole
@@ -37,6 +49,9 @@ A non-fungible-token. Non-fungible means that it is unique unlike other types of
 
 ### Node 
 Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet.  They perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](whatisano.md)
+
+### Nonce
+A nonce is a number used only once. In the state of an accounts on PBC is a nonce, which is incremented every time the account signs a transaction.
 
 ### Oracle Node
 A node performing oracle services. These nodes are responsible for processes related to transfer, deposit and withdrawal of BYOC. Smart contracts can only utilize on-chain data. But the contracts can relate to events with consequences outside the blockchain. If a user purchase an auctioned item on PBC for BYOC (ETH), the oracle nodes will have to facilitate and confirm changes on the Ethereum network. Oracle nodes work as a bridge connecting data on the native blockchain PBC to outside sources for example other blockchains.
@@ -64,9 +79,6 @@ PBC distributes the workload to a number of parallel shards. This allows for sca
 
 ### Smart Contracts
 A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC.
-
-### Token Bridges
-The feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. See [BYOC](byoc.md).
 
 ### Transactions
 A transaction is an instruction from a user containing information used to change the state of the blockchain. Read more [here](transactions.md)
