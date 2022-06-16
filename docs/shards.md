@@ -6,8 +6,10 @@ PBC has four shards:
 
 <img style="float: left;" src="Sharding.png">
 
+
+
 - On Shard0, Shard1 and Shard2: Transactions related to contracts deployed by users.
-- On ShardGov also called governance shard and ShardNull: Transactions related to the governance contracts. 
+- On ShardGov also called governance shard and ShardNull: Transactions related to the governance contracts.  
 
 
 
