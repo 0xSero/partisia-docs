@@ -66,7 +66,7 @@ Partisia Blockchain (PBC) is a unique two layer blockchain. PBC has public block
 Same as *Account*, see entry above.
 
 ### PBC Ledger 
-The immutable record or ledger, that keeps track of transactions that have already taken place. there is a copy of the ledger on all nodes.
+The immutable record or ledger, that keeps track of transactions that have already taken place. there is a copy of the ledger on all nodes. Partisia Blockchain has sharding, the ledger records the activities on all shards, they are combined to form the complete ledger.
 
 ### Public Key Cryptography
 Public-key cryptography is a form of cryptography that uses pairs of keys: A public key that may be shared with anyone and a private key that must be kept secret. Read more [here](keys.md).
