@@ -2,7 +2,7 @@
 
 <img style="float: left;" src="Sharding.png">
 
-The Partisia Blockchain uses sharding to ensure scalability of the Basic blockchain
+Sharding separates large databases into smaller, faster, more easily managed parts. The Partisia Blockchain uses sharding to ensure scalability of the Basic blockchain
 services and transaction speed. Sharding distributes the workload to parallel shards. All block producing nodes operate all shards. 
 Except for the governance shard, all shards serve the same role of distributing the workload. The governance shard has separate responsibilities related to global changes on the chin, these include:
 
