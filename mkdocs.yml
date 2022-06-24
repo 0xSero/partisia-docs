@@ -71,7 +71,6 @@ theme:
   favicon: assets/pbclogo_with_background.png
   name: material
   features:
-    - toc.integrate
     - navigation.expand
     - navigation.sections
     - navigation.instant
