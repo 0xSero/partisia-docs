@@ -3,7 +3,7 @@
 
 The following steps are the same as you went through setting up a reader node on your local machine. You should use the non-root user you created in the previous [step](operator-4-security.md). You need to install the [recommended software](operator-1-specs.md) before you start.
 
-### Step 1 - Creating the folders
+### Creating the folders
 
 In this guide we will be running the nodes from the folder `/opt/pbc-betanet` with user:group `1500:1500`. First we need to create the `conf` and `storage` folders for the application:
 
@@ -14,7 +14,7 @@ sudo mkdir -p /opt/pbc-betanet/conf
 sudo mkdir -p /opt/pbc-betanet/storage
 ````
 
-### Step 2 - Creating the node `config.json`
+### Creating the node `config.json`
 
 Start by opening the file in `nano`:
 
@@ -48,7 +48,7 @@ sudo cat /opt/pbc-betanet/conf/config.json
 # The config file should be printed here
 ````
 
-### Step 3 - Setting file permissions
+### Setting file permissions
 
 Now we need to make sure the user with uid `1500` has the needed access to the files:
 
@@ -67,7 +67,7 @@ sudo chmod 400 /opt/pbc-betanet/conf/config.json
 
 The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
 
-### Step 4 - Pull docker image
+### Pull docker image
 
 You can run the node using the `docker-compose`.
 
