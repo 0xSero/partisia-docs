@@ -3,10 +3,9 @@ site_url:
 use_directory_urls: False
 nav:
   - Home: index.md
-  - Getting started as a node operator:
       - What is a node operator: whatisano.md
   - Run a node:
-      - Introduction and index: operator-0-introduction.md
+      - What is a node operator: operator-0-introduction.md
       - Specs: operator-1-specs.md
       - Local reader: operator-2-reader.md
       - VPS: operator-3-vps.md
