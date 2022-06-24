@@ -3,7 +3,6 @@ site_url:
 use_directory_urls: False
 nav:
   - Home: index.md
-      - What is a node operator: whatisano.md
   - Run a node:
       - What is a node operator: operator-0-introduction.md
       - Specs: operator-1-specs.md
