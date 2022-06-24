@@ -8,7 +8,7 @@ An ABI (application binary interface) helps applications which need to communica
 Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](accounts.md).
 
 ### Address
-In context of the Partisia blockchain an address refers to a hexadecimal number derived from the public key. Every account has an address. You use addresses when you deposit or withdraw BYOC. And when you transfer tokens to other accounts. Deployed contracts shows the owners account address. In public node information the address refers to the geographical address of the entity (person or company) operating the node. 
+An addresses on PBC is a unique number that identifies the recipients and senders of transactions. User accounts and smart contracts can be senders and recipients of transactions and hence both have addresses. The address is a hexadecimal number derived from the public key. You use addresses when you deposit or withdraw BYOC. And when you transfer tokens to other accounts. Deployed contracts shows the owners account address and the contract address. In public node information the address refers to the geographical address of the entity (person or company) operating the node.
 
 ### Baker Node
 An upgraded Reader node whitelisted to participate in the Consensus layer. Whitelisting consist of a KYC process connected to token sale as well as an approval of public information in the node registration. A baker node must have staked sufficient (25000 MPC) to perform baker services - producing and signing blocks.
