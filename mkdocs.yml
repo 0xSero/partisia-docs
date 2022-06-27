@@ -64,13 +64,29 @@ plugins:
           securityLevel: 'loose'
           theme: forest # we want also that to work
 
-
 theme:
   logo: assets/pbclogo.png
   favicon: assets/pbclogo_with_background.png
   name: material
+  custom_dir: overrides
   features:
-    - toc.integrate
-    - navigation.expand
-    - navigation.sections
-    - navigation.instant
+  - navigation.indexes
+
+extra:
+  generator: true
+  homepage: https://www.partisiablockchain.com/
+  social:
+  - icon: fontawesome/brands/twitter
+    link: https://twitter.com/partisiampc
+  - icon: fontawesome/brands/telegram
+    link: https://t.me/partisiampc
+  - icon: fontawesome/brands/discord
+    link: https://discord.com/invite/5HX7j9xFS7
+  - icon: fontawesome/brands/medium
+    link: https://medium.com/partisia-blockchain
+  - icon: fontawesome/brands/youtube
+    link: https://youtube.com/c/PARTISIABLOCKCHAINFOUNDATION
+  - icon: fontawesome/brands/linkedin
+    link: https://www.linkedin.com/company/privacy-blockchain/?viewAsMember=true
+
+copyright: Partisia Blockchain All Rights Reserved &copy; 2022
