@@ -1,4 +1,4 @@
-# Run a node Part 1 - Recommended hardware, software and access to Git repository
+# Recommended hardware and software
 
 ## Recommended machine specs
 
@@ -14,6 +14,3 @@
 - Linux (In this tutorial Ubuntu 20.04.3 was used)
 - A text editor (In this tutorial nano 4.3 was used)
 
-## Access to Gitlab Repository
-
-- Send your e-mail address to *@Kristian Hu#7382* in a direct message on the Partisia Blockchain Discord Server for access to Partisia's Gitlab Repository (Will soon be open source). If you are not already a member on the Partisia Discord Server click [here](https://discord.gg/V6zzFDQYg9).   
