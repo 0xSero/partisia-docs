@@ -17,6 +17,7 @@ Except for the governance shard, all shards serve the same role of distributing 
 - Changes to which nodes are in committee
 - Distribution of fees
 - Current active shards and their routing
+- Feature flag activations
 
 ## How it works
 
