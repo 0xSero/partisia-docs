@@ -16,7 +16,7 @@ nav:
       - Node health and maintenance: operator-9-node-health.md
       - Update your node's public information: update-transaction.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
-  - Getting started as a developer:
+  - Develop smart contracts:
       - What is a smart contract: contract-development.md
       - Download SDK for contract development: download-sdk.md
       - Compile and deploy contracts: compile-sdk.md
