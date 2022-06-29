@@ -5,10 +5,10 @@
 First we need to create the `conf` and `storage` folders for the application:
 
 ```` bash
-sudo mkdir -p /opt/pbc-betanet/conf
+sudo mkdir -p /opt/pbc-mainnet/conf
 ````
 ```` bash
-sudo mkdir -p /opt/pbc-betanet/storage
+sudo mkdir -p /opt/pbc-mainnet/storage
 ````
 
 ### Creating the node `config.json`
@@ -16,7 +16,7 @@ sudo mkdir -p /opt/pbc-betanet/storage
 Start by opening the file in `nano`:
 
 ````bash
-sudo nano /opt/pbc-betanet/conf/config.json
+sudo nano /opt/pbc-mainnet/conf/config.json
 ````
 You paste this into `config.json`:
 ````json
@@ -41,7 +41,7 @@ To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
 You can verify the contents of the files are what you expect by opening them with `cat`:
 
 ````bash
-sudo cat /opt/pbc-betanet/conf/config.json
+sudo cat /opt/pbc-mainnet/conf/config.json
 # The config file should be printed here
 ````
 
@@ -53,13 +53,13 @@ Now we need to make sure the user with uid `1500` has the needed access to the f
 sudo chown -R "1500:1500" /opt/pbc-betanet
 ````
 ````bash
-sudo chmod 500 /opt/pbc-betanet/conf
+sudo chmod 500 /opt/pbc-mainnet/conf
 ````
 ````bash
-sudo chmod 700 /opt/pbc-betanet/storage
+sudo chmod 700 /opt/pbc-mainnet/storage
 ````
 ````bash
-sudo chmod 400 /opt/pbc-betanet/conf/config.json
+sudo chmod 400 /opt/pbc-mainnet/conf/config.json
 ````
 
 The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
@@ -88,9 +88,9 @@ The contents of the file should be the following:
 ````yaml
 version: "2.0"
 services:
-  pbc-betanet-reader:
-    image: registry.gitlab.com/privacyblockchain/demo/betanet-public:latest
-    container_name: pbc-betanet-reader
+  pbc:
+    image: registry.gitlab.com/partisiablockchain/mainnet:latest
+    container_name: pbc-mainnet
     user: "1500:1500"
     restart: always
     expose:
@@ -99,8 +99,8 @@ services:
     - "9888-9897:9888-9897"
     command: [ "/conf/config.json", "/storage/" ]
     volumes:
-    - /opt/pbc-betanet/conf:/conf
-    - /opt/pbc-betanet/storage:/storage
+    - /opt/pbc-mainnet/conf:/conf
+    - /opt/pbc-mainnet/storage:/storage
     environment:
     - JAVA_TOOL_OPTIONS="-Xmx8G"
 ````
