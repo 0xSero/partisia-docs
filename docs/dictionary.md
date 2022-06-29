@@ -70,7 +70,7 @@ A nonce is a number used only once. Nonces are used to ensure that old messages 
 A node performing oracle services. These nodes are responsible for processes related to transfer, deposit and withdrawal of BYOC. Smart contracts can only utilize on-chain data. But the contracts can relate to events with consequences outside the blockchain. If a user purchase an auctioned item on PBC for BYOC (ETH), the oracle nodes will have to facilitate and confirm changes on the Ethereum network. Oracle nodes work as a bridge connecting data on the native blockchain PBC to outside sources for example other blockchains.
 
 ### PBC 
-Partisia Blockchain (PBC) is a unique two layer blockchain. PBC has public blockchain layer like other blockchains. Here all transactions are public. PBC also has a private layer, where Zero knowledge computation can take place. PBC supports as the only blockchain secure multiparty computation on its private layer. This gives PBC a completely unique potential for use for Web. 3.0 technologies where users have control of their own data.
+Partisia Blockchain (PBC) is the only blockchain that supports secure multiparty computation. This gives PBC a completely unique potential for use for Web. 3.0 technologies where users have control of their own data. Other blockchains can use zero knowledge smart contracts on PBC to add a ZK computational layer to their own chain.
 
 ### PBC Account
 Same as *Account*, see entry above.
