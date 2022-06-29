@@ -85,7 +85,7 @@ Public-key cryptography is a form of cryptography that uses pairs of keys: A pub
 A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](operator-2-reader.md).
 
 ### Rest Server
-A rest server is a server that gives access to the REST API- An API conforming to REST architectural properties. The API (application binary interface) are the set of definitions for how to integrate software with the existing system. The API set the rules for interaction between the network and the application.
+A rest server is a server that gives access to the REST API. An API conforming to REST architectural properties. The API (application programming interface) gives the definitions other systems need to read from the blockchain and send new information in the form of transaction.
 
 ### Shards
 PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of  information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the fast track consensus protocol the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](shards.md).
