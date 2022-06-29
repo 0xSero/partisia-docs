@@ -1,6 +1,6 @@
 # Run a reader node on your local machine
 
-### Step 1 - Creating the folders
+### Creating the folders
 
 First we need to create the `conf` and `storage` folders for the application:
 
@@ -11,7 +11,7 @@ sudo mkdir -p /opt/pbc-mainnet/conf
 sudo mkdir -p /opt/pbc-mainnet/storage
 ````
 
-### Step 2 - Creating the node `config.json`
+### Creating the node `config.json`
 
 Start by opening the file in `nano`:
 
@@ -45,7 +45,7 @@ sudo cat /opt/pbc-mainnet/conf/config.json
 # The config file should be printed here
 ````
 
-### Step 3 - Setting file permissions
+### Setting file permissions
 
 Now we need to make sure the user with uid `1500` has the needed access to the files:
 
@@ -64,7 +64,7 @@ sudo chmod 400 /opt/pbc-mainnet/conf/config.json
 
 The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
 
-### Step 4 - Pull docker image
+### Pull docker image
 
 You can run the node using the `docker-compose`.
 
