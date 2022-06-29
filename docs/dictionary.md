@@ -64,7 +64,7 @@ A node operator is a person who runs and maintains a node on Partisia Blockchain
 See requirements of a node operator and how to run a node [here](operator-0-introduction.md).
 
 ### Nonce
-A nonce is a number used only once. In the state of an accounts on PBC is a nonce, which is incremented every time the account signs a transaction.
+A nonce is a number used only once. Nonces are used to ensure that old messages cannot be reused in replay attacks. In the state of an account on PBC is a nonce, which is incremented every time the account signs a transaction.
 
 ### Oracle Node
 A node performing oracle services. These nodes are responsible for processes related to transfer, deposit and withdrawal of BYOC. Smart contracts can only utilize on-chain data. But the contracts can relate to events with consequences outside the blockchain. If a user purchase an auctioned item on PBC for BYOC (ETH), the oracle nodes will have to facilitate and confirm changes on the Ethereum network. Oracle nodes work as a bridge connecting data on the native blockchain PBC to outside sources for example other blockchains.
