@@ -51,7 +51,7 @@ PBC offers a webwallet which allows your account to interact with the blockchain
 A non-fungible-token. Non-fungible means that it is unique unlike other types of tokens such as cryptocurrencies . The ownership is of an NFT is stored on a blockchain. They can be sold and transferred. The NFT can contain a reference to a digital file like a photo.
 
 ### Node 
-Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet.  They perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](operator-0-introduction.md)
+Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](operator-0-introduction.md)
 
 ### Node operator
 A node operator is a person who runs and maintains a node on Partisia Blockchain. PBC has four types of nodes:    
