@@ -296,7 +296,7 @@ You can add the ``-f`` after a command to continue the logs afterwards.
 You can use the *grep command* to get logs containing a specific string.
 
 ````bash
-docker logs --since 1h pbc-betanet-reader | grep "Signing BlockState"
+docker logs --since 1h pbc-mainnet | grep "Signing BlockState"
 ````
 
 This will give you the blocks you have signed the last hour. You might also want to look for blocks you created when you were chosen as producer ``| grep "Created Block"``.
