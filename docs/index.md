@@ -1,4 +1,4 @@
-# Documentation for Partisia Blockchain Mainnet Beta
+# Documentation for Partisia Blockchain Mainnet
 
 
 ## Start with the basics

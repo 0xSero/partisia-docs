@@ -49,8 +49,8 @@ sudo cat /opt/pbc-mainnet/conf/config.json
 
 Now we need to make sure the user with uid `1500` has the needed access to the files:
 
-```` bash
-sudo chown -R "1500:1500" /opt/pbc-betanet
+````bash
+sudo chown -R "1500:1500" /opt/pbc-mainnet
 ````
 ````bash
 sudo chmod 500 /opt/pbc-mainnet/conf
@@ -124,7 +124,7 @@ docker-compose up -d
 This should pull the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running, run:
 
 ````bash
-docker logs -f pbc-betanet-reader
+docker logs -f pbc-mainnet
 ````
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
