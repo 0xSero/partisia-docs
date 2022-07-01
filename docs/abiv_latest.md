@@ -280,7 +280,8 @@ $$
 |\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected}  &\text{(0..1)}\\
 |\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..1)}\\
 |\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
-|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}
+|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
+|\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &text{(0..1)}
 \end{align*}
 }
 $$
