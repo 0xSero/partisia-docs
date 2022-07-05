@@ -8,7 +8,7 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 
 ## ABI Version changes
 
-- [Version **3.1**](abiv3_1.md) to **4.0**:
+- [Version **3.1**](abiv3_1.md) to **4.1**:
     * Added `Kind: FnKind` field to `FnAbi`.
     * Removed `Init` field from `ContractAbi`.
     * Added zero-knowledge related `FnKind`s, for use in Zk contracts.
@@ -280,7 +280,8 @@ $$
 |\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected}  &\text{(0..1)}\\
 |\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..1)}\\
 |\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
-|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}
+|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
+|\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &text{(0..1)}
 \end{align*}
 }
 $$

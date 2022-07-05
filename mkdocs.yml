@@ -21,7 +21,7 @@ nav:
       - Download SDK for contract development: download-sdk.md
       - Compile and deploy contracts: compile-sdk.md
       - Programmer's Guide to PBC SDK: programmers_guide.md
-      - ABI 4.0 specification: abiv_latest.md
+      - ABI 4.1 specification: abiv_latest.md
       - ABI 3.1 specification: abiv3_1.md
       - Create a smart contract for a specific scenario: voting-contract.md
       - Zero Knowledge Contracts: vickrey.md
