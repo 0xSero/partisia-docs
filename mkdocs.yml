@@ -43,6 +43,7 @@ extra_css:
 extra_javascript:
   - js/mermaid.min.js
   - js/polyfill.min.js
+  - js/extra.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 
