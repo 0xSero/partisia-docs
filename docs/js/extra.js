@@ -6,7 +6,7 @@ function show_toc_left() {
   try {
     document
       .querySelectorAll(".md-nav .md-nav--secondary")[0]
-      .setAttribute("style", "display: block;");
+      .setAttribute("style", "display: none;");
     document.querySelectorAll(".md-nav .md-nav--secondary label")[0].remove();
   } catch (err) {
     console.log(err);
