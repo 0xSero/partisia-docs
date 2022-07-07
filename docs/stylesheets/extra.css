@@ -297,6 +297,9 @@ code {
   .highlight {
     -ms-overflow-style: none !important;
   }
+  .width-50{
+    width: 50%;
+  }
 }
 /* .md-sidebar__scrollwrap,
 .highlight {
