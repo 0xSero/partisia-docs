@@ -250,17 +250,23 @@ code {
 
 .md-sidebar {
   padding-top: 0px;
-  top: 0 !important;
   width: 12rem;
-  max-height: 100%;
+  overflow-y: auto;
+  min-height: 100vh !important;
+  position: relative !important;
+  top: 0 !important;
 }
 
 .md-sidebar__scrollwrap {
   background-color: #eef1f9;
   color: #9d9dc4;
-  margin: 0 0.2rem;
   padding: 70px 10px;
-  overflow: auto;
+  margin: 0 0.2rem;
+  overflow-y: auto;
+  height: 100% !important;
+  position: fixed;
+  width: 12rem;
+  z-index: 1;
 }
 
 .md-sidebar--primary .md-sidebar__scrollwrap {
@@ -297,7 +303,7 @@ code {
   .highlight {
     -ms-overflow-style: none !important;
   }
-  .width-50{
+  .width-50 {
     width: 50%;
   }
 }
@@ -315,6 +321,7 @@ code {
   background-color: #0b073f;
   font-size: 15px !important;
   border-radius: 50px 50px 0 0;
+  z-index: 500;
 }
 
 .md-footer a:hover {
