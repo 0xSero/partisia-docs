@@ -14,11 +14,12 @@ One of the great advantages of PBC over other blockchains is that zero knowledge
 The second price auction takes as input a list of prices for each account, ordered in arrival by a number. When the computation is initiated by the contract owner, the zero knowledge computation nodes reads the collected input and then create a bit vector consisting of prices and the ordering number. The list of bit vectors is now sorted in MPC. The winner is the first entry (the bidder with the highest price-bid), the price is determined by the size of the second highest bid.
 
 The contract follows these phases:
-1. Initialization on the blockchain.
-2. Receival of secret bids, using zero-knowledge protocols.
-3. Once enough bids have been received, the owner of the contract can initialize the auction.
-4. The ZK computation computes the winning bid in a secure manner.
-5. Once the ZK computation concludes, the winning bid will be published and the winner will be stored in the state, together with their bid.
+
+1. Initialization on the blockchain.   
+2. Receival of secret bids, using zero-knowledge protocols.   
+3. Once enough bids have been received, the owner of the contract can initialize the auction.   
+4. The ZK computation computes the winning bid in a secure manner.   
+5. Once the ZK computation concludes, the winning bid will be published and the winner will be stored in the state, together with their bid.   
 
 Below you can see the Rust implementation of the zero knowledge smart contract for the Vickrey Auction:
 ````rust
