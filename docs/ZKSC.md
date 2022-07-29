@@ -4,11 +4,11 @@ One of the main features which set PBC a part from other blockchains is that PBC
 You can utilize PBC's capacity for ZK computations through zero knowledge smart contracts (ZKSC).
 
 ### What is zero knowledge smart contracts
-ZKSC has all the same functionality as public smart contracts (SC), but in addition to that the ZKSC allocate a subset of qualified nodes to do computations on randomized versions of input data. A ZKSC stipulate some non-public actions in addition to the public actions. This means that a ZKSC has a private state only present on the ZK nodes and a public state across the chain. When a ZK node is allocated to a specific ZKSC the node's associated stakes will be locked to the contract until the work is finished.
-If out ZKSC is an auction like below, the public state will contain winner's ID and price of auctioned item, whereas the private state will contain all the non-winning bids.
+ZKSC has all the same functionality as public smart contracts (SC), but in addition to that the ZKSC allocate a subset of qualified nodes to do computations on private versions of input data. A ZKSC stipulate some non-public actions in addition to the public actions. This means that a ZKSC has a private state only present on the ZK nodes in addition to a public state on the chain. When a ZK node is allocated to a specific ZKSC the node's associated stakes will be locked to the contract until the ZK work is finished.
+If our ZKSC is an auction like below, the public state will contain the winner's ID and the price of the auctioned item, whereas the private state will contain all the non-winning bids.
 
 ### Example of a zero knowledge smart contract on PBC - Vickrey Auction
-One of the types of of smart contracts you will be able to deploy on PBC is a Vickrey Auction (second price auction), which is a sealed bid auction where the second-highest bid wins.
+One of the types of smart contracts you will be able to deploy on PBC is a Vickrey Auction (second price auction), which is a sealed bid auction where the winner is the person with the highest bid (as in a normal auction), but the price paid is that of the second highest bidder..
 When some valuable item changes hands through an auction it is desirable to have the change in ownership registered on an immutable record.  It is however highly undesirable that individual maximum bids are public, since the seller can use a third party to drive up the price to the highest possible price.
 One of the great advantages of PBC over other blockchains is that zero knowledge computations can be performed on the network parallel to the public transactions on the blockchain.
 The second price auction takes as input a list of prices for each account, ordered in arrival by a number. When the computation is initiated by the contract owner, the zero knowledge computation nodes reads the collected input and then create a bit vector consisting of prices and the ordering number. The list of bit vectors is now sorted in MPC. The winner is the first entry (the bidder with the highest price-bid), the price is determined by the size of the second highest bid.
@@ -16,9 +16,9 @@ The second price auction takes as input a list of prices for each account, order
 The contract follows these phases:
 
 1. Initialization on the blockchain.   
-2. Receival of secret bids, using zero-knowledge protocols.   
-3. Once enough bids have been received, the owner of the contract can initialize the auction.   
-4. The ZK computation computes the winning bid in a secure manner.   
+2. Receival of secret bids.   
+3. Once enough bids have been received, the owner of the contract can initialize computation of the auction result.   
+4. The ZK nodes derive the winning bid in a secure manner by executing a Secure Multiparty Computation protocol off-chain.   
 5. Once the ZK computation concludes, the winning bid will be published and the winner will be stored in the state, together with their bid.   
 
 Below you can see the Rust implementation of the zero knowledge smart contract for the Vickrey Auction:
