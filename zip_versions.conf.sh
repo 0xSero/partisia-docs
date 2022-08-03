@@ -62,7 +62,7 @@ declare -A content0=(
 declare -A content1=(
   [repo]='gitlab.com/privacyblockchain/language/rust-contract-sdk.git'
   [output]='partisia-contract-sdk'
-  [version_ref]='tags/7.0.0'
+  [version_ref]='tags/9.0.0'
   [post_process]='delete_sdk_tests'
 )
 
@@ -70,7 +70,7 @@ declare -A content1=(
 declare -A content2=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-token-contract.git'
   [output]='contracts/example-token-contract'
-  [version_ref]='tags/0.2.8-sdk-7.0.0'
+  [version_ref]='tags/0.2.11-sdk-9.0.0'
   [post_process]='contract_cleanup'
 )
 
@@ -78,7 +78,7 @@ declare -A content2=(
 declare -A content3=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-voting-contract.git'
   [output]='contracts/example-voting-contract'
-  [version_ref]='tags/0.2.4-sdk-7.0.0'
+  [version_ref]='tags/0.2.6-sdk-9.0.0'
   [post_process]='contract_cleanup'
 )
 
@@ -86,7 +86,15 @@ declare -A content3=(
 declare -A content4=(
   [repo]='gitlab.com/privacyblockchain/language/rust-example-auction-contract.git'
   [output]='contracts/example-auction-contract'
-  [version_ref]='tags/0.1.5-sdk-7.0.0'
+  [version_ref]='tags/0.1.8-sdk-9.0.0'
+  [post_process]='contract_cleanup'
+)
+
+# shellcheck disable=SC2034
+declare -A content5=(
+  [repo]='gitlab.com/privacyblockchain/language/rust-example-nft-contract.git'
+  [output]='contracts/example-nft-contract'
+  [version_ref]='tags/0.1.0-sdk-9.0.0'
   [post_process]='contract_cleanup'
 )
 
