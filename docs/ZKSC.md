@@ -366,3 +366,15 @@ fn read_variable<T: ReadWriteState>(
 }
 
 ````
+### Use zero knowledge smart contracts on PBC as a second layer for Ethereum
+
+|State of PBC ZK smart contract   |Sate of ETH public smart contract   |
+|---|---|
+| Addresses of nodes allocated to the ZK work | Addresses of nodes allocated to the ZK work  |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+  
