@@ -27,7 +27,6 @@ function clone_and_clean() {
 sdk_version=$(get_current_version)
 filename="partisia-sdk-${sdk_version}.zip"
 
-
 # Make zip build directory
 mkdir -p build_zip
 
@@ -40,16 +39,15 @@ pushd build_zip || exit
 mkdir -p contracts
 
 for content in ${!content@}; do
-    url="https://gitlab-ci-token:${CI_JOB_TOKEN}@${content[repo]}"
-    ref="${content[version_ref]}"
-    folder="${content[output]}"
-    post_process="${content[post_process]}"
+  url="${URL_PREFIX}@${content[repo]}"
+  ref="${content[version_ref]}"
+  folder="${content[output]}"
+  post_process="${content[post_process]}"
 
-    clone_and_clean "$url" "$folder" "$ref" "$post_process"
+  clone_and_clean "$url" "$folder" "$ref" "$post_process"
 done
 
-# shellcheck disable=SC2154
-curl --netrc-file "/m2/curl-netrc" "${zkcompiler[url]}" -o "${zkcompiler[output]}"
+curl --netrc-file "/m2/curl-netrc" "${ZK_COMPILER_URL}" -o "${ZK_COMPILER_OUTPUT}"
 # Compress everything in the build_zip folder to sdk.zip
 zip -9r "sdk.zip" *
 
@@ -64,4 +62,3 @@ echo ""
 echo "Uploading ${filename} to ${url}"
 
 curl -o /dev/null -w "%{http_code}\n" --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file "${filename}" "${url}"
-

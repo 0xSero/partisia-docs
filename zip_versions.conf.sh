@@ -22,23 +22,23 @@ function delete_cargo_partisia_tests() {
 }
 
 function delete_sdk_tests() {
-    echo "Deleting SDK test for each subfolder"
-    rm -r sdk_tests/
-    rm README.md
-    shopt -s globstar
-    for f in *; do
-      # shellcheck disable=SC1073
-      if [ -d "$f" ]; then
-        # shellcheck disable=SC2164
-        pushd "${f}"
-        # shellcheck disable=SC2164
-        rm -rf tests
-        rm -rf unit_tests
-        rm -f .gitignore
-        # shellcheck disable=SC2164
-        popd
-      fi
-    done
+  echo "Deleting SDK test for each subfolder"
+  rm -r sdk_tests/
+  rm README.md
+  shopt -s globstar
+  for f in *; do
+    # shellcheck disable=SC1073
+    if [ -d "$f" ]; then
+      # shellcheck disable=SC2164
+      pushd "${f}"
+      # shellcheck disable=SC2164
+      rm -rf tests
+      rm -rf unit_tests
+      rm -f .gitignore
+      # shellcheck disable=SC2164
+      popd
+    fi
+  done
 }
 
 function get_current_version() {
@@ -49,6 +49,16 @@ function get_current_version() {
     echo "${sdk_version}"
   fi
 }
+
+if [[ "${CI}" == "true" ]]; then
+  URL_PREFIX="https://gitlab-ci-token:${CI_JOB_TOKEN}"
+else
+  URL_PREFIX="ssh://git"
+fi
+export URL_PREFIX
+
+export ZK_COMPILER_URL='https://nexus.secata.com/repository/mvn/com/partisia/language/zkcompiler/0.1.23-beta-par-4541-1659520394-aef4addc/zkcompiler-0.1.23-beta-par-4541-1659520394-aef4addc.jar'
+export ZK_COMPILER_OUTPUT='zk-compiler.jar'
 
 # shellcheck disable=SC2034
 declare -A content0=(
