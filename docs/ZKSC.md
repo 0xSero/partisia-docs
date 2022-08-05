@@ -368,13 +368,8 @@ fn read_variable<T: ReadWriteState>(
 ````
 ### Use zero knowledge smart contracts on PBC as a second layer for Ethereum
 
-|State of PBC ZK smart contract   |Sate of ETH public smart contract   |
-|---|---|
-| Addresses of nodes allocated to the ZK work | Addresses of nodes allocated to the ZK work  |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-  
+It is possible to use a ZKSC on PBC as a second layer for Ethereum. If we want to do a secret bid second price auction like above, we need to deploy two smart contracts: one ZKSC on PBC and an ordinary public SC on Ethereum. The public functionality of the contracts will be very similar. But the contract on PBC will privately calculate the result of the auction using ZK computation.   
+
+![Diagram1](Second_layer_ZKSC.png) 
+
+the contract owner controls the functions on the ZKSC.
