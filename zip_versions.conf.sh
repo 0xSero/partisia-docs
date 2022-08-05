@@ -16,6 +16,24 @@ function contract_cleanup() {
   sed -i 's/mod test\;//g' src/lib.rs
 }
 
+function zk_contract_cleanup() {
+  echo "Removing dependencies folder"
+  rm -rf dependencies/
+  rm -f README.md
+  # shellcheck disable=SC2164
+  pushd src
+  rm -f zk_lib.rs
+  rm -f zk_test.rs
+  # shellcheck disable=SC2164
+  popd
+  echo "Patching Cargo.toml"
+  sed -i 's/dependencies\/rust-/\.\.\/\.\.\/partisia-/g' Cargo.toml
+  sed -i -e '/\[\[test\]\]/,+2d' Cargo.toml
+
+  echo "Patching zk_compute.rs"
+  sed -i '/use crate::zk_lib::\*;/d' src/zk_compute.rs
+}
+
 function delete_cargo_partisia_tests() {
   echo "Removing testdata folder"
   rm -rf testdata
@@ -106,6 +124,30 @@ declare -A content5=(
   [output]='contracts/example-nft-contract'
   [version_ref]='tags/0.1.0-sdk-9.0.0'
   [post_process]='contract_cleanup'
+)
+
+# shellcheck disable=SC2034
+declare -A content6=(
+  [repo]='gitlab.com/privacyblockchain/language/rust-example-secret-voting.git'
+  [output]='contracts/example-secret-voting'
+  [version_ref]='tags/0.1.2-sdk-9.0.0'
+  [post_process]='zk_contract_cleanup'
+)
+
+# shellcheck disable=SC2034
+declare -A content7=(
+  [repo]='gitlab.com/privacyblockchain/language/rust-example-zk-second-price-auction.git'
+  [output]='contracts/example-zk-second-price-auction'
+  [version_ref]='tags/0.1.1-sdk-9.0.0'
+  [post_process]='zk_contract_cleanup'
+)
+
+# shellcheck disable=SC2034
+declare -A content8=(
+  [repo]='gitlab.com/privacyblockchain/language/rust-example-average-salary.git'
+  [output]='contracts/example-zk-average-salary'
+  [version_ref]='tags/0.1.1-sdk-9.0.0'
+  [post_process]='zk_contract_cleanup'
 )
 
 # shellcheck disable=SC2034

@@ -42,12 +42,20 @@ To compile a contract in release mode you include the `--release` flag: `cargo p
 
 ## Included example contracts
 
-There are two contracts included in the zip:
+There are four contracts included in the zip as well as three zero knowledge contracts:
 
 1. An ERC20 token contract located in `contracts/example-token-contract`
 2. A general purpose voting contract located in `contracts/example-voting-contract`
+3. An auction contract that sells ERC20 tokens of one type for another located in `contracts/example-auction-contract`
+4. An NFT contract located in `contracts/example-nft-contract`
 
-Both examples are described in great detail on the main site: https://partisiablockchain.gitlab.io/documentation
+The included zk-contracts are as follows:
+
+1. A secret voting contract located in `contracts/example-secret-voting`
+2. An average salary contract located in `contracts/example-average-salary`
+3. A second price auction contract located in `contracts/example-second-price-auction`
+
+Multiple of the examples are described in great detail on the main site: https://partisiablockchain.gitlab.io/documentation
 
 ## How to write your own contract
 
