@@ -372,4 +372,21 @@ It is possible to use a ZKSC on PBC as a second layer for Ethereum. If we want t
 
 ![Diagram1](Second_layer_ZKSC.png) 
 
-the contract owner controls the functions on the ZKSC.
+The contract owner controls the functions on the ZKSC on PBC. After deployment on PBC, the contract owner needs to add some information from the state of the PBC contract to the contract on Ethereum.   
+The contract on PBC goes through the following phases also mentioned above:   
+
+1. Initialization on the blockchain.
+2. Registration of bidders allowed to participate in the auction.
+3. Receival of secret bids.
+4. Once enough bids have been received, the owner of the contract can initialize computation of the auction result.
+5. The ZK nodes derive the winning bid in a secure manner by executing a Secure Multiparty Computation protocol off-chain.
+6. Once the ZK computation concludes, the winning bid will be published and the winner will be stored in the state, together with their bid.
+7. The ZK nodes sign the result of the auction with a digital signature proving that the nodes in question were responsible for the generating the result of the auction. 
+
+**Actions needed to add the second layer:**   
+
+- After phase 1, the ZK nodes that will be responsible for the computing the winner has been allocated from the pool of ZK nodes. The contract owner will add the identities (PBC addresses) of the nodes to the ETH contract, so it can be confirmed that the claimed winner on the Ethereum contract has the signatures from the correct nodes. Then the owner is ready to deploy the contract on Ethereum.
+- The users which wish to participate in the auction register their PBC address and their self chosen bidder ID on the Ethereum contract.   
+- Contract owner adds which users (PBC addresses) can participate on the PBC contract.
+- Contract owner decides when to compute the winner.
+- The winner claims the win on the Ethereum contract by using his bid-id and the signatures from the nodes that did the ZK computation of the winner.   
