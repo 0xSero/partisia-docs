@@ -75,7 +75,7 @@ else
 fi
 export URL_PREFIX
 
-export ZK_COMPILER_URL='https://nexus.secata.com/repository/mvn/com/partisia/language/zkcompiler/0.1.23-beta-par-4541-1659520394-aef4addc/zkcompiler-0.1.23-beta-par-4541-1659520394-aef4addc.jar'
+export ZK_COMPILER_URL='https://nexus.secata.com/repository/mvn/com/partisia/language/zkcompiler/0.1.23-beta-par-4541-1659520394-aef4addc/zkcompiler-0.1.23-beta-par-4541-1659520394-aef4addc-jar-with-dependencies.jar'
 export ZK_COMPILER_OUTPUT='zk-compiler.jar'
 
 # shellcheck disable=SC2034

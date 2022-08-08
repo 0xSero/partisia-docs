@@ -16,20 +16,25 @@ rustup install 1.56
 rustup target add --toolchain 1.56 wasm32-unknown-unknown
 rustup default 1.56
 ```
+
+If you need to develop zero-knowledge contracts then you will also need to install Java 17 to run the zk-compiler.
+
 **NB.** You must acquire *C++ build tools for Windows*, if you work in Git Bash or PowerShell:  
 [Download Visual Studio with C++](https://visualstudio.microsoft.com/downloads/) In Visual Studio Installer choose *Desktop development with C++*.  
 
 ## Compile and install the cargo `partisia-contract` command
 
-In this zip  there is a folder called `cargo-partisia-contract`. 
-This is a small application that helps you compile a contract. 
-You to compile it and install it using cargo:
+In this zip  there is a folder called `cargo-partisia-contract`.
+This is a small application that helps you compile a contract.
+To compile it and install it using cargo run:
 
 ```bash
 cd cargo-partisia-contract
 cargo install --path .
 ```
 Test that it worked by executing: `cargo partisia-contract --version`. This should print the version of the command.
+
+## Compiling a contract
 
 To compile a contract you simply change directory to one of the rust-example-contracts and compile: 
 ```bash
@@ -39,6 +44,17 @@ cargo partisia-contract build
 ```
 
 To compile a contract in release mode you include the `--release` flag: `cargo partisia-contract build --release`
+
+### Zero-Knowledge contracts
+The zk-contracts consist of two main parts. The contract itself as well as a zero-knowledge computation. 
+To compile a zero-knowledge contract you will first need to compile the contract using the partisia-contract 
+cargo command similarly to a normal contract. Afterward the zk-computation can be compiled using the included `zk-compiler.jar`:
+
+```bash
+java -jar [path to zk_compute.rs] --link [path to .wasm file]
+```
+
+This creates the linked byte file with the zk bytecode as well as the wasm file.
 
 ## Included example contracts
 
