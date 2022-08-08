@@ -44,13 +44,10 @@ Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Pu
     "host": "PUBLIC_IPV4_OF_SERVER_HOSTING_THIS_NODE",
     "accountKey": "PRIVATE_KEY_FROM_ACCOUNT_HOLDING STAKE",
     "finalizationKey": "FINALIZATION_PRIVATE_KEY_BLS",
-    "ethereumUrl": "ETHEREUM_MAINNET_HTTP_ENDPOINT"
+    "ethereumUrl": "ETHEREUM_MAINNET_HTTP_ENDPOINT",
+    "polygonUrl": "POLYGON_MAINNET_HTTP_ENDPOINT"
   },
   "knownPeers": [
-    "188.180.83.49:9090",
-    "188.180.83.49:9190",
-    "188.180.83.49:9290",
-    "188.180.83.49:9390",
     "174.138.2.217:9888",
     "172.93.110.125:9888",
     "107.189.1.171:9888",
