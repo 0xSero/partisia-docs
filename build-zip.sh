@@ -46,8 +46,7 @@ for content in ${!content@}; do
 
   clone_and_clean "$url" "$folder" "$ref" "$post_process"
 done
-
-curl --netrc-file "/m2/curl-netrc" "${ZK_COMPILER_URL}" -o "${ZK_COMPILER_OUTPUT}"
+curl --netrc-file "/m2/curl-netrc" "https://nexus.secata.com/repository/mvn/com/partisia/language/zkcompiler/${ZK_COMPILER_VERSION}/zkcompiler-${ZK_COMPILER_VERSION}-jar-with-dependencies.jar" -o "${ZK_COMPILER_OUTPUT}"
 # Compress everything in the build_zip folder to sdk.zip
 zip -9r "sdk.zip" *
 

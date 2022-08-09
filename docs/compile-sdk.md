@@ -1,9 +1,9 @@
 # Contract compilation and deployment
 
 In the following sections we focus on the example token contract included in the SDK archive.
-The contract utilizes several functions. Three of these functions are actions that allow you to 
-perform the basic operations needed for a transfer. The functions are *initialize*, *mint*, and *transfer*.
-After deployment, you can call the functions from the dashboard. When you perform an action it
+The contract utilizes several functions. The main functions are *initialize*, and *transfer* that 
+allow you to perform the basic operations needed for a transfer.
+After deployment the contract actions can be called from the dashboard. When you perform an action it
 changes the contract state. If you inspect the contract you can see the serialized data showing
 the contract state.
 
@@ -18,23 +18,7 @@ cargo partisia-contract build --release
 ````
 
 Now you will find a .wasm-file and a .abi-file in: 
-`/tmp/pbc-rust-wasm/contracts/example-token-contract/target/wasm32-unknown-unknown/release`.
-
-### Compiling Zero-Knowledge contracts
-
-As an example of compiling a zk-contract we will make use of the second-price auction contract. The
-contract can be found in the SDK archive at: `contracts/example-zk-second-price-auction`.
-
-The zk-contracts consist of two main parts. The contract itself as well as a zero-knowledge computation.
-To compile a zero-knowledge contract you will first need to compile the contract using the partisia-contract
-cargo command similarly to a normal contract. Afterward the zk-computation can be compiled using the included `zk-compiler.jar`:
-
-```bash
-java -jar [path to zk_compute.rs] --link [path to .wasm file]
-```
-
-This creates the linked byte file with the zk bytecode as well as the wasm file. This file is used for deployment
-instead of the normal .wasm file.
+`/target/wasm32-unknown-unknown/release`.
 
 ## 2) Upload the contract to the blockchain
 
@@ -42,7 +26,7 @@ To deploy a smart contract you need an [account](accounts.md) with [gas](byoc.md
 Open the wallet in the [Dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm) 
 or use [Partisia Blockchain Explorer](https://mpcexplorer.com/deploy-contract) 
 Select the `token_contract.wasm` and the `token_contract.abi`. 
-The dashboard will then render a form for the initialization function. If you look at lib.rs file in your IDE, 
+The dashboard will then render a form for the initialization function. If you look at `lib.rs` file in your IDE, 
 you will see that this matches the *initialize* function. 
 The other three actions will be available after successful deployment.
 
