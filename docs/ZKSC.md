@@ -385,8 +385,10 @@ The contract on PBC goes through the following phases also mentioned above:
 
 **Actions needed to add the second layer:**   
 
-- After phase 1, the ZK nodes that will be responsible for the computing the winner has been allocated from the pool of ZK nodes. The contract owner will add the identities (PBC addresses) of the nodes to the ETH contract, so it can be confirmed that the claimed winner on the Ethereum contract has the signatures from the correct nodes. Then the owner is ready to deploy the contract on Ethereum.
+- After phase 1, the ZK nodes that will be responsible for the computing the winner has been allocated from the pool of ZK nodes. The contract owner will add the identities (PBC addresses) of the nodes to the ETH contract, so it can be confirmed that the claimed winner on the Ethereum contract has the signatures from the correct nodes. 
+- The owner deploys the contract on Ethereum.   
 - The users which wish to participate in the auction register their PBC address and their self chosen bidder ID on the Ethereum contract.   
-- Contract owner adds which users (PBC addresses) can participate on the PBC contract.
-- Contract owner decides when to compute the winner.
-- The winner claims the win on the Ethereum contract by using his bid-id and the signatures from the nodes that did the ZK computation of the winner.   
+- Contract owner adds which users (PBC addresses) can participate on the PBC contract.   
+- Contract owner decides when to end the auction and compute the winner on the PBC contract.   
+- The winner claims the win on the Ethereum contract by using his bid-id, bid-amount and the signatures from the nodes that did the ZK computation of the winner.    
+
