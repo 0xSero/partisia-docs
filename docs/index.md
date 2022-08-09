@@ -17,5 +17,5 @@
 - [Programmer's Guide to PBC smart contract SDK](programmers_guide.md)   
 - [ABI specification (latest)](abiv_latest.md)   
 - [Create a Smart Contract for a specific scenario](voting-contract.md)   
-- [Zero Knowledge Contracts](vickrey.md)   
+- [Zero Knowledge Contracts](ZKSC.md)   
 - [Connect a dApp to the wallet extension (dApp SDK)](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia)   

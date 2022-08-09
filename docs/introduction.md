@@ -41,4 +41,4 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 [**What is a smart contract?**](contract-development.md)
 
-[**How can I add zero knowledge computation to a smart contract?**](vickrey.md)
+[**How can I add zero knowledge computation to a smart contract?**](ZKSC.md)
