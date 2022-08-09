@@ -1,7 +1,7 @@
 # Partisia Rust contract SDK
 
 This README is for SDK version RUST_SDK_VERSION.
-You can always find the newest documentation and SDK on the main site: https://partisiablockchain.gitlab.io/documentation
+You can always find the newest documentation and SDK on the [main site](https://partisiablockchain.gitlab.io/documentation).
 
 
 ## Prerequisites
