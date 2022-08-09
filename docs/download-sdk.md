@@ -8,9 +8,7 @@ Now install rust 1.56 and add the wasm32 target and set 1.56 to be the default t
 
 ```bash
 rustup update
-rustup install 1.56
 rustup target add --toolchain 1.56 wasm32-unknown-unknown
-rustup default 1.56
 ```
 
 If you need to develop zero-knowledge contracts then you will also need to install Java 17 to run the zk-compiler.
