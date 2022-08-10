@@ -70,10 +70,13 @@ function get_current_version() {
 
 if [[ "${CI}" == "true" ]]; then
   URL_PREFIX="https://gitlab-ci-token:${CI_JOB_TOKEN}"
+  NETRC="--netrc-file /m2/curl-netrc"
 else
   URL_PREFIX="ssh://git"
+  NETRC="--netrc"
 fi
 export URL_PREFIX
+export NETRC
 
 export ZK_COMPILER_VERSION='0.1.23-beta-par-4541-1659520394-aef4addc'
 export ZK_COMPILER_OUTPUT='zk-compiler.jar'
