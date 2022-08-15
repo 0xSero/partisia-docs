@@ -18,3 +18,12 @@ docker run --rm -it -p 8000:8000 -u 1000:1000 -v "${PWD}:/docs" registry.gitlab.
 ````
 
 The HTML can now be accessed at http://localhost:8000/
+
+## Build and Deployment
+
+* If mkdocs is not installed on your device, install it using this command `pip install mkdocs`
+https://www.mkdocs.org/user-guide/installation/
+* Run `npm run build` to generate public folder
+* cd into public folder 
+* Deploy content in public folder
+
