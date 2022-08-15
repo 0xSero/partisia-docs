@@ -41,7 +41,7 @@ nav:
       - Actions: mpc1155actions.md
   - MPC721:
       - Actions: mpc721actions.md
-  - MPC20:
+  - MPC20-staking:
       - Actions: mpc20stakingactions.md
  
 
