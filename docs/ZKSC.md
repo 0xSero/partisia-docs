@@ -4,7 +4,7 @@ One of the main features which set PBC apart from other blockchains is that PBC 
 You can utilize PBC's capacity for ZK computations through zero knowledge smart contracts (ZKSC).
 
 ### What is zero knowledge smart contracts
-ZKSC has all the same functionality as public smart contracts (SC), but in addition to that the ZKSC allocate a subset of qualified nodes to do computations on private versions of input data. A ZKSC stipulate some non-public actions in addition to the public actions. This means that a ZKSC has a private state only present on the ZK nodes in addition to a public state on the chain. When a ZK node is allocated to a specific ZKSC the node's associated stakes will be locked to the contract until the ZK work is finished.
+Zero knowledge smart contracts has all the same functionality as public smart contracts (SC), but in addition to that the ZKSC allocate a subset of qualified nodes to do computations on private versions of input data. A ZKSC stipulate some non-public actions in addition to the public actions. This means that a ZKSC has a private state only present on the ZK nodes in addition to a public state on the chain. When a ZK node is allocated to a specific ZKSC the node's associated stakes will be locked to the contract until the ZK work is finished.
 If our ZKSC is an auction like below, the public state will contain the winner's ID and the price of the auctioned item, whereas the private state will contain all the non-winning bids. The calculation in the private state are done on [secret shared data](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a). This means that the nodes allocated for the ZK work in the contract does not have access to the user input, i.e. the ZK nodes do not have access to the values of the non-winning bids.
 
 ### Example of a zero knowledge smart contract on PBC - Vickrey Auction
@@ -51,7 +51,20 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
 }
 
 ````
-The rest of the contract phases take place in the following:
+(You will see the code handling the remaining contract phases further down the page) 
+
+### Use zero knowledge smart contracts on PBC as a second layer for Ethereum
+
+It is possible to use a zero knowledge smart contracts on PBC as a second layer for Ethereum. If we want to do a secret bid second price auction like above, we need to deploy two smart contracts: one zero knowledge smart contract on PBC and a public smart contract on Ethereum. The public functionality of the contracts will be very similar. But the contract on PBC will privately calculate the result of the auction using zero knowledge computation.
+
+![Diagram1](Second_layer_ZKSC.png)
+
+The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the Ethereum contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the Ethereum contract. 
+The flow goes like this: After deployment on PBC, the contract owner needs to add some information from the state of the PBC contract to the contract on Ethereum.   
+The contract on PBC still goes through the same phases listed above, but the contract owner has to manually add some information from the state of the deployed PBC contract to contract on Ethereum. The Ethereum contract needs to contain the identities (PBC addresses) of the ZK nodes that have been allocated to do the zero knowledge computation. This is necessary because the winner uses signatures from the ZK nodes to claim and prove themselves the actual winner. The signatures contain the identity of the zk nodes and the result (a winning bidder and the price) which the respective node approved. To claim a win on the Ethereum contract your identity have to match the result calculated by a majority of the ZK nodes. In practice 3 out of 4.
+
+
+
 ````rust
 #![allow(unused_variables)]
 
@@ -366,29 +379,5 @@ fn read_variable<T: ReadWriteState>(
 }
 
 ````
-### Use zero knowledge smart contracts on PBC as a second layer for Ethereum
-
-It is possible to use a ZKSC on PBC as a second layer for Ethereum. If we want to do a secret bid second price auction like above, we need to deploy two smart contracts: one ZKSC on PBC and an ordinary public SC on Ethereum. The public functionality of the contracts will be very similar. But the contract on PBC will privately calculate the result of the auction using ZK computation.   
-
-![Diagram1](Second_layer_ZKSC.png) 
-
-The contract owner controls the functions on the ZKSC on PBC. After deployment on PBC, the contract owner needs to add some information from the state of the PBC contract to the contract on Ethereum.   
-The contract on PBC goes through the following phases also mentioned above:   
-
-1. Initialization on the blockchain.
-2. Registration of bidders allowed to participate in the auction.
-3. Receival of secret bids.
-4. Once enough bids have been received, the owner of the contract can initialize computation of the auction result.
-5. The ZK nodes derive the winning bid in a secure manner by executing a Secure Multiparty Computation protocol off-chain.
-6. Once the ZK computation concludes, the winning bid will be published and the winner will be stored in the state, together with their bid.
-7. The ZK nodes sign the result of the auction with a digital signature proving that the nodes in question were responsible for the generating the result of the auction. 
-
-**Actions needed to add the second layer:**   
-
-- After phase 1, the ZK nodes that will be responsible for the computing the winner has been allocated from the pool of ZK nodes. The contract owner will add the identities (PBC addresses) of the nodes to the ETH contract, so it can be confirmed that the claimed winner on the Ethereum contract has the signatures from the correct nodes. 
-- The owner deploys the contract on Ethereum.   
-- The users which wish to participate in the auction register their PBC address and their self chosen bidder ID on the Ethereum contract.   
-- Contract owner adds which users (PBC addresses) can participate on the PBC contract.   
-- Contract owner decides when to end the auction and compute the winner on the PBC contract.   
-- The winner claims the win on the Ethereum contract by using his bid-id, bid-amount and the signatures from the nodes that did the ZK computation of the winner.    
+   
 
