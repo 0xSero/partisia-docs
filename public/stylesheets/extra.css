@@ -178,6 +178,7 @@ h1 {
   background-color: #302c60;
 }
 
+
 @media (max-width: 1024px) {
   .header-link {
     display: none;
@@ -299,12 +300,15 @@ code {
   .highlight::-webkit-scrollbar {
     display: none !important;
   }
-  .md-sidebar {
-    position: relative !important;
-  }
+
 }
 
 @media screen and (max-width: 1219px) {
+
+  .md-sidebar__scrollwrap::-webkit-scrollbar,
+  .highlight::-webkit-scrollbar {
+    display: none !important;
+  }
   .md-sidebar--secondary {
     display: none !important;
   }

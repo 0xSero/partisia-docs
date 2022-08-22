@@ -178,6 +178,7 @@ h1 {
   background-color: #302c60;
 }
 
+
 @media (max-width: 1024px) {
   .header-link {
     display: none;
