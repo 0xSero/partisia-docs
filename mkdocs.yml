@@ -35,6 +35,8 @@ nav:
       - Consensus Model: consensus.md
       - Shards: shards.md
       - Public key cryptography: keys.md
+  - Terminology:
+      - PBC Dictionary: dictionary.md
 
 
 extra_css:

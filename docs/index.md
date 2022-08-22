@@ -5,6 +5,7 @@
 
  - [Introduction - Learn the blockchain fundamentals](introduction.md)
  - [Create an account on Partisia Blockchain (PBC)](accounts.md)
+ - [Useful terms and definitions](dictionary.md)
 
 ## Become a Node Operator
 
