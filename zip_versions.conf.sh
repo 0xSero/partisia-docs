@@ -78,7 +78,7 @@ fi
 export URL_PREFIX
 export NETRC
 
-export ZK_COMPILER_VERSION='0.1.23-beta-par-4541-1659520394-aef4addc'
+export ZK_COMPILER_VERSION='3.0.11'
 export ZK_COMPILER_OUTPUT='zk-compiler.jar'
 
 # shellcheck disable=SC2034
