@@ -87,7 +87,7 @@ export URL_PREFIX
 
 # shellcheck disable=SC2034
 declare -A content0=(
-  [repo]='gitlab.com/privacyblockchain/language/cargo-partisia-contract.git'
+  [repo]='gitlab.com/secata/pbc/language/cargo-partisia-contract.git'
   [output]='cargo-partisia-contract'
   [version_ref]='tags/0.2.9'
   [post_process]='delete_cargo_partisia_tests'
@@ -95,7 +95,7 @@ declare -A content0=(
 
 # shellcheck disable=SC2034
 declare -A content1=(
-  [repo]='gitlab.com/privacyblockchain/language/contracts/token.git'
+  [repo]='gitlab.com/secata/pbc/language/contracts/token.git'
   [output]='contracts/example-token-contract'
   [version_ref]='tags/0.2.14-sdk-9.1.1'
   [post_process]='contract_cleanup'
@@ -103,7 +103,7 @@ declare -A content1=(
 
 # shellcheck disable=SC2034
 declare -A content2=(
-  [repo]='gitlab.com/privacyblockchain/language/contracts/voting.git'
+  [repo]='gitlab.com/secata/pbc/language/contracts/voting.git'
   [output]='contracts/example-voting-contract'
   [version_ref]='tags/0.2.8-sdk-9.1.1'
   [post_process]='contract_cleanup'
@@ -111,7 +111,7 @@ declare -A content2=(
 
 # shellcheck disable=SC2034
 declare -A content3=(
-  [repo]='gitlab.com/privacyblockchain/language/contracts/auction.git'
+  [repo]='gitlab.com/secata/pbc/language/contracts/auction.git'
   [output]='contracts/example-auction-contract'
   [version_ref]='tags/0.1.11-sdk-9.1.1'
   [post_process]='contract_cleanup'
@@ -119,7 +119,7 @@ declare -A content3=(
 
 # shellcheck disable=SC2034
 declare -A content4=(
-  [repo]='gitlab.com/privacyblockchain/language/contracts/nft.git'
+  [repo]='gitlab.com/secata/pbc/language/contracts/nft.git'
   [output]='contracts/example-nft-contract'
   [version_ref]='tags/0.1.3-sdk-9.1.1'
   [post_process]='contract_cleanup'
@@ -127,7 +127,7 @@ declare -A content4=(
 
 # shellcheck disable=SC2034
 declare -A content5=(
-  [repo]='gitlab.com/privacyblockchain/language/contracts/zk-voting.git'
+  [repo]='gitlab.com/secata/pbc/language/contracts/zk-voting.git'
   [output]='contracts/example-zk-voting'
   [version_ref]='tags/0.1.3-sdk-9.1.1'
   [post_process]='zk_contract_cleanup'
@@ -135,7 +135,7 @@ declare -A content5=(
 
 # shellcheck disable=SC2034
 declare -A content6=(
-  [repo]='gitlab.com/privacyblockchain/language/contracts/zk-second-price-auction.git'
+  [repo]='gitlab.com/secata/pbc/language/contracts/zk-second-price-auction.git'
   [output]='contracts/example-zk-second-price-auction'
   [version_ref]='tags/0.1.1-sdk-9.1.1'
   [post_process]='zk_contract_cleanup'
@@ -143,7 +143,7 @@ declare -A content6=(
 
 # shellcheck disable=SC2034
 declare -A content7=(
-  [repo]='gitlab.com/privacyblockchain/language/contracts/zk-average-salary.git'
+  [repo]='gitlab.com/secata/pbc/language/contracts/zk-average-salary.git'
   [output]='contracts/example-zk-average-salary'
   [version_ref]='tags/0.1.2-sdk-9.1.1'
   [post_process]='zk_contract_cleanup'
