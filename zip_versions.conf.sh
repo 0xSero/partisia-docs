@@ -11,7 +11,10 @@ function contract_cleanup() {
   # shellcheck disable=SC2164
   popd
   echo "Patching Cargo.toml"
-  sed -i 's/dependencies\/rust-/\.\.\/\.\.\/partisia-/g' Cargo.toml
+  sed -i -e '/\[package\.metadata\.partisiablockchain\]/,+1d' \
+    -e 's/ssh:\/\//https:\/\//g' \
+    -e 's/secata\/pbc\/language\/rust-contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
+    Cargo.toml
   echo "Patching lib.rs"
   sed -i 's/mod test\;//g' src/lib.rs
 }
@@ -27,12 +30,14 @@ function zk_contract_cleanup() {
   # shellcheck disable=SC2164
   popd
   echo "Patching Cargo.toml"
-  sed -e '/\[\[test\]\]/,+2d' \
-  -e 's/dependencies\/rust-/\.\.\/\.\.\/partisia-/g' \
-  -e 's/download_method = "mvn"/download_method = "http"/g' \
-  -e 's/com\.partisia\.language/com\.partisiablockchain\.language/g' \
-  -e 's/https:\/\/nexus\.secata\.com\/repository\/mvn/https:\/\/gitlab\.com\/api\/v4\/projects\/37549006\/packages\/maven/g' \
-  Cargo.toml
+  sed -i -e '/\[\[test\]\]/,+2d' \
+    -e '/\[package\.metadata\.partisiablockchain\]/,+1d' \
+    -e 's/download_method = "mvn"/download_method = "http"/g' \
+    -e 's/com\.partisia\.language/com\.partisiablockchain\.language/g' \
+    -e 's/https:\/\/nexus\.secata\.com\/repository\/mvn/https:\/\/gitlab\.com\/api\/v4\/projects\/37549006\/packages\/maven/g' \
+    -e 's/ssh:\/\//https:\/\//g' \
+    -e 's/secata\/pbc\/language\/rust-contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
+    Cargo.toml
 
 
   echo "Patching zk_compute.rs"
@@ -75,16 +80,10 @@ function get_current_version() {
 
 if [[ "${CI}" == "true" ]]; then
   URL_PREFIX="https://gitlab-ci-token:${CI_JOB_TOKEN}"
-  NETRC="--netrc-file /m2/curl-netrc"
 else
   URL_PREFIX="ssh://git"
-  NETRC="--netrc"
 fi
 export URL_PREFIX
-export NETRC
-
-export ZK_COMPILER_VERSION='3.0.11'
-export ZK_COMPILER_OUTPUT='zk-compiler.jar'
 
 # shellcheck disable=SC2034
 declare -A content0=(
@@ -96,65 +95,57 @@ declare -A content0=(
 
 # shellcheck disable=SC2034
 declare -A content1=(
-  [repo]='gitlab.com/privacyblockchain/language/rust-contract-sdk.git'
-  [output]='partisia-contract-sdk'
-  [version_ref]='tags/9.0.0'
-  [post_process]='delete_sdk_tests'
+  [repo]='gitlab.com/privacyblockchain/language/contracts/token.git'
+  [output]='contracts/example-token-contract'
+  [version_ref]='tags/0.2.14-sdk-9.1.1'
+  [post_process]='contract_cleanup'
 )
 
 # shellcheck disable=SC2034
 declare -A content2=(
-  [repo]='gitlab.com/privacyblockchain/language/rust-example-token-contract.git'
-  [output]='contracts/example-token-contract'
-  [version_ref]='tags/0.2.11-sdk-9.0.0'
+  [repo]='gitlab.com/privacyblockchain/language/contracts/voting.git'
+  [output]='contracts/example-voting-contract'
+  [version_ref]='tags/0.2.8-sdk-9.1.1'
   [post_process]='contract_cleanup'
 )
 
 # shellcheck disable=SC2034
 declare -A content3=(
-  [repo]='gitlab.com/privacyblockchain/language/rust-example-voting-contract.git'
-  [output]='contracts/example-voting-contract'
-  [version_ref]='tags/0.2.6-sdk-9.0.0'
+  [repo]='gitlab.com/privacyblockchain/language/contracts/auction.git'
+  [output]='contracts/example-auction-contract'
+  [version_ref]='tags/0.1.11-sdk-9.1.1'
   [post_process]='contract_cleanup'
 )
 
 # shellcheck disable=SC2034
 declare -A content4=(
-  [repo]='gitlab.com/privacyblockchain/language/rust-example-auction-contract.git'
-  [output]='contracts/example-auction-contract'
-  [version_ref]='tags/0.1.8-sdk-9.0.0'
+  [repo]='gitlab.com/privacyblockchain/language/contracts/nft.git'
+  [output]='contracts/example-nft-contract'
+  [version_ref]='tags/0.1.3-sdk-9.1.1'
   [post_process]='contract_cleanup'
 )
 
 # shellcheck disable=SC2034
 declare -A content5=(
-  [repo]='gitlab.com/privacyblockchain/language/rust-example-nft-contract.git'
-  [output]='contracts/example-nft-contract'
-  [version_ref]='tags/0.1.0-sdk-9.0.0'
-  [post_process]='contract_cleanup'
+  [repo]='gitlab.com/privacyblockchain/language/contracts/zk-voting.git'
+  [output]='contracts/example-zk-voting'
+  [version_ref]='tags/0.1.3-sdk-9.1.1'
+  [post_process]='zk_contract_cleanup'
 )
 
 # shellcheck disable=SC2034
 declare -A content6=(
-  [repo]='gitlab.com/privacyblockchain/language/rust-example-secret-voting.git'
-  [output]='contracts/example-secret-voting'
-  [version_ref]='tags/0.1.2-sdk-9.0.0'
+  [repo]='gitlab.com/privacyblockchain/language/contracts/zk-second-price-auction.git'
+  [output]='contracts/example-zk-second-price-auction'
+  [version_ref]='tags/0.1.1-sdk-9.1.1'
   [post_process]='zk_contract_cleanup'
 )
 
 # shellcheck disable=SC2034
 declare -A content7=(
-  [repo]='gitlab.com/privacyblockchain/language/rust-example-zk-second-price-auction.git'
-  [output]='contracts/example-zk-second-price-auction'
-  [version_ref]='tags/0.1.1-sdk-9.0.0'
-  [post_process]='zk_contract_cleanup'
-)
-
-# shellcheck disable=SC2034
-declare -A content8=(
-  [repo]='gitlab.com/privacyblockchain/language/rust-example-average-salary.git'
+  [repo]='gitlab.com/privacyblockchain/language/contracts/zk-average-salary.git'
   [output]='contracts/example-zk-average-salary'
-  [version_ref]='tags/0.1.1-sdk-9.0.0'
+  [version_ref]='tags/0.1.2-sdk-9.1.1'
   [post_process]='zk_contract_cleanup'
 )
 
