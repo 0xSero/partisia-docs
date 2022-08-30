@@ -18,11 +18,11 @@ If Working from a Windows machine you must either:
 - [Get Visual Studio with C++  build tools](https://visualstudio.microsoft.com/downloads/) - In Visual Studio Installer choose *Desktop development with C++*.   
 - [Install Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install)    
 
-### 2) Download Partisia Contract SDK
+### 2) Download Partisia Contract tool
 
 [![button](Download.png)](LINK_TO_RUST_CONTRACT_SDK)
 
-The archive contains the SDK, the cargo `partisia-contract` tool for building contracts, the zk-compiler, as well as a number of example contracts.
+The archive contains the cargo `partisia-contract` tool for building contracts as well as a number of example contracts.
 
 If you are working with a WSL shell on Windows you can locate files within WSL in the folder named `\\wsl$\Ubuntu\`.
 From now on we assume you have extracted the archive to `/tmp/pbc-rust-wasm`.  

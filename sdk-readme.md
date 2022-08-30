@@ -46,11 +46,12 @@ To compile a contract in release mode you include the `--release` flag: `cargo p
 ### Zero-Knowledge contracts
 
 The zk-contracts consist of two main parts. The contract itself as well as a zero-knowledge computation. 
-To compile a zero-knowledge contract you will first need to compile the contract using the `partisia-contract` 
-cargo command similarly to a normal contract. Afterward the zk-computation can be compiled using the included `zk-compiler.jar`:
+The partisia-contract tool is able to detect and compile both these parts together. To do so the tool fetches the zk-compiler.jar and runs it.
 
 ```bash
-java -jar [path to zk_compute.rs] --link [path to .wasm file]
+cd ..
+cd contracts/example-zk-voting/
+cargo partisia-contract build
 ```
 
 This creates the linked byte file with the zk bytecode as well as the wasm file.
@@ -68,7 +69,7 @@ The included normal contracts are:
 
 The included zk-contracts are:
 
-1. A secret voting contract located in `contracts/example-secret-voting`
+1. A secret voting contract located in `contracts/example-zk-voting`
 2. An average salary contract located in `contracts/example-zk-average-salary`
 3. A second price auction contract located in `contracts/example-zk-second-price-auction`
 

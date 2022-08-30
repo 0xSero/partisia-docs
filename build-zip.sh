@@ -30,8 +30,8 @@ filename="partisia-sdk-${sdk_version}.zip"
 # Make zip build directory
 mkdir -p build_zip
 
-# Copy readme into the directory
-cp sdk-readme.md build_zip/README.md
+# Copy readme into the directory and replace RUST_SDK_VERSION
+sed -e "s/RUST_SDK_VERSION/${sdk_version}/g" sdk-readme.md > build_zip/README.md
 
 pushd build_zip || exit
 
