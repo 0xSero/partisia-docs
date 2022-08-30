@@ -27,8 +27,13 @@ function zk_contract_cleanup() {
   # shellcheck disable=SC2164
   popd
   echo "Patching Cargo.toml"
-  sed -i 's/dependencies\/rust-/\.\.\/\.\.\/partisia-/g' Cargo.toml
-  sed -i -e '/\[\[test\]\]/,+2d' Cargo.toml
+  sed -e '/\[\[test\]\]/,+2d' \
+  -e 's/dependencies\/rust-/\.\.\/\.\.\/partisia-/g' \
+  -e 's/download_method = "mvn"/download_method = "http"/g' \
+  -e 's/com\.partisia\.language/com\.partisiablockchain\.language/g' \
+  -e 's/https:\/\/nexus\.secata\.com\/repository\/mvn/https:\/\/gitlab\.com\/api\/v4\/projects\/37549006\/packages\/maven/g' \
+  Cargo.toml
+
 
   echo "Patching zk_compute.rs"
   sed -i '/use crate::zk_lib::\*;/d' src/zk_compute.rs
