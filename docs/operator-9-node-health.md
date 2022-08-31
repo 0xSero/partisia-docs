@@ -102,11 +102,15 @@ This command allows you to add a rule for a scheduled event. You will be asked t
 
 Paste and add the rule to the scheduler. **NB**. No "#" in front of the rule:
 ````bash
-*/30 * * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
+m h * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
 ````
+For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23.
+If you are in doubt about what the cron rule means you can use this page:
+<https://crontab.guru/> to see the rule expressed in words.
+
 Press `CTRL+X` and then `Y` and then `ENTER`.
 
-This rule will make the script run and thereby check for available updates every 30 minutes.
+This rule will make the script run and thereby check for available updates once every day.
 
 To see if the script is working you can read the update log with the *cat command*:
 
