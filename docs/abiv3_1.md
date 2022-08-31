@@ -84,7 +84,7 @@ For arguments with variable lengths, such as Vecs or Strings the number of eleme
 $$
 \textcolor{mathcolor}{
 \begin{align*}
-\text{<LengthRpc>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  &\text{(big endian)} \\
+\text{<LengthRpc>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32} \text{( big endian)} \\
 \end{align*}
 }
 $$
@@ -122,7 +122,7 @@ For arguments with variable lengths, such as Vecs or Strings the number of eleme
 $$
 \textcolor{mathcolor}{
 \begin{align*}
-\text{<LengthState>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  &\text{(little endian)} \\
+\text{<LengthState>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  \text{(little endian)} \\
 \end{align*}
 }
 $$
@@ -233,7 +233,7 @@ $$
 \textcolor{mathcolor}{
 \begin{align*}
 \text{<FileAbi>} \ := \ \{ \
-&\text{Header: } \bytes{6},  &\text{The header is always "PBCABI" in ASCII}\\
+&\text{Header: } \bytes{6},  \text{The header is always "PBCABI" in ASCII}\\
 &\text{VersionBinder: } \bytes{3} \ \\
 &\text{VersionClient: } \bytes{3} \ \\
 &\text{Contract: ContractAbi} \ \} \\
@@ -262,7 +262,7 @@ $$
 &\text{Type: TypeSpec} \ \} \\
 \\
 \text{<Identifier>} \ := \ \phantom{\{} \
-&\text{len:}\bytes{4} \ \text{utf8:}\bytes{len} & \text{utf8 must be Rust identifier, len is big endian} \\
+&\text{len:}\bytes{4} \ \text{utf8:}\bytes{len}  \text{ utf8 must be Rust identifier, len is big endian} \\
 \\
 \text{<LEB128>} \ := \ \phantom{\{} \
 &\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).}
@@ -283,7 +283,7 @@ $$
 \text{<Result>} \ :=
   \ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
 \text{<Section >} \ :=
-  \ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len} & \ \text{(len is big endian)} \\
+  \ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
 \end{align*}
 }
 $$
