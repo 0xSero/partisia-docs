@@ -93,7 +93,7 @@ chmod +x update_docker.sh
 
 Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now executable.
 
-**3. Set update frequency to 30 minutes:**
+**3. Set update frequency to once a day at a random time:**
 
 ````bash
 crontab -e
