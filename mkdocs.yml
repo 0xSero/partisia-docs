@@ -35,14 +35,6 @@ nav:
       - Consensus Model: consensus.md
       - Shards: shards.md
       - Public key cryptography: keys.md
-  - MPC20:
-      - Actions: mpcactions.md
-  - MPC1155:
-      - Actions: mpc1155actions.md
-  - MPC721:
-      - Actions: mpc721actions.md
-  - MPC20-staking:
-      - Actions: mpc20stakingactions.md
  
 
 
