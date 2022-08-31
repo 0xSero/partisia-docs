@@ -12,7 +12,7 @@ The blocks are connected cryptographically. The hash of each block is produced a
 
 ![Diagram0](blockchain.jpg)  
 
-A blockchain exists on a distributed network of computers called [nodes](whatisano.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
+A blockchain exists on a distributed network of computers called [nodes](operator-0-introduction.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
 Conversely, a blockchain is a decentralized database. Therefore, data on the blockchain remains secure even if a computer in the network is hacked, short circuits or loose connection to the internet. 
 ### What happens when I use a blockchain
 In the following paragraph we will examine user interactions with the blockchain using a purchase of an NFT as our case example. We will explore how a user action like purchase of NFTs affect the blockchain on different levels.  
@@ -35,10 +35,10 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 ### Find out more
 
-[**What is a node operator?**](whatisano.md)
+[**What is a node operator?**](operator-0-introduction.md)
 
 [**How does the economy of PBC work?**](byoc.md)
 
 [**What is a smart contract?**](contract-development.md)
 
-[**How can I add zero knowledge computation to a smart contract?**](vickrey.md)
+[**How can I add zero knowledge computation to a smart contract?**](ZKSC.md)

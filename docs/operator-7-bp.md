@@ -31,7 +31,7 @@ Start by opening the `config.json` in `nano`:
 
 
 ````bash
-sudo nano /opt/pbc-betanet/conf/config.json
+sudo nano /opt/pbc-mainnet/conf/config.json
 ````
 
 Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](operator-6-keys.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
@@ -44,13 +44,10 @@ Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Pu
     "host": "PUBLIC_IPV4_OF_SERVER_HOSTING_THIS_NODE",
     "accountKey": "PRIVATE_KEY_FROM_ACCOUNT_HOLDING STAKE",
     "finalizationKey": "FINALIZATION_PRIVATE_KEY_BLS",
-    "ethereumUrl": "ETHEREUM_MAINNET_HTTP_ENDPOINT"
+    "ethereumUrl": "ETHEREUM_MAINNET_HTTP_ENDPOINT",
+    "polygonUrl": "POLYGON_MAINNET_HTTP_ENDPOINT"
   },
   "knownPeers": [
-    "188.180.83.49:9090",
-    "188.180.83.49:9190",
-    "188.180.83.49:9290",
-    "188.180.83.49:9390",
     "174.138.2.217:9888",
     "172.93.110.125:9888",
     "107.189.1.171:9888",
@@ -64,7 +61,7 @@ To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
 You can verify the contents of the files are what you expect by opening them with `cat`:
 
 ````bash
-sudo cat /opt/pbc-betanet/conf/config.json
+sudo cat /opt/pbc-mainnet/conf/config.json
 # The config file should be printed here
 ````
 
@@ -77,7 +74,7 @@ docker-compose up -d
 This should pull the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running, run:
 
 ````bash
-docker logs -f pbc-betanet-reader
+docker logs -f pbc-mainnet
 ````
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
