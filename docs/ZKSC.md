@@ -53,15 +53,15 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
 ````
 (You will see the code handling the remaining contract phases further down the page) 
 
-### Use zero knowledge smart contracts on PBC as a second layer for Ethereum
+### Use zero knowledge smart contracts on PBC as a second layer
 
-It is possible to use a zero knowledge smart contracts on PBC as a second layer for Ethereum. If we want to do a secret bid second price auction like above, we need to deploy two smart contracts: one zero knowledge smart contract on PBC and a public smart contract on Ethereum. The public functionality of the contracts will be very similar. But the contract on PBC will privately calculate the result of the auction using zero knowledge computation.
+It is possible to use a zero knowledge smart contracts on PBC as a second layer for other blockchains. If we want to do a secret bid second price auction like above, we need to deploy two smart contracts: one zero knowledge smart contract on PBC and a public smart contract on the layer one chain. The public functionality of the contracts will be very similar. But the contract on PBC will privately calculate the result of the auction using zero knowledge computation.
 
 ![Diagram1](Second_layer_ZKSC.png)
 
-The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the Ethereum contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the Ethereum contract. 
-The flow goes like this: After deployment on PBC, the contract owner needs to add some information from the state of the PBC contract to the contract on Ethereum.   
-The contract on PBC still goes through the same phases listed above, but the contract owner has to manually add some information from the state of the deployed PBC contract to contract on Ethereum. The Ethereum contract needs to contain the identities (PBC addresses) of the ZK nodes that have been allocated to do the zero knowledge computation. This is necessary because the winner uses signatures from the ZK nodes to claim and prove themselves the actual winner. The signatures contain the identity of the zk nodes and the result (a winning bidder and the price) which the respective node approved. To claim a win on the Ethereum contract your identity have to match the result calculated by a majority of the ZK nodes. In practice 3 out of 4.
+The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer one public contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the contract located on the layer one BC. 
+The flow goes like this: After deployment on PBC, the contract owner needs to add some information from the state of the PBC contract to the contract on layer one.   
+The contract on PBC still goes through the same phases listed above, but the contract owner has to manually add some information from the state of the deployed PBC contract to contract on layer one. The layer one contract needs to contain the identities (PBC addresses) of the ZK nodes that have been allocated to do the zero knowledge computation. This is necessary because the winner uses signatures from the ZK nodes to claim and prove themselves the actual winner. The signatures contain the identity of the zk nodes and the result (a winning bidder and the price) which the respective node approved. To claim a win on the layer one contract your identity have to match the result calculated by a majority of the ZK nodes. In practice 3 out of 4.
 
 
 
