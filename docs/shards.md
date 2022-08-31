@@ -1,12 +1,9 @@
-# Sharding 
-
-<img style="float: left;" src="Sharding.png">
+# Sharding
 
 For many years sharding has been used as a method for separating large databases into smaller, faster, more easily managed parts. The Partisia Blockchain also uses sharding as a to ensure scalability of the Basic blockchain
 services and transaction speed. Sharding distributes the workload to parallel shards. All block producing nodes operate all shards. 
-Except for the governance shard, all shards serve the same role of distributing the workload. The governance shard is responsible for changes related to governance. These include:   
+Except for the governance shard, all shards serve the same role of distributing the workload. The governance shard is responsible for changes related to governance. These include:
 
-<br>   
 
 **Local changes to governance:**
 
@@ -18,6 +15,8 @@ Except for the governance shard, all shards serve the same role of distributing 
 - Distribution of fees
 - Current active shards and their routing
 - Feature flag activations
+
+![Sharding](Sharding.png)
 
 ## How it works
 
