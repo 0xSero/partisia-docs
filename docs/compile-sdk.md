@@ -1,22 +1,42 @@
 # Contract compilation and deployment
 
+In the following sections we focus on the example token contract included in the SDK archive.
+The contract utilizes several functions. The main functions are *initialize*, and *transfer* that 
+allow you to perform the basic operations needed for a transfer.
+After deployment the contract actions can be called from the dashboard. When you perform an action it
+changes the contract state. If you inspect the contract you can see the serialized data showing
+the contract state.
 
-### 1) Compile a contract example
+## 1) Compile a contract example
 
-The token contract can be found in SDK archive: `examples/rust-example-token-contract`.
+The token contract can be found in SDK archive: `contracts/example-token-contract`.
 The following will compile it and generate an ABI for it:
 
 ```` bash
-cd examples/rust-example-token-contract
+cd contracts/example-token-contract
 cargo partisia-contract build --release
 ````
 
-Now you will find a .wasm-file in called *token_contract.wasm* in: `/tmp/pbc-rust-wasm/examples/rust-example-token-contract/target/wasm32-unknown-unknown/release`.  
-If you look at lib.rs file in your IDE, you will see the contract utilizes several functions denoted with the initial *fn*. Three of these functions are actions that allow you to perform the basic operations needed for a transfer. The functions are *initialize*, *mint*, and *transfer*. After deployment, you can call the functions from the dashboard. When you perform an action it changes the contract state. If you inspect the contract you can see the serialized data showing the contract state. Contract state can be revealed as a `.json`.
+Now you will find a .wasm-file and a .abi-file in: 
+`/target/wasm32-unknown-unknown/release`.
 
 ## 2) Upload the contract to the blockchain
 
-To deploy a smart contract you need an [account](accounts.md) with [gas](byoc.md) to cover transaction costs. Open the wallet in the [Dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm) or use [Partisia Blockchain Explorer](https://mpcexplorer.com/deploy-contract) Select the `token_contract.wasm` and the `token_contract.abi`. In the *total_supply* field you put the number of tokens you want minted for total supply of the contract from the moment of deployment. The *decimals* field indicates placement of decimal point in total supply. E.g. total supply: 1050 decimals: 3 will mint supply of 1.050 token. After you send the contract to the chain a box appears below. You are provided with the following information fields *Execution status*, *Hash*, *Invocation* and *Deployed at*.  Successful deployment will look like
+To deploy a smart contract you need an [account](accounts.md) with [gas](byoc.md) to cover transaction costs. 
+Open the wallet in the [Dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm) 
+or use [Partisia Blockchain Explorer](https://mpcexplorer.com/deploy-contract) 
+Select the `token_contract.wasm` and the `token_contract.abi`. 
+The dashboard will then render a form for the initialization function. If you look at `lib.rs` file in your IDE, 
+you will see that this matches the *initialize* function. 
+The other three actions will be available after successful deployment.
+
+In the *total_supply* field you put the number of tokens you want minted for total supply of the contract 
+from the moment of deployment. 
+The *decimals* field indicates placement of decimal point in total supply. 
+E.g. total supply: 1050 decimals: 3 will mint supply of 1.050 token. After you send the contract to 
+the chain a box appears below. You are provided with the following information fields 
+*Execution status*, *Hash*, *Invocation* and *Deployed at*.  
+Successful deployment will look like
 this:
 
 ![deployment](deployment.png)
