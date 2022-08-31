@@ -88,7 +88,7 @@ For arguments with variable lengths, such as Vecs or Strings the number of eleme
 $$
 \textcolor{mathcolor}{
 \begin{align*}
-\text{<LengthRpc>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  &\text{(big endian)} \\
+\text{<LengthRpc>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  \text{(big endian)} \\
 \end{align*}
 }
 $$
@@ -217,7 +217,7 @@ $$
 \text{<CompositeTypeSpec>} \ := \ &\hexi{0e} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Vec<}\text{T>} \\
 | \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{Map <}\text{K}, \text{V>} \\
 | \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Set<}\text{T>} \\
-| \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]} & (\hexi{00} \leq L \leq \hexi{7F}) \\
+| \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]}  (\hexi{00} \leq L \leq \hexi{7F}) \\
 | \ &\hexi{12} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Option<}\text{T>} \\
 \\
 \end{align*}
@@ -237,7 +237,7 @@ $$
 \textcolor{mathcolor}{
 \begin{align*}
 \text{<FileAbi>} \ := \ \{ \
-&\text{Header: } \bytes{6},  &\text{The header is always "PBCABI" in ASCII}\\
+&\text{Header: } \bytes{6},\text{The header is always "PBCABI" in ASCII}\\
 &\text{VersionBinder: } \bytes{3} \ \\
 &\text{VersionClient: } \bytes{3} \ \\
 &\text{Contract: ContractAbi} \ \} \\
@@ -266,7 +266,7 @@ $$
 &\text{Type: TypeSpec} \ \} \\
 \\
 \text{<Identifier>} \ := \ \phantom{\{} \
-&\text{len:}\bytes{4} \ \text{utf8:}\bytes{len} & \text{utf8 must be Rust identifier, len is big endian} \\
+&\text{len:}\bytes{4} \ \text{utf8:}\bytes{len}  \text{ utf8 must be Rust identifier, len is big endian} \\
 \\
 \text{<LEB128>} \ := \ \phantom{\{} \
 &\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).} \\
@@ -301,7 +301,7 @@ $$
 \text{<Result>} \ :=
   \ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
 \text{<Section >} \ :=
-  \ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len} & \ \text{(len is big endian)} \\
+  \ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
 \end{align*}
 }
 $$
