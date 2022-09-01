@@ -3,23 +3,23 @@
 
 The following steps are the same as you went through setting up a reader node on your local machine. You should use the non-root user you created in the previous [step](operator-4-security.md). You need to install the [recommended software](operator-1-specs.md) before you start.
 
-### Step 1 - Creating the folders
+### Creating the folders
 
-In this guide we will be running the nodes from the folder `/opt/pbc-betanet` with user:group `1500:1500`. First we need to create the `conf` and `storage` folders for the application:
+In this guide we will be running the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`. First we need to create the `conf` and `storage` folders for the application:
 
 ```` bash
-sudo mkdir -p /opt/pbc-betanet/conf
+sudo mkdir -p /opt/pbc-mainnet/conf
 ````
 ```` bash
-sudo mkdir -p /opt/pbc-betanet/storage
+sudo mkdir -p /opt/pbc-mainnet/storage
 ````
 
-### Step 2 - Creating the node `config.json`
+### Creating the node `config.json`
 
 Start by opening the file in `nano`:
 
 ````bash
-sudo nano /opt/pbc-betanet/conf/config.json
+sudo nano /opt/pbc-mainnet/conf/config.json
 ````
 You paste this into `config.json`:
 ````json
@@ -44,30 +44,30 @@ To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
 You can verify the contents of the files are what you expect by opening them with `cat`:
 
 ````bash
-sudo cat /opt/pbc-betanet/conf/config.json
+sudo cat /opt/pbc-mainnet/conf/config.json
 # The config file should be printed here
 ````
 
-### Step 3 - Setting file permissions
+### Setting file permissions
 
 Now we need to make sure the user with uid `1500` has the needed access to the files:
 
-```` bash
-sudo chown -R "1500:1500" /opt/pbc-betanet
+````bash
+sudo chown -R "1500:1500" /opt/pbc-mainnet
 ````
 ````bash
-sudo chmod 500 /opt/pbc-betanet/conf
+sudo chmod 500 /opt/pbc-mainnet/conf
 ````
 ````bash
-sudo chmod 700 /opt/pbc-betanet/storage
+sudo chmod 700 /opt/pbc-mainnet/storage
 ````
 ````bash
-sudo chmod 400 /opt/pbc-betanet/conf/config.json
+sudo chmod 400 /opt/pbc-mainnet/conf/config.json
 ````
 
 The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
 
-### Step 4 - Pull docker image
+### Pull docker image
 
 You can run the node using the `docker-compose`.
 
@@ -88,21 +88,21 @@ The contents of the file should be the following:
 ````yaml
 version: "2.0"
 services:
-  pbc-betanet-reader:
-    image: registry.gitlab.com/privacyblockchain/demo/betanet-public:latest
-    container_name: pbc-betanet-reader
+  pbc:
+    image: registry.gitlab.com/partisiablockchain/mainnet:latest
+    container_name: pbc-mainnet
     user: "1500:1500"
     restart: always
     expose:
-    - "8080"
+      - "8080"
     ports:
-    - "9888-9897:9888-9897"
+      - "9888-9897:9888-9897"
     command: [ "/conf/config.json", "/storage/" ]
     volumes:
-    - /opt/pbc-betanet/conf:/conf
-    - /opt/pbc-betanet/storage:/storage
+      - /opt/pbc-mainnet/conf:/conf
+      - /opt/pbc-mainnet/storage:/storage
     environment:
-    - JAVA_TOOL_OPTIONS="-Xmx8G"
+      - JAVA_TOOL_OPTIONS="-Xmx8G"
 ````
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
@@ -124,7 +124,7 @@ docker-compose up -d
 This should pull the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running, run:
 
 ````bash
-docker logs -f pbc-betanet-reader
+docker logs -f pbc-mainnet
 ````
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.

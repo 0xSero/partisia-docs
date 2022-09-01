@@ -3,29 +3,29 @@ site_url:
 use_directory_urls: False
 nav:
   - Home: index.md
-  - Getting started as a node operator:
-      - What is a node operator: whatisano.md
-      - Run a node - Introduction and index: operator-0-introduction.md
-      - Run a node 1 - Specs: operator-1-specs.md
-      - Run a node 2 - Local reader: operator-2-reader.md
-      - Run a node 3 - VPS: operator-3-vps.md
-      - Run a node 4 - VPS security: operator-4-security.md
-      - Run a node 5 - Reader node on VPS: operator-5-reader-vps.md
-      - Run a node 6 - Keys for BP config and registration: operator-6-keys.md
-      - Run a node 7 - Change node config from reader to block producer: operator-7-bp.md
-      - Run a node 8 - Register your node in the MPC Explorer: operator-8-registration.md
-      - Run a node 9 - Node health and maintenance: operator-9-node-health.md
+  - Run a node:
+      - What is a node operator: operator-0-introduction.md
+      - Specs: operator-1-specs.md
+      - Local reader: operator-2-reader.md
+      - VPS: operator-3-vps.md
+      - VPS security: operator-4-security.md
+      - Reader node on VPS: operator-5-reader-vps.md
+      - Keys for BP config and registration: operator-6-keys.md
+      - Change node config from reader to block producer: operator-7-bp.md
+      - Register your node in the MPC Explorer: operator-8-registration.md
+      - Node health and maintenance: operator-9-node-health.md
       - Update your node's public information: update-transaction.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
-  - Getting started as a developer:
+  - Develop smart contracts:
       - What is a smart contract: contract-development.md
       - Download SDK for contract development: download-sdk.md
       - Compile and deploy contracts: compile-sdk.md
       - Programmer's Guide to PBC SDK: programmers_guide.md
-      - ABI 4.0 specification: abiv_latest.md
+      - ABI 4.1 specification: abiv_latest.md
       - ABI 3.1 specification: abiv3_1.md
       - Create a smart contract for a specific scenario: voting-contract.md
-      - Zero Knowledge Contracts: vickrey.md
+      - Zero Knowledge Contracts: ZKSC.md
+      - Compile Zero Knowledge Contracts: compile-zk.md
   - Concepts:
       - Accounts: accounts.md
       - BYOC and gas: byoc.md
@@ -35,8 +35,8 @@ nav:
       - Consensus Model: consensus.md
       - Shards: shards.md
       - Public key cryptography: keys.md
- 
-
+  - Terminology:
+      - PBC Dictionary: dictionary.md
 
 
 extra_css:
