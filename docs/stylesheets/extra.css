@@ -78,6 +78,10 @@ html::-webkit-scrollbar {
   display: none !important;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 p,
 li,
 a,
@@ -94,6 +98,18 @@ h1 {
   font-size: 38px;
   line-height: 120%;
   color: #0b073f;
+}
+
+.md-typeset h1 {
+  font-weight: bold;
+}
+
+.md-typeset h2 {
+  font-weight: bold;
+}
+
+.md-typeset h3 {
+  font-weight: bold;
 }
 
 .md-header {
@@ -155,11 +171,13 @@ h1 {
 
 .md-search {
   background-color: #302c60;
+  border-radius: 0.2rem;
 }
 
 .md-search__form {
   background-color: #302c60;
 }
+
 
 @media (max-width: 1024px) {
   .header-link {
@@ -199,9 +217,9 @@ h1 {
   }
 }
 
-/* .md-nav__title {
-    font-size: 1.2em;
-} */
+.md-nav__title {
+  font-weight: bold;
+}
 
 div.arithmatex mjx-container mjx-assistive-mml {
   height: 0;
@@ -253,7 +271,7 @@ code {
   width: 12rem;
   overflow-y: auto;
   min-height: 100vh !important;
-  position: relative !important;
+
   top: 0 !important;
 }
 
@@ -264,7 +282,8 @@ code {
   margin: 0 0.2rem;
   overflow-y: auto;
   height: 100% !important;
-  position: fixed;
+  /* position: fixed; */
+  display: flex;
   width: 12rem;
   z-index: 1;
 }
@@ -281,9 +300,15 @@ code {
   .highlight::-webkit-scrollbar {
     display: none !important;
   }
+
 }
 
 @media screen and (max-width: 1219px) {
+
+  .md-sidebar__scrollwrap::-webkit-scrollbar,
+  .highlight::-webkit-scrollbar {
+    display: none !important;
+  }
   .md-sidebar--secondary {
     display: none !important;
   }
@@ -320,7 +345,7 @@ code {
   margin-top: 50px;
   background-color: #0b073f;
   font-size: 15px !important;
-  border-radius: 50px 50px 0 0;
+  border-radius: 30px 30px 0 0;
   z-index: 500;
 }
 
@@ -457,6 +482,19 @@ code {
   }
 }
 
+@media (max-width: 850px) {
+  .footer-menu-flex {
+    flex-wrap: wrap;
+  }
+
+  .to-upbtn {
+    margin-top: 4rem;
+    width: 40px !important;
+    height: 40px !important; 
+    right: 5px !important;
+  }
+}
+
 .md-footer-meta {
   background-color: #0b073f;
 }
@@ -479,4 +517,32 @@ nav.md-nav ul.md-nav__list {
 
 .md-nav--footer ul.md-nav__list li:first-child {
   display: none;
+}
+
+.line1 {
+  height: 1px;
+  background: black;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.to-upbtn {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background: #ffffff;
+  box-shadow: 0px 12px 18px -6px rgba(10, 0, 40, 0.12);
+  border-radius: 4px;
+  right: 11rem;
 }
