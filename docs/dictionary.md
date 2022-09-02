@@ -4,7 +4,7 @@
 ### ABI
 An ABI (application binary interface) helps applications which need to communicate with the smart contract to do this in a correct manner. The ABI gives the application a descriptions of what type of data the contract contains and what actions it has to offer. Example´: an application interacts with a ERC20 token contract, the ABI lets the application know, that the contract has the action *transfer*.
 
-### [Account](accounts.md)
+### Account
 Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](accounts.md).
 
 ### Address
@@ -13,7 +13,7 @@ An addresses on PBC is a unique number that identifies the recipients and sender
 ### Baker Node
 Baker nodes perform baker services - they produce and sign blocks. You can get a baker node by upgrading the config of your reader node and get whitelisted to participate in the Consensus layer. Whitelisting consist of a KYC process connected to token sale as well as an approval of public information in the node registration. A baker node must have staked sufficient (25000 MPC) to perform baker services.
 
-### [Block](block.md)
+### Block
 A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](transactions.md) and [events](events.md) that have been executed at a given *block time*. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block. Read more [here](block.md).
 
 ### Block (height, number, time)
@@ -22,8 +22,8 @@ On each shard blocks have a number being incremented since the first block. This
 ### Bridge
 Cross-chain bridges connect the Partisia Blockchain with other blockchains, enabling information and assets to flow between the two chains. One example of a bridge is the [BYOC bridge](https://bridge.mpcexplorer.com/), the feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. For more information see [BYOC](byoc.md). Or to go directly to the bridge - click [here](https://bridge.mpcexplorer.com/).
 
-### [BYOC](byoc.md) 
-The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain.
+### BYOC 
+The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](byoc.md).
 
 ### ETH
 The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.  
@@ -41,8 +41,8 @@ ensures that the risk managed by the small Oracle in the latest epoch is contain
 ### MPC
 Secure multiparty computation (for the token see MPC token). The privacy layer of Partisia Blockchain utilizes several zero knowledge protocols. Most notably MPC. MPC allows for calculation on private data, where you can make the result of the calculation public and keep the private data secure at the same time. A simple example of this could be calculation of average salary in a company. You do not want to disclose your own income, but it would be nice to know if you make more or less than the average. Instead of sending your private data to your peers you can send a random bite (share) of the private data out to several peers. They do the same. When doing the calculation no salaries are revealed but the total sum of the numbers is the same. So, you get the correct result even though the calculation is done on the data in a randomised form.
 
-### [MPC Token](mpc-tokens.md) 
-MPC Tokens is part of the decoupled token economy of PBC, their primary purpose is for staking. When staking MPC tokens above specific thresholds you are allowed operate a node that performs different services on the chain. Tokens can be lost in case of malicious behaviour (conditions stipulated in [Yellow Paper section 2.8, pp. 20-21](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)). For this reason staked MPC Tokens gives an incentive for good behaviour among the node operators keeping the blockchain running. Because MPC Tokens are used for staking only, and not as form of payment for services the token value does not have adverse effects on supply or demand of services on chain as you see on other blockchains.   
+### MPC Token 
+MPC Tokens is part of the decoupled token economy of PBC, their primary purpose is for staking. When staking MPC tokens above specific thresholds you are allowed operate a node that performs different services on the chain. Tokens can be lost in case of malicious behaviour (conditions stipulated in [Yellow Paper section 2.8, pp. 20-21](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)). For this reason staked MPC Tokens gives an incentive for good behaviour among the node operators keeping the blockchain running. Because MPC Tokens are used for staking only, and not as form of payment for services the token value does not have adverse effects on supply or demand of services on chain as you see on other blockchains. Read more [here](mpc-tokens.md).   
 
 ### MPC Wallet
 PBC offers a webwallet which allows your account to interact with the blockchain. The wallet is installed as a browser extension. You import your account information into the wallet by connecting it to the account either using your account private key or mnemonic phrase. When the wallet has updates it can sometimes be necessary to create a new password and reimport the account information. The wallet can be used for creating additional accounts and for confirm payment of transaction costs when deploying smart contracts or interacting with smart contracts. The wallet allows for deployment and interactions with contracts, when connected with the [MPC Explorer](https://mpcexplorer.com/). Click [here](https://www.partisiablockchain.com/ecosystem) to get the wallet extension now.
@@ -78,7 +78,7 @@ Same as *Account*, see entry above.
 ### PBC Ledger 
 The immutable record or ledger, that keeps track of transactions that have already taken place. There is a copy of the ledger on all nodes. Partisia Blockchain has sharding, the ledger records the activities on all shards, they are combined to form the complete ledger.
 
-### [Public Key Cryptography](keys.md)
+### Public Key Cryptography
 Public-key cryptography is a form of cryptography that uses pairs of keys: A public key that may be shared with anyone and a private key that must be kept secret. Read more [here](keys.md).
 
 ### Reader Node
@@ -87,13 +87,13 @@ A node that reads the state of the blockchain, but does not produce blocks or an
 ### Rest Server
 A rest server is a server that gives access to the REST API. An API conforming to REST architectural properties. The API (application programming interface) gives the definitions other systems need to read from the blockchain and send new information in the form of transaction.
 
-### [Shards](shards.md)
+### Shards
 PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of  information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](shards.md).
 
 ### Smart Contracts
 A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC. Read more [here](contract-development.md)
 
-### [Transactions](transactions.md)
+### Transactions
 A transaction is an instruction from a user containing information used to change the state of the blockchain. Read more [here](transactions.md)
 
 ### WASM
