@@ -32,7 +32,7 @@ function zk_contract_cleanup() {
   echo "Patching Cargo.toml"
   sed -i -e '/\[\[test\]\]/,+2d' \
     -e '/\[package\.metadata\.partisiablockchain\]/,+1d' \
-    -e "/\[package\.metadata\.zkcompiler\]/{ n; s/download_method = "mvn"/download_method = "http"/; n; n; s/https:\/\/nexus\.secata\.com\/repository\/mvn/https:\/\/gitlab\.com\/api\/v4\/projects\/37549006\/packages\/maven/; n; s/com\.partisia\.language/com\.partisiablockchain\.language/; n; n; s/version = .*/version = \"${ZK_COMPILER_VERSION}\"/ }" \
+    -e "/\[package\.metadata\.zkcompiler\]/{ n; s/download_method = \"mvn\"/download_method = \"http\"/; n; n; s/https:\/\/nexus\.secata\.com\/repository\/mvn/https:\/\/gitlab\.com\/api\/v4\/projects\/37549006\/packages\/maven/; n; s/com\.partisia\.language/com\.partisiablockchain\.language/; n; n; s/version = .*/version = \"${ZK_COMPILER_VERSION}\"/ }" \
     -e 's/ssh:\/\//https:\/\//g' \
     -e 's/secata\/pbc\/language\/rust-contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
     Cargo.toml
