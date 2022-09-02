@@ -35,3 +35,10 @@ The easiest way to make a deposit of ETH s to use the PBC Token Bridge.
 You get a confirmation as seen below if the deposit is successful. Your gas balance in the wallet should now be positive. This means that you can deploy or interact with smart contracts on the blockchain. Read more about smart contracts [here](contract-development.md). 
 
 ![Deposit](Confirmation.png)
+
+### How to get testnet gas   
+
+- Sign in to the [testnet dashboard](https://testnet.partisiablockchain.com/) (Icon in upper right corner)   
+- Follow this [link](https://testnet.partisiablockchain.com/info/contract/022827d1273e512ed4746758c250bc554003e86f46) to the Faucet contract   
+- The contract action takes an account address as receiver of test ETH
+- Execute the transaction - the specified account should now have gained 1,000,000 gas.

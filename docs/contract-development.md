@@ -1,8 +1,8 @@
-# What is a smart contract?
+# What is a smart contract
 
 Creating a smart contract is one of the basic ways you can utilize the Partisia Blockchain. A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. So, you do not need a bank or a lawyer to set up a binding agreement anymore, since you have ultimate control over the conditions necessary to make the change happen. Smart contracts are the tool for you if you need to buy, sell, facilitate auctions or administrate portfolios of diverse assets.
 
-## Why should you use the Partisia Blockchain for your smart contracts?
+## Why use Partisia Blockchain for your smart contracts
 
 What makes the smart contract on Partisia Blockchain different from contracts on other blockchains is that we allow you to add a privacy layer parallel with the immutable ledger. This means that you through your contract will allocate nodes in the blockchain to handle Zero Knowledge computation. If you for example want to make an auction, you can keep the identity of the current bidder and account information secret and off the record, while the identity of the winner and seller will be added to the immutable record. This will secure a record of change in ownership while at the same time preserving the privacy of all interested parties that don’t give the winning bid. This principle of a combination of a privacy layer and a public record means that the Patisia Blockchain effectively can replace the trustee in binding transactions.
 
