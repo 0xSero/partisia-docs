@@ -66,7 +66,7 @@ pub struct VotingContractState {
 }
 ```
 
-This macro implicitly derives the [ReadWriteState trait](#ReadWriteState) for the
+This macro implicitly derives the [ReadWriteState trait](https://partisiablockchain.gitlab.io/language/contract-sdk/read_write_state_derive/derive.ReadWriteState.html) for the
 struct. The `ReadWriteState` derive may fail if any of the state struct's fields
 aren't `impl ReadWriteState`.
 
