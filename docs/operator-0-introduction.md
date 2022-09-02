@@ -16,7 +16,7 @@ The current stakes are:
 
 - Reader Node is free, since it does not perform paid services.
 - Baker Node 10,000 $ in MPC Tokens.
-- ZK Node 25,000 $ in MPC Tokens.
+- ZK Node 40,000 $ in MPC Tokens.
 - Oracle Node 100,000 $ in MPC Tokens.
 
 **The Machine**  
