@@ -66,11 +66,11 @@ pub struct VotingContractState {
 }
 ```
 
-This macro implicitly derives the [ReadWriteState trait](#ReadWriteState) for the
+This macro implicitly derives the [ReadWriteState trait](https://partisiablockchain.gitlab.io/language/contract-sdk/read_write_state_derive/derive.ReadWriteState.html) for the
 struct. The `ReadWriteState` derive may fail if any of the state struct's fields
 aren't `impl ReadWriteState`.
 
-Further reading: [state macro documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_contract_codegen/attr.state.html)
+Further reading: [state macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.state.html)
 
 ### `#[action]`
 
@@ -103,7 +103,7 @@ pub fn vote(
 }
 ```
 
-Further reading: [action macro documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_contract_codegen/attr.action.html)
+Further reading: [action macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.action.html)
 
 #### A note on functional contracts
 
@@ -143,7 +143,7 @@ pub fn initialize(
 }
 ```
 
-Further reading: [init macro documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_contract_codegen/attr.init.html)
+Further reading: [init macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.init.html)
 
 ## Traits
 
@@ -155,7 +155,7 @@ manually; prefer using the built-in derive methods.
 - ReadWriteRPC: Serialization for [RPC argument serialization format](abiv_latest.md#RPC Binary Format).
 - CreateTypeSpec: Serialization for [ABI serialization format](abiv_latest.md#ABI Binary Format).
 
-Further reading: [`pbc_traits` crate documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_traits/index.html)
+Further reading: [`pbc_traits` crate documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/index.html)
 
 ## Data Structures
 
@@ -164,7 +164,7 @@ Further reading: [`pbc_traits` crate documentation](https://privacyblockchain.gi
 `Address` represents an address on the blockchain; it has a subfield indicating
 the type of the address (account, system contract, public contract or zk contract.)
 
-Further reading: [Address struct documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_contract_common/address/struct.Address.html)
+Further reading: [Address struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/address/struct.Address.html)
 
 ### ContractContext
 
@@ -175,7 +175,7 @@ context information for the current transaction:
 - The current block number, and time since some epoche.
 - Hashes of both the current transaction and the previous transaction.
 
-Further reading: [ContractContext struct documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_contract_common/context/struct.ContractContext.html)
+Further reading: [ContractContext struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/index.html#structs)
 
 ### Events
 
@@ -199,7 +199,7 @@ Each `EventGroup` consists of one or more interactions (representing "Call
 X for me",) with the possibility of callbacks (representing "I want a reply".)
 All interactions in an `EventGroup` shares gas costs uniformly.
 
-Further reading: [events module documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_contract_common/events/index.html)
+Further reading: [events module documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/events/index.html)
 
 ## State serialization gas considerations
 
@@ -207,7 +207,7 @@ Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeM
 
 If quick lookups are required, and the data structure rarely changes, it might be feasible to maintain a sorted `Vec` in state, and use [`[T]::binary_search_by_key`](https://doc.rust-lang.org/std/primitive.slice.html#method.binary_search_by_key) for lookups, essentially creating your own map structure.
 
-Ensure you [depend upon and link against the `pbc_lib` crate](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_lib/index.html). This _should_ automatically lower gas costs.
+Ensure you [depend upon and link against the `pbc_lib` crate](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_lib/index.html). This _should_ automatically lower gas costs.
 
 ### Cheap memcpy (or _why_ you should definitely link `pbc_lib`)
 
@@ -215,4 +215,4 @@ The SDK exposes cheaper (in terms of gas) versions of the `memcpy` and `memmove`
 
 The `pbc_lib` crate overwrites these functions with versions that directly interact with the PBC WASM Interpreter to trigger the interpreter's built-in support for quickly copying data around.
 
-Further reading: [`pbc_lib` crate documentation](https://privacyblockchain.gitlab.io/language/rust-contract-sdk/pbc_lib/index.html)
+Further reading: [`pbc_lib` crate documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_lib/index.html)
