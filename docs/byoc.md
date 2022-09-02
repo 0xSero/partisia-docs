@@ -38,7 +38,20 @@ You get a confirmation as seen below if the deposit is successful. Your gas bala
 
 ### How to get testnet gas   
 
+The new testnet will be using [ETH from Goerli testnet](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3).   
+
+There are two ways to get gas on the testnet:   
+A) using the bridge from test ETH GOERLI   
+B) Using a Gas Faucet contract that mints BYOC   
+
+### Method A
+This mechanism for getting gas is the same as the old testnet and current mainnet (see above). The only difference is that you will have to switch the network, at which your wallet is pointing. We will announce when the network change becomes available in the wallet.
+
+### Method B
+
+The transaction in Method B costs a bit of gas to send, so you need to be bootstrapped either through Method A or by having another user with gas send you some gas using the faucet.   
+
 - Sign in to the [testnet dashboard](https://testnet.partisiablockchain.com/) (Icon in upper right corner)   
-- Follow this [link](https://testnet.partisiablockchain.com/info/contract/022827d1273e512ed4746758c250bc554003e86f46) to the Faucet contract   
+- Follow this [link](https://testnet.partisiablockchain.com/info/contract/02d7c791bd9dd31a4a1a9fdaa99df7cc8414fd333e) to the Faucet contract   
 - The contract action takes an account address as receiver of test ETH
-- Execute the transaction - the specified account should now have gained 1,000,000 gas.
+- Execute the transaction - the specified account should now have gained approximately 1,000,000 gas (1M - TX cost).
