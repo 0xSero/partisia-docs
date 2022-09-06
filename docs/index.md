@@ -11,8 +11,9 @@
 
 - [Step by step to run a node on PBC](operator-0-introduction.md)
 
-## Getting started as a developer
+## Getting started as a developer   
 - [What is a Smart Contract](contract-development.md)   
+- [Use the PBC testnet for contract development](testnet.md)   
 - [Download SDK for contract development](download-sdk.md)   
 - [Programmer's Guide to PBC smart contract SDK](programmers_guide.md)   
 - [ABI specification (latest)](abiv_latest.md)   
