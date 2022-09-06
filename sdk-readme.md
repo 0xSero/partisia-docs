@@ -22,15 +22,14 @@ If you need to develop zero-knowledge contracts then you will also need to insta
 
 ## Compile and install the cargo `partisia-contract` command
 
-In this zip  there is a folder called `cargo-partisia-contract`.
-This is a small application that helps you compile a contract.
+The partisia-contract tool is a small application that helps you compile a contract.
 To compile it and install it using cargo run:
 
 ```bash
-cd cargo-partisia-contract
-cargo install --path .
+cargo install cargo-partisia-contract
 ```
-Test that it worked by executing: `cargo partisia-contract --version`. This should print the version of the command.
+
+Test that it worked by executing: `cargo partisia-contract --version`. This should print the version of the tool.
 
 ## Compiling a contract
 
