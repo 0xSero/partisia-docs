@@ -22,18 +22,19 @@ If Working from a Windows machine you must either:
 
 [![button](Download.png)](LINK_TO_RUST_CONTRACT_SDK)
 
-The archive contains the cargo `partisia-contract` tool for building contracts as well as a number of example contracts.
+The archive contains a number of example contracts.
 
-If you are working with a WSL shell on Windows you can locate files within WSL in the folder named `\\wsl$\Ubuntu\`.
 From now on we assume you have extracted the archive to `/tmp/pbc-rust-wasm`.  
 Open a terminal and go to the `/tmp/pbc-rust-wasm` folder: `cd /tmp/pbc-rust-wasm`.
 
 ### 3) Installing the cargo `partisia-contract` command
 
-```bash 
-cd cargo-partisia-contract
-cargo install --path .
+The partisia-contract tool is a small application that helps you compile a contract.
+To compile it and install it using cargo run:
+
+```bash
+cargo install cargo-partisia-contract
 ```
 
-Test that it worked by executing: `cargo partisia-contract --version`. This should print the version of the command.
+Test that it worked by executing: `cargo partisia-contract --version`. This should print the version of the tool.
 
