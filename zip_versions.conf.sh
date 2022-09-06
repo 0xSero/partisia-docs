@@ -1,6 +1,11 @@
 function contract_cleanup() {
   rm -f version.txt
   rm -f README.md
+  # shellcheck disable=SC2164
+  pushd src
+  rm -f test.rs
+  # shellcheck disable=SC2164
+  popd
   echo "Patching Cargo.toml"
   sed -i -e '/\[package\.metadata\.partisiablockchain\]/,+1d' \
     -e 's/ssh:\/\//https:\/\//g' \
@@ -14,7 +19,6 @@ function zk_contract_cleanup() {
   rm -f README.md
   # shellcheck disable=SC2164
   pushd src
-  rm -f zk_lib.rs
   rm -f zk_test.rs
   # shellcheck disable=SC2164
   popd
