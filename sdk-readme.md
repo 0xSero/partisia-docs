@@ -6,13 +6,12 @@ You can always find the newest documentation and SDK on the [main site](https://
 
 ## Prerequisites
 
-To develop and compile contracts for the Partisia Blockchain, you need to install Rust 1.56 along with the wasm32 target. To install Rust for you platform follow the instructions on https://rustup.rs/.
+To develop and compile contracts for the Partisia Blockchain, you need to install Rust along with the wasm32 target. To install Rust for you platform follow the instructions on https://rustup.rs/.
 
-Now install rust 1.56 and add the wasm32 target and set 1.56 to be the default toolchain:
+Now install the wasm32 target:
 
 ```bash
-rustup update
-rustup target add --toolchain 1.56 wasm32-unknown-unknown
+rustup target add wasm32-unknown-unknown
 ```
 
 If you need to develop zero-knowledge contracts then you will also need to install Java 17 to run the zk-compiler.

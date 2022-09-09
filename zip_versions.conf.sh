@@ -29,10 +29,6 @@ function zk_contract_cleanup() {
     -e 's/ssh:\/\//https:\/\//g' \
     -e 's/secata\/pbc\/language\/contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
     Cargo.toml
-
-
-  echo "Patching zk_compute.rs"
-  sed -i '/use crate::zk_lib::\*;/d' src/zk_compute.rs
 }
 
 function get_current_version() {
