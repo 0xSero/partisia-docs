@@ -17,16 +17,7 @@ If Working from a Windows machine you must [Get Visual Studio with C++  build to
 - In Visual Studio Installer choose *Desktop development with C++*.
  
 
-### 2) Download Partisia Contract tool
-
-[![button](Download.png)](LINK_TO_RUST_CONTRACT_SDK)
-
-The archive contains a number of example contracts.
-
-From now on we assume you have extracted the archive to `/tmp/pbc-rust-wasm`.  
-Open a terminal and go to the `/tmp/pbc-rust-wasm` folder: `cd /tmp/pbc-rust-wasm`.
-
-### 3) Installing the cargo `partisia-contract` command
+### 2) Installing the cargo `partisia-contract` command
 
 The partisia-contract tool is a small application that helps you compile a contract.
 To compile it and install it using cargo run:
@@ -36,4 +27,9 @@ cargo install cargo-partisia-contract
 ```
 
 Test that it worked by executing: `cargo partisia-contract --version`. This should print the version of the tool.
+
+### 3) Download Example Contracts
+
+We supply a small archive with example contracts which can be compiled using the tooling from above.
+The example contracts are [available here](LINK_TO_RUST_CONTRACT_SDK).
 
