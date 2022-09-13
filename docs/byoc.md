@@ -7,6 +7,7 @@ To pay the gas costs of transactions you need to have some amount of BYOC in you
 
 
 **How does it work**
+
 To be able to spend and transfer your coins, you will need to transfer your own liquid cryptocurrency using [the PBC Token Bridge](https://bridge.mpcexplorer.com/). This will move your ETH to a contract and mint twins which can interact with the payment scheme of PBC. So, in essence you can deposit, withdraw and transfer ETH or other cryptocurrencies with your PBC wallet. 
 The first cryptocurrency you are able to use in the BYOC system at PBC is Ethereum. Soon you will also be able to use USDC.    
 
@@ -32,9 +33,9 @@ The easiest way to make a deposit of ETH s to use the PBC Token Bridge.
 6. You can use Metamask to buy ETH. You can add funds with card or Apple Pay.
 7. Use the  [PBC Token bridge](https://bridge.mpcexplorer.com/) to transfer ETH from the Ethereum account into the PBC account.
 
-You get a confirmation as seen below if the deposit is successful. The confirmation also includes a link to the [mpc explorer](https://mpcexplorer.com/) where you can see the executed transaction. After the confirmed transfer your gas balance in the wallet should be positive. This means that you can deploy or interact with smart contracts on the blockchain. Read more about smart contracts [here](contract-development.md). 
+You get a confirmation as seen below if the deposit is successful. The confirmation also includes a link to the [mpc explorer](https://mpcexplorer.com/) where you can see the executed transaction. After the confirmed transfer your gas balance in the wallet should be positive. This means that you can deploy or interact with smart contracts on the blockchain. Read more about smart contracts [here](contract-development.md).
 
-![Deposit](bridge-transfer-confirmation.png)
+<img alt="Deposit" src="bridge-transfer-confirmation.png" width="350"/>
 
 ### How to get testnet gas   
 
