@@ -1,6 +1,6 @@
 # Contract compilation and deployment
 
-In the following sections we focus on the example token contract included in the SDK archive.
+In the following sections we focus on the example token contract included in the example contract archive.
 The contract utilizes several functions. The main functions are *initialize*, and *transfer* that 
 allow you to perform the basic operations needed for a transfer.
 After deployment the contract actions can be called from the dashboard. When you perform an action it
@@ -9,7 +9,7 @@ the contract state.
 
 ## 1) Compile a contract example
 
-The token contract can be found in SDK archive: `contracts/example-token-contract`.
+The token contract can be found in example contract archive: `contracts/example-token-contract`.
 The following will compile it and generate an ABI for it:
 
 ```` bash

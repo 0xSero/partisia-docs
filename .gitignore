@@ -2,4 +2,3 @@ site/
 .vscode/
 .idea/
 build-zip/
-sdk.version

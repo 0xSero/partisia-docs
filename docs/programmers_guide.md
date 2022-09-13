@@ -1,4 +1,4 @@
-# Partisia Blockchain SDK (Software Development Kit) Programmer's Guide
+# Programmer's Guide for PBC smart contracts
 
 This page is a quick overview of the software development kit for Partisia
 Blockchain.
@@ -38,7 +38,7 @@ representation, that must be uploaded together with the contract code when
 initializing the contract.  Without an ABI file, it might be impossible for the
 dashboard and other contracts to interact with your contract.
 
-The PBC SDK is capable of automatically producing an ABI for your contract, along
+The PBC compiler is capable of automatically producing an ABI for your contract, along
 with state and RPC serialization code for your actions.
 
 ## Macros
@@ -147,7 +147,7 @@ Further reading: [init macro documentation](https://partisiablockchain.gitlab.io
 
 ## Traits
 
-The SDK exposes traits that provides serialization methods. These traits are
+The compiler exposes traits that provides serialization methods. These traits are
 important for the operation of PBC contracts, but should rarely be implemented
 manually; prefer using the built-in derive methods.
 
@@ -192,7 +192,7 @@ For example:
 - Bob calls Alice in transaction 3: Alice finally got the necessary information to perform her own
   computation...
 
-To accommodate this model, the SDK requires each `action` annotated function to
+To accommodate this model, the compiler requires each `action` annotated function to
 return a (possibly empty) `Vec` of `EventGroup`s, which represents the "Call X for me" information.
 
 Each `EventGroup` consists of one or more interactions (representing "Call
@@ -211,7 +211,7 @@ Ensure you [depend upon and link against the `pbc_lib` crate](https://partisiabl
 
 ### Cheap memcpy (or _why_ you should definitely link `pbc_lib`)
 
-The SDK exposes cheaper (in terms of gas) versions of the `memcpy` and `memmove` functions. These functions are commonly used for copying bytes around directly, but are (thankfully) rarely manually used in Rust, though they may still occur in compiled programs due to lower-level libraries and compiler optimizations. Your compiled contracts will be using `memcpy` for (de)serialization, hence why the SDK defines these alternatives.
+The compiler exposes cheaper (in terms of gas) versions of the `memcpy` and `memmove` functions. These functions are commonly used for copying bytes around directly, but are (thankfully) rarely manually used in Rust, though they may still occur in compiled programs due to lower-level libraries and compiler optimizations. Your compiled contracts will be using `memcpy` for (de)serialization, hence why the compiler defines these alternatives.
 
 The `pbc_lib` crate overwrites these functions with versions that directly interact with the PBC WASM Interpreter to trigger the interpreter's built-in support for quickly copying data around.
 

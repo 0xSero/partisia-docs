@@ -18,9 +18,9 @@ nav:
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - Develop smart contracts:
       - What is a smart contract: contract-development.md
-      - Download SDK for contract development: download-sdk.md
-      - Compile and deploy contracts: compile-sdk.md
-      - Programmer's Guide to PBC SDK: programmers_guide.md
+      - Download compiler for contract development: download-compiler.md
+      - Compile and deploy contracts: contract-compilation.md
+      - Programmer's Guide to PBC smart contract: programmers_guide.md
       - ABI 4.1 specification: abiv_latest.md
       - ABI 3.1 specification: abiv3_1.md
       - Create a smart contract for a specific scenario: voting-contract.md
