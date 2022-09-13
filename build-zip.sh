@@ -24,8 +24,8 @@ function clone_and_clean() {
 }
 
 # Version
-sdk_version=$(get_current_version)
-filename="partisia-example-contracts-${sdk_version}.zip"
+compiler_version=$(get_current_version)
+filename="partisia-example-contracts-${compiler_version}.zip"
 
 # Make zip build directory
 mkdir -p build_zip
@@ -49,10 +49,10 @@ done
 # Compress everything in the build_zip folder to partisia-example-contracts-<version>.zip
 zip -9r "$filename" *
 
-url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/partisia-example-contracts/${sdk_version}/${filename}?select=package_file"
+url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/partisia-example-contracts/${compiler_version}/${filename}?select=package_file"
 
 echo "======================================================="
-echo "The newest package version is: $sdk_version"
+echo "The newest package version is: $compiler_version"
 echo ""
 echo "Uploading ${filename} to ${url}"
 

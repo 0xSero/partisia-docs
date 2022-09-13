@@ -3,10 +3,10 @@ set -e
 
 source zip_versions.conf.sh
 
-sdk_version=$(get_current_version)
-filename="partisia-example-contracts-${sdk_version}.zip"
+compiler_version=$(get_current_version)
+filename="partisia-example-contracts-${compiler_version}.zip"
 
-download_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/partisia-example-contracts/${sdk_version}/${filename}"
+download_url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/partisia-example-contracts/${compiler_version}/${filename}"
 curl -o "$filename" -w "%{http_code}\n" --header "JOB-TOKEN: $CI_JOB_TOKEN" "${download_url}"
 
 mkdir -p public

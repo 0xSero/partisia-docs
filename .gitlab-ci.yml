@@ -15,7 +15,7 @@ prepare-zip:
     refs:
     - main
     changes:
-    - sdk-version.txt
+    - compiler-version.txt
   script:
   - ./build-zip.sh
 
