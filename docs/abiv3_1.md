@@ -167,7 +167,7 @@ struct layouts are identical to serialization.  \(\text{Struct S}\ \{ f_1: T_1, 
 It may be desirable to manually add "padding" fields structs in order to
 achieve CopySerializable. While this will use extra unneeded bytes for the
 serialized state, it may significantly improve serialization speed and lower
-gas costs. A future version of the SDK may automatically add padding fields.
+gas costs. A future version of the compiler may automatically add padding fields.
 
 #### Examples
 

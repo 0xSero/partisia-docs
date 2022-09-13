@@ -1,7 +1,7 @@
 ### Compiling and deploying Zero-Knowledge contracts
 
 As an example of compiling a zk-contract we will make use of the second-price auction contract. The
-contract can be found in the SDK archive at: `contracts/example-zk-second-price-auction`.
+contract can be found in the example contracts archive at: `contracts/example-zk-second-price-auction`.
 
 The zk-contracts consist of two main parts. The contract itself as well as a zero-knowledge computation.
 To compile a zero-knowledge contract run:
@@ -9,7 +9,7 @@ To compile a zero-knowledge contract run:
 cargo partisia-contract build --release
 ```
 
-Note that this is the same command as for [public contracts](compile-sdk.md). The tool
+Note that this is the same command as for [public contracts](contract-compilation.md). The tool
 looks for a path to the zk-computation in the manifest file. If this is defined under package.metadata.zk 
 then the tool tries to compile the contract as a zk-contract instead of a normal public contract.
 The tool first compiles the public part of the contract to get a WASM- and ABI-file. Afterwards it fetches

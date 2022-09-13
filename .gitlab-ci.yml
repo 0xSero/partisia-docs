@@ -15,7 +15,7 @@ prepare-zip:
     refs:
     - main
     changes:
-    - version.txt
+    - compiler-version.txt
   script:
   - ./build-zip.sh
 

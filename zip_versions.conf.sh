@@ -32,11 +32,11 @@ function zk_contract_cleanup() {
 }
 
 function get_current_version() {
-  sdk_version=$(head -n 1 version.txt)
+  compiler_version=$(head -n 1 compiler-version.txt)
   if [[ "$CI_COMMIT_REF_NAME" != "$CI_DEFAULT_BRANCH" ]]; then
-    echo "${sdk_version}-${CI_COMMIT_SHORT_SHA}"
+    echo "${compiler_version}-${CI_COMMIT_SHORT_SHA}"
   else
-    echo "${sdk_version}"
+    echo "${compiler_version}"
   fi
 }
 

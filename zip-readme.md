@@ -1,12 +1,11 @@
-# Partisia Rust contract SDK
+# Partisia Rust example contracts
 
-This README is for SDK version RUST_SDK_VERSION.
-You can always find the newest documentation and SDK on the [main site](https://partisiablockchain.gitlab.io/documentation).
+You can always find the newest documentation on the [main site](https://partisiablockchain.gitlab.io/documentation).
 
 
 ## Prerequisites
 
-To develop and compile contracts for the Partisia Blockchain, you need to install Rust along with the wasm32 target. To install Rust for you platform follow the instructions on https://rustup.rs/.
+To develop and compile contracts for the Partisia Blockchain, you need to install Rust along with the wasm32 target. To install Rust for you platform follow the instructions on <https://rustup.rs/>.
 
 Now install the wasm32 target:
 
@@ -14,7 +13,7 @@ Now install the wasm32 target:
 rustup target add wasm32-unknown-unknown
 ```
 
-If you need to develop zero-knowledge contracts then you will also need to install Java 17 to run the zk-compiler.
+If you need to develop zero-knowledge contracts then you will also need to install [Java 17](https://openjdk.org/) to run the zk-compiler.
 
 **NB.** You must acquire *C++ build tools for Windows*, if you work in Git Bash or PowerShell:  
 [Download Visual Studio with C++](https://visualstudio.microsoft.com/downloads/) In Visual Studio Installer choose *Desktop development with C++*.  
