@@ -7,7 +7,10 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
-
+- Version **4.1** to **5.0**:
+    * Added support for enum with struct items.
+    * Changed `StructTypeSpec` to `NamedTypeSpec` which is either an `EnumTypeSpec` or `StructTypeSpec`.
+      This means that there is an additional byte when reading the list of `NamedTypeSpec` in `ContractAbi`.
 - Version **3.1** to **4.1**:
     * Added `Kind: FnKind` field to `FnAbi`.
     * Removed `Init` field from `ContractAbi`.
@@ -77,6 +80,7 @@ $$
 | \ & \text{len:}\text{LengthRpc} \ \text{utf8:}\bytes{len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
 | \ & \text{len:}\text{LengthRpc} \ \text{elems:}\repeat{\text{ArgumentRpc}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
 | \ & \text{b:}\byte{} \ \text{arg:}\text{ArgumentRpc} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
+| \ & f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
 \end{align*}
 }
 $$
@@ -134,6 +138,7 @@ $$
 <!-- fix syntax highlighting* -->
 
 ### CopySerializable
+<!-- TODO do I need to add enum here? -->
 
 A state type is said to be CopySerializable, if it's serialization is
 identical to it's in-memory representation, and thus require minimal
@@ -196,9 +201,9 @@ $$
 \begin{align*}
 \text{<TypeSpec>} \ := \ &\text{SimpleTypeSpec} \\
 | \ &\text{CompositeTypeSpec} \\
-| \ &\text{StructTypeRef} \\
+| \ &\text{NamedTypeRef} \\
 \\
-\text{<StructTypeRef>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx StructTypes(\text{Index}) \\
+\text{<NamedTypeRef>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx NamedTypes(\text{Index}) \\
 \\
 \text{<SimpleTypeSpec>} \ := \ &\hexi{01} \ \Rightarrowx \text{u8} \\
 | \ &\hexi{02} \ \Rightarrowx \text{u16} \\
@@ -243,13 +248,24 @@ $$
 &\text{Contract: ContractAbi} \ \} \\
 \\
 \text{<ContractAbi>} \ := \ \{ \
-&\text{StructTypes: List<StructTypeSpec>}, \\
+&\text{NamedTypes: List<NamedTypeSpec>}, \\
 &\text{Hooks: List<FnAbi>}, \\
 &\text{StateType: TypeSpec} \ \} \\
+\\
+\text{<NamedTypeSpec>} \ := \
+&\hexi{01} \ \text{StructTypeSpec}\\
+|\ & \hexi{02} \ \text{EnumTypeSpec} \\
 \\
 \text{<StructTypeSpec>} \ := \ \{ \
 &\text{Name: Identifier}, \\
 &\text{Fields: List<FieldAbi>} \ \} \\
+\\
+\text{<EnumTypeSpec>} \ := \ \{ \
+&\text{Name: Identifier}, \\
+&\text{Variants: List<EnumVariant>} \ \} \\
+\\
+\text{<EnumVariant>} \ := \ \{ \
+&\text{Discriminant: } \nnhexi{nn} \ \text{def: NamedTypeRef} \ \} \\
 \\
 \text{<FnAbi>} \ := \ \{ \
 &\text{Kind: FnKind}, \\
