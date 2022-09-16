@@ -22,7 +22,6 @@ nav:
       - Compile and deploy contracts: contract-compilation.md
       - Programmer's Guide to PBC smart contract: programmers_guide.md
       - ABI 4.1 specification: abiv_latest.md
-      - ABI 3.1 specification: abiv3_1.md
       - Create a smart contract for a specific scenario: voting-contract.md
       - Zero Knowledge Contracts: ZKSC.md
       - Compile Zero Knowledge Contracts: compile-zk.md

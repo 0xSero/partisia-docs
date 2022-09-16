@@ -8,7 +8,7 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 
 ## ABI Version changes
 
-- [Version **3.1**](abiv3_1.md) to **4.1**:
+- Version **3.1** to **4.1**:
     * Added `Kind: FnKind` field to `FnAbi`.
     * Removed `Init` field from `ContractAbi`.
     * Added zero-knowledge related `FnKind`s, for use in Zk contracts.
