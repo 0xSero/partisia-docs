@@ -81,6 +81,7 @@ $$
 | \ & \text{len:}\text{LengthRpc} \ \text{elems:}\repeat{\text{ArgumentRpc}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
 | \ & \text{b:}\byte{} \ \text{arg:}\text{ArgumentRpc} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
 | \ & f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
+| \ & \text{variant:} \byte{} \ f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Enum}\ \{ \text{variant}, f_1, f_2, \dots, f_n \} & \\
 \end{align*}
 }
 $$
@@ -119,6 +120,7 @@ $$
 | \ & \text{len:}\text{LengthState} \ \text{elems:}\repeat{\text{State}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
 | \ & \text{b:}\byte{} \ \text{arg:}\text{State} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
 | \ & f_1 \text{:State} \dots f_n \text{:State} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
+| \ & \text{variant:} \byte{} \ f_1 \text{:State} \dots f_n \text{:State} \Rightarrowx \text{Enum}\ \{ \text{variant}, f_1, f_2, \dots, f_n \} & \\
 \end{align*}
 }
 $$
@@ -138,7 +140,6 @@ $$
 <!-- fix syntax highlighting* -->
 
 ### CopySerializable
-<!-- TODO do I need to add enum here? -->
 
 A state type is said to be CopySerializable, if it's serialization is
 identical to it's in-memory representation, and thus require minimal
@@ -161,6 +162,7 @@ $$
 | \ & \text{BTreeMap<K, V>} \Rightarrowx \text{false}\\
 | \ & \text{BTreeSet<T>} \Rightarrowx \text{false}\\
 | \ & \text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \} \Rightarrowx \text{CopySerializable}(T_1) \wedge \dots \wedge \text{CopySerializable}(T_n) \wedge \text{WellAligned(S)} \\
+| \ & \text{Enum} \ \{ \text{variant}, f_1, f_2, \dots, f_n \} \Rightarrowx \text{false}\\
 \end{align*}
 }
 $$

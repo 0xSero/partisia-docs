@@ -20,7 +20,7 @@
 - [Use the PBC testnet for contract development](testnet.md)   
 - [Download compiler for contract development](download-compiler.md)   
 - [Programmer's Guide to PBC smart contract](programmers_guide.md)   
-- [ABI specification (latest)](abiv_latest.md)   
+- [ABI specification](abiv.md)   
 - [Create a Smart Contract for a specific scenario](voting-contract.md)   
 - [Zero Knowledge Contracts](ZKSC.md)   
 - [Connect a dApp to the wallet extension (dApp SDK)](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia)   
