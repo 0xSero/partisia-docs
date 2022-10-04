@@ -239,8 +239,44 @@ To accommodate this model, the compiler requires each `action` annotated functio
 return a (possibly empty) `Vec` of `EventGroup`s, which represents the "Call X for me" information.
 
 Each `EventGroup` consists of one or more interactions (representing "Call
-X for me",) with the possibility of callbacks (representing "I want a reply".)
+X for me",) with the possibility of callbacks (representing "I want a reply") or return data (representing the optional data to be passed along with a reply) but never both at the same time.
 All interactions in an `EventGroup` shares gas costs uniformly.
+
+To see how Bob might pass along some return data, see the following example: 
+```rust 
+#[action(shortname=0x42)]
+pub fn provide_information_for_alice(
+  context: ContractContext, 
+  state: ContractState
+) -> (ContractState, Vec<EventGroup>) {
+  let mut event_group_builder = EventGroup::builder();
+  event_group_builder.return_data(state.information);
+  
+  (state, vec![event_group_builder.build()]) 
+}
+```
+
+The information in `state.information` will be serialized and passed along to Alice's `CallbackContext`, where she may retrieve it for whatever use-case she has with it: 
+
+```rust
+#[callback(shortname = 13)]
+pub fn call_bob_callback(
+  contract_context: ContractContext,
+  callback_context: CallbackContext,
+  state: ContractState,
+  // ... RPC arguments
+) -> (ContractState, Vec<EventGroup>) {
+  assert!(callback_context.success, "Bob failed to reply");
+  
+  // Index into the information related to the first event
+  let first_event = callback_context.results[0];
+
+  // Provide the expected type of the returned data and return it.
+  let bobs_information = first_event.get_return_data::<expected_type>(); 
+  
+  // Do something with Bob's information...
+}
+```
 
 Further reading: [events module documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/events/index.html)
 
