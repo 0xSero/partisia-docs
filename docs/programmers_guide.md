@@ -47,7 +47,8 @@ Smart contract elements can be declared using these macros:
 
 - `#[state]` declares how the contract represents its state.
 - `#[action]` declares an endpoint that the contract can be interacted with by.
-- `#[init]` declares the code run when the contract is initialized.
+- `#[init]` declares the code to run when the contract is initialized.
+- `#[callback]` declares the code to run after a corresponding `action` has been called.
 
 ### `#[state]`
 
@@ -145,6 +146,48 @@ pub fn initialize(
 
 Further reading: [init macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.init.html)
 
+### `#[callback]`
+
+Has to be linked with an `#[action]` macro in order to be called. In practise this is done by combining the implicitly created constant of the corresponding callback-annotated function with a call to an event group builder's with_callback() function.
+
+```rust
+#[action]
+pub fn call_bob(
+    context: ContractContext,
+    state: ContractState,
+    address: Address
+) -> (ContractState, Vec<EventGroup>) {
+    // 0x42 being the shortname of the action to call at 'contract' Bob
+    let SHORTNAME_CALL_BOB: Shortname = Shortname::from_be_bytes(&[0x42]).unwrap();
+    let mut event_group_builder = EventGroup::builder(); 
+  
+    event_group_builder.call(address, SHORTNAME_CALL_BOB)
+                       .done();
+
+    // Ask for callback. Notice that the constant provided has not been explicitly created. 
+    event_group_builder.with_callback(SHORTNAME_CALL_BOB_CALLBACK)
+                       .argument(some_argument)
+                       .with_cost(10000)
+                       .done()
+            
+    (state, vec![event_group_builder.build()])
+}
+
+#[callback(shortname = 13)]
+pub fn call_bob_callback(
+  contract_context: ContractContext,
+  callback_context: CallbackContext,
+  state: ContractState,
+  // ... RPC arguments
+) -> (ContractState, Vec<EventGroup>) {
+  assert!(callback_context.success, "Bob failed to reply");
+
+  // Code to run after executing the external action 0x42...
+}
+```
+
+Further reading: [callback macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.callback.html)
+
 ## Traits
 
 The compiler exposes traits that provides serialization methods. These traits are
@@ -200,6 +243,12 @@ X for me",) with the possibility of callbacks (representing "I want a reply".)
 All interactions in an `EventGroup` shares gas costs uniformly.
 
 Further reading: [events module documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/events/index.html)
+
+### CallbackContext
+
+The additional context struct that all callback-annotated functions receive as a parameter. It holds information about all events in the `EventGroup` linked to the callback. This information denotes whether *all* events successfully executed, the individual execution success-status of each event and optional return data linked to the event.
+
+Further reading: [CallbackContext struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/struct.CallbackContext.html)
 
 ## State serialization gas considerations
 
