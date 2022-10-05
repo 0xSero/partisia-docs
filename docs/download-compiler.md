@@ -1,4 +1,4 @@
-# Download the software development kit
+# Install the smart contract compiler
 
 ## Prerequisites
 
