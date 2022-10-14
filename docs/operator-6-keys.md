@@ -2,7 +2,7 @@
 
 In the next two pages you will see how to fill out a config.json for a block producing node and how to register your node for block production on Partisia Blockchain. Before you can do that you need 3 private keys.
 
-1) Find your PBC account private key and PBC address.    
+1) Find your PBC account private key and PBC address. This is the private key from the public MPC token sale.    
 2) Generate The Network key pair.   
 3) Generate the Finalization key pair.   
 
