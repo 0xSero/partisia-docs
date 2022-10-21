@@ -13,7 +13,7 @@ Now you need to retrieve your session ID:
 2. Ctrl+Shift+i (To inspect page)   
 3. Click Networks (refresh page)   
 4. Click Fetch XHR   
-5. Click the partisia bucket   
+5. Click the Partisia bucket   
 6. Copy session ID    
 
 Copy and save your session ID for later use.
