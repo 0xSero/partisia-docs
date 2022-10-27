@@ -1,6 +1,6 @@
 # Get MPC tokens
 
-There is currently no ongoing sale. You can see updates on sale opportunities on the [Partisia Blockchain webpage](https://partisiablockchain.com/).
+If you have not already bought the prerequisite amount of MPC tokens, you are welcome to contact us for further information. [Reach out here](https://kyc.partisiablockchain.com/).
 
 The current stakes are:
 
