@@ -1,6 +1,6 @@
 # Create an account on PBC
 
-If you already got a PBC account in connection with a public or private MPC sale event, you can skip this step.   
+If you already got a PBC account in connection with a public or private MPC sale event, you can skip this step and the next.   
 
 
 Create an account through the [wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).   

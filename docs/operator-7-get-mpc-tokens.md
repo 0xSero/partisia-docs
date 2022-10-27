@@ -1,6 +1,6 @@
 # Get MPC tokens
 
-You can buy MPC tokens from private holders of unlocked tokens. Or you can wait for the soon anticipated public listing.
+There is currently no ongoing sale. You can see updates on sale opportunities on the [Partisia Blockchain webpage](https://partisiablockchain.com/).
 
 The current stakes are:
 
