@@ -27,7 +27,7 @@ To fill out the config.json for a block producing node you need to add the follo
 - IP address of the server hosting your node (You get this from your VPS service provider)   
 - Ethereum and Polygon API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.      
 
-Start by opening the `config.json` in `nano`:
+Go to your VPS and open `config.json` in `nano`:
 
 
 ````bash

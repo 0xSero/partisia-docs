@@ -4,7 +4,7 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 
 1) You need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.   
 2) You need to be able to cover gas costs of transaction, click [here](byoc.md) for help to get gas in your account.   
-3) For this your KYB must be finalized. You need to get your Synapse Session ID.
+3) For this your KYB must be verified (you will have received a verification e-mail). You need to get your Synapse Session ID.
    - Log in to https://partisiablockchain.synaps.me/ (using Chrome)   
    - Ctrl+Shift+i (To inspect page)   
    - Click Networks (refresh page)   
