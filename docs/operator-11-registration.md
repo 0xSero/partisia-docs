@@ -24,12 +24,13 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 
 ## How to fill out the form for the Register Transaction
 
-You need the same 3 keypairs that you used in the `config.json`. You use the private key of your account to log into your wallet and the Explorer.  The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node.      
-- Session ID from [Synaps KYB](https://partisiablockchain.synaps.me/)
-- Finalization private key in the form called BLS Signing key
-- Network public key
-- Website
-- ServerJurisdiction (pick location from slide down menu)     
+You need the same 3 keypairs that you used in the `config.json`. You use the private key of your account to log into your wallet and the Explorer.  The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node.     
+ 
+- Session ID from [Synaps KYB](https://partisiablockchain.synaps.me/)   
+- Finalization private key in the form called BLS Signing key   
+- Network public key   
+- Website   
+- ServerJurisdiction (pick location from slide down menu)      
 
 
 **NB.** You can change your public information from the Register Transaction by doing a new registration transaction.   
