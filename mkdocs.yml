@@ -10,12 +10,18 @@ nav:
       - VPS: operator-3-vps.md
       - VPS security: operator-4-security.md
       - Reader node on VPS: operator-5-reader-vps.md
-      - Keys for BP config and registration: operator-6-keys.md
-      - Change node config from reader to block producer: operator-7-bp.md
-      - Register your node in the MPC Explorer: operator-8-registration.md
-      - Node health and maintenance: operator-9-node-health.md
+      - Create a PBC account: operator-6-create-account.md
+      - Get MPC tokens: operator-7-get-mpc-tokens.md
+      - Complete Synaps KYB: operator-8-synaps.md
+      - Keys for BP config and registration: operator-9-keys.md
+      - Change node config from reader to block producer: operator-10-bp.md
+      - Register your node in the MPC Explorer: operator-11-registration.md
+      - Node health and maintenance: operator-12-node-health.md
       - Update your node's public information: update-transaction.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
+  - Downloadable resources:
+      - Smart Contract compiler: download-compiler.md
+      - Public and ZK Smart Contract examples: https://partisiablockchain.gitlab.io/documentation/partisia-example-contracts-9.1.2.zip
   - Develop smart contracts:
       - What is a smart contract: contract-development.md
       - Download compiler for contract development: download-compiler.md

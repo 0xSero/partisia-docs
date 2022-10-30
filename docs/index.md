@@ -11,6 +11,10 @@
 
 - [Step by step to run a node on PBC](operator-0-introduction.md)
 
+## Downloadable resources
+- [Smart Contract compiler](download-compiler.md)
+- [Public and ZK Smart Contract examples](LINK_TO_RUST_EXAMPLE_CONTRACTS)
+
 ## Getting started as a developer   
 - [What is a Smart Contract](contract-development.md)   
 - [Use the PBC testnet for contract development](testnet.md)   

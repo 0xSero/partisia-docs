@@ -109,11 +109,6 @@ Keep an eye on the indentation since YAML is whitespace sensitive, and it won't 
 
 You don't yet have access to the Partisia container repository, so you first need to log in.
 
-````bash
-docker login -u <GitLab e-mail address> registry.gitlab.com
-````
-
-**Note:** If you have two-factor login enabled in GitLab you need to create a [personal access token](https://gitlab.com/-/profile/personal_access_tokens).
 
 You can now start the node:
 

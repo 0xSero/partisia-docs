@@ -1,7 +1,7 @@
 # Run a block producing node on Partisia Blockchain
 
 
-You must finish the previous two sections([Reader node on VPS](operator-5-reader-vps.md) and [Keys for BP](operator-6-keys.md)) is a prerequisite.
+You must finish the previous two sections([Reader node on VPS](operator-5-reader-vps.md) and [Keys for BP](operator-9-keys.md)) is a prerequisite.
 
 ### Step 1 - Stop your reader node
 
@@ -25,16 +25,16 @@ To fill out the config.json for a block producing node you need to add the follo
 - Account privateKey   
 - Finalization privateKey   
 - IP address of the server hosting your node (You get this from your VPS service provider)   
-- Ethereum API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.      
+- Ethereum and Polygon API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.      
 
-Start by opening the `config.json` in `nano`:
+Go to your VPS and open `config.json` in `nano`:
 
 
 ````bash
 sudo nano /opt/pbc-mainnet/conf/config.json
 ````
 
-Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](operator-6-keys.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
+Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](operator-9-keys.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
 ````json
 {
   "restPort": 8080,
@@ -78,3 +78,5 @@ docker logs -f pbc-mainnet
 ````
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
+
+In the [maintenance section](operator-12-node-health.md) you can see what the logs mean.

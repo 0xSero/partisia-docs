@@ -15,9 +15,9 @@ Staking means that the node operator buy the required stake of MPC Tokens. Servi
 The current stakes are:
 
 - Reader Node is free, since it does not perform paid services.
-- Baker Node 10,000 $ in MPC Tokens.
-- ZK Node 40,000 $ in MPC Tokens.
-- Oracle Node 100,000 $ in MPC Tokens.
+- Baker Node 25,000 MPC Tokens.
+- ZK Node 75,000 MPC Tokens.
+- Oracle Node 250,000 MPC Tokens.
 
 **The Machine**  
 In addition to the stake you need a computer to run the node. Most node operators rent a server, but some keep the machine running the node in their own home. Machine Specs are in the [section](operator-1-specs.md) about running the node.
@@ -39,8 +39,11 @@ The following guide has 9 parts. If you do the steps of the guide in order, you 
 2. [Run a reader node locally](operator-2-reader.md)   
 3. [Get a VPS](operator-3-vps.md)   
 4. [Secure your VPS](operator-4-security.md)   
-5. [Run a reader node on a VPS](operator-5-reader-vps.md)   
-6. [Create keys for config and registration](operator-6-keys.md)   
-7. [Run a block producing node on the VPS](operator-7-bp.md)   
-8. [Register your node](operator-8-registration.md)   
-9. [Node health and maintenance](operator-9-node-health.md)   
+5. [Run a reader node on a VPS](operator-5-reader-vps.md)  
+6. [Create a PBC Account](operator-6-create-account.md)    
+7. [Get MPC tokens](operator-7-get-mpc-tokens.md)   
+8. [Complete the Synaps KYB](operator-8-synaps.md)   
+9. [Create keys for config and registration](operator-9-keys.md)   
+10. [Upgrade config to a block producing node on the VPS](operator-10-bp.md)   
+11. [Register your node](operator-11-registration.md)   
+12. [Node health and maintenance](operator-12-node-health.md)   
