@@ -2,14 +2,48 @@
 
 
 ### Public auction 
+
+Description   
+Link   
+
 ### ZK second bid auction auction
+
+Description   
+Link
 ### NFT contract
+
+Description   
+Link
+
 ### Public Voting
+
+Description   
+Link
+
 ### ZK Voting
+
+Description   
+Link
+
 ### ZK average salary
+
+Description   
+Link
+
 ### Token contract
+
+Description   
+Link
+
 ### Token Swap contract
+
+Description   
+Link
+
 ### ZK token swap
+
+Description   
+Link
 
 ## Examples of combination
 
