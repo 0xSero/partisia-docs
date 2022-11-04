@@ -4,7 +4,7 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 
 1) You need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.   
 2) You need to be able to cover gas costs of transaction, click [here](byoc.md) for help to get gas in your account.   
-3) For this your KYB must be finalized. You need to get your Synapse Session ID.
+3) For this your KYB must be verified (you will have received a verification e-mail). You need to get your Synapse Session ID.
    - Log in to https://partisiablockchain.synaps.me/ (using Chrome)   
    - Ctrl+Shift+i (To inspect page)   
    - Click Networks (refresh page)   
@@ -13,7 +13,7 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
    - Copy session ID    
 
 4) Go to the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register). Log in.    
-5) Stake MPC Tokens: Put your PBC address in the search bar, then you get your account information. There is a staking button next to your balance of MPC Tokens.   
+5) Log in to your account. Click upper right corner (View activity). This will take you to your account page. There is a staking button next to your balance of MPC Tokens.     
 6) Click *Register Node* Connect your MPC Wallet by clicking *Connect Wallet*.    
 7) Send Register Transaction.     
 
@@ -24,12 +24,13 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 
 ## How to fill out the form for the Register Transaction
 
-You need the same 3 keypairs that you used in the `config.json`. You use the private key of your account to log into your wallet and the Explorer.  The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node.      
-- Session ID from [Synaps KYB](https://partisiablockchain.synaps.me/)
-- Finalization private key in the form called BLS Signing key
-- Network public key
-- Website
-- ServerJurisdiction (pick location from slide down menu)     
+You need the same 3 keypairs that you used in the `config.json`. You use the private key of your account to log into your wallet and the Explorer.  The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node.     
+ 
+- Session ID from [Synaps KYB](https://partisiablockchain.synaps.me/)   
+- Finalization private key in the form called BLS Signing key   
+- Network public key   
+- Website   
+- ServerJurisdiction (pick location from slide down menu)      
 
 
 **NB.** You can change your public information from the Register Transaction by doing a new registration transaction.   
