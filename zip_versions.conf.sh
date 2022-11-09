@@ -123,7 +123,7 @@ declare -A content09=(
 
 declare -A content10=(
   [repo]='gitlab.com/secata/pbc/language/contracts/multi-voting.git'
-  [output]='contracts/multi-voting'
+  [output]='contracts/example-multi-voting'
   [version_ref]='tags/0.1.0-sdk-9.1.2'
   [post_process]='zk_contract_cleanup'
 )
