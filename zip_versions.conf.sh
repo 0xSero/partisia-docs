@@ -55,7 +55,7 @@ ZK_COMPILER_VERSION="${ZK_COMPILER_VERSION/"."/"\."}"
 declare -A content01=(
   [repo]='gitlab.com/secata/pbc/language/contracts/token.git'
   [output]='contracts/example-token'
-  [version_ref]='tags/0.2.15-sdk-9.1.2'
+  [version_ref]='tags/0.5.0-sdk-9.1.2'
   [post_process]='contract_cleanup'
 )
 
