@@ -59,10 +59,10 @@ There are contracts included in the zip as well as zero knowledge contracts.
 
 The included normal contracts are:
 
-1. An ERC20 token contract located in `contracts/example-token-contract`
-2. A general purpose voting contract located in `contracts/example-voting-contract`
-3. An auction contract that sells ERC20 tokens of one type for another located in `contracts/example-auction-contract`
-4. An NFT contract located in `contracts/example-nft-contract`
+1. An ERC20 token contract located in `contracts/example-token`
+2. A general purpose voting contract located in `contracts/example-voting`
+3. An auction contract that sells ERC20 tokens of one type for another located in `contracts/example-auction`
+4. An NFT contract located in `contracts/example-nft`
 
 The included zk-contracts are:
 

@@ -54,7 +54,7 @@ ZK_COMPILER_VERSION="${ZK_COMPILER_VERSION/"."/"\."}"
 # shellcheck disable=SC2034
 declare -A content1=(
   [repo]='gitlab.com/secata/pbc/language/contracts/token.git'
-  [output]='contracts/example-token-contract'
+  [output]='contracts/example-token'
   [version_ref]='tags/0.2.15-sdk-9.1.2'
   [post_process]='contract_cleanup'
 )
@@ -62,7 +62,7 @@ declare -A content1=(
 # shellcheck disable=SC2034
 declare -A content2=(
   [repo]='gitlab.com/secata/pbc/language/contracts/voting.git'
-  [output]='contracts/example-voting-contract'
+  [output]='contracts/example-voting'
   [version_ref]='tags/0.2.9-sdk-9.1.2'
   [post_process]='contract_cleanup'
 )
@@ -70,7 +70,7 @@ declare -A content2=(
 # shellcheck disable=SC2034
 declare -A content3=(
   [repo]='gitlab.com/secata/pbc/language/contracts/auction.git'
-  [output]='contracts/example-auction-contract'
+  [output]='contracts/example-auction'
   [version_ref]='tags/0.1.12-sdk-9.1.2'
   [post_process]='contract_cleanup'
 )
@@ -78,7 +78,7 @@ declare -A content3=(
 # shellcheck disable=SC2034
 declare -A content4=(
   [repo]='gitlab.com/secata/pbc/language/contracts/nft.git'
-  [output]='contracts/example-nft-contract'
+  [output]='contracts/example-nft'
   [version_ref]='tags/0.1.4-sdk-9.1.2'
   [post_process]='contract_cleanup'
 )
@@ -104,6 +104,27 @@ declare -A content7=(
   [repo]='gitlab.com/secata/pbc/language/contracts/zk-average-salary.git'
   [output]='contracts/example-zk-average-salary'
   [version_ref]='tags/0.1.3-sdk-9.1.2'
+  [post_process]='zk_contract_cleanup'
+)
+
+declare -A content8=(
+  [repo]='gitlab.com/secata/pbc/language/contracts/conditional-escrow-transfer.git'
+  [output]='contracts/example-conditional-escrow-transfer'
+  [version_ref]='tags/0.2.12-sdk-10.0.0'
+  [post_process]='zk_contract_cleanup'
+)
+
+declare -A content9=(
+  [repo]='gitlab.com/secata/pbc/language/contracts/liquidity-swap.git'
+  [output]='contracts/example-liquidity-swap'
+  [version_ref]='tags/0.2.13-sdk-10.0.0'
+  [post_process]='zk_contract_cleanup'
+)
+
+declare -A content10=(
+  [repo]='gitlab.com/secata/pbc/language/contracts/multi-voting.git'
+  [output]='contracts/multi-voting'
+  [version_ref]='tags/0.2.12-sdk-10.0.0'
   [post_process]='zk_contract_cleanup'
 )
 
