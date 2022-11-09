@@ -63,6 +63,9 @@ The included normal contracts are:
 2. A general purpose voting contract located in `contracts/example-voting`
 3. An auction contract that sells ERC20 tokens of one type for another located in `contracts/example-auction`
 4. An NFT contract located in `contracts/example-nft`
+5. An escrow contract that transfers tokens when a condition is met, located in `contract/conditional-escrow-transfer`
+6. A liquidity swap contract that exchanges one type of tokens for another, located in `contract/liquidity-swap`
+7. A contract that deploys voting contracts located in `contracts/multi-voting`
 
 The included zk-contracts are:
 
