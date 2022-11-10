@@ -36,11 +36,13 @@ When some valuable item changes hands through an auction it is desirable to have
 
 ### Automated market solutions
 
-- Order matching
-- ZK swap
+- Order matching   
+Order matching is a process whereby sell orders are matched with buy orders. With MPC you can match orders without revealing sensitive information that could influence the market or put buyer or seller ad a disadvantage.   
+
 
 ### Games
 
 - Poker   
+When playing online poker for money you want to make sure, that no one can cheat by guessing the next card being drawn. Pseudorandom numbers can be predicted if you have access to the algorithm generating them. But, by using MPC you can make the deck of cards unpredictable even if the players have visible access to the code controlling the game. 
 
 
