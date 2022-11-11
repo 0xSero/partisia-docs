@@ -5,14 +5,15 @@ You can always find the newest documentation on the [main site](https://partisia
 
 ## Prerequisites
 
-To develop and compile contracts for the Partisia Blockchain, you need to install Rust. To install Rust for you platform follow the instructions on <https://rustup.rs/>.
+To develop and compile contracts for the Partisia Blockchain, you need to install Rust. 
+To install Rust for you platform follow the instructions on <https://rustup.rs/>.
 
 To compile contracts you will also need to install [Git](https://git-scm.com/downloads).
 
 If you need to develop zero-knowledge contracts then you will also need to install [Java 17](https://openjdk.org/) to run the zk-compiler.
 
-**NB.** You must acquire *C++ build tools for Windows*, if you are working on Windows:  
-[Download Visual Studio with C++](https://visualstudio.microsoft.com/downloads/) In Visual Studio Installer choose *Desktop development with C++*.
+If Working from a Windows machine you must [get Visual Studio with C++  build tools](https://visualstudio.microsoft.com/downloads/)
+- In Visual Studio Installer choose *Desktop development with C++*.
 
 ## Compile and install the cargo `partisia-contract` command
 
@@ -55,19 +56,19 @@ There are contracts included in the zip as well as zero knowledge contracts.
 
 The included normal contracts are:
 
-1. An ERC20 token contract located in `contracts/example-token`
-2. A general purpose voting contract located in `contracts/example-voting`
-3. An auction contract that sells ERC20 tokens of one type for another located in `contracts/example-auction`
-4. An NFT contract located in `contracts/example-nft`
+1. An ERC20 token contract located in `contracts/token`
+2. A general purpose voting contract located in `contracts/voting`
+3. An auction contract that sells ERC20 tokens of one type for another located in `contracts/auction`
+4. An NFT contract located in `contracts/nft`
 5. An escrow contract that transfers tokens when a condition is met, located in `contract/conditional-escrow-transfer`
 6. A liquidity swap contract that exchanges one type of tokens for another, located in `contract/liquidity-swap`
 7. A contract that deploys voting contracts located in `contracts/multi-voting`
 
 The included zk-contracts are:
 
-1. A secret voting contract located in `contracts/example-zk-voting`
-2. An average salary contract located in `contracts/example-zk-average-salary`
-3. A second price auction contract located in `contracts/example-zk-second-price-auction`
+1. A secret voting contract located in `contracts/zk-voting`
+2. An average salary contract located in `contracts/zk-average-salary`
+3. A second price auction contract located in `contracts/zk-second-price-auction`
 
 Multiple of the examples are described in great detail on the [main site](https://partisiablockchain.gitlab.io/documentation).
 
