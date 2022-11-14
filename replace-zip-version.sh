@@ -14,3 +14,4 @@ mv "$filename" public/
 
 echo "Replacing LINK_TO_RUST_EXAMPLE_CONTRACTS with $filename"
 find public/ -type f -print0 -iname "*.html" | xargs -0 sed -i "s/LINK_TO_RUST_EXAMPLE_CONTRACTS/$filename/g"
+find public/ -type f -print0 -iname "*.yml" | xargs -0 sed -i "s/LINK_TO_RUST_EXAMPLE_CONTRACTS/$filename/g"
