@@ -1,0 +1,1 @@
+The archive containing example contracts is [available here](LINK_TO_RUST_EXAMPLE_CONTRACTS).

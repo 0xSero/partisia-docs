@@ -5,18 +5,15 @@ You can always find the newest documentation on the [main site](https://partisia
 
 ## Prerequisites
 
-To develop and compile contracts for the Partisia Blockchain, you need to install Rust along with the wasm32 target. To install Rust for you platform follow the instructions on <https://rustup.rs/>.
+To develop and compile contracts for the Partisia Blockchain, you need to install Rust. 
+To install Rust for you platform follow the instructions on <https://rustup.rs/>.
 
-Now install the wasm32 target:
-
-```bash
-rustup target add wasm32-unknown-unknown
-```
+To compile contracts you will also need to install [Git](https://git-scm.com/downloads).
 
 If you need to develop zero-knowledge contracts then you will also need to install [Java 17](https://openjdk.org/) to run the zk-compiler.
 
-**NB.** You must acquire *C++ build tools for Windows*, if you work in Git Bash or PowerShell:  
-[Download Visual Studio with C++](https://visualstudio.microsoft.com/downloads/) In Visual Studio Installer choose *Desktop development with C++*.  
+If Working from a Windows machine you must [get Visual Studio with C++  build tools](https://visualstudio.microsoft.com/downloads/)
+- In Visual Studio Installer choose *Desktop development with C++*.
 
 ## Compile and install the cargo `partisia-contract` command
 
@@ -34,11 +31,11 @@ Test that it worked by executing: `cargo partisia-contract --version`. This shou
 To compile a contract you simply change directory to one of the rust-example-contracts and compile: 
 ```bash
 cd ..
-cd contracts/example-token-contract/
-cargo partisia-contract build
+cd contracts/token/
+cargo partisia-contract build --release
 ```
 
-To compile a contract in release mode you include the `--release` flag: `cargo partisia-contract build --release`
+The `--release` flag compiles the contract in release mode and can be excluded to only test the compilation of the contract.
 
 ### Zero-Knowledge contracts
 
@@ -48,10 +45,10 @@ The partisia-contract tool is able to detect and compile both these parts togeth
 ```bash
 cd ..
 cd contracts/example-zk-voting/
-cargo partisia-contract build
+cargo partisia-contract build --release
 ```
 
-This creates the linked byte file with the zk bytecode as well as the wasm file.
+This creates the linked byte file with the zk wasm file (.zkwa) as well as the wasm file.
 
 ## Included example contracts
 
@@ -59,16 +56,19 @@ There are contracts included in the zip as well as zero knowledge contracts.
 
 The included normal contracts are:
 
-1. An ERC20 token contract located in `contracts/example-token-contract`
-2. A general purpose voting contract located in `contracts/example-voting-contract`
-3. An auction contract that sells ERC20 tokens of one type for another located in `contracts/example-auction-contract`
-4. An NFT contract located in `contracts/example-nft-contract`
+1. An ERC20 token contract located in `contracts/token`
+2. A general purpose voting contract located in `contracts/voting`
+3. An auction contract that sells ERC20 tokens of one type for another located in `contracts/auction`
+4. An NFT contract located in `contracts/nft`
+5. An escrow contract that transfers tokens when a condition is met, located in `contract/conditional-escrow-transfer`
+6. A liquidity swap contract that exchanges one type of tokens for another, located in `contract/liquidity-swap`
+7. A contract that deploys voting contracts located in `contracts/multi-voting`
 
 The included zk-contracts are:
 
-1. A secret voting contract located in `contracts/example-zk-voting`
-2. An average salary contract located in `contracts/example-zk-average-salary`
-3. A second price auction contract located in `contracts/example-zk-second-price-auction`
+1. A secret voting contract located in `contracts/zk-voting`
+2. An average salary contract located in `contracts/zk-average-salary`
+3. A second price auction contract located in `contracts/zk-second-price-auction`
 
 Multiple of the examples are described in great detail on the [main site](https://partisiablockchain.gitlab.io/documentation).
 
