@@ -8,6 +8,12 @@ You can always find the newest documentation on the [main site](https://partisia
 To develop and compile contracts for the Partisia Blockchain, you need to install Rust. 
 To install Rust for you platform follow the instructions on <https://rustup.rs/>.
 
+The newest version of Rust comes with a wasm target preinstalled.
+If you run an older version the target needs to be added manually, by running:
+```bash
+rustup target add wasm32-unknown-unknown
+```
+
 To compile contracts you will also need to install [Git](https://git-scm.com/downloads).
 
 If you need to develop zero-knowledge contracts then you will also need to install [Java 17](https://openjdk.org/) to run the zk-compiler.
