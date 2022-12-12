@@ -103,7 +103,7 @@ declare -A content06=(
 declare -A content07=(
   [repo]='gitlab.com/secata/pbc/language/contracts/zk-average-salary.git'
   [output]='contracts/zk-average-salary'
-  [version_ref]='tags/0.1.3-sdk-9.1.2'
+  [version_ref]='tags/0.1.4-sdk-9.1.2'
   [post_process]='zk_contract_cleanup'
 )
 
