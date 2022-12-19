@@ -20,14 +20,14 @@ $$
 
 **How many tokens are available to unvest**
 $$
-
+canBeUnvested = \sum_{v \in vestingAccounts}^{} \left\lfloor \frac{v.tokens }{\left\lfloor\frac{v.rDuration}{v.rInterval}\right\rfloor}\right\rfloor \cdot max\left( 0,\left\lfloor \frac{now-v.tGE}{v.rInterval} \right\rfloor \right) - v.releasedTokens
 $$
 
 **How many tokens are waiting to be accepted by a node operator**
 
 $$
-Fur user U:
-No. 1 account delegated to:
+For \; user \; U:\\
+No. \; 1 \; accountDelegatedTo: \\
 delegatedFromOthers[U].pending
 $$
 
