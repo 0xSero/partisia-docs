@@ -16,23 +16,23 @@ Currently,
 which means
 1 MPC token = 40,000 gas
 
-The source for the fees is the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)
+The source for the fees is the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view).
 
 
 When fees are paid by a contract they are distributed among the contract’s associated ZK nodes.
 
 ## Fee overview
 
-| **Name**                 | **Cost in gas**                   | **Paid by**                                 |
-|--------------------------|-----------------------------------|---------------------------------------------|
-| Network                  | 5,000 per kb sent                 | Calling user (Actions)                      |
-| WASM execution           | 5,000 per 1000 instructions       | Calling user (Actions) Contract (ZK events) |
-| Staking                  | (LOCKED_STAKES / 100) * 40,000    | Calling user                                |
-| Secret Input             | 25,000                            | Calling user                                |
-| ZK Computation           | 50,000 +  5 * noOfMultiplications | Contract                                    |
-| ZK Preprocessing         | 50,000 + 500,000 * noOfBatches    | Contract                                    |
-| Opening secret variables | 25,000                            | Calling user                                |
-| Attestation              | 25,000                            | Contract                                    |
+| **Name**                 | **Cost in gas**                   | **Paid by**                                    |
+|--------------------------|-----------------------------------|------------------------------------------------|
+| Network                  | 5,000 per kb sent                 | Calling user (Actions)                         |
+| WASM execution           | 5,000 per 1000 instructions       | Calling user (Actions)<br>Contract (ZK events) |
+| Staking                  | (LOCKED_STAKES / 100) * 40,000    | Calling user                                   |
+| Secret Input             | 25,000                            | Calling user                                   |
+| ZK Computation           | 50,000 +  5 * noOfMultiplications | Contract                                       |
+| ZK Preprocessing         | 50,000 + 500,000 * noOfBatches    | Contract                                       |
+| Opening secret variables | 25,000                            | Calling user                                   |
+| Attestation              | 25,000                            | Contract                                       |
 
 ## Fee details
 
