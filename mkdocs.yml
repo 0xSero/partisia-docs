@@ -31,6 +31,7 @@ nav:
       - Create a smart contract for a specific scenario: voting-contract.md
       - Zero Knowledge Contracts: ZKSC.md
       - Compile Zero Knowledge Contracts: compile-zk.md
+      - Zero Knowledge computation fees: zk-computation-fees.md
   - PBC's decoupled token economy:
       - BYOC and gas for the mainnet and testnet: byoc.md
       - MPC tokens: mpc-tokens.md
