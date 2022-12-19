@@ -4,7 +4,7 @@ MPC token calculations
 
 **How many tokens do I own in total**
 $$
-Tokens_{owned} = mpcTokens + stakedTokens + \sum_{v \in vestingAccounts} v.tokens - v.released + \sum_{s \in staked}^{} stored
+Tokens_{owned} = mpcTokens + stakedTokens + \sum_{v \in vestingAccounts} v.tokens - v.released + \sum_{s \in stakedToOthers}^{} s.delegated + \sum_{p \in storedPendingDelegated | p.countIndex = -1 \&! p.addIfSucces}^{} p.amount
 $$
 
 **How many have I have staked already**
@@ -30,12 +30,12 @@ $$
 **How many tokens do I own in total**
 
 
-How many tokens have I staked to my own node
+**How many tokens have I staked to my own node**
 
-How many staked on my node including from others
+**How many staked on my node including from others**
 
-How many tokens have I accepted into my node from the community
+**How many tokens have I accepted into my node from the community**
 
-How many tokens are pending my acceptance into my node?
+**How many tokens are pending my acceptance into my node**
 
 
