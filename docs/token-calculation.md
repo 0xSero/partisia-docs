@@ -10,7 +10,7 @@ $$
 
 **How many have I have staked already**
 $$
-totalStaked = stakedTokens + \sum_{s \in stakedToOthers}^{} s.delegated + \sum_{\substack{ p \in PendingStakedDelegated \; | \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType=RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstake}^{} p + \sum_{p \in pendingRetracted}^{} p
+totalStaked = stakedTokens + \sum_{s \in stakedToOthers}^{} s.delegated + \sum_{\substack{ p \in PendingStakedDelegated \; | \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType = RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstake}^{} p + \sum_{p \in pendingRetracted}^{} p
 $$
 
 **How many unvested tokens are available to stake to another node**
