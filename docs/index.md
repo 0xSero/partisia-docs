@@ -23,5 +23,5 @@
 - [ABI specification](abiv.md)   
 - [Create a Smart Contract for a specific scenario](voting-contract.md)   
 - [Zero Knowledge Contracts](ZKSC.md)
-- [Zero Knowledge Fees](zk-computation-fees.md)
+- [Zero Knowledge Gas Fees](zk-computation-fees.md)
 - [Connect a dApp to the wallet extension (dApp SDK)](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia)   
