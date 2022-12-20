@@ -9,6 +9,7 @@ totalTokensOwned = mpcTokens + stakedTokens + \sum_{v \in vestingAccounts} v.tok
 $$
 
 **How many have I have staked already**
+
 $$
 totalStaked = stakedTokens + \sum_{s \in stakedToOthers}^{} s.delegated + \sum_{\substack{ p \in PendingStakedDelegated \; |  \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType=RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstake}^{} p + \sum_{p \in pendingRetracted}^{} p
 $$
