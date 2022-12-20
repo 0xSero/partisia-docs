@@ -30,14 +30,14 @@ The source for the fees is the [Partisia Blockchain yellow paper](https://drive.
 | Network                  | 5,000 per kb sent                        | Calling user (Actions)                         |
 | WASM execution           | 5,000 per 1000 instructions              | Calling user (Actions)<br>Contract (ZK events) |
 | Staking                  | 1% of locked stakes multiplied by 40,000 | Calling user                                   |
-| Secret Input             | 25,000                                   | Calling user                                   |
-| ZK Computation           | 50,000 plus 5 per multiplication         | Contract                                       |
-| ZK Preprocessing         | 50,000 plus 500,000 per batch            | Contract                                       |
+| Secret input             | 25,000                                   | Calling user                                   |
+| ZK computation           | 50,000 plus 5 per multiplication         | Contract                                       |
+| ZK preprocessing         | 50,000 plus 500,000 per batch            | Contract                                       |
 | Opening secret variables | 25,000                                   | Calling user                                   |
 | Attestation              | 25,000                                   | Contract                                       |
 
 When network and WASM execution fees are paid, the gas is distributed among the block producers.
-When zk fees are paid, the gas is distributed among the contract’s associated ZK nodes.
+When ZK fees are paid, the gas is distributed among the contract’s associated ZK nodes.
 
 ## Fee details
 
@@ -67,26 +67,27 @@ The staking fee depends on the locked stakes which are determined by the user de
 STAKING_FEE = (LOCKED_STAKES / 100) * 40,000
 
 
-### Secret Input fees
+### Secret input fees
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some variable is inputted.
 
 The input fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to BASE_SERVICE_FEES (25,000 gas).
 This covers the transaction fees of each node (currently hardcoded to 5,000 each) + 5,000 extra gas to spare.
 
-### ZK Computation fees
+### ZK computation fees
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when a ZK computation is executed as well as 
 for the multiplications in the computation.
 
-During a computation a number of transactions are sent from each computation node. 
+During a computation transactions are sent from each computation node. 
 For an optimistic computation each node sends 1 transaction to the binder.
 If the optimistic attempt fails, a pessimistic computation must be executed which 
-entails each node sending 1 additional transaction to the binder. 
+entails each node sending 1 additional transaction to the binder. The cost of each of these
+transactions is covered using BASE_SERVICE_FEES.
 
-Besides this the multiplications done during the computation must also be paid for. 
+Besides this, the multiplications done during the computation must also be paid for. 
 According to the yellow paper the price for this is 5 USD cent per 1000 multiplications. 
-Since this is multiplied by 1000 to convert to gas the price for multiplications is: 
+Since this is multiplied by 1000 to convert to gas, the price for the multiplications is: 
 
 noOfMultiplications / 1000 * 5 * 1000 = noOfMultiplications * 5
 
@@ -94,11 +95,12 @@ In summary:
 
 ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
 
-### ZK Preprocessing fees
+### ZK preprocessing fees
 
 A ZK contract needs to pay for preprocessing triples which the preprocessing nodes generate at various points during ZK computation.
 
-When requesting preprocessing material, each node sends two transactions to the preprocessing contract. This must be paid for by the ZK contract.
+When requesting preprocessing material, each node sends two transactions to the preprocessing contract.
+The cost of each of these transactions is covered using BASE_SERVICE_FEES.
 
 As per the yellow paper, the fee for preprocessing material is 5 USD cent per 1000 triples.
 
@@ -127,6 +129,6 @@ OPEN_SECRET_VARIABLES_FEE = BASE_SERVICE_FEES
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some data needs to be attested.
 
-The attestation fee is part of the basic fees detailed in the yellow paper p. 16. Currently, the actual fee is hardcoded to use BASE_SERVICE_FEES. 
+The attestation fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to use BASE_SERVICE_FEES. 
 
 ATTESTATION_FEE = BASE_SERVICE_FEES
