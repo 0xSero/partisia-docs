@@ -6,13 +6,13 @@ MPC token calculations
 **How many tokens do I own in total**
 
 $$
-\boxed{totalTokensOwned = mpcTokens + stakedTokens + \sum_{v \in vestingAccounts} v.tokens - v.released + \sum_{s \in stakedToOthers}^{} s.delegated + \sum_{\substack{ p \in storedPendingDelegated \; | \\ p.countIndex = -1   \; \&! \; p.addIfSucces}}^{} p.amount + \sum_{\substack{ p \in PendingStakedDelegated \; |  \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType=RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstake}^{} p + \sum_{p \in pendingRetracted}^{} p}
+\boxed{totalTokensOwned = mpcTokens + stakedTokens + \sum_{v \in vestingAccounts} v.tokens - v.released + \sum_{s \in delegatedStakesToOthers}^{} s.delegated + \sum_{\substack{ p \in storedPendingStakeDelegations \; | \\ p.countIndex = -1   \; \&! \; p.addIfSucces}}^{} p.amount + \sum_{\substack{ p \in PendingStakedDelegated \; |  \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType=RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstakes}^{} p + \sum_{p \in pendingRetractedDelegatedStakes}^{} p}
 $$
 
 **How many have I have staked already**
 
 $$
-\boxed{totalStaked = stakedTokens + \sum_{s \in stakedToOthers}^{} s.delegated + \sum_{\substack{ p \in PendingStakedDelegated \; |  \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType=RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstake}^{} p + \sum_{p \in pendingRetracted}^{} p}
+\boxed{totalStaked = stakedTokens + \sum_{s \in delegatedStakesToOthers}^{} s.delegated + \sum_{\substack{ p \in storedPendingStakeDelegations \; |  \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType=RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstakes}^{} p + \sum_{p \in pendingRetractedDelegatedStakes}^{} p}
 $$
 
 **How many unvested tokens are available to stake to another node**
@@ -22,7 +22,7 @@ $$
 
 **How many tokens are available to unvest**
 $$
-\boxed{canBeUnvested = \sum_{v \in vestingAccounts}^{} \left\lfloor \frac{v.tokens }{\left\lfloor\frac{v.rDuration}{v.rInterval}\right\rfloor}\right\rfloor \cdot max\left( 0,\left\lfloor \frac{now-v.tGE}{v.rInterval} \right\rfloor \right) - v.releasedTokens}
+\boxed{canBeUnvested = \sum_{v \in vestingAccounts}^{} \left\lfloor \frac{v.tokens }{\left\lfloor\frac{v.releaseDuration}{v.releaseInterval}\right\rfloor}\right\rfloor \cdot max\left( 0,\left\lfloor \frac{now-v.tokenGenerationEvent}{v.releaseInterval} \right\rfloor \right) - v.releasedTokens}
 $$
 
 **How many tokens are waiting to be accepted by a node operator**
@@ -38,7 +38,7 @@ $$
 **How many tokens do I own in total**
 
 $$
-\boxed{totalTokensOwned = mpcTokens + stakedTokens + \sum_{v \in vestingAccounts} v.tokens - v.released + \sum_{s \in stakedToOthers}^{} s.delegated + \sum_{\substack{ p \in storedPendingDelegated \; | \\ p.countIndex = -1   \; \&! \; p.addIfSucces}}^{} p.amount + \sum_{\substack{ p \in PendingStakedDelegated \; |  \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType=RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstake}^{} p + \sum_{p \in pendingRetracted}^{} p}
+\boxed{totalTokensOwned = mpcTokens + stakedTokens + \sum_{v \in vestingAccounts} v.tokens - v.released + \sum_{s \in delegatedStakesToOthers}^{} s.delegated + \sum_{\substack{ p \in storedPendingStakeDelegations \; | \\ p.countIndex = -1   \; \&! \; p.addIfSucces}}^{} p.amount + \sum_{\substack{ p \in PendingStakedDelegated \; |  \\ p.delegationType = DELEGATE\_STAKE \; \\  OR \; p.delegationType=RETRACT\_DELEGATED\_STAKE}}^{} p.stored + \sum_{p \in pendingUnstakes}^{} p + \sum_{p \in pendingRetractedDelegatedStakes}^{} p}
 $$
 
 **How many tokens have I staked to my own node excluding from others**
