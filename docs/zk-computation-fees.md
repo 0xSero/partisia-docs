@@ -33,7 +33,7 @@ The source for the fees is the [Partisia Blockchain yellow paper](https://drive.
 | Secret input             | 25,000                                   | Calling user                                   |
 | ZK computation           | 50,000 plus 5 per multiplication         | Contract                                       |
 | ZK preprocessing         | 50,000 plus 500,000 per batch            | Contract                                       |
-| Opening secret variables | 25,000                                   | Calling user                                   |
+| Opening secret variables | 25,000                                   | Contract                                       |
 | Attestation              | 25,000                                   | Contract                                       |
 
 When network and WASM execution fees are paid, the gas is distributed among the block producers.
