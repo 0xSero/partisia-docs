@@ -71,7 +71,7 @@ declare -A content02=(
 declare -A content03=(
   [repo]='gitlab.com/secata/pbc/language/contracts/auction.git'
   [output]='contracts/auction'
-  [version_ref]='tags/0.1.12-sdk-9.1.2'
+  [version_ref]='tags/0.1.16-sdk-9.1.2'
   [post_process]='contract_cleanup'
 )
 
