@@ -25,16 +25,16 @@ The source for the fees is the [Partisia Blockchain yellow paper](https://drive.
 
 ## Fee overview
 
-| **Name**                 | **Cost in gas**                                                                                 | **Paid by**                                    |
-|--------------------------|-------------------------------------------------------------------------------------------------|------------------------------------------------|
-| Network                  | 5,000 per kb sent                                                                               | Calling user (Actions)                         |
-| WASM execution           | 5,000 per 1000 instructions                                                                     | Calling user (Actions)<br>Contract (ZK events) |
-| Staking                  | 1% of locked stakes multiplied by 40,000                                                        | Calling user                                   |
-| Secret input             | 25,000                                                                                          | Calling user                                   |
-| ZK computation           | 50,000 plus 5 per multiplication                                                                | Contract                                       |
-| ZK preprocessing         | 50,000 plus 500,000 per multiplication triple batch <br> 50,000 plus 5,000 per input mask batch | Contract                                       |
-| Opening secret variables | 25,000                                                                                          | Contract                                       |
-| Attestation              | 25,000                                                                                          | Contract                                       |
+| **Name**                 | **Cost in gas**                                                          | **Paid by**                                    |
+|--------------------------|--------------------------------------------------------------------------|------------------------------------------------|
+| Network                  | 5,000 per kb sent                                                        | Calling user (Actions)                         |
+| WASM execution           | 5,000 per 1000 instructions                                              | Calling user (Actions)<br>Contract (ZK events) |
+| Staking                  | 1% of locked stakes multiplied by 40,000                                 | Calling user                                   |
+| Secret input             | 25,000                                                                   | Calling user                                   |
+| ZK computation           | 50,000 plus 5 per multiplication                                         | Contract                                       |
+| ZK preprocessing         | 550,000 per multiplication triple batch <br> 55,000 per input mask batch | Contract                                       |
+| Opening secret variables | 25,000                                                                   | Contract                                       |
+| Attestation              | 25,000                                                                   | Contract                                       |
 
 When network and WASM execution fees are paid, the gas is distributed among the block producers.
 When ZK fees are paid, the gas is distributed among the contract’s associated ZK nodes.
@@ -105,12 +105,12 @@ The cost of each of these transactions is covered using BASE_SERVICE_FEES.
 
 As per the yellow paper, the fee for preprocessing material is 5 USD cent per 1000 preprocessing triples.
 
-Preprocessing material is requested in batches of 100,000 triples for multiplication triples and batches of 1,000 triples for input masks. 
-This means each batch of multiplication triples costs 
+Preprocessing material is requested in batches of 100,000 triples for multiplication triples and batches of 1,000 triples for input masks.
+This means the material each batch of multiplication triples costs 
 
 100,000 / 1,000 * 5 = 5,000 USD cents
 
-while each input mask batch costs
+while the material for each input mask batch costs
 
 1,000 / 1,000 * 5 = 5 USD cents
 
@@ -118,7 +118,7 @@ which is multiplied by 1,000 to get the price in gas.
 
 In summary:
 
-ZK_PREPROCESSING_FEE = 2 * BASE_SERVICE_FEES + 5 * BATCH_SIZE * NO_OF_BATCHES
+ZK_PREPROCESSING_FEE = (2 * BASE_SERVICE_FEES + 5 * BATCH_SIZE) * NO_OF_BATCHES
 
 
 ### Opening secret variables fees
