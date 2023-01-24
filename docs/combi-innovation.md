@@ -112,11 +112,6 @@ effectively closing the contract. Only valid withdrawals are allowed in the clos
 ZK liquidity swap prevents frontrunning. One of the main challenges to the integrity of liquidity swaps is frontrunning. Since the exchange rate is given by a constant, it is possible to predict the price effect of a purchase or sale. If a hostile actor sees a large purchase coming in, he can place a purchase ahead in the queue, and his sell after the targeted purchase profiting from the price difference. By keeping purchase and sell orders secret until finalized prevents the problem of frontrunning.     
 <!--- Contract link here -->
 
-### ZK liquidity swap
-
-ZK liquidity swap prevents frontrunning. One of the main challenges to the integrity of liquidity swaps is frontrunning. Since the exchange rate is given by a constant, it is possible to predict the price effect of a purchase or sale. If a hostile actor sees a large purchase coming in, he can place a purchase ahead in the queue, and his sell after the targeted purchase profiting from the price difference. By keeping purchase and sell orders secret until finalized prevents the problem of frontrunning.
-<!--- Contract link here -->
-
 ### Escrow contract
 
 The escrow contract is a contract for conditional transfer of funds. The contract plays the role of trustee in a value transaction with predetermined conditions. This contract allows a sender  to put tokens into an escrow contract which a receiver can receive when a condition has been fulfilled.
