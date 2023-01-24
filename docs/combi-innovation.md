@@ -1,4 +1,4 @@
-# MPC examples - Available contracts - Combine and innovate
+# Public and ZK Smart Contract examples - Combine and innovate
 
 ##MPC examples
 
