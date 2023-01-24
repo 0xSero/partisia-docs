@@ -89,10 +89,6 @@ This implementation works in following steps:
 6. Once the summed variable is public, the contract will compute the average and store it in 
 the state, such that the value can be read by all.   
 
-**NB.** This contract is missing several features that a production ready contract should possess, including:   
-
-- An allowlist over participants.
-- Check that each address only sends a single variable.
 <!--- Contract link here -->
 
 ### Token contract
