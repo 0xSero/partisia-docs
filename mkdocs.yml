@@ -21,7 +21,7 @@ nav:
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - Downloadable resources:
       - Smart Contract compiler: download-compiler.md
-      - Public and ZK Smart Contract examples: download-examples.md
+      - Public and ZK Smart Contract examples: combi-innovation.md
   - Develop smart contracts:
       - What is a smart contract: contract-development.md
       - Download compiler for contract development: download-compiler.md
