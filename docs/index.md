@@ -13,7 +13,7 @@
 
 ## Downloadable resources - We provide compiler and smart contract examples
 - [Smart Contract compiler](download-compiler.md)
-- [Description and links for each individual public and ZK smart contract example](combi-innovation.md)
+- [Public and ZK smart contract examples](combi-innovation.md)
 - [Download all available contracts in as a zip-file](LINK_TO_RUST_EXAMPLE_CONTRACTS)
 
 ## Smart Contracts   
