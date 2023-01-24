@@ -1,7 +1,9 @@
 # Public and ZK Smart Contract examples - Combine and innovate
 
-## Smart contracts ready and open for combinatorial innovation
 [Download example contracts as a ZIP](LINK_TO_RUST_EXAMPLE_CONTRACTS)
+
+## Smart contracts ready and open for combinatorial innovation
+
 
 ### Public auction
 
