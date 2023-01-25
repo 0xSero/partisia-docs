@@ -68,6 +68,12 @@ The escrow transfer contract handles a specific token type. A sender can place t
 
 ## Examples of combinations that you can use in your contract innovation
 
+Partisia has several successful use cases, pilot projects with private deployments of the same infrastructure supporting Partisia Blockchain. 
+The scope of these applications include internet privacy, user control of data, financial privacy, cybersecurity, humanitarian aid and confidential health statistics. 
+You can read more about these pilot projects [here](https://partisiablockchain.com/ecosystem). 
+
+By combining the functionality of different types of smart contracts it is possible to create application on the public blockchain within the same areas as the successful pilot projects.  
+
 ### Next generation AMM
 - Token contract
 - Escrow contract
@@ -100,7 +106,7 @@ The escrow transfer contract handles a specific token type. A sender can place t
 ##MPC examples
 
 Secure multiparty computation extent the scope blockchain technology to encompass areas that before required some kind of independent third party to handle sensitive data like a trustee.
-With MPC you can do arithmetic and statistics. But the original variables of the problem being solved are split into randomized parts called secret shares. Inputs are preprocessed so the data handled by the ZK nodes cannot recreate the original user data. See the average salary contract above as an example.
+With MPC in your smart contracts on PBC you can do arithmetic and statistics. But the original variables of the problem being solved are split into randomized parts called secret shares. Inputs are preprocessed so the data handled by the ZK nodes cannot recreate the original user data. See the average salary contract above as an example.
 
 
 ### Data collaboration
