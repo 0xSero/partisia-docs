@@ -99,7 +99,9 @@ The escrow transfer contract handles a specific token type. A sender can place t
 
 ##MPC examples
 
-The following is an introductory list to the kinds of computation that can be done with secure multiparty computation on Partisia Blockchain. By combining the different types of computations in smart contracts you can develop apps that can solve complex problems. MPC allows for calculation on private data, where you can make the result of the calculation public and keep the private data secure at the same time. A simple example of this could be calculation of average salary in a company. You do not want to disclose your own income, but it would be nice to know if you make more or less than the average. Instead of sending your private data to your peers you can send a random bite (share) of the private data out to several peers. They do the same. When doing the calculation no salaries are revealed but the total sum of the numbers is the same. So, you get the correct result even though the calculation is done on the data in a randomised form.
+Secure multiparty computation extent the scope blockchain technology to encompass areas that before required some kind of independent third party to handle sensitive data like a trustee.
+With MPC you can do arithmetic and statistics. But the original variables of the problem being solved are split into randomized parts called secret shares. Inputs are preprocessed so the data handled by the ZK nodes cannot recreate the original user data. See the average salary contract above as an example.
+
 
 ### Data collaboration
 
