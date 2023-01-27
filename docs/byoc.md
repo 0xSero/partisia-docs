@@ -42,11 +42,11 @@ You get a confirmation as seen below if the deposit is successful. The confirmat
 The new testnet will be using [ETH from Goerli testnet](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3). To see your testnet gas balance you will need to switch the network, at which your Partisia wallet is pointing to testnet.
 
 There are two ways to get gas on the testnet:   
-A) using the [bridge from test ETH GOERLI](https://bridge.mpcexplorer.com/testnet/)  
+A) using the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/)  
 B) Using a Gas Faucet contract that mints BYOC
 
 ### Method A
-This mechanism for getting gas is similar to the old testnet and current mainnet (see above). To get GoerliETH you need to find a faucet. This can be found using a simple web search. To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://bridge.mpcexplorer.com/testnet/) to get gas on the testnet. The mpc explorer for the testnet can be found [here](https://testnet.mpcexplorer.com/).
+This mechanism for getting gas is similar to the old testnet and current mainnet (see above). To get GoerliETH you need to find a faucet. This can be found using a simple web search. To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/) to get gas on the testnet. The mpc explorer for the testnet can be found [here](https://testnet.mpcexplorer.com/).
 
 
 ### Method B
