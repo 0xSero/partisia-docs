@@ -45,7 +45,8 @@ Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Pu
     "accountKey": "PRIVATE_KEY_FROM_ACCOUNT_HOLDING STAKE",
     "finalizationKey": "FINALIZATION_PRIVATE_KEY_BLS",
     "ethereumUrl": "ETHEREUM_MAINNET_HTTP_ENDPOINT",
-    "polygonUrl": "POLYGON_MAINNET_HTTP_ENDPOINT"
+    "polygonUrl": "POLYGON_MAINNET_HTTP_ENDPOINT",
+    "bnbSmartChainUrl": "BNB_SMART_CHAIN_MAINNET_ENDPOINT"
   },
   "knownPeers": [
     "174.138.2.217:9888",
