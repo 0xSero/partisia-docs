@@ -92,7 +92,7 @@ Each defined key amount has a unique name starting with a number sign (#), a sho
 The total number of MPC tokens owned by an account.
 
 There are three ways of computing the total number of tokens   
-
+   
 - The number of tokens that are currently in use plus the number of unused tokens   
 - The number of tokens released from an unlocking schedule plus the number of tokens still in schedule   
 - The number of locked tokens plus the number of unlocked tokens   
@@ -129,7 +129,7 @@ MPC Tokens purchased in presales or allocated to the team are locked inside unlo
 
 This is the flow for MPC token unlocking
 
-```graphviz
+```dot
 digraph graphname {
 rankdir="LR"
 node [fontname="Arial" shape=box ]   
@@ -143,7 +143,7 @@ Releaseable -> Released [label= "release"]
 ```
 
 The following illustrates how the total is calculated based on locked/unlocked tokens or tokens inside/outside unlocking schedules. 
-```graphviz
+```dot
 digraph graphname {
 rankdir="BT"
 node [fontname="Arial" ]   
@@ -228,7 +228,7 @@ MPC tokens can be staked as collateral by nodes to perform different blockchain 
 
 This is the flow for MPC tokens when staking to yourself and delegating to others
 
-```graphviz
+```dot
 digraph graphname {
 rankdir="BT"
 node [fontname="Arial" ]   
@@ -256,7 +256,7 @@ DelegatedToOthers [label = "#DelegatedToOthers"]
 ```
 
 The following illustrates how the total number of tokens can be calculated based on tokens that are in use and unused tokens. 
-```graphviz
+```dot
 digraph graphname {
 rankdir="BT"
 node [fontname="Arial" ]   
@@ -393,7 +393,8 @@ Computation (from on-chain information)
 When the account has enough staked MPC tokens it is possible to run a blockchain node which performs different on-chain jobs. The staked MPC tokens can originate from the account itself and/or be delegated from other accounts as described above. When receiving delegated MPC tokens from others the account owner can choose how many of the tokens to accept as stake for running jobs.
 
 This is the flow for handling MPC tokens delegated from others.
-```graphviz
+
+```dot
 digraph graphname {
 rankdir="LR"
 node [fontname="Arial" shape=box ]   
@@ -479,3 +480,19 @@ Computation (from on-chain information)
 | #StakeForJobs              | #StakedToSelf + #AcceptedFromOthers                                                                                                                                                                                                                          |
 | #AllocatedToJobs           | sum(stakedToContract.value)                                                                                                                                                                                                                                  |
                                                                |
+
+<script src="https://unpkg.com/d3@5.16.0/dist/d3.min.js"></script>
+<script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+<script src="https://unpkg.com/d3-graphviz@3.1.0/build/d3-graphviz.min.js"></script>
+<script>
+  function d3ize(elem) {
+    var par = elem.parentElement;
+    d3.select(par).append('div').graphviz().renderDot(elem.innerText);
+    d3.select(elem).style('display', 'none');
+  }
+  console.log(document.getElementsByClassName(".language-dot"));
+  var dotelems = document.getElementsByClassName("language-dot");
+  for (let elem of dotelems) {
+    d3ize(elem);
+  }
+</script>
