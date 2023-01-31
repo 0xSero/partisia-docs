@@ -92,6 +92,7 @@ Each defined key amount has a unique name starting with a number sign (#), a sho
 The total number of MPC tokens owned by an account.
 
 There are three ways of computing the total number of tokens   
+
 - The number of tokens that are currently in use plus the number of unused tokens   
 - The number of tokens released from an unlocking schedule plus the number of tokens still in schedule   
 - The number of locked tokens plus the number of unlocked tokens   
