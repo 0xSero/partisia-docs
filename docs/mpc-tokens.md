@@ -395,7 +395,7 @@ When the account has enough staked MPC tokens it is possible to run a blockchain
 This is the flow for handling MPC tokens delegated from others.
 
 
-```dot
+```mermaid
 digraph graphname {
 rankdir="LR"
 node [fontname="Arial" shape=box ]   
