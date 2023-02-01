@@ -220,18 +220,18 @@ $$
 | \ &\hexi{0b} \ \Rightarrowx \text{String} \\
 | \ &\hexi{0c} \ \Rightarrowx \text{bool} \\
 | \ &\hexi{0d} \ \Rightarrowx \text{Address} & \text{(u8*21)} \\
+| \ &\hexi{13} \ \Rightarrowx \text{Hash} & \text{(u8*32)}\\
+| \ &\hexi{14} \ \Rightarrowx \text{PublicKey} & \text{(u8*33)}\\
+| \ &\hexi{15} \ \Rightarrowx \text{Signature} & \text{(u8*65)}\\
+| \ &\hexi{16} \ \Rightarrowx \text{BlsSignature} & \text{(u8*48)}\\
+| \ &\hexi{17} \ \Rightarrowx \text{BlsPublicKey} & \text{(u8*96)}\\
+| \ &\hexi{18} \ \Rightarrowx \text{u256} & \text{(u8*32)}\\
 \\
 \text{<CompositeTypeSpec>} \ := \ &\hexi{0e} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Vec<}\text{T>} \\
 | \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{Map <}\text{K}, \text{V>} \\
 | \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Set<}\text{T>} \\
 | \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]}  (\hexi{00} \leq L \leq \hexi{7F}) \\
 | \ &\hexi{12} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Option<}\text{T>} \\
-| \ &\hexi{13} \ \Rightarrowx \text{Hash} & \text{(u8*32)}\\
-| \ &\hexi{14} \ \Rightarrowx \text{PublicKey} & \text{(u8*33)}\\
-| \ &\hexi{15} \ \Rightarrowx \text{Signature} & \text{(u8*65)}\\
-| \ &\hexi{16} \ \Rightarrowx \text{BlsSignature} & \text{(u8*48)}\\
-| \ &\hexi{17} \ \Rightarrowx \text{BlsPublicKey} & \text{(u8*96)}\\
-| \ &\hexi{18} \ \Rightarrowx \text{U256} & \text{(u8*32)}\\
 \\
 \end{align*}
 }
