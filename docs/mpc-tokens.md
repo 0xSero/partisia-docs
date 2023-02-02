@@ -129,42 +129,11 @@ MPC Tokens purchased in presales or allocated to the team are locked inside unlo
 
 This is the flow for MPC token unlocking
 
-```mermaid
-sequenceDiagram
-    participant Locked
-    participant Releaseable
-    participant Released
-    Locked->>Releaseable: (schedule)
-    Releaseable->>Released: release
-```
+![Unlock](Unlock.png)
 
 The following illustrates how the total is calculated based on locked/unlocked tokens or tokens inside/outside unlocking schedules. 
-```dot
-digraph graphname {
-rankdir="BT"
-node [fontname="Arial" ]   
-Total1 [label="#Total" ]
-Total2 [label="#Total" ]
-InSchedule [label="#InSchedule"]
-Locked [label="#Locked"]
-Releaseable [label="#Releaseable"]
-Unlocked [label="#Unlocked"]
-InUse [label="#InUse"]
-Transferable [label="#Transferable"]
-Released [label="#Released"]
 
-    Locked-> Total1 [label="+"]
-    Unlocked -> Total1 [label="+"]
-    InSchedule-> Total2 [label="+"]
-    Released -> Total2 [label="+"]
-    Locked -> InSchedule [label="+"]
-    Releaseable -> InSchedule [label="+"]
-    Releaseable -> Unlocked [label="+"]
-    Released -> Unlocked [label="+"]
-    InUse -> Released  [label="+"]
-    Transferable -> Released [label="+"]
-}
-```
+![Shcedule](Schedule.png)
 
 ### In Schedule
 
@@ -224,60 +193,11 @@ MPC tokens can be staked as collateral by nodes to perform different blockchain 
 
 This is the flow for MPC tokens when staking to yourself and delegating to others
 
-```dot
-digraph graphname {
-rankdir="BT"
-node [fontname="Arial" ]   
-Total [label = "#Total"]
-Unused  [label = "#Unused"]
-InUse  [label = "#InUse"]
-Transferrable  [label = "#Transferrable"]
-InSchedule  [label = "#InSchedule"]
-InTransit   [label = "#InTransit"]
-Staked   [label = "#Staked"]
-StakedToSelf   [label = "#StakedToSelf"]
-PendingUnused   [label = "#PendingUnused"]
-DelegatedToOthers [label = "#DelegatedToOthers"]
 
-    Unused -> Total [label="+"]
-    Transferrable -> Unused [label="+"]
-    InSchedule -> Unused [label="+"]
-    InUse -> Total [label="+"]
-    InTransit -> InUse [label="+"]
-    Staked -> InUse [label="+"]
-    StakedToSelf -> Staked [label="+"]
-    DelegatedToOthers -> Staked [label="+"]
-    PendingUnused -> InUse [label="+"]
-}
-```
 
 The following illustrates how the total number of tokens can be calculated based on tokens that are in use and unused tokens. 
-```dot
-digraph graphname {
-rankdir="BT"
-node [fontname="Arial" ]   
-Total [label = "#Total"]
-Unused  [label = "#Unused"]
-InUse  [label = "#InUse"]
-Transferrable  [label = "#Transferrable"]
-InSchedule  [label = "#InSchedule"]
-InTransit   [label = "#InTransit"]
-Staked   [label = "#Staked"]
-StakedToSelf   [label = "#StakedToSelf"]
-PendingUnused   [label = "#PendingUnused"]
-DelegatedToOthers [label = "#DelegatedToOthers"]
 
-    Unused -> Total [label="+"]
-    Transferrable -> Unused [label="+"]
-    InSchedule -> Unused [label="+"]
-    InUse -> Total [label="+"]
-    InTransit -> InUse [label="+"]
-    Staked -> InUse [label="+"]
-    StakedToSelf -> Staked [label="+"]
-    DelegatedToOthers -> Staked [label="+"]
-    PendingUnused -> InUse [label="+"]
-}
-```
+![UseOfMPC](UseOfMPC.png)
 
 ### InUse
 
@@ -391,17 +311,7 @@ When the account has enough staked MPC tokens it is possible to run a blockchain
 This is the flow for handling MPC tokens delegated from others.
 
 
-```dot
-digraph graphname {
-rankdir="LR"
-node [fontname="Arial" shape=box ]   
-edge [fontname="Arial" ]   
-PendingFromOthers [label = "#PendingFromOthers"]
-AcceptedFromOthers [label = "#AcceptedFromOthers"]
-PendingFromOthers -> AcceptedFromOthers [label = "accept"]
-AcceptedFromOthers -> PendingFromOthers  [label = "reduce"]
-}
-```
+![NumberOfTokens](NumberOfTokens.png)
 
 ### DelegatedFromOthers
 The total number of MPC tokens that have been delegated by others.
