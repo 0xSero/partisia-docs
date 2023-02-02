@@ -129,17 +129,13 @@ MPC Tokens purchased in presales or allocated to the team are locked inside unlo
 
 This is the flow for MPC token unlocking
 
-```dot
-digraph graphname {
-rankdir="LR"
-node [fontname="Arial" shape=box ]   
-edge [fontname="Arial" ]   
-Locked [label = "#Locked"]
-Releaseable [label = "#Releaseable"]
-Released [label = "#Released"]
-Locked -> Releaseable [label= "(schedule)"]
-Releaseable -> Released [label= "release"]
-}
+```mermaid
+sequenceDiagram
+    participant Locked
+    participant Releaseable
+    participant Released
+    Locked->>Releaseable: (schedule)
+    Releaseable->>Released: release
 ```
 
 The following illustrates how the total is calculated based on locked/unlocked tokens or tokens inside/outside unlocking schedules. 
