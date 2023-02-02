@@ -197,7 +197,9 @@ This is the flow for MPC tokens when staking to yourself and delegating to other
 
 The following illustrates how the total number of tokens can be calculated based on tokens that are in use and unused tokens. 
 
+
 ![UseOfMPC](UseOfMPC.png)
+
 
 ### InUse
 
