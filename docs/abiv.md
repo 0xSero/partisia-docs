@@ -76,6 +76,12 @@ $$
 | \ & \bytes{16} \ \Rightarrowx \text{u128/i128} & \text{(big endian, i128 is two's complement)} \\
 | \ & \text{b:}\byte{} \ \Rightarrowx \text{bool} & \text{(false if b==0, true otherwise)} \\
 | \ & \bytes{21} \ \Rightarrowx \text{Address} \\
+| \ & \bytes{32} \ \Rightarrowx \text{Hash} \\
+| \ & \bytes{33} \ \Rightarrowx \text{PublicKey} \\
+| \ & \bytes{65} \ \Rightarrowx \text{Signature} \\
+| \ & \bytes{96} \ \Rightarrowx \text{BlsPublicKey} \\
+| \ & \bytes{48} \ \Rightarrowx \text{BlsSignature} \\
+| \ & \bytes{32} \ \Rightarrowx \text{u256} \\
 | \ & \bytes{len} \ \Rightarrowx \text{Array }\text{[u8;len]} & \text{(containing the len u8 values)} \\
 | \ & \text{len:}\text{LengthRpc} \ \text{utf8:}\bytes{len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
 | \ & \text{len:}\text{LengthRpc} \ \text{elems:}\repeat{\text{ArgumentRpc}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
@@ -115,6 +121,12 @@ $$
 | \ & \bytes{16} \ \Rightarrowx \text{u128/i128} & \text{(little endian, i128 is two's complement)} \\
 | \ & \text{b:}\byte{} \ \Rightarrowx \text{bool} & \text{(false if b==0, true otherwise)} \\
 | \ & \bytes{21} \ \Rightarrowx \text{Address} \\
+| \ & \bytes{32} \ \Rightarrowx \text{Hash} \\
+| \ & \bytes{33} \ \Rightarrowx \text{PublicKey} \\
+| \ & \bytes{65} \ \Rightarrowx \text{Signature} \\
+| \ & \bytes{96} \ \Rightarrowx \text{BlsPublicKey} \\
+| \ & \bytes{48} \ \Rightarrowx \text{BlsSignature} \\
+| \ & \bytes{32} \ \Rightarrowx \text{u256} \\
 | \ & \bytes{len} \ \Rightarrowx \text{Array }\text{[u8;len]} & \text{(containing the len u8 values)} \\
 | \ & \text{len:}\text{LengthState} \ \text{utf8:}\bytes{len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
 | \ & \text{len:}\text{LengthState} \ \text{elems:}\repeat{\text{State}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
@@ -219,13 +231,13 @@ $$
 | \ &\hexi{0a} \ \Rightarrowx \text{i128} \\
 | \ &\hexi{0b} \ \Rightarrowx \text{String} \\
 | \ &\hexi{0c} \ \Rightarrowx \text{bool} \\
-| \ &\hexi{0d} \ \Rightarrowx \text{Address} & \text{(u8*21)} \\
-| \ &\hexi{13} \ \Rightarrowx \text{Hash} & \text{(u8*32)}\\
-| \ &\hexi{14} \ \Rightarrowx \text{PublicKey} & \text{(u8*33)}\\
-| \ &\hexi{15} \ \Rightarrowx \text{Signature} & \text{(u8*65)}\\
-| \ &\hexi{16} \ \Rightarrowx \text{BlsSignature} & \text{(u8*48)}\\
-| \ &\hexi{17} \ \Rightarrowx \text{BlsPublicKey} & \text{(u8*96)}\\
-| \ &\hexi{18} \ \Rightarrowx \text{u256} & \text{(u8*32)}\\
+| \ &\hexi{0d} \ \Rightarrowx \text{Address} \\
+| \ &\hexi{13} \ \Rightarrowx \text{Hash} \\
+| \ &\hexi{14} \ \Rightarrowx \text{PublicKey} \\
+| \ &\hexi{15} \ \Rightarrowx \text{Signature} \\
+| \ &\hexi{16} \ \Rightarrowx \text{BlsPublicKey} \\
+| \ &\hexi{17} \ \Rightarrowx \text{BlsSignature} \\
+| \ &\hexi{18} \ \Rightarrowx \text{u256} \\
 \\
 \text{<CompositeTypeSpec>} \ := \ &\hexi{0e} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Vec<}\text{T>} \\
 | \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{Map <}\text{K}, \text{V>} \\
