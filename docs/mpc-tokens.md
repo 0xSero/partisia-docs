@@ -278,9 +278,9 @@ Computation (from on-chain information)
 ````
 where
 ````
-transferValue(p) = p.amount if p.coinIndex==-1 and
-p.addTokensOrCoinsIfTransferSuccessful==false
-0 	          otherwise
+transferValue(p) = 
+    p.amount if p.coinIndex==-1 and p.addTokensOrCoinsIfTransferSuccessful==false
+    0        otherwise
 ````
 
 ### InTransitDelegated
