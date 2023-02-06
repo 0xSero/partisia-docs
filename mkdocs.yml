@@ -33,6 +33,8 @@ nav:
       - Zero Knowledge Contracts: ZKSC.md
       - Compile Zero Knowledge Contracts: compile-zk.md
       - Zero Knowledge Gas Fees: zk-computation-fees.md
+      - ZkRust Language: zk-language.md
+      - Development FAQ: dev-faq.md
   - PBC's decoupled token economy:
       - BYOC and gas for the mainnet and testnet: byoc.md
       - MPC token model: mpc-tokens.md
