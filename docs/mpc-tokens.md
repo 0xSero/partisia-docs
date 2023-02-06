@@ -69,18 +69,18 @@ Below is an example of the the on-chain account information for a given account 
 The fields of the on-chain account information holds the following. The MPC token model described in the next section will give an overview and detailed computations for how the information can be aggregated meaningfully.
 
 
-- mpcTokens: The total amount of MPC tokens that are transferable. This number can be negative if more tokens are in use than the released amount. Example: An account has 100 free tokens and 250 released: mpcTokens = 100. After staking 150: mpcTokens = -50   
-- stakedTokens: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract in See stakedToContract   
-- stakedToContract: The amounts of staked MPC tokens that are associated with running specific blockchain jobs. Not all stake has to be associated with jobs, hence the sum of “stakedToContract” does not always equal “stakedTokens”   
-- pendingUnstakes: MPC tokens which were staked, and are now being unstaked. When unstaking MPC tokens there is a 7 days waiting period during which they are kept here as pendingUnstakes   
-- spentFreeTransactions: Keeps track of the number of free transactions used in each epoch. Irrelevant for MPC token calculations described in this document   
-- vestingAccounts: MPC tokens that are locked which will become unlocked (freely transferable) after each unlock in the unlocking schedule. Note that the variable called “vestingAccounts” refers to “unlocking schedules”. The user’s receive all tokens but the token gradually becomes unlocked. Note that both locked and unlocked tokens can be used for Staking and for Delegated Staking.   
-- storedPendingTransfers: Keeps track of incoming/outgoing transfers of MPC tokens and BYOC coins while a two-phase commit protocol is being executed   
-- storedPendingStakeDelegations: Keeps track of incoming/outgoing delegated MPC tokens while a two-phase commit protocol is being executed   
-- delegatedStakesFromOthers: MPC tokens delegated from other users. If they are accepted MPC tokens delegated from others can be used for running on-chain jobs   
-- delegatedStakesToOthers: MPC tokens delegated to other users for them to use as stake   
-- pendingRetractedDelegatedStakes: MPC tokens, which were delegated to another user and are now being retracted and freed. Retraction of delegated MPC tokens has a 7 days waiting period during which they are kept here   
-- stakeable: Specifies if this account is allowed to stake MPC tokens. Irrelevant for MPC token calculations    
+- `mpcTokens`: The total amount of MPC tokens that are transferable. This number can be negative if more tokens are in use than the released amount. Example: An account has 100 free tokens and 250 released: mpcTokens = 100. After staking 150: mpcTokens = -50   
+- `stakedTokens`: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract in See stakedToContract   
+- `stakedToContract`: The amounts of staked MPC tokens that are associated with running specific blockchain jobs. Not all stake has to be associated with jobs, hence the sum of “stakedToContract” does not always equal “stakedTokens”   
+- `pendingUnstakes`: MPC tokens which were staked, and are now being unstaked. When unstaking MPC tokens there is a 7 days waiting period during which they are kept here as pendingUnstakes   
+- `spentFreeTransactions`: Keeps track of the number of free transactions used in each epoch. Irrelevant for MPC token calculations described in this document   
+- `vestingAccounts`: MPC tokens that are locked which will become unlocked (freely transferable) after each unlock in the unlocking schedule. Note that the variable called “vestingAccounts” refers to “unlocking schedules”. The user’s receive all tokens but the token gradually becomes unlocked. Note that both locked and unlocked tokens can be used for Staking and for Delegated Staking.   
+- `storedPendingTransfers`: Keeps track of incoming/outgoing transfers of MPC tokens and BYOC coins while a two-phase commit protocol is being executed   
+- `storedPendingStakeDelegations`: Keeps track of incoming/outgoing delegated MPC tokens while a two-phase commit protocol is being executed   
+- `delegatedStakesFromOthers`: MPC tokens delegated from other users. If they are accepted MPC tokens delegated from others can be used for running on-chain jobs   
+- `delegatedStakesToOthers`: MPC tokens delegated to other users for them to use as stake   
+- `pendingRetractedDelegatedStakes`: MPC tokens, which were delegated to another user and are now being retracted and freed. Retraction of delegated MPC tokens has a 7 days waiting period during which they are kept here   
+- `stakeable`: Specifies if this account is allowed to stake MPC tokens. Irrelevant for MPC token calculations    
 
 ## Definition of token amounts
 
