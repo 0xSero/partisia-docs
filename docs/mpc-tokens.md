@@ -292,9 +292,9 @@ Computation (from on-chain information)
 ````
 where
 ````
-delegationValue(p) = p.amount if p.delegationType==DELEGATE_STAKES or
-p.delegationType==RETRACT_DELEGATED_STAKES
-0 	          otherwise
+delegationValue(p) = 
+    p.amount if p.delegationType==DELEGATE_STAKES or p.delegationType==RETRACT_DELEGATED_STAKES
+    0        otherwise
 ````
 
 ### Unused
