@@ -35,7 +35,7 @@ nav:
       - Zero Knowledge Gas Fees: zk-computation-fees.md
   - PBC's decoupled token economy:
       - BYOC and gas for the mainnet and testnet: byoc.md
-      - MPC tokens: mpc-tokens.md
+      - MPC token model: mpc-tokens.md
   - Terminology:
       - PBC Dictionary: dictionary.md
 
