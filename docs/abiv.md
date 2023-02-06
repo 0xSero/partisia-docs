@@ -8,7 +8,7 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 
 ## ABI Version changes
 - Version **5.0** to **6.0**:
-    * Added additional abi types: `U256`. `Hash`, `PublicKey`, `Signature`, `BlsPublicKey`, `BlsSignature`.
+    * Added additional abi types: `U256`, `Hash`, `PublicKey`, `Signature`, `BlsPublicKey`, `BlsSignature`.
 - Version **4.1** to **5.0**:
     * Added support for enum with struct items.
     * Changed `StructTypeSpec` to `NamedTypeSpec` which is either an `EnumTypeSpec` or `StructTypeSpec`.
