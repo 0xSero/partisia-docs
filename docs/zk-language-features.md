@@ -17,12 +17,12 @@ Legend: ✅ Supported, ✨ Supported and distinct from Rust, ❌ Unsupported
 | Type generics              | ✅ |    |
 | `continue`, `break`        | ✅ |    |
 | Type aliases               | ✅ |    |
-| `for`-in-iterator          | ❌ | Almost Certainly |
+| Generalized `for`-in-iterator | ✅ | |
 | Arrays                     | ❌ | Very Likely   |
-| Derive traits              | ❌ | Very Likely   |
+| General derive traits      | ❌ | Very Likely   |
 | `enum`                     | ❌ | Likely   |
 | `fn` Function declaration  | ❌ | Likely   |
-| Assigning to struct fields | ❌ | Possibly |
+| Assigning to struct fields | ❌ | Likely   |
 | `const` Constant items     | ❌ | Possibly |
 | Closure expressions        | ❌ | Possibly |
 | Constant generics          | ❌ | Possibly |
@@ -50,10 +50,11 @@ Legend: ✅ Supported, ✨ Supported and distinct from Rust, ❌ Unsupported
 | `loop`                    | ❌ | Unlikely, due to gas concerns. |
 | `while`                   | ❌ | Unlikely, due to gas concerns. |
 | Bitshift with two secrets | ❌ | Unlikely, due to performance concerns. |
+| Array indexing with secret-shared index | ❌ | Unlikely, due to performance concerns. |
 | Async                  | ❌ | Incompatible with current archtecture. |
 | Inline Assembly        | ❌ | Incompatible with current archtecture. |
 | Operating System Access| ❌ | Incompatible with current archtecture. |
-| Print and other output | ❌ | Incompatible with current archtecture. |
+| `print!` and other IO  | ❌ | Incompatible with current archtecture. |
 | Threading              | ❌ | Incompatible with current archtecture. |
 | `unsafe`               | ❌ | Incompatible with current archtecture. |
 

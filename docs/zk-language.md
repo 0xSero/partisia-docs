@@ -5,6 +5,12 @@ Blockchain. ZK-Rust resembles [Rust](https://rust-lang.com) in syntax, with
 a restricted feature set, and an alternative standard library tailored for
 Partisia Blockchain.
 
+Further reading:
+
+- [Zero-knowledge Language Reference](zk-language-reference.md)
+- [Zero-knowledge Contract FAQ](dev-faq.md#Zero Knowledge Rust Contracts)
+- [Zero-knowledge Language Feature Checklist](zk-language-features.md)
+
 ## Concepts
 
 Zk-Rust's most significant difference from Rust, is it's support for
@@ -47,7 +53,7 @@ The following program will not compile, for example:
 pub fn my_computation() -> i32 {
     let secret_1: Sbi32 = Sbi32::from(93);
     let secret_2: Sbi32 = Sbi32::from(231);
-    let declassify: i32 = secret_1 + secret_2; // !! Cannot assign secret to public variable!
+    let declassify: i32 = secret_1 + secret_2; // !! cannot assign secret to public variable!
     declassify * 2
 }
 ```
@@ -57,12 +63,12 @@ New `SbiN` values can be created from public integers using `SbiN::from(iN)`.
 ### Secret Branching
 
 As we've seen above, the operations available on `Sbi` is constrained, due to
-IFS. Another situation where Secret-shared values are less flexible that their
+IFS. Another situation where Secret-shared values are less flexible than their
 public counterparts is when branching.
 
 Consider for example:
 
-```
+```rust
 let secret: Sbi32 = ...;
 let mut public: i32 = 9;
 if secret == Sbi32::from(4) {
@@ -77,7 +83,7 @@ as the value of `public` after the branch would be based upon the value of
 
 It is possible to assign secrets in secret-braches:
 
-```
+```rust
 let secret: Sbi32 = ...;
 let mut secret_2: Sbi32 = Sbi32::from(9);
 if secret == Sbi32::from(4) {
@@ -89,30 +95,74 @@ Here the assignment is allowed, as there is no declassification. Note though
 that this branch is compiled differently from public branches, and might result
 in some performance overhead.
 
-### Inputs and contract state
+### Secret variables
 
-Computation inputs are accessed by `load_sbi::<S: Secret>(idx: i32): S` and
-`load_metadata::<T: Public>(idx: i32): T`. `load_sbi` loads the variable at the
-given variable index `idx` as a secret `S` (throwing at runtime if the variable
-could not be loaded to that `S`), while `load_metadata` loads
-the non-secret `T` that is associated with the variable.
+Each contract possess a list of secret variables. These variables possess:
 
-Additionally, the `load_sbi` function supports loading entirely secret structs,
-e.g. structs with fields that are themselves entirely secret. For example:
+- A unique id.
+- Secret data, secret-shared between contract's computation nodes. Loadable in
+  the computation by `load_sbi::<S: SecretBinary>(id: i32): S`.
+- Public information called __metadata__. Loadable in the computation by
+  `load_metadata::<T: Public>(id: i32): T`.
+- An owner (blockchain account), who uploaded the variable, or in the case of
+  computation outputs, the contract itself. This information is not available for zk-computation.
 
+Contract users can add new variables (called inputs at this point) by invoking
+the contract's `#[zk_on_secret_input]`.  Variables can additionally be created
+as the result of running a computation. The public part of the ZK-contract is
+responsible for managing the variables, including opening (revealing the
+output of a computation) and deleting them.
+
+Variable ids can be iterated by calling `secret_variables(): Iter<i32>`:
+
+```rust
+pub fn sum_all_variables() -> Sbi32 {
+    let mut sum = Sbi32::from(0);
+    for variable_id in secret_variables() {
+        sum = sum + load_sbi::<Sbi32>(variable_id);
+    }
+    sum
+}
 ```
-#[derive(Secret)]
-struct Secret3D {
-    x: Sbi32,
-    y: Sbi32,
-    z: Sbi32,
+
+### Type Structures
+
+Rust's `struct` keyword is supported for creating structure types. These
+structs can either contain purely public types, or purely secret-shared types.
+
+```rust
+// public
+struct SomeData {
+    uid: i64,
+    info: i32,
 }
 
-#[derive(Secret)]
-struct Polygon3D {
-    x: Secret3D,
-    y: Secret3D,
-    z: Secret3D,
+#[derive(SecretBinary)]
+struct Point {
+    x: Sbi16,
+    y: Sbi16,
+}
+
+#[derive(SecretBinary)]
+struct Triangle {
+    x: Point,
+    y: Point,
+    z: Point,
 }
 ```
+
+Types with `#[derive(SecretBinary)]` obviously implements the `SecretBinary`
+trait, allowing them to be loaded using the `load_sbi` function. Note that
+variables does not possess explicit types, and can be loaded as any type of
+equal or fewer bits. For example, let's say variable with id `42` has 64 bits
+of data. This variable can be loaded using any of the following, producing
+different values for each:
+
+- `load_sbi::<Sbi32>(42)`, due to `32 <= 64`.
+- `load_sbi::<Sbi64>(42)`, due to `64 <= 64`.
+- `load_sbi::<Point>(42)`, due to `16 + 16 <= 64`.
+
+Attempting to load variable `42` as `Triangle` would result in a runtime
+exception, as it would attempt to load `(16 + 16)*3 = 96` bits, which variable
+`42` cannot provide.
 
