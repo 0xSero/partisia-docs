@@ -278,9 +278,9 @@ Computation (from on-chain information)
 ````
 where
 ````
-transferValue(p) = p.amount if p.coinIndex==-1 and
-p.addTokensOrCoinsIfTransferSuccessful==false
-0 	          otherwise
+transferValue(p) = 
+    p.amount if p.coinIndex==-1 and p.addTokensOrCoinsIfTransferSuccessful==false
+    0        otherwise
 ````
 
 ### InTransitDelegated
@@ -292,9 +292,9 @@ Computation (from on-chain information)
 ````
 where
 ````
-delegationValue(p) = p.amount if p.delegationType==DELEGATE_STAKES or
-p.delegationType==RETRACT_DELEGATED_STAKES
-0 	          otherwise
+delegationValue(p) = 
+    p.amount if p.delegationType==DELEGATE_STAKES or p.delegationType==RETRACT_DELEGATED_STAKES
+    0        otherwise
 ````
 
 ### Unused
