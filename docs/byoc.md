@@ -33,6 +33,7 @@ The price for different services on the blockchain has been chosen to roughly ma
     - MPC multiplication fee (tentative): 5 USD cents per 1000   
     - MPC triples fee (tentative): 5 USD cents per 1000 triples   
     - Staking fee (tentative): 1% of the locked staked value per month. The locked stakes for ZK computations are set by the users.   
+Go [here](zk-computation-fees.md) for complete overview of the calculations of gas costs for ZK services.   
 
 - Token Bridge:   
     - 1% of the value transferred with a threshold of 25 USD as minimum transfer (equal to a Token Bridge fee of 25 USD cents).   
