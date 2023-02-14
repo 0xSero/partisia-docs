@@ -7,8 +7,10 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
-- Version **5.0** to **6.0**:
-    * Added `ArgumentKind` field to `ArgumentAbi` to support ZK inputs.
+- Version **5.0** to **5.1**:
+    * Added new `FnKind: 0x17` called `ZkSecretInputNew`.
+    * Added `SecretArgument` field to `FnAbi` to support ZK inputs. Only present when `FnKind` is `ZkSecretInputNew`.
+    * `FnKind: 0x10` is now deprecated.
 - Version **4.1** to **5.0**:
     * Added support for enum with struct items.
     * Changed `StructTypeSpec` to `NamedTypeSpec` which is either an `EnumTypeSpec` or `StructTypeSpec`.
@@ -275,14 +277,14 @@ $$
 &\text{Kind: FnKind}, \\
 &\text{Name: Identifier}, \\
 &\text{Shortname: LEB128}, \\
-&\text{Arguments: List<ArgumentAbi>} \ \} \\
+&\text{Arguments: List<ArgumentAbi>}  \\
+&\text{SecretArgument: ArgumentAbi} \ \} &\text{Only present if Kind is ZkSecretInputNew} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
 &\text{Name: Identifier}, \\
 &\text{Type: TypeSpec} \ \} \\
 \\
 \text{<ArgumentAbi>} \ := \ \{ \
-&\text{Kind: ArgumentKind}, \\
 &\text{Name: Identifier}, \\
 &\text{Type: TypeSpec} \ \} \\
 \\
@@ -302,11 +304,8 @@ $$
 |\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..1)}\\
 |\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
 |\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
-|\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &text{(0..1)} \\
-\\
-\text{<ArgumentKind>} \ := \ \
-&\hexi{01} \ \Rightarrowx \text{Public} \\
-|\ &\hexi{02} \ \Rightarrowx \text{SecretBinary} \\
+|\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\
+|\ &\hexi{17} \ \Rightarrowx \text{ZkSecretInputNew} &\text{(0..}\infty\text{)} \\
 \end{align*}
 } \\
 $$
