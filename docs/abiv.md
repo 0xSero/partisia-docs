@@ -8,8 +8,8 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 
 ## ABI Version changes
 - Version **5.0** to **5.1**:
-    * Added new `FnKind: 0x17` called `ZkSecretInputNew`.
-    * Added `SecretArgument` field to `FnAbi` to support ZK inputs. Only present when `FnKind` is `ZkSecretInputNew`.
+    * Added new `FnKind: 0x17` called `ZkSecretInputType`.
+    * Added `SecretArgument` field to `FnAbi` to support ZK inputs. Only present when `FnKind` is `ZkSecretInputType`.
     * `FnKind: 0x10` is now deprecated.
 - Version **4.1** to **5.0**:
     * Added support for enum with struct items.
@@ -278,7 +278,7 @@ $$
 &\text{Name: Identifier}, \\
 &\text{Shortname: LEB128}, \\
 &\text{Arguments: List<ArgumentAbi>}  \\
-&\text{SecretArgument: ArgumentAbi} \ \} &\text{Only present if Kind is ZkSecretInputNew} \\
+&\text{SecretArgument: ArgumentAbi} \ \} &\text{SecretArgument is only present if Kind is ZkSecretInputType} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
 &\text{Name: Identifier}, \\
@@ -305,7 +305,7 @@ $$
 |\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
 |\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
 |\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\
-|\ &\hexi{17} \ \Rightarrowx \text{ZkSecretInputNew} &\text{(0..}\infty\text{)} \\
+|\ &\hexi{17} \ \Rightarrowx \text{ZkSecretInputType} &\text{(0..}\infty\text{)} \\
 \end{align*}
 } \\
 $$
