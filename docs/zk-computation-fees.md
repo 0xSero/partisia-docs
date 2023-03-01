@@ -106,7 +106,7 @@ The cost of each of these transactions is covered using BASE_SERVICE_FEES.
 As per the yellow paper, the fee for preprocessing material is 5 USD cent per 1000 preprocessing triples.
 
 Preprocessing material is requested in batches of 100,000 triples for multiplication triples and batches of 1,000 triples for input masks.
-This means the material each batch of multiplication triples costs 
+This means the material for each batch of multiplication triples costs 
 
 100,000 / 1,000 * 5 = 5,000 USD cents
 
