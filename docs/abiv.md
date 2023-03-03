@@ -278,7 +278,7 @@ $$
 &\text{Name: Identifier}, \\
 &\text{Shortname: LEB128}, \\
 &\text{Arguments: List<ArgumentAbi>}  \\
-&\text{SecretArgument: ArgumentAbi} \ \} &\text{SecretArgument is only present if Kind is ZkSecretInputWithExplicitType} \\
+&\text{SecretArgument: ArgumentAbi} \ \} &\text{Only present if Kind is } \hexi{17} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
 &\text{Name: Identifier}, \\
