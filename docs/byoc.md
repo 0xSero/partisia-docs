@@ -13,13 +13,33 @@ The first cryptocurrency you are able to use in the BYOC system at PBC is Ethere
 
 ## The cost for using the blockchain
 
-The initial conversion rate for gas and gas price for different services on the blockchain has been chosen to roughly match the following prices in USD.
+Gas units are pegged to the USD.  The fixed ratio is 100,000 gas units to 1 USD.
 
-- Network fee: 5 USD cents/kb.
+The price for different services on the blockchain has been chosen to roughly match the following prices in USD:
+
+**Basic fees:**  
+
+- Network fee: 5 USD cents/kb.   
 - CPU fee: 5 USD cents per 1000 instructions.
 - Storage fee: 1 USD cent/kb per year.  
 
-**NB.** Future prices may be subject to market mechanisms.
+**ZK and Oracle fees:**  
+
+- BYOC (tentative):     
+    - 0,1% of the value transferred with a threshold of 25 USD as minimum transfer (equal to a BYOC fee of 2,5 USD cents).   
+
+- ZK computation:   
+    - Basic blockchain services priced with Basic fees      
+    - MPC multiplication fee (tentative): 5 USD cents per 1000   
+    - MPC triples fee (tentative): 5 USD cents per 1000 triples   
+    - Staking fee (tentative): 1% of the locked staked value per month. The locked stakes for ZK computations are set by the users.   
+
+Go [here](zk-computation-fees.md) for complete overview of costs for ZK services in gas.   
+
+- Token Bridge:   
+    - 1% of the value transferred with a threshold of 25 USD as minimum transfer (equal to a Token Bridge fee of 25 USD cents).   
+
+**NB.** Prices of ZK services are affected by the number of allocated ZK nodes and the used MPC protocol. All future prices may vary depending on market mechanisms.
 
 ### How to get started
 
@@ -42,11 +62,11 @@ You get a confirmation as seen below if the deposit is successful. The confirmat
 The new testnet will be using [ETH from Goerli testnet](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3). To see your testnet gas balance you will need to switch the network, at which your Partisia wallet is pointing to testnet.
 
 There are two ways to get gas on the testnet:   
-A) using the [bridge from test ETH GOERLI](https://bridge.mpcexplorer.com/testnet/)  
+A) using the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/)  
 B) Using a Gas Faucet contract that mints BYOC
 
 ### Method A
-This mechanism for getting gas is similar to the old testnet and current mainnet (see above). To get GoerliETH you need to find a faucet. This can be found using a simple web search. To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://bridge.mpcexplorer.com/testnet/) to get gas on the testnet. The mpc explorer for the testnet can be found [here](https://testnet.mpcexplorer.com/).
+This mechanism for getting gas is similar to the old testnet and current mainnet (see above). To get GoerliETH you need to find a faucet. This can be found using a simple web search. To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/) to get gas on the testnet. The mpc explorer for the testnet can be found [here](https://testnet.mpcexplorer.com/).
 
 
 ### Method B

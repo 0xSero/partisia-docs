@@ -324,6 +324,6 @@ In `config.json` correct the IPv4:
 ````
 
 **You must migrate certain files for your node to participate in voting on a new committee (Large Oracle)**   
-From the root directory of your old node host you move the 3 files below to the root directory of the new server:
+From the storage directory `/opt/pbc-mainnet/storage` of your old node host you move the 3 files below to the storage directory of the new server:   
 
 `large-oracle-backup-database.db`, `large-oracle-database.db` and `peers.json`

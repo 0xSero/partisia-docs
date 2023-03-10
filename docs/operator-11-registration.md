@@ -13,9 +13,10 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
    - Copy session ID    
 
 4) Go to the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register). Log in.    
-5) Log in to your account. Click upper right corner (View activity). This will take you to your account page. There is a staking button next to your balance of MPC Tokens.     
-6) Click *Register Node* Connect your MPC Wallet by clicking *Connect Wallet*.    
-7) Send Register Transaction.     
+5) Log in to your account. Click upper right corner (View activity). This will take you to your account page.   
+6) Click on *Node register* on the menu bar and then click on *Manage MPC Tokens*. From there, click *Stake MPC Tokens* and stake 25k or more tokens to your account.     
+7) Click Register or Update tab on the menu and fill out the registration information (details below)    
+8) Send Register Transaction.     
 
 
 ## Content of Staking Transaction
