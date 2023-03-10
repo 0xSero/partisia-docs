@@ -313,6 +313,9 @@ $$
 Note that a `ContractAbi` is only valid if the `Hooks` list contains a specific
 number of hooks of each type, as specified in `FnKind`.
 
+Also note that if a function has the deprecated kind `ZkSecretInput`, the default 
+secret argument associated with it is of type i32. 
+
 <!-- fix syntax highlighting* -->
 
 ## Wasm contract result format
