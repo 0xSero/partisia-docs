@@ -8,6 +8,7 @@ function contract_cleanup() {
   popd
   echo "Patching Cargo.toml"
   sed -i -e '/\[package\.metadata\.partisiablockchain\]/,+1d' \
+    -e '/contract-integrationtest/d' \
     -e 's/ssh:\/\//https:\/\//g' \
     -e 's/secata\/pbc\/language\/contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
     Cargo.toml
@@ -26,7 +27,7 @@ function zk_contract_cleanup() {
   echo "Patching Cargo.toml"
   sed -i -e '/\[\[test\]\]/,+2d' \
     -e '/\[package\.metadata\.partisiablockchain\]/,+1d' \
-    -e "/\[package\.metadata\.zkcompiler\]/{ n; s/https:\/\/nexus\.secata\.com\/repository\/mvn\/com\/partisia\/blockchain/https:\/\/gitlab\.com\/api\/v4\/projects\/37549006\/packages\/maven\/com\/partisiablockchain/ }" \
+    -e "/\[package\.metadata\.zkcompiler\]/{ n; s/https:\/\/nexus\.secata\.com\/repository\/mvn\/com\/partisia\/blockchain/https:\/\/gitlab\.com\/api\/v4\/projects\/37549006\/packages\/maven\/com\/partisiablockchain/; s/zkcompiler\/.*\//zkcompiler\/${ZK_COMPILER_VERSION}\//; s/zkcompiler\-.*\-jar/zkcompiler\-${ZK_COMPILER_VERSION}\-jar/}" \
     -e 's/ssh:\/\//https:\/\//g' \
     -e 's/secata\/pbc\/language\/contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
     Cargo.toml
@@ -50,7 +51,7 @@ export URL_PREFIX
 
 ZK_COMPILER_VERSION="3.63.0"
 
-ZK_COMPILER_VERSION="${ZK_COMPILER_VERSION/"."/"\."}"
+ZK_COMPILER_VERSION="${ZK_COMPILER_VERSION//'.'/'\.'}"
 
 # shellcheck disable=SC2034
 declare -A content01=(
