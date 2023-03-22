@@ -7,7 +7,7 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
-- Version **5.0** to **6.0**:
+- Version **5.0** to **5.1**:
     * Added additional abi types: `U256`, `Hash`, `PublicKey`, `Signature`, `BlsPublicKey`, `BlsSignature`.
 - Version **4.1** to **5.0**:
     * Added support for enum with struct items.
