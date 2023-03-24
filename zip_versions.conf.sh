@@ -34,11 +34,11 @@ function zk_contract_cleanup() {
 }
 
 function get_current_version() {
-  compiler_version=$(head -n 1 compiler-version.txt)
+  contract_examples_version=$(head -n 1 contract-examples-version.txt)
   if [[ "$CI_COMMIT_REF_NAME" != "$CI_DEFAULT_BRANCH" ]]; then
-    echo "${compiler_version}-${CI_COMMIT_SHORT_SHA}"
+    echo "$contract_examples_version-${CI_COMMIT_SHORT_SHA}"
   else
-    echo "${compiler_version}"
+    echo "$contract_examples_version"
   fi
 }
 
