@@ -135,7 +135,7 @@ declare -A content10=(
 
 # shellcheck disable=SC2034
 declare -A content11=(
-  [repo]='gitlab.com/secata/pbc/language/contracts/zk-immediate-open.git'
+  [repo]='gitlab.com/secata/pbc/language/contracts/multi-voting.git'
   [output]='contracts/zk-immediate-open'
   [version_ref]='tags/v.0.1.0-sdk-13.1.0'
   [post_process]='zk_contract_cleanup'
