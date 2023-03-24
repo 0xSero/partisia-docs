@@ -87,9 +87,9 @@ declare -A content04=(
 
 # shellcheck disable=SC2034
 declare -A content05=(
-  [repo]='gitlab.com/secata/pbc/language/contracts/zk-voting.git'
-  [output]='contracts/zk-voting'
-  [version_ref]='tags/v.0.6.0-sdk-13.1.0'
+  [repo]='gitlab.com/secata/pbc/language/contracts/zk-voting-simple.git'
+  [output]='contracts/zk-voting-simple'
+  [version_ref]='tags/v.0.5.0-sdk-13.1.0'
   [post_process]='zk_contract_cleanup'
 )
 
