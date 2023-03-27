@@ -34,11 +34,11 @@ function zk_contract_cleanup() {
 }
 
 function get_current_version() {
-  compiler_version=$(head -n 1 compiler-version.txt)
+  contract_examples_version=$(head -n 1 contract-examples-version.txt)
   if [[ "$CI_COMMIT_REF_NAME" != "$CI_DEFAULT_BRANCH" ]]; then
-    echo "${compiler_version}-${CI_COMMIT_SHORT_SHA}"
+    echo "$contract_examples_version-${CI_COMMIT_SHORT_SHA}"
   else
-    echo "${compiler_version}"
+    echo "$contract_examples_version"
   fi
 }
 
@@ -87,9 +87,9 @@ declare -A content04=(
 
 # shellcheck disable=SC2034
 declare -A content05=(
-  [repo]='gitlab.com/secata/pbc/language/contracts/zk-voting.git'
-  [output]='contracts/zk-voting'
-  [version_ref]='tags/v.0.6.0-sdk-13.1.0'
+  [repo]='gitlab.com/secata/pbc/language/contracts/zk-voting-simple.git'
+  [output]='contracts/zk-voting-simple'
+  [version_ref]='tags/v.0.5.0-sdk-13.1.0'
   [post_process]='zk_contract_cleanup'
 )
 
@@ -109,6 +109,7 @@ declare -A content07=(
   [post_process]='zk_contract_cleanup'
 )
 
+# shellcheck disable=SC2034
 declare -A content08=(
   [repo]='gitlab.com/secata/pbc/language/contracts/conditional-escrow-transfer.git'
   [output]='contracts/conditional-escrow-transfer'
@@ -116,6 +117,7 @@ declare -A content08=(
   [post_process]='contract_cleanup'
 )
 
+# shellcheck disable=SC2034
 declare -A content09=(
   [repo]='gitlab.com/secata/pbc/language/contracts/liquidity-swap.git'
   [output]='contracts/liquidity-swap'
@@ -123,11 +125,20 @@ declare -A content09=(
   [post_process]='contract_cleanup'
 )
 
+# shellcheck disable=SC2034
 declare -A content10=(
   [repo]='gitlab.com/secata/pbc/language/contracts/multi-voting.git'
   [output]='contracts/multi-voting'
   [version_ref]='tags/v.1.5.0-sdk-13.1.0'
   [post_process]='contract_cleanup'
+)
+
+# shellcheck disable=SC2034
+declare -A content11=(
+  [repo]='gitlab.com/secata/pbc/language/contracts/zk-immediate-open.git'
+  [output]='contracts/zk-immediate-open'
+  [version_ref]='tags/v.0.1.0-sdk-13.1.0'
+  [post_process]='zk_contract_cleanup'
 )
 
 # shellcheck disable=SC2034
