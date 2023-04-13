@@ -16,4 +16,4 @@ There are three types of smart contracts on PBC:
 
 ![contract_life_stages](deployment2.png)
 
-- **Private smart contracts:** Are just like public smart contracts except that the contract stipulates some actions of the contract taking place on the special private layer of the PBC. These actions are zero knowledge computations. Famously PBC supports secure [multiparty computation](dictionary.md#mpc) called MPC giving name to the blockcain's native token.  
+- **Private smart contracts:** Are just like public smart contracts except that the contract stipulates some actions of the contract taking place on the special private layer of the PBC. These actions are zero knowledge computations. Famously PBC supports secure [multiparty computation](dictionary.md#mpc) called MPC giving name to the [blockcain's native token](dictionary.md#mpc-token).  
