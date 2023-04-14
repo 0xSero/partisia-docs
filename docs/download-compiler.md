@@ -21,7 +21,8 @@ If Working from a Windows machine you must [get Visual Studio with C++  build to
   * MSVC x64/x86 build tools
   * Windows 11 SDK 
   * C++ CMake tools for Windows
-  * Testing tools core features - Build Tools
+  * Testing tools core features 
+  * Build Tools
   * C++ AddressSanitizer
 
 ### 2) Installing the cargo `partisia-contract` command
