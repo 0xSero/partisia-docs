@@ -72,9 +72,10 @@ The included normal contracts are:
 
 The included zk-contracts are:
 
-1. A secret voting contract located in `contracts/zk-voting`
+1. A secret voting contract located in `contracts/zk-voting-simple`
 2. An average salary contract located in `contracts/zk-average-salary`
 3. A second price auction contract located in `contracts/zk-second-price-auction`
+4. A simple zk contract that immediately opens any inputted secret located in `contracts/zk-immediate-open`
 
 Multiple of the examples are described in great detail on the [main site](https://partisiablockchain.gitlab.io/documentation).
 
