@@ -16,8 +16,13 @@ To compile contracts you will also need to install [Git](https://git-scm.com/dow
 If you need to develop zero-knowledge contracts then you will also need to install [Java 17](https://openjdk.org/) to run the zk-compiler.
 
 If Working from a Windows machine you must [get Visual Studio with C++  build tools](https://visualstudio.microsoft.com/downloads/) 
-- In Visual Studio Installer choose *Desktop development with C++*.
- 
+In Visual Studio Installer choose *Desktop development with C++*.
+* We recommned you make sure these optionals are marked:
+  * MSVC x64/x86 build tools
+  * Windows 11 SDK 
+  * C++ CMake tools for Windows
+  * Testing tools core features - Build Tools
+  * C++ AddressSanitizer
 
 ### 2) Installing the cargo `partisia-contract` command
 
