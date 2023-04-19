@@ -78,7 +78,7 @@ pub fn action_internal_name(
 
 The action receives the previous state, along with a context, and the declared
 arguments, and must return the new state, along with a vector of
-[EventGroup](#EventGroup); a list of interactions with other contracts.
+EventGroup; a list of interactions with other contracts.
 
 Example:
 
