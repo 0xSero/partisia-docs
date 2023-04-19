@@ -258,5 +258,4 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 
 ## Building and testing the voting contract
 
-The process is the same for the voting contract as it is for the token contract. 
-The instructions can be found [here](contract-development.md#develop-your-first-contract). 
+The process for building and testing the voting contract is the same as any other contract that needs to be deployed, we recommend you follow our guides [here]([contract-development.md#develop-your-first-contract](https://partisiablockchain.gitlab.io/documentation/contract-compilation.html)). 
