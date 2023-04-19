@@ -7,12 +7,11 @@ Blockchain.
 
 A smart contract on Partisia Blockchain consists of, on a surface level, some
 state, and some actions defined to either operate on the state and/or to
-interact other contracts.
+interact with other contracts.
 
 Consider for example a basic public voting contract:
 
 > State:
-
 > - What are we voting on? (if applicable)
 > - Who are allowed to vote?
 > - Deadline (if applicable)
@@ -21,28 +20,20 @@ Consider for example a basic public voting contract:
 > - What is the result if we are done?
 
 > Actions:
-
 > - Voters should be able to vote.
-> - Anybody should be able to retrieve how many votes have been cast, and
->   whether the vote is complete yet.
+> - Anybody should be able to retrieve how many votes have been cast, and whether the vote is complete yet.
 > - Anybody should be able to retrieve the result of the vote.
 
 > Initializer:
-
 > - Vote subject, Voters and Deadline are all permanent attributes of the vote,
 >   and so should be set in the initializer.
 
-Contracts' state and actions must be declared in an [Contract ABI file](abiv.md#ABI Binary Format);
-a concise description of the contract's interface and internal state
-representation, that must be uploaded together with the contract code when
-initializing the contract.  Without an ABI file, it might be impossible for the
-dashboard and other contracts to interact with your contract.
+Contracts' state and actions must be declared in an [Contract ABI file](abiv.md#abi-binary-format);
+a concise description of the contract's interface and internal state representation, that must be uploaded together with the contract code when initializing the contract.  Without an ABI file, it might be impossible for the dashboard and other contracts to interact with your contract.
 
-The PBC compiler is capable of automatically producing an ABI for your contract, along
-with state and RPC serialization code for your actions.
+The PBC compiler is capable of automatically producing an ABI for your contract, along with state and RPC serialization code for your actions.
 
 ## Macros
-
 Smart contract elements can be declared using these macros:
 
 - `#[state]` declares how the contract represents its state.
@@ -51,7 +42,6 @@ Smart contract elements can be declared using these macros:
 - `#[callback]` declares the code to run after a corresponding `action` has been called.
 
 ### `#[state]`
-
 Declares that the annotated struct is the top level of the contract state. This
 macro must occur exactly once in any given contract.
 
@@ -74,7 +64,6 @@ aren't `impl ReadWriteState`.
 Further reading: [state macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.state.html)
 
 ### `#[action]`
-
 Declares that the annotated function is an contract action that can be called
 from other contracts and dashboard. Must have a signature of the following format:
 
@@ -107,13 +96,11 @@ pub fn vote(
 Further reading: [action macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.action.html)
 
 #### A note on functional contracts
-
 Contracts are _functional_: Each interaction point, whether `init` or `action` take some input, and return some output. Interactions cannot produce side effects, visible or not. The state will thus not be changed should a transaction fail while running the contract code, whether due to panics or insufficient gas.
 
 Of further interest here, is that the entire contract is essentially "reset" after every interaction. Any [`static mut` items](https://doc.rust-lang.org/reference/items/static-items.html) will possess their initial value, once again. The only state your contract can possess is the state returned from interactions.
 
 ### `#[init]`
-
 Similar to `#[action]` macro, but declares how the contract can be initialized.
 
 ```rust
@@ -147,7 +134,6 @@ pub fn initialize(
 Further reading: [init macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.init.html)
 
 ### `#[callback]`
-
 Has to be linked with an `#[action]` macro in order to be called. In practise this is done by combining the implicitly created constant of the corresponding callback-annotated function with a call to an event group builder's with_callback() function.
 
 ```rust
@@ -189,28 +175,24 @@ pub fn call_bob_callback(
 Further reading: [callback macro documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.callback.html)
 
 ## Traits
-
 The compiler exposes traits that provides serialization methods. These traits are
 important for the operation of PBC contracts, but should rarely be implemented
 manually; prefer using the built-in derive methods.
 
-- ReadWriteState: Serialization for [State serialization format](abiv.md#State Binary Format).
-- ReadWriteRPC: Serialization for [RPC argument serialization format](abiv.md#RPC Binary Format).
-- CreateTypeSpec: Serialization for [ABI serialization format](abiv.md#ABI Binary Format).
+- ReadWriteState: Serialization for [State serialization format](abiv.md#state-binary-format).
+- ReadWriteRPC: Serialization for [RPC argument serialization format](abiv.md#rpc-binary-format).
+- CreateTypeSpec: Serialization for [ABI serialization format](abiv.md#abi-binary-format).
 
 Further reading: [`pbc_traits` crate documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/index.html)
 
 ## Data Structures
-
 ### Address
-
 `Address` represents an address on the blockchain; it has a subfield indicating
 the type of the address (account, system contract, public contract or zk contract.)
 
 Further reading: [Address struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/address/struct.Address.html)
 
 ### ContractContext
-
 `ContractContext` is available from every action, and contains some useful
 context information for the current transaction:
 
@@ -221,7 +203,6 @@ context information for the current transaction:
 Further reading: [ContractContext struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/index.html#structs)
 
 ### Events
-
 Partisia Blockchain's contract interaction model sandboxes each contract, and allows RPC
 calls as the primary form of interaction. As each transaction is entirely isolated, RPCs can
 only occur "between" action calls.
@@ -238,8 +219,7 @@ For example:
 To accommodate this model, the compiler requires each `action` annotated function to
 return a (possibly empty) `Vec` of `EventGroup`s, which represents the "Call X for me" information.
 
-Each `EventGroup` consists of one or more interactions (representing "Call
-X for me",) with the possibility of callbacks (representing "I want a reply") or return data (representing the optional data to be passed along with a reply) but never both at the same time.
+Each `EventGroup` consists of one or more interactions (representing "Call X for me",) with the possibility of callbacks (representing "I want a reply") or return data (representing the optional data to be passed along with a reply) but never both at the same time.
 All interactions in an `EventGroup` shares gas costs uniformly.
 
 To see how Bob might pass along some return data, see the following example: 
@@ -281,13 +261,11 @@ pub fn call_bob_callback(
 Further reading: [events module documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/events/index.html)
 
 ### CallbackContext
-
 The additional context struct that all callback-annotated functions receive as a parameter. It holds information about all events in the `EventGroup` linked to the callback. This information denotes whether *all* events successfully executed, the individual execution success-status of each event and optional return data linked to the event.
 
 Further reading: [CallbackContext struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/struct.CallbackContext.html)
 
 ## State serialization gas considerations
-
 Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically for [CopySerializable](abiv.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
 
 If quick lookups are required, and the data structure rarely changes, it might be feasible to maintain a sorted `Vec` in state, and use [`[T]::binary_search_by_key`](https://doc.rust-lang.org/std/primitive.slice.html#method.binary_search_by_key) for lookups, essentially creating your own map structure.
@@ -295,7 +273,6 @@ If quick lookups are required, and the data structure rarely changes, it might b
 Ensure you [depend upon and link against the `pbc_lib` crate](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_lib/index.html). This _should_ automatically lower gas costs.
 
 ### Cheap memcpy (or _why_ you should definitely link `pbc_lib`)
-
 The compiler exposes cheaper (in terms of gas) versions of the `memcpy` and `memmove` functions. These functions are commonly used for copying bytes around directly, but are (thankfully) rarely manually used in Rust, though they may still occur in compiled programs due to lower-level libraries and compiler optimizations. Your compiled contracts will be using `memcpy` for (de)serialization, hence why the compiler defines these alternatives.
 
 The `pbc_lib` crate overwrites these functions with versions that directly interact with the PBC WASM Interpreter to trigger the interpreter's built-in support for quickly copying data around.
