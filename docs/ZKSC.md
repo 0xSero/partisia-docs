@@ -1,6 +1,6 @@
 # Zero knowledge smart contracts
 
-One of the main features which set PBC apart from other blockchains is that PBC supports zero knowledge computations, notably secure multiparty computation (MPC).
+One of the main features which set Particia Blockchain(PBC) apart from other blockchains is that PBC supports zero knowledge computations, notably secure multiparty computation (MPC).
 You can utilize PBC's capacity for ZK computations through zero knowledge smart contracts (ZKSC).
 
 ### What is zero knowledge smart contracts
@@ -8,7 +8,7 @@ Zero knowledge smart contracts has all the same functionality as public smart co
 If our ZKSC is an auction like below, the public state will contain the winner's ID and the price of the auctioned item, whereas the private state will contain all the non-winning bids. The calculation in the private state are done on [secret shared data](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a). This means that the nodes allocated for the ZK work in the contract does not have access to the user input, i.e. the ZK nodes do not have access to the values of the non-winning bids.
 
 ### Example of a zero knowledge smart contract on PBC - Vickrey Auction
-One of the types of smart contracts you will be able to deploy on PBC is a Vickrey Auction (second price auction), which is a sealed bid auction where the winner is the person with the highest bid (as in a normal auction), but the price paid is that of the second-highest bidder.
+One of the types of smart contracts you will be able to deploy on PBC is a [Vickrey Auction (second price auction)](https://en.wikipedia.org/wiki/Vickrey_auction), which is a sealed bid auction where the winner is the person with the highest bid (as in a normal auction), but the price paid is that of the second-highest bidder.
 When some valuable item changes hands through an auction it is desirable to have the change in ownership registered on an immutable record.  It is however sometimes undesirable that individual maximum bids are public, since the seller can use a third party to drive up the price to the highest possible price.
 One of the great advantages of PBC over other blockchains is that zero knowledge computations can be performed on the network parallel to the public transactions on the blockchain.
 The second price auction takes as inputs the bids from the registered participants. The bids are delivered encrypted and secret-shared to the ZK nodes allocated to the contract. When the computation is initiated by the contract owner, the zero knowledge computation nodes reads the collected input and then create a bit vector consisting of prices and the ordering number. The list of bit vectors is now sorted in MPC. The winner is the first entry (the bidder with the highest price-bid), the price is determined by the size of the second-highest bid.
@@ -51,7 +51,7 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
 }
 
 ````
-(You will see the code handling the remaining contract phases further down the page) 
+[You can see the code handling the remaining contract phases further down the page](ZKSC.md#full-zksc-code-example)
 
 ### Use zero knowledge smart contracts on PBC as a second layer
 
@@ -63,7 +63,7 @@ The contract owner controls the functions on the Zero knowledge smart contract o
 The flow goes like this: After deployment on PBC, the contract owner needs to add some information from the state of the PBC contract to the contract on layer one.   
 The contract on PBC still goes through the same phases listed above, but the contract owner has to manually add some information from the state of the deployed PBC contract to contract on layer one. The layer one contract needs to contain the identities (PBC addresses) of the ZK nodes that have been allocated to do the zero knowledge computation. This is necessary because the winner uses signatures from the ZK nodes to claim and prove themselves the actual winner. The signatures contain the identity of the zk nodes and the result (a winning bidder and the price) which the respective node approved. To claim a win on the layer one contract your identity have to match the result calculated by a majority of the ZK nodes. In practice 3 out of 4.
 
-
+### Full ZKSC code example
 
 ````rust
 #![allow(unused_variables)]
