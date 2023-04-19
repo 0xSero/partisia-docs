@@ -12,7 +12,7 @@ interact with other contracts.
 
 Consider for example a basic public voting contract:
 
-> State:
+> **State:**
 
 > - What are we voting on? (if applicable)
 > - Who are allowed to vote?
@@ -21,14 +21,14 @@ Consider for example a basic public voting contract:
 > - Are we done yet?
 > - What is the result if we are done?
 
-> Actions:
+> **Actions:**
 
 > - Voters should be able to vote.
 > - Anybody should be able to retrieve how many votes have been cast, and
 >   whether the vote is complete yet.
 > - Anybody should be able to retrieve the result of the vote.
 
-> Initializer:
+> **Initializer:**
 
 > - Vote subject, Voters and Deadline are all permanent attributes of the vote,
 >   and so should be set in the initializer.
