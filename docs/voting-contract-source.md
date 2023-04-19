@@ -1,6 +1,4 @@
-# Voting Smart Contract Rust Source Code
-
-See [Voting Contract Explained](voting-contract.md)
+### Voting Smart Contract Rust Source Code
 
 ````rust
 #![allow(unused_variables)]
