@@ -278,8 +278,8 @@ code {
 .md-sidebar__scrollwrap {
   background-color: #eef1f9;
   color: #9d9dc4;
-  padding: 70px 10px;
-  margin: 0 0.5rem;
+  padding: 85px 10px;
+  margin: 0 0.2rem;
   overflow-y: auto;
   height: 100% !important;
   /* position: fixed; */
