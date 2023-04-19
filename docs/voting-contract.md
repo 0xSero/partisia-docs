@@ -23,9 +23,11 @@ supposed to be public.
 
 In the following the different parts of a smart contract implementing the voting scenario is
 explained.
+
+If you need help with any of the rust concepts we recommend you visit [Rust intro book for general understanding](https://doc.rust-lang.org/std/index.html) or if you need help understanding Rust standard macros, or other specific keywords we recommend the [Rust Standard Library](https://doc.rust-lang.org/std/index.html) for specifications of these.
+
 <details>
   <summary>You can see the complete Rust source code of the contract here</summary>
-### Voting Smart Contract Rust Source Code
 
 ````rust
 #![allow(unused_variables)]
@@ -115,8 +117,7 @@ pub fn initialize(
 ### 1) Importing libraries
 
 First we need to include a few libraries to get access to the functions and types needed for
-programming a smart contract. It is not necessary to understand exactly what the includes here do in
-order to create your own smart contracts.
+programming our smart contract. It is not necessary to understand exactly what the library includes here or what they do in order to create your first smart contract.
 
 ````rust
 #![allow(unused_variables)]
