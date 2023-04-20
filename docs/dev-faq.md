@@ -12,7 +12,7 @@ Questions for non-ZK contracts:
     1. `#[init]`: Creator of the contract.
     2. `#[action]`: Sender of the transaction. Some contract address if from
        a contract, user address if from a user.
-    3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to contract B, which then performed a callback to contract C. When the return message is recieved by contract B, the sender of the interaction will be set to A.
+    3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to contract B, which then performed a callback to contract C. When the return message is recieved by contract B, the sender of the interaction will be set to A. Events are explained more in-depth [here](programmers_guide.md#events)
     4. `#[zk_on_secret_input]`: Sender of the input.
 - **Action macros complains about `pbc_lib`**: Ensure that `abi` features are correctly imported. When depending upon other crates, you must never use `features = ["abi"]`, as this will result in malformed contracts.  Abi features must only ever be enabled conditionally.  Crates must propagate the `abi` feature by placing a `abi = ["crate1/abi", "crate2/abi", "crate3/abi", ...]` statement in the `[features]` toml section.
 
@@ -23,7 +23,7 @@ Questions for ZK contracts:
 - **ZkContract: What does `sealing` a ZK variable do?**: Sealing the variable will prevent the owner of the variable from accessing the contents. This is mainly relevant when the contract transfers variables between users.
 - **ZkContract: What actions happens off-chain or on-chain?**: All actions in the public part of the contract happens on-chain, including those hooks that are exclusive to ZK contracts, such as `zk_on_compute_complete`, `zk_on_variables_opened`, `zk_on_attestation_complete`. The ZK computation itself happens off-chain on the ZK nodes. Secret shared inputs can either happen off-chain or on-chain, depending upon what the inputter prefers and is entirely transparent to contract developers.
 - **ZkContract: What can I store in variable metadata?**: All state serializable data can be stored as variable metadata, but not all types are supported by ZkRust.
-- **ZkContract: How large (in bits) can each secret-shared variable be?**: The goal is to support arbitrarily large secret-shared variables. but the largest currently supported bitsize is 127, due to various factors.
+- **ZkContract: How large (in bits) can each secret-shared variable be?**: The goal is to support arbitrarily large secret-shared variables. but the largest currently supported bitsize is 127.
 - **ZkContract: How does `ZkStateChange::start_computation` work?**: The `start_computation<MetadataT>(metadata: Vec<MetadataT>)` constructor initializes the contract's associated ZK computation. The `metadata` argument must contain the metadata intended for the resulting variables. Thus, if the ZK computation produces three variables, then the `start_computation` must have been provided with three pieces of metadata.
 - **ZkContract: Can I access secret variable data outside of the ZK computation?**: Secret variable data access is very restricted, and is only viewable in these cases:
     1. By everyone, when opened by the contract using `ZkState::OpenVariables`. The data will be available as a byte vec in `ZkClosed::data`. This is not possible for user inputs.
