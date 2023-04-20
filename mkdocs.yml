@@ -26,6 +26,7 @@ nav:
       - What is a smart contract: contract-development.md
       - Download compiler for contract development: download-compiler.md
       - Compile and deploy contracts: contract-compilation.md
+      - Access and use the testnet: testnet.md
       - MPC Examples and Smart contracts available for combinatorial innovation: combi-innovation.md
       - Programmer's Guide to PBC smart contract: programmers_guide.md
       - ABI specification: abiv.md
