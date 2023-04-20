@@ -20,6 +20,7 @@
 - [Use the PBC testnet for contract development](testnet.md)   
 - [Download compiler for contract development](download-compiler.md)   
 - [Smart contract examples](combi-innovation.md)
+- [Use the PBC testnet](testnet.md)
 - [Programmer's Guide to PBC smart contract](programmers_guide.md)   
 - [ABI specification](abiv.md)   
 - [Create a Smart Contract for a specific scenario](voting-contract.md)   
