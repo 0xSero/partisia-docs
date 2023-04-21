@@ -34,7 +34,8 @@ nav:
       - Zero Knowledge Smart Contracts: ZKSC.md
       - Compile Zero Knowledge Contracts: compile-zk.md
       - Zero Knowledge Gas Fees: zk-computation-fees.md
-      - ZkRust Language: zk-language.md
+      -Zero Knowledge Rust Language (ZkRust): 
+          - ZkRust Language: zk-language.md
           - ZK Rust Reference: zk-language-reference.md
           - Zk language features: zk-language-features.md
       - Development FAQ: dev-faq.md
