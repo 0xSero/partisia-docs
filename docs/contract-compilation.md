@@ -1,4 +1,4 @@
-# Contract compilation and deployment
+# Compile and deploy contracts
 
 In the following sections we focus on the example token contract included in the example contract archive.
 The contract utilizes several functions. The main functions are *initialize*, and *transfer* that 

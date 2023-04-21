@@ -1,6 +1,6 @@
-# Create a smart contract for a specific scenario e.g. transparency in parliament
+# How to create a smart contract with a specific scenario
 
-## Case - Voting record of MPs as a means to strengthen democracy and transparency
+## Case transparency in parliament - Voting record of MPs as a means to strengthen democracy and transparency
 
 The newly founded republic of Faraway is plagued by corruption. To ensure transparency and public
 mandate behind the parliamentary process the voting record of the elected MPs is added to the

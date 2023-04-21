@@ -1,5 +1,4 @@
-<base target="_blank">
-# Programmer's Guide for PBC smart contracts
+# Programmers Guide to PBC smart contracts
 
 This page is a quick overview of the software development kit for Partisia
 Blockchain.
