@@ -549,16 +549,16 @@ nav.md-nav ul.md-nav__list {
 .front-page-pictures {
   width: 35%;
   height: 35%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
 }
 
 .front-page-pictures-left {
-margin-left: auto;
-margin-right: auto;
+margin-left: 10%;
+margin-right: 10%;
 float: left;
 }
 
 .front-page-pictures-right {
-margin-right: auto;
+margin-right: 10%;
 float: right;
 }
