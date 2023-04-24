@@ -1,8 +1,6 @@
 # Documentation for Partisia Blockchain Mainnet
 <a href="">
-    [<img src="assets/Categories/PBC%20Fundametals.png"
-        alt="PBC Fundamentals"
-        class="front-page-pictures front-page-pictures-left" />](testnet.md)
+    [<img src="assets/Categories/PBC%20Fundametals.png" alt="PBC Fundamentals"c lass="front-page-pictures front-page-pictures-left" />](testnet.md)
 </a>
 <a href="">
     <img src="assets/Categories/BYOC%20and%20MPC%20Token.png"
