@@ -546,3 +546,7 @@ nav.md-nav ul.md-nav__list {
   border-radius: 4px;
   right: 11rem;
 }
+.front-page-pictures {
+  width: 45%;
+  height: 45%;
+}
