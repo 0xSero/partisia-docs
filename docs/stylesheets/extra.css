@@ -550,3 +550,11 @@ nav.md-nav ul.md-nav__list {
   width: 45%;
   height: 45%;
 }
+
+.front-page-pictures-left {
+margin-left: 5%;
+}
+
+.front-page-pictures-right {
+margin-right: 5%;
+}
