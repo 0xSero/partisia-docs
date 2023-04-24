@@ -14,5 +14,5 @@
      class="front-page-pictures front-page-pictures-rigth" />
 <img src="assets/Categories/Need%20Support.png"
      alt="Need support?"
-     style=" text-align: center;" 
+     style="display: block; margin: 0 auto;" 
      class="front-page-pictures" />
