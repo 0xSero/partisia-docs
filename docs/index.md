@@ -9,6 +9,7 @@
         alt="Smart Contracts"
         class="front-page-pictures front-page-pictures-right" />
 </a>
+<br>
 <a href="">
     <img src="assets/Categories/Node%20Operations.png"
         alt="Node Operations"
