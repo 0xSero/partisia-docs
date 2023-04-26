@@ -22,8 +22,7 @@ The contract on PBC still goes through the same phases listed above, but the con
 
 One of the problems with transferring data between PBC and Ethereum is that the two chains take
 different approaches on how information is represented. Specifically, the differences relevant for
-using PBC as second layer are; (1) how user data is encoded, (2) the hashing algorithm used,
-(3) how contract/account addresses are derived, and (4) the encoding of signatures.
+using PBC as second layer are; 1) how user data is encoded, 2) the hashing algorithm used, 3) how contract/account addresses are derived, and 4) the encoding of signatures.
 
 #### Encoding data
 
@@ -34,7 +33,7 @@ For a detailed overview of how they work, see the
 Data received from PBC should be encoded using `abi.encodePacked()`.
 
 Similarly, PBC also has two ways to encode or serialize data based on what they are used for.
-See [documentation](https://partisiablockchain.gitlab.io/documentation/abiv.html) for more details.
+See [documentation](abiv.md) for more details.
 
 Data that are meant to be sent to Ethereum must be encoded as an argument for an RPC payload.
 This can be done by the method `<type>.rpc_write_to(&mut writer)`, where the type implements
@@ -83,8 +82,8 @@ last 20 bytes of the Keccak-256 hash of the public key.
 Since PBC holds the public keys of the computation nodes in the state this sound easy enough, but
 there is a problem.
 
-To understand the problem it is important to understand that both Ethereum and PBC uses Elliptic
-Curve Cryptography (ECC) for providing signatures. This means that public keys are actually a point
+To understand the problem it is important to understand that both Ethereum and PBC uses [Elliptic
+Curve Cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography) (ECC) for providing signatures. This means that public keys are actually a point
 on an elliptic curve, and the point can be encoded in two different formats: compressed and
 uncompressed.
 
@@ -92,16 +91,12 @@ The uncompressed encoding is 64 bytes, 32 bytes for each coordinate in the point
 As the name implies, the compressed encoding compresses the points, so they can be represented in
 fewer bytes.
 
-PBC saves the public keys in compressed encoding in its state, but Ethereum expects the input of the
-hash function to be uncompressed when deriving the address.
-
-So before we can correctly derive the addresses from the public keys from PBC, they should first
-be converted to an uncompressed 64 bytes encoding.
+When using PBC, public keys are saved in compressed encoding to optimize storage usage. However, when deriving the address from the public keys, Ethereum expects them to be in uncompressed format. Therefore, before deriving the addresses, the compressed public keys from PBC must be converted to an uncompressed 64-byte encoding. This conversion will ensure that Ethereum can derive the address from the public key.
 
 #### Signatures
 
 Finally, in order to be able to verify data signed by the ZK computation nodes, we need to ensure
-the signatures are on a format that Ethereum can decode.
+the signatures are on a format which Ethereum can decode.
 
 Recall that Ethereum and PBC uses ECC and specifically the Elliptic Curve Digital Signature
 Algorithm (ECDSA), when signing messages.
