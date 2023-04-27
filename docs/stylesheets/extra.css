@@ -546,18 +546,18 @@ nav.md-nav ul.md-nav__list {
   right: 11rem;
 }
 .front-page-pictures {
-  width: 35%;
-  height: 35%;
+  width: 37.5%;
+  height: 37.5%;
   margin-bottom: 7.5%;
 }
 
 .front-page-pictures-left {
-  margin-left: 12.5%;
+  margin-left: 2.5%;
   margin-right: 5%;
   float: left;
 }
 
 .front-page-pictures-right {
-  margin-right: 12.5%;
+  margin-right: 17.5%;
   float: right;
 }
