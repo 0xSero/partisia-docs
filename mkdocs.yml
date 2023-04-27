@@ -3,6 +3,12 @@ site_url:
 use_directory_urls: False
 nav:
   - Home: index.md
+  - PBC Fundamentals:
+      - Introduction to the Partisia Blockchain fundamentals: introduction.md
+      - Create an account on Partisia Blockchain (PBC): accounts.md
+      - BYOC and gas for the mainnet and testnet: byoc.md
+      - $MPC token model and Account Elements: mpc-tokens.md
+      - Partisia Blockchain Dictionary: dictionary.md
   - Run a node:
       - What is a node operator: operator-0-introduction.md
       - Specs: operator-1-specs.md
@@ -34,16 +40,11 @@ nav:
       - Zero Knowledge Smart Contracts: ZKSC.md
       - Compile Zero Knowledge Contracts: compile-zk.md
       - Zero Knowledge Gas Fees: zk-computation-fees.md
-      - Zero Knowledge Rust Language (ZkRust): 
+      - Zero Knowledge Rust Language (ZkRust):
           - ZkRust Language: zk-language.md
           - ZK Rust Reference: zk-language-reference.md
           - Zk language features: zk-language-features.md
       - Development FAQ: dev-faq.md
-  - PBC's decoupled token economy:
-      - BYOC and gas for the mainnet and testnet: byoc.md
-      - MPC token model: mpc-tokens.md
-  - Partisia Blockchain Dictionary: dictionary.md
-
 
 extra_css:
   - stylesheets/extra.css
@@ -53,7 +54,6 @@ extra_javascript:
   - js/polyfill.min.js
   - js/extra.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -67,11 +67,11 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_div_format
 
 plugins:
-    - search
-    - mermaid2:
-        arguments:
-          securityLevel: 'loose'
-          theme: forest # we want also that to work
+  - search
+  - mermaid2:
+      arguments:
+        securityLevel: "loose"
+        theme: forest # we want also that to work
 
 theme:
   logo: assets/pbclogo.png
@@ -79,23 +79,23 @@ theme:
   name: material
   custom_dir: overrides
   features:
-  - navigation.indexes
+    - navigation.indexes
 
 extra:
   generator: true
   homepage: https://www.partisiablockchain.com/
   social:
-  - icon: fontawesome/brands/twitter
-    link: https://twitter.com/partisiampc
-  - icon: fontawesome/brands/telegram
-    link: https://t.me/partisiampc
-  - icon: fontawesome/brands/discord
-    link: https://discord.com/invite/5HX7j9xFS7
-  - icon: fontawesome/brands/medium
-    link: https://medium.com/partisia-blockchain
-  - icon: fontawesome/brands/youtube
-    link: https://youtube.com/c/PARTISIABLOCKCHAINFOUNDATION
-  - icon: fontawesome/brands/linkedin
-    link: https://www.linkedin.com/company/privacy-blockchain/?viewAsMember=true
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/partisiampc
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/partisiampc
+    - icon: fontawesome/brands/discord
+      link: https://discord.com/invite/5HX7j9xFS7
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/partisia-blockchain
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/c/PARTISIABLOCKCHAINFOUNDATION
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/privacy-blockchain/?viewAsMember=true
 
 copyright: Partisia Blockchain All Rights Reserved &copy; 2022
