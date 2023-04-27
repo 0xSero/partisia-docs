@@ -13,6 +13,7 @@ We recommend building an outside layer of automation that can move the informati
 
 Ensuring that the middle man is not cheating is an important aspect of how PBC works as a second layer. To sum up the proces of the below model: The package that will be delivered from PBC will be signed with unique keys from our node operators(Name of the four working together privately?\*\*) that has done the MPC calculation. This signed package is the package that will need to be moved manually to the SOL contract to publish the public result of your contracts. The layer one contract would need to be able to validate the signed keys from the prepicked node operators.
 
+![KonceptPBCAsSecondLayer](KonceptPBCAsSecondLayer.png)
 \_
 The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer one public contract are open for all users. The flow goes like this: After deployment on PBC, the contract owner needs to add some information from the state of the PBC contract to the contract on layer one.
 
