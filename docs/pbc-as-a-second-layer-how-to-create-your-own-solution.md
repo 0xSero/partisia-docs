@@ -1,23 +1,31 @@
 # How to create your own solution with PBC as a second layer
 
-## How to SC PBC
+---
+**NOTE** We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure we suggest you to read up on how to do the following: 
+1. How to create smart contracts on PBC. Our documentation starts on this page: [What is a smart contract](contract-development.md)
 
-## How to SC ETH
+2. How to create smart contracts in ETH (or another layer one chain for this case).
+We recommend you go to soliditys own documentation to understand how to make smart contracts in ETH if you are new to this specific case: https://docs.soliditylang.org/en/latest/
+---
 
-https://docs.soliditylang.org/en/latest/
+## Step by step guide on how to create your own solution
+1. Grab the project from: Private repo https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service, will be open-sourced
 
-Grab the project from: Private repo https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service, will be open-sourced
-PBC example
-ETH example
+2. How to deploy a ZK contract on PBC.
+   
+   We recommend you to follow our guide on how to deploy contracts on PBC [here](contract-compilation.md)
+    
+   The difference
 
-### How to deploy PBC
+   Deploying private contracts (.zkwa) is more expensive than the dashboard estimates, remember to add more gas (4x)
+   
+   Get address as 42 chars hexstring (starting with 03). Ref as privateVotingPbcAddress going forward.
+   
+   Go to https://testnet.partisiablockchain.com/info/contract/<privateVotingPbcAddress>
+   
+   Press “Show ZK state as json”
 
-Deploying private contracts (.zkwa) is more expensive than the dashboard estimates, remember to add more gas (4x)
-Get address as 42 chars hexstring (starting with 03). Ref as privateVotingPbcAddress going forward.
-
-Go to https://testnet.partisiablockchain.com/info/contract/<privateVotingPbcAddress>
-Press “Show ZK state as json”
-The json contains an object called “engines” which contains a list also called “engines”. Each of the four objects in the “engines” list contains information for one of the ZK nodes selected for this contract. Note that the order of the nodes in the list is important and should not be changed. Refer to the nodes as node0, node1, node2, and node3, based on their place in the list.
+    The json contains an object called “engines” which contains a list also called “engines”. Each of the four objects in the “engines” list contains information for one of the ZK nodes selected for this contract. Note that the order of the nodes in the list is important and should not be changed. Refer to the nodes as node0, node1, node2, and node3, based on their place in the list.
 
 For each of node, grab the 33 bytes in the “publicKey” field. The key is encoded using Base64.
 How to deploy ETH

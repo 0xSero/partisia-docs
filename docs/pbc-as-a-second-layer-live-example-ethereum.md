@@ -1,9 +1,8 @@
 # Test the live example of a voting contract with PBC as second layer from ethereum testnet
 
 ---
-
 **NOTE**
-Before you can live test the example of ours, you need to have a the following setup:
+Before you can live test the example of ours, you need the following setup:
 
 1. You should have a [testnet](testnet.md) [PBC account with gas](byoc.md)
 2. You should also have a test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used the [Goerli PoW Faucet](https://goerli-faucet.pk910.de/)
@@ -16,7 +15,7 @@ We suggest to use [metamask](accounts.md) for both PBC and Goerli to access the 
 
 1. Go to [https://goerli.etherscan.io/address/0x<todo>](https://goerli.etherscan.io/address/0x<todo>)
 2. Press the “Contract” button and then the “Write Contract” button to interact with the public contract.
-3. Choose the action “register” and enter your PBC account address (write as “0x<address>”), and press “Write” to send the register transaction. (You may need to connect your wallet via the “Connect to Web3”).
+3. Choose the action “register” and enter your PBC account address (write as “0x<address\>”), and press “Write” to send the register transaction. (You may need to connect your wallet via the “Connect to Web3”).
 4. Verify that the registration was successful by finding in under “Events”
 
 ## Transferring voter registration to PBC
@@ -36,11 +35,11 @@ We suggest to use [metamask](accounts.md) for both PBC and Goerli to access the 
 
  5. Once the result has been computed and signed, find the result of the vote in the state and verify that it is as expected.
 
+By following these steps you have now cast a secret vote and counted the result using PBC.
+
 Note that since this example is publicly available, other votes may have been cast. Identify the latest vote by the result with the highest vote_id.
 
-If you encounter any issues while casting your vote or counting the result, you are always welcome to ask for assistance in our Discord forum.
-
-In summary, by following these steps you have now cast a secret vote and counted the result using PBC.
+If you encounter any issues while casting your vote or counting the result, you are always welcome to ask for assistance in our [active community](https://partisiablockchain.com/community).
 
 ## Transfer the result securely back to Ethereum
 

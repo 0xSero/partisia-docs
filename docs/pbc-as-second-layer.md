@@ -20,7 +20,7 @@ Ensuring that the middle man is not cheating is an important aspect of how PBC w
 
 The contract owner must manually add certain information from the state of the deployed Partisia Blockchain (PBC) contract to the contract on layer one. The layer one contract must contain the identities (PBC addresses) of the ZK nodes allocated to perform the zero knowledge computation. This is necessary because the outcome from PBC uses signatures from the ZK nodes to prove themselves as the actual outcome of the computation from PBC. The signatures include the identity of the ZK nodes and the result which the respective nodes approved. To claim a win on the layer one contract, your identity must match the result calculated by a majority of the ZK nodes, which is typically 3 out of 4 in practice.
 
-### How information is represented on PBC and Ethereum and how to convert between the two
+## How information is represented on PBC and Ethereum and how to convert between the two
 
 One of the problems with transferring data between PBC and Ethereum is that the two chains take
 different approaches on how information is represented. Specifically, the differences relevant for
