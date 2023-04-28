@@ -16,15 +16,6 @@ Ensuring that the middle man is not cheating is an important aspect of how PBC w
 
 The contract owner must manually add certain information from the state of the deployed Partisia Blockchain (PBC) contract to the contract on layer one. The layer one contract must contain the identities (PBC addresses) of the ZK nodes allocated to perform the zero knowledge computation. This is necessary because the outcome from PBC uses signatures from the ZK nodes to prove themselves as the actual outcome of the computation from PBC. The signatures include the identity of the ZK nodes and the result which the respective nodes approved. To claim a win on the layer one contract, your identity must match the result calculated by a majority of the ZK nodes, which is typically 3 out of 4 in practice.
 
-## Partisia Blockchain as a service
-Partisia Blockchain can with this method also act as a blockchain-as-a-service (BaaS) platform that provides businesses and organizations with access to the benefits of blockchain technology without the need for in-house blockchain development or maintenance. Partisia blockchain is built on a secure, scalable, and privacy-preserving blockchain infrastructure that enables enterprises, websites, small companies or anything in between to implement blockchain-privacy-based solutions quickly and easily.
-
-With Partisia Blockchain as a service, businesses can focus on their core competencies while leveraging the benefits of blockchain technology. By providing an easy-to-use platform, Partisia enables organizations to adopt our MPC driven blockchain solution without the need for extensive technical expertise or resources. Furthermore, as a cloud-based service, Partisia blockchain scales automatically to meet the evolving needs of businesses and organizations of all sizes.
-
-To use PBC's zero-knowledge contracts as a service to handle privacy, secrecy or other great possibilities. We need to deploy a zero-knowledge smart contract on PBC. The service you use in front would need to integrate with the PBC smart contract, but the benefit is that the contract on PBC can privately calculate the result using zero-knowledge computation and ensure that the computation is secret and signed.
-
-
-
 ### How information is represented on PBC and Ethereum and how to convert between the two
 
 One of the problems with transferring data between PBC and Ethereum is that the two chains take
