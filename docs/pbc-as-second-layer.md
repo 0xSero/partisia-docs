@@ -8,17 +8,22 @@ The author determines what information should be given to the public record (on 
 
 At present, PBC as a second layer only supports a manual movement of data from layer one to layer two. However, it ensures that the package delivered out from layer two is sufficiently signed to prevent tampering.
 We recommend building an outside layer of automation that can move the information from the layer one blockchain to PBC and vice versa.
+![ConceptPBCAsSecondLayer](assets/ConceptModels/ConceptPBCAsSecondLayer.png)
 
-### How do we handle the information and make sure the middle man is not cheating the users of the smart contracts?
+## How do we handle the information and make sure the middle man is not cheating the users of the smart contracts?
 
-Ensuring that the middle man is not cheating is an important aspect of how PBC works as a second layer. To sum up the proces of the below model: The package that will be delivered from PBC will be signed with unique keys from our node operators(Name of the four working together privately?\*\*) that has done the MPC calculation. This signed package is the package that will need to be moved manually to the SOL contract to publish the public result of your contracts. The layer one contract would need to be able to validate the signed keys from the prepicked node operators.
+Ensuring that the middle man is not cheating is an important aspect of how PBC works as a second layer. To sum up the proces of the below model: The package that will be delivered from PBC will be signed with unique keys from our node operators(the ZK nodes for this specific contract) that has done the MPC calculation. This signed package is the package that will need to be moved manually to the SOL contract to publish the public result of your contracts. The layer one contract would need to be able to validate the signed keys from the prepicked node operators.
 
-![KonceptPBCAsSecondLayer](assets/ConceptModels/KonceptPBCAsSecondLayer.png)
+The contract owner must manually add certain information from the state of the deployed Partisia Blockchain (PBC) contract to the contract on layer one. The layer one contract must contain the identities (PBC addresses) of the ZK nodes allocated to perform the zero knowledge computation. This is necessary because the outcome from PBC uses signatures from the ZK nodes to prove themselves as the actual outcome of the computation from PBC. The signatures include the identity of the ZK nodes and the result which the respective nodes approved. To claim a win on the layer one contract, your identity must match the result calculated by a majority of the ZK nodes, which is typically 3 out of 4 in practice.
 
-\_
-The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer one public contract are open for all users. The flow goes like this: After deployment on PBC, the contract owner needs to add some information from the state of the PBC contract to the contract on layer one.
+## Partisia Blockchain as a service
+Partisia Blockchain can with this method also act as a blockchain-as-a-service (BaaS) platform that provides businesses and organizations with access to the benefits of blockchain technology without the need for in-house blockchain development or maintenance. Partisia blockchain is built on a secure, scalable, and privacy-preserving blockchain infrastructure that enables enterprises, websites, small companies or anything in between to implement blockchain-privacy-based solutions quickly and easily.
 
-The contract on PBC still goes through the same phases listed above, but the contract owner has to manually add some information from the state of the deployed PBC contract to contract on layer one. The layer one contract needs to contain the identities (PBC addresses) of the ZK nodes that have been allocated to do the zero knowledge computation. This is necessary because the outcome from PBC uses signatures from the ZK nodes to claim and prove themselves as the actual outcome of the computation from PBC. The signatures contain the identity of the zk nodes and the result which the respective nodes approved. To claim a win on the layer one contract your identity has to match the result calculated by a majority of the ZK nodes. In practice 3 out of 4.
+With Partisia Blockchain as a service, businesses can focus on their core competencies while leveraging the benefits of blockchain technology. By providing an easy-to-use platform, Partisia enables organizations to adopt our MPC driven blockchain solution without the need for extensive technical expertise or resources. Furthermore, as a cloud-based service, Partisia blockchain scales automatically to meet the evolving needs of businesses and organizations of all sizes.
+
+To use PBC's zero-knowledge contracts as a service to handle privacy, secrecy or other great possibilities. We need to deploy a zero-knowledge smart contract on PBC. The service you use in front would need to integrate with the PBC smart contract, but the benefit is that the contract on PBC can privately calculate the result using zero-knowledge computation and ensure that the computation is secret and signed.
+
+
 
 ### How information is represented on PBC and Ethereum and how to convert between the two
 
