@@ -8,26 +8,30 @@
 We recommend you go to soliditys own documentation to understand how to make smart contracts in ETH if you are new to this specific case: https://docs.soliditylang.org/en/latest/
 ---
 
-## Step by step guide on how to create your own solution
+## Step by step guide on how to deploy your own solution
 1. Grab the project from: Private repo https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service, will be open-sourced
 
 2. How to deploy a ZK contract on PBC.
    
    We recommend you to follow our guide on how to deploy contracts on PBC [here](contract-compilation.md)
     
-   The difference
-
-   Deploying private contracts (.zkwa) is more expensive than the dashboard estimates, remember to add more gas (4x)
+   Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard estimates, remember to add more gas (4x).
    
-   Get address as 42 chars hexstring (starting with 03). Ref as privateVotingPbcAddress going forward.
+   Note down your address as 42 chars hexstring (starting with 03). You need to add it to the testnet link to go to your zk contract. If you deployed your contract on PBC through the dashboard app, you can grab it from the link at the top. 
    
-   Go to https://testnet.partisiablockchain.com/info/contract/<privateVotingPbcAddress>
+   Go to https://testnet.partisiablockchain.com/info/contract/<privateVotingPbcAddress\>
    
-   Press “Show ZK state as json”
+   Press the button “Show ZK state as json”
 
-    The json contains an object called “engines” which contains a list also called “engines”. Each of the four objects in the “engines” list contains information for one of the ZK nodes selected for this contract. Note that the order of the nodes in the list is important and should not be changed. Refer to the nodes as node0, node1, node2, and node3, based on their place in the list.
+    Inside the json you'll find an object named “engines”. The engines object contains a list also called “engines”. Each of the four objects in the “engines” list contains information for one of the ZK nodes selected for this contract. 
+    
+    **Note** that the order of the nodes in the list is important and should not be changed. We need to grab their publickeys and its very important that you keep this in order, we urge you to refer to the nodes as node0, node1, node2, and node3, based on their place in the list.
 
-For each of node, grab the 33 bytes in the “publicKey” field. The key is encoded using Base64.
+    For each node, grab the 33 bytes in the “publicKey” field. The key is encoded using Base64.
+
+    The publickey could look like this: (INSERT OBJECT WITH HIGHLIGHT OF PUBLICKEY)<todo>
+
+
 How to deploy ETH
 Possibly using the guide in https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/
 Problems with getting test goerli described in official docs here: https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/#step-4-add-ether-from-a-faucet
