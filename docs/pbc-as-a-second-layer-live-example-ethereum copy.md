@@ -28,16 +28,17 @@ We suggest to use [metamask](accounts.md) for both PBC and Goerli to access the 
 
 ## Casting secret vote and counting result
 
-    1. Navigate to the voting interface and click the “Add vote” button to input your secret vote.
-    2. Verify that the input has been accepted by the computations nodes by checking that there is no “pending input” in the ZK state (see “Show ZK State as Json”). Note that this may take some time.
+ 1. Navigate to the voting interface and click the “Add vote” button to input your secret vote.
+ 2. Verify that the input has been accepted by the computations nodes by checking that there is no “pending input” in the ZK state (see “Show ZK State as Json”). Note that this may take some time.
 
-    3. Once your vote has been accepted, click the “Start vote counting” button to begin counting the votes of the current vote.
-    4. Wait until the result has been computed and signed by the computation nodes by checking that the “calculationStatus” is “waiting” in the ZK state. Note that this may take some time.
+ 3. Once your vote has been accepted, click the “Start vote counting” button to begin counting the votes of the current vote.
+ 4. Wait until the result has been computed and signed by the computation nodes by checking that the “calculationStatus” is “waiting” in the ZK state. Note that this may take some time.
 
-    5. Once the result has been computed and signed, find the result of the vote in the state and verify that it is as expected.
-    Note that since this example is publicly available, other votes may have been cast. Identify the latest vote by the result with the highest vote_id.
+ 5. Once the result has been computed and signed, find the result of the vote in the state and verify that it is as expected.
 
-    If you encounter any issues while casting your vote or counting the result, you are always welcome to ask for assistance in our Discord forum.
+Note that since this example is publicly available, other votes may have been cast. Identify the latest vote by the result with the highest vote_id.
+
+If you encounter any issues while casting your vote or counting the result, you are always welcome to ask for assistance in our Discord forum.
 
 In summary, by following these steps you have now cast a secret vote and counted the result using PBC.
 
