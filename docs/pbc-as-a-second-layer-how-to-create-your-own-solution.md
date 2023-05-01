@@ -32,21 +32,32 @@ We recommend you go to soliditys own documentation to understand how to make sma
     The publickey could look like this: (INSERT OBJECT WITH HIGHLIGHT OF PUBLICKEY)<todo>
 
 
-How to deploy ETH
-Possibly using the guide in https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/
-Problems with getting test goerli described in official docs here: https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/#step-4-add-ether-from-a-faucet
-The deploy scripts in the repo helps with converting the public keys from compressed form to uncompressed.
+## How to deploy ETH
+We used this this official guide to deploy our sol contract: https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/
+
+In general we noticed that it can be difficult to get test goerli, which is described in the official docs here: https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/#step-4-add-ether-from-a-faucet
+
+We have created a a deploy script in the repo. This helps with converting the public keys from compressed form to uncompressed.
+
 TODO list of env vars needed to compile and deploy .sol contract (these contain sensitive info such as private keys and api keys, so beware)
+
 Verify deployment
+
 Code walkthrough?
+
 How to remove ZK parts
+
 Manual data movement
+
 Example of manual data movement
+
 Manual movement of data from ETH -> PBC
 Verification of successful datamovement?
+
 Manual data movement PBC -> ETH
 Aadd 27 (1B in hex) to the first recoveryId byte and move it to the end of the signature instead. See details
 Show result
+
 How to automate / Tips to automate
 Tue: I’ve added scripts and code that help with the data conversions such that it requires minimal human interaction.
 Summing up the experience (Shiny conclusion),
