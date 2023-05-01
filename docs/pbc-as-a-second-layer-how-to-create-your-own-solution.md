@@ -33,9 +33,9 @@ We recommend you go to soliditys own documentation to understand how to make sma
 
 
 ## How to deploy ETH
-We used this this official guide to deploy our sol contract: https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/
+We used this this official guide to deploy our sol contract: [https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/](https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/)
 
-In general we noticed that it can be difficult to get test goerli, which is described in the official docs here: https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/#step-4-add-ether-from-a-faucet
+In general we noticed that it can be difficult to get test goerli, which is described in the official docs here: [https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/#step-4-add-ether-from-a-faucet](https://ethereum.org/en/developers/tutorials/hello-world-smart-contract-fullstack/#step-4-add-ether-from-a-faucet)
 
 We have created a a deploy script in the repo. This helps with converting the public keys from compressed form to uncompressed.
 
@@ -63,3 +63,7 @@ Tue: I’ve added scripts and code that help with the data conversions such that
 Summing up the experience (Shiny conclusion),
 What else can we do with this new knowledge?
 Easy wins from the example code, what can you quickly use this case for/small changes needed to expand the possibilities.
+
+You have now deployed your own 
+
+In conclusion, this step-by-step tutorial shows you how to create a solution with PBC as a second layer. It requires you to have a bit of knowledge on creating smart contracts on both ETH and PBC which is linked at the top of the guide. By following the step-by-step instructions provided, users can successfully deploy a zero-knowledge contract on PBC that can work with a deployed ETH contract. on deploying ETH and provides a deploy script in the repo to help with converting the public keys.
