@@ -57,7 +57,7 @@ $$
 }
 $$
 
-The short name of an action is an u32 integer identifier that uniquely identifies the action within the smart contract.
+The short name of an action is an identifier that uniquely identifies the action within the smart contract.
 The short name is encoded as [unsigned LEB128 format](https://en.wikipedia.org/wiki/LEB128#Unsigned_LEB128), which means that short names have variable lengths.
 It is easy to determine how many bytes a LEB128 encoded number contains by examining bit 7 of each byte.
 
@@ -90,8 +90,8 @@ $$
 | \ & \bytes{48} \ \Rightarrowx \text{BlsSignature} \\
 | \ & \bytes{len} \ \Rightarrowx \text{Array }\text{[u8;len]} & \text{(containing the len u8 values)} \\
 | \ & \text{len:}\text{LengthRpc} \ \text{utf8:}\bytes{len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
-| \ & \text{len:}\text{LengthRpc} \ \text{elems:}\repeat{\text{ArgumentRpc}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
-| \ & \text{b:}\byte{} \ \text{arg:}\text{ArgumentRpc} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
+| \ & \text{len:}\text{LengthRpc} \ \text{elems: }\repeat{\{\text{T::ArgumentRpc}\}}{\text{len}} \ \Rightarrowx \text{Vec&lt;T&gt;} & \text{(containing the len elements)} \\
+| \ & \text{b:}\byte{} \ \text{arg: }\{\text{T::ArgumentRpc}\} \ \Rightarrowx \text{Option&lt;T&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
 | \ & f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
 | \ & \text{variant:} \byte{} \ f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Enum}\ \{ \text{variant}, f_1, f_2, \dots, f_n \} & \\
 \end{align*}
@@ -177,7 +177,7 @@ $$
 | \ & \text{String} \Rightarrowx \text{false}\\
 | \ & \text{Vec<T>} \Rightarrowx \text{false}\\
 | \ & \text{Option<T>} \Rightarrowx \text{false}\\
-| \ & \text{BTreeMap<K, V>} \Rightarrowx \text{false}\\
+| \ & \text{SortedVecMap<K, V>} \Rightarrowx \text{false}\\
 | \ & \text{BTreeSet<T>} \Rightarrowx \text{false}\\
 | \ & \text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \} \Rightarrowx \text{CopySerializable}(T_1) \wedge \dots \wedge \text{CopySerializable}(T_n) \wedge \text{WellAligned(S)} \\
 | \ & \text{Enum} \ \{ \text{variant}, f_1, f_2, \dots, f_n \} \Rightarrowx \text{false}\\

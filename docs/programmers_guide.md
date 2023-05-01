@@ -32,7 +32,7 @@ Consider for example a basic public voting contract:
 > - Vote subject, Voters and Deadline are all permanent attributes of the vote,
 >   and so should be set in the initializer.
 
-Contracts' state and actions must be declared in an [Contract ABI file](abiv.md#ABI Binary Format);
+Contracts' state and actions must be declared in a [Contract ABI file](abiv.md);
 a concise description of the contract's interface and internal state
 representation, that must be uploaded together with the contract code when
 initializing the contract.  Without an ABI file, it might be impossible for the
@@ -62,7 +62,7 @@ Example:
 pub struct VotingContractState {
     proposal_id: u64,
     mp_addresses: Vec<Address>,
-    votes: BTreeMap<Address, u8>,
+    votes: SortedVecMap<Address, u8>,
     closed: u8,
 }
 ```
@@ -75,7 +75,7 @@ Further reading: [state macro documentation](https://partisiablockchain.gitlab.i
 
 ### `#[action]`
 
-Declares that the annotated function is an contract action that can be called
+Declares that the annotated function is a contract action that can be called
 from other contracts and dashboard. Must have a signature of the following format:
 
 ```rust
@@ -89,7 +89,7 @@ pub fn action_internal_name(
 
 The action receives the previous state, along with a context, and the declared
 arguments, and must return the new state, along with a vector of
-[EventGroup](#EventGroup); a list of interactions with other contracts.
+[EventGroup](#events); a list of interactions with other contracts.
 
 Example:
 
@@ -194,9 +194,9 @@ The compiler exposes traits that provides serialization methods. These traits ar
 important for the operation of PBC contracts, but should rarely be implemented
 manually; prefer using the built-in derive methods.
 
-- ReadWriteState: Serialization for [State serialization format](abiv.md#State Binary Format).
-- ReadWriteRPC: Serialization for [RPC argument serialization format](abiv.md#RPC Binary Format).
-- CreateTypeSpec: Serialization for [ABI serialization format](abiv.md#ABI Binary Format).
+- ReadWriteState: Serialization for [State serialization format](abiv.md#state-binary-format).
+- ReadWriteRPC: Serialization for [RPC argument serialization format](abiv.md#rpc-binary-format).
+- CreateTypeSpec: Serialization for [ABI serialization format](abiv.md#abi-binary-format).
 
 Further reading: [`pbc_traits` crate documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/index.html)
 
@@ -288,9 +288,9 @@ Further reading: [CallbackContext struct documentation](https://partisiablockcha
 
 ## State serialization gas considerations
 
-Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically for [CopySerializable](abiv.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
+Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>`, as `Vec<T>` (specifically for [CopySerializable](abiv.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
 
-If quick lookups are required, and the data structure rarely changes, it might be feasible to maintain a sorted `Vec` in state, and use [`[T]::binary_search_by_key`](https://doc.rust-lang.org/std/primitive.slice.html#method.binary_search_by_key) for lookups, essentially creating your own map structure.
+It is possible to use our `SortedVecMap<K, V>`, which uses the [`[K]::binary_search_by_key`](https://doc.rust-lang.org/std/primitive.slice.html#method.binary_search_by_key) method for faster lookup, if a map structure is needed.
 
 Ensure you [depend upon and link against the `pbc_lib` crate](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_lib/index.html). This _should_ automatically lower gas costs.
 
