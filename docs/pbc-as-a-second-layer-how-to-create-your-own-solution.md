@@ -17,17 +17,17 @@ We recommend you go to soliditys own documentation to understand how to make sma
     
    Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard estimates, remember to add more gas (4x).
    
-   Note down your address as 42 chars hexstring (starting with 03). You need to add it to the testnet link to go to your zk contract. If you deployed your contract on PBC through the dashboard app, you can grab it from the link at the top. 
+3. Note down your address as 42 chars hexstring (starting with 03). You need to add it to the testnet link to go to your zk contract. If you deployed your contract on PBC through the dashboard app, you can grab it from the link at the top. 
    
-   Go to https://testnet.partisiablockchain.com/info/contract/<privateVotingPbcAddress\>
+4. Go to https://testnet.partisiablockchain.com/info/contract/<privateVotingPbcAddress\>
    
-   Press the button “Show ZK state as json”
+5. Press the button “Show ZK state as json”
 
     Inside the json you'll find an object named “engines”. The engines object contains a list also called “engines”. Each of the four objects in the “engines” list contains information for one of the ZK nodes selected for this contract. 
     
     **Note** that the order of the nodes in the list is important and should not be changed. We need to grab their publickeys and its very important that you keep this in order, we urge you to refer to the nodes as node0, node1, node2, and node3, based on their place in the list.
 
-    For each node, grab the 33 bytes in the “publicKey” field. The key is encoded using Base64.
+6. For each node, grab the 33 bytes in the “publicKey” field. The key is encoded using Base64.
 
     The publickey could look like this: (INSERT OBJECT WITH HIGHLIGHT OF PUBLICKEY)<todo>
 
