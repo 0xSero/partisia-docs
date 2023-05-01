@@ -34,17 +34,16 @@ order to create your own smart contracts.
 
 ````rust
 #![allow(unused_variables)]
-extern crate create_type_derive;
+
 #[macro_use]
 extern crate pbc_contract_codegen;
 extern crate pbc_contract_common;
 
-use std::collections::{BTreeMap, BTreeSet};
-use std::io::{Read, Write};
+use std::collections::BTreeSet;
 
 use pbc_contract_common::address::Address;
 use pbc_contract_common::context::ContractContext;
-use pbc_traits::*;
+use pbc_contract_common::sorted_vec_map::SortedVecMap;
 ````
 
 ### 2) Defining the contract state
@@ -79,22 +78,22 @@ simple voting record, so what we have now will suffice.
 ````rust
 #[state]
 pub struct VotingContractState {
-    proposal_id: u64,
-    mp_addresses: Vec<Address>,
-    votes: BTreeMap<Address, u8>,
-    closed: u8,
+  proposal_id: u64,
+  mp_addresses: Vec<Address>,
+  votes: SortedVecMap<Address, u8>,
+  closed: u8,
 }
 
 impl VotingContractState {
-    fn register_vote(&mut self, address: Address, vote: u8) {
-        self.votes.insert(address, vote);
-    }
+  fn register_vote(&mut self, address: Address, vote: u8) {
+    self.votes.insert(address, vote);
+  }
 
-    fn close_if_finished(&mut self) {
-        if self.votes.len() == self.mp_addresses.len() {
-            self.closed = 1;
-        };
-    }
+  fn close_if_finished(&mut self) {
+    if self.votes.len() == self.mp_addresses.len() {
+      self.closed = 1;
+    };
+  }
 }
 ````
 
@@ -116,23 +115,23 @@ After successful initialization, the contract state becomes live on the blockcha
 ````rust
 #[init]
 pub fn initialize(
-    _ctx: ContractContext,
-    proposal_id: u64,
-    mp_addresses: Vec<Address>,
+  _ctx: ContractContext,
+  proposal_id: u64,
+  mp_addresses: Vec<Address>,
 ) -> VotingContractState {
-    assert_ne!(mp_addresses.len(), 0, "Cannot start a poll without parliament members");
-    let mut address_set = BTreeSet::new();
-    for mp_address in mp_addresses.iter() {
-        address_set.insert(*mp_address);
-    }
-    assert_eq!(mp_addresses.len(), address_set.len(), "Duplicate MP address in input");
+  assert_ne!(mp_addresses.len(), 0, "Cannot start a poll without parliament members");
+  let mut address_set = BTreeSet::new();
+  for mp_address in mp_addresses.iter() {
+    address_set.insert(*mp_address);
+  }
+  assert_eq!(mp_addresses.len(), address_set.len(), "Duplicate MP address in input");
 
-    VotingContractState {
-        proposal_id,
-        mp_addresses,
-        votes: BTreeMap::new(),
-        closed: 0,
-    }
+  VotingContractState {
+    proposal_id,
+    mp_addresses,
+    votes: SortedVecMap::new(),
+    closed: 0,
+  }
 }
 ````
 
@@ -158,18 +157,18 @@ last one and everyone has now voted, then voting is closed.
 ````rust
 #[action]
 pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> VotingContractState {
-    assert_eq!(state.closed, 0, "The poll is closed");
-    assert!(state.mp_addresses.contains(&context.sender), "Only members of the parliament can vote");
-    assert!(vote == 0 || vote == 1, "Only \"yes\" and \"no\" votes are allowed");
+  assert_eq!(state.closed, 0, "The poll is closed");
+  assert!(state.mp_addresses.contains(&context.sender), "Only members of the parliament can vote");
+  assert!(vote == 0 || vote == 1, "Only \"yes\" and \"no\" votes are allowed");
 
-    let mut new_state = state;
-    new_state.register_vote(context.sender, vote);
-    new_state.close_if_finished();
-    new_state
+  let mut new_state = state;
+  new_state.register_vote(context.sender, vote);
+  new_state.close_if_finished();
+  new_state
 }
 ````
 
 ## Building and testing the voting contract
 
 The process is the same for the voting contract as it is for the token contract. 
-The instructions can be found [here](contract-development.md#develop-your-first-contract). 
+The instructions can be found [here](contract-compilation.md). 

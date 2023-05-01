@@ -4,23 +4,22 @@ See [Voting Contract Explained](voting-contract.md)
 
 ````rust
 #![allow(unused_variables)]
-extern crate create_type_derive;
+
 #[macro_use]
 extern crate pbc_contract_codegen;
 extern crate pbc_contract_common;
 
-use std::collections::{BTreeMap, BTreeSet};
-use std::io::{Read, Write};
+use std::collections::BTreeSet;
 
 use pbc_contract_common::address::Address;
 use pbc_contract_common::context::ContractContext;
-use pbc_traits::*;
+use pbc_contract_common::sorted_vec_map::SortedVecMap;
 
 #[state]
 pub struct VotingContractState {
     proposal_id: u64,
     mp_addresses: Vec<Address>,
-    votes: BTreeMap<Address, u8>,
+    votes: SortedVecMap<Address, u8>,
     closed: u8,
 }
 
@@ -79,7 +78,7 @@ pub fn initialize(
     VotingContractState {
         proposal_id,
         mp_addresses,
-        votes: BTreeMap::new(),
+        votes: SortedVecMap::new(),
         closed: 0,
     }
 }
