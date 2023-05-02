@@ -2,7 +2,7 @@
 
 ---
 **NOTE** We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure we suggest you to read up on how to do the following: 
-1. How to create smart contracts on PBC. Our documentation starts on this page: [What is a smart contract](contract-development.md)
+1. How to create smart contracts on PBC. Our documentation starts on this page: [What is a smart contract](../contract-development.md)
 
 2. How to create smart contracts in ETH (or another layer one chain for this case).
 We recommend you go to soliditys own documentation to understand how to make smart contracts in ETH if you are new to this specific case: https://docs.soliditylang.org/en/latest/
@@ -13,7 +13,7 @@ We recommend you go to soliditys own documentation to understand how to make sma
 
 2. How to deploy a ZK contract on PBC.
    
-   We recommend you to follow our guide on how to deploy contracts on PBC [here](contract-compilation.md)
+   We recommend you to follow our guide on how to deploy contracts on PBC [here](../contract-compilation.md)
     
    Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard estimates, remember to add more gas (4x).
    

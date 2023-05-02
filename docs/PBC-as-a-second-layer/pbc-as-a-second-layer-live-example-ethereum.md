@@ -4,10 +4,10 @@
 **NOTE**
 Before you can live test the example of ours, you need the following setup:
 
-1. You should have a [testnet](testnet.md) [PBC account with gas](byoc.md)
+1. You should have a [testnet](../testnet.md) [PBC account with gas](../byoc.md)
 2. You should also have a test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used the [Goerli PoW Faucet](https://goerli-faucet.pk910.de/)
 
-We suggest to use [metamask](accounts.md) for both PBC and Goerli to access the two different testnet from the same wallet.
+We suggest to use [metamask](../accounts.md) for both PBC and Goerli to access the two different testnet from the same wallet.
 
 ---
 
