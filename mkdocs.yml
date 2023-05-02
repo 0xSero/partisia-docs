@@ -47,6 +47,7 @@ nav:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/navdots.css
 
 extra_javascript:
   - js/mermaid.min.js
