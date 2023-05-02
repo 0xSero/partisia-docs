@@ -9,13 +9,17 @@
     <!-- Repeat above for more dots -->
 </div>
 
-This segment discusses the challenges that arise when transferring data between Partisia Blockchain and Ethereum, especially when using PBC as a second layer. The main issues discussed are the differences in how data is encoded, the hashing algorithm used, how contract/account addresses are derived, and the encoding of signatures.
+This segment discusses the challenges that arise when transferring data between Partisia Blockchain and Ethereum, especially when using PBC as a second layer. The main issues discussed are the differences in how data is encoded, the hashing algorithm used, how contract/account addresses are derived, and the encoding of signatures. It is placed as the last page to help any further development to not hit the same roadblocks as we did when making the live example. 
 
 ## How information is represented on PBC and Ethereum and how to convert between the two
 
 One of the problems with transferring data between PBC and Ethereum is that the two chains take
 different approaches on how information is represented. Specifically, the differences relevant for
-using PBC as second layer are; 1) how user data is encoded, 2) the hashing algorithm used, 3) how contract/account addresses are derived, and 4) the encoding of signatures.
+using PBC as second layer are; 
+1. [How user data is encoded](pbc-as-second-layer-technical-differences-eth-pbc.md#encoding-data)
+2. [The hashing algorithm used](pbc-as-second-layer-technical-differences-eth-pbc.md#hashing-data)
+3. [How contract or account addresses are derived](pbc-as-second-layer-technical-differences-eth-pbc.md#deriving-addresses)
+4. [The encoding of signatures](pbc-as-second-layer-technical-differences-eth-pbc.md#signatures)
 
 ### Encoding data
 
