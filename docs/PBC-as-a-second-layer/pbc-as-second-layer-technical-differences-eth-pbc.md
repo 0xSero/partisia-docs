@@ -17,7 +17,7 @@ For a detailed overview of how they work, see the
 Data received from PBC should be encoded using `abi.encodePacked()`.
 
 Similarly, PBC also has two ways to encode or serialize data based on what they are used for.
-See [documentation](abiv.md) for more details.
+See [documentation](../abiv.md) for more details.
 
 Data that are meant to be sent to Ethereum must be encoded as an argument for an RPC payload.
 This can be done by the method `<type>.rpc_write_to(&mut writer)`, where the type implements

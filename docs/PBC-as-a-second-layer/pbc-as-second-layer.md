@@ -10,7 +10,7 @@ The author of the contract determines what information should be given to the pu
 
 At present, PBC as a second layer only supports a manual movement of data from layer one to layer two by scripting. However, PBC ensures that the package delivered out from layer two is sufficiently signed to prevent tampering with it. The model tries to showcase what has been described earlier.
 
-![ConceptPBCAsSecondLayer](assets/ConceptModels/ConceptPBCAsSecondLayer.png)
+![ConceptPBCAsSecondLayer](../assets/ConceptModels/ConceptPBCAsSecondLayer.png)
 
 The graphic is made from the perspective of our live example on ethereum, you can check how the process works from our running example on [this page.](pbc-as-a-second-layer-live-example-ethereum.md)
 
