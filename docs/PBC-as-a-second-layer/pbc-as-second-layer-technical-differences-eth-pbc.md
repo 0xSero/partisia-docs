@@ -8,7 +8,7 @@ One of the problems with transferring data between PBC and Ethereum is that the 
 different approaches on how information is represented. Specifically, the differences relevant for
 using PBC as second layer are; 1) how user data is encoded, 2) the hashing algorithm used, 3) how contract/account addresses are derived, and 4) the encoding of signatures.
 
-#### Encoding data
+### Encoding data
 
 Solidity has two methods for encoding data into bytes, `abi.encode()` and `abi.encodePacked()`.
 For a detailed overview of how they work, see the
@@ -43,7 +43,7 @@ let mut output: Vec<u8> = vec![];
 0x0000000d48656c6c6f2c20776f726c6421 == output;
 ```
 
-#### Hashing data
+### Hashing data
 
 As a standard, Ethereum uses the Keccak-256 hashing algorithm, while PBC uses SHA-256 when signing
 data.
@@ -51,7 +51,7 @@ This means that the same bytes results in different digests when hashing either 
 However, solidity also provides a SHA-256 method, which should be used whenever verifying data sent
 from PBC.
 
-#### Deriving addresses
+### Deriving addresses
 
 When using PBC as second layer, there may exist accounts on PBC that we wish to represent on
 Ethereum, that is given an PBC account with signing key _k_ which address corresponds to _k_ on
@@ -77,7 +77,7 @@ fewer bytes.
 
 When using PBC, public keys are saved in compressed encoding to optimize storage usage. However, when deriving the address from the public keys, Ethereum expects them to be in uncompressed format. Therefore, before deriving the addresses, the compressed public keys from PBC must be converted to an uncompressed 64-byte encoding. This conversion will ensure that Ethereum can derive the address from the public key.
 
-#### Signatures
+### Signatures
 
 Finally, in order to be able to verify data signed by the ZK computation nodes, we need to ensure
 the signatures are on a format which Ethereum can decode.
