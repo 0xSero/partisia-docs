@@ -15,7 +15,8 @@ This segment discusses the challenges that arise when transferring data between 
 
 One of the problems with transferring data between PBC and Ethereum is that the two chains take
 different approaches on how information is represented. Specifically, the differences relevant for
-using PBC as second layer are; 
+using PBC as second layer are:
+ 
 1. [How user data is encoded](pbc-as-second-layer-technical-differences-eth-pbc.md#encoding-data)
 2. [The hashing algorithm used](pbc-as-second-layer-technical-differences-eth-pbc.md#hashing-data)
 3. [How contract or account addresses are derived](pbc-as-second-layer-technical-differences-eth-pbc.md#deriving-addresses)
