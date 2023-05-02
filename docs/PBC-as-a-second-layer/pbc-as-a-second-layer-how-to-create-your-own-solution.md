@@ -10,14 +10,14 @@
 
 ---
 **NOTE** We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure we suggest you to read up on how to do the following: 
-1. How to create smart contracts on PBC. Our documentation starts on this page: [What is a smart contract](../contract-development.md)
 
+1. How to create smart contracts on PBC. Our documentation starts on this page: [What is a smart contract](../contract-development.md)
 2. How to create smart contracts in ETH (or another layer one chain for this case).
-We recommend you go to soliditys own documentation to understand how to make smart contracts in ETH if you are new to this specific case: https://docs.soliditylang.org/en/latest/
+    We recommend you go to soliditys own documentation to understand how to make smart contracts in ETH if you are new to this specific case: [https://docs.soliditylang.org/en/latest/](https://docs.soliditylang.org/en/latest/)
 ---
 
 ## Step by step guide on how to deploy your own solution
-1. Grab the project from: Private repo https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service, will be open-sourced
+1. Grab the project from: Private repo [https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service](https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service), will be open-sourced
 
 2. How to deploy a ZK contract on PBC.
    
