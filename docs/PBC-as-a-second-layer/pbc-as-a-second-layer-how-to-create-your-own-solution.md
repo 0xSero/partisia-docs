@@ -39,31 +39,16 @@ In general we noticed that it can be difficult to get test goerli, which is desc
 
 We have created a a deploy script in the repo. This helps with converting the public keys from compressed form to uncompressed.
 
-TODO list of env vars needed to compile and deploy .sol contract (these contain sensitive info such as private keys and api keys, so beware)
-
-Verify deployment
-
-Code walkthrough?
-
-How to remove ZK parts
-
-Manual data movement
-
-Example of manual data movement
-
-Manual movement of data from ETH -> PBC
-Verification of successful datamovement?
+Store environment variables for deploing (e.g. in .env file)
+`**API_URL** = url to goerli endpoint
+**PRIVATE_KEY** = private key for deploying account
+**PBC_CONTRACT_ADDRESS** = private voting contract on PBC
+**ZK_ENGINE_PUB_KEY_i** = for i 0 - 3 zk engine public key on private voting contract`
 
 Manual data movement PBC -> ETH
 Aadd 27 (1B in hex) to the first recoveryId byte and move it to the end of the signature instead. See details
-Show result
 
 How to automate / Tips to automate
 Tue: I’ve added scripts and code that help with the data conversions such that it requires minimal human interaction.
-Summing up the experience (Shiny conclusion),
-What else can we do with this new knowledge?
-Easy wins from the example code, what can you quickly use this case for/small changes needed to expand the possibilities.
 
-You have now deployed your own 
-
-In conclusion, this step-by-step tutorial shows you how to create a solution with PBC as a second layer. It requires you to have a bit of knowledge on creating smart contracts on both ETH and PBC which is linked at the top of the guide. By following the step-by-step instructions provided, users can successfully deploy a zero-knowledge contract on PBC that can work with a deployed ETH contract. on deploying ETH and provides a deploy script in the repo to help with converting the public keys.
+In conclusion, this step-by-step tutorial shows you how to create a solution with PBC as a second layer. It requires you to have a bit of knowledge on creating smart contracts on both ETH and PBC which is linked at the top of the guide. By following the step-by-step instructions provided, users can successfully deploy a zero-knowledge contract on PBC that can work with a deployed ETH contract. on deploying ETH and provides a deploy script in the repo to help with converting the public keys. The example contracts are free to use and expand on to explore by yourself how to use PBC as a second layer. You can already now go and make an anonymous vote completely based on ETH and PBC as the example shows. 
