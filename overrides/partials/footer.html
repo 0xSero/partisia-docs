@@ -40,13 +40,12 @@
             <!-- {{ direction }} -->
           </span>
           {{ page.previous_page.title }}
-          {% if section.children %}
-          <p>{{section.children}}</p>
         </div>
       </div>
     </a>
     {% endif %}
-
+    {% if section.children %}
+    <p>{{section.children}}</p>
     <!-- Link to next page -->
     {% if page.next_page %}
     {% set direction = lang.t("footer.next") %}
