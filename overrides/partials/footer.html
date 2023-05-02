@@ -45,6 +45,7 @@
     </a>
     {% endif %}
 
+    {{ page.parent.title }}
     <!-- Link to next page -->
     {% if page.next_page %}
     {% set direction = lang.t("footer.next") %}
