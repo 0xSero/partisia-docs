@@ -16,7 +16,7 @@ This segment discusses the challenges that arise when transferring data between 
 One of the problems with transferring data between PBC and Ethereum is that the two chains take
 different approaches on how information is represented. Specifically, the differences relevant for
 using PBC as second layer are:
- 
+
 1. [How user data is encoded](pbc-as-second-layer-technical-differences-eth-pbc.md#encoding-data)
 2. [The hashing algorithm used](pbc-as-second-layer-technical-differences-eth-pbc.md#hashing-data)
 3. [How contract or account addresses are derived](pbc-as-second-layer-technical-differences-eth-pbc.md#deriving-addresses)
@@ -112,4 +112,4 @@ Additionally, on PBC the _recovery_id_ can be either 0 or 1, but Ethereum expect
 The final transformation looks like
 `recovery_id || s || r => s || r || (recovery_id + 27)`.
 
-[<button class="button-pretty bprev" role="button">PBC as a second layer how to create your own solution</button>](pbc-as-a-second-layer-how-to-create-your-own-solution.md)
+<br><br>[<button class="button-pretty bprev" role="button">PBC as a second layer how to create your own solution</button>](pbc-as-a-second-layer-how-to-create-your-own-solution.md)
