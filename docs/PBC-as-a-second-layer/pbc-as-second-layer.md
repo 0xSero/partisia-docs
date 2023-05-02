@@ -1,3 +1,4 @@
+# :large_blue_circle: :white_circle: :white_circle: :white_circle:
 # Partisia Blockchain as a second layer
 
 This article explains how Partisia Blockchain (PBC) can function as a second layer. We will dive into a running example and demonstrate how to test the implementation from the Ethereum testnet to our [PBC testnet](../testnet.md). Lastly, we will explain how to develop and recreate our testnet solution to get you started with using PBC as a second layer.
@@ -21,4 +22,3 @@ Ensuring that the middle man is not cheating is an important aspect of how PBC w
 
 The contract owner must manually add certain information from the state of the deployed Partisia Blockchain (PBC) contract to the contract on layer one. The layer one contract must contain the identities (PBC addresses) of the ZK nodes allocated to perform the zero knowledge computation. This is necessary because the outcome from PBC uses signatures from the ZK nodes to prove themselves as the actual outcome of the computation from PBC. The signatures include the identity of the ZK nodes and the result which the respective nodes approved. 
 
-:large_blue_circle: :white_circle: :white_circle: :white_circle:
