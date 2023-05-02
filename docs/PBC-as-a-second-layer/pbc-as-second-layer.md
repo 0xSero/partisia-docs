@@ -1,3 +1,14 @@
+<div class="tableDots">
+  <div class="cellDots">
+    <ul class="dots">
+      <li><a href="#">Partisia Blockchain as a second layer</a></li>
+      <li><a href="#">Test the live example of a voting contract</a></li>
+      <li><a href="#">How to create your own solution with PBC as a second layer</a></li>
+      <li><a href="#">Technical differences between ETH and PBC for the running example</a></li>
+    </ul>
+  </div>
+</div>
+
 # Partisia Blockchain as a second layer
 
 This article explains how Partisia Blockchain (PBC) can function as a second layer. We will dive into a running example and demonstrate how to test the implementation from the Ethereum testnet to our [PBC testnet](../testnet.md). Lastly, we will explain how to develop and recreate our testnet solution to get you started with using PBC as a second layer.
