@@ -44,8 +44,8 @@
       </div>
     </a>
     {% endif %}
-    {% if section.children %}
-    <p>{{section.children}}</p>    
+    {% if section.active() %}
+    <p>{{ section.children }}</p>    
     {% endif %}
     <!-- Link to next page -->
     {% if page.next_page %}
