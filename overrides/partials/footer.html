@@ -40,7 +40,8 @@
             <!-- {{ direction }} -->
           </span>
           {{ page.previous_page.title }}
-          {{section.children}}
+          {% if section.children %}
+          <p>{{section.children}}</p>
         </div>
       </div>
     </a>
