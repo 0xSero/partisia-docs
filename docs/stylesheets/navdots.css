@@ -79,3 +79,7 @@
 .bnext {
     float: right;
 }
+
+.bprev {
+    float: left;
+}
