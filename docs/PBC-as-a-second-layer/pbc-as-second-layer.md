@@ -1,8 +1,8 @@
 <div class="dot-navigation">
-    [<div class="dot-navigation__item"></div>](pbc-as-second-layer.md)
-    [<div class="dot-navigation__item"></div>](pbc-as-a-second-layer-live-example-ethereum.md)
-    <div class="dot-navigation__item"></div>
-    <div class="dot-navigation__item"></div>
+    [<a class="dot-navigation__item dot-navigation__item--active" ></a>](pbc-as-second-layer.md)
+    <a class="dot-navigation__item" href="testnet.dk"></a>
+    <a class="dot-navigation__item"></a>
+    <a class="dot-navigation__item"></a>
 
     <!-- Repeat other dots -->
     ...
