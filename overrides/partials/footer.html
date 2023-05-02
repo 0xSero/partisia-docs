@@ -44,9 +44,7 @@
       </div>
     </a>
     {% endif %}
-    {% if section.active() %}
-    <p>{{ section.children }}</p>    
-    {% endif %}
+
     <!-- Link to next page -->
     {% if page.next_page %}
     {% set direction = lang.t("footer.next") %}
