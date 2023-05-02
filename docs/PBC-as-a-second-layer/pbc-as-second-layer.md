@@ -30,4 +30,4 @@ Ensuring that the middle man is not cheating is an important aspect of how PBC w
 
 The contract owner must manually add certain information from the state of the deployed Partisia Blockchain (PBC) contract to the contract on layer one. The layer one contract must contain the identities (PBC addresses) of the ZK nodes allocated to perform the zero knowledge computation. This is necessary because the outcome from PBC uses signatures from the ZK nodes to prove themselves as the actual outcome of the computation from PBC. The signatures include the identity of the ZK nodes and the result which the respective nodes approved. 
 
-[<button class="button-pretty bnext" role="button">Next page</button>](pbc-as-a-second-layer-live-example-ethereum.md)
+[<button class="button-pretty bnext" role="button">PBC as a second layer live example</button>](pbc-as-a-second-layer-live-example-ethereum.md)
