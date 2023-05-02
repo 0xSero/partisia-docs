@@ -56,5 +56,3 @@ These steps shows you how to securely move the vote result to the Ethereum publi
 1. To securely move the result to the Ethereum public voting contract, go back to [the contract on etherscan](https://goerli.etherscan.io/address/0x<todo>) and find the “validateResult” action under “contract” and then ”write contract”.
 2. Fill in the values of the vote result and the proof of the result shown in PBC.
 3. Verify that you cannot alter the result by altering the input, e.g. adding votes.The transaction will fail when doing so.
-
-<br><br>[<button class="button-pretty bprev" role="button">Partisia Blockchain as a second layer</button>](pbc-as-second-layer.md) [<button class="button-pretty bnext" role="button">PBC as a second layer how to create your own solution</button>](pbc-as-a-second-layer-how-to-create-your-own-solution.md)
