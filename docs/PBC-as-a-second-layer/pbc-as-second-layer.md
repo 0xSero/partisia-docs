@@ -1,12 +1,11 @@
-<div class="tableDots">
-  <div class="cellDots">
-    <ul class="dots">
-      <li><a href="#">Partisia Blockchain as a second layer</a></li>
-      <li><a href="#">Test the live example of a voting contract</a></li>
-      <li><a href="#">How to create your own solution with PBC as a second layer</a></li>
-      <li><a href="#">Technical differences between ETH and PBC for the running example</a></li>
-    </ul>
-  </div>
+<div class="dot-navigation">
+    [<div class="dot-navigation__item"></div>](pbc-as-second-layer.md)
+    [<div class="dot-navigation__item"></div>](pbc-as-a-second-layer-live-example-ethereum.md)
+    <div class="dot-navigation__item"></div>
+    <div class="dot-navigation__item"></div>
+
+    <!-- Repeat other dots -->
+    ...
 </div>
 
 # Partisia Blockchain as a second layer

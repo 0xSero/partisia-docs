@@ -1,74 +1,30 @@
-.tableDots{
-    width: 100%;
-    height: 100%;
-    background: #34495e;
-    display: table;
-  }
-  
-  .cellDots{
-    display: table-cell;
-    vertical-align: middle;
-    margin: auto;
-    text-align: center;
-  }
-  .dots{
+.dot-navigation {
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
-    position: relative;
-    display: inline-block;
+    /* Reset styles */
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    list-style: none;
-    cursor: default;
-    .active{
-      a{
-         -webkit-transform: scale3d(1.3, 1.3, 1.3);
-            transform: scale3d(1.3, 1.3, 1.3);
-        
-        &:after{
-        height: 100%;
-        }
-      }
-    }
-    
-    li{
-      position: relative;
-      display: block;
-      float: left;
-      margin: 0 16px;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      
-      a{
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        outline: none;
-        border-radius: 50%;
-        text-indent: -999em;
-        cursor: pointer;
-        position: absolute;
-        overflow: hidden;
-        background-color: transparent;
-        box-shadow: inset 0 0 0 2px white;
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-        
-        &:after{
-          content: '';
-          position: absolute;
-          bottom: 0;
-          height: 0;
-          left: 0;
-          width: 100%;
-          background-color: #fff;
-          box-shadow: 0 0 1px #fff;
-          -webkit-transition: height 0.3s ease;
-          transition: height 0.3s ease;
-        }
-      }
-    }
-  }
+}
+
+.dot-navigation__item {
+    /* Rounded border */
+    border-radius: 9999px;
+    height: 0.75rem;
+    width: 0.75rem;
+
+    /* Inactive dot */
+    background-color: transparent;
+    border: 1px solid #0000A3;
+
+    /* OPTIONAL: Spacing between dots */
+    margin: 0 0.25rem;
+}
+
+/* Active dot */
+.dot-navigation__item--active {
+    background-color: #2F2FF2;
+}
