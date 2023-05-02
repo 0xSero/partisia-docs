@@ -45,7 +45,8 @@
     </a>
     {% endif %}
     {% if section.children %}
-    <p>{{section.children}}</p>
+    <p>{{section.children}}</p>    
+    {% endif %}
     <!-- Link to next page -->
     {% if page.next_page %}
     {% set direction = lang.t("footer.next") %}
