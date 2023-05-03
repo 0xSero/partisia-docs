@@ -1,10 +1,5 @@
 # Partisia Blockchain as a second layer
 
-<div class="dot-navigation">
-    <a class="dot-navigation__item dot-navigation__item--active" href="pbc-as-second-layer.html"></a>
-    <!-- Repeat above for more dots -->
-</div>
-
 This article explains how Partisia Blockchain (PBC) can function as a second layer. We will dive into a running example and demonstrate how to test the implementation from the Ethereum testnet to our [PBC testnet](../testnet.md). Lastly, we will explain how to develop and recreate our testnet solution to get you started with using PBC as a second layer.
 
 To use PBC's zero-knowledge contracts as a second layer to handle privacy, secrecy or other great possibilities, the minimum viable design stays the same.
