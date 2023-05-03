@@ -1,4 +1,4 @@
-# Contract compilation and deployment
+# Compile and deploy contracts
 
 In the following sections we focus on the example token contract included in the example contract archive.
 The contract utilizes several functions. The main functions are *initialize*, and *transfer* that 
@@ -30,6 +30,8 @@ Select the `token_contract.wasm` and the `token_contract.abi`.
 The dashboard will then render a form for the initialization function. If you look at `lib.rs` file in your IDE, 
 you will see that this matches the *initialize* function. 
 The other three actions will be available after successful deployment.
+
+If you need to tryout your smart contract, we recommend you tryout the [testnet](testnet.md). 
 
 In the *total_supply* field you put the number of tokens you want minted for total supply of the contract 
 from the moment of deployment. 

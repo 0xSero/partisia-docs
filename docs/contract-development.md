@@ -4,7 +4,7 @@ Creating a smart contract is one of the basic ways you can utilize the Partisia 
 
 ## Why use Partisia Blockchain for your smart contracts
 
-What makes the smart contract on Partisia Blockchain different from contracts on other blockchains is that we allow you to add a privacy layer parallel with the immutable ledger. This means that you through your contract will allocate nodes in the blockchain to handle Zero Knowledge computation. If you for example want to make an auction, you can keep the identity of the current bidder and account information secret and off the record, while the identity of the winner and seller will be added to the immutable record. This will secure a record of change in ownership while at the same time preserving the privacy of all interested parties that don’t give the winning bid. This principle of a combination of a privacy layer and a public record means that the Patisia Blockchain effectively can replace the trustee in binding transactions.
+What makes the smart contract on Partisia Blockchain different from contracts on other blockchains is that we allow you to add a privacy layer parallel with the [immutable ledger](dictionary.md#pbc-ledger). Specifically you can through your contract allocate nodes in the blockchain to handle [Zero Knowledge computation](dictionary.md#mpc). If you for example want to create an auction, you can keep the identity of the current bidder and account information secret and off the record, while the identity of the winner and seller will be added to the immutable record. This will secure a record of change in ownership while at the same time preserving the privacy of all interested parties that don’t give the winning bid. This principle of a combination of a privacy layer and a public record means that the Patisia Blockchain effectively replaces the trustee in binding transactions in this example.
 
 ## The different contract types and their life on the blockchain
 
@@ -16,4 +16,4 @@ There are three types of smart contracts on PBC:
 
 ![contract_life_stages](deployment2.png)
 
-- **Private smart contracts:** Are just like public smart contracts except that the contract stipulates some actions of the contract taking place on the special private layer of the PBC. These actions are zero knowledge computations. Famously PBC supports secure multiparty computation called MPC giving name to the blockcain's native token.  
+- **Private smart contracts:** Are just like public smart contracts except that the contract stipulates some actions of the contract taking place on the special private layer of the PBC. These actions are zero knowledge computations. Famously PBC supports secure [multiparty computation](dictionary.md#mpc) called MPC giving name to the [blockcain's native token](dictionary.md#mpc-token).  
