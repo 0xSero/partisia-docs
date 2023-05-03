@@ -64,4 +64,177 @@ In general we recommend that you automate the moving of data between chains and 
 <todo> link to the scripts and shortly/briefly explain what they do.
 Tue: I’ve added scripts and code that help with the data conversions such that it requires minimal human interaction.
 
-In conclusion, this step-by-step tutorial shows you how to create a solution with PBC as a second layer. It requires you to have a bit of knowledge on creating smart contracts on both ETH and PBC which is linked at the top of the guide. By following the step-by-step instructions provided, users can successfully deploy a zero-knowledge contract on PBC that can work with a deployed ETH contract. on deploying ETH and provides a deploy script in the repo to help with converting the public keys. The example contracts are free to use and expand on to explore by yourself how to use PBC as a second layer. You can already now go and make an anonymous vote completely based on ETH and PBC as the example shows. 
+In conclusion, this step-by-step tutorial shows you how to create a solution with PBC as a second layer. It requires you to have a bit of knowledge on creating smart contracts on both ETH and PBC which is linked at the top of the guide. By following the step-by-step instructions provided, users can successfully deploy a zero-knowledge contract on PBC that can work with a deployed ETH contract. on deploying ETH and provides a deploy script in the repo to help with converting the public keys. The example contracts are free to use and expand on to explore by yourself how to use PBC as a second layer. You can already now go and make an anonymous vote completely based on ETH and PBC as the example shows.
+
+## Code walkthrough / Understanding how the code works / Mikey can think of a good title?
+
+The source code for the two contracts used in the 
+[public live example](pbc-as-a-second-layer-live-example-ethereum.md) can be found in the public 
+repository https://gitlab.com/partisiablockchain/. We urge you to study the two contracts to 
+understand their common design, their differences and how data is shared between them.
+
+We will not provide a line-by-line walkthrough of the code, as some knowledge of both PBC and EVM 
+smart contract development is expected. We will briefly discuss the structure of the project and
+parts of the code, relevant for understanding how PBC as second layer works, in both contracts
+starting with the private PBC smart contract.
+
+### Project structure
+
+The root of the project contains two subdirectories: `private-voting` and `public-voting`.
+
+The `private-voting` directory contains a Cargo project for the PBC ZK smart contract.
+The public part of the contract is defined in `src/contract.rs` and the ZK computation is defined in
+`src/zk_compute.rs`.
+
+The contract depends on version 13.5.0 of the 
+[contract-sdk](https://gitlab.com/partisiablockchain/language/contract-sdk) crate, version 3.63.0 of
+the [zk-compiler](https://gitlab.com/partisiablockchain/language/zk-compiler), and can be compiled
+with version 1.20.0 <todo>(or earlier) of the 
+[cargo-partisia-contract](https://gitlab.com/partisiablockchain/language/cargo-partisia-contract) 
+build tool.
+
+The `public-voting` directory contains Hardhat project for the public Solidity contract.
+The solidity contract is defined in `contracts/PublicVoting.sol`. The `scripts` folder contains 
+a script for deploying and interacting with the solidity contract, and some helper functions for
+converting data formats. See [this page](pbc-as-second-layer-technical-differences-eth-pbc.md) for 
+a more detailed explanation of why the conversion is needed.
+
+The solidity contract can be built and the scripts can run with Node.js version 16.15.0.
+
+### PBC private voting contract
+
+Explaining how the ZK computation in `src/zk_compute.rs` and how all the hooks in `src/contract.rs` 
+works are beyond the scope of this walkthrough. We urge you to read the contract yourself carefully,
+and refer to [this page](../zk-language.md) for understanding the ZK computation and 
+[this page](../ZKSC.md) for the smart contract.
+
+However, we will briefly talk about the overall flow of the contract, and point out specific code 
+snippets that are relevant for understanding how PBC as second layer works.
+
+The flow of the contract is as follows:
+
+1. Once the contract is deployed on PBC, it is initialized with an empty list of registered voters, 
+   an empty list of voting results, and an initial vote id of 1.
+2. Anyone can register their PBC account as voter.
+3. Any registered voter can cast a single secret vote on the currently active vote.
+4. Anyone can at anytime count the cast votes of the currently active vote. 
+   This is what the ZK computation does.
+5. Once the votes have been counted the result, i.e. the number of yes votes, no votes and absenting 
+   voters, is archived in the state and the next vote is activated by deleting the inputs and 
+   incrementing the vote id.
+6. Additionally, the result is attested by the computation nodes, meaning that they each sign it.
+
+The last attestation step is what enables us to move data from PBC back to the 1. layer chain, so it
+is useful to understand how that works.
+
+The following is an abbreviated snippet of the functions that receive the opened computation result
+and asks for it to be attested by the computation nodes.
+
+```rust
+#[zk_on_variables_opened]
+fn build_and_attest_voting_result(
+   _context: ContractContext,
+   mut state: ContractState,
+   zk_state: ZkState<SecretVarMetadata>,
+   opened_variables: Vec<SecretVarId>,
+) -> (ContractState, Vec<EventGroup>, Vec<ZkStateChange>) {
+   // Get the id of the variable the was opened after the computation was completed.
+   let computation_result_variable_id = opened_variables.get(0);
+   // Build the result of the vote by getting the raw numbers from the opened variables and the
+   // state.
+   let vote_result = determine_result(&state, &zk_state, computation_result_variable_id);
+   // Add the result to the open state. The result is still missing the proof.
+   state.vote_results.push(vote_result.clone());
+   // Return the tuple with the modified state, no events, and with a request that the computation 
+   // nodes sign the serialized bytes of the result.
+   (
+      state,
+      vec![],
+      vec![ZkStateChange::Attest {
+         data_to_attest: serialize_result_as_big_endian(vote_result),
+      }],
+   )
+}
+
+fn serialize_result_as_big_endian(result: VoteResult) -> Vec<u8> {
+   let mut output: Vec<u8> = vec![];
+   result
+           .rpc_write_to(&mut output)
+           .expect("Could not serialize result");
+   output
+}
+```
+
+The important thing to notice in the code above, is that after we have stored the result in the 
+state, we serialize it into raw bytes and ask that the computation nodes sign the bytes. 
+To be able to verify the signatures later in the Solidity contract it is important that the bytes 
+are exactly the same here as when we serialize the result in Solidity. That means the fields should 
+be written in the right order and right format which is big endian.
+
+Actually what will be signed is a SHA-256 hash of the bytes prepended with additional data, but more 
+on that later.
+
+After the data has been signed, the following code is executed.
+
+```rust
+#[zk_on_attestation_complete]
+fn save_attestation_on_result_and_start_next_vote(
+    _context: ContractContext,
+    mut state: ContractState,
+    zk_state: ZkState<SecretVarMetadata>,
+    attestation_id: AttestationId,
+) -> (ContractState, Vec<EventGroup>, Vec<ZkStateChange>) {
+    let variables_to_delete: Vec<SecretVarId> = zk_state
+        .secret_variables
+        .iter()
+        .map(|x| x.variable_id)
+        .collect();
+
+    let mut result = state
+        .vote_results
+        .iter_mut()
+        .find(|r| r.vote_id == state.current_vote_id)
+        .unwrap();
+
+    let attestation = zk_state
+        .data_attestations
+        .iter()
+        .find(|a| a.attestation_id == attestation_id)
+        .unwrap();
+
+    let evm_formatted_proof = format! {"[{}]", attestation
+    .signatures
+    .iter()
+    .map(format_signature_for_evm)
+    .collect::<Vec<String>>()
+    .join(", ")};
+
+    result.proof = Some(evm_formatted_proof);
+    state.current_vote_id += 1;
+    (
+        state,
+        vec![],
+        vec![ZkStateChange::OutputComplete {
+            variables_to_delete,
+        }],
+    )
+}
+
+fn format_signature_for_evm(signature: &Signature) -> String {
+   let recovery_id = signature.recovery_id + 27;
+   let recovery_id = format!("{recovery_id:02x}");
+   let mut r = String::with_capacity(64);
+   for byte in signature.value_r {
+      write!(r, "{byte:02x}").unwrap();
+   }
+   let mut s = String::with_capacity(64);
+   for byte in signature.value_s {
+      write!(s, "{byte:02x}").unwrap();
+   }
+   format!("0x{r}{s}{recovery_id}")
+}
+
+```
+
+
+### Solidity public voting contract
