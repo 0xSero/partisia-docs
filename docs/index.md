@@ -26,3 +26,4 @@
 - [Zero Knowledge Contracts](ZKSC.md)
 - [Zero Knowledge Gas Fees](zk-computation-fees.md)
 - [Connect a dApp to the wallet extension (dApp SDK)](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia)   
+- [PBC as second layer](PBC-as-a-second-layer/pbc-as-second-layer.md)
