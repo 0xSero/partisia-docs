@@ -12,10 +12,10 @@
 **NOTE**
 Before you can live test the example of ours, you need the following setup:
 
-1. A [testnet](../testnet.md) [PBC account with gas](../byoc.md)
-2. A test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used [one from the official docs](https://ethereum.org/en/developers/docs/networks/#goerli)
+1. A [testnet](../testnet.md) [PBC account](../accounts.md) [with gas](../byoc.md)
+2. A test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used [a faucet from the official docs](https://ethereum.org/en/developers/docs/networks/#goerli)
 
-   We suggest to use [metamask](../accounts.md) for both PBC and Goerli to access the two different testnet from the same wallet.
+   We suggest to use [metamask](../accounts.md) for Goerli testnet.
 
 ---
 
@@ -51,8 +51,8 @@ If you encounter any issues while casting your vote or counting the result, you 
 
 ## Transfer the result securely back to Ethereum
 
-These steps shows you how to securely move the vote result to the Ethereum public voting contract while ensuring accuracy and integrity.
+These steps shows you how to securely move the vote result to the Ethereum public voting contract while ensuring integrity.
 
 1. To securely move the result to the Ethereum public voting contract, go back to [the contract on etherscan](https://goerli.etherscan.io/address/0x<todo>) and find the “validateResult” action under “contract” and then ”write contract”.
 2. Fill in the values of the vote result and the proof of the result shown in PBC.
-3. Verify that you cannot alter the result by altering the input, e.g. adding votes.The transaction will fail when doing so.
+3. Try and alter the result to see for yourself that it is tamper proof when trying to add votes or other kinds of manipulation. You will see that the transaction will fail when doing so.

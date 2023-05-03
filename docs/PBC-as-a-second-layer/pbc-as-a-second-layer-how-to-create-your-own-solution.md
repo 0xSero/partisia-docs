@@ -1,4 +1,4 @@
-# How to create your own solution with PBC as a second layer
+# How to deploy your own solution with PBC as a second layer
 <div class="dot-navigation">
     <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
     <a class="dot-navigation__item" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
@@ -9,7 +9,7 @@
 </div>
 
 ---
-**NOTE** We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure we suggest you to read up on how to do the following: 
+**NOTE** We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure we suggest you to read up on how to do the following when trying to recreate the example contract of ours: 
 
 1. How to create smart contracts on PBC. Our documentation starts on this page: [What is a smart contract](../contract-development.md)
 2. How to create smart contracts in ETH (or another layer one chain for this case).
@@ -17,25 +17,26 @@
 ---
 
 ## Step by step guide on how to deploy your own solution
-1. Grab the project from: Private repo [https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service](https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service), will be open-sourced
+1. Grab the project from: Private repo [https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service](https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service), will be open-sourced <todo>
+2. [Compile your contract](../compile-zk.md)
 
-2. How to deploy a ZK contract on PBC.
+3. [Deploy a ZK contract on PBC](../contract-compilation.md).
    
     We recommend you to follow our guide on how to deploy contracts on PBC [here](../contract-compilation.md)
     
-    Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard estimates, remember to add more gas (4x).
+    Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard estimates, remember to add more gas (4x). You can test down to the exact gas amount on the [testnet for free](../testnet.md).
    
-3. Note down your address as 42 chars hexstring (starting with 03). You need to add it to the testnet link to go to your zk contract. If you deployed your contract on PBC through the dashboard app, you can grab it from the link at the top. 
+4. Note down your address as 42 chars hexstring (starting with 03). You need to add it to the testnet link to go to your zk contract. If you deployed your contract on PBC through the dashboard app, you can grab it from the link at the top. 
    
-4. Go to https://testnet.partisiablockchain.com/info/contract/<privateVotingPbcAddress\>
+5. Go to https://testnet.partisiablockchain.com/info/contract/<privateVotingPbcAddress\>
    
-5. Press the button “Show ZK state as json”
+6. Press the button “Show ZK state as json”
 
     Inside the json you'll find an object named “engines”. The engines object contains a list also called “engines”. Each of the four objects in the “engines” list contains information for one of the ZK nodes selected for this contract. 
     
     **Note** that the order of the nodes in the list is important and should not be changed. We need to grab their publickeys and its very important that you keep this in order, we urge you to refer to the nodes as node0, node1, node2, and node3, based on their place in the list.
 
-6. For each node, grab the 33 bytes in the “publicKey” field. The key is encoded using Base64.
+7. For each node, grab the 33 bytes in the “publicKey” field. The key is encoded using Base64.
 
     The publickey could look like this: (INSERT OBJECT WITH HIGHLIGHT OF PUBLICKEY)<todo>
 
