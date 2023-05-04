@@ -110,7 +110,7 @@ fn test_encoding() {
     votes_for.rpc_write_to(buffer)?;
     votes_against.rpc_write_to(buffer)?;
     abstaining.rpc_write_to(buffer)?;
-    description.rpc_write_to(description)?;
+    description.rpc_write_to(buffer)?;
     
     let expected: Vec<u8> = vec![
         0, 0, 0, 7, // vote_id
@@ -144,7 +144,7 @@ function testEncoding() {
 }
 ```
 
-The code above also applies to other types of dynamic data.
+The limitation described above for strings also applies when encoding other types of dynamic data.
 
 ### Hashing data
 
