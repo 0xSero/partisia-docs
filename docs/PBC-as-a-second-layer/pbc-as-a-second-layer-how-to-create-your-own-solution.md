@@ -1,19 +1,41 @@
-# Gief Title pls
+# How to create your own solution with PBC as a second layer
 <div class="dot-navigation">
     <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
     <a class="dot-navigation__item" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="pbc-as-a-second-layer-how-to-deploy.html"></a>
+    <a class="dot-navigation__item dot-navigation__item--active" href="pbc-as-second-layer-how-to-create-you-own-solution.html"></a>
+    <a class="dot-navigation__item" href="pbc-as-a-second-layer-how-to-deploy.html"></a>
     <a class="dot-navigation__item" href="pbc-as-second-layer-technical-differences-eth-pbc.html"></a>
 
     <!-- Repeat above for more dots -->
 </div>
 
-## Code walkthrough / Understanding how the code works / Mikey can think of a good title?
+In this section we will show you how to create you own application that uses PBC as a second 
+layer.
 
-The source code for the two contracts used in the
-[public live example](pbc-as-a-second-layer-live-example-ethereum.md) can be found in the public
-repository https://gitlab.com/partisiablockchain/. We urge you to study the two contracts to
-understand their common design, their differences and how data is shared between them.
+We will use the code from the voting example, but it should be evident that is possible to use PBC 
+as second layer for any type of application.
+
+---
+**NOTE** We recommend you to have some knowledge in creating smarts contracts on both layer one and 
+layer two. If you are unsure we suggest you to read up on how to do the following when trying to 
+recreate the example contract of ours:
+
+1. How to create smart contracts on PBC. Our documentation starts on this page: 
+   [What is a smart contract](../contract-development.md)
+2. How to create smart contracts in ETH (or another layer one chain for this case).
+   We recommend you go to soliditys own documentation to understand how to make smart contracts in 
+   ETH if you are new to this specific case: 
+   [https://docs.soliditylang.org/en/latest/](https://docs.soliditylang.org/en/latest/)
+---
+
+## Secret voting example code
+
+The [voting example](pbc-as-a-second-layer-live-example-ethereum.md) works by having two separate 
+smart contracts, one deployed on the PBC testnet and another deployed on the Goerli testnet.
+
+The source code contracts can be found in the public repository 
+https://gitlab.com/partisiablockchain/. We urge you to study the two contracts to understand their 
+common design, their differences, and how data is shared between them.
 
 We will not provide a line-by-line walkthrough of the code, as some knowledge of both PBC and EVM
 smart contract development is expected. We will briefly discuss the structure of the project and
@@ -196,6 +218,10 @@ on the result object that was signed.
 Note that this is not strictly necessary since the signatures will remain available in state, but
 doing this will make it much easier to find the proof for a given result and not needing to convert
 it when moving the data to the Solidity contract.
+
+It should be clear from the above code examples that any type of data can be signed and moved out of 
+the private smart contract, and that the code needed for doing so is independent of the actual 
+application code.
 
 Next we will discuss how the Solidity contract can receive and validate the result of a concluded
 vote.
