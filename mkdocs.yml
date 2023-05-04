@@ -24,16 +24,20 @@ nav:
       - Public and ZK Smart Contract examples: combi-innovation.md
   - Develop smart contracts:
       - What is a smart contract: contract-development.md
-      - Download compiler for contract development: download-compiler.md
+      - Install the smart contract compiler: download-compiler.md
       - Compile and deploy contracts: contract-compilation.md
-      - MPC Examples and Smart contracts available for combinatorial innovation: combi-innovation.md
-      - Programmer's Guide to PBC smart contract: programmers_guide.md
-      - ABI specification: abiv.md
-      - Create a smart contract for a specific scenario: voting-contract.md
-      - Zero Knowledge Contracts: ZKSC.md
+      - Access and use the testnet: testnet.md
+      - Public and ZK Smart Contract examples - Combine and innovate: combi-innovation.md
+      - Programmers Guide to PBC smart contracts: programmers_guide.md
+      - Partisia Blockchain Smart Contract Binary Formats: abiv.md
+      - How to create a smart contract with a specific scenario: voting-contract.md
+      - Zero Knowledge Smart Contracts: ZKSC.md
       - Compile Zero Knowledge Contracts: compile-zk.md
       - Zero Knowledge Gas Fees: zk-computation-fees.md
-      - ZkRust Language: zk-language.md
+      - Zero Knowledge Rust Language (ZkRust): 
+          - ZkRust Language: zk-language.md
+          - ZK Rust Reference: zk-language-reference.md
+          - Zk language features: zk-language-features.md
       - Development FAQ: dev-faq.md
   - PBC's decoupled token economy:
       - BYOC and gas for the mainnet and testnet: byoc.md
@@ -41,6 +45,7 @@ nav:
   - PBC as a second layer: 
       - PBC as a second layer: PBC-as-a-second-layer/pbc-as-second-layer.md
       - Test the live example of a voting contract with PBC as second layer from ethereum testnet: PBC-as-a-second-layer/pbc-as-a-second-layer-live-example-ethereum.md
+      - How to deploy the example : PBC-as-a-second-layer/pbc-as-a-second-layer-how-to-deploy.md
       - How to create your own solution with PBC as a second layer: PBC-as-a-second-layer/pbc-as-a-second-layer-how-to-create-your-own-solution.md
       - Technical differences between ETH and PBC for the running example: PBC-as-a-second-layer/pbc-as-second-layer-technical-differences-eth-pbc.md
   - Terminology:
