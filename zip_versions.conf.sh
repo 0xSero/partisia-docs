@@ -14,8 +14,9 @@ function contract_cleanup() {
     -e 's/secata\/pbc\/language\/contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
     Cargo.toml
   echo "Patching lib.rs"
-  sed -i 's/mod test\;//g' src/lib.rs
-  sed -i 's/mod tests\;//g' src/lib.rs
+  sed -i '/\#\[cfg(test)\]/d' src/lib.rs
+  sed -i '/mod test\;/d' src/lib.rs
+  sed -i '/mod tests\;/d' src/lib.rs
 }
 
 function token_or_auction_cleanup() {
@@ -47,7 +48,8 @@ function zk_contract_cleanup() {
     -e 's/secata\/pbc\/language\/contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
     Cargo.toml
 
-  sed -i 's/mod tests\;//g' src/lib.rs
+  sed -i '/\#\[cfg(test)\]/d' src/lib.rs
+  sed -i '/mod tests\;/d' src/lib.rs
 }
 
 function get_current_version() {
