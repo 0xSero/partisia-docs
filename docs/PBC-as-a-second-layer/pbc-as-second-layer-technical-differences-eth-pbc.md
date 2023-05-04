@@ -10,7 +10,12 @@
     <!-- Repeat above for more dots -->
 </div>
 
-This segment discusses the challenges that arise when transferring data between Partisia Blockchain and Ethereum, especially when using PBC as a second layer. The main issues discussed are the differences in how data is encoded, the hashing algorithm used, how contract/account addresses are derived, and the encoding of signatures. It is placed as the last page to help any further development to not hit the same roadblocks as we did when making the live example. 
+This segment discusses the challenges that arise when transferring data between Partisia Blockchain 
+and Ethereum, especially when using PBC as a second layer. The main issues discussed are the 
+differences in how data is encoded, the hashing algorithm used, how contract/account addresses are 
+derived, and the encoding of signatures. 
+It is placed as the last page to help explain some of the seemingly arbitrary technical details 
+that may slow down development if not understood properly.
 
 ## How information is represented on PBC and Ethereum and how to convert between the two
 
@@ -26,37 +31,120 @@ using PBC as second layer are:
 ### Encoding data
 
 Solidity has two methods for encoding data into bytes, `abi.encode()` and `abi.encodePacked()`.
+The main difference between the two methods is that `abi.encode()` encodes dynamic types in a 
+location separate from the static data, while `abi.encodePacked()` encodes all types in place.
 For a detailed overview of how they work, see the
 [solidity documentation](https://docs.soliditylang.org/en/latest/abi-spec.html).
 
-Data received from PBC should be encoded using `abi.encodePacked()`.
+Data received from PBC should be encoded using `abi.encodePacked()`, since this method is closest to
+the approach PBC uses.
 
 Similarly, PBC also has two ways to encode or serialize data based on what they are used for.
+The main difference is that data that is stored in state is serialized in little endian order, and 
+data that is serialized for RPC calls is serialized in big endian order.
 See [documentation](../abiv.md) for more details.
 
-Data that are meant to be sent to Ethereum must be encoded as an argument for an RPC payload.
-This can be done by the method `<type>.rpc_write_to(&mut writer)`, where the type implements
-the `WriteRPC` trait.
+Data that is meant to be sent to Ethereum must therefore be encoded as an argument for an RPC 
+payload, which can be done by implementing the `WriteRPC` trait which defines the 
+`rpc_write_to<T: Write(&self, writer: &mut T);` 
+method.
 
-One significant difference between `abi.encodePacked()` and `<data>.rpc_write_to(&mut writer)` is
-that `abi.encodePacked()` does not encode the length of dynamic sized types e.g. strings or lists,
-but `<data>.rpc_write_to(&mut writer)` does add the length to the encoding.
-This means that the length must be manually added to the arguments in `abi.encodePacked()`.
-
-Solidity example:
-
-```solidity
-0x48656c6c6f2c20776f726c6421 == abi.encodePacked("Hello, World!");
-0x0000000d48656c6c6f2c20776f726c6421 == abi.encodePacked(unint32(13), "Hello, World!");
-```
-
-PBC example:
+To illustrate this, consider the two following code snippets using the code from the 
+[voting example](pbc-as-a-second-layer-how-to-create-your-own-solution.md).
 
 ```rust
-let mut output: Vec<u8> = vec![];
-"Hello, World!".rpc_write_to( & mut output);
-0x0000000d48656c6c6f2c20776f726c6421 == output;
+#[test]
+fn test_encoding() {
+    let vote_id: u32 = 7;
+    let votes_for: u32 = 51;
+    let votes_against: u32 = 43;
+    let abstaining: u32 = 4; 
+    let mut buffer: Vec<u8> = vec![];
+    vote_id.rpc_write_to(buffer)?;
+    votes_for.rpc_write_to(buffer)?;
+    votes_against.rpc_write_to(buffer)?;
+    abstaining.rpc_write_to(buffer)?;
+    
+    let expected: Vec<u8> = vec![
+        0, 0, 0, 7, // vote_id
+        0, 0, 0, 51, // votes_for
+        0, 0, 0, 43, // votes_against
+        0, 0, 0, 4 // abstaining
+    ];
+    assert_eq!(buffer, expected);
+}
 ```
+
+```solidity
+function testEncoding() {
+    uint32 voteId = 7;
+    uint32 votesFor = 51;
+    uint32 votesAgainst = 43;
+    uint32 missing = 4;
+    bytes memory encoded = abi.encodePacked(voteId, votesFor, votesAgainst, missing);
+    //                   | voteId|    for|against|missing|
+    require(encoded == "0x00000007000000330000002B00000004");
+}
+```
+
+The above illustrates that the values encoded above results in the same bytes in both contracts.
+
+However, there is one difference between the two that must be considered. In solidity 
+`abi.encodePacked()` encodes dynamic types in place without the data length. Rust also encodes 
+dynamic types in place but prepends the data length.
+
+So if we want to add a short description on the vote data we need to manually add the length in 
+solidity. The following two code snippets illustrates this.
+
+
+```rust
+#[test]
+fn test_encoding() {
+    let vote_id: u32 = 7;
+    let votes_for: u32 = 51;
+    let votes_against: u32 = 43;
+    let abstaining: u32 = 4;
+    let description: String = "cats < dogs".to_string();
+    let mut buffer: Vec<u8> = vec![];
+    vote_id.rpc_write_to(buffer)?;
+    votes_for.rpc_write_to(buffer)?;
+    votes_against.rpc_write_to(buffer)?;
+    abstaining.rpc_write_to(buffer)?;
+    description.rpc_write_to(description)?;
+    
+    let expected: Vec<u8> = vec![
+        0, 0, 0, 7, // vote_id
+        0, 0, 0, 51, // votes_for
+        0, 0, 0, 43, // votes_against
+        0, 0, 0, 4, // abstaining
+        0, 0, 0, 11, // description length
+        99, 97, 116, 115, // "cats"
+        32, 60, 32, // " < "
+        100, 111, 103, 115 // "dogs
+    ];
+    assert_eq!(buffer, expected);
+}
+```
+
+```solidity
+function testEncoding() {
+    uint32 voteId = 7;
+    uint32 votesFor = 51;
+    uint32 votesAgainst = 43;
+    uint32 missing = 4;
+    string memory description = "cats < dogs";
+    bytes memory encoded = abi.encodePacked(voteId, votesFor, votesAgainst, missing, description);
+    //                   | voteId|    for|against|missing|         "cats < dogs"|        
+    require(encoded == "0x00000007000000330000002B0000000463617473203C20646F6773");
+    
+    uint32 length = bytes(description).length;
+    bytes memory encoded = abi.encodePacked(voteId, votesFor, votesAgainst, missing, length, description);
+    //                   | voteId|    for|against|missing| length|         "cats < dogs"|
+    require(encoded == "0x00000007000000330000002B000000040000001163617473203C20646F6773");
+}
+```
+
+The code above also applies to other types of dynamic data.
 
 ### Hashing data
 
