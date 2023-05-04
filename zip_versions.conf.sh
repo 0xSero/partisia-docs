@@ -4,6 +4,7 @@ function contract_cleanup() {
   # shellcheck disable=SC2164
   pushd src
   rm -f test.rs
+  rm -f tests.rs
   # shellcheck disable=SC2164
   popd
   echo "Patching Cargo.toml"
@@ -14,23 +15,39 @@ function contract_cleanup() {
     Cargo.toml
   echo "Patching lib.rs"
   sed -i 's/mod test\;//g' src/lib.rs
+  sed -i 's/mod tests\;//g' src/lib.rs
+}
+
+function token_or_auction_cleanup() {
+  mv src/main/rust/lib.rs src/lib.rs
+  rm -r src/main
+  rm -r src/test
+  rm pom.xml
+  rm run-contract-tests.sh
+  sed -i -e 's/src\/main\/rust\/lib.rs/src\/lib.rs/g' Cargo.toml
+  contract_cleanup
 }
 
 function zk_contract_cleanup() {
   rm -f README.md
   rm -f -r contract-tests
+  mv src/contract.rs src/lib.rs 2>/dev/null || true
   # shellcheck disable=SC2164
   pushd src
   rm -f zk_test.rs
+  rm -f tests.rs
   # shellcheck disable=SC2164
   popd
   echo "Patching Cargo.toml"
   sed -i -e '/\[\[test\]\]/,+2d' \
+    -e 's/src\/contract.rs/src\/lib.rs/g' \
     -e '/\[package\.metadata\.partisiablockchain\]/,+1d' \
     -e "/\[package\.metadata\.zkcompiler\]/{ n; s/https:\/\/nexus\.secata\.com\/repository\/mvn\/com\/partisia\/blockchain/https:\/\/gitlab\.com\/api\/v4\/projects\/37549006\/packages\/maven\/com\/partisiablockchain/; s/zkcompiler\/.*\//zkcompiler\/${ZK_COMPILER_VERSION}\//; s/zkcompiler\-.*\-jar/zkcompiler\-${ZK_COMPILER_VERSION}\-jar/}" \
     -e 's/ssh:\/\//https:\/\//g' \
     -e 's/secata\/pbc\/language\/contract-sdk/partisiablockchain\/language\/contract-sdk/g' \
     Cargo.toml
+
+  sed -i 's/mod tests\;//g' src/lib.rs
 }
 
 function get_current_version() {
@@ -57,15 +74,15 @@ ZK_COMPILER_VERSION="${ZK_COMPILER_VERSION//'.'/'\.'}"
 declare -A content01=(
   [repo]='gitlab.com/secata/pbc/language/contracts/token.git'
   [output]='contracts/token'
-  [version_ref]='tags/v.0.15.0-sdk-13.1.0'
-  [post_process]='contract_cleanup'
+  [version_ref]='tags/v.0.19.0'
+  [post_process]='token_or_auction_cleanup'
 )
 
 # shellcheck disable=SC2034
 declare -A content02=(
   [repo]='gitlab.com/secata/pbc/language/contracts/voting.git'
   [output]='contracts/voting'
-  [version_ref]='tags/v.1.7.0-sdk-13.1.0'
+  [version_ref]='tags/v.1.9.0'
   [post_process]='contract_cleanup'
 )
 
@@ -73,15 +90,15 @@ declare -A content02=(
 declare -A content03=(
   [repo]='gitlab.com/secata/pbc/language/contracts/auction.git'
   [output]='contracts/auction'
-  [version_ref]='tags/v.0.10.0-sdk-13.1.0'
-  [post_process]='contract_cleanup'
+  [version_ref]='tags/v.0.13.0'
+  [post_process]='token_or_auction_cleanup'
 )
 
 # shellcheck disable=SC2034
 declare -A content04=(
   [repo]='gitlab.com/secata/pbc/language/contracts/nft.git'
   [output]='contracts/nft'
-  [version_ref]='tags/v.0.8.0-sdk-13.1.0'
+  [version_ref]='tags/v.0.10.0'
   [post_process]='contract_cleanup'
 )
 
@@ -89,7 +106,7 @@ declare -A content04=(
 declare -A content05=(
   [repo]='gitlab.com/secata/pbc/language/contracts/zk-voting-simple.git'
   [output]='contracts/zk-voting-simple'
-  [version_ref]='tags/v.0.5.0-sdk-13.1.0'
+  [version_ref]='tags/v.0.8.0'
   [post_process]='zk_contract_cleanup'
 )
 
@@ -97,7 +114,7 @@ declare -A content05=(
 declare -A content06=(
   [repo]='gitlab.com/secata/pbc/language/contracts/zk-second-price-auction.git'
   [output]='contracts/zk-second-price-auction'
-  [version_ref]='tags/v.0.7.0-sdk-13.1.0'
+  [version_ref]='tags/v.0.10.0'
   [post_process]='zk_contract_cleanup'
 )
 
@@ -105,7 +122,7 @@ declare -A content06=(
 declare -A content07=(
   [repo]='gitlab.com/secata/pbc/language/contracts/zk-average-salary.git'
   [output]='contracts/zk-average-salary'
-  [version_ref]='tags/v.0.8.0-sdk-13.1.0'
+  [version_ref]='tags/v.0.11.0'
   [post_process]='zk_contract_cleanup'
 )
 
@@ -113,7 +130,7 @@ declare -A content07=(
 declare -A content08=(
   [repo]='gitlab.com/secata/pbc/language/contracts/conditional-escrow-transfer.git'
   [output]='contracts/conditional-escrow-transfer'
-  [version_ref]='tags/v.0.7.0-sdk-13.1.0'
+  [version_ref]='tags/v.0.9.0'
   [post_process]='contract_cleanup'
 )
 
@@ -121,7 +138,7 @@ declare -A content08=(
 declare -A content09=(
   [repo]='gitlab.com/secata/pbc/language/contracts/liquidity-swap.git'
   [output]='contracts/liquidity-swap'
-  [version_ref]='tags/v.1.12.0-sdk-13.1.0'
+  [version_ref]='tags/v.1.14.0'
   [post_process]='contract_cleanup'
 )
 
@@ -129,15 +146,23 @@ declare -A content09=(
 declare -A content10=(
   [repo]='gitlab.com/secata/pbc/language/contracts/multi-voting.git'
   [output]='contracts/multi-voting'
-  [version_ref]='tags/v.1.5.0-sdk-13.1.0'
+  [version_ref]='tags/v.1.7.0'
   [post_process]='contract_cleanup'
 )
 
 # shellcheck disable=SC2034
-declare -A content11=(
-  [repo]='gitlab.com/secata/pbc/language/contracts/zk-immediate-open.git'
-  [output]='contracts/zk-immediate-open'
-  [version_ref]='tags/v.0.1.0-sdk-13.1.0'
+declare -A content12=(
+  [repo]='gitlab.com/secata/pbc/language/contracts/zk-liquidity-swap.git'
+  [output]='contracts/zk-liquidity-swap'
+  [version_ref]='tags/v.2.2.0'
+  [post_process]='zk_contract_cleanup'
+)
+
+# shellcheck disable=SC2034
+declare -A content13=(
+  [repo]='gitlab.com/secata/pbc/language/contracts/zk-struct-open.git'
+  [output]='contracts/zk-struct-open'
+  [version_ref]='tags/v.0.4.0'
   [post_process]='zk_contract_cleanup'
 )
 
