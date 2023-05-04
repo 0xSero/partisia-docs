@@ -28,7 +28,7 @@ recreate the example contract of ours:
    [https://docs.soliditylang.org/en/latest/](https://docs.soliditylang.org/en/latest/)
 ---
 
-## Secret voting example code
+## Voting example code
 
 The [voting example](pbc-as-a-second-layer-live-example-ethereum.md) works by having two separate 
 smart contracts, one deployed on the PBC testnet and another deployed on the Goerli testnet.
@@ -90,6 +90,8 @@ The flow of the contract is as follows:
 
 The last attestation step is what enables us to move data from PBC back to the 1. layer chain, so it
 is useful to understand how that works.
+
+#### Attesting the result of a secret vote
 
 The following is an abbreviated snippet of the functions that receive the opened computation result
 and asks for it to be attested by the computation nodes.
@@ -227,3 +229,165 @@ Next we will discuss how the Solidity contract can receive and validate the resu
 vote.
 
 ### Solidity public voting contract
+
+As for the PBC private smart contract, we will not dive into every detail of the Solidity contract.
+To understand the contract we urge you to study the code carefully.
+
+The flow of the public voting contract can be summarized as:
+
+1. The contract is deployed with parameters that establishes its connection to the PBC private 
+   contract. We will discuss these in more details later.
+2. Anyone can at any time register a PBC address as a voter.
+3. Once a vote has concluded on PBC the result can be published, using the actual numbers of the 
+   result along with the proof provided by PBC.
+
+For the purposes of using PBC as second layer for this contract, step 1 and 3 above are interesting
+to discuss further as they are the ones that allow us to move data from PBC to this contract without
+loss of integrity.
+
+Let's look at the code in more details to understand how this works.
+
+#### Establishing the connection to PBC
+
+The following abbreviated code from the Solidity contract highlights how it knows of and trusts the 
+deployed PBC private smart contract.
+
+```solidity
+bytes21 public privateVotingPbcAddress;
+address[] public computationNodes;
+
+constructor(bytes21 _pbcContractAddress, bytes[] memory nodesUncompressedPublicKeys) {
+    setupPbcInformation(_pbcContractAddress, nodesUncompressedPublicKeys);
+}
+
+function setupPbcInformation(
+    bytes21 _pbcContractAddress, 
+    bytes[] memory nodesUncompressedPublicKeys) private {
+    privateVotingPbcAddress = _pbcContractAddress;
+
+    // Uncompressed size of a public key (EC point).
+    uint keySize = 64;
+    uint noOfKeys = 4;
+
+    require(nodesUncompressedPublicKeys.length == noOfKeys, "Invalid computation node count");
+    computationNodes = new address[](noOfKeys);
+    // Check that each public key has the expected length, and derive its corresponding address
+    for (uint i = 0; i < 4; i++) {
+        bytes memory pubKey = nodesUncompressedPublicKeys[i];
+        require(pubKey.length == keySize, "Invalid length of public key");
+        // To derive the address from the public key, take the keccak-256 hash of the key.
+        // Next cast the output digest to an 256 bit unsigned integer, and reduce the integer
+        // to the 20 least significant bytes by casting to 160 bit unsigned integer.
+        // Finally, type cast this number to an address.
+        computationNodes[i] = address(uint160(uint256(keccak256(pubKey))));
+    }
+}
+```
+
+We store two state variables on the contract. The first is the _PBC_ address of the deployed private 
+smart contract. The second is an array of _Ethereum_ addresses of the nodes selected to perform ZK
+computations for the private smart contract.
+We need both of these variables when we later verify the proof of a result.
+
+Note that the PBC address consists of 21 bytes, while the Ethereum address has its own type and 
+consists 20 bytes. 
+
+We initialize both values in the contract constructor. Initializing the contract address is 
+straight forward, but setting the addresses of the computation nodes is a bit more involved.
+
+Instead of passing in the addresses directly we supply the constructor with the raw bytes of the 
+nodes' public keys. We then check that we have the number of keys expected and that they have the 
+expected length before deriving the address from each key.
+
+**Note:** To derive the key correctly it is important that the byte values of each key is the 
+uncompressed encoding which is 64 bytes long, otherwise the derived address does not correspond to 
+the actual key. See [this page](pbc-as-second-layer-technical-differences-eth-pbc.md) for further
+discussion on deriving addresses from public keys.
+
+We do this because we do not have know what the _Ethereum_ addresses of the computation nodes are, 
+but only have access to their public keys, which we can derive the addresses from.
+
+See [this page](pbc-as-a-second-layer-how-to-deploy.md) for more details on how to deploy the two 
+contracts and how to find and pass the information needed from the PBC private smart contract.
+
+#### Verifying the result of a secret vote
+
+The following code shows how the result of vote can be sent to this contract, while validating that 
+it originates from the private voting contract, and that it was signed by the trusted computation 
+nodes.
+
+```solidity
+function publishResult(
+   uint32 _voteId,
+   uint32 _votesFor,
+   uint32 _votesAgainst,
+   uint32 _abstaining,
+   bytes[] calldata _proofOfResult) external {
+
+   // Verify that we have signatures from all of the computation nodes.
+   require(_proofOfResult.length == 4, "Not enough signatures");
+   // Compute the SHA-256 hash value (also called digest) of the data that was signed by the
+   // computation nodes. The nodes have not signed the raw data, but rather the digest of the
+   // data, so we need to compute it here to verify the signatures against it.
+   bytes32 digest = computeDigest(_voteId, _votesFor, _votesAgainst, _abstaining);
+
+   // For each of the 4 signatures:
+   for (uint node = 0; node < 4; node++) {
+      // The the signature from the input array.
+      bytes calldata signature = _proofOfResult[node];
+      // Verify that the address recovered from the signature matches one of the computation 
+      // nodes that we trust from the initialization of the contract.
+      require(computationNodes[node] == ECDSA.recover(digest, signature),
+         "Could not verify signature");
+   }
+
+   // All signatures were verified so we can publish the result of the vote.
+   VoteResult memory result = VoteResult(_voteId, _votesFor, _votesAgainst, _abstaining);
+   emit VotingCompleted(result);
+   results.push(result);
+}
+
+function computeDigest(
+   uint32 _voteId,
+   uint32 _votesFor,
+   uint32 _votesAgainst,
+   uint32 _abstaining) private view returns (bytes32) {
+   // The digest of the attested data follows the format:
+   // sha256(attestation_domain_separator || pbc_contract_address || data), where 
+   // attestation_domain_separator is the hardcoded utf-8 encoding of the string 
+   // "ZK_REAL_ATTESTATION", pbc_contract_address is the address of the contract that requested 
+   // the attestation and data is the actual data to be signed.
+   // For the voting case it means that compute the digest of 
+   // "ZK_REAL_ATTESTATION" || privateVotingPbcAddress || _voteId || _votesFor || _votesAgainst || _abstaining
+   // We use abi.encodePacked to ensure the bytes are encoded in the same manner as on PBC.
+   return sha256(
+      abi.encodePacked(
+         "ZK_REAL_ATTESTATION",
+         privateVotingPbcAddress,
+         _voteId,
+         _votesFor,
+         _votesAgainst,
+         _abstaining
+      ));
+}
+```
+
+To publish the result the function takes the four inputs that identifies which vote was concluded,
+the numbers of the results and the proof provided by the contract.
+
+Before we can trust that the result is correct and has not been tampered with we need to verify the
+signatures. 
+
+We do this by calculating the digest of the result, for which we need the address of the 
+private contract that the result originates from, i.e. the address provided when the contract was
+deployed.
+
+Once we have the digest we verify each signature against the node addresses we also stored when 
+the contract was deployed.
+
+If all four signatures can be verified, we can trust that the result was not tampered with, and we
+can publish it.
+
+As for the PBC contract, the code need for adding the PBC connection and for validating incoming 
+data is independent of the logic needed for the actual application, meaning that the contract can be
+modified to match any needs.
