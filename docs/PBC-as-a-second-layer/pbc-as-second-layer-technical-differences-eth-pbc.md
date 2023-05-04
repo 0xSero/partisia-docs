@@ -154,31 +154,39 @@ This means that the same bytes results in different digests when hashing either 
 However, solidity also provides a SHA-256 method, which should be used whenever verifying data sent
 from PBC.
 
-### Deriving addresses
+### Deriving Ethereum addresses
 
-When using PBC as second layer, there may exist accounts on PBC that we wish to represent on
-Ethereum, that is given an PBC account with signing key _k_ which address corresponds to _k_ on
-Ethereum?
+When using PBC as second layer we wish to know that the Ethereum addresses are for the nodes running
+the ZK computation. Based on the type of contract being written we may also wish to known what the
+Ethereum address corresponding to any PBC account address is.
 
-We need this information to be able to verify the signatures provided by the ZK computation nodes.
+There is no function that can convert one address type to the other since both address types are 
+result of a one-way hashing function.
+
+In order to derive the address for either Ethereum or PBC we need to know the public key 
+corresponding to the accounts private key.
 
 As described [here](https://ethereum.org/en/developers/docs/accounts/#account-creation) the address
 is derived by first generating the public key from the private key. Then the Ethereum address is the
 last 20 bytes of the Keccak-256 hash of the public key.
 
-Since PBC holds the public keys of the computation nodes in the state this sound easy enough, but
-there is a problem.
+Specifically for the computation nodes, the public keys are stored in PBC state, and we can derive
+their Ethereum addresses from them, however there is a problem.
 
 To understand the problem it is important to understand that both Ethereum and PBC uses [Elliptic
-Curve Cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography) (ECC) for providing signatures. This means that public keys are actually a point
-on an elliptic curve, and the point can be encoded in two different formats: compressed and
-uncompressed.
+Curve Cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography) (ECC) for providing 
+signatures. This means that public keys are actually a point on an elliptic curve, and the point can 
+be encoded in two different formats: compressed and uncompressed.
 
 The uncompressed encoding is 64 bytes, 32 bytes for each coordinate in the point.
 As the name implies, the compressed encoding compresses the points, so they can be represented in
 fewer bytes.
 
-When using PBC, public keys are saved in compressed encoding to optimize storage usage. However, when deriving the address from the public keys, Ethereum expects them to be in uncompressed format. Therefore, before deriving the addresses, the compressed public keys from PBC must be converted to an uncompressed 64-byte encoding. This conversion will ensure that Ethereum can derive the address from the public key.
+When using PBC, public keys are saved in compressed encoding to optimize storage usage. 
+However, when deriving the address from the public keys, Ethereum expects them to be in uncompressed 
+format. Therefore, before deriving the addresses, the compressed public keys from PBC must be 
+converted to an uncompressed 64-byte encoding. This conversion will ensure that Ethereum can derive 
+the address from the public key.
 
 ### Signatures
 
@@ -198,5 +206,4 @@ should be moved to the end of the signature `r || s || recovery_id`.
 Additionally, on PBC the _recovery_id_ can be either 0 or 1, but Ethereum expects it to be either
 27 or 28. So we should add 27 to it before we can send to Ethereum.
 
-The final transformation looks like
-`recovery_id || s || r => s || r || (recovery_id + 27)`.
+The final transformation looks like `recovery_id || s || r => s || r || (recovery_id + 27)`.

@@ -380,7 +380,7 @@ signatures.
 
 We do this by calculating the digest of the result, for which we need the address of the 
 private contract that the result originates from, i.e. the address provided when the contract was
-deployed.
+deployed. The algorithm used is SHA-256, since this is what PBC uses.
 
 Once we have the digest we verify each signature against the node addresses we also stored when 
 the contract was deployed.
