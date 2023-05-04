@@ -1,4 +1,4 @@
-# Zero-Knowledge Gas Fees
+# Zero Knowledge Gas Fees
 
 Zero-knowledge (ZK) computation involves a number of gas fees to ensure that a contract's associated ZK nodes have enough gas to execute the ZK actions.
 
