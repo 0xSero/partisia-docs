@@ -7,11 +7,14 @@ We need to deploy two smart contracts: one zero-knowledge smart contract on PBC 
 
 The author of the contracts determines what information should be given to the public record and what should not be given to the public record across layer 1 and 2. User input should go to the necessary contracts to either A) give input publicly for layer one or two, or B) give input privately directly onto layer two contract. This is one of the main reasons of using PBC as second layer to determine what input goes where and how we handle such input either privately or publicly.
 
-PBC as a second layer only supports a movement of data from layer one to layer two by outside manipulation, as in not between two smart contracts across chains. However, PBC ensures that the package delivered out from layer two is sufficiently signed to prevent tampering with it. The model below tries to showcase what has been described earlier.
-
 ![ConceptPBCAsSecondLayer](../assets/ConceptModels/ConceptPBCAsSecondLayer.png)
 
-The model is to showcase how it could be created from the perpective of Ethereum.
+To describe the technical workflow around PBC as second layer we'll use the above model as reference.
+On Ethereum we have deployed a .sol smart contract, the smart contract takes input in the form of who is allowed to vote. The who-is-allowed-to-vote input from the contract needs to be transferred onto PBC and we would use an outside script to move such data between the chains. It cannot be moved automatically from contract to contract.
+
+After moving the voter input to PBC, the PBC smart contract now knows what votes it can accept and from where. The voters input would need to come directly to the smart contract on PBC to ensure the privacy of the vote. When the smart contract on PBC has enough votes and its trigger has been met for counting the votes, it will take all the votes and send them to the prepicked MPC node operators, also called zero-knowledge nodes. The ZK nodes will handle our computation privately without knowing the voters and votes themselves. You can read more about the MPC process [here](../dictionary.md#mpc)
+
+When the computation is done the nodes will sign and encrypt the package before delivering it back to the smart contract where we can move the now signed data through another outside script to the Ethereum chain. The Ethereum contract then needs to verify that the signatures are from the expected MPC adresses before publishing the results of the vote.
 
 ## How do we handle the information and make sure the middle man is not cheating the users of the smart contracts?
 
