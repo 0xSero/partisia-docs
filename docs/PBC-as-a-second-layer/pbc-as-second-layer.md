@@ -9,24 +9,24 @@ The author of the contracts determines what information should be publicly avail
 
 ![ConceptPBCAsSecondLayer](../assets/ConceptModels/ConceptPBCAsSecondLayer.png)
 
-To explain PBC as second layer we'll use the above model as reference. We will run through the model and describe it from our example you can find on the following page. The example is based around Ethereum as our first layer and PBC as our second layer. The example is based around a voting scenario where we want to privately calculate the results of the votes without showing who voted what.
+To illustrate PBC as a second layer, we will use the model outlined above and describe it with reference to an example that you can find on the following page. This example is based on using Ethereum as the first layer and PBC as the second layer. The scenario involves a voting system where the goal is to privately calculate the results of the votes without revealing how individual voters cast their ballots.
 
-1. A .sol smart contract needs to be deployed on layer 1, in our eaxmple layer 1 is on Ethereum. The smart contract in our example has two main objectives:
+1. A Solidity (.sol) smart contract needs to be deployed on layer 1, in our example layer 1 is Ethereum. The smart contract in our example has two main objectives:
    1. It handles the initialized list of allowed voters on the contract.
    2. It handles the final verification of the result received from PBC. The contract needs to know the adresses for the nodes picked on PBC to handle the verification.
 2. A PBC zero knowledge smart contract needs to be deployed on layer 2. The smart contract in our example has three main objectives:
    1. It accepts the list of allowed voters to ensure only voters whos part of the vote can send their vote.
    2. It lets allowed users vote
    3. It counts the votes privately and signs the result with the zero-knowledge (ZK) nodes keys. More on this later.
-3. When a zero knowledge smart contract is deployed on PBC it finds four nodes for the zero knowledge calculation using the MPC technology to do the actual work.
+3. When the PBC smart contract is deployed, it selects four MPC nodes to perform the zero-knowledge calculation.
 4. The list of allowed voters from the .sol contract needs to be transferred onto PBC. Typically an off-chain script is used to move the data between chains.
-5. After moving the list of allowed voters to PBC, the PBC smart contract now knows what votes it can accept and from whom.
-6. The votes deliver their vote directly to the ZK smart contract on PBC. This ensures that the votes are kept confidential.
-7. The smart contract continually sends the votes it receives to the prepicked MPC node operators, also called zero-knowledge nodes. The ZK nodes will handle our computation privately without knowing the voters and votes themselves. You can read more about the MPC process [here](../dictionary.md#mpc)
-8. When the smart contract on PBC hits its deadline it will start the ZK computation for counting the votes.
-9. When the computation is complete the nodes is asked by the contract to show the result before they will sign the result.
-10. The signed result needs to be moved back to Ethereum, typically done by another off-chain script.
-11. The Ethereum contract then needs to verify that the signatures are from the expected MPC adresses before publishing the results of the vote onto its chain to end the vote.
+5. After transferring the list of allowed voters, the PBC smart contract knows which votes it can accept and from whom.
+6. Voters submit their votes directly to the PBC smart contract, ensuring confidentiality.
+7. The smart contract continually sends the votes it receives to the prepicked MPC node operators, also called zero-knowledge nodes. The ZK nodes will handle our computation privately without knowing the voters and votes themselves. You can read more about the MPC process [in our dictionary](../dictionary.md#mpc)
+8. When the smart contract on PBC reaches its deadline it will start the ZK computation for counting the votes.
+9. When the computation is complete, the nodes are asked to reveal the result, which is then signed by the nodes.
+10. The signed result needs to be transferred back to the Ethereum contract, typically done by another off-chain script.
+11. The Ethereum contract verifies that the signatures are from the expected MPC addresses before publishing the vote results on its chain to end the vote.
 
 ## How do we handle the information and make sure the middle man is not cheating the users of the smart contracts?
 
