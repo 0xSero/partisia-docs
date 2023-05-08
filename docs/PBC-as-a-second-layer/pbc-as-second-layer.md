@@ -18,7 +18,7 @@ To illustrate PBC as a second layer, we will use the model outlined above and de
    * It accepts the list of allowed voters to ensure only voters whos part of the vote can send their vote.
    * It lets allowed users vote
    * It counts the votes privately and signs the result with the zero-knowledge (ZK) nodes keys. More on this later.
-3. When the PBC smart contract is deployed, it selects four [MPC nodes](dictionary.md#mpc) to perform the zero-knowledge calculation.
+3. When the PBC smart contract is deployed, it selects four [MPC nodes](/docs/dictionary.md#mpc) to perform the zero-knowledge calculation.
 4. The list of allowed voters from the .sol contract is transferred onto PBC. Typically an off-chain script is used to move the data between chains.
 5. After transferring the list of allowed voters, the PBC smart contract knows which votes it can accept and from whom.
 6. Voters submit their votes directly to the PBC smart contract, ensuring confidentiality. The smart contract verifies the sender from the list of allowed voters. 
