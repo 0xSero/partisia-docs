@@ -9,10 +9,10 @@ You can deploy and test both public and private smart contracts on the testnet f
 
 - A PBC [account](accounts.md), you can create an account with the [PBC wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).   
 - Get [testnet gas](byoc.md)   
-- [Download the PBC example smart contracts](LINK_TO_RUST_EXAMPLE_CONTRACTS) containing examples of both public and private smart contracts
+- [Download the PBC example smart contracts](LINK_TO_RUST_EXAMPLE_CONTRACTS) containing examples of both public and private smart contracts, they are described on [this page](combi-innovation.md).
 
 ## How to deploy contracts on the testnet   
 
 - Use your private key to sign in (click icon in upper right corner)
 - open the dashboard [wallet](https://testnet.partisiablockchain.com/wallet/upload_wasm)   
-- For public smart contracts you upload a WASM-file as contract file and an ABI-file, but for private contract using ZK computation you upload a ZKWA-file as contract file and an ABI-file.   
+- For public smart contracts you upload a WASM-file as contract file and an ABI-file, but for private contract using ZK computation you upload a ZKWA-file as contract file and an ABI-file. Keep in mind that you need to add enough gas for your contract to run.   
