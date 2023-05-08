@@ -83,7 +83,7 @@ deploying the solidity contract.
 
    **Note** that the order of the nodes in the list is important and should not be changed!
 
-## Deploy Ethereum solidity contract
+### Deploy Ethereum solidity contract
 
 We recommend that you follow the official guides from Ethereum for developing and deploying Solidity
 smart contracts. In the following, we use the 
@@ -143,7 +143,7 @@ from Ethereum as a template for how to deploy a solidity smart contract on the G
    npx hardhat run scripts/verify.js --network goerli
    ```
 
-## Verify deployments
+### Verify deployments
 
 To test that the deployment of the PBC as second layer solution works, you can run a test similar to 
 what is described in the 
