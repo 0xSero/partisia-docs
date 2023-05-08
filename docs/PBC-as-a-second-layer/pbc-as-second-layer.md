@@ -23,7 +23,7 @@ To illustrate PBC as a second layer, we will use the model outlined above and de
 5. After transferring the list of allowed voters, the PBC smart contract knows which votes it can accept and from whom.
 6. Voters submit their votes directly to the PBC smart contract, ensuring confidentiality.
 7. The smart contract continually sends the votes it receives to the prepicked MPC node operators, also called zero-knowledge nodes. The ZK nodes will handle our computation privately without knowing the voters and votes themselves. You can read more about the MPC process [in our dictionary](../dictionary.md#mpc)
-8. When the smart contract on PBC reaches its deadline it will start the ZK computation for counting the votes.
+8. When the smart contract on PBC reaches its deadline the ZK computation for counting the votes can be started by any user.
 9. When the computation is complete, the nodes are asked to reveal the result, which is then signed by the nodes.
 10. The signed result is transferred back to the Ethereum contract, typically done by another off-chain script.
 11. The Ethereum contract verifies that the signatures are from the expected MPC addresses before publishing the vote results on its chain to end the vote.
