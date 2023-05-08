@@ -11,13 +11,13 @@ The author of the contracts determines what information should be publicly avail
 
 To illustrate PBC as a second layer, we will use the model outlined above and describe it with reference to an example that you can find on the following page. This example is based on using Ethereum as the first layer and PBC as the second layer. The scenario involves a voting system where the goal is to privately calculate the results of the votes without revealing how individual voters cast their ballots.
 
-1. A Solidity (.sol) smart contract needs to be deployed on layer 1, in our example layer 1 is Ethereum. The smart contract in our example has two main objectives:
-   1. It handles the initialized list of allowed voters on the contract.
-   2. It handles the final verification of the result received from PBC. The contract needs to know the adresses for the nodes picked on PBC to handle the verification.
+1. A Solidity (K.sol) smart contract needs to be deployed on layer 1, in our example layer 1 is Ethereum. The smart contract in our example has two main objectives:
+   * It handles the initialized list of allowed voters on the contract.
+   * It handles the final verification of the result received from PBC. The contract needs to know the adresses for the nodes picked on PBC to handle the verification.
 2. A PBC zero knowledge smart contract needs to be deployed on layer 2. The smart contract in our example has three main objectives:
-   1. It accepts the list of allowed voters to ensure only voters whos part of the vote can send their vote.
-   2. It lets allowed users vote
-   3. It counts the votes privately and signs the result with the zero-knowledge (ZK) nodes keys. More on this later.
+   * It accepts the list of allowed voters to ensure only voters whos part of the vote can send their vote.
+   * It lets allowed users vote
+   * It counts the votes privately and signs the result with the zero-knowledge (ZK) nodes keys. More on this later.
 3. When the PBC smart contract is deployed, it selects four MPC nodes to perform the zero-knowledge calculation.
 4. The list of allowed voters from the .sol contract needs to be transferred onto PBC. Typically an off-chain script is used to move the data between chains.
 5. After transferring the list of allowed voters, the PBC smart contract knows which votes it can accept and from whom.
