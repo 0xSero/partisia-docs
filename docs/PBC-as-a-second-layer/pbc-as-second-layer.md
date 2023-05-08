@@ -5,7 +5,7 @@ This article explains how Partisia Blockchain (PBC) can function as a second lay
 To use PBC's zero-knowledge contracts as a second layer to handle privacy, secrecy or other great possibilities, the minimum viable design stays the same.
 We need to deploy two smart contracts: one zero-knowledge smart contract on PBC and a public smart contract on the layer one chain. The public functionality of the contracts will be very similar, but the contract on PBC can privately calculate the result using zero-knowledge computation. This design can be made onto any EVM chain with PBC as second layer and we focus on ETH in this guide because we have designed our running example around that particular chain. The PBC steps are the same and the concept needs to be similar in design.
 
-The author of the contracts determines what information should be publicly available and what should be kept confidential across layer 1 and 2. The users send their input the necessary contracts to either A) give input publicly for layer 1 or 2, or B) give input privately directly onto the layer 2 contract. The main benefits of using PBC as second layer to determine what input goes where and how we handle such input either privately or publicly.
+The author of the contracts determines what information should be publicly available and what should be kept confidential across layer 1 and 2. The users of the smart contracts sends their input to the necessary contracts to either A) give input publicly for layer 1 or 2, or B) give input privately directly to the layer 2 contract on PBC.
 
 ![ConceptPBCAsSecondLayer](../assets/ConceptModels/ConceptPBCAsSecondLayer.png)
 
