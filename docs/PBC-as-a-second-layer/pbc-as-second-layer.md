@@ -32,4 +32,6 @@ To illustrate PBC as a second layer, we will use the model outlined above and de
 
 ## How do we handle the information and make sure the middle man is not cheating the users of the smart contracts?
 
-To ensure the integrity of the results calculated on PBC, the signed result will need to be validated on the layer 1 contract before being published. The signatures come from the unique keys of the ZK nodes that have completed the MPC calculation, and the layer 1 contract must be able to verify these signed keys to establish the connection between layer 1 and 2. This is an important aspect of how PBC works as a second layer, as it prevents any middle man from cheating. To enable the verification of the signed keys, certain information from the deployed PBC contract state, such as the PBC addresses of the ZK nodes used in the computation, must be manually added to the layer 1 contract.
+To ensure the integrity of the results calculated on PBC, the signed result will need to be validated on the layer 1 contract before being published. The signatures come from the private keys of the ZK nodes that have completed the MPC calculation, and the layer 1 contract must be able to verify the private keys to establish this connection between layer 1 and 2. This is an important aspect of how PBC works as a second layer, as it prevents any middle man from cheating. 
+
+To enable the verification of the signed result, the contract on layer one needs to have the PBC addresses of the ZK nodes used in the computation. 
