@@ -188,6 +188,16 @@ format. Therefore, before deriving the addresses, the compressed public keys fro
 converted to an uncompressed 64-byte encoding. This conversion will ensure that Ethereum can derive 
 the address from the public key.
 
+### Deriving PBC addresses
+
+Similar to Ethereum, PBC account addresses are calculated as the last 20 bytes of the hash of the 
+public key.
+
+Unlike Ethereum, the hashing algorithm used is SHA-256, and the address is prepended with the byte 
+`0x00`, to signify the address is an account.
+
+In total an address on PBC is 21 bytes long.
+
 ### Signatures
 
 Finally, in order to be able to verify data signed by the ZK computation nodes, we need to ensure
