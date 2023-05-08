@@ -131,6 +131,8 @@ following for each key _k_ in the "engines" list.
 2. Convert _k_ to the uncompressed form. This can be done e.g. by using the PBC 
    `BlockchainPublicKey` java class and [getting the uncompressed EC points](https://gitlab.com/partisiablockchain/core/contract/-/blob/main/src/main/java/com/partisiablockchain/crypto/BlockchainPublicKey.java#L138)
    from that.
+   * You can also use the helper script `publicKeys.js` found in the code for the 
+     [example voting contracts](https://gitlab.com/partisiablockchain/language/<todo>).
 3. Derive the Ethereum address from the uncompressed public key. This can be done with an 
    [online calculator](https://www.rfctools.com/ethereum-address-test-tool/) or programmatically.
 4. The derived Ethereum address should match one of the addresses in the Ethereum smart contract's 
