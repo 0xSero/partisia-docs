@@ -4,10 +4,12 @@ One of the main features which set Particia Blockchain(PBC) apart from other blo
 You can utilize PBC's capacity for ZK computations through zero knowledge smart contracts (ZKSC).
 
 ### What is zero knowledge smart contracts
+
 Zero knowledge smart contracts has all the same functionality as public smart contracts (SC), but in addition to that the ZKSC allocate a subset of qualified nodes to do computations on private versions of input data. A ZKSC stipulate some non-public actions in addition to the public actions. This means that a ZKSC has a private state only present on the ZK nodes in addition to a public state on the chain. When a ZK node is allocated to a specific ZKSC the node's associated stakes will be locked to the contract until the ZK work is finished.
 If our ZKSC is an auction like below, the public state will contain the winner's ID and the price of the auctioned item, whereas the private state will contain all the non-winning bids. The calculation in the private state are done on [secret shared data](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a). This means that the nodes allocated for the ZK work in the contract does not have access to the user input, i.e. the ZK nodes do not have access to the values of the non-winning bids.
 
 ### Example of a zero knowledge smart contract on PBC - Vickrey Auction
+
 In this example we will use our contract that creates a [Vickrey Auction (second price auction)](https://en.wikipedia.org/wiki/Vickrey_auction), which is a sealed bid auction where the winner is the person with the highest bid (as in a normal auction), you can read more about this type of contract if you visit our example contract overview [here](combi-innovation.md#zk-second-price-auction).
 The second price auction takes as inputs the bids from the registered participants. The bids are delivered encrypted and secret-shared to the ZK nodes allocated to the contract. When the computation is initiated by the contract owner, the zero knowledge computation nodes reads the collected input and then create a bit vector consisting of prices and the ordering number. The list of bit vectors is now sorted in MPC. The winner is the first entry (the bidder with the highest price-bid), the price is determined by the size of the second-highest bid.
 
@@ -15,16 +17,17 @@ The contract follows these phases:
 
 1. Initialization on the blockchain.
 2. Registration of bidders allowed to participate in the auction.
-3. Receival of secret bids.   
-4. Once enough bids have been received, the owner of the contract can initialize computation of the auction result.   
-5. The ZK nodes derive the winning bid in a secure manner by executing a Secure Multiparty Computation protocol off-chain.   
+3. Receival of secret bids.
+4. Once enough bids have been received, the owner of the contract can initialize computation of the auction result.
+5. The ZK nodes derive the winning bid in a secure manner by executing a Secure Multiparty Computation protocol off-chain.
 6. Once the ZK computation concludes, the winning bid will be published and the winner will be stored in the state, together with their bid.
-7. The ZK nodes sign the result of the auction with a digital signature proving that the nodes in question were responsible for the generating the result of the auction. 
+7. The ZK nodes sign the result of the auction with a digital signature proving that the nodes in question were responsible for the generating the result of the auction.
 
 Below you can see the Rust implementation of the zero knowledge smart contract for the Vickrey Auction:
 
-The function *zk_compute* performs a ZK computation on the secret shared bids (step 5 above), it returns the index of the highest bidder and amount of second-highest bid.
-````rust
+The function _zk_compute_ performs a ZK computation on the secret shared bids (step 5 above), it returns the index of the highest bidder and amount of second-highest bid.
+
+```rust
 use crate::zk_lib::{num_secret_variables, sbi32_from, sbi32_input, sbi32_metadata, Sbi32};
 
 pub fn zk_compute() -> (Sbi32, Sbi32) {
@@ -48,7 +51,8 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
     (highest_bidder, second_highest_amount)
 }
 
-````
+```
+
 [You can see the code handling the remaining contract phases further down the page](ZKSC.md#full-zksc-code-example)
 
 ### Use zero knowledge smart contracts on PBC as a second layer
@@ -61,7 +65,7 @@ The contract owner controls the functions on the Zero knowledge smart contract o
 
 ### Full ZKSC code example
 
-````rust
+```rust
 #![allow(unused_variables)]
 
 #[macro_use]
@@ -374,6 +378,4 @@ fn read_variable<T: ReadWriteState>(
     T::state_read_from(&mut buffer.as_slice())
 }
 
-````
-   
-
+```
