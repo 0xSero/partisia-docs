@@ -39,6 +39,7 @@ nav:
           - ZK Rust Reference: zk-language-reference.md
           - Zk language features: zk-language-features.md
       - Development FAQ: dev-faq.md
+      - PBC as second layer: PBC-as-a-second-layer/pbc-as-second-layer.md
   - PBC's decoupled token economy:
       - BYOC and gas for the mainnet and testnet: byoc.md
       - MPC token model: mpc-tokens.md
