@@ -56,6 +56,7 @@
 1. Start the vote counting process by pressing the "Start Vote Counting" button and then "Submit". This will initiate the ZK computation and new votes cannot be cast while it is running. The computation can take a minute or two to finish. 
    
    If the action fails it might be because a vote has not been confirmed yet or if another has started the voting before you. You can see if the result shows up, otherwise you can retry the Start Vote Counting after a couple of minutes.
+   
 2. Once the computation has ended, the result of the vote is added to the list of "vote_results". You may have to refresh the page to update the state.
 3. Find the result with the vote id that you noted earlier.
 4. As this is an open voting example, it may be challenging to fully verify the expected result. However, the result should include at least the number of votes cast or more.
