@@ -10,12 +10,12 @@
 </div>
 
 !!! note 
-   Before you can live test the example of ours, you need the following setup:
+    Before you can live test the example of ours, you need the following setup:
 
-   1. A [testnet](../testnet.md) [PBC account](../accounts.md) [with gas](../byoc.md)
-   2. A test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used [a faucet from the official docs](https://ethereum.org/en/developers/docs/networks/#goerli)
+    1. A [testnet](../testnet.md) [PBC account](../accounts.md) [with gas](../byoc.md)
+    2. A test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used [a faucet from the official docs](https://ethereum.org/en/developers/docs/networks/#goerli)
 
-   We suggest to use [metamask](../accounts.md) for Goerli testnet.
+    We suggest to use [metamask](../accounts.md) for Goerli testnet.
 
 
 
