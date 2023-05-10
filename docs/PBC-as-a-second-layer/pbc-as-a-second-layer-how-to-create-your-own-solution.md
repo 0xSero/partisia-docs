@@ -21,7 +21,7 @@ as second layer for any type of application.
    recreate the example contract of ours:
 
    1. How to create smart contracts on PBC. Our documentation starts on this page: 
-   [What is a smart contract](../contract-development.md)
+   [What is a smart contract](/docs/contract-development.md)
    2. How to create smart contracts in ETH (or another layer one chain for this case).
    We recommend you go to soliditys own documentation to understand how to make smart contracts in 
    ETH if you are new to this specific case: 
