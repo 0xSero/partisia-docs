@@ -16,14 +16,14 @@ We will use the code from the voting example, but it should be evident that is p
 as second layer for any type of application.
 
 !!! note 
-
-   We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure we suggest you to read up on how to do the following when trying to recreate the example contract of ours:
-   1. How to create smart contracts on PBC. Our documentation starts on this page: 
-   [What is a smart contract](/docs/contract-development.md)
-   2. How to create smart contracts in ETH (or another layer one chain for this case).
-   We recommend you go to soliditys own documentation to understand how to make smart contracts in 
-   ETH if you are new to this specific case: 
-   [https://docs.soliditylang.org/en/latest/](https://docs.soliditylang.org/en/latest/)
+    We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure we suggest you to read up on how to do the following when trying to recreate the example contract of ours:
+   
+    1. How to create smart contracts on PBC. Our documentation starts on this page: 
+    [What is a smart contract](/docs/contract-development.md)
+    2. How to create smart contracts in ETH (or another layer one chain for this case).
+    We recommend you go to soliditys own documentation to understand how to make smart contracts in 
+    ETH if you are new to this specific case: 
+    [https://docs.soliditylang.org/en/latest/](https://docs.soliditylang.org/en/latest/)
 
 ## Voting example code
 
