@@ -1,4 +1,4 @@
-# Test the live example of a voting contract with PBC as second layer from ethereum testnet
+# Test the live example of our voting contract
 <div class="dot-navigation">
    <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
    <a class="dot-navigation__item dot-navigation__item--active" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
@@ -9,36 +9,34 @@
 </div>
 
 !!! note 
-    Before you can live test the example, you need the following setup:
+    Before you can test the already deployed example, you need the following setup:
 
-    1. A [testnet](../testnet.md) [PBC account](../accounts.md) [with gas](../byoc.md)
+    1. A [testnet](/docs/testnet.md) [PBC account](/docs/accounts.md) [with gas](/docs/byoc.md)
     2. A test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used [a faucet from the official docs](https://ethereum.org/en/developers/docs/networks/#goerli)
 
-    We suggest to use [metamask](../accounts.md) for Goerli testnet.
+    We suggest to use [metamask](/docs/accounts.md) for Goerli testnet.
 
 
 
 ## Register PBC account as a voter on Ethereum
 
-1. Go to [https://goerli.etherscan.io/address/0x<todo>](https://goerli.etherscan.io/address/0x<todo>)
+1. Go to [https://goerli.etherscan.io/address/0x<todo>](https://goerli.etherscan.io/address/0x<todo>).
 2. Press the “Contract” button and then the “Write Contract” button to interact with the public contract.
-3. Choose the action “register” and enter your PBC account address (write as “0x<address\>”), and press “Write” to send the register transaction. (You may need to connect your wallet via the “Connect to Web3”).
-4. Verify that the registration was successful by finding in under “Events”
+3. Choose the action “register” and enter your PBC account address (write as “0x<address\>”), and press “Write” to send the register transaction. You may need to connect your wallet via the “Connect to Web3”.
+4. Verify that the registration was successful by finding the registration event under the tab “Events”.
 
 ## Transfer voter registration to PBC
 
 1. Go to [https://testnet.partisiablockchain.com/info/contract/<todo>](https://testnet.partisiablockchain.com/info/contract/<todo>)
-2. Press the "Register Voter" button and then "Submit". This registers the currently logged in PBC 
-   account.
-3. Verify that the account was registered by finding it the address as the latest entry in the 
-   registered voters list in the contract state. 
+2. Press the "Register Voter" button and then "Submit". This registers you with the account you are currently logged onto PBC with.
+3. Verify that the account was registered by finding its address as the latest entry in the registered voters list in the contract state. 
 
-## Casting secret votes
+## Casting secret votes on the PBC contract
 
-1. Navigate to the voting interface and click the “Cast Vote” button to input your secret vote.
+1. Navigate to the voting interface on PBC and click the “Cast Vote” button to input your secret vote.
    Choose the "True" option for casting a "yes" vote, or the "False" option for casting a "no" vote.
    Press the "Submit" button to send the secret vote.
-2. Your cast vote is now pending confirmation by the computation nodes. This may take some time. 
+2. Your cast vote is now pending confirmation by the computation nodes. This may take a minute or two depending on the network activity. 
 3. You can verify that the vote has been confirmed by inspecting the "ZK State as JSON" button. 
 4. The JSON data contains a lot of information, but we are only interested in the "pendingInput" and 
    "variables" lists. 
@@ -52,20 +50,16 @@
    cast one vote per account.
 
 ## Counting secret votes
+!!! note
+    Before counting votes you should note the id of the current vote. This is required to find the result later.
 
-1. Before counting votes you should note the id of the current vote. This will help you find the 
-   result later.
-2. Once all cast votes have been confirmed, you can start counting by pressing the 
-   "Start Vote Counting" button and then "Submit".
-3. This starts the ZK computation and new votes cannot be cast while it is running.
-4. Wait until the computation has ended. This may take some time.
-5. Once it has ended the result of the vote is added to the list of "vote_results". You may have to 
-   refresh the page to update the state.
-6. Find the result with the vote id that you noted earlier.
-7. Since this is an open voting example it may be difficult to completely verify the result is as 
-   expected, but it should contain as minimum the amount of votes you cast or more.
-8. The result should also contain a proof of the result, which is a list of signatures.
-   If it does not contain the proof, wait some more and refresh the page.
+1. Start the vote counting process by pressing the "Start Vote Counting" button and then "Submit". This will initiate the ZK computation and new votes cannot be cast while it is running. The computation can take a minute or two to finish. 
+   
+   If the action fails it might be because a vote has not been confirmed yet. You can retry the Start Vote Counting after a couple of minutes.
+2. Once the computation has ended, the result of the vote is added to the list of "vote_results". You may have to refresh the page to update the state.
+3. Find the result with the vote id that you noted earlier.
+4. As this is an open voting example, it may be challenging to fully verify the expected result. However, the result should include at least the number of votes cast or more.
+5. The result should also contain a proof of the result. The proof is a list of signatures. If it does not contain signatures, wait some more and refresh the page.
 
 By following these steps you have now cast a secret vote and counted the result using PBC.
 
@@ -81,16 +75,11 @@ These steps shows you how to securely move the vote result to the Ethereum publi
 
 ## Optionally validate the PBC &rarr; Ethereum link
 
-Following the example above, it may be a bit difficult to see how the transfer of data to Ethereum
-is secured, i.e. who signs the result of a vote and how does Ethereum verify the signatures?
+Following the example above, it may be a bit difficult to see how the transfer of data to Ethereum is secured, i.e. who signs the result of a vote and how does Ethereum verify the signatures?
 
-As illustrated on the [concept page](pbc-as-second-layer.md), the data is signed by the same nodes
-that run the ZK computation. When trusting these nodes to handle the computation securely, we can
-also trust them to sign the result correctly.
+As illustrated on the [concept page](pbc-as-second-layer.md), the result is signed by the same nodes that run the ZK computation. When trusting these nodes to handle the computation securely, we can also trust them to sign the result correctly.
 
-To be able to verify the signatures on the Ethereum side, the smart contract needs to know the 
-identities of the computation nodes. Additionally, the Ethereum smart contract also needs to know 
-the address of the smart contract that ran the secret vote on PBC.
+To be able to verify the signatures on the Ethereum side, the smart contract needs to know the identities of the computation nodes. Additionally, the Ethereum smart contract also needs to know the address of the smart contract that ran the secret vote on PBC.
 
 ### Validating contract address
 
@@ -114,16 +103,15 @@ Next, [on PBC](https://testnet.partisiablockchain.com/info/contract/<todo>) read
 "ZK State as JSON", and find the list called "engines". This list contains 4 objects which holds
 information about the ZK computation nodes, including their PBC address listed as "identity".
 
+![EnginesObjectFromZKStateAsJSON](ScreenShotZkStateAsJSON.png)
+
 You may notice that that four addresses listed on the two contracts are not the same. To understand
 why this is the case, you can read about how addresses are derived on either chain 
 [here](pbc-as-second-layer-technical-differences-eth-pbc.md).
 
-Luckily, the four engine objects also has a field called "publicKey" which is the public key that 
-corresponds to the private key they used to sign the voting result. The addresses listed on the 
-Ethereum contract were derived from these keys.
+The four engine objects also has a field called "publicKey" which is the public key that corresponds to the private key they used to sign the voting result. The addresses listed on the Ethereum contract were derived from these keys.
 
-To validate that the keys corresponds to the addresses that the Ethereum contract knows, do the 
-following for each key _k_ in the "engines" list.
+To validate that the keys corresponds to the addresses that the Ethereum contract knows, do the following for each key _k_ in the "engines" list.
 
 1. Key _k_ is represented as a [compressed elliptic curve point](<todo>) in Base64 encoding
 2. Convert _k_ to the uncompressed form. This can be done e.g. by using the PBC 
