@@ -44,7 +44,7 @@ nav:
       - MPC token model: mpc-tokens.md
   - PBC as a second layer: 
       - PBC as a second layer: PBC-as-a-second-layer/pbc-as-second-layer.md
-      - Test the live example of a voting contract with PBC as second layer from ethereum testnet: PBC-as-a-second-layer/pbc-as-a-second-layer-live-example-ethereum.md
+      - Test the live example of our voting contract: PBC-as-a-second-layer/pbc-as-a-second-layer-live-example-ethereum.md
       - How to create your own solution with PBC as a second layer: PBC-as-a-second-layer/pbc-as-a-second-layer-how-to-create-your-own-solution.md
       - How to deploy the example : PBC-as-a-second-layer/pbc-as-a-second-layer-how-to-deploy.md
       - Technical differences between ETH and PBC for the running example: PBC-as-a-second-layer/pbc-as-second-layer-technical-differences-eth-pbc.md
