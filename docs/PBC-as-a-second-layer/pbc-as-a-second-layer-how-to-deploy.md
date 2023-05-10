@@ -11,13 +11,10 @@
 
 </div>
 
----
-
-**NOTE** We recommend that you read the
+!!! note 
+We recommend that you read the
 [walkthrough of the example contracts](pbc-as-a-second-layer-how-to-create-your-own-solution.md)
 to understand the contracts being deployed in this guide.
-
----
 
 ## Deploying a PBC as second layer solution
 
