@@ -10,6 +10,7 @@ nav:
       - $MPC token model and Account Elements: mpc-tokens.md
       - Partisia Blockchain Dictionary: dictionary.md
   - Develop PBC Smart contracts, tools and Samples:
+      - Introduction to smart contracts: smart-contracts.md
       - What is a smart contract: contract-development.md
       - Install the smart contract compiler: download-compiler.md
       - Compile and deploy contracts: contract-compilation.md
