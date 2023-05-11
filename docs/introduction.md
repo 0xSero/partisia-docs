@@ -36,6 +36,14 @@ The advantages of a public blockchain comes with a trade-off. The fact that ever
 Partisia Blockchain comes with an extra privacy layer. This allows for [zero knowledge computations](https://medium.com/partisia-blockchain/mpc-techniques-series-part-8-zero-knowledge-proofs-what-are-they-and-what-are-they-good-for-2f39ed0eab39) to happen in parallel with the activities on the public blockchain. If we go back to our example of a general election being run on a blockchain, the PBC is able to provide an election without the possibility of voter fraud and at the same time keep all the votes a secret. The combination of the technologies of blockchain and [multiparty computation(MPC)](https://medium.com/partisia-blockchain/mpc-and-blockchain-a-match-made-in-heaven-df4291390b5b) expands the possibilities for blockchains immensely.
 For zero knowledge computation to happen simultaneous with the public activities on the blockchain it is necessary to allocate part of the nodes of the network to focus on these tasks. To increase security of these services even further nodes that partake in them are selected through an economic staking model. This means that the owners of the computers handling the sensitive data has a common interest with the users of Partisia Blockchain to protect the data and preserve their privacy.
 
+## Content
+
+- [Introduction to the Partisia Blockchain fundamentals](introduction.md)
+- [Create an account on Partisia Blockchain (PBC)](accounts.md)
+- [BYOC and Gas ](byoc.md)
+- [$MPC token model and Account Elements](mpc-tokens.md)
+- [Useful terms and definitions](dictionary.md)
+
 ### Find out more
 
 [**What is a node operator?**](operator-0-introduction.md)
