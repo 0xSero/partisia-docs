@@ -73,7 +73,7 @@ A node performing oracle services. These nodes are responsible for processes rel
 Partisia Blockchain (PBC) is the only blockchain that supports secure multiparty computation. This gives PBC a completely unique potential for use for Web. 3.0 technologies where users have control of their own data. Other blockchains can use zero knowledge smart contracts on PBC to add a ZK computational layer to their own chain.
 
 ### PBC Account
-Same as *Account*, see entry above.
+Same as [Account](dictionary.md#account), see entry above.
 
 ### PBC Ledger 
 The immutable record or ledger, that keeps track of transactions that have already taken place. There is a copy of the ledger on all nodes. Partisia Blockchain has sharding, the ledger records the activities on all shards, they are combined to form the complete ledger.

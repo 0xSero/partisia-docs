@@ -1,4 +1,4 @@
-# Zero-Knowledge Rust
+# Zero Knowledge Rust Language (ZKRust)
 
 ZK-Rust is the main tool for writing Zero-Knowledge Computations for Partisia
 Blockchain. ZK-Rust resembles [Rust](https://rust-lang.com) in syntax, with
@@ -29,6 +29,8 @@ these operations are performed through secret-sharing, ensuring that the result
 is itself secret-shared:
 
 ```rust
+use pbc_zk::Sbi32;
+
 pub fn my_computation() -> Sbi32 {
     let public_1: i32 = 93
     let secret_1: Sbi32 = Sbi32::from(public_1);
@@ -42,7 +44,7 @@ As seen above, secrecy is _contagious_: All operations involving
 a secret-shared type produces a new secret-shared type.
 
 This comes from the more general rule that _it must be impossible to learn any
-secret information at the public level_, a kind of known as [Information Flow
+secret information at the public level_, a kind of rule known as [Information Flow
 Control](https://en.wikipedia.org/wiki/Information_flow_(information_theory))
 (IFC). The secret-sharing IFC rule is enforced by The Partisia Blockchain,
 which prevents leakage of sensitive information.
@@ -50,6 +52,8 @@ which prevents leakage of sensitive information.
 The following program will not compile, for example:
 
 ```rust
+use pbc_zk::Sbi32;
+
 pub fn my_computation() -> i32 {
     let secret_1: Sbi32 = Sbi32::from(93);
     let secret_2: Sbi32 = Sbi32::from(231);
@@ -69,10 +73,15 @@ public counterparts is when branching.
 Consider for example:
 
 ```rust
-let secret: Sbi32 = ...;
-let mut public: i32 = 9;
-if secret == Sbi32::from(4) {
-    public = 5;  // !! Cannot assign secret to public variable!
+use pbc_zk::Sbi32;
+
+pub fn my_computation() -> i32 {
+    let secret: Sbi32 = ...;
+    let mut public: i32 = 9;
+    if secret == Sbi32::from(4) {
+        public = 5;  // !! Cannot assign secret to public variable!
+    }
+    public
 }
 ```
 
@@ -84,10 +93,15 @@ as the value of `public` after the branch would be based upon the value of
 It is possible to assign secrets in secret-braches:
 
 ```rust
-let secret: Sbi32 = ...;
-let mut secret_2: Sbi32 = Sbi32::from(9);
-if secret == Sbi32::from(4) {
-    secret_2 = Sbi32::from(5);
+use pbc_zk::Sbi32;
+
+pub fn my_computation() -> Sbi32 {
+    let secret: Sbi32 = ...;
+    let mut secret_2: Sbi32 = Sbi32::from(9);
+    if secret == Sbi32::from(4) {
+        secret_2 = Sbi32::from(5);
+    }
+    secret_2
 }
 ```
 
@@ -113,12 +127,14 @@ as the result of running a computation. The public part of the ZK-contract is
 responsible for managing the variables, including opening (revealing the
 output of a computation) and deleting them.
 
-Variable ids can be iterated by calling `secret_variables(): Iter<i32>`:
+Variable ids can be iterated by calling `pbc_zk::secret_variable_ids(): Iter<i32>`:
 
 ```rust
+use pbc_zk::{Sbi32, secret_variable_ids, load_sbi};
+
 pub fn sum_all_variables() -> Sbi32 {
     let mut sum = Sbi32::from(0);
-    for variable_id in secret_variables() {
+    for variable_id in secret_variable_ids() {
         sum = sum + load_sbi::<Sbi32>(variable_id);
     }
     sum
@@ -131,6 +147,8 @@ Rust's `struct` keyword is supported for creating structure types. These
 structs can either contain purely public types, or purely secret-shared types.
 
 ```rust
+use pbc_zk::{Sbi16, SecretBinary};
+
 // public
 struct SomeData {
     uid: i64,
@@ -151,12 +169,12 @@ struct Triangle {
 }
 ```
 
-Types with `#[derive(SecretBinary)]` obviously implements the `SecretBinary`
-trait, allowing them to be loaded using the `load_sbi` function. Note that
-variables does not possess explicit types, and can be loaded as any type of
-equal or fewer bits. For example, let's say variable with id `42` has 64 bits
-of data. This variable can be loaded using any of the following, producing
-different values for each:
+Types with `#[derive(SecretBinary)]` implements the `SecretBinary` trait,
+allowing them to be loaded using the `load_sbi` function. Note that variables
+does not possess explicit types, and can be loaded as any type of equal or
+fewer bits. For example, let's say variable with id `42` has 64 bits of data.
+This variable can be loaded using any of the following, producing different
+values for each:
 
 - `load_sbi::<Sbi32>(42)`, due to `32 <= 64`.
 - `load_sbi::<Sbi64>(42)`, due to `64 <= 64`.
@@ -165,4 +183,10 @@ different values for each:
 Attempting to load variable `42` as `Triangle` would result in a runtime
 exception, as it would attempt to load `(16 + 16)*3 = 96` bits, which variable
 `42` cannot provide.
+
+### Libraries
+
+As shown in the previous examples, it is possible to import functions and data
+structures from the `pbc_zk` module. See [Zero-knowledge Language
+Reference](zk-language-reference.md) for what is available.
 

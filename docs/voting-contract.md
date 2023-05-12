@@ -1,6 +1,6 @@
-# Create a smart contract for a specific scenario e.g. transparency in parliament
+# How to create a smart contract with a specific scenario
 
-## Case - Voting record of MPs as a means to strengthen democracy and transparency
+## Case transparency in parliament - Voting record of MPs as a means to strengthen democracy and transparency
 
 The newly founded republic of Faraway is plagued by corruption. To ensure transparency and public
 mandate behind the parliamentary process the voting record of the elected MPs is added to the
@@ -24,13 +24,100 @@ supposed to be public.
 In the following the different parts of a smart contract implementing the voting scenario is
 explained.
 
-You can see the complete Rust source code of the contract [here](voting-contract-source.md).
+If you need help with any of the rust concepts we recommend you visit [Rust intro book for general understanding](https://doc.rust-lang.org/std/index.html) or if you need help understanding Rust standard macros, or other specific keywords we recommend the [Rust Standard Library](https://doc.rust-lang.org/std/index.html) for specifications of these.
+
+<details>
+  <summary>You can see the complete Rust source code of the contract here</summary>
+
+````rust
+#![allow(unused_variables)]
+extern crate create_type_derive;
+#[macro_use]
+extern crate pbc_contract_codegen;
+extern crate pbc_contract_common;
+
+use std::collections::{BTreeMap, BTreeSet};
+use std::io::{Read, Write};
+
+use pbc_contract_common::address::Address;
+use pbc_contract_common::context::ContractContext;
+use pbc_traits::*;
+
+#[state]
+pub struct VotingContractState {
+    proposal_id: u64,
+    mp_addresses: Vec<Address>,
+    votes: BTreeMap<Address, u8>,
+    closed: u8,
+}
+
+impl VotingContractState {
+    fn register_vote(&mut self, address: Address, vote: u8) {
+        self.votes.insert(address, vote);
+    }
+
+    fn close_if_finished(&mut self) {
+        if self.votes.len() == self.mp_addresses.len() {
+            self.closed = 1;
+        };
+    }
+}
+
+#[action]
+pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> VotingContractState {
+    assert_eq!(state.closed, 0, "The poll is closed");
+    assert!(
+        state.mp_addresses.contains(&context.sender),
+        "Only members of the parliament can vote"
+    );
+    assert!(
+        vote == 0 || vote == 1,
+        "Only \"yes\" and \"no\" votes are allowed"
+    );
+
+    let mut new_state = state;
+    new_state.register_vote(context.sender, vote);
+    new_state.close_if_finished();
+    new_state
+}
+
+#[init]
+pub fn initialize(
+    _ctx: ContractContext,
+    proposal_id: u64,
+    mp_addresses: Vec<Address>,
+) -> VotingContractState {
+    assert_ne!(
+        mp_addresses.len(),
+        0,
+        "Cannot start a poll without parliament members"
+    );
+
+    let mut address_set = BTreeSet::new();
+    for mp_address in mp_addresses.iter() {
+        address_set.insert(*mp_address);
+    }
+    assert_eq!(
+        mp_addresses.len(),
+        address_set.len(),
+        "Duplicate MP address in input"
+    );
+
+    VotingContractState {
+        proposal_id,
+        mp_addresses,
+        votes: BTreeMap::new(),
+        closed: 0,
+    }
+}
+````
+
+</details>
 
 ### 1) Importing libraries
 
 First we need to include a few libraries to get access to the functions and types needed for
-programming a smart contract. It is not necessary to understand exactly what the includes here do in
-order to create your own smart contracts.
+programming our smart contract. It is not necessary to understand exactly what the library includes here or what they do in order to create your first smart contract.
 
 ````rust
 #![allow(unused_variables)]
@@ -171,5 +258,4 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 
 ## Building and testing the voting contract
 
-The process is the same for the voting contract as it is for the token contract. 
-The instructions can be found [here](contract-development.md#develop-your-first-contract). 
+The process for building and testing the voting contract is the same as any other contract that needs to be deployed, we recommend you follow our general guide [here](contract-compilation.md) to get your smart contract onto our testnet.

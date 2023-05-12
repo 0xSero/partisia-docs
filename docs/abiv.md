@@ -7,6 +7,10 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
+- Version **5.1** to **5.2**:
+    * Added new `FnKind: 0x17` called `ZkSecretInputWithExplicitType`.
+    * Added `SecretArgument` field to `FnAbi` to support ZK inputs. Only present when `FnKind` is `ZkSecretInputWithExplicitType`.
+    * `FnKind: 0x10` is now deprecated.
 - Version **5.0** to **5.1**:
     * Added additional abi types: `U256`, `Hash`, `PublicKey`, `Signature`, `BlsPublicKey`, `BlsSignature`.
 - Version **4.1** to **5.0**:
@@ -293,7 +297,8 @@ $$
 &\text{Kind: FnKind}, \\
 &\text{Name: Identifier}, \\
 &\text{Shortname: LEB128}, \\
-&\text{Arguments: List<ArgumentAbi>} \ \} \\
+&\text{Arguments: List<ArgumentAbi>}  \\
+&\text{SecretArgument: ArgumentAbi} \ \} &\text{Only present if Kind is } \hexi{17} \\
 \\
 \text{<FieldAbi>} \ := \ \{ \
 &\text{Name: Identifier}, \\
@@ -319,13 +324,17 @@ $$
 |\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..1)}\\
 |\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
 |\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
-|\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &text{(0..1)}
+|\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\
+|\ &\hexi{17} \ \Rightarrowx \text{ZkSecretInputWithExplicitType} &\text{(0..}\infty\text{)} \\
 \end{align*}
-}
+} \\
 $$
 
 Note that a `ContractAbi` is only valid if the `Hooks` list contains a specific
 number of hooks of each type, as specified in `FnKind`.
+
+Also note that if a function has the deprecated kind `ZkSecretInput`, the default 
+secret argument associated with it is of type i32. 
 
 <!-- fix syntax highlighting* -->
 
