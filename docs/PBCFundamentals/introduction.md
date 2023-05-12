@@ -12,7 +12,7 @@ The blocks are connected cryptographically. The hash of each block is produced a
 
 ![Diagram0](/docs/blockchain.png)
 
-A blockchain exists on a distributed network of computers called [nodes](operator-0-introduction.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](/docs/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
+A blockchain exists on a distributed network of computers called [nodes](/docs/operator-0-introduction.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](/docs/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
 Conversely, a blockchain is a decentralized database. Therefore, data on the blockchain remains secure even if a computer in the network is hacked, short circuits or loose connection to the internet.
 
 ### What happens when I use a blockchain
