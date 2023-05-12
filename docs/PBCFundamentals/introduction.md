@@ -38,7 +38,7 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 ## Content
 
-- [Introduction to the Partisia Blockchain fundamentals](introduction.md)
+- [Introduction to the Partisia Blockchain fundamentals](/docs/PBCFundamentals/introduction.md)
 - [Create an account on Partisia Blockchain (PBC)](accounts.md)
 - [BYOC and Gas ](byoc.md)
 - [$MPC token model and Account Elements](mpc-tokens.md)

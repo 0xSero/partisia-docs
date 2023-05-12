@@ -4,7 +4,7 @@ use_directory_urls: False
 nav:
   - Home: index.md
   - PBC Fundamentals:
-      - Introduction to the Partisia Blockchain fundamentals: introduction.md
+      - Introduction to the Partisia Blockchain fundamentals: /docs/PBCFundamentals/introduction.md
       - Create an account on Partisia Blockchain (PBC): accounts.md
       - BYOC and gas for the mainnet and testnet: byoc.md
       - $MPC token model and Account Elements: mpc-tokens.md
