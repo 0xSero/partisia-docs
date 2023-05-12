@@ -1,18 +1,18 @@
 # Introduction to the Partisia Blockchain fundamentals
 
-Below is a small introduction to the some of the core concepts of blockchains and an explanation of what makes [Partisia Blockchain(PBC)](dictionary.md#pbc) different from other blockchains.
+Below is a small introduction to the some of the core concepts of blockchains and an explanation of what makes [Partisia Blockchain(PBC)](/docs/dictionary.md#pbc) different from other blockchains.
 
 ### What is a blockchain
 
-Blockchains are a means to make an [immutable record](dictionary.md#pbc-ledger) of [transactions](transactions.md) on a decentralized database. This makes blockchains a useful place to record important information e.g. of a financial, medical or legal nature.  
+Blockchains are a means to make an [immutable record](/docs/dictionary.md#pbc-ledger) of [transactions](/docs/transactions.md) on a decentralized database. This makes blockchains a useful place to record important information e.g. of a financial, medical or legal nature.  
 A blockchain is a public database where any update is added sequentially. Since all information is time stamped. You can add information in the present, but you cannot edit past information. In this way a blockchain creates an immutable ledger.
 
 The name blockchain means that information added to the ledger comes in discrete bundles called blocks. A block points to the block before it. That way a chain is created that connects the changes on the ledger from the beginning to the present.
 The blocks are connected cryptographically. The hash of each block is produced as a function of the hash of the transactions and the hash of the previous block.
 
-![Diagram0](blockchain.png)
+![Diagram0](/docs/blockchain.png)
 
-A blockchain exists on a distributed network of computers called [nodes](operator-0-introduction.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
+A blockchain exists on a distributed network of computers called [nodes](operator-0-introduction.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](/docs/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
 Conversely, a blockchain is a decentralized database. Therefore, data on the blockchain remains secure even if a computer in the network is hacked, short circuits or loose connection to the internet.
 
 ### What happens when I use a blockchain
@@ -20,12 +20,12 @@ Conversely, a blockchain is a decentralized database. Therefore, data on the blo
 In the following paragraph we will examine user interactions with the blockchain using a purchase of an non-fungible token(NFT) as our case example. We will explore how a user action like purchase of NFTs affect the blockchain on different levels.  
 On the surface level your phone or computer is connected to the internet. Apps and webpages can get you in contact with the blockchain through the internet just like using any other online service like e-mail.
 
-![Diagram1](surface.png)
+![Diagram1](/docs/surface.png)
 
 The Partisia blockchain lives on a network of computers connected to each other through the internet. The blockchain comes with a software architecture which allows for binding trackable transactions to happen very fast.
-A puchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](contract-development.md).
+A puchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](/docs/contract-development.md).
 
-![Diagram2](Contract.png)
+![Diagram2](/docs/Contract.png)
 
 Smart contracts hold some information which can be changed, that information is called the state. The state of our NFT contract holds an inventory of NFTs and their owners. The contract action _Transfer_ can change the ownership of an NFT by changing an owner address in the inventory. Actions of contracts are themselves transactions on the blockchain. When they have been added to a block and executed, the resulting state change of the contract becomes part of the blockchain state. We now have a permanent timestamped record of the purchase.
 
@@ -39,17 +39,17 @@ For zero knowledge computation to happen simultaneous with the public activities
 ## Content
 
 - [Introduction to the Partisia Blockchain fundamentals](/docs/PBCFundamentals/introduction.md)
-- [Create an account on Partisia Blockchain (PBC)](accounts.md)
-- [BYOC and Gas ](byoc.md)
-- [$MPC token model and Account Elements](mpc-tokens.md)
-- [Useful terms and definitions](dictionary.md)
+- [Create an account on Partisia Blockchain (PBC)](/docs/accounts.md)
+- [BYOC and Gas ](/docs/byoc.md)
+- [$MPC token model and Account Elements](/docs/mpc-tokens.md)
+- [Useful terms and definitions](/docs/dictionary.md)
 
 ### Find out more
 
-[**What is a node operator?**](operator-0-introduction.md)
+[**What is a node operator?**](/docs/operator-0-introduction.md)
 
-[**How does the economy of PBC work?**](byoc.md)
+[**How does the economy of PBC work?**](/docs/byoc.md)
 
-[**What is a smart contract?**](contract-development.md)
+[**What is a smart contract?**](/docs/contract-development.md)
 
-[**How can I add zero knowledge computation to a smart contract?**](ZKSC.md)
+[**How can I add zero knowledge computation to a smart contract?**](/docs/ZKSC.md)
