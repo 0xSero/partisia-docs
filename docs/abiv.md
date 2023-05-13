@@ -262,7 +262,7 @@ Only arrays of lengths between (including) 0 and 127 are supported. The high bit
 
 #### ABI File binary format
 
-All `Identifier` names must be [valid Rust identifiers](https://doc.rust-lang.org/reference/identifiers.html); other strings are reserved for future extensions.
+All `Identifier` names must be [valid Java identifiers](https://docs.oracle.com/javase/specs/jls/se20/html/jls-3.html#jls-3.8); other strings are reserved for future extensions.
 
 $$
 \textcolor{mathcolor}{
