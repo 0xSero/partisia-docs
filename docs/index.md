@@ -5,7 +5,7 @@
 </a>
 
 <a href="">
-    [<img src="assets/Categories/Smart%20Contracts.png" alt="Smart Contracts" class="front-page-pictures front-page-pictures-right" />](smart-contracts.md)
+    [<img src="assets/Categories/Smart%20Contracts.png" alt="Smart Contracts" class="front-page-pictures front-page-pictures-right" />](/docs/SmartContracts/smart-contracts.md)
 </a>
 <a href="">
     [<img src="assets/Categories/Node%20Operations.png" alt="Node Operations" class="front-page-pictures front-page-pictures-left" />](/docs/NodeOperations/operator-0-introduction.md)

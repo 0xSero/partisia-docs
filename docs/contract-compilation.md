@@ -31,7 +31,7 @@ The dashboard will then render a form for the initialization function. If you lo
 you will see that this matches the *initialize* function. 
 The other three actions will be available after successful deployment.
 
-If you need to tryout your smart contract, we recommend you tryout the [testnet](testnet.md). 
+If you need to tryout your smart contract, we recommend you tryout the [testnet](/docs/SmartContracts/testnet.md). 
 
 In the *total_supply* field you put the number of tokens you want minted for total supply of the contract 
 from the moment of deployment. 
