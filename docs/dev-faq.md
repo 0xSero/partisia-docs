@@ -37,6 +37,6 @@ Questions for ZK contracts:
 - **ZkRust: What is the difference between public and secret types?**: Public types are "normal" Rust types like `i32`, where the data is publicly known, for example because it is directly visible in the contract state. Secret types are types like `Sbi32` where the data is secret-shared between ZK nodes. A struct (or tuple) is a public type if all it's fields are public, and a struct is a secret type if all it's fields are secret.
 - **ZkRust: Why can I not load or return a Vec?**: The RustZK runtime is currently incapable of working with variable-length data such as strings and vectors. The best workaround at the moment is to restructure your computation to only return a single variable.
 - **ZkRust: Ok, but what types _can_ I return?**: All Secret types and tuples of secret types. Examples: `Sbi128`, `(Sbi32, Sbi32)`, `SecretPoint` (defined as `struct SecretPoint { x: Sbi32, y: Sbi32 }`.) To produce multiple variables, return them as a tuple.
-- **ZkRust: Can I use feature X?**: [Check out the currently supported features.](zk-language-features.md)
+- **ZkRust: Can I use feature X?**: [Check out the currently supported features.](/docs/SmartContracts/zk-language-features.md)
 - **ZkRust: Why is important feature X not supported?**: ZkRust is an entire reimplementation of the Rust compiler targeted at Partisia Blockchain, and not all features have been prioritized.
 

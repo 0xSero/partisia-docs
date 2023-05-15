@@ -4,29 +4,29 @@ use_directory_urls: False
 nav:
   - Home: index.md
   - PBC Fundamentals:
-      - Introduction to the Partisia Blockchain fundamentals: /docs/PBCFundamentals/introduction.md
-      - Create an account on Partisia Blockchain (PBC): accounts.md
-      - BYOC and gas for the mainnet and testnet: byoc.md
-      - $MPC token model and Account Elements: mpc-tokens.md
-      - Partisia Blockchain Dictionary: dictionary.md
+      - Introduction to the Partisia Blockchain fundamentals: PBCFundamentals/introduction.md
+      - Create an account on Partisia Blockchain (PBC): PBCFundamentals/accounts.md
+      - BYOC and gas for the mainnet and testnet: PBCFundamentals/byoc.md
+      - $MPC token model and Account Elements: PBCFundamentals/mpc-tokens.md
+      - Partisia Blockchain Dictionary: PBCFundamentals/dictionary.md
   - Develop PBC Smart contracts, tools and Samples:
-      - Introduction to smart contracts: smart-contracts.md
-      - What is a smart contract: contract-development.md
-      - Install the smart contract compiler: download-compiler.md
-      - Compile and deploy contracts: contract-compilation.md
-      - Access and use the testnet: testnet.md
-      - Public and ZK Smart Contract examples - Combine and innovate: combi-innovation.md
-      - Programmers Guide to PBC smart contracts: programmers_guide.md
-      - Partisia Blockchain Smart Contract Binary Formats: abiv.md
-      - How to create a smart contract with a specific scenario: voting-contract.md
-      - Zero Knowledge Smart Contracts: ZKSC.md
-      - Compile Zero Knowledge Contracts: compile-zk.md
-      - Zero Knowledge Gas Fees: zk-computation-fees.md
+      - Introduction to smart contracts: SmartContracts/smart-contracts.md
+      - What is a smart contract: SmartContracts/contract-development.md
+      - Install the smart contract compiler: SmartContracts/download-compiler.md
+      - Compile and deploy contracts: SmartContracts/contract-compilation.md
+      - Access and use the testnet: SmartContracts/testnet.md
+      - Public and ZK Smart Contract examples - Combine and innovate: SmartContracts/combi-innovation.md
+      - Programmers Guide to PBC smart contracts: SmartContracts/programmers_guide.md
+      - Partisia Blockchain Smart Contract Binary Formats: SmartContracts/abiv.md
+      - How to create a smart contract with a specific scenario: SmartContracts/voting-contract.md
+      - Zero Knowledge Smart Contracts: SmartContracts/ZKSC.md
+      - Compile Zero Knowledge Contracts: SmartContracts/compile-zk.md
+      - Zero Knowledge Gas Fees: SmartContracts/zk-computation-fees.md
       - Zero Knowledge Rust Language (ZkRust):
-          - ZkRust Language: zk-language.md
-          - ZK Rust Reference: zk-language-reference.md
-          - Zk language features: zk-language-features.md
-      - Development FAQ: dev-faq.md
+          - ZkRust Language: SmartContracts/zk-language.md
+          - ZK Rust Reference: SmartContracts/zk-language-reference.md
+          - Zk language features: SmartContracts/zk-language-features.md
+      - Development FAQ: SmartContracts/dev-faq.md
   - Run a node:
       - What is a node operator: NodeOperations/operator-0-introduction.md
       - Specs: NodeOperations/operator-1-specs.md

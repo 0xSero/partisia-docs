@@ -1,6 +1,6 @@
 # Zero-Knowledge Rust Reference
 
-Covering the types and functions available in [ZkRust](zk-language.md).
+Covering the types and functions available in [ZkRust](/docs/SmartContracts/zk-language.md).
 
 ## Types
 
