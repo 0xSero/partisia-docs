@@ -6,7 +6,7 @@ An ABI (application binary interface) helps applications which need to communica
 
 ### Account
 
-Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](accounts.md).
+Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](/docs/PBCFundamentals/accounts.md).
 
 ### Address
 
@@ -26,15 +26,15 @@ On each shard blocks have a number being incremented since the first block. This
 
 ### Bridge
 
-Cross-chain bridges connect the Partisia Blockchain with other blockchains, enabling information and assets to flow between the two chains. One example of a bridge is the [BYOC bridge](https://bridge.mpcexplorer.com/), the feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. For more information see [BYOC](byoc.md). Or to go directly to the bridge - click [here](https://bridge.mpcexplorer.com/).
+Cross-chain bridges connect the Partisia Blockchain with other blockchains, enabling information and assets to flow between the two chains. One example of a bridge is the [BYOC bridge](https://bridge.mpcexplorer.com/), the feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. For more information see [BYOC](/docs/PBCFundamentals/byoc.md). Or to go directly to the bridge - click [here](https://bridge.mpcexplorer.com/).
 
 ### BYOC
 
-The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](byoc.md).
+The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](/docs/PBCFundamentals/byoc.md).
 
 ### ETH
 
-The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
+The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](/docs/PBCFundamentals/byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
 
 ### Flooding Network
 
@@ -55,7 +55,7 @@ Secure multiparty computation (for the token see MPC token). The privacy layer o
 
 ### MPC Token
 
-MPC Tokens is part of the decoupled token economy of PBC, their primary purpose is for staking. When staking MPC tokens above specific thresholds you are allowed operate a node that performs different services on the chain. Tokens can be lost in case of malicious behaviour (conditions stipulated in [Yellow Paper section 2.8, pp. 20-21](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)). For this reason staked MPC Tokens gives an incentive for good behaviour among the node operators keeping the blockchain running. Because MPC Tokens are used for staking only, and not as form of payment for services the token value does not have adverse effects on supply or demand of services on chain as you see on other blockchains. Read more [here](mpc-tokens.md).
+MPC Tokens is part of the decoupled token economy of PBC, their primary purpose is for staking. When staking MPC tokens above specific thresholds you are allowed operate a node that performs different services on the chain. Tokens can be lost in case of malicious behaviour (conditions stipulated in [Yellow Paper section 2.8, pp. 20-21](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)). For this reason staked MPC Tokens gives an incentive for good behaviour among the node operators keeping the blockchain running. Because MPC Tokens are used for staking only, and not as form of payment for services the token value does not have adverse effects on supply or demand of services on chain as you see on other blockchains. Read more [here](/docs/PBCFundamentals/introduction.md).
 
 ### MPC Wallet
 
@@ -94,7 +94,7 @@ Partisia Blockchain (PBC) is the only blockchain that supports secure multiparty
 
 ### PBC Account
 
-Same as [Account](dictionary.md#account), see entry above.
+Same as [Account](/docs/PBCFundamentals/dictionary.md#account), see entry above.
 
 ### PBC Ledger
 
