@@ -33,7 +33,7 @@ Consider for example a basic public voting contract:
 >   and so should be set in the initializer.
 
 
-Contracts' state and actions must be declared in an [Contract ABI file](abiv.md#abi-binary-format);
+Contracts' state and actions must be declared in an [Contract ABI file](/docs/SmartContracts/abiv.md#abi-binary-format);
 a concise description of the contract's interface and internal state representation, that must be uploaded together with the contract code when initializing the contract.  Without an ABI file, it might be impossible for the dashboard and other contracts to interact with your contract.
 
 The PBC compiler is capable of automatically producing an ABI for your contract, along with state and RPC serialization code for your actions.
@@ -184,9 +184,9 @@ The compiler exposes traits that provides serialization methods. These traits ar
 important for the operation of PBC contracts, but should rarely be implemented
 manually; prefer using the built-in derive methods.
 
-- ReadWriteState: Serialization for [State serialization format](abiv.md#state-binary-format).
-- ReadWriteRPC: Serialization for [RPC argument serialization format](abiv.md#rpc-binary-format).
-- CreateTypeSpec: Serialization for [ABI serialization format](abiv.md#abi-binary-format).
+- ReadWriteState: Serialization for [State serialization format](/docs/SmartContracts/abiv.md#state-binary-format).
+- ReadWriteRPC: Serialization for [RPC argument serialization format](/docs/SmartContracts/abiv.md#rpc-binary-format).
+- CreateTypeSpec: Serialization for [ABI serialization format](/docs/SmartContracts/abiv.md#abi-binary-format).
 
 Further reading: [`pbc_traits` crate documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/index.html)
 
@@ -271,7 +271,7 @@ The additional context struct that all callback-annotated functions receive as a
 Further reading: [CallbackContext struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/struct.CallbackContext.html)
 
 ## State serialization gas considerations
-Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically for [CopySerializable](abiv.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
+Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically for [CopySerializable](/docs/SmartContracts/abiv.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
 
 If quick lookups are required, and the data structure rarely changes, it might be feasible to maintain a sorted `Vec` in state, and use [`[T]::binary_search_by_key`](https://doc.rust-lang.org/std/primitive.slice.html#method.binary_search_by_key) for lookups, essentially creating your own map structure.
 

@@ -10,7 +10,7 @@ If our ZKSC is an auction like below, the public state will contain the winner's
 
 ### Example of a zero knowledge smart contract on PBC - Vickrey Auction
 
-In this example we will use our contract that creates a [Vickrey Auction (second price auction)](https://en.wikipedia.org/wiki/Vickrey_auction), which is a sealed bid auction where the winner is the person with the highest bid (as in a normal auction), you can read more about this type of contract if you visit our example contract overview [here](combi-innovation.md#zk-second-price-auction).
+In this example we will use our contract that creates a [Vickrey Auction (second price auction)](https://en.wikipedia.org/wiki/Vickrey_auction), which is a sealed bid auction where the winner is the person with the highest bid (as in a normal auction), you can read more about this type of contract if you visit our example contract overview [here](/docs/SmartContracts/combi-innovation.md#zk-second-price-auction).
 The second price auction takes as inputs the bids from the registered participants. The bids are delivered encrypted and secret-shared to the ZK nodes allocated to the contract. When the computation is initiated by the contract owner, the zero knowledge computation nodes reads the collected input and then create a bit vector consisting of prices and the ordering number. The list of bit vectors is now sorted in MPC. The winner is the first entry (the bidder with the highest price-bid), the price is determined by the size of the second-highest bid.
 
 The contract follows these phases:
@@ -53,7 +53,7 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
 
 ```
 
-[You can see the code handling the remaining contract phases further down the page](ZKSC.md#full-zksc-code-example)
+[You can see the code handling the remaining contract phases further down the page](/docs/SmartContracts/ZKSC.md#full-zksc-code-example)
 
 ### Use zero knowledge smart contracts on PBC as a second layer
 

@@ -35,7 +35,7 @@ The price for different services on the blockchain has been chosen to roughly ma
   - MPC triples fee (tentative): 5 USD cents per 1000 triples
   - Staking fee (tentative): 1% of the locked staked value per month. The locked stakes for ZK computations are set by the users.
 
-Go [here](zk-computation-fees.md) for complete overview of costs for ZK services in gas.
+Go [here](/docs/SmartContracts/zk-computation-fees.md) for complete overview of costs for ZK services in gas.
 
 - Token Bridge:
   - 1% of the value transferred with a threshold of 25 USD as minimum transfer (equal to a Token Bridge fee of 25 USD cents).
@@ -54,7 +54,7 @@ The easiest way to make a deposit of ETH s to use the PBC Token Bridge.
 6. You can use Metamask to buy ETH. You can add funds with card or Apple Pay.
 7. Use the [PBC Token bridge](https://bridge.mpcexplorer.com/) to transfer ETH from the Ethereum account into the PBC account.
 
-You get a confirmation as seen below if the deposit is successful. The confirmation also includes a link to the [mpc explorer](https://mpcexplorer.com/) where you can see the executed transaction. After the confirmed transfer your gas balance in the wallet should be positive. This means that you can deploy or interact with smart contracts on the blockchain. Read more about smart contracts [here](contract-development.md).
+You get a confirmation as seen below if the deposit is successful. The confirmation also includes a link to the [mpc explorer](https://mpcexplorer.com/) where you can see the executed transaction. After the confirmed transfer your gas balance in the wallet should be positive. This means that you can deploy or interact with smart contracts on the blockchain. Read more about smart contracts [here](/docs/SmartContracts/contract-development.md).
 
 <img alt="Deposit" src="bridge-transfer-confirmation.png" width="350"/>
 
