@@ -44,7 +44,7 @@ match the one in the example, and uses the deployment scripts found in the examp
 
 [Compile your PBC private smart contract](../compile-zk.md).
 
-#### [Deploy a ZK contract on PBC](../contract-compilation.md).
+#### Deploy a ZK contract on PBC
 
 We recommend you to follow our guide on how to deploy contracts on PBC
 [here](../contract-compilation.md)
@@ -86,7 +86,7 @@ from Ethereum as a template for how to deploy a solidity smart contract on the G
 #### Prepare for deploying the solidity contract
 
 Before being able to deploy the solidity contract, the deployment script
-(`public-voting/scripts.deploy.js`) assumes that a number of environment variables are present.
+(`public-voting/scripts/deploy.js`) assumes that a number of environment variables are present.
 
 These can be added by writing them down in an .env file. See the example below.
 

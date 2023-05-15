@@ -16,37 +16,23 @@
 
     We suggest to use [metamask](/docs/accounts.md) for Goerli testnet.
 
-
-
-## Register PBC account as a voter on Ethereum
-
-1. Go to [https://goerli.etherscan.io/address/0x<todo>](https://goerli.etherscan.io/address/0x<todo>).
-2. Press the “Contract” button and then the “Write Contract” button to interact with the public contract.
-3. Choose the action “register” and enter your PBC account address (write as “0x<address\>”), and press “Write” to send the register transaction. You may need to connect your wallet via the “Connect to Web3”.
-4. Verify that the registration was successful by finding the registration event under the tab “Events”.
-
-## Transfer voter registration to PBC
-
-1. Go to [https://testnet.partisiablockchain.com/info/contract/<todo>](https://testnet.partisiablockchain.com/info/contract/<todo>)
-2. Press the "Register Voter" button and then "Submit". This registers you with the account you are currently logged onto PBC with.
-3. Verify that the account was registered by finding its address as the latest entry in the registered voters list in the contract state. 
-
 ## Casting secret votes on the PBC contract
 
-1. Navigate to the voting interface on PBC and click the “Cast Vote” button to input your secret vote.
+1. Go to [https://testnet.partisiablockchain.com/info/contract/<todo>](https://testnet.partisiablockchain.com/info/contract/<todo>)
+2. Press the “Cast Vote” button to input your secret vote.
    Choose the "True" option for casting a "yes" vote, or the "False" option for casting a "no" vote.
    Press the "Submit" button to send the secret vote.
-2. Your cast vote is now pending confirmation by the computation nodes. This may take a minute or two depending on the network activity. 
-3. You can verify that the vote has been confirmed by inspecting the "ZK State as JSON" button. 
-4. The JSON data contains a lot of information, but we are only interested in the "pendingInput" and 
+3. Your cast vote is now pending confirmation by the computation nodes. This may take a minute or two depending on the network activity. 
+4. You can verify that the vote has been confirmed by inspecting the "ZK State as JSON" button. 
+5. The JSON data contains a lot of information, but we are only interested in the "pendingInput" and 
    "variables" lists. 
-5. When casting a vote it is added to "pendingInput" and when it has been confirmed it is moved to 
+6. When casting a vote it is added to "pendingInput" and when it has been confirmed it is moved to 
    the "variables" list. 
-6. In both lists the "variable" has an "owner" field, which contains the address of the PBC account 
+7. In both lists the "variable" has an "owner" field, which contains the address of the PBC account 
    that cast the vote. 
-7. To see that your votes has been confirmed, check that it has been moved from "pendingInput" to 
+8. To see that your votes has been confirmed, check that it has been moved from "pendingInput" to 
    "variables". You may need to refresh the page to update the state. 
-8. To make the example more interesting you could cast multiple votes, but note that you can only 
+9. To make the example more interesting you could cast multiple votes, but note that you can only 
    cast one vote per account.
 
 ## Counting secret votes
@@ -55,7 +41,7 @@
 
 1. Start the vote counting process by pressing the "Start Vote Counting" button and then "Submit". This will initiate the ZK computation and new votes cannot be cast while it is running. The computation can take a minute or two to finish. 
    
-      If the action fails it might be because a vote has not been confirmed yet or if another has started the voting before you. You can see if the result shows up, otherwise you can retry the Start Vote Counting after a couple of minutes.
+      If the action fails it might be because another has started the voting before you. You can see if the result shows up, otherwise you can retry the Start Vote Counting after a couple of minutes.
    
 2. Once the computation has ended, the result of the vote is added to the list of "vote_results". You may have to refresh the page to update the state.
 3. Find the result with the vote id that you noted earlier.
@@ -70,9 +56,11 @@ If you encounter any issues while casting your vote or counting the result, you 
 
 These steps shows you how to securely move the vote result to the Ethereum public voting contract while ensuring integrity.
 
-1. To securely move the result to the Ethereum public voting contract, go back to [the contract on etherscan](https://goerli.etherscan.io/address/0x<todo>) and find the “publishResult” action under “contract” and then ”write contract”.
-2. Fill in the values of the vote result and the proof of the result shown in PBC.
-3. Try and alter the result to see for yourself that it is tamper-proof when trying to add votes or other kinds of manipulation. You will see that the transaction will fail when doing so.
+1. Go to [https://goerli.etherscan.io/address/0x<todo>](https://goerli.etherscan.io/address/0x<todo>).
+2. Press the “Contract” button and then the “Write Contract” button to interact with the public contract.
+3. Find the “publishResult” action.
+4. Fill in the values of the vote result and the proof of the result shown in PBC.
+5. Try and alter the result to see for yourself that it is tamper-proof when trying to add votes or other kinds of manipulation. You will see that the transaction will fail when doing so.
 
 ## Optionally validate the PBC &rarr; Ethereum link
 
@@ -114,13 +102,12 @@ The four engine objects also has a field called "publicKey" which is the public 
 
 To validate that the keys corresponds to the addresses that the Ethereum contract knows, do the following for each key _k_ in the "engines" list.
 
-1. Key _k_ is represented as a [compressed elliptic curve point](<todo>) in Base64 encoding
-2. Convert _k_ to the uncompressed form. This can be done e.g. by using the PBC 
-   `BlockchainPublicKey` java class and [getting the uncompressed EC points](https://gitlab.com/partisiablockchain/core/contract/-/blob/main/src/main/java/com/partisiablockchain/crypto/BlockchainPublicKey.java#L138)
-   from that.
-   * You can also use the helper script `publicKeys.js` found in the code for the 
-     [example voting contracts](https://gitlab.com/partisiablockchain/language/<todo>).
-3. Derive the Ethereum address from the uncompressed public key. This can be done with an 
-   [online calculator](https://www.rfctools.com/ethereum-address-test-tool/) or programmatically.
-4. The derived Ethereum address should match one of the addresses in the Ethereum smart contract's 
-   state.
+1. Download the example code from https://gitlab.com/partisiablockchain/<todo>.
+2. In the command line, navigate to the `public-voting` directory
+3. Run the command
+   ```shell
+   npx run-func scripts/pbc.js testKey "<PUBLIC_KEY>"
+   ```
+   Substitute the <PUBLIC_KEY> part with the value of _k_.
+4. Read the Ethereum address from the output and check that it matches one of the addresses in the
+   Ethereum smart contract's state.

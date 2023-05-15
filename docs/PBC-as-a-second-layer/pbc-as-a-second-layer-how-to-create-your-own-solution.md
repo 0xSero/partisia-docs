@@ -46,11 +46,10 @@ The `private-voting` directory contains a Cargo project for the PBC ZK smart con
 The public part of the contract is defined in `src/contract.rs` and the ZK computation is defined in
 `src/zk_compute.rs`.
 
-The contract depends on version 13.5.0 of the
-[contract-sdk](https://gitlab.com/partisiablockchain/language/contract-sdk) crate, version 3.63.0 of
+The contract depends on version 15.1.0 of the
+[contract-sdk](https://gitlab.com/partisiablockchain/language/contract-sdk) crate, version 3.80.0 of
 the [zk-compiler](https://gitlab.com/partisiablockchain/language/zk-compiler), and can be compiled
-with version 1.20.0 <todo>(or earlier) of the
-[cargo-partisia-contract](https://gitlab.com/partisiablockchain/language/cargo-partisia-contract)
+with version 1.25.0 of the [cargo-partisia-contract](https://gitlab.com/partisiablockchain/language/cargo-partisia-contract)
 build tool.
 
 The `public-voting` directory contains Hardhat project for the public Solidity contract.
@@ -73,16 +72,15 @@ snippets that are relevant for understanding how PBC as second layer works.
 
 The flow of the contract is as follows:
 
-1. Once the contract is deployed on PBC, it is initialized with an empty list of registered voters,
-   an empty list of voting results, and an initial vote id of 1.
-2. Anyone can register their PBC account as voter.
-3. Any registered voter can cast a single secret vote on the currently active vote.
-4. Anyone can at anytime count the cast votes of the currently active vote.
+1. Once the contract is deployed on PBC, it is initialized with an empty list of voting results and 
+   an initial vote id of 1.
+2. Anyone can cast a single secret vote on the currently active vote.
+3. Anyone can at anytime count the cast votes of the currently active vote.
    This is what the ZK computation does.
-5. Once the votes have been counted the result, i.e. the number of yes votes, no votes and absenting
-   voters, is archived in the state and the next vote is activated by deleting the inputs and
+4. Once the votes have been counted the result, i.e. the number of yes votes and no votes, is 
+   archived in the state and the next vote is activated by deleting the inputs and
    incrementing the vote id.
-6. Additionally, the result is attested by the computation nodes, meaning that they each sign it.
+5. Additionally, the result is attested by the computation nodes, meaning that they each sign it.
 
 The last attestation step is what enables us to move data from PBC back to the 1. layer chain, so it
 is useful to understand how that works.
@@ -121,8 +119,17 @@ fn build_and_attest_voting_result(
 fn serialize_result_as_big_endian(result: VoteResult) -> Vec<u8> {
    let mut output: Vec<u8> = vec![];
    result
+           .vote_id
            .rpc_write_to(&mut output)
-           .expect("Could not serialize result");
+           .expect("Unable to serialize vote_id");
+   result
+           .votes_for
+           .rpc_write_to(&mut output)
+           .expect("Unable to serialize votes_for");
+   result
+           .votes_against
+           .rpc_write_to(&mut output)
+           .expect("Unable to serialize votes_against");
    output
 }
 ```
@@ -133,8 +140,8 @@ To be able to verify the signatures later in the Solidity contract it is importa
 are exactly the same here as when we serialize the result in Solidity. That means the fields should
 be written in the right order and right format which is big endian.
 
-Actually what will be signed is a SHA-256 hash of the bytes prepended with additional data, but more
-on that later.
+Actually what will be signed is an SHA-256 hash of the bytes prepended with additional data, but 
+more on that later.
 
 After the data has been signed, the following code is executed.
 
@@ -147,8 +154,7 @@ fn save_attestation_on_result_and_start_next_vote(
    attestation_id: AttestationId,
 ) -> (ContractState, Vec<EventGroup>, Vec<ZkStateChange>) {
    // Get ids of all secret variables, to delete all votes cast in the previous vote before
-   // starting the next one. Only cast votes are deleted, registered voters are kept from vote to
-   // vote.
+   // starting the next one. 
    let variables_to_delete: Vec<SecretVarId> = ...;
 
    // Find the result of the vote that was just concluded.
@@ -232,12 +238,11 @@ To understand the contract we urge you to study the code carefully.
 The flow of the public voting contract can be summarized as:
 
 1. The contract is deployed with parameters that establishes its connection to the PBC private 
-   contract. We will discuss these in more details later.
-2. Anyone can at any time register a PBC address as a voter.
-3. Once a vote has concluded on PBC the result can be published, using the actual numbers of the 
+   contract.
+2. Once a vote has concluded on PBC the result can be published, using the actual numbers of the 
    result along with the proof provided by PBC.
 
-For the purposes of using PBC as second layer for this contract, step 1 and 3 above are interesting
+For the purposes of using PBC as second layer for this contract, step 1 and 2 above are interesting
 to discuss further as they are the ones that allow us to move data from PBC to this contract without
 loss of integrity.
 
@@ -252,31 +257,10 @@ deployed PBC private smart contract.
 bytes21 public privateVotingPbcAddress;
 address[] public computationNodes;
 
-constructor(bytes21 _pbcContractAddress, bytes[] memory nodesUncompressedPublicKeys) {
-    setupPbcInformation(_pbcContractAddress, nodesUncompressedPublicKeys);
-}
-
-function setupPbcInformation(
-    bytes21 _pbcContractAddress, 
-    bytes[] memory nodesUncompressedPublicKeys) private {
+constructor(bytes21 _pbcContractAddress, address[] memory _computationNodes) {
     privateVotingPbcAddress = _pbcContractAddress;
-
-    // Uncompressed size of a public key (EC point).
-    uint keySize = 64;
-    uint noOfKeys = 4;
-
-    require(nodesUncompressedPublicKeys.length == noOfKeys, "Invalid computation node count");
-    computationNodes = new address[](noOfKeys);
-    // Check that each public key has the expected length, and derive its corresponding address
-    for (uint i = 0; i < 4; i++) {
-        bytes memory pubKey = nodesUncompressedPublicKeys[i];
-        require(pubKey.length == keySize, "Invalid length of public key");
-        // To derive the address from the public key, take the keccak-256 hash of the key.
-        // Next cast the output digest to an 256 bit unsigned integer, and reduce the integer
-        // to the 20 least significant bytes by casting to 160 bit unsigned integer.
-        // Finally, type cast this number to an address.
-        computationNodes[i] = address(uint160(uint256(keccak256(pubKey))));
-    }
+    require(_computationNodes.length == 4, "Invalid computation node count");
+    computationNodes = _computationNodes;
 }
 ```
 
@@ -285,26 +269,21 @@ smart contract. The second is an array of _Ethereum_ addresses of the nodes sele
 computations for the private smart contract.
 We need both of these variables when we later verify the proof of a result.
 
-Note that the PBC address consists of 21 bytes, while the Ethereum address has its own type and 
-consists 20 bytes. 
+There are two things to note about the arguments.
+The first is that we do not use the built-in `address` type for the address of the PBC contract.
+We don't do this for a couple of reasons:
 
-We initialize both values in the contract constructor. Initializing the contract address is 
-straight forward, but setting the addresses of the computation nodes is a bit more involved.
+1. A PBC address is 21 bytes instead of the 20 bytes of an Ethereum address, and
+2. The `address` type has specified functions that do not make sense for the PBC address, e.g. 
+   `transfer()` or `call()`.
 
-Instead of passing in the addresses directly we supply the constructor with the raw bytes of the 
-nodes' public keys. We then check that we have the number of keys expected and that they have the 
-expected length before deriving the address from each key.
+The second things to notice is that the addresses of the computation nodes are **not** the 
+identifies of computation nodes. Rather they are derived from the nodes public keys.
 
-**Note:** To derive the key correctly it is important that the byte values of each key is the 
-uncompressed encoding which is 64 bytes long, otherwise the derived address does not correspond to 
-the actual key. See [this page](pbc-as-second-layer-technical-differences-eth-pbc.md) for further
-discussion on deriving addresses from public keys.
+For more details on how to derive the addresses see [this page](pbc-as-second-layer-technical-differences-eth-pbc.md).
+The [How to deploy](pbc-as-a-second-layer-how-to-deploy.md) page describes how to deploy the 
+solidity contract using the computation nodes public keys.
 
-We do this because we do not have know what the _Ethereum_ addresses of the computation nodes are, 
-but only have access to their public keys, which we can derive the addresses from.
-
-See [this page](pbc-as-a-second-layer-how-to-deploy.md) for more details on how to deploy the two 
-contracts and how to find and pass the information needed from the PBC private smart contract.
 
 #### Verifying the result of a secret vote
 
@@ -313,11 +292,10 @@ it originates from the private voting contract, and that it was signed by the tr
 nodes.
 
 ```solidity
-function publishResult(
+    function publishResult(
    uint32 _voteId,
    uint32 _votesFor,
    uint32 _votesAgainst,
-   uint32 _abstaining,
    bytes[] calldata _proofOfResult) external {
 
    // Verify that we have signatures from all of the computation nodes.
@@ -325,20 +303,20 @@ function publishResult(
    // Compute the SHA-256 hash value (also called digest) of the data that was signed by the
    // computation nodes. The nodes have not signed the raw data, but rather the digest of the
    // data, so we need to compute it here to verify the signatures against it.
-   bytes32 digest = computeDigest(_voteId, _votesFor, _votesAgainst, _abstaining);
+   bytes32 digest = computeDigest(_voteId, _votesFor, _votesAgainst);
 
    // For each of the 4 signatures:
    for (uint node = 0; node < 4; node++) {
       // The the signature from the input array.
       bytes calldata signature = _proofOfResult[node];
-      // Verify that the address recovered from the signature matches one of the computation 
+      // Verify that the address recovered from the signature matches one of the computation
       // nodes that we trust from the initialization of the contract.
       require(computationNodes[node] == ECDSA.recover(digest, signature),
          "Could not verify signature");
    }
 
    // All signatures were verified so we can publish the result of the vote.
-   VoteResult memory result = VoteResult(_voteId, _votesFor, _votesAgainst, _abstaining);
+   VoteResult memory result = VoteResult(_voteId, _votesFor, _votesAgainst);
    emit VotingCompleted(result);
    results.push(result);
 }
@@ -346,15 +324,14 @@ function publishResult(
 function computeDigest(
    uint32 _voteId,
    uint32 _votesFor,
-   uint32 _votesAgainst,
-   uint32 _abstaining) private view returns (bytes32) {
+   uint32 _votesAgainst) private view returns (bytes32) {
    // The digest of the attested data follows the format:
-   // sha256(attestation_domain_separator || pbc_contract_address || data), where 
-   // attestation_domain_separator is the hardcoded utf-8 encoding of the string 
-   // "ZK_REAL_ATTESTATION", pbc_contract_address is the address of the contract that requested 
+   // sha256(attestation_domain_separator || pbc_contract_address || data), where
+   // attestation_domain_separator is the hardcoded utf-8 encoding of the string
+   // "ZK_REAL_ATTESTATION", pbc_contract_address is the address of the contract that requested
    // the attestation and data is the actual data to be signed.
-   // For the voting case it means that compute the digest of 
-   // "ZK_REAL_ATTESTATION" || privateVotingPbcAddress || _voteId || _votesFor || _votesAgainst || _abstaining
+   // For the voting case it means that compute the digest of
+   // "ZK_REAL_ATTESTATION" || privateVotingPbcAddress || _voteId || _votesFor || _votesAgainst ||
    // We use abi.encodePacked to ensure the bytes are encoded in the same manner as on PBC.
    return sha256(
       abi.encodePacked(
@@ -362,13 +339,12 @@ function computeDigest(
          privateVotingPbcAddress,
          _voteId,
          _votesFor,
-         _votesAgainst,
-         _abstaining
+         _votesAgainst
       ));
 }
 ```
 
-To publish the result the function takes the four inputs that identifies which vote was concluded,
+To publish the result the function takes the three inputs that identifies which vote was concluded,
 the numbers of the results and the proof provided by the contract.
 
 Before we can trust that the result is correct and has not been tampered with we need to verify the
