@@ -20,7 +20,7 @@ Except for the governance shard, all shards serve the same role of distributing 
 
 ## How it works
 
-Blocks on PBC are produced and validated in accordance with the [FastTrack](consensus.md) consensus process. which dictates that before a new block is created - the current block proposer must have received proof of justification (PoJ) of the latest block, i.e. a 2/3 majority of the committee members have validated and processed the transactions in the block.
+Blocks on PBC are produced and validated in accordance with the [FastTrack](/docs/PBCFundamentals/consensus.md) consensus process. which dictates that before a new block is created - the current block proposer must have received proof of justification (PoJ) of the latest block, i.e. a 2/3 majority of the committee members have validated and processed the transactions in the block.
 But with shards on PBC, each shard runs its own consensus allowing blocks to be produced on demand. If the activity level on the chain require it, more shards can be added. This allows for PBC to scale continuously.
 It is important to note, that each shard is not a separate blockchain. The consolidated chain contains the blocks of all shards, and contracts deployed on different shards can interact seamlessly. In effect sharding is a workload distribution tool, which makes PBC able to produce blocks without delay.
 
