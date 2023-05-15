@@ -9,7 +9,7 @@ To compile a zero-knowledge contract run:
 cargo partisia-contract build --release
 ```
 
-Note that this is the same command as for [public contracts](contract-compilation.md). The tool
+Note that this is the same command as for [public contracts](/docs/SmartContracts/contract-compilation.md). The tool
 looks for a path to the zk-computation in the manifest file. If this is defined under package.metadata.zk 
 then the tool tries to compile the contract as a zk-contract instead of a normal public contract.
 The tool first compiles the public part of the contract to get a WASM- and ABI-file. Afterwards it fetches
