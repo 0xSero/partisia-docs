@@ -16,9 +16,11 @@ An addresses on PBC is a unique number that identifies the recipients and sender
 
 Baker nodes perform baker services - they produce and sign blocks. You can get a baker node by upgrading the config of your reader node and get whitelisted to participate in the Consensus layer. Whitelisting consist of a KYC process connected to token sale as well as an approval of public information in the node registration. A baker node must have staked sufficient (25000 MPC) to perform baker services.
 
-### Block
+# Block
 
-A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](transactions.md) and [events](events.md) that have been executed at a given _block time_. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block. Read more [here](block.md).
+A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](dictionary.md#transactions) and [events](dictionary.md#event-transactions) that have been executed at a given *block time*. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block.
+
+A block is produced by a block producer. When a block is produced the transactions and events are executed and the resulting state is stored as the current state. The produced block is then validated by  the committee according to the currently running [consensus protocol](/docs/PBCFundamentals/consensus.md).
 
 ### Block (height, number, time)
 
@@ -35,6 +37,15 @@ The Partisia blockchain has a decoupled token economy this means that the native
 ### ETH
 
 The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](/docs/PBCFundamentals/byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
+
+### Event transactions
+
+An event transaction is a special type of transaction that is spawned during the execution of another transaction. Events are used to communicate across different contracts and/or shards.
+
+
+Events have the same basic properties as ordinary transactions. Events are sent through the flooding network and have the same validity rules as ordinary transactions. When a transaction is executed the network and CPU fees are collected, the rest of the cost is distributed evenly between any events said transaction spawns. Events are executed the same way as ordinary transactions meaning they can *also* spawn events. This means one can implement asynchronous, indefinite recursion which will eventually terminate since the events will run out of gas to pay the fees.
+
+Event transactions are instrumental in enabling cross-shard transactions since they can be routed by the blockchain to their respective destination shard. A routed event transaction is enriched with a finalization proof and routed based on the routing table in the chain state. For more details see [Shards](/docs/PBCFundamentals/shards.md).
 
 ### Flooding Network
 
@@ -100,9 +111,9 @@ Same as [Account](/docs/PBCFundamentals/dictionary.md#account), see entry above.
 
 The immutable record or ledger, that keeps track of transactions that have already taken place. There is a copy of the ledger on all nodes. Partisia Blockchain has sharding, the ledger records the activities on all shards, they are combined to form the complete ledger.
 
-### Public Key Cryptography
+### Public-key cryptography
 
-Public-key cryptography is a form of cryptography that uses pairs of keys: A public key that may be shared with anyone and a private key that must be kept secret. Read more [here](keys.md).
+Public-key cryptography is a form of cryptography that uses pairs of keys: A public key that may be shared with anyone and a private key that must be kept secret. The public and private keys are generated in mathematically connected pairs. The public key can be used to encrypt a message that can be decrypted by the private key, meaning that anyone can send an encrypted message to any recipient assuming they know their public key. PBC uses elliptic curve cryptography, specifically the curve [secp256k1](https://en.bitcoinwiki.org/wiki/Secp256k1).
 
 ### Reader Node
 
@@ -114,15 +125,27 @@ A rest server is a server that gives access to the REST API. An API conforming t
 
 ### Shards
 
-PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](shards.md).
+PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](/docs/PBCFundamentals/consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](/docs/PBCFundamentals/shards.md).
 
 ### Smart Contracts
 
 A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC. Read more [here](/docs/SmartContracts/contract-development.md)
 
+
 ### Transactions
 
-A transaction is an instruction from a user containing information used to change the state of the blockchain. Read more [here](transactions.md)
+A transaction represents an authorized atomic interaction with the blockchain.
+
+Each transaction defines how long into the future it is valid and what the cost is. A hash of the transaction and the signer’s nonce is then signed by the account holder using his/her private key. This signature is used to authenticate the signer on the blockchain. If the signing key does not have a corresponding account, the transaction is rejected.
+
+A transaction is valid when:
+
+- It has as a valid signature
+- The nonce in the transaction matches the account nonce in the blockchain state
+- The transaction has not expired
+- The account can cover the cost of the transaction (see Transaction fees below)
+
+There are three types of transactions: create contract, interact with contract and remove contract. All transactions include an RPC byte stream, the interpretation of which is up to the specific contract. The three transaction types correspond to the `onCreate`, `onInvoke` and `onDestroy` methods comprise the contract lifecycle.
 
 ### WASM
 
