@@ -1,7 +1,7 @@
 ### Compiling and deploying Zero-Knowledge contracts
 
 As an example of compiling a zk-contract we will make use of the second-price auction contract. The
-contract can be found in the example contracts archive at: `contracts/example-zk-second-price-auction`. You can download [our example zip archive here](/docs/SmartContracts/combi-innovation.md) and read what a second-price auction is on that page as well.
+contract can be found in the example contracts archive at: `contracts/example-zk-second-price-auction`. You can download [our example zip archive here](/docs/smart-contracts/combi-innovation.md) and read what a second-price auction is on that page as well.
 
 The zk-contracts consist of two main parts. The contract itself as well as a zero-knowledge computation.
 To compile a zero-knowledge contract run:
@@ -9,14 +9,14 @@ To compile a zero-knowledge contract run:
 cargo partisia-contract build --release
 ```
 
-Note that this is the same command as for [public contracts](/docs/SmartContracts/contract-compilation.md). The tool
+Note that this is the same command as for [public contracts](/docs/smart-contracts/contract-compilation.md). The tool
 looks for a path to the zk-computation in the manifest file. If this is defined under package.metadata.zk 
 then the tool tries to compile the contract as a zk-contract instead of a normal public contract.
 The tool first compiles the public part of the contract to get a WASM- and ABI-file. Afterwards it fetches
 the zk-compiler and compiles the zk-computation and links it with the generated WASM-file to get a
 ZKWA-file.
 
-You can use the [testnet](/docs/SmartContracts/testnet.md) to try out deployment for free.
+You can use the [testnet](/docs/smart-contracts/testnet.md) to try out deployment for free.
 Another key difference between public smart contracts and the private zero knowledge smart contracts is that subset 
 of high stakes nodes are allocated to carry out the ZK computations of each ZK contract. 
 The contract owner has to specify how much value the ZK computation represents. This amount of the ZK nodes' stake 

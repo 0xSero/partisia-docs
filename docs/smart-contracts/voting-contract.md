@@ -258,4 +258,4 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 
 ## Building and testing the voting contract
 
-The process for building and testing the voting contract is the same as any other contract that needs to be deployed, we recommend you follow our general guide [here](/docs/SmartContracts/contract-compilation.md) to get your smart contract onto our testnet.
+The process for building and testing the voting contract is the same as any other contract that needs to be deployed, we recommend you follow our general guide [here](/docs/smart-contracts/contract-compilation.md) to get your smart contract onto our testnet.
