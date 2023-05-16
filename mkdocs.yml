@@ -10,23 +10,23 @@ nav:
       - $MPC token model and Account Elements: pbc-fundamentals/mpc-tokens.md
       - Partisia Blockchain Dictionary: pbc-fundamentals/dictionary.md
   - Develop PBC Smart contracts, tools and Samples:
-      - Introduction to smart contracts: SmartContracts/smart-contracts.md
-      - What is a smart contract: SmartContracts/contract-development.md
-      - Install the smart contract compiler: SmartContracts/download-compiler.md
-      - Compile and deploy contracts: SmartContracts/contract-compilation.md
-      - Access and use the testnet: SmartContracts/testnet.md
-      - Public and ZK Smart Contract examples - Combine and innovate: SmartContracts/combi-innovation.md
-      - Programmers Guide to PBC smart contracts: SmartContracts/programmers_guide.md
-      - Partisia Blockchain Smart Contract Binary Formats: SmartContracts/abiv.md
-      - How to create a smart contract with a specific scenario: SmartContracts/voting-contract.md
-      - Zero Knowledge Smart Contracts: SmartContracts/ZKSC.md
-      - Compile Zero Knowledge Contracts: SmartContracts/compile-zk.md
-      - Zero Knowledge Gas Fees: SmartContracts/zk-computation-fees.md
+      - Introduction to smart contracts: smart-contracts/smart-contracts.md
+      - What is a smart contract: smart-contracts/contract-development.md
+      - Install the smart contract compiler: smart-contracts/download-compiler.md
+      - Compile and deploy contracts: smart-contracts/contract-compilation.md
+      - Access and use the testnet: smart-contracts/testnet.md
+      - Public and ZK Smart Contract examples - Combine and innovate: smart-contracts/combi-innovation.md
+      - Programmers Guide to PBC smart contracts: smart-contracts/programmers_guide.md
+      - Partisia Blockchain Smart Contract Binary Formats: smart-contracts/abiv.md
+      - How to create a smart contract with a specific scenario: smart-contracts/voting-contract.md
+      - Zero Knowledge Smart Contracts: smart-contracts/ZKSC.md
+      - Compile Zero Knowledge Contracts: smart-contracts/compile-zk.md
+      - Zero Knowledge Gas Fees: smart-contracts/zk-computation-fees.md
       - Zero Knowledge Rust Language (ZkRust):
-          - ZkRust Language: SmartContracts/zk-language.md
-          - ZK Rust Reference: SmartContracts/zk-language-reference.md
-          - Zk language features: SmartContracts/zk-language-features.md
-      - Development FAQ: SmartContracts/dev-faq.md
+          - ZkRust Language: smart-contracts/zk-language.md
+          - ZK Rust Reference: smart-contracts/zk-language-reference.md
+          - Zk language features: smart-contracts/zk-language-features.md
+      - Development FAQ: smart-contracts/dev-faq.md
   - Run a node:
       - What is a node operator: node-operations/operator-0-introduction.md
       - Specs: node-operations/operator-1-specs.md

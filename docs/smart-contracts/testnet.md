@@ -9,7 +9,7 @@ You can deploy and test both public and private smart contracts on the testnet f
 
 - A PBC [account](/docs/pbc-fundamentals/accounts.md), you can create an account with the [PBC wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).   
 - Get [testnet gas](/docs/pbc-fundamentals/byoc.md)   
-- [Download the PBC example smart contracts](LINK_TO_RUST_EXAMPLE_CONTRACTS) containing examples of both public and private smart contracts, they are described on [this page](/docs/SmartContracts/combi-innovation.md).
+- [Download the PBC example smart contracts](LINK_TO_RUST_EXAMPLE_CONTRACTS) containing examples of both public and private smart contracts, they are described on [this page](/docs/smart-contracts/combi-innovation.md).
 
 ## How to deploy contracts on the testnet   
 

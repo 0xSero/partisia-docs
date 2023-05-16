@@ -12,7 +12,7 @@ Questions for non-ZK contracts:
     1. `#[init]`: Creator of the contract.
     2. `#[action]`: Sender of the transaction. Some contract address if from
        a contract, user address if from a user.
-    3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to contract B, which then performed a callback to contract C. When the return message is recieved by contract B, the sender of the interaction will be set to A. Events are explained more in-depth [here](/docs/SmartContracts/programmers_guide.md#events)
+    3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to contract B, which then performed a callback to contract C. When the return message is recieved by contract B, the sender of the interaction will be set to A. Events are explained more in-depth [here](/docs/smart-contracts/programmers_guide.md#events)
     4. `#[zk_on_secret_input]`: Sender of the input.
 - **Action macros complains about `pbc_lib`**: Ensure that `abi` features are correctly imported. When depending upon other crates, you must never use `features = ["abi"]`, as this will result in malformed contracts.  Abi features must only ever be enabled conditionally.  Crates must propagate the `abi` feature by placing a `abi = ["crate1/abi", "crate2/abi", "crate3/abi", ...]` statement in the `[features]` toml section.
 
@@ -37,6 +37,6 @@ Questions for ZK contracts:
 - **ZkRust: What is the difference between public and secret types?**: Public types are "normal" Rust types like `i32`, where the data is publicly known, for example because it is directly visible in the contract state. Secret types are types like `Sbi32` where the data is secret-shared between ZK nodes. A struct (or tuple) is a public type if all it's fields are public, and a struct is a secret type if all it's fields are secret.
 - **ZkRust: Why can I not load or return a Vec?**: The RustZK runtime is currently incapable of working with variable-length data such as strings and vectors. The best workaround at the moment is to restructure your computation to only return a single variable.
 - **ZkRust: Ok, but what types _can_ I return?**: All Secret types and tuples of secret types. Examples: `Sbi128`, `(Sbi32, Sbi32)`, `SecretPoint` (defined as `struct SecretPoint { x: Sbi32, y: Sbi32 }`.) To produce multiple variables, return them as a tuple.
-- **ZkRust: Can I use feature X?**: [Check out the currently supported features.](/docs/SmartContracts/zk-language-features.md)
+- **ZkRust: Can I use feature X?**: [Check out the currently supported features.](/docs/smart-contracts/zk-language-features.md)
 - **ZkRust: Why is important feature X not supported?**: ZkRust is an entire reimplementation of the Rust compiler targeted at Partisia Blockchain, and not all features have been prioritized.
 
