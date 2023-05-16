@@ -16,11 +16,11 @@ An addresses on PBC is a unique number that identifies the recipients and sender
 
 Baker nodes perform baker services - they produce and sign blocks. You can get a baker node by upgrading the config of your reader node and get whitelisted to participate in the Consensus layer. Whitelisting consist of a KYC process connected to token sale as well as an approval of public information in the node registration. A baker node must have staked sufficient (25000 MPC) to perform baker services.
 
-# Block
+### Block
 
-A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](dictionary.md#transactions) and [events](dictionary.md#event-transactions) that have been executed at a given *block time*. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block.
+A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](dictionary.md#transactions) and [events](dictionary.md#event-transactions) that have been executed at a given _block time_. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block.
 
-A block is produced by a block producer. When a block is produced the transactions and events are executed and the resulting state is stored as the current state. The produced block is then validated by  the committee according to the currently running [consensus protocol](/docs/pbc-fundamentals/consensus.md).
+A block is produced by a block producer. When a block is produced the transactions and events are executed and the resulting state is stored as the current state. The produced block is then validated by the committee according to the currently running [consensus protocol](/docs/pbc-fundamentals/consensus.md).
 
 ### Block (height, number, time)
 
@@ -42,8 +42,7 @@ The name of the native token of the Ethereum blockchain. It is a liquid cryptocu
 
 An event transaction is a special type of transaction that is spawned during the execution of another transaction. Events are used to communicate across different contracts and/or shards.
 
-
-Events have the same basic properties as ordinary transactions. Events are sent through the flooding network and have the same validity rules as ordinary transactions. When a transaction is executed the network and CPU fees are collected, the rest of the cost is distributed evenly between any events said transaction spawns. Events are executed the same way as ordinary transactions meaning they can *also* spawn events. This means one can implement asynchronous, indefinite recursion which will eventually terminate since the events will run out of gas to pay the fees.
+Events have the same basic properties as ordinary transactions. Events are sent through the flooding network and have the same validity rules as ordinary transactions. When a transaction is executed the network and CPU fees are collected, the rest of the cost is distributed evenly between any events said transaction spawns. Events are executed the same way as ordinary transactions meaning they can _also_ spawn events. This means one can implement asynchronous, indefinite recursion which will eventually terminate since the events will run out of gas to pay the fees.
 
 Event transactions are instrumental in enabling cross-shard transactions since they can be routed by the blockchain to their respective destination shard. A routed event transaction is enriched with a finalization proof and routed based on the routing table in the chain state. For more details see [Shards](/docs/pbc-fundamentals/shards.md).
 
@@ -130,7 +129,6 @@ PBC distributes the workload to a number of parallel shards. This allows for sca
 ### Smart Contracts
 
 A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC. Read more [here](/docs/smart-contracts/contract-development.md)
-
 
 ### Transactions
 
