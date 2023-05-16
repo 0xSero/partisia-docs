@@ -6,7 +6,7 @@ Every account has an individual private key used for signing transactions, this 
 
 A Partisia Blockchain account holds the information necessary to enabling the user to perform transactions. This information includes:
 
- - A unique identity called an address, it is derived from the [public key](keys.md)
+ - A unique identity called an address, it is derived from the [public key](/docs/PBCFundamentals/dictionary.md#Public-key cryptography)
  - The account balance of [BYOC](/docs/PBCFundamentals/byoc.md)
  - Balance of [MPC Tokens](/docs/PBCFundamentals/introduction.md)
  - An account [nonce (number used only once)](/docs/PBCFundamentals/dictionary.md#nonce), which is incremented when transactions are signed.
