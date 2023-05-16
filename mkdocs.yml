@@ -4,11 +4,11 @@ use_directory_urls: False
 nav:
   - Home: index.md
   - PBC Fundamentals:
-      - Introduction to the Partisia Blockchain fundamentals: PBCFundamentals/introduction.md
-      - Create an account on Partisia Blockchain (PBC): PBCFundamentals/accounts.md
-      - BYOC and gas for the mainnet and testnet: PBCFundamentals/byoc.md
-      - $MPC token model and Account Elements: PBCFundamentals/mpc-tokens.md
-      - Partisia Blockchain Dictionary: PBCFundamentals/dictionary.md
+      - Introduction to the Partisia Blockchain fundamentals: pbc-fundamentals/introduction.md
+      - Create an account on Partisia Blockchain (PBC): pbc-fundamentals/accounts.md
+      - BYOC and gas for the mainnet and testnet: pbc-fundamentals/byoc.md
+      - $MPC token model and Account Elements: pbc-fundamentals/mpc-tokens.md
+      - Partisia Blockchain Dictionary: pbc-fundamentals/dictionary.md
   - Develop PBC Smart contracts, tools and Samples:
       - Introduction to smart contracts: SmartContracts/smart-contracts.md
       - What is a smart contract: SmartContracts/contract-development.md
