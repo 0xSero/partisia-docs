@@ -1,7 +1,7 @@
 # Run a block producing node on Partisia Blockchain
 
 
-You must finish the previous two sections([Reader node on VPS](/docs/NodeOperations/operator-5-reader-vps.md) and [Keys for BP](/docs/NodeOperations/operator-9-keys.md)) is a prerequisite.
+You must finish the previous two sections([Reader node on VPS](/docs/node-operations/operator-5-reader-vps.md) and [Keys for BP](/docs/node-operations/operator-9-keys.md)) is a prerequisite.
 
 ### Step 1 - Stop your reader node
 
@@ -34,7 +34,7 @@ Go to your VPS and open `config.json` in `nano`:
 sudo nano /opt/pbc-mainnet/conf/config.json
 ````
 
-Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](/docs/NodeOperations/operator-9-keys.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
+Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](/docs/node-operations/operator-9-keys.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
 ````json
 {
   "restPort": 8080,
@@ -80,4 +80,4 @@ docker logs -f pbc-mainnet
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
 
-In the [maintenance section](/docs/NodeOperations/operator-12-node-health.md) you can see what the logs mean.
+In the [maintenance section](/docs/node-operations/operator-12-node-health.md) you can see what the logs mean.

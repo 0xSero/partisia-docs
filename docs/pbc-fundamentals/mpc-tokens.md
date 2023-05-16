@@ -1,6 +1,6 @@
 # $MPC token model and Account Elements
 
-The MPC Token is the native token of the Partisia Blockchain used for staking and bootstrapping the ecosystem via MPC tokens as rewards. All Accounts on the blockchain can own MPC tokens. Staking in the context of MPC tokens means, that a stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services. The staking requirements for different tasks can be read [here](/docs/NodeOperations/operator-0-introduction.md). The stake of a node can be used to pay compensation for misconduct committed with the node.
+The MPC Token is the native token of the Partisia Blockchain used for staking and bootstrapping the ecosystem via MPC tokens as rewards. All Accounts on the blockchain can own MPC tokens. Staking in the context of MPC tokens means, that a stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services. The staking requirements for different tasks can be read [here](/docs/node-operations/operator-0-introduction.md). The stake of a node can be used to pay compensation for misconduct committed with the node.
 
 ## Terminology
 
