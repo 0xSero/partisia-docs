@@ -28,20 +28,20 @@ nav:
           - Zk language features: SmartContracts/zk-language-features.md
       - Development FAQ: SmartContracts/dev-faq.md
   - Run a node:
-      - What is a node operator: NodeOperations/operator-0-introduction.md
-      - Specs: NodeOperations/operator-1-specs.md
-      - Local reader: NodeOperations/operator-2-reader.md
-      - VPS: NodeOperations/operator-3-vps.md
-      - VPS security: NodeOperations/operator-4-security.md
-      - Reader node on VPS: NodeOperations/operator-5-reader-vps.md
-      - Create a PBC account: NodeOperations/operator-6-create-account.md
-      - Get MPC tokens: NodeOperations/operator-7-get-mpc-tokens.md
-      - Complete Synaps KYB: NodeOperations/operator-8-synaps.md
-      - Keys for BP config and registration: NodeOperations/operator-9-keys.md
-      - Change node config from reader to block producer: NodeOperations/operator-10-bp.md
-      - Register your node in the MPC Explorer: NodeOperations/operator-11-registration.md
-      - Node health and maintenance: NodeOperations/operator-12-node-health.md
-      - Update your node's public information: NodeOperations/update-transaction.md
+      - What is a node operator: node-operations/operator-0-introduction.md
+      - Specs: node-operations/operator-1-specs.md
+      - Local reader: node-operations/operator-2-reader.md
+      - VPS: node-operations/operator-3-vps.md
+      - VPS security: node-operations/operator-4-security.md
+      - Reader node on VPS: node-operations/operator-5-reader-vps.md
+      - Create a PBC account: node-operations/operator-6-create-account.md
+      - Get MPC tokens: node-operations/operator-7-get-mpc-tokens.md
+      - Complete Synaps KYB: node-operations/operator-8-synaps.md
+      - Keys for BP config and registration: node-operations/operator-9-keys.md
+      - Change node config from reader to block producer: node-operations/operator-10-bp.md
+      - Register your node in the MPC Explorer: node-operations/operator-11-registration.md
+      - Node health and maintenance: node-operations/operator-12-node-health.md
+      - Update your node's public information: node-operations/update-transaction.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - Get support from PBC community: support.md
 

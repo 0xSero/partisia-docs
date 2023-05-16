@@ -78,7 +78,7 @@ A non-fungible-token. Non-fungible means that it is unique unlike other types of
 
 ### Node
 
-Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](/docs/NodeOperations/operator-0-introduction.md)
+Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](/docs/node-operations/operator-0-introduction.md)
 
 ### Node operator
 
@@ -89,7 +89,7 @@ A node operator is a person who runs and maintains a node on Partisia Blockchain
 - ZK Node: A node that performs zero knowledge computations in addition to baker node services.
 - Oracle Node: A node that performs oracle services in addition to ZK and baker services.
 
-See requirements of a node operator and how to run a node [here](/docs/NodeOperations/operator-0-introduction.md).
+See requirements of a node operator and how to run a node [here](/docs/node-operations/operator-0-introduction.md).
 
 ### Nonce
 
@@ -117,7 +117,7 @@ Public-key cryptography is a form of cryptography that uses pairs of keys: A pub
 
 ### Reader Node
 
-A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](/docs/NodeOperations/operator-2-reader.md).
+A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](/docs/node-operations/operator-2-reader.md).
 
 ### Rest Server
 
