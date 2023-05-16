@@ -107,7 +107,7 @@ By combining the functionality of different types of smart contracts it is possi
 
 ## MPC examples
 
-Secure multiparty computation [(MPC)](/docs/PBCFundamentals/dictionary.md#mpc) extent the scope blockchain technology to encompass areas that before required some kind of independent third party to handle sensitive data like a trustee.
+Secure multiparty computation [(MPC)](/docs/pbc-fundamentals/dictionary.md#mpc) extent the scope blockchain technology to encompass areas that before required some kind of independent third party to handle sensitive data like a trustee.
 With MPC in your smart contracts on PBC you can do arithmetic and statistics. But the original variables of the problem being solved are split into randomized parts called secret shares. Inputs are preprocessed so the data handled by the ZK nodes cannot recreate the original user data, you can read more about how and why in the [MPC Techniques series](https://medium.com/partisia-blockchain/pbcacademy/home). See the average salary contract above as an example of MPC being used.
 
 

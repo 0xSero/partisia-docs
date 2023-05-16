@@ -7,8 +7,8 @@ The [testnet](https://testnet.partisiablockchain.com/) is a cost free version of
 
 You can deploy and test both public and private smart contracts on the testnet for free. All you need to get started is the following:
 
-- A PBC [account](/docs/PBCFundamentals/accounts.md), you can create an account with the [PBC wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).   
-- Get [testnet gas](/docs/PBCFundamentals/byoc.md)   
+- A PBC [account](/docs/pbc-fundamentals/accounts.md), you can create an account with the [PBC wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).   
+- Get [testnet gas](/docs/pbc-fundamentals/byoc.md)   
 - [Download the PBC example smart contracts](LINK_TO_RUST_EXAMPLE_CONTRACTS) containing examples of both public and private smart contracts, they are described on [this page](/docs/SmartContracts/combi-innovation.md).
 
 ## How to deploy contracts on the testnet   

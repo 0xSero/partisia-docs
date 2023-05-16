@@ -3,7 +3,7 @@
 The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a stake of MPC Tokens and sending a registration form. Both are done with transaction you can perform in the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register).
 
 1) You need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.   
-2) You need to be able to cover gas costs of transaction, click [here](/docs/PBCFundamentals/byoc.md) for help to get gas in your account.   
+2) You need to be able to cover gas costs of transaction, click [here](/docs/pbc-fundamentals/byoc.md) for help to get gas in your account.   
 3) For this your KYB must be verified (you will have received a verification e-mail). You need to get your Synapse Session ID.
    - Log in to https://partisiablockchain.synaps.me/ (using Chrome)   
    - Ctrl+Shift+i (To inspect page)   

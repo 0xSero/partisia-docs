@@ -47,7 +47,7 @@ Go [here](/docs/SmartContracts/zk-computation-fees.md) for complete overview of 
 The easiest way to make a deposit of ETH s to use the PBC Token Bridge.
 
 1. Install the [Partisa Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
-2. Make a [Partisia Account](/docs/PBCFundamentals/accounts.md) with the wallet (or use the one you have already). You can use the Partisia Wallet to make additional accounts.
+2. Make a [Partisia Account](/docs/pbc-fundamentals/accounts.md) with the wallet (or use the one you have already). You can use the Partisia Wallet to make additional accounts.
 3. Install Metamask [app](https://metamask.io/) or [extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn).
 4. Make an Ethereum account, you can use Metamask to do it. (This is different from your Partisia Account)
 5. Set the network in Metamask to Ethereum Mainnet in upper right corner.
