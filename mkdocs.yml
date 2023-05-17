@@ -2,7 +2,7 @@ site_name: Partisia Blockchain
 site_url:
 use_directory_urls: False
 nav:
-  - Home: meta-page/index.md
+  - Home: index.md
   - PBC Fundamentals:
       - Introduction to the Partisia Blockchain fundamentals: pbc-fundamentals/introduction.md
       - Create an account on Partisia Blockchain (PBC): pbc-fundamentals/accounts.md
@@ -43,7 +43,7 @@ nav:
       - Node health and maintenance: node-operations/operator-12-node-health.md
       - Update your node's public information: node-operations/update-transaction.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
-  - Get support from PBC community: meta-page/support.md
+  - Get support from PBC community: support.md
 
 extra_css:
   - stylesheets/extra.css
