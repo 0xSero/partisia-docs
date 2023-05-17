@@ -6,7 +6,7 @@ An ABI (application binary interface) helps applications which need to communica
 
 ### Account
 
-Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](/docs/pbc-fundamentals/accounts.md).
+Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](../pbc-fundamentals/accounts.md).
 
 ### Address
 
@@ -20,7 +20,7 @@ Baker nodes perform baker services - they produce and sign blocks. You can get a
 
 A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](dictionary.md#transactions) and [events](dictionary.md#event-transactions) that have been executed at a given _block time_. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block.
 
-A block is produced by a block producer. When a block is produced the transactions and events are executed and the resulting state is stored as the current state. The produced block is then validated by the committee according to the currently running [consensus protocol](/docs/pbc-fundamentals/consensus.md).
+A block is produced by a block producer. When a block is produced the transactions and events are executed and the resulting state is stored as the current state. The produced block is then validated by the committee according to the currently running [consensus protocol](../pbc-fundamentals/consensus.md).
 
 ### Block (height, number, time)
 
@@ -28,15 +28,15 @@ On each shard blocks have a number being incremented since the first block. This
 
 ### Bridge
 
-Cross-chain bridges connect the Partisia Blockchain with other blockchains, enabling information and assets to flow between the two chains. One example of a bridge is the [BYOC bridge](https://bridge.mpcexplorer.com/), the feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. For more information see [BYOC](/docs/pbc-fundamentals/byoc.md). Or to go directly to the bridge - click [here](https://bridge.mpcexplorer.com/).
+Cross-chain bridges connect the Partisia Blockchain with other blockchains, enabling information and assets to flow between the two chains. One example of a bridge is the [BYOC bridge](https://bridge.mpcexplorer.com/), the feature that allows you to deposit and withdraw BYOC. Partista Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. For more information see [BYOC](../pbc-fundamentals/byoc.md). Or to go directly to the bridge - click [here](https://bridge.mpcexplorer.com/).
 
 ### BYOC
 
-The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](/docs/pbc-fundamentals/byoc.md).
+The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](../pbc-fundamentals/byoc.md).
 
 ### ETH
 
-The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](/docs/pbc-fundamentals/byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
+The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](../pbc-fundamentals/byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
 
 ### Event transactions
 
@@ -44,7 +44,7 @@ An event transaction is a special type of transaction that is spawned during the
 
 Events have the same basic properties as ordinary transactions. Events are sent through the flooding network and have the same validity rules as ordinary transactions. When a transaction is executed the network and CPU fees are collected, the rest of the cost is distributed evenly between any events said transaction spawns. Events are executed the same way as ordinary transactions meaning they can _also_ spawn events. This means one can implement asynchronous, indefinite recursion which will eventually terminate since the events will run out of gas to pay the fees.
 
-Event transactions are instrumental in enabling cross-shard transactions since they can be routed by the blockchain to their respective destination shard. A routed event transaction is enriched with a finalization proof and routed based on the routing table in the chain state. For more details see [Shards](/docs/pbc-fundamentals/shards.md).
+Event transactions are instrumental in enabling cross-shard transactions since they can be routed by the blockchain to their respective destination shard. A routed event transaction is enriched with a finalization proof and routed based on the routing table in the chain state. For more details see [Shards](../pbc-fundamentals/shards.md).
 
 ### Flooding Network
 
@@ -65,7 +65,7 @@ Secure multiparty computation (for the token see MPC token). The privacy layer o
 
 ### MPC Token
 
-MPC Tokens is part of the decoupled token economy of PBC, their primary purpose is for staking. When staking MPC tokens above specific thresholds you are allowed operate a node that performs different services on the chain. Tokens can be lost in case of malicious behaviour (conditions stipulated in [Yellow Paper section 2.8, pp. 20-21](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)). For this reason staked MPC Tokens gives an incentive for good behaviour among the node operators keeping the blockchain running. Because MPC Tokens are used for staking only, and not as form of payment for services the token value does not have adverse effects on supply or demand of services on chain as you see on other blockchains. Read more [here](/docs/pbc-fundamentals/introduction.md).
+MPC Tokens is part of the decoupled token economy of PBC, their primary purpose is for staking. When staking MPC tokens above specific thresholds you are allowed operate a node that performs different services on the chain. Tokens can be lost in case of malicious behaviour (conditions stipulated in [Yellow Paper section 2.8, pp. 20-21](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)). For this reason staked MPC Tokens gives an incentive for good behaviour among the node operators keeping the blockchain running. Because MPC Tokens are used for staking only, and not as form of payment for services the token value does not have adverse effects on supply or demand of services on chain as you see on other blockchains. Read more [here](../pbc-fundamentals/introduction.md).
 
 ### MPC Wallet
 
@@ -77,7 +77,7 @@ A non-fungible-token. Non-fungible means that it is unique unlike other types of
 
 ### Node
 
-Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](/docs/node-operations/operator-0-introduction.md)
+Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](../node-operations/operator-0-introduction.md)
 
 ### Node operator
 
@@ -88,7 +88,7 @@ A node operator is a person who runs and maintains a node on Partisia Blockchain
 - ZK Node: A node that performs zero knowledge computations in addition to baker node services.
 - Oracle Node: A node that performs oracle services in addition to ZK and baker services.
 
-See requirements of a node operator and how to run a node [here](/docs/node-operations/operator-0-introduction.md).
+See requirements of a node operator and how to run a node [here](../node-operations/operator-0-introduction.md).
 
 ### Nonce
 
@@ -104,7 +104,7 @@ Partisia Blockchain (PBC) is the only blockchain that supports secure multiparty
 
 ### PBC Account
 
-Same as [Account](/docs/pbc-fundamentals/dictionary.md#account), see entry above.
+Same as [Account](../pbc-fundamentals/dictionary.md#account), see entry above.
 
 ### PBC Ledger
 
@@ -116,7 +116,7 @@ Public-key cryptography is a form of cryptography that uses pairs of keys: A pub
 
 ### Reader Node
 
-A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](/docs/node-operations/operator-2-reader.md).
+A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](../node-operations/operator-2-reader.md).
 
 ### Rest Server
 
@@ -124,11 +124,11 @@ A rest server is a server that gives access to the REST API. An API conforming t
 
 ### Shards
 
-PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](/docs/pbc-fundamentals/consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](/docs/pbc-fundamentals/shards.md).
+PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](../pbc-fundamentals/consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](../pbc-fundamentals/shards.md).
 
 ### Smart Contracts
 
-A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC. Read more [here](/docs/smart-contracts/contract-development.md)
+A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC. Read more [here](../smart-contracts/contract-development.md)
 
 ### Transactions
 
