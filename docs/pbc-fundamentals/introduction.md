@@ -1,6 +1,6 @@
 # Introduction to the Partisia Blockchain fundamentals
 
-Below is a small introduction to the some of the core concepts of blockchains and an explanation of what makes [Partisia Blockchain(PBC)](docs/dictionary.md#pbc) different from other blockchains.
+Below is a small introduction to the some of the core concepts of blockchains and an explanation of what makes [Partisia Blockchain(PBC)](/documentation/docs/pbc-fundamentals/dictionary.md#pbc) different from other blockchains.
 
 ### What is a blockchain
 
