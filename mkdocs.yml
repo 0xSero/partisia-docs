@@ -3,13 +3,13 @@ site_url:
 use_directory_urls: False
 nav:
   - Home: index.md
-  - PBC Fundamentals:
+  - PBC fundamentals:
       - Introduction to the Partisia Blockchain fundamentals: pbc-fundamentals/introduction.md
       - Create an account on Partisia Blockchain (PBC): pbc-fundamentals/accounts.md
       - BYOC and gas for the mainnet and testnet: pbc-fundamentals/byoc.md
       - $MPC token model and Account Elements: pbc-fundamentals/mpc-tokens.md
       - Partisia Blockchain Dictionary: pbc-fundamentals/dictionary.md
-  - Develop PBC Smart contracts, tools and Samples:
+  - Develop smart contracts, tools and examples:
       - Introduction to smart contracts: smart-contracts/smart-contracts.md
       - What is a smart contract: smart-contracts/contract-development.md
       - Install the smart contract compiler: smart-contracts/download-compiler.md
@@ -26,7 +26,9 @@ nav:
           - ZkRust Language: smart-contracts/zk-language.md
           - ZK Rust Reference: smart-contracts/zk-language-reference.md
           - Zk language features: smart-contracts/zk-language-features.md
+      - PBC as a second layer: smart-contracts/pbc-as-a-second-layer/pbc-as-a-second-layer.md
       - Development FAQ: smart-contracts/dev-faq.md
+      
   - Run a node:
       - What is a node operator: node-operations/operator-0-introduction.md
       - Specs: node-operations/operator-1-specs.md
