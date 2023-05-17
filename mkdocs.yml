@@ -26,7 +26,7 @@ nav:
           - ZkRust Language: smart-contracts/zk-language.md
           - ZK Rust Reference: smart-contracts/zk-language-reference.md
           - Zk language features: smart-contracts/zk-language-features.md
-      - PBC as a second layer: docs/smart-contracts/pbc-as-a-second-layer/pbc-as-second-layer.md
+      - PBC as a second layer: pbc-as-a-second-layer/pbc-as-second-layer.md
       - Development FAQ: smart-contracts/dev-faq.md
   - Run a node:
       - What is a node operator: node-operations/operator-0-introduction.md
