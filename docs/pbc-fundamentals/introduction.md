@@ -1,10 +1,10 @@
 # Introduction to the Partisia Blockchain fundamentals
 
-Below is a small introduction to the some of the core concepts of blockchains and an explanation of what makes [Partisia Blockchain(PBC)](/documentation/docs/pbc-fundamentals/dictionary.md#pbc) different from other blockchains.
+Below is a small introduction to the some of the core concepts of blockchains and an explanation of what makes [Partisia Blockchain(PBC)](../pbc-fundamentals/dictionary.md#pbc) different from other blockchains.
 
 ### What is a blockchain
 
-Blockchains are a means to make an [immutable record](docs/pbc-fundamentals/dictionary.md#pbc-ledger) of [transactions](/docs/pbc-fundamentals/dictionary.md#transactions) on a decentralized database. This makes blockchains a useful place to record important information e.g. of a financial, medical or legal nature.  
+Blockchains are a means to make an [immutable record](/docs/pbc-fundamentals/dictionary.md#pbc-ledger) of [transactions](/docs/pbc-fundamentals/dictionary.md#transactions) on a decentralized database. This makes blockchains a useful place to record important information e.g. of a financial, medical or legal nature.  
 A blockchain is a public database where any update is added sequentially. Since all information is time stamped. You can add information in the present, but you cannot edit past information. In this way a blockchain creates an immutable ledger.
 
 The name blockchain means that information added to the ledger comes in discrete bundles called blocks. A block points to the block before it. That way a chain is created that connects the changes on the ledger from the beginning to the present.
