@@ -22,16 +22,16 @@ Now you will find a .wasm-file and a .abi-file in:
 
 ## 2) Upload the contract to the blockchain
 
-To deploy a smart contract you need an [account](/docs/pbc-fundamentals/accounts.md) with [gas](/docs/pbc-fundamentals/byoc.md) to cover transaction costs. 
+To deploy a smart contract you need an [account](../pbc-fundamentals/accounts.md) with [gas](../pbc-fundamentals/byoc.md) to cover transaction costs. 
 Open the wallet in the [Dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm) 
 or use [Partisia Blockchain Explorer](https://mpcexplorer.com/deploy-contract). 
-Alternatively you can deploy for free test ETH [gas](/docs/pbc-fundamentals/byoc.md) on the [testnet](https://testnet.partisiablockchain.com/). 
+Alternatively you can deploy for free test ETH [gas](../pbc-fundamentals/byoc.md) on the [testnet](https://testnet.partisiablockchain.com/). 
 Select the `token_contract.wasm` and the `token_contract.abi`. 
 The dashboard will then render a form for the initialization function. If you look at `lib.rs` file in your IDE, 
 you will see that this matches the *initialize* function. 
 The other three actions will be available after successful deployment.
 
-If you need to tryout your smart contract, we recommend you tryout the [testnet](/docs/smart-contracts/testnet.md). 
+If you need to tryout your smart contract, we recommend you tryout the [testnet](../smart-contracts/testnet.md). 
 
 In the *total_supply* field you put the number of tokens you want minted for total supply of the contract 
 from the moment of deployment. 
