@@ -131,7 +131,7 @@ h1 {
 
 .md-grid {
   margin: auto !important;
-  max-width: 85% !important;
+  max-width: 100% !important;
 }
 
 .logo-flex {
@@ -270,7 +270,6 @@ code {
 .md-sidebar {
   padding-top: 0px;
   width: 12rem;
-  overflow-y: auto;
   min-height: 100vh !important;
 
   top: 0 !important;
@@ -512,6 +511,9 @@ nav.md-nav ul.md-nav__list {
 
 .md-nav--footer div.md-nav__link--index a {
   color: var(--md-accent-fg-color);
+}
+.md-nav__link {
+  margin-top: 0.2em !important;
 }
 
 .md-nav--footer ul.md-nav__list li:first-child {
