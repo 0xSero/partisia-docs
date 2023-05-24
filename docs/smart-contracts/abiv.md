@@ -1,4 +1,4 @@
-# Partisia Blockchain Smart Contract Binary Formats
+# Smart Contract Binary Formats
 
 A Partisia Smart Contract utilizes three distinct binary formats, which are described in detail below.
 
