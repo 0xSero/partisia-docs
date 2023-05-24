@@ -61,7 +61,7 @@ It is possible to use a zero knowledge smart contracts on PBC as a second layer 
 
 ![Diagram1](Second_layer_ZKSC.png)
 
-The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer one public contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the contract located on the layer one BC. You can read more about this on our page on [pbc as a second layer](../smart-contracts/pbc-as-second-layer/pbc-as-second-layer.md)
+The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer one public contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the contract located on the layer one BC. You can read more about this on our page on [pbc as a second layer](docs/smart-contracts/pbc-as-second-layer/pbc-as-second-layer.md)
 
 ### Full ZKSC code example
 
