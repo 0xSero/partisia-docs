@@ -1,5 +1,6 @@
 site_name: Partisia Blockchain
-site_url:
+site_url: https://partisiablockchain.gitlab.io/documentation
+repo_url: https://partisiablockchain.gitlab.io/documentation
 use_directory_urls: False
 nav:
   - PBC fundamentals:
