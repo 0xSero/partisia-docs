@@ -40,7 +40,7 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 - [Introduction to the Partisia Blockchain fundamentals](../pbc-fundamentals/introduction-to-the-fundamentals.md)
 - [Create an account on Partisia Blockchain (PBC)](../pbc-fundamentals/create-an-account.md)
-- [BYOC and Gas ](../pbc-fundamentals/byoc.md)
+- [BYOC and Gas ](../pbc-fundamentalsbyoc-and-gas-for-the-mainnet-and-testnet.md)
 - [$MPC token model and Account Elements](../pbc-fundamentals/mpc-tokens.md)
 - [Useful terms and definitions](../pbc-fundamentals/dictionary.md)
 
@@ -48,7 +48,7 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 [**What is a node operator?**](../node-operations/operator-0-introduction.md)
 
-[**How does the economy of PBC work?**](../pbc-fundamentals/byoc.md)
+[**How does the economy of PBC work?**](../pbc-fundamentalsbyoc-and-gas-for-the-mainnet-and-testnet.md)
 
 [**What is a smart contract?**](../smart-contracts/contract-development.md)
 

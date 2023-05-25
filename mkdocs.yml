@@ -6,7 +6,7 @@ nav:
   - PBC fundamentals:
       - pbc-fundamentals/introduction-to-the-fundamentals.md
       - pbc-fundamentals/create-an-account.md
-      - pbc-fundamentals/byoc.md
+      - pbc-fundamentalsbyoc-and-gas-for-the-mainnet-and-testnet.md
       - pbc-fundamentals/mpc-tokens.md
       - pbc-fundamentals/dictionary.md
   - Develop smart contracts, tools and examples:
@@ -20,12 +20,12 @@ nav:
       - smart-contracts/abiv.md
       - smart-contracts/voting-contract.md
       - Zero Knowledge Smart Contracts:
-        - smart-contracts/ZKSC.md
-        - smart-contracts/compile-zk.md
-        - smart-contracts/zk-computation-fees.md
-        - smart-contracts/zk-language.md
-        - smart-contracts/zk-language-reference.md
-        - smart-contracts/zk-language-features.md
+          - smart-contracts/ZKSC.md
+          - smart-contracts/compile-zk.md
+          - smart-contracts/zk-computation-fees.md
+          - smart-contracts/zk-language.md
+          - smart-contracts/zk-language-reference.md
+          - smart-contracts/zk-language-features.md
       - smart-contracts/pbc-as-second-layer/pbc-as-second-layer.md
       - smart-contracts/dev-faq.md
   - Run a node:
