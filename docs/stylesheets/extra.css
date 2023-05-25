@@ -513,7 +513,7 @@ nav.md-nav ul.md-nav__list {
   color: var(--md-accent-fg-color);
 }
 .md-nav__link {
-  margin-top: 0.2em !important;
+  margin-top: 0.1em !important;
 }
 
 .md-nav--footer ul.md-nav__list li:first-child {
