@@ -1,10 +1,10 @@
-site_name: Partisia Blockchain
+site_name: Partisia Blockchain (PBC)
 site_url: https://partisiablockchain.gitlab.io/documentation
 repo_url: https://partisiablockchain.gitlab.io/documentation
 use_directory_urls: False
 nav:
   - PBC fundamentals:
-      - pbc-fundamentals/introduction-to-the-partisia-blockchain-fundamentals.md
+      - pbc-fundamentals/introduction-to-the-fundamentals.md
       - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/byoc.md
       - pbc-fundamentals/mpc-tokens.md
