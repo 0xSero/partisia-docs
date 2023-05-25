@@ -118,7 +118,7 @@ h1 {
   background-color: #0b073f;
   position: -webkit-sticky;
   position: sticky;
-  padding: 15px 0px;
+  padding: 5px 0px;
   z-index: 4;
 }
 
@@ -149,7 +149,7 @@ h1 {
   margin-left: 10px;
   font-family: "Montserrat", sans-serif;
   padding: 0px;
-  margin-right: 180px;
+  margin-right: 7em;
 }
 
 .icon-flex {
