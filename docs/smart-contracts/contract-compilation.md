@@ -22,7 +22,7 @@ Now you will find a .wasm-file and a .abi-file in:
 
 ## 2) Upload the contract to the blockchain
 
-To deploy a smart contract you need an [account](../pbc-fundamentals/accounts.md) with [gas](../pbc-fundamentals/byoc.md) to cover transaction costs. 
+To deploy a smart contract you need an [account](../pbc-fundamentals/create-an-account.md) with [gas](../pbc-fundamentals/byoc.md) to cover transaction costs. 
 Open the wallet in the [Dashboard](https://dashboard.partisiablockchain.com/wallet/upload_wasm) 
 or use [Partisia Blockchain Explorer](https://mpcexplorer.com/deploy-contract). 
 Alternatively you can deploy for free test ETH [gas](../pbc-fundamentals/byoc.md) on the [testnet](https://testnet.partisiablockchain.com/). 

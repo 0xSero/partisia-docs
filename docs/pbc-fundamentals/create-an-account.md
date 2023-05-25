@@ -1,4 +1,4 @@
-# Create an account on Partisia Blockchain (PBC)
+# Create an account
 
 Create an account through the [wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) or when you buy [MPC tokens](https://kyc.partisiablockchain.com/) for staking on a node.
 
