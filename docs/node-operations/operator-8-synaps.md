@@ -1,4 +1,4 @@
-# How to complete the KYB
+# Complete Synaps KYB
 
 To ensure a decentralized approval process, the public information about the entity operating the node is verified by an independent 3rd party company called Synaps.
 Your information is verified through a KYB (know your customer) site, where your identity and company credentials are checked.
