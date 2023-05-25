@@ -104,7 +104,7 @@ Partisia Blockchain (PBC) is the only blockchain that supports secure multiparty
 
 ### PBC Account
 
-Same as [Account](../pbc-fundamentals/dictionary.md#account), see entry above.
+Same as [Account](../pbc-fundamentals/partisia-blockchain-dictionary.md#account), see entry above.
 
 ### PBC Ledger
 
