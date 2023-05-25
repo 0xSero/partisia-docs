@@ -4,7 +4,7 @@ repo_url: https://partisiablockchain.gitlab.io/documentation
 use_directory_urls: False
 nav:
   - PBC fundamentals:
-      - pbc-fundamentals/introduction.md
+      - pbc-fundamentals/introduction-to-the-partisia-blockchain-fundamentals.md
       - pbc-fundamentals/accounts.md
       - pbc-fundamentals/byoc.md
       - pbc-fundamentals/mpc-tokens.md

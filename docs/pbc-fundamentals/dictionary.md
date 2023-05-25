@@ -65,7 +65,7 @@ Secure multiparty computation (for the token see MPC token). The privacy layer o
 
 ### MPC Token
 
-MPC Tokens is part of the decoupled token economy of PBC, their primary purpose is for staking. When staking MPC tokens above specific thresholds you are allowed operate a node that performs different services on the chain. Tokens can be lost in case of malicious behaviour (conditions stipulated in [Yellow Paper section 2.8, pp. 20-21](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)). For this reason staked MPC Tokens gives an incentive for good behaviour among the node operators keeping the blockchain running. Because MPC Tokens are used for staking only, and not as form of payment for services the token value does not have adverse effects on supply or demand of services on chain as you see on other blockchains. Read more [here](../pbc-fundamentals/introduction.md).
+MPC Tokens is part of the decoupled token economy of PBC, their primary purpose is for staking. When staking MPC tokens above specific thresholds you are allowed operate a node that performs different services on the chain. Tokens can be lost in case of malicious behaviour (conditions stipulated in [Yellow Paper section 2.8, pp. 20-21](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)). For this reason staked MPC Tokens gives an incentive for good behaviour among the node operators keeping the blockchain running. Because MPC Tokens are used for staking only, and not as form of payment for services the token value does not have adverse effects on supply or demand of services on chain as you see on other blockchains. Read more [here](../pbc-fundamentals/introduction-to-the-partisia-blockchain-fundamentals.md).
 
 ### MPC Wallet
 
