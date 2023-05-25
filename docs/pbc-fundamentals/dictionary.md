@@ -6,7 +6,7 @@ An ABI (application binary interface) helps applications which need to communica
 
 ### Account
 
-Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](../pbc-fundamentals/accounts.md).
+Every user on Partisia Blockchain has an account. The account has an address and a nonce. It holds your balance of gas and MPC Tokens. You can read more about accounts and how they work [here](../pbc-fundamentals/create-an-account.md).
 
 ### Address
 

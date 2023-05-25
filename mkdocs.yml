@@ -5,7 +5,7 @@ use_directory_urls: False
 nav:
   - PBC fundamentals:
       - pbc-fundamentals/introduction-to-the-partisia-blockchain-fundamentals.md
-      - pbc-fundamentals/accounts.md
+      - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/byoc.md
       - pbc-fundamentals/mpc-tokens.md
       - pbc-fundamentals/dictionary.md
