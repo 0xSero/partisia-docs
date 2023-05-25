@@ -1,4 +1,4 @@
-# The Update Transaction
+# Update your node's public information
 
 This page is only for updating information in a successful node registration. You can update the public node information from the Register Transaction. This is necessary if you change the country of your residence or the country of the server hosting your node. This is a practical way of changing and correcting the information without having to leave the network and redo the Register Transaction.
 

@@ -1,4 +1,4 @@
-# Get a VPS where you can run your block producing node
+# VPS
 
 
 ## What is VPS

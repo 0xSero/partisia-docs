@@ -1,4 +1,4 @@
-# Smart Contracts
+# Introduction to smart contracts
 
 ## Content
 

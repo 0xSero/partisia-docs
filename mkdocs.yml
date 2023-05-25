@@ -4,47 +4,47 @@ repo_url: https://partisiablockchain.gitlab.io/documentation
 use_directory_urls: False
 nav:
   - PBC fundamentals:
-      - Introduction to the Partisia Blockchain fundamentals: pbc-fundamentals/introduction.md
-      - Create an account on Partisia Blockchain (PBC): pbc-fundamentals/accounts.md
-      - BYOC and gas for the mainnet and testnet: pbc-fundamentals/byoc.md
-      - $MPC token model and Account Elements: pbc-fundamentals/mpc-tokens.md
-      - Partisia Blockchain Dictionary: pbc-fundamentals/dictionary.md
+      - pbc-fundamentals/introduction.md
+      - pbc-fundamentals/accounts.md
+      - pbc-fundamentals/byoc.md
+      - pbc-fundamentals/mpc-tokens.md
+      - pbc-fundamentals/dictionary.md
   - Develop smart contracts, tools and examples:
-      - Introduction to smart contracts: smart-contracts/smart-contracts.md
-      - What is a smart contract: smart-contracts/contract-development.md
-      - Install the smart contract compiler: smart-contracts/download-compiler.md
-      - Compile and deploy contracts: smart-contracts/contract-compilation.md
-      - Access and use the testnet: smart-contracts/testnet.md
-      - Smart Contract examples : smart-contracts/SC-examples.md
-      - Programmers Guide to smart contracts: smart-contracts/programmers_guide.md
-      - Smart Contract Binary Formats: smart-contracts/abiv.md
-      - How to create a smart contract with a specific scenario: smart-contracts/voting-contract.md
+      - smart-contracts/smart-contracts.md
+      - smart-contracts/contract-development.md
+      - smart-contracts/download-compiler.md
+      - smart-contracts/contract-compilation.md
+      - smart-contracts/testnet.md
+      - smart-contracts/SC-examples.md
+      - smart-contracts/programmers_guide.md
+      - smart-contracts/abiv.md
+      - smart-contracts/voting-contract.md
       - Zero Knowledge Smart Contracts:
-        - Introduction to Zero Knowledge Smart Contract: smart-contracts/ZKSC.md
-        - Compile Zero Knowledge Contracts: smart-contracts/compile-zk.md
-        - Zero Knowledge Gas Fees: smart-contracts/zk-computation-fees.md
-        - ZkRust Language: smart-contracts/zk-language.md
-        - ZK Rust Reference: smart-contracts/zk-language-reference.md
-        - Zk language features: smart-contracts/zk-language-features.md
-      - PBC as second layer: smart-contracts/pbc-as-second-layer/pbc-as-second-layer.md
-      - Development FAQ: smart-contracts/dev-faq.md
+        - smart-contracts/ZKSC.md
+        - smart-contracts/compile-zk.md
+        - smart-contracts/zk-computation-fees.md
+        - smart-contracts/zk-language.md
+        - smart-contracts/zk-language-reference.md
+        - smart-contracts/zk-language-features.md
+      - smart-contracts/pbc-as-second-layer/pbc-as-second-layer.md
+      - smart-contracts/dev-faq.md
   - Run a node:
-      - What is a node operator: node-operations/operator-0-introduction.md
-      - Specs: node-operations/operator-1-specs.md
-      - Local reader: node-operations/operator-2-reader.md
-      - VPS: node-operations/operator-3-vps.md
-      - VPS security: node-operations/operator-4-security.md
-      - Reader node on VPS: node-operations/operator-5-reader-vps.md
-      - Create a PBC account: node-operations/operator-6-create-account.md
-      - Get MPC tokens: node-operations/operator-7-get-mpc-tokens.md
-      - Complete Synaps KYB: node-operations/operator-8-synaps.md
-      - Keys for BP config and registration: node-operations/operator-9-keys.md
-      - Change node config from reader to block producer: node-operations/operator-10-bp.md
-      - Register your node in the MPC Explorer: node-operations/operator-11-registration.md
-      - Node health and maintenance: node-operations/operator-12-node-health.md
-      - Update your node's public information: node-operations/update-transaction.md
+      - node-operations/operator-0-introduction.md
+      - node-operations/operator-1-specs.md
+      - node-operations/operator-2-reader.md
+      - node-operations/operator-3-vps.md
+      - node-operations/operator-4-security.md
+      - node-operations/operator-5-reader-vps.md
+      - node-operations/operator-6-create-account.md
+      - node-operations/operator-7-get-mpc-tokens.md
+      - node-operations/operator-8-synaps.md
+      - node-operations/operator-9-keys.md
+      - node-operations/operator-10-bp.md
+      - node-operations/operator-11-registration.md
+      - node-operations/operator-12-node-health.md
+      - node-operations/update-transaction.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
-  - Get support from PBC community: support.md
+  - support.md
 
 extra_css:
   - stylesheets/extra.css

@@ -1,4 +1,6 @@
-# Node operators will need 3 sets of keys to complete node configuration and registration
+# Keys for BP config and registration
+
+Node operators will need 3 sets of keys to complete node configuration and registration
 
 At this stage you should already have an account private key from the account holding your MPC tokens.
 

@@ -1,4 +1,4 @@
-# What is the PBC testnet
+# Access and use the testnet
 
 The [testnet](https://testnet.partisiablockchain.com/) is a cost free version of Partisia Blockchain mainnet. The governing principles of the testnet are the same as for mainnet. The only differences is that the gas on the testnet is Goerli testnet ETH instead of Ethereum mainnet ETH which is used for gas on Partisia Blockchain mainnet.
 

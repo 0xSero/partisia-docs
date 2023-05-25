@@ -1,10 +1,8 @@
-# Documentation for Partisia Blockchain Mainnet
+<h1></h1>
 
 <a href="">
     [<img src="assets/Categories/PBC%20Fundametals.png" alt="PBC Fundamentals" class="front-page-pictures front-page-pictures-left" />](pbc-fundamentals/introduction.md)
-</a>
-
-<a href="">
+</a><a href="">
     [<img src="assets/Categories/Smart%20Contracts.png" alt="Smart Contracts" class="front-page-pictures front-page-pictures-right" />](smart-contracts/smart-contracts.md)
 </a>
 <a href="">
