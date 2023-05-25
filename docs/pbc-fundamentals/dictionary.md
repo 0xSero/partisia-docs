@@ -1,4 +1,4 @@
-# Terms commonly used in relations to Partisia technology and infrastructure
+# Partisia Blockchain Dictionary
 
 ### ABI
 

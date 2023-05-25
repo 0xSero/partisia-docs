@@ -1,4 +1,4 @@
-## What is a Node
+# What is a node operator
 Nodes are the computers in the blockchain network. They perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue.
 PBC has four types of nodes:
 

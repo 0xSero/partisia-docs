@@ -1,5 +1,5 @@
 
-# Frequently Asked Questions
+# Development FAQ
 
 ## General Rust contracts
 

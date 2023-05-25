@@ -1,4 +1,4 @@
-# Run a reader node on VPS
+# Reader node on VPS
 
 
 The following steps are the same as you went through setting up a reader node on your local machine. You should use the non-root user you created in the previous [step](../node-operations/operator-4-security.md). You need to install the [recommended software](../node-operations/operator-1-specs.md) before you start.
