@@ -566,10 +566,12 @@ nav.md-nav ul.md-nav__list {
 
 .md-nav__link--active{
   border-bottom: 0.5px solid #545281!important;
-
 }
 
-.md-nav__link:hover{
-  border-bottom: 0.5px dashed #545281!important;
+.md-nav__link:hover:not(label){
   text-decoration: none!important;
+}
+
+label {
+  font-weight: 1000!important;
 }
