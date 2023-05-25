@@ -8,7 +8,7 @@ A Partisia Blockchain account holds the information necessary to enabling the us
 
  - A unique identity called an address, it is derived from the [public key](../pbc-fundamentals/dictionary.md#Public-key cryptography)
  - The account balance of [BYOC](../pbc-fundamentals/byoc.md)
- - Balance of [MPC Tokens](../pbc-fundamentals/introduction-to-the-partisia-blockchain-fundamentals.md)
+ - Balance of [MPC Tokens](../pbc-fundamentals/introduction-to-the-fundamentals.md)
  - An account [nonce (number used only once)](../pbc-fundamentals/dictionary.md#nonce), which is incremented when transactions are signed.
 
 The above attributes except the nonce resides in the account plugin. But the account state itself holds a single piece of information: The nonce. This is a number that is incremented each time a transaction signed by an account is executed.
