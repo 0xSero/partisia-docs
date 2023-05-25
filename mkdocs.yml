@@ -2,7 +2,6 @@ site_name: Partisia Blockchain
 site_url:
 use_directory_urls: False
 nav:
-  - Home: index.md
   - PBC fundamentals:
       - Introduction to the Partisia Blockchain fundamentals: pbc-fundamentals/introduction.md
       - Create an account on Partisia Blockchain (PBC): pbc-fundamentals/accounts.md
