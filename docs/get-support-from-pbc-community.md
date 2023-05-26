@@ -21,6 +21,7 @@ You can get help by the team behind Partisia Blockchain and our awesome communit
 ## Good links to get help from: 
 - Open source: [https://gitlab.com/partisiablockchain](https://gitlab.com/partisiablockchain)
 - PBC apps open source: [https://github.com/orgs/partisiablockchainapplications/repositories](https://github.com/orgs/partisiablockchainapplications/repositories)
+- Dev video intro courses: [https://medium.com/partisia-blockchain/develop/home](https://medium.com/partisia-blockchain/develop/home)
 - Knowledge center: [https://medium.com/partisia-blockchain](https://medium.com/partisia-blockchain)
 - Yellow paper: [https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)
 - White paper: [https://drive.google.com/file/d/1_doKDtMuY1YPDJ8LgKCiOqZvjoYkTmx4/view](https://drive.google.com/file/d/1_doKDtMuY1YPDJ8LgKCiOqZvjoYkTmx4/view)
