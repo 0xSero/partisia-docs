@@ -1,7 +1,7 @@
 # Run a block producing node on Partisia Blockchain
 How to change node config from reader to block producer
 
-You must finish the previous two sections([Reader node on VPS](../node-operations/reader-node-on-vps.md) and [Keys for BP](../node-operations/operator-9-keys.md)) is a prerequisite.
+You must finish the previous two sections([Reader node on VPS](../node-operations/reader-node-on-vps.md) and [Keys for BP](../node-operations/keys-for-bp-config-and-registration.md)) is a prerequisite.
 
 ### Step 1 - Stop your reader node
 
@@ -34,7 +34,7 @@ Go to your VPS and open `config.json` in `nano`:
 sudo nano /opt/pbc-mainnet/conf/config.json
 ````
 
-Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](../node-operations/operator-9-keys.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
+Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](../node-operations/keys-for-bp-config-and-registration.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
 ````json
 {
   "restPort": 8080,
