@@ -12,7 +12,7 @@ Questions for non-ZK contracts:
     1. `#[init]`: Creator of the contract.
     2. `#[action]`: Sender of the transaction. Some contract address if from
        a contract, user address if from a user.
-    3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to contract B, which then performed a callback to contract C. When the return message is recieved by contract B, the sender of the interaction will be set to A. Events are explained more in-depth [here](../smart-contracts/programmers_guide.md#events)
+    3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to contract B, which then performed a callback to contract C. When the return message is recieved by contract B, the sender of the interaction will be set to A. Events are explained more in-depth [here](../smart-contracts/programmers-guide-to-smart-contracts.md#events)
     4. `#[zk_on_secret_input]`: Sender of the input.
 - **Action macros complains about `pbc_lib`**: Ensure that `abi` features are correctly imported. When depending upon other crates, you must never use `features = ["abi"]`, as this will result in malformed contracts.  Abi features must only ever be enabled conditionally.  Crates must propagate the `abi` feature by placing a `abi = ["crate1/abi", "crate2/abi", "crate3/abi", ...]` statement in the `[features]` toml section.
 
