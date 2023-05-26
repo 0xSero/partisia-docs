@@ -514,6 +514,8 @@ nav.md-nav ul.md-nav__list {
 }
 .md-nav__link {
   margin-top: 0.1em !important;
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
 .md-nav--footer ul.md-nav__list li:first-child {
