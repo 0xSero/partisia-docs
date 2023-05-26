@@ -18,7 +18,7 @@ nav:
       - smart-contracts/smart-contract-examples.md
       - smart-contracts/programmers_guide.md
       - smart-contracts/smart-contract-binary-formats.md
-      - smart-contracts/voting-contract.md
+      - smart-contracts/how-to-create-a-vote-from-a-smart-contract.md
       - Zero Knowledge Smart Contracts:
           - smart-contracts/ZKSC.md
           - smart-contracts/compiling-and-deploying-zero-knowledge-contracts.md

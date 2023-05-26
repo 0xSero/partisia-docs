@@ -1,4 +1,4 @@
-# How to create a smart contract with a specific scenario
+# How to create a vote from a smart contract
 
 ## Case transparency in parliament - Voting record of MPs as a means to strengthen democracy and transparency
 
