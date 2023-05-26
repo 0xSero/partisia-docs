@@ -21,8 +21,6 @@ pages:
   stage: deploy
   dependencies:
   - build-site
-  script:
-  - ./replace-zip-version.sh
   only:
   - main
   artifacts:
@@ -35,7 +33,6 @@ pages-dev:
   dependencies:
   - build-site
   script:
-  - ./replace-zip-version.sh
   - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   except:
   - main
