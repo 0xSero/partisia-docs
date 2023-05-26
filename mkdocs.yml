@@ -38,9 +38,9 @@ nav:
       - node-operations/create-an-account-on-pbc.md
       - node-operations/get-mpc-tokens.md
       - node-operations/complete-synaps-kyb.md
-      - node-operations/operator-9-keys.md
-      - node-operations/operator-10-bp.md
-      - node-operations/operator-11-registration.md
+      - node-operations/keys-for-bp-config-and-registration.md
+      - node-operations/run-a-block-producing-node-on-partisia-blockchain.md
+      - node-operations/register-your-node.md
       - node-operations/operator-12-node-health.md
       - node-operations/update-transaction.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
