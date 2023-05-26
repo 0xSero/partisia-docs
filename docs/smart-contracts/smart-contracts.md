@@ -5,7 +5,7 @@
 - [What is a Smart Contract](../smart-contracts/what-is-a-smart-contract.md)
 - [Use the PBC testnet for contract development](../smart-contracts/testnet.md)
 - [Install the smart contract compiler](../smart-contracts/install-the-smart-contract-compiler.md)
-- [Public and ZK Smart Contract examples - Combine and innovate](../smart-contracts/SC-examples.md)
+- [Public and ZK Smart Contract examples - Combine and innovate](../smart-contracts/smart-contract-examples.md)
 - [Use the PBC testnet](../smart-contracts/testnet.md)
 - [Programmers Guide to PBC smart contracts](../smart-contracts/programmers_guide.md)
 - [Partisia Blockchain Smart Contract Binary Formats](../smart-contracts/smart-contract-binary-formats.md)

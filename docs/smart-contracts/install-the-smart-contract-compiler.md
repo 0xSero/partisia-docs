@@ -39,5 +39,5 @@ Test that it worked by executing: `cargo partisia-contract --version`. This shou
 ### 3) Download Example Contracts
 
 We supply a small archive with example contracts which can be compiled using the tooling from above.
-The example contracts are [available here](../smart-contracts/SC-examples.md).
+The example contracts are [available here](../smart-contracts/smart-contract-examples.md).
 

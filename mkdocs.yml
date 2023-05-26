@@ -15,7 +15,7 @@ nav:
       - smart-contracts/install-the-smart-contract-compiler.md
       - smart-contracts/compile-and-deploy-contracts.md
       - smart-contracts/testnet.md
-      - smart-contracts/SC-examples.md
+      - smart-contracts/smart-contract-examples.md
       - smart-contracts/programmers_guide.md
       - smart-contracts/smart-contract-binary-formats.md
       - smart-contracts/voting-contract.md
