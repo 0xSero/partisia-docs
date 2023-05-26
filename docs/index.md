@@ -10,5 +10,5 @@
 </a>
 <br>
 <a href="">
-    [<img src="assets/Categories/Need%20Support.png" alt="Need support?" class="front-page-pictures front-page-pictures-right" />](support.md)
+    [<img src="assets/Categories/Need%20Support.png" alt="Need support?" class="front-page-pictures front-page-pictures-right" />](get-support-from-PBC-community.md)
 </a>
