@@ -1,4 +1,4 @@
-### Compiling and deploying Zero-Knowledge contracts
+# Compiling and deploying Zero-Knowledge contracts
 
 As an example of compiling a zk-contract we will make use of the second-price auction contract. The
 contract can be found in the example contracts archive at: `contracts/example-zk-second-price-auction`. You can download [our example zip archive here](../smart-contracts/SC-examples.md) and read what a second-price auction is on that page as well.
