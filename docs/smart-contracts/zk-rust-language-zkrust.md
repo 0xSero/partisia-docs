@@ -8,7 +8,7 @@ Partisia Blockchain.
 Further reading:
 
 - [Zero-knowledge Language Reference](../smart-contracts/zk-rust-reference.md)
-- [Zero-knowledge Contract FAQ](dev-faq.md#Zero Knowledge Rust Contracts)
+- [Zero-knowledge Contract FAQ](development-faq.md#Zero Knowledge Rust Contracts)
 - [Zero-knowledge Language Feature Checklist](../smart-contracts/zk-language-features.md)
 
 ## Concepts
