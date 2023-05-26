@@ -21,6 +21,7 @@ pages:
   stage: deploy
   dependencies:
   - build-site
+  script:
   only:
   - main
   artifacts:
