@@ -1,6 +1,6 @@
 # Smart Contract examples
 
-[Download example contracts as a ZIP](LINK_TO_RUST_EXAMPLE_CONTRACTS)
+[Visit our example contracts repository for all our open source code](https://gitlab.com/partisiablockchain/language/example-contracts)
 
 The Partisia Blockchain Foundation provides the following reviewed smart contracts, as examples of real world problems with a blockchain solution. This page is created to explain the usecases of our example contracts and the titles reflect the name of the smart contract one-to-one.
 You want to solve problems with smart contracts. The easiest way of getting started coding smart contracts is to learn from concrete examples showing smart contracts solving problems similar to the one you need to solve. The examples includes both normal contracts and [zero-knowledge smart contracts](zk-smart-contracts.md)
