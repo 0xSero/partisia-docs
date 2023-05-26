@@ -17,7 +17,7 @@ nav:
       - smart-contracts/testnet.md
       - smart-contracts/SC-examples.md
       - smart-contracts/programmers_guide.md
-      - smart-contracts/abiv.md
+      - smart-contracts/smart-contract-binary-formats.md
       - smart-contracts/voting-contract.md
       - Zero Knowledge Smart Contracts:
           - smart-contracts/ZKSC.md
