@@ -8,7 +8,7 @@ nav:
       - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/byoc-and-gas-for-the-mainnet-and-testnet.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
-      - pbc-fundamentals/partisia-blockchain-dictionary.md
+      - pbc-fundamentals/dictionary.md
   - Develop smart contracts, tools and examples:
       - smart-contracts/introduction-to-smart-contracts.md
       - smart-contracts/what-is-a-smart-contract.md
