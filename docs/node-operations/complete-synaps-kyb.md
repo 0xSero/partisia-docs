@@ -19,7 +19,7 @@
 To ensure a decentralized approval process, the public information about the entity operating the node is verified by an independent 3rd party company called Synaps.
 Your information is verified through a KYB (know your customer) site, where your identity and company credentials are checked.
 
-You will need ID access to a webcam for likeness, and company documents ready.
+#### You will need ID access to a webcam for likeness, and company documents ready.
 
 1. Go to the [Synaps portal](https://partisiablockchain.synaps.me/)   
 2. Choose Corporate   
