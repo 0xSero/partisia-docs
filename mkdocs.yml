@@ -29,7 +29,7 @@ nav:
       - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
       - smart-contracts/development-faq.md
   - Run a node:
-      - node-operations/operator-0-introduction.md
+      - node-operations/what-is-a-node-operator.md
       - node-operations/operator-1-specs.md
       - node-operations/operator-2-reader.md
       - node-operations/operator-3-vps.md

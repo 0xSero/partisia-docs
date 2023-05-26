@@ -12,7 +12,7 @@ The blocks are connected cryptographically. The hash of each block is produced a
 
 ![Diagram0](../pbc-fundamentals/blockchain.png)
 
-A blockchain exists on a distributed network of computers called [nodes](../node-operations/operator-0-introduction.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](../pbc-fundamentals/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
+A blockchain exists on a distributed network of computers called [nodes](../node-operations/what-is-a-node-operator.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](../pbc-fundamentals/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
 Conversely, a blockchain is a decentralized database. Therefore, data on the blockchain remains secure even if a computer in the network is hacked, short circuits or loose connection to the internet.
 
 ### What happens when I use a blockchain
@@ -46,7 +46,7 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 ### Find out more
 
-[**What is a node operator?**](../node-operations/operator-0-introduction.md)
+[**What is a node operator?**](../node-operations/what-is-a-node-operator.md)
 
 [**How does the economy of PBC work?**](../pbc-fundamentals/byoc-and-gas-for-the-mainnet-and-testnet.md)
 
