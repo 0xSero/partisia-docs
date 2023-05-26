@@ -116,7 +116,7 @@ Public-key cryptography is a form of cryptography that uses pairs of keys: A pub
 
 ### Reader Node
 
-A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](../node-operations/operator-2-reader.md).
+A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](../node-operations/run-a-reader-node-on-your-local-machine.md).
 
 ### Rest Server
 

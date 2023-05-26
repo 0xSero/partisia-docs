@@ -30,8 +30,8 @@ nav:
       - smart-contracts/development-faq.md
   - Run a node:
       - node-operations/what-is-a-node-operator.md
-      - node-operations/operator-1-specs.md
-      - node-operations/operator-2-reader.md
+      - node-operations/recommended-hardware-and-software.md
+      - node-operations/run-a-reader-node-on-your-local-machine.md
       - node-operations/operator-3-vps.md
       - node-operations/operator-4-security.md
       - node-operations/operator-5-reader-vps.md

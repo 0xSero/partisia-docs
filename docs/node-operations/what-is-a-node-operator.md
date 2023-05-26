@@ -22,7 +22,7 @@ The current stakes are:
 - Oracle Node 250,000 MPC Tokens.
 
 **The Machine**  
-In addition to the stake you need a computer to run the node. Most node operators rent a server, but some keep the machine running the node in their own home. Machine Specs are in the [section](../node-operations/operator-1-specs.md) about running the node.
+In addition to the stake you need a computer to run the node. Most node operators rent a server, but some keep the machine running the node in their own home. Machine Specs are in the [section](../node-operations/recommended-hardware-and-software.md) about running the node.
 
 **The Keys**  
 When a block of transactions is validated, the node signs off on it with a unique digital signature. The signature is created with the node owner's private key. The signature is verifiable from the public version of the signing key. The different keys play different roles. One keypair references your account with the stake, another refers to your identity on the network and in the PBC internal register. A full description of the keys you will need kan be found in this [section](../pbc-fundamentals/partisia-blockchain-dictionary.md#Public-key cryptography).
@@ -30,14 +30,14 @@ When a block of transactions is validated, the node signs off on it with a uniqu
 **The Skills**  
 Setting up the node require some technical skills. You need to be able to configure and run your node, or alternatively pay someone you trust to help you with the setup and upkeep of the node.
 
-The following sections take you through the signup process. If you do not yet have MPC tokens or an appropriate server for running a node you can still complete the firs part of the guide showing you how to run a reader node. A reader node is free. When you have completed the [introduction](../node-operations/what-is-a-node-operator.md), [first](../node-operations/operator-1-specs.md) and [second](../node-operations/operator-2-reader.md) step, then you should know if you have the skills required to run a node performing services on Partisia Blockchain. If you want to buy MPC Tokens, you can follow this [link](https://kyc.partisiablockchain.com/) for information about sale.
+The following sections take you through the signup process. If you do not yet have MPC tokens or an appropriate server for running a node you can still complete the firs part of the guide showing you how to run a reader node. A reader node is free. When you have completed the [introduction](../node-operations/what-is-a-node-operator.md), [first](../node-operations/recommended-hardware-and-software.md) and [second](../node-operations/run-a-reader-node-on-your-local-machine.md) step, then you should know if you have the skills required to run a node performing services on Partisia Blockchain. If you want to buy MPC Tokens, you can follow this [link](https://kyc.partisiablockchain.com/) for information about sale.
 
 ## Run a node on Partisia Blockchain
 
 The following guide has 9 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
 
-1. [Hardware and software for running the node](../node-operations/operator-1-specs.md)
-2. [Run a reader node locally](../node-operations/operator-2-reader.md)
+1. [Hardware and software for running the node](../node-operations/recommended-hardware-and-software.md)
+2. [Run a reader node locally](../node-operations/run-a-reader-node-on-your-local-machine.md)
 3. [Get a VPS](../node-operations/operator-3-vps.md)
 4. [Secure your VPS](../node-operations/operator-4-security.md)
 5. [Run a reader node on a VPS](../node-operations/operator-5-reader-vps.md)
