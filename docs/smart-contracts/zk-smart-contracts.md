@@ -1,4 +1,4 @@
-# Zero knowledge smart contracts
+# ZK smart contracts
 
 One of the main features which set Particia Blockchain(PBC) apart from other blockchains is that PBC supports zero knowledge computations, notably secure multiparty computation (MPC).
 You can utilize PBC's capacity for ZK computations through zero knowledge smart contracts (ZKSC).
@@ -53,7 +53,7 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
 
 ```
 
-[You can see the code handling the remaining contract phases further down the page](../smart-contracts/zero-knowledge-smart-contracts.md#full-zksc-code-example)
+[You can see the code handling the remaining contract phases further down the page](../smart-contracts/zk-smart-contracts.md#full-zksc-code-example)
 
 ### Use zero knowledge smart contracts on PBC as a second layer
 

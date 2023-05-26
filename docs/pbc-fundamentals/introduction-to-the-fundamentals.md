@@ -52,4 +52,4 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 [**What is a smart contract?**](../smart-contracts/what-is-a-smart-contract.md)
 
-[**How can I add zero knowledge computation to a smart contract?**](../smart-contracts/zero-knowledge-smart-contracts.md)
+[**How can I add zero knowledge computation to a smart contract?**](../smart-contracts/zk-smart-contracts.md)
