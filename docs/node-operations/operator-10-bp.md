@@ -1,7 +1,7 @@
 # Run a block producing node on Partisia Blockchain
 How to change node config from reader to block producer
 
-You must finish the previous two sections([Reader node on VPS](../node-operations/operator-5-reader-vps.md) and [Keys for BP](../node-operations/operator-9-keys.md)) is a prerequisite.
+You must finish the previous two sections([Reader node on VPS](../node-operations/reader-node-on-vps.md) and [Keys for BP](../node-operations/operator-9-keys.md)) is a prerequisite.
 
 ### Step 1 - Stop your reader node
 
