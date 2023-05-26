@@ -27,7 +27,7 @@ nav:
           - smart-contracts/zk-language-reference.md
           - smart-contracts/zk-language-features.md
       - smart-contracts/pbc-as-second-layer/pbc-as-second-layer.md
-      - smart-contracts/dev-faq.md
+      - smart-contracts/development-faq.md
   - Run a node:
       - node-operations/operator-0-introduction.md
       - node-operations/operator-1-specs.md
