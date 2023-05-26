@@ -16,7 +16,7 @@ The tool first compiles the public part of the contract to get a WASM- and ABI-f
 the zk-compiler and compiles the zk-computation and links it with the generated WASM-file to get a
 ZKWA-file.
 
-You can use the [testnet](../smart-contracts/testnet.md) to try out deployment for free.
+You can use the [testnet](../smart-contracts/access-and-use-the-testnet.md) to try out deployment for free.
 Another key difference between public smart contracts and the private zero knowledge smart contracts is that subset 
 of high stakes nodes are allocated to carry out the ZK computations of each ZK contract. 
 The contract owner has to specify how much value the ZK computation represents. This amount of the ZK nodes' stake 
