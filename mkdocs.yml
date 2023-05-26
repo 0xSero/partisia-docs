@@ -44,7 +44,6 @@ nav:
       - node-operations/node-health-and-maintenance.md
       - node-operations/update-your-nodes-public-information.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
-  - get-support-from-pbc-community.md
 
 extra_css:
   - stylesheets/extra.css
