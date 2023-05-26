@@ -41,8 +41,8 @@ nav:
       - node-operations/keys-for-bp-config-and-registration.md
       - node-operations/run-a-block-producing-node-on-partisia-blockchain.md
       - node-operations/register-your-node.md
-      - node-operations/operator-12-node-health.md
-      - node-operations/update-transaction.md
+      - node-operations/node-health-and-maintenance.md
+      - node-operations/update-your-nodes-public-information.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-PBC-community.md
 
