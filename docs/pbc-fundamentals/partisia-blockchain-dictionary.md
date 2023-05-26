@@ -44,7 +44,7 @@ An event transaction is a special type of transaction that is spawned during the
 
 Events have the same basic properties as ordinary transactions. Events are sent through the flooding network and have the same validity rules as ordinary transactions. When a transaction is executed the network and CPU fees are collected, the rest of the cost is distributed evenly between any events said transaction spawns. Events are executed the same way as ordinary transactions meaning they can _also_ spawn events. This means one can implement asynchronous, indefinite recursion which will eventually terminate since the events will run out of gas to pay the fees.
 
-Event transactions are instrumental in enabling cross-shard transactions since they can be routed by the blockchain to their respective destination shard. A routed event transaction is enriched with a finalization proof and routed based on the routing table in the chain state. For more details see [Shards](../pbc-fundamentals/shards.md).
+Event transactions are instrumental in enabling cross-shard transactions since they can be routed by the blockchain to their respective destination shard. A routed event transaction is enriched with a finalization proof and routed based on the routing table in the chain state. For more details see [Shards](../pbc-fundamentals/sharding.md).
 
 ### Flooding Network
 
@@ -124,7 +124,7 @@ A rest server is a server that gives access to the REST API. An API conforming t
 
 ### Shards
 
-PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](../pbc-fundamentals/consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](../pbc-fundamentals/shards.md).
+PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](../pbc-fundamentals/consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](../pbc-fundamentals/sharding.md).
 
 ### Smart Contracts
 
