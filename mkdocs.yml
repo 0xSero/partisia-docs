@@ -6,7 +6,7 @@ nav:
   - PBC fundamentals:
       - pbc-fundamentals/introduction-to-the-fundamentals.md
       - pbc-fundamentals/create-an-account.md
-      - pbc-fundamentals/byoc-and-gas-for-the-mainnet-and-testnet.md
+      - pbc-fundamentals/byoc-and-gas.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/dictionary.md
   - Develop smart contracts, tools and examples:
