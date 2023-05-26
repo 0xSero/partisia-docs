@@ -9,7 +9,7 @@ nav:
       - pbc-fundamentals/byoc-and-gas.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/dictionary.md
-  - Develop smart contracts, tools and examples:
+  - Smart contracts, tools and examples:
       - smart-contracts/introduction-to-smart-contracts.md
       - smart-contracts/what-is-a-smart-contract.md
       - smart-contracts/install-the-smart-contract-compiler.md
