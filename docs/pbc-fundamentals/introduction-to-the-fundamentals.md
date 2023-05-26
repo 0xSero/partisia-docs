@@ -23,7 +23,7 @@ On the surface level your phone or computer is connected to the internet. Apps a
 ![Diagram1](../pbc-fundamentals/surface.png)
 
 The Partisia blockchain lives on a network of computers connected to each other through the internet. The blockchain comes with a software architecture which allows for binding trackable transactions to happen very fast.
-A puchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](../smart-contracts/contract-development.md).
+A puchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](../smart-contracts/what-is-a-smart-contract.md).
 
 ![Diagram2](../pbc-fundamentals/Contract.png)
 
@@ -50,6 +50,6 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 [**How does the economy of PBC work?**](../pbc-fundamentals/byoc-and-gas-for-the-mainnet-and-testnet.md)
 
-[**What is a smart contract?**](../smart-contracts/contract-development.md)
+[**What is a smart contract?**](../smart-contracts/what-is-a-smart-contract.md)
 
 [**How can I add zero knowledge computation to a smart contract?**](../smart-contracts/ZKSC.md)

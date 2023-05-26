@@ -2,7 +2,7 @@
 
 ## Content
 
-- [What is a Smart Contract](../smart-contracts/contract-development.md)
+- [What is a Smart Contract](../smart-contracts/what-is-a-smart-contract.md)
 - [Use the PBC testnet for contract development](../smart-contracts/testnet.md)
 - [Install the smart contract compiler](../smart-contracts/download-compiler.md)
 - [Public and ZK Smart Contract examples - Combine and innovate](../smart-contracts/SC-examples.md)

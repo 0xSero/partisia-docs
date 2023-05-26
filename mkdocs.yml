@@ -11,7 +11,7 @@ nav:
       - pbc-fundamentals/partisia-blockchain-dictionary.md
   - Develop smart contracts, tools and examples:
       - smart-contracts/smart-contracts.md
-      - smart-contracts/contract-development.md
+      - smart-contracts/what-is-a-smart-contract.md
       - smart-contracts/download-compiler.md
       - smart-contracts/compile-and-deploy-contracts.md
       - smart-contracts/testnet.md
