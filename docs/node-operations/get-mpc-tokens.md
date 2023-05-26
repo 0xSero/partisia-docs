@@ -17,7 +17,7 @@
 </div>
 If you have not already bought the prerequisite amount of MPC tokens, you are welcome to contact us for further information. [Reach out here](https://kyc.partisiablockchain.com/).
 
-The current stakes are:
+#### The current stakes are:
 
 - Reader Node is free, since it does not perform paid services.
 - Baker Node 25,000 MPC Tokens.
