@@ -26,7 +26,7 @@ nav:
           - smart-contracts/zero-knowledge-rust-language-zkrust.md
           - smart-contracts/zero-knowledge-rust-reference.md
           - smart-contracts/zero-knowledge-language-features.md
-      - smart-contracts/pbc-as-second-layer/pbc-as-second-layer.md
+      - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
       - smart-contracts/development-faq.md
   - Run a node:
       - node-operations/operator-0-introduction.md

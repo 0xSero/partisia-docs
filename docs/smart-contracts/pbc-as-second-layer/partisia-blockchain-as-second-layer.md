@@ -1,4 +1,4 @@
-# Partisia Blockchain as a second layer
+# Partisia Blockchain as second layer
 
 This article explains how Partisia Blockchain (PBC) can function as a second layer. We will dive into a running example and demonstrate how to test the implementation from a layer one testnet to our [PBC testnet](/docs/access-and-use-the-testnet.md). Lastly, we will explain how to develop and recreate our testnet solution to get you started with using PBC as a second layer.
 
