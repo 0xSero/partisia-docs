@@ -1,4 +1,21 @@
-# Run a block producing node on Partisia Blockchain
+# Run a block producing node
+<div class="dot-navigation">
+    <a class="dot-navigation__item" href="what-is-a-node-operator.html"></a>
+    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
+    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
+    <a class="dot-navigation__item " href="vps.html"></a>
+    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
+    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
+    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
+    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
+    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
+    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
+    <a class="dot-navigation__item dot-navigation__item--active" href="run-a-block-producing-node.html"></a>
+    <a class="dot-navigation__item " href="register-your-node.html"></a>
+    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
+    <!-- Repeat above for more dots -->
+</div>
+
 How to change node config from reader to block producer
 
 You must finish the previous two sections([Reader node on VPS](../node-operations/reader-node-on-vps.md) and [Keys for BP](../node-operations/keys-for-bp-config-and-registration.md)) is a prerequisite.
