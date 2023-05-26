@@ -580,9 +580,11 @@ nav.md-nav ul.md-nav__list {
 
 label {
   font-weight: 1000!important;
-  font-size: large;
 }
-
+.md-nav__icon{
+  width: 30px;
+  height: 30px;
+}
 .dot-navigation {
   /* Center the content */
   align-items: center;
