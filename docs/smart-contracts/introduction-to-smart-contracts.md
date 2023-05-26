@@ -1,5 +1,5 @@
 # Introduction to smart contracts
-In this category you can explore how to create your own smart contract. The specifications behind smart contracts. How to compile and deploy smart contracts on the testnet and mainnet and what zero knowledge smart contracts are. 
+In this category you can explore how to create your own smart contract. The specifications behind smart contracts. How to compile and deploy smart contracts on the testnet and mainnet and what zero knowledge smart contracts are. If you are in need of help when developing smart contracts, we recommend you visit [our support page or join the active community](../get-support-from-pbc-community.md)
 ## Content
 
 - [What is a Smart Contract](../smart-contracts/what-is-a-smart-contract.md)
