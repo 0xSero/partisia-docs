@@ -12,7 +12,7 @@
   </svg>
 </a>
 
-You can get help by the team behind Partisia Blockchain and our awesome community by joining [our discord:](https://discord.com/invite/5HX7j9xFS7) 
+You can get help by the team behind Partisia Blockchain and our awesome community by joining [our discord](https://discord.com/invite/5HX7j9xFS7) 
        
 ## Good links to get help from: 
 - Open source: [https://gitlab.com/partisiablockchain](https://gitlab.com/partisiablockchain)
