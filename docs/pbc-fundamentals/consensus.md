@@ -1,4 +1,4 @@
-# The FastTrack consensus
+# Consensus
 
 The FastTrack consensus protocol is an optimistic protocol with built-in failure recovery. When running optimistically a single block producer (proposer) continuously produces new blocks whilst the rest of the committee verify the validity of said blocks. After a fixed number of blocks have been proposed by a single producer a new proposer is chosen by the rules of the protocol. As long as the proposer is honest and produces what are by the committee deemed as valid blocks, transactions can be executed eagerly allowing for a high transaction throughput.
 
