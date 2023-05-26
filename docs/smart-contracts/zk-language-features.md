@@ -1,5 +1,5 @@
 
-# Zero Knowledge language features
+# ZK language features
 
 This table tracks feature availability, including feature comparison with [the main Rust
 project](https://www.rust-lang.org/), and some ZkRust specific features mixed in. This is not a roadmap.
