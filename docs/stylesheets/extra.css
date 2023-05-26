@@ -222,6 +222,9 @@ h1 {
   font-weight: bold;
   display: none;
 }
+.toc-title{
+  display: block!important;
+}
 
 div.arithmatex mjx-container mjx-assistive-mml {
   height: 0;
