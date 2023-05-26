@@ -18,7 +18,7 @@ Baker nodes perform baker services - they produce and sign blocks. You can get a
 
 ### Block
 
-A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](dictionary.md#transactions) and [events](dictionary.md#event-transactions) that have been executed at a given _block time_. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block.
+A block is the basic component of the blockchain ledger. Each block contains a batch of valid [transactions](partisia-blockchain-dictionary.md#transactions) and [events](partisia-blockchain-dictionary.md#event-transactions) that have been executed at a given _block time_. The block time is incremental. The chain is started with a genesis block that defines the initial state of the blockchain. Each block has a reference to its parent block thus forming a chain all the way back to the genesis block.
 
 A block is produced by a block producer. When a block is produced the transactions and events are executed and the resulting state is stored as the current state. The produced block is then validated by the committee according to the currently running [consensus protocol](../pbc-fundamentals/consensus.md).
 
