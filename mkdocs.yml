@@ -13,7 +13,7 @@ nav:
       - smart-contracts/smart-contracts.md
       - smart-contracts/contract-development.md
       - smart-contracts/download-compiler.md
-      - smart-contracts/contract-compilation.md
+      - smart-contracts/compile-and-deploy-contracts.md
       - smart-contracts/testnet.md
       - smart-contracts/SC-examples.md
       - smart-contracts/programmers_guide.md
