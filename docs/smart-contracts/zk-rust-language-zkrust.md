@@ -1,4 +1,4 @@
-# Zero Knowledge Rust Language (ZKRust)
+# ZK Rust Language (ZKRust)
 
 ZK-Rust is the main tool for writing Zero-Knowledge Computations for Partisia
 Blockchain. ZK-Rust resembles [Rust](https://rust-lang.com) in syntax, with
