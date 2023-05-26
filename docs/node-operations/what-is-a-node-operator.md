@@ -1,4 +1,20 @@
 # What is a node operator
+<div class="dot-navigation">
+    <a class="dot-navigation__item dot-navigation__item--active" href="what-is-a-node-operator.html"></a>
+    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
+    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
+    <a class="dot-navigation__item " href="vps.html"></a>
+    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
+    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
+    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
+    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
+    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
+    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
+    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
+    <a class="dot-navigation__item " href="register-your-node.html"></a>
+    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
+    <!-- Repeat above for more dots -->
+</div>
 
 Nodes are the computers in the blockchain network. They perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue.
 PBC has four types of nodes:
@@ -45,6 +61,6 @@ The following guide has 9 parts. If you do the steps of the guide in order, you 
 7. [Get MPC tokens](../node-operations/get-mpc-tokens.md)
 8. [Complete the Synaps KYB](../node-operations/complete-synaps-kyb.md)
 9. [Create keys for config and registration](../node-operations/keys-for-bp-config-and-registration.md)
-10. [Upgrade config to a block producing node on the VPS](../node-operations/run-a-block-producing-node-on-partisia-blockchain.md)
+10. [Upgrade config to a block producing node on the VPS](../node-operations/run-a-block-producing-node.md)
 11. [Register your node](../node-operations/register-your-node.md)
 12. [Node health and maintenance](../node-operations/node-health-and-maintenance.md)

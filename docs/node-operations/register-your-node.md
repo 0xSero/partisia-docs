@@ -1,4 +1,20 @@
 # Register your node
+<div class="dot-navigation">
+    <a class="dot-navigation__item" href="what-is-a-node-operator.html"></a>
+    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
+    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
+    <a class="dot-navigation__item " href="vps.html"></a>
+    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
+    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
+    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
+    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
+    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
+    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
+    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
+    <a class="dot-navigation__item dot-navigation__item--active" href="register-your-node.html"></a>
+    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
+    <!-- Repeat above for more dots -->
+</div>
 
 The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a stake of MPC Tokens and sending a registration form. Both are done with transaction you can perform in the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register).
 

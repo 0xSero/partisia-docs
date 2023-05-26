@@ -575,3 +575,35 @@ nav.md-nav ul.md-nav__list {
 label {
   font-weight: 1000!important;
 }
+
+.dot-navigation {
+  /* Center the content */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  /* Reset styles */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dot-navigation__item {
+  display:block;
+  /* Rounded border */
+  border-radius: 9999px;
+  height: 0.75rem;
+  width: 0.75rem;
+
+  /* Inactive dot */
+  background-color: transparent;
+  border: 1px solid #0000A3;
+
+  /* OPTIONAL: Spacing between dots */
+  margin: 0 0.25rem;
+}
+
+/* Active dot */
+.dot-navigation__item--active {
+  background-color: #0000A3;
+}

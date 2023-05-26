@@ -1,5 +1,20 @@
 # Node health and maintenance
-
+<div class="dot-navigation">
+    <a class="dot-navigation__item" href="what-is-a-node-operator.html"></a>
+    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
+    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
+    <a class="dot-navigation__item " href="vps.html"></a>
+    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
+    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
+    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
+    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
+    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
+    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
+    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
+    <a class="dot-navigation__item " href="register-your-node.html"></a>
+    <a class="dot-navigation__item dot-navigation__item--active" href="node-health-and-maintenance.html"></a>
+    <!-- Repeat above for more dots -->
+</div>
 If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your  node is not updated regularly, it is bound to fall out of committee. Only nodes up-to-date can participate in forming a new committee, so every time a new committee is formed from registered nodes, only nodes with newest version of Partisia Software can be included. 
 Your node can only perform services and by extension earn rewards when in the committee. After you are included you want to make sure your node is able to continue to participate.  
 To optimize your nodes earning potential you should implement automatic updates and check up on the node's performance regularly.
