@@ -42,7 +42,7 @@ The following guide has 9 parts. If you do the steps of the guide in order, you 
 4. [Secure your VPS](../node-operations/secure-your-vps.md)
 5. [Run a reader node on a VPS](../node-operations/reader-node-on-vps.md)
 6. [Create a PBC Account](../node-operations/create-an-account-on-pbc.md)
-7. [Get MPC tokens](../node-operations/operator-7-get-mpc-tokens.md)
+7. [Get MPC tokens](../node-operations/get-mpc-tokens.md)
 8. [Complete the Synaps KYB](../node-operations/operator-8-synaps.md)
 9. [Create keys for config and registration](../node-operations/operator-9-keys.md)
 10. [Upgrade config to a block producing node on the VPS](../node-operations/operator-10-bp.md)
