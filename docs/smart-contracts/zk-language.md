@@ -7,7 +7,7 @@ Partisia Blockchain.
 
 Further reading:
 
-- [Zero-knowledge Language Reference](../smart-contracts/zk-language-reference.md)
+- [Zero-knowledge Language Reference](../smart-contracts/zero-knowledge-rust-reference.md)
 - [Zero-knowledge Contract FAQ](dev-faq.md#Zero Knowledge Rust Contracts)
 - [Zero-knowledge Language Feature Checklist](../smart-contracts/zk-language-features.md)
 
@@ -188,5 +188,5 @@ exception, as it would attempt to load `(16 + 16)*3 = 96` bits, which variable
 
 As shown in the previous examples, it is possible to import functions and data
 structures from the `pbc_zk` module. See [Zero-knowledge Language
-Reference](../smart-contracts/zk-language-reference.md) for what is available.
+Reference](../smart-contracts/zero-knowledge-rust-reference.md) for what is available.
 
