@@ -9,7 +9,7 @@ Further reading:
 
 - [Zero-knowledge Language Reference](../smart-contracts/zero-knowledge-rust-reference.md)
 - [Zero-knowledge Contract FAQ](dev-faq.md#Zero Knowledge Rust Contracts)
-- [Zero-knowledge Language Feature Checklist](../smart-contracts/zk-language-features.md)
+- [Zero-knowledge Language Feature Checklist](../smart-contracts/zero-knowledge-language-features.md)
 
 ## Concepts
 

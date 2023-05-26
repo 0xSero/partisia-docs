@@ -23,9 +23,9 @@ nav:
           - smart-contracts/ZKSC.md
           - smart-contracts/compiling-and-deploying-zero-knowledge-contracts.md
           - smart-contracts/zero-knowledge-computation-gas-fees.md
-          - smart-contracts/zk-language.md
+          - smart-contracts/zero-knowledge-rust-language-zkrust.md
           - smart-contracts/zero-knowledge-rust-reference.md
-          - smart-contracts/zk-language-features.md
+          - smart-contracts/zero-knowledge-language-features.md
       - smart-contracts/pbc-as-second-layer/pbc-as-second-layer.md
       - smart-contracts/development-faq.md
   - Run a node:
