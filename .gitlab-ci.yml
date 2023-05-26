@@ -22,6 +22,7 @@ pages:
   dependencies:
   - build-site
   script:
+    - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   only:
   - main
   artifacts:
