@@ -10,6 +10,6 @@
 - [Programmers Guide to PBC smart contracts](../smart-contracts/programmers_guide.md)
 - [Partisia Blockchain Smart Contract Binary Formats](../smart-contracts/smart-contract-binary-formats.md)
 - [How to create a smart contract with a specific scenario](../smart-contracts/how-to-create-a-vote-from-a-smart-contract.md)
-- [Zero Knowledge Smart Contracts](../smart-contracts/ZKSC.md)
+- [Zero Knowledge Smart Contracts](../smart-contracts/zero-knowledge-smart-contracts.md)
 - [Zero Knowledge Gas Fees](../smart-contracts/zero-knowledge-computation-gas-fees.md)
 - [Connect a dApp to the wallet extension (dApp SDK)](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia)
