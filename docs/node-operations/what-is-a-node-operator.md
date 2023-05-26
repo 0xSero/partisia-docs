@@ -47,4 +47,4 @@ The following guide has 9 parts. If you do the steps of the guide in order, you 
 9. [Create keys for config and registration](../node-operations/keys-for-bp-config-and-registration.md)
 10. [Upgrade config to a block producing node on the VPS](../node-operations/run-a-block-producing-node-on-partisia-blockchain.md)
 11. [Register your node](../node-operations/register-your-node.md)
-12. [Node health and maintenance](../node-operations/operator-12-node-health.md)
+12. [Node health and maintenance](../node-operations/node-health-and-maintenance.md)

@@ -80,4 +80,4 @@ docker logs -f pbc-mainnet
 
 This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
 
-In the [maintenance section](../node-operations/operator-12-node-health.md) you can see what the logs mean.
+In the [maintenance section](../node-operations/node-health-and-maintenance.md) you can see what the logs mean.
