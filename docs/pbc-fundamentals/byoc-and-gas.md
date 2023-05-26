@@ -1,4 +1,5 @@
-# BYOC and gas for the mainnet and testnet
+# BYOC and gas
+In this article we will explain what byoc and gas is, how to get gas for both mainnet and testnet and the fees of gas.
 
 ### What is BYOC and gas
 
@@ -35,7 +36,7 @@ The price for different services on the blockchain has been chosen to roughly ma
   - MPC triples fee (tentative): 5 USD cents per 1000 triples
   - Staking fee (tentative): 1% of the locked staked value per month. The locked stakes for ZK computations are set by the users.
 
-Go [here](../smart-contracts/zk-computation-gas-fees.md.md) for complete overview of costs for ZK services in gas.
+Go [here](../smart-contracts/zk-computation-gas-fees.md) for complete overview of costs for ZK services in gas.
 
 - Token Bridge:
   - 1% of the value transferred with a threshold of 25 USD as minimum transfer (equal to a Token Bridge fee of 25 USD cents).
