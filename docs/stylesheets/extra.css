@@ -220,6 +220,7 @@ h1 {
 
 .md-nav__title {
   font-weight: bold;
+  display: none;
 }
 
 div.arithmatex mjx-container mjx-assistive-mml {
