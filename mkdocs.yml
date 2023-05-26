@@ -12,7 +12,7 @@ nav:
   - Develop smart contracts, tools and examples:
       - smart-contracts/smart-contracts.md
       - smart-contracts/what-is-a-smart-contract.md
-      - smart-contracts/download-compiler.md
+      - smart-contracts/install-the-smart-contract-compiler.md
       - smart-contracts/compile-and-deploy-contracts.md
       - smart-contracts/testnet.md
       - smart-contracts/SC-examples.md
