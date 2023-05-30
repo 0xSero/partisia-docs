@@ -17,7 +17,7 @@ build-site:
     - public
 
 pages:
-  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  image: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
   stage: deploy
   dependencies:
   - build-site
@@ -30,7 +30,7 @@ pages:
     - public
 
 pages-dev:
-  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  image: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
   stage: deploy
   dependencies:
   - build-site
