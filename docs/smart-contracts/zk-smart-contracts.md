@@ -59,7 +59,7 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
 
 It is possible to use a zero knowledge smart contracts on PBC as a second layer for other blockchains. If we want to do a secret bid second price auction like above, we need to deploy two smart contracts: one zero knowledge smart contract on PBC and a public smart contract on the layer one chain. The public functionality of the contracts will be very similar. But the contract on PBC will privately calculate the result of the auction using zero knowledge computation.
 
-![Diagram1](Second_layer_ZKSC.png)
+![Diagram1](second-layer-zksc.png)
 
 The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer one public contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the contract located on the layer one BC. You can read more about this on our page on [pbc as a second layer](../smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md)
 
