@@ -8,7 +8,6 @@
 <a href="">
     [<img src="assets/categories/node-operations.png" alt="Node Operations" class="front-page-pictures front-page-pictures-left" />](node-operations/what-is-a-node-operator.md)
 </a>
-<br>
 <a href="">
     [<img src="assets/categories/need-support.png" alt="Need support?" class="front-page-pictures front-page-pictures-right" />](get-support-from-pbc-community.md)
 </a>
