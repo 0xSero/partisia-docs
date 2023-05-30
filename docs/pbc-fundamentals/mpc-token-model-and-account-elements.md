@@ -339,7 +339,7 @@ When the account has enough staked MPC tokens it is possible to run a blockchain
 
 This is the flow for handling MPC tokens delegated from others.
 
-![NumberOfTokens](NumberOfTokens.png)
+![NumberOfTokens](number-of-tokens.png)
 
 ### DelegatedFromOthers
 
