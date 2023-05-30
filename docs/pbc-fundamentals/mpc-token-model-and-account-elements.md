@@ -130,7 +130,7 @@ MPC Tokens purchased in presales or allocated to the team are locked inside unlo
 
 This is the flow for MPC token unlocking
 
-![Unlock](Unlock.png)
+![Unlock](unlock.png)
 
 The following illustrates how the total is calculated based on locked/unlocked tokens or tokens inside/outside unlocking schedules.
 
