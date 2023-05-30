@@ -25,7 +25,7 @@ On the surface level your phone or computer is connected to the internet. Apps a
 The Partisia blockchain lives on a network of computers connected to each other through the internet. The blockchain comes with a software architecture which allows for binding trackable transactions to happen very fast.
 A puchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](../smart-contracts/what-is-a-smart-contract.md).
 
-![Diagram2](../pbc-fundamentals/Contract.png)
+![Diagram2](../pbc-fundamentals/contract.png)
 
 Smart contracts hold some information which can be changed, that information is called the state. The state of our NFT contract holds an inventory of NFTs and their owners. The contract action _Transfer_ can change the ownership of an NFT by changing an owner address in the inventory. Actions of contracts are themselves transactions on the blockchain. When they have been added to a block and executed, the resulting state change of the contract becomes part of the blockchain state. We now have a permanent timestamped record of the purchase.
 
