@@ -134,7 +134,7 @@ This is the flow for MPC token unlocking
 
 The following illustrates how the total is calculated based on locked/unlocked tokens or tokens inside/outside unlocking schedules.
 
-![Shcedule](Schedule.png)
+![Shcedule](schedule.png)
 
 ### In Schedule
 
