@@ -75,7 +75,7 @@ plugins:
 
 theme:
   logo: assets/pbclogo.png
-  favicon: assets/pbclogo_with_background.png
+  favicon: assets/pbclogo-with-background.png
   name: material
   custom_dir: overrides
   features:
