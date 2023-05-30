@@ -30,7 +30,7 @@ There are numerous choices in service providers when it comes to VPS. In the ill
 - Well-connected to remainder of the network. If the network was a spiderweb it would be advantageous to be at the center.
 - Enhance the decentralization. As a rule of thumb for any investment, a broad portfolio has a greater probability of long term success. You can help to consolidate the chain against vulnerabilities by avoiding putting your node in the same location as everyone else. 
 
-![Node_geography](node_geography.png)
+![Node_geography](node-geography.png)
 
 ## Why you should use a VPS
 
