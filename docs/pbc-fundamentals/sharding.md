@@ -15,7 +15,7 @@ Except for the governance shard, all shards serve the same role of distributing 
 - Current active shards and their routing
 - Feature flag activations
 
-![Sharding](Sharding.png)
+![Sharding](sharding.png)
 
 ## How it works
 
