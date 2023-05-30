@@ -131,19 +131,15 @@ PBC distributes the workload to a number of parallel shards. This allows for sca
 A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC. Read more [here](../smart-contracts/what-is-a-smart-contract.md)
 
 ### Transactions
-
-A transaction represents an authorized atomic interaction with the blockchain.
+The only type of transaction existing is one that interacts with a contract. All transactions include an RPC byte stream, the interpretation of which is up to the specific contract. The transaction can use three different methods of interactione: `onCreate`, `onInvoke` and `onDestroy`. These methods comprise the contract lifecycle.
 
 Each transaction defines how long into the future it is valid and what the cost is. A hash of the transaction and the signer’s nonce is then signed by the account holder using his/her private key. This signature is used to authenticate the signer on the blockchain. If the signing key does not have a corresponding account, the transaction is rejected.
 
 A transaction is valid when:
-
 - It has as a valid signature
 - The nonce in the transaction matches the account nonce in the blockchain state
 - The transaction has not expired
-- The account can cover the cost of the transaction (see Transaction fees below)
-
-There are three types of transactions: create contract, interact with contract and remove contract. All transactions include an RPC byte stream, the interpretation of which is up to the specific contract. The three transaction types correspond to the `onCreate`, `onInvoke` and `onDestroy` methods comprise the contract lifecycle.
+- The account can cover the cost of the transaction
 
 ### WASM
 
