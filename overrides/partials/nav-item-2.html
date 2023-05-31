@@ -41,7 +41,7 @@
   {% else %}
   {% set index = indexes | first %}
   {% set class = "md-nav__link--active" if index == page %}
-  <div class="md-nav__link md-nav__link--index {{ class }}">
+  <div class="md-nav__link md-nav__link--index {{ class }} ">
     <a href="{{ index.url | url }}">{{ nav_item.title }}</a>
   </div>
   {% endif %}
@@ -55,7 +55,7 @@
     <label class="md-nav__title" for="{{ path }}">
       {{ nav_item.title }}
     </label>
-    <ul class="md-nav__list">
+    <ul class="md-nav__list secondary-li-navbar">
 
       <!-- Render nested item list -->
       {% for nav_item in nav_item.children %}
@@ -83,7 +83,7 @@
   <!-- Render table of contents, if not empty -->
   <a
       href="{{ nav_item.url | url }}"
-      class="md-nav__link md-nav__link--active"
+      class="md-nav__link md-nav__link--active secondary-li-navbar"
   >
     {{ nav_item.title }}
   </a>
@@ -91,7 +91,7 @@
 
 <!-- Main navigation item -->
 {% else %}
-<li class="{{ class }}">
+<li class="{{ class }} secondary-li-navbar">
   <a href="{{ nav_item.url | url }}" class="md-nav__link">
     {{ nav_item.title }}
   </a>

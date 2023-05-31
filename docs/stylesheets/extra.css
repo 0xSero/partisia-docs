@@ -237,7 +237,6 @@ div.arithmatex mjx-container {
 div.embed-video-wrapper {
   text-align: center;
 }
-
 .video-wrapper {
   position: relative;
   display: block;
@@ -275,12 +274,10 @@ code {
   padding-top: 0px;
   width: 12rem;
   min-height: 100vh !important;
-
   top: 0 !important;
 }
 
 .md-sidebar__scrollwrap {
-  background-color: #eef1f9;
   color: #9d9dc4;
   padding: 6.5em 10px;
   margin: 0 0.2rem;
@@ -291,7 +288,12 @@ code {
   width: 12rem;
   z-index: 1;
 }
-
+.md-sidebar--primary{
+  margin-left:15%;
+}
+.md-sidebar--secondary{
+margin-right: 15%;
+}
 .md-sidebar--primary .md-sidebar__scrollwrap {
   max-height: 100vh !important;
 }
@@ -520,8 +522,18 @@ nav.md-nav ul.md-nav__list {
   margin-top: 0.1em !important;
   line-height: 1.5;
   margin-bottom: 10px;
+  border-left: 0.5px solid #f3f3f3!important;
+  padding-left: 10px;
+
+}
+.md-nav__link--active{
+  border-left: 0.5px solid #545281!important;
+  padding-left: 10px;
 }
 
+.md-nav__link:hover:not(label){ 
+  text-decoration: none!important;
+}
 .md-nav--footer ul.md-nav__list li:first-child {
   display: none;
 }
@@ -570,13 +582,7 @@ nav.md-nav ul.md-nav__list {
   float: right;
 }
 
-.md-nav__link--active{
-  border-bottom: 0.5px solid #545281!important;
-}
 
-.md-nav__link:hover:not(label){
-  text-decoration: none!important;
-}
 
 label {
   font-weight: 1000!important;
@@ -603,7 +609,6 @@ label {
   border-radius: 9999px;
   height: 0.75rem;
   width: 0.75rem;
-
   /* Inactive dot */
   background-color: transparent;
   border: 1px solid #0000A3;
