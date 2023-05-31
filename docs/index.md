@@ -1,4 +1,4 @@
-<h1></h1>
+<h1 id="HideNav"></h1>
 
 <a href="">
     [<img src="assets/categories/pbc-fundametals.png" alt="PBC Fundamentals" class="front-page-pictures front-page-pictures-left" />](pbc-fundamentals/introduction-to-the-fundamentals.md)

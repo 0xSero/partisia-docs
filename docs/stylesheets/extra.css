@@ -518,14 +518,15 @@ nav.md-nav ul.md-nav__list {
 .md-nav--footer div.md-nav__link--index a {
   color: var(--md-accent-fg-color);
 }
+
 .md-nav__link {
   margin-top: 0.1em !important;
   line-height: 1.5;
   margin-bottom: 10px;
   border-left: 0.5px solid #f3f3f3!important;
   padding-left: 10px;
-
 }
+
 .md-nav__link--active{
   border-left: 0.5px solid #545281!important;
   padding-left: 10px;
