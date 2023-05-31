@@ -1,4 +1,5 @@
-# Get support from PBC community
+# Need support?
+
 <a target="_blank" href="https://discord.com/invite/5HX7j9xFS7">
   <svg width="64" height="64" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="0.399994" width="28" height="28" rx="4" fill="url(#paint0_linear_410_3160)" />
@@ -12,9 +13,10 @@
   </svg>
 </a>
 
-You can get help by the team behind Partisia Blockchain and our awesome community by joining [our discord](https://discord.com/invite/5HX7j9xFS7) 
-       
-## Good links to get help from: 
+You can get help by the team behind Partisia Blockchain and our awesome community by joining [our discord](https://discord.com/invite/5HX7j9xFS7)
+
+## Good links to get help from:
+
 - Open source: [https://gitlab.com/partisiablockchain](https://gitlab.com/partisiablockchain)
 - PBC apps open source: [https://github.com/orgs/partisiablockchainapplications/repositories](https://github.com/orgs/partisiablockchainapplications/repositories)
 - Dev video intro courses: [https://medium.com/partisia-blockchain/develop/home](https://medium.com/partisia-blockchain/develop/home)

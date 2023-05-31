@@ -9,7 +9,7 @@ nav:
       - pbc-fundamentals/byoc-and-gas.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/dictionary.md
-  - Smart contracts, tools and examples:
+  - Smart contracts:
       - smart-contracts/introduction-to-smart-contracts.md
       - smart-contracts/what-is-a-smart-contract.md
       - smart-contracts/install-the-smart-contract-compiler.md
@@ -28,7 +28,7 @@ nav:
           - smart-contracts/zk-language-features.md
       - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
       - smart-contracts/development-faq.md
-  - Run a node:
+  - Node Operations:
       - node-operations/what-is-a-node-operator.md
       - node-operations/recommended-hardware-and-software.md
       - node-operations/run-a-reader-node-on-your-local-machine.md
