@@ -48,6 +48,8 @@
   --md-footer-bg-color--dark: rgba(0, 0, 0, 0.32);
 }
 
+
+
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
@@ -297,9 +299,6 @@ margin-right: 15%;
 .md-sidebar--primary .md-sidebar__scrollwrap {
   max-height: 100vh !important;
 }
-.md-sidebar--secondary .md-sidebar__scrollwrap {
-  max-height: 500px !important;
-}
 
 @media (min-width: 640px) {
   .md-sidebar__scrollwrap::-webkit-scrollbar,
@@ -523,10 +522,12 @@ nav.md-nav ul.md-nav__list {
   margin-top: 0.1em !important;
   line-height: 1.5;
   margin-bottom: 10px;
-  border-left: 0.5px solid #f3f3f3!important;
+  border-left: 0.5px solid #f3f3f3;
   padding-left: 10px;
 }
-
+.md-categories{
+  border-left: 0.5px solid white!important;
+}
 .md-nav__link--active{
   border-left: 0.5px solid #545281!important;
   padding-left: 10px;
