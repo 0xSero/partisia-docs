@@ -133,7 +133,7 @@ A smart contract is a program you run on the blockchain. The conditions of the c
 ### Transactions
 
 A transaction is an instruction from a user containing information used to change the state of the blockchain. Transactions are bundled into blocks and added to a distributed and immutable ledger in a sequential manner across multiple [shards](sharding.md) in PBC.
-On PBC there is one type of transaction existing and it is used to interact with a contract. All transactions include an RPC byte stream, the interpretation of which is up to the specific contract. The transaction can use three different methods of interactione: `onCreate`, `onInvoke` and `onDestroy`. These methods comprise the contract lifecycle.
+On PBC there is one type of transaction existing and it is used to interact with a contract. All transactions include a RPC byte stream, the interpretation of which is up to the specific contract.
 
 Each transaction defines how long into the future it is valid and what the cost is. A hash of the transaction and the signer’s nonce is then signed by the account holder using his/her private key. This signature is used to authenticate the signer on the blockchain. If the signing key does not have a corresponding account, the transaction is rejected.
 
