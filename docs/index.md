@@ -1,3 +1,6 @@
+---
+hide: navigation
+---
 <h1 id="HideNav"></h1>
 
 <a href="">
