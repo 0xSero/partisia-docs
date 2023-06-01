@@ -26,7 +26,7 @@ To fill out the config.json for a block producing node you need to add the follo
 - Finalization privateKey   
 - IP address of the server hosting your node (You get this from your VPS service provider)   
 - Ethereum and Polygon API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.
-- Ip and network public key of at least one other producer on the format 'networkPublicKey:ip:port'. The location of other known producers should be obtained by reaching out to the community.
+- Ip and network public key of at least one other producer on the format 'networkPublicKey:ip:port', e.g. '02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999'. The location of other known producers should be obtained by reaching out to the community.
 
 Go to your VPS and open `config.json` in `nano`:
 
