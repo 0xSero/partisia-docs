@@ -2,6 +2,18 @@
 
 Gas pricing plays a crucial role in the Partisia blockchain ecosystem, aiming to assist developers in creating and deploying smart contracts successfully. Partisia's gas pricing mechanism ensures predictability of gas costs for transactions, even as the amount of data handled by the contract grows. This predictability empowers developers to estimate and manage the computational resources required for their smart contract operations effectively.
 
+## The cost for using the blockchain
+
+Gas units are pegged to the USD. The fixed ratio is 100,000 gas units to 1 USD.
+
+The price for different services on the blockchain has been chosen to roughly match the following prices in USD:
+
+**Basic fees:**
+
+- Network fee: 5 USD cents/kb.
+- CPU fee: 5 USD cents per 1000 instructions.
+- Storage fee: 1 USD cent/kb per year.
+
 ## Calculation of Gas Cost for a Transaction:
 The gas cost for a transaction in Partisia blockchain is determined by considering three main factors: network, storage, and CPU.
 
