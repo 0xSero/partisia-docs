@@ -8,25 +8,6 @@ stages:
 - build
 - deploy
 
-prepare-zip:
-  image: registry.gitlab.com/partisia/dockerimages/rust:latest
-  stage: prepare
-  only:
-    refs:
-    - main
-    changes:
-    - contract-examples-version.txt
-  script:
-  - ./build-zip.sh
-
-prepare-zip-dev:
-  image: registry.gitlab.com/partisia/dockerimages/rust:latest
-  stage: prepare
-  except:
-  - main
-  script:
-  - ./build-zip.sh
-
 build-site:
   stage: build
   script:
@@ -36,12 +17,12 @@ build-site:
     - public
 
 pages:
-  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  image: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
   stage: deploy
   dependencies:
   - build-site
   script:
-  - ./replace-zip-version.sh
+    - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   only:
   - main
   artifacts:
@@ -49,12 +30,11 @@ pages:
     - public
 
 pages-dev:
-  image: registry.gitlab.com/partisia/dockerimages/rust:latest
+  image: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
   stage: deploy
   dependencies:
   - build-site
   script:
-  - ./replace-zip-version.sh
   - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   except:
   - main
