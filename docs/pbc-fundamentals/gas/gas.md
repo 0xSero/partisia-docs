@@ -32,6 +32,7 @@ The CPU cost is a crucial aspect of gas pricing and is divided into three distin
 
 **Serialize State:** After the work is completed, the contract state is serialized back into a format suitable for storage on the blockchain. This step ensures that the updated state can be stored and accessed efficiently. The gas cost associated with serialization depends on the size and complexity of the updated contract state.
 
+
 ## Impact of Contract State Size on CPU Cost:
 The size of the contract state directly affects the CPU cost, primarily due to the serialization and deserialization processes. As the contract state grows larger, the gas cost for both serialization and deserialization increases. This is because larger state sizes require more computational resources to transform the state between its serialized and deserialized representations.
 
