@@ -1,12 +1,12 @@
 # Gas pricing 
 
-Gas pricing plays a crucial role in the Partisia blockchain ecosystem, aiming to assist developers in creating and deploying smart contracts successfully. Partisia's gas pricing mechanism ensures predictability of gas costs for transactions, even as the amount of data handled by the contract grows. This predictability empowers developers to estimate and manage the computational resources required for their smart contract operations effectively.
+Gas pricing plays a crucial role in the Partisia blockchain ecosystem, aiming to assist developers in creating and deploying smart contracts successfully. Partisia gas pricing mechanism ensures predictability of gas costs for transactions, even as the amount of data handled by the contract grows. This predictability empowers developers to estimate and manage the computational resources required for their smart contract operations effectively.
 
 ## The cost for using the blockchain
 
 Gas units are pegged to the USD. The fixed ratio is 100,000 gas units to 1 USD.
 
-The price for different services on the blockchain has been chosen to roughly match the following prices in USD:
+The price for different services on the blockchain has been decided in [the yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)(Page 16) to tentatively match the following prices in USD:
 
 **Basic fees:**
 
@@ -43,6 +43,6 @@ To mitigate the impact of growing serialization and deserialization costs as the
 
 **State Segmentation:** If the contract's state can be divided into distinct segments, developers can selectively deserialize and process only the necessary parts of the state. This approach can reduce the computational resources required for state manipulation and minimize serialization and deserialization costs.
 
-**Off-chain Processing:** Certain operations or computations that don't require immediate on-chain execution can be offloaded to off-chain systems or sidechains. By performing these operations off-chain and updating the contract state with the final results, developers can minimize the serialization and deserialization costs incurred on the main blockchain.
+**Off-chain Processing:** Certain operations or computations that don't require immediate on-chain execution can be offloaded to off-chain systems or side-chains. By performing these operations off-chain and updating the contract state with the final results, developers can minimize the serialization and deserialization costs incurred on the main blockchain.
 
 By considering the above gas pricing properties, Partisia blockchain empowers developers to estimate and manage the gas costs associated with smart contract transactions. This predictability facilitates successful deployment of smart contracts, even as the data handled by the contract grows, promoting a more
