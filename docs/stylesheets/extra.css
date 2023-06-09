@@ -301,6 +301,17 @@ code {
     margin-left: 0%;
   }
 }
+@media (max-width: 570px) {
+  .front-page-pictures-right {
+  margin-right: 0%;
+  float: none;
+  }
+.front-page-pictures-left {
+  margin-left: 0%;
+  margin-right: 0%;
+  float: none;
+  }
+}
 .md-sidebar--secondary{
 margin-right: 15%;
 }
@@ -590,6 +601,22 @@ nav.md-nav ul.md-nav__list {
 .front-page-pictures-right {
   margin-right: 22.5%;
   float: right;
+}
+@media (max-width: 570px) {
+.front-page-pictures {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2%;
+}
+  .front-page-pictures-right {
+  margin-right: 0%;
+  float: none;
+  }
+.front-page-pictures-left {
+  margin-left: 0%;
+  margin-right: 0%;
+  float: none;
+  }
 }
 
 label {
