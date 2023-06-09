@@ -161,9 +161,10 @@ with the following functions, where divisions use integer math (rounding down)
 amountPerBatch(v) = v.tokens / (v.releaseDuration / v.releaseInterval )
 batchesReleased(v) = max( 0,  effectiveProductionTime(v) - v.tokenGenerationEvent ) / v.releaseInterval 
 effectiveProductionTime(v) = 
-    blockProductionTime                                                                                    if p.releaseDuration==62899200000 and p.releaseInterval==7862400000
+    blockProductionTime                                                                                    
+    if p.releaseDuration==62899200000 and p.releaseInterval==7862400000
     max( min( 1684540800000, blockProductionTime), blockProductionTime - (1747699200000 - 1684540800000))  otherwise 
-````
+```
 ### Locked
 
 The number of MPC tokens that are currently locked inside an unlocking schedule.
