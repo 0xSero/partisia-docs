@@ -165,6 +165,7 @@ effectiveProductionTime(v) =
     if p.releaseDuration==62899200000 and p.releaseInterval==7862400000
     max( min( 1684540800000, blockProductionTime), blockProductionTime - (1747699200000 - 1684540800000))  otherwise 
 ```
+
 ### Locked
 
 The number of MPC tokens that are currently locked inside an unlocking schedule.
