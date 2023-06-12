@@ -19,4 +19,5 @@ decimals: u8
 
 #### References:
 https://ethereum.org/en/developers/docs/standards/tokens/erc-20/
+
 https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/token
