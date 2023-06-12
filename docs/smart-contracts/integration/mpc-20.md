@@ -16,6 +16,7 @@ symbol: String
 decimals: u8
 ```
 
+You can dive into our [token example contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/token) to explore specifically how this standard is used.
 
 #### References:
 https://ethereum.org/en/developers/docs/standards/tokens/erc-20/
