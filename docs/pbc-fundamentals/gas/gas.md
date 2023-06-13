@@ -4,7 +4,7 @@ Gas pricing plays a crucial role in the Partisia blockchain ecosystem, aiming to
 
 ## The cost for using the blockchain
 
-Gas units are pegged to the USD. The fixed ratio is 100,000 gas units to 1 USD.
+Gas on Partisia Blockchain is fixed, you pay for what you use. Gas units are pegged to the USD. The fixed ratio is 100,000 gas units to 1 USD.
 
 The price for different services on the blockchain has been chosen to roughly match the following prices in USD:
 
