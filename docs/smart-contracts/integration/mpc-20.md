@@ -1,5 +1,7 @@
 # MPC-20 Token Contract
 
+A token is a standardized digital asset on the Partisia blockchain, the token standard is inspired from the guidelines outlined in the [Ethereum Improvement Proposal (EIP) 20](https://eips.ethereum.org/EIPS/eip-20).
+
 A contract is detected as a valid Token Contract if:
 The following actions exists where names and types match exactly:
 ```
