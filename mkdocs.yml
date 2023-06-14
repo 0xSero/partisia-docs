@@ -26,6 +26,10 @@ nav:
           - smart-contracts/zk-rust-language-zkrust.md
           - smart-contracts/zk-rust-reference.md
           - smart-contracts/zk-language-features.md
+      - Integration:
+          - smart-contracts/integration/introduction-to-standard-contract-interfaces.md
+          - smart-contracts/integration/mpc-20-token-contract.md
+          - smart-contracts/integration/mpc-721-nft-contract.md
       - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
       - smart-contracts/development-faq.md
   - Node Operations:
