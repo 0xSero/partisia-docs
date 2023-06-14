@@ -1,6 +1,6 @@
 # Introduction to Standard Formats
 
-Welcome to Partisia Blockchain's collection of standard formats for smart contracts! We provide standardized formats that enable seamless integration and compatibility with existing decentralized applications (DApps) and the broader blockchain ecosystem. Our standard formats ensure interoperability and simplify the development process for different needs, such as token contracts and non-fungible token (NFT) contracts.
+Welcome to Partisia Blockchain's collection of standard formats for smart contracts! We provide standardized formats that enable seamless integration and compatibility with existing decentralized applications (DApps) and the broader blockchain ecosystem. Our standard formats ensure interoperability and simplify the development process for different needs.
 
 ## Benefits of Standard Formats
 
@@ -18,7 +18,7 @@ Working with standard formats offers several benefits:
 
 To work with Partisia Blockchain's standard formats, follow these general steps:
 
-1. **Choose the Appropriate Format:** Determine whether your use case requires a token contract or an NFT contract. Select the standard format that aligns with your project's requirements.
+1. **Choose the Appropriate Format:** Determine whether your use case requires a token contract or an NFT contract. Select the standard format that aligns with your project's requirements. We generally recommend you look into our [example contracts](../smart-contract-examples.md) to see best practice or start from there with your goal in mind. The specific standards links to an example that showcases the use case.
 
 2. **Understand the Standard:** Familiarize yourself with the specific standard by referring to the relevant documentation, such as [MPC-20](mpc-20.md) for token contracts or [MPC-721](mpc-721.md) for NFT contracts. These standards outline the required actions, state fields, and interfaces that your contract should implement.
 
