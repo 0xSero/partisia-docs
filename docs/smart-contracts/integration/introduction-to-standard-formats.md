@@ -28,6 +28,6 @@ To work with Partisia Blockchain's standard formats, follow these general steps:
 
 5. **Integrate and Interact:** After deploying your contract, integrate it with other applications, services, or platforms by following the standard interfaces and protocols. This allows your tokens or NFTs to be traded, used in applications, or accessed by users within the blockchain ecosystem.
 
-By following these steps and leveraging Partisia Blockchain's standard formats, you can create robust and interoperable smart contracts that align with established standards.
+By following these steps and leveraging Partisia Blockchain's standard formats, you can create robust and interoperable smart contracts that align with established standards. Remember keeping the standard makes your contract useful for all on the blockchain.
 
 Start exploring our standard formats and unleash the full potential of your decentralized applications!
