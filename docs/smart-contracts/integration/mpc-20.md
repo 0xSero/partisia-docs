@@ -1,6 +1,6 @@
 # MPC-20 Token Contract
 
-A token is a standardized digital asset on the Partisia blockchain, the token standard is inspired from the guidelines outlined in the [Ethereum Improvement Proposal (EIP) 20](https://eips.ethereum.org/EIPS/eip-20).
+A token is a standardized digital asset on the Partisia blockchain, the token standard is inspired from the guidelines outlined in the [Ethereum Improvement Proposal (EIP) 20](https://eips.ethereum.org/EIPS/eip-20). The token standard provides basic functionality to transfer tokens as well as approve the transfer of the token. 
 
 A contract is detected as a valid Token Contract if:
 The following actions exists where names and types match exactly:
@@ -18,7 +18,7 @@ symbol: String
 decimals: u8
 ```
 
-You can dive into our [token example contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/token) to explore specifically how this standard is used.
+You can dive into our [token example contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/token) to explore this standard.
 
 #### References:
 [https://ethereum.org/en/developers/docs/standards/tokens/erc-20/](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)
