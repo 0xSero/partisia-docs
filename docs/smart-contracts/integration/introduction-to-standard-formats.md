@@ -1,10 +1,6 @@
 # Introduction to Standard Formats
 
-Welcome to our collection of standard formats for smart contracts! We provide standardized formats that enable seamless integration and compatibility with existing decentralized applications (DApps) and the broader blockchain ecosystem. Our standard formats ensure interoperability and simplify the development process for different needs eg: token contracts and non-fungible token (NFT) contracts.
-
-## What are Standard Formats?
-
-Standard formats are predefined contract structures that follow widely recognized token and NFT standards. These formats establish a common set of rules and interfaces, allowing developers to create smart contracts that work seamlessly with other applications and platforms in the blockchain ecosystem. By adhering to these standards, you can ensure that your contracts are compatible with various wallets, exchanges, and other blockchain services.
+Welcome to Partisia Blockchain's collection of standard formats for smart contracts! We provide standardized formats that enable seamless integration and compatibility with existing decentralized applications (DApps) and the broader blockchain ecosystem. Our standard formats ensure interoperability and simplify the development process for different needs, such as token contracts and non-fungible token (NFT) contracts.
 
 ## Benefits of Standard Formats
 
@@ -20,7 +16,7 @@ Working with standard formats offers several benefits:
 
 ## How to Work with Standard Formats
 
-To work with our standard formats, follow these general steps:
+To work with Partisia Blockchain's standard formats, follow these general steps:
 
 1. **Choose the Appropriate Format:** Determine whether your use case requires a token contract or an NFT contract. Select the standard format that aligns with your project's requirements.
 
@@ -32,6 +28,6 @@ To work with our standard formats, follow these general steps:
 
 5. **Integrate and Interact:** After deploying your contract, integrate it with other applications, services, or platforms by following the standard interfaces and protocols. This allows your tokens or NFTs to be traded, used in applications, or accessed by users within the blockchain ecosystem.
 
-By following these steps and leveraging our standard formats, you can create robust and interoperable smart contracts that align with established standards.
+By following these steps and leveraging Partisia Blockchain's standard formats, you can create robust and interoperable smart contracts that align with established standards.
 
 Start exploring our standard formats and unleash the full potential of your decentralized applications!
