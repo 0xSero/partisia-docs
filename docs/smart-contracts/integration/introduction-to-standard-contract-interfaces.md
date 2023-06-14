@@ -18,7 +18,7 @@ Working with standard contract interfaces offers several benefits:
 
 To work with Partisia Blockchain's standard contract interfaces, follow these general steps:
 
-1. **Choose the Appropriate interface:** Determine whether your use case requires a standard contract, e.g. token contract or the NFT contract. Select the standard contract interface that aligns with your project's requirements. The best practice is to look into Partisia Blockchains [example contracts](../smart-contract-examples.md) and start from there with your goal in mind. The specific standards links to an example that showcases the use case of any on the standards.
+1. **Choose the Appropriate interface:** Determine whether your use case requires a standard contract, e.g. token contract or the NFT contract. Select the standard contract interface that aligns with your project's requirements. The best practice is to look into Partisia Blockchains [example contracts](../smart-contract-examples.md) and start from there with your goal in mind. The specific standards links to an example that showcases the use case of any on the standards. Ready to use and deploy immediately if it fits your narrative already.
 
 2. **Understand the Standard:** Familiarize yourself with the specific standard by referring to the relevant documentation, such as [MPC-20](mpc-20-token-contract.md) for token contracts or [MPC-721](mpc-721-nft-contract.md) for NFT contracts. These standards outline the required actions, state fields, and interfaces that your contract should implement.
 
