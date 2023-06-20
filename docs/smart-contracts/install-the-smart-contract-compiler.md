@@ -5,8 +5,10 @@
 To develop and compile contracts for the Partisia Blockchain, you need to install Rust.
 To install Rust for you platform follow the instructions on <https://rustup.rs/>.
 
-The newest version of Rust comes with a wasm target preinstalled.
-If you run an older version the target needs to be added manually, by running:
+As of 01/06/2023 our build tool partisia-contract can only support up to rust version 1.69.0
+We therefore recommend you using the followuing rustup command: ```rustup install 1.69.0``` or change your rust version to default to this version using this command: ```rustup default 1.69```
+
+If you run an older version of rust the target needs to be added manually, by running:
 ```bash
 rustup target add wasm32-unknown-unknown
 ```
@@ -17,13 +19,14 @@ If you need to develop zero-knowledge contracts then you will also need to insta
 
 
 If Working from a Windows machine you must [get Visual Studio with C++  build tools](https://visualstudio.microsoft.com/downloads/) - In Visual Studio Installer choose *Desktop development with C++*.
+
 * We recommend you make sure these optionals are marked:
-  * MSVC x64/x86 build tools
-  * Windows 11 SDK 
-  * C++ CMake tools for Windows
-  * Testing tools core features 
-  * Build Tools
-  * C++ AddressSanitizer
+    * MSVC x64/x86 build tools
+    * Windows 11 SDK 
+    * C++ CMake tools for Windows
+    * Testing tools core features 
+    * Build Tools
+    * C++ AddressSanitizer
 
 ### 2) Installing the cargo `partisia-contract` command
 
