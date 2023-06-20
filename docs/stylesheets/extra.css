@@ -578,17 +578,32 @@ nav.md-nav ul.md-nav__list {
 }
 
 .front-page-pictures-wrapper{
-margin-left:27%;
+    text-align:center;
 }
 .front-page-text-wrapper{
-margin-left: 29%;
-margin-right: 29%;
+margin-left: 25%;
+margin-right: 25%;
 }
 
-.front-page-pictures-top {
-    margin-top: 5%;
-    margin-right: 2%;
-    width:15%;
+.front-page-hover-wrap {
+    position: relative;
+    display: inline-block;
+}
+.front-page-pictures-top .front-page-hover-wrap{
+    width: 150%;
+    height: 150%;
+}
+
+.front-page-hover-wrap:hover .front-page-pictures-hover{
+    display: inline;
+}
+
+.front-page-pictures-hover {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
 }
 
 .front-page-pictures-right {
