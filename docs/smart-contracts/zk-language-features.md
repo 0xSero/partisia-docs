@@ -4,15 +4,6 @@
 This table tracks feature availability, including feature comparison with [the main Rust
 project](https://www.rust-lang.org/), and some ZkRust specific features mixed in. This is not a roadmap.
 
-Note: Due to the nature of Partisia Blockchain, it might take a while from when
-a feature is marked as implemented to it being available for usage. The
-steps required are roughly as follows:
-
-1. Implementation in closed source.
-2. Open-sourcing.
-3. Deployment to Testnet.
-4. Vote and Deployment to Mainnet.
-
 Legend: ✅ Supported, ✨ Supported and distinct from Rust, ❌ Unsupported
 
 | Feature        | Status   | Likelyhood of implementation |
@@ -27,9 +18,9 @@ Legend: ✅ Supported, ✨ Supported and distinct from Rust, ❌ Unsupported
 | `continue`, `break`        | ✅ |    |
 | Type aliases               | ✅ |    |
 | Generalized `for`-in-iterator | ✅ | |
-| Assigning to struct fields | ✅ | [Compiler version 3.44.0+](https://gitlab.com/partisiablockchain/language/zk-compiler/-/commits/main) |
-| `fn` Function declaration  | ✅ | [Compiler version 3.75.0+](https://gitlab.com/partisiablockchain/language/zk-compiler/-/commits/main), [Real Wasm Binder version 3.69.0+](https://gitlab.com/partisiablockchain/language/real-wasm-binder/-/commits/main) |
-| Arrays                     | ✅ | [Compiler version 3.78.0+](https://gitlab.com/partisiablockchain/language/zk-compiler/-/commits/main) |
+| Assigning to struct fields | ✅ |  |
+| `fn` Function declaration  | ✅ |  |
+| Arrays                     | ✅ | |
 | General derive traits      | ❌ | Likely   |
 | `enum`                     | ❌ | Likely   |
 | `const` Constant items     | ❌ | Possibly |
