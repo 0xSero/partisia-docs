@@ -576,16 +576,19 @@ nav.md-nav ul.md-nav__list {
   border-radius: 4px;
   right: 11rem;
 }
-.front-page-pictures {
-  width: 25%;
-  height: 25%;
-  margin-bottom: 5%;
+
+.front-page-pictures-wrapper{
+margin-left:27%;
+}
+.front-page-text-wrapper{
+margin-left: 29%;
+margin-right: 29%;
 }
 
-.front-page-pictures-left {
-  margin-left: 22.5%;
-  margin-right: 5%;
-  float: left;
+.front-page-pictures-top {
+    margin-top: 5%;
+    margin-right: 2%;
+    width:15%;
 }
 
 .front-page-pictures-right {
