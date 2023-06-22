@@ -155,11 +155,17 @@ font-size: .7rem;
 .md-search {
   background-color: #302c60;
   border-radius: 0.2rem;
-  padding: 0;
+  padding: 0rem;
+}
+@media screen and (min-width: 60em){
+.md-search__inner {
+padding: 0!important;
+}
 }
 
 .md-search__form {
   background-color: #302c60;
+  padding: 0rem;
 }
 
 @media (max-width: 1024px) {
@@ -612,6 +618,13 @@ margin-left: 0%;
 .front-page-pictures-wrapper{
     margin-left: 0%;
 }
+.md-sidebar {
+  width: 12rem;
+}
+
+.md-sidebar__scrollwrap {
+  width: 12rem;
+}
 }
 @media (min-width: 700px) and (max-width: 1580px) {
 .front-page-pictures-top, .front-page-pictures-hover {
@@ -629,6 +642,13 @@ margin-left: 2%;
 }
 .front-page-pictures-wrapper{
     margin-left: 0%;
+}
+.md-sidebar {
+  width: 12rem;
+}
+
+.md-sidebar__scrollwrap {
+  width: 12rem;
 }
 }
 
