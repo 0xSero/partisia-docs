@@ -4,10 +4,14 @@ hide: navigation
 
 <div class="front-page-text-wrapper">
 
-<h1 style="font-weight: bold;">Partisia Blockchain <br></br>Documentation</h1>
+<h1 style="font-weight: bold;">Partisia Blockchain Documentation</h1>
 
 Partisia Blockchain is built for trust, transparency, privacy and speed of light finalization. This is our official documentation where we introduce key concepts, fundamental understandings and onboard new external developers into the environment and teach you how to code smart contracts on PBC.
 </div>
+
+<br>
+
+
 
 <div class="front-page-pictures-wrapper">
     <div class="front-page-hover-wrap">
@@ -34,13 +38,14 @@ Partisia Blockchain is built for trust, transparency, privacy and speed of light
             <img src="assets/categories/node-operations-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover" />
         </a>
     </div>
-</div>
+
 <br>
 <div class="front-page-hover-wrap">
     <a href="get-support-from-pbc-community.html">
         <img src="assets/categories/need-support.svg" alt="Need support?" class="front-page-pictures front-page-pictures-bot" />
     </a>
     <a href="get-support-from-pbc-community.html">
-        <img src="assets/categories/need-support-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover" />
+        <img src="assets/categories/need-support-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover front-page-pictures-bot-hover" />
     </a>
+</div>
 </div>
