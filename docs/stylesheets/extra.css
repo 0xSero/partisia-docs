@@ -66,14 +66,16 @@ a,
 strong {
   font-family: "Montserrat", sans-serif;
 }
+
 h1,
 h2,
 h3,
 h4
  {
   font-family: "Playfair Display";
-  color: #0b073f;
+  color: #0b073f!important;
 }
+
 .md-typeset {
 font-size: .7rem;
 }
@@ -153,6 +155,7 @@ font-size: .7rem;
 .md-search {
   background-color: #302c60;
   border-radius: 0.2rem;
+  padding: 0;
 }
 
 .md-search__form {
@@ -250,7 +253,7 @@ div.embed-video-wrapper {
 
 .md-sidebar {
   padding-top: 0px;
-  width: 12rem;
+  width: 18rem;
   min-height: 100vh !important;
   top: 0 !important;
 }
@@ -263,12 +266,14 @@ div.embed-video-wrapper {
   height: 100% !important;
   /* position: fixed; */
   display: flex;
-  width: 12rem;
+  width: 18rem;
   z-index: 1;
 }
+
 .md-sidebar--primary{
-  margin-left:15%;
+  margin-left:8.5%;
 }
+
 @media screen and (max-width:1219px){
   .md-sidebar--primary{
     margin-left: 0%;
@@ -276,8 +281,13 @@ div.embed-video-wrapper {
 }
 
 .md-sidebar--secondary{
-margin-right: 15%;
+margin-right: 8.5%;
 }
+
+.md-sidebar__inner{
+width: 100%
+}
+
 .md-sidebar--primary .md-sidebar__scrollwrap {
   max-height: 100vh !important;
 }
