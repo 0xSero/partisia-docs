@@ -2,6 +2,64 @@
 
 When developing smart contracts, it is crucial to consider gas usage, which measures the computational cost of executing transactions on a blockchain. Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. Minimizing gas usage is essential to ensure cost-effectiveness and optimal performance. In this article we have collected some of our best tips and strategies for handling gas optimization.
 
+## Working with large amounts of data
+When working with a large amount of data it can quickly grow to cost a lot of gas. Whenever you work with many instructions we recommend you to always use a Vec<> with fix sized elements inside. If you use a struct its the same premis, when having a lot of entries fix sized variables is the way to go. 
+
+Table of fix sized elements
+impl CreateTypeSpec for u8
+source
+impl CreateTypeSpec for u16
+source
+impl CreateTypeSpec for u32
+source
+impl CreateTypeSpec for u64
+source
+impl CreateTypeSpec for u128
+source
+impl CreateTypeSpec for i8
+source
+impl CreateTypeSpec for i16
+source
+impl CreateTypeSpec for i32
+source
+impl CreateTypeSpec for i64
+source
+impl CreateTypeSpec for i128
+source
+impl CreateTypeSpec for String
+source
+impl CreateTypeSpec for bool
+source
+impl CreateTypeSpec for Sbi8
+source
+impl CreateTypeSpec for Sbi16
+source
+impl CreateTypeSpec for Sbi32
+source
+impl CreateTypeSpec for Sbi64
+source
+impl CreateTypeSpec for Sbi128
+source
+impl<T: CreateTypeSpec> CreateTypeSpec for Vec<T>
+source
+impl<T: CreateTypeSpec> CreateTypeSpec for VecDeque<T>
+source
+impl<V: CreateTypeSpec> CreateTypeSpec for BTreeSet<V>
+source
+impl<T: CreateTypeSpec> CreateTypeSpec for Option<T>
+source
+impl<const LEN: usize> CreateTypeSpec for [u8; LEN]
+Implementors
+impl CreateTypeSpec for Address
+impl CreateTypeSpec for Signature
+impl<K: CreateTypeSpec, V: CreateTypeSpec> CreateTypeSpec for SortedVecMap<K, V>
+impl CreateTypeSpec for SecretVarId
+impl CreateTypeSpec for Hash
+impl CreateTypeSpec for PublicKey
+impl CreateTypeSpec for BlsPublicKey
+impl CreateTypeSpec for BlsSignature
+impl CreateTypeSpec for U256
+
 ## Impact of Contract State Size on CPU Cost:
 The size of the contract state directly affects the CPU cost, primarily due to the serialization and deserialization processes. As the contract state grows larger, the gas cost for both serialization and deserialization increases. This is because larger state sizes require more computational resources to transform the state between its serialized and deserialized representations.
 
