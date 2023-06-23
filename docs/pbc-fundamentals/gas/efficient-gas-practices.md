@@ -6,6 +6,11 @@ When developing smart contracts, it is crucial to consider gas usage, which meas
 When working with a large amount of data it can quickly grow to cost a lot of gas. Whenever you work with many instructions we recommend you to always use a Vec<> with fix sized elements inside. If you use a struct its the same premis, when having a lot of entries fix sized variables is the way to go. 
 
 Table of fix sized elements
+
+| Type |  Bit size | Byte size | Number limit |
+| ---            | ---      | ---      |--------------|
+| U8 | 8 | 1 | 0-255        |
+
 impl CreateTypeSpec for u8
 source
 impl CreateTypeSpec for u16
