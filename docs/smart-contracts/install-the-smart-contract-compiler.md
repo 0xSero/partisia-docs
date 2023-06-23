@@ -11,7 +11,7 @@ The build tool partisia-contract works with rust version 1.69.0. Instruct rust t
 ```bash
 rustup install 1.69.0
 rustup default 1.69
-
+```
 The target needs to be added manually, you add the target by running:
 ```bash
 rustup target add wasm32-unknown-unknown
