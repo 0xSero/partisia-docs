@@ -7,7 +7,7 @@ When working with a large amount of data it can quickly grow to cost a lot of ga
 
 Table of fix sized elements
 
-| Type |  Bit size | Byte size | Number limit |
+| Type |  Bit size | Byte size | Number range |
 | ---            | ---      | ---      |--------------|
 | U8 | 8 | 1 | 0-255        |
 
