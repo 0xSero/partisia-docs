@@ -5,22 +5,23 @@ When developing smart contracts, it is crucial to consider gas usage, which meas
 ## Working with large amounts of data
 When working with a large amount of data it can quickly grow to cost a lot of gas. Whenever you work with many instructions we recommend you to always use a Vec<> with fix sized elements inside. If you use a struct its the same premis, when having a lot of entries fix sized variables is the way to go. 
 
-Table of fix sized elements
+### Table of fix sized elements on PBC
 
-| Type                                                                                                                  | Bit size  | Byte size | Number range               |
-|-----------------------------------------------------------------------------------------------------------------------|-----------|-----------|----------------------------|
-| [Address](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/address/struct.Address.html) | 168       | 21        | -                          |
-| [Hash](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/struct.Hash.html)               | 256          | 32        | -                          |
-| bool                                                                                                                  | 8         | 1         | 0 - 1                      |
-| u8                                                                                                                    | 8         | 1         | 0 - 255                    |
-| u16                                                                                                                   | 32        | 4         | 0 - 65,535                 |
-| u32                                                                                                                   | 64        | 8         | 0 - 4,294,967,295          |
-| u64                                                                                                                   | 128       | 16        | 0 - 2e19                   |
-| u128                                                                                                                  | 128       | 16        | $0 -  2^{128}-1$           |
-| i8                                                                                                                    | 8         | 1         | -128 - 127                 |
-| i16                                                                                                                   | 16        | 4         | -32,768 - 32,767           |
-| i32                                                                                                                   | 32        | 8         | -2,147,483,648 - 2,147,483,647 |
-| i64                                                                                                                   | 64        | 16        | -1e19 - 1e19               |
+| Type                                                                                                                  | Bit size  | Byte size | Number range                    |
+|-----------------------------------------------------------------------------------------------------------------------|-----------|-----------|---------------------------------|
+| [Address](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/address/struct.Address.html) | 168       | 21        | -                               |
+| [Hash](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/struct.Hash.html)               | 256          | 32        | -                               |
+| bool                                                                                                                  | 8         | 1         | 0 to 1                          |
+| u8                                                                                                                    | 8         | 1         | 0 to 255                        |
+| u16                                                                                                                   | 32        | 4         | 0 to 65,535                     |
+| u32                                                                                                                   | 64        | 8         | 0 to 4,294,967,295              |
+| u64                                                                                                                   | 128       | 16        | 0 to $2^{64}−1$                 |
+| u128                                                                                                                  | 128       | 16        | 0 to  $2^{128}-1$               |
+| i8                                                                                                                    | 8         | 1         | -128 to 127                     |
+| i16                                                                                                                   | 16        | 4         | -32,768 to 32,767               |
+| i32                                                                                                                   | 32        | 8         | -2,147,483,648 to 2,147,483,647 |
+| i64                                                                                                                   | 64        | 16        | $−2^{63}$ to  $2^{63}-1$        |
+| i128                                                                                                                  | 128       | 16        | $−2^{127}$ to  $2^{127}-1$      |
 
 
 impl CreateTypeSpec for u8
