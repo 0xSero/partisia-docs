@@ -3,7 +3,7 @@
 Gas pricing plays a crucial role in the Partisia blockchain ecosystem, aiming to assist developers in creating and deploying smart contracts successfully. Partisia gas pricing mechanism ensures predictability of gas costs for transactions, even as the amount of data handled by the contract grows. This predictability empowers developers to estimate and manage the computational resources required for their smart contract operations effectively.
 
 ## Calculation of Gas Cost for a Transaction:
-The gas cost for a transaction in Partisia blockchain is determined by considering three main factors: network, storage, and CPU.
+The gas cost for a transaction in Partisia blockchain is determined by considering three main factors: network, [storage](storage-gas-price.md), and CPU. Storage is explained [in this article](storage-gas-price.md)
 
 **Network Cost:** The network cost is associated with the transmission of the transaction across the blockchain network. It takes into account the bandwidth and other networking resources utilized during the transaction's propagation.
 
@@ -31,4 +31,4 @@ The CPU cost is a crucial aspect of gas pricing and is divided into three distin
 **Serialize State:** After the work is completed, the contract state is serialized back into a format suitable for storage on the blockchain. This step ensures that the updated state can be stored and accessed efficiently. The gas cost associated with serialization depends on the size and complexity of the updated contract state.
 
 
-By considering the above gas pricing properties, Partisia blockchain empowers developers to estimate and manage the gas costs associated with smart contract transactions. This predictability facilitates successful deployment of smart contracts, even as the data handled by the contract grows, promoting a more
+By considering the above gas pricing properties, Partisia blockchain empowers developers to estimate and manage the gas costs associated with smart contract transactions. This predictability facilitates successful deployment of smart contracts, even as the data handled by the contract grows. You should visit our article about [efficient gas practices](efficient-gas-practices.md) to understand how to optimize contracts gas usage. 
