@@ -1,3 +1,4 @@
 # Storage gas price
+Storage gas price is its own segment, since the logic behind the gas and verification of the gas price is inherently not tied to any transaction. The storage cost represents the gas required to store data on the blockchain. It includes the cost of writing data to the blockchain's storage and maintaining its integrity over time. Any contract has an account balance that needs to stay positive to ensure that the contract is not deleted when getting a new transaction based on it not having paied its storage gas fees.  
 
-**Storage Cost:** The storage cost represents the gas required to store data on the blockchain. It includes the cost of writing data to the blockchain's storage and maintaining its integrity over time.
+If a contract turns negative on its gas balance. The account management plugin will at some point delete your contract if the balance is not positive or when the contract receives a new transaction the blockchain checks if the balance is negative and if so, the contract will be deleted before the transaction can hit the contract. You can see the exact pricing [here](gas.md#the-cost-for-using-the-blockchain).
