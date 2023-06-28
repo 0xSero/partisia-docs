@@ -83,6 +83,8 @@ theme:
   favicon: assets/pbclogo-with-background.png
   name: material
   custom_dir: overrides
+  font:
+    text: Montserrat
   features:
     - navigation.indexes
 
