@@ -48,4 +48,12 @@ Partisia Blockchain is built for trust, transparency, privacy and speed of light
         <img src="assets/categories/need-support-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover front-page-pictures-bot-hover" />
     </a>
 </div>
+<div class="front-page-hover-wrap">
+    <a href="get-support-from-pbc-community.html">
+        <img src="assets/categories/square-need-support.svg" alt="Need support?" class="front-page-pictures front-page-pictures-square front-page-pictures-top" style="display:none" />
+    </a>
+    <a href="get-support-from-pbc-community.html">
+        <img src="assets/categories/square-need-support-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover front-page-pictures-square-hover front-page-pictures-top"  style="display:none" />
+    </a>
+</div>
 </div>
