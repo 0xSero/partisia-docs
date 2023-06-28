@@ -4,7 +4,7 @@ The price oracles on PBC help to keep the BYOC price up to date by using data fr
 
 ## Price oracle nodes
 
-Each price oracle consist of 3 nodes, every hour every node in the price oracle performs a price check. The node operator is paid a fee for performing this service. If 2/3 nodes in the price oracle agree on the price they report the price. In addition to checking and reporting prices a price oracle node also compares its own checks with the reports of the other price oracles. If it sees a discrepancy in price or price-id the price oracle node can start a dispute. The party found to responsible in a price oracle dispute can have their 5000 MPC slashed. Types of malicious behaviour can include reporting incorrect prices or price ids or incorrect dispute claims against other oracles. 
+Each price oracle consist of at least three nodes. Every hour each node in the price oracle performs a price check. The node operator is paid a reward for performing this service. If three nodes in the price oracle agree on the price they report the price. In addition to checking and reporting prices a price oracle node also compares its own checks with the reports of the other price oracles. If it sees a discrepancy in price the price oracle node starts a dispute. The party found to be responsible in a price oracle dispute will have their 5000 MPC slashed. Types of malicious behavior can include reporting incorrect prices or incorrect dispute claims against other oracle nodes. 
 
 ## How to run a price oracle node 
 
