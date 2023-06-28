@@ -116,7 +116,7 @@ font-size: .7rem;
 .logo-flex {
   display: flex;
   align-items: center;
-  margin-left: 15.5%;
+  margin-left: 9%;
 }
 
 .logo-flex img {
@@ -129,7 +129,7 @@ font-size: .7rem;
   margin-left: 10px;
   font-family: "Montserrat", bold!important;
   padding: 0px;
-  margin-right: 7em;
+  margin-right: 49%;
 }
 
 .icon-flex {
@@ -149,6 +149,7 @@ font-size: .7rem;
 }
 
 .header-link {
+  margin-left: 33%;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -156,10 +157,12 @@ font-size: .7rem;
   background-color: #302c60;
   border-radius: 0.2rem;
   padding: 0rem;
+  margin-left: 9%;
 }
 @media screen and (min-width: 60em){
 .md-search__inner {
 padding: 0!important;
+
 }
 }
 
@@ -280,12 +283,21 @@ div.embed-video-wrapper {
   margin-left:8.5%;
 }
 
-@media screen and (max-width:1580px){
+@media screen and (max-width:1600px){
   .md-sidebar--primary{
     margin-left: 0%;
   }
   .md-sidebar--secondary{
   margin-right: 0%;
+  }
+  .md-search {
+    margin-left: 38%;
+  }
+  .header-link{
+  margin-left: 0%;
+  }
+  .logo-text{
+  margin-right: 21.5%;
   }
 }
 
@@ -631,7 +643,7 @@ margin-left: 0%;
     display:inline-block!important;
 }
 }
-@media (min-width: 800px) and (max-width: 1580px) {
+@media (min-width: 800px) and (max-width: 1600px) {
 .front-page-pictures-top, .front-page-pictures-hover {
   width: 31.5vw;
 }
