@@ -280,9 +280,12 @@ div.embed-video-wrapper {
   margin-left:8.5%;
 }
 
-@media screen and (max-width:1219px){
+@media screen and (max-width:1580px){
   .md-sidebar--primary{
     margin-left: 0%;
+  }
+  .md-sidebar--secondary{
+  margin-right: 0%;
   }
 }
 
