@@ -10,9 +10,9 @@ nav:
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/dictionary.md
       - Gas:
-          - pbc-fundamentals/gas/gas.md
+          - pbc-fundamentals/gas/gas-pricing.md
           - pbc-fundamentals/gas/storage-gas-price.md
-          - pbc-fundamentals/gas/how-to-get-testnet-gas.md
+          - pbc-fundamentals/gas/how-to-get-testnet-gas-pricing.md
           - pbc-fundamentals/gas/efficient-gas-practices.md
           - pbc-fundamentals/gas/contract-to-contract-gas-estimation.md
   - Smart contracts:

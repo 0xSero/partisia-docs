@@ -5,4 +5,4 @@ For contracts on the blockchain, each contract has an associated account balance
 
 
 ### Negative contract gas balance
-If a contract's gas balance becomes negative, certain actions may occur. 1. The account management plugin within the blockchain system may eventually delete the contract if its balance does not stay above a positive value. 2. When a new transaction is received by the contract, the blockchain checks if the gas balance is negative. If it is, the contract will be deleted before the transaction can be processed by the contract. You can see the exact pricing [here](gas.md#the-cost-for-using-the-blockchain). 
+If a contract's gas balance becomes negative, certain actions may occur. 1. The account management plugin within the blockchain system may eventually delete the contract if its balance does not stay above a positive value. 2. When a new transaction is received by the contract, the blockchain checks if the gas balance is negative. If it is, the contract will be deleted before the transaction can be processed by the contract. You can see the exact pricing [here](gas-pricing.md#the-cost-for-using-the-blockchain). 
