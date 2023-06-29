@@ -1,4 +1,14 @@
 # Storage gas price
+
+<div class="dot-navigation">
+    <a class="dot-navigation__item" href="gas-pricing.html"></a>
+    <a class="dot-navigation__item dot-navigation__item--active" href="storage-gas-price.html"></a>
+    <a class="dot-navigation__item" href="how-to-get-testnet-gas-pricing.html"></a>
+    <a class="dot-navigation__item" href="efficient-gas-practices.html"></a>
+    <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
+    <!-- Repeat above for more dots -->
+</div>
+
 Storage gas price is its own segment, since the logic behind the gas and verification of the gas price is inherently not tied to any transaction. When data is stored on a blockchain, it incurs a gas cost. This cost encompasses the gas required for writing the data to the blockchain's storage and ensuring its integrity over time.
 
 For contracts on the blockchain, each contract has an associated account balance. It is essential for this balance to remain positive in order to prevent the contract from being deleted. This balance is used to cover the storage gas fees.
