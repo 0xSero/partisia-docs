@@ -1,4 +1,8 @@
 # Storage gas price
-Storage gas price is its own segment, since the logic behind the gas and verification of the gas price is inherently not tied to any transaction. The storage cost represents the gas required to store data on the blockchain. It includes the cost of writing data to the blockchain's storage and maintaining its integrity over time. Any contract has an account balance that needs to stay positive to ensure that the contract is not deleted when getting a new transaction based on it not having paied its storage gas fees.  
+Storage gas price is its own segment, since the logic behind the gas and verification of the gas price is inherently not tied to any transaction. When data is stored on a blockchain, it incurs a gas cost. This cost encompasses the gas required for writing the data to the blockchain's storage and ensuring its integrity over time.
 
-If a contract turns negative on its gas balance. The account management plugin will at some point delete your contract if the balance is not positive or when the contract receives a new transaction the blockchain checks if the balance is negative and if so, the contract will be deleted before the transaction can hit the contract. You can see the exact pricing [here](gas.md#the-cost-for-using-the-blockchain).
+For contracts on the blockchain, each contract has an associated account balance. It is essential for this balance to remain positive in order to prevent the contract from being deleted. This balance is used to cover the storage gas fees.
+
+
+### Negative contract gas balance
+If a contract's gas balance becomes negative, certain actions may occur. 1. The account management plugin within the blockchain system may eventually delete the contract if its balance does not stay above a positive value. 2. When a new transaction is received by the contract, the blockchain checks if the gas balance is negative. If it is, the contract will be deleted before the transaction can be processed by the contract. You can see the exact pricing [here](gas.md#the-cost-for-using-the-blockchain). 
