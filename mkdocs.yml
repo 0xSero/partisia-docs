@@ -59,19 +59,14 @@ nav:
 
 extra_css:
   - stylesheets/extra.css
-  - stylesheets/katex.min.css
 
 extra_javascript:
   - js/mermaid.min.js
   - js/polyfill.min.js
   - js/extra.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - javascripts/katex.js
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-
 
 markdown_extensions:
+  - pymdownx.caret
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight
