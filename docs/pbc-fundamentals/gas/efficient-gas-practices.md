@@ -24,20 +24,21 @@ When working with a large amount of data it can quickly grow to cost a lot of ga
 | [i128](https://doc.rust-lang.org/stable/std/primitive.i128.html)                                                      | 128       | 16        | $−2^{127}$ to  $2^{127}-1$      |
 
 
-When working with large amounts of data, it is essential to consider the gas costs associated with various data structures. Using Vec<> with fixed-sized elements or structs with fixed-sized variables can significantly reduce gas consumption. 
+When handling large data volumes, it is essential to carefully consider the gas costs associated with different data structures. By leveraging fixed-sized elements in Vec<> or structs, you can minimize gas consumption significantly.
 
 
 ## Impact of Contract State Size on CPU Cost:
-The size of the contract state directly affects the CPU cost, primarily due to the serialization and deserialization processes. As the contract state grows larger, the gas cost for both serialization and deserialization increases. This is because larger state sizes require more computational resources to transform the state between its serialized and deserialized representations.
+The size of the contract state directly affects the CPU cost, particularly during serialization and deserialization processes. As the contract state grows larger, both serialization and deserialization require more computational resources, resulting in increased gas costs. It is crucial to be aware of this impact and optimize gas usage accordingly when creating smart contracts.
 
 ### CPU Cost and its Operation:
-The CPU cost is a crucial aspect of gas pricing and is divided into three distinct stages:
+The CPU cost plays a vital role in gas pricing and is divided into three key stages, where implementing the best approach to handle CPU can have a significant impact on gas efficiency:
 
-**Deserialize State:** Before executing a smart contract, the contract's current state needs to be deserialized. This process involves converting the serialized contract state into a data structure that can be manipulated and processed by the blockchain's virtual machine. The gas cost associated with this step depends on the size and complexity of the contract state or transaction.
+**1. Deserialize State:** Before executing a smart contract, the contract's current state needs to be deserialized. This process involves converting the serialized contract state into a data structure that can be manipulated and processed by the blockchain's virtual machine. The gas cost associated with this step depends on the size and complexity of the contract state or transaction.
 
-**Perform Work:** Once the contract state is deserialized, the required computations or work specified by the smart contract are performed. This work may involve various operations such as calculations, data manipulation, and interactions with other contracts or external systems. The gas cost for this stage depends on the complexity and intensity of the computations involved.
+**2. Perform Work:** Once the contract state is deserialized, the required computations or work specified by the smart contract are performed. This work may involve various operations such as calculations, data manipulation, and interactions with other contracts or external systems. The gas cost for this stage depends on the complexity and intensity of the computations involved.
 
-**Serialize State:** After the work is completed, the contract state is serialized back into a format suitable for storage on the blockchain. The gas cost associated with serialization depends on the size and complexity of the updated contract state.
+**3. Serialize State:** After the work is completed, the contract state is serialized back into a format suitable for storage on the blockchain. The gas cost associated with serialization depends on the size and complexity of the updated contract state.
 
+It is essential for developers to consider gas consumption during the architecture and design of contracts. By implementing these strategies, optimizing gas usage and improving the efficiency of smart contracts can be achieved.
 
-Remember to think about gas consumption when doing architecture and design on your contracts as a developer it is beneficial to start employing these strategies, to optimize gas usage and improve the efficiency of smart contracts.
+In conclusion, efficient gas practices involve minimizing gas usage when working with large data, optimizing CPU costs based on contract state size, and employing strategies to enhance gas efficiency. By incorporating these practices, developers can create smart contracts that are more cost-effective and performant on the blockchain.
