@@ -1,5 +1,5 @@
 
-# ZK language features
+# ZK Rust Language Features
 
 This table tracks feature availability, including feature comparison with [the main Rust
 project](https://www.rust-lang.org/), and some ZkRust specific features mixed in. This is not a roadmap.
@@ -18,11 +18,11 @@ Legend: ✅ Supported, ✨ Supported and distinct from Rust, ❌ Unsupported
 | `continue`, `break`        | ✅ |    |
 | Type aliases               | ✅ |    |
 | Generalized `for`-in-iterator | ✅ | |
-| Arrays                     | ❌ | Very Likely   |
-| General derive traits      | ❌ | Very Likely   |
+| Assigning to struct fields | ✅ |  |
+| `fn` Function declaration  | ✅ |  |
+| Arrays                     | ✅ | |
+| General derive traits      | ❌ | Likely   |
 | `enum`                     | ❌ | Likely   |
-| `fn` Function declaration  | ❌ | Likely   |
-| Assigning to struct fields | ❌ | Likely   |
 | `const` Constant items     | ❌ | Possibly |
 | Closure expressions        | ❌ | Possibly |
 | Constant generics          | ❌ | Possibly |

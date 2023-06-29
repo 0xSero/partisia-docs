@@ -33,9 +33,10 @@ Staking means that the node operator buy the required stake of MPC Tokens. Servi
 The current stakes are:
 
 - Reader Node is free, since it does not perform paid services.
-- Baker Node 25,000 MPC Tokens.
-- ZK Node 75,000 MPC Tokens.
-- Oracle Node 250,000 MPC Tokens.
+- Baker Node 25,000 MPC Tokens
+- ZK Node 75,000 MPC Tokens
+- Oracle Node 250,000 MPC Tokens
+- Price Oracle Node 5,000 MPC Tokens
 
 **The Machine**  
 In addition to the stake you need a computer to run the node. Most node operators rent a server, but some keep the machine running the node in their own home. Machine Specs are in the [section](../node-operations/recommended-hardware-and-software.md) about running the node.
