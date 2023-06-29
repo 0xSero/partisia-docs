@@ -580,6 +580,12 @@ nav.md-nav ul.md-nav__list {
   border-radius: 4px;
   right: 11rem;
 }
+mjx-container {
+  display: inline-grid;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
 
 .front-page-pictures-wrapper{
     text-align:center;
