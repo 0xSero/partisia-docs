@@ -1,5 +1,14 @@
 # Gas Pricing
 
+<div class="dot-navigation">
+    <a class="dot-navigation__item dot-navigation__item--active" href="gas-pricing.html"></a>
+    <a class="dot-navigation__item" href="storage-gas-price.html"></a>
+    <a class="dot-navigation__item" href="how-to-get-testnet-gas-pricing.html"></a>
+    <a class="dot-navigation__item" href="efficient-gas-practices.html"></a>
+    <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
+    <!-- Repeat above for more dots -->
+</div>
+
 Gas pricing plays a crucial role in the Partisia blockchain ecosystem, aiming to assist developers in creating and deploying smart contracts successfully. Partisia gas pricing mechanism ensures predictability of gas costs for transactions, even as the amount of data handled by the contract grows. This predictability empowers developers to estimate and manage the computational resources required for their smart contract operations effectively and help them not have any unintended consequences when working with their smart contracts on the Partisia blockchain.
 
 ## Calculation of Gas Cost for a Transaction:

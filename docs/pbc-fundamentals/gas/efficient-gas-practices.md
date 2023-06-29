@@ -1,5 +1,14 @@
 # Efficient gas practices
 
+<div class="dot-navigation">
+    <a class="dot-navigation__item" href="gas-pricing.html"></a>
+    <a class="dot-navigation__item" href="storage-gas-price.html"></a>
+    <a class="dot-navigation__item" href="how-to-get-testnet-gas-pricing.html"></a>
+    <a class="dot-navigation__item dot-navigation__item--active" href="efficient-gas-practices.html"></a>
+    <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
+    <!-- Repeat above for more dots -->
+</div>
+
 When developing smart contracts, it is crucial to consider gas usage, which measures the computational cost of executing transactions on a blockchain. Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. Minimizing gas usage is essential to ensure cost-effectiveness and optimal performance. In this article we have collected our best tips and strategies for handling gas optimization.
 
 ## Working with large amounts of data
