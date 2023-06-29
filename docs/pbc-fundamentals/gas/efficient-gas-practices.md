@@ -2,10 +2,7 @@
 
 When developing smart contracts, it is crucial to consider gas usage, which measures the computational cost of executing transactions on a blockchain. Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. Minimizing gas usage is essential to ensure cost-effectiveness and optimal performance. In this article we have collected our best tips and strategies for handling gas optimization.
 
-## Impact of Contract State Size on CPU Cost:
-The size of the contract state directly affects the CPU cost, primarily due to the serialization and deserialization processes. As the contract state grows larger, the gas cost for both serialization and deserialization increases. This is because larger state sizes require more computational resources to transform the state between its serialized and deserialized representations.
-
-### Working with large amounts of data
+## Working with large amounts of data
 When working with a large amount of data it can quickly grow to cost a lot of gas. Whenever you work with many instructions we recommend you to always use a Vec<> with fix sized elements inside. If you use a struct its the same premise, when having a lot of entries, fix sized variables will save you the most amount of gas when used as part of either vec maps or structs..  
 
 ### Table of fix sized elements on PBC
@@ -27,4 +24,20 @@ When working with a large amount of data it can quickly grow to cost a lot of ga
 | [i128](https://doc.rust-lang.org/stable/std/primitive.i128.html)                                                      | 128       | 16        | $−2^{127}$ to  $2^{127}-1$      |
 
 
-When working with large amounts of data, it is essential to consider the gas costs associated with various data structures. Using Vec<> with fixed-sized elements or structs with fixed-sized variables can significantly reduce gas consumption. By employing these strategies, developers can optimize gas usage and improve the efficiency of their smart contracts. The best way to exactly understand how much gas your contract is using is testing your contract on the testnet and verify its cost on the blockchain. By implementing these strategies, developers can enhance gas optimization and improve the efficiency of their smart contracts.
+When working with large amounts of data, it is essential to consider the gas costs associated with various data structures. Using Vec<> with fixed-sized elements or structs with fixed-sized variables can significantly reduce gas consumption. 
+
+
+## Impact of Contract State Size on CPU Cost:
+The size of the contract state directly affects the CPU cost, primarily due to the serialization and deserialization processes. As the contract state grows larger, the gas cost for both serialization and deserialization increases. This is because larger state sizes require more computational resources to transform the state between its serialized and deserialized representations.
+
+### CPU Cost and its Operation:
+The CPU cost is a crucial aspect of gas pricing and is divided into three distinct stages:
+
+**Deserialize State:** Before executing a smart contract, the contract's current state needs to be deserialized. This process involves converting the serialized contract state into a data structure that can be manipulated and processed by the blockchain's virtual machine. The gas cost associated with this step depends on the size and complexity of the contract state or transaction.
+
+**Perform Work:** Once the contract state is deserialized, the required computations or work specified by the smart contract are performed. This work may involve various operations such as calculations, data manipulation, and interactions with other contracts or external systems. The gas cost for this stage depends on the complexity and intensity of the computations involved.
+
+**Serialize State:** After the work is completed, the contract state is serialized back into a format suitable for storage on the blockchain. The gas cost associated with serialization depends on the size and complexity of the updated contract state.
+
+
+Remember to think about gas consumption when doing architecture and design on your contracts as a developer it is beneficial to start employing these strategies, to optimize gas usage and improve the efficiency of smart contracts.

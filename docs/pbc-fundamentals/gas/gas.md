@@ -3,7 +3,7 @@
 Gas pricing plays a crucial role in the Partisia blockchain ecosystem, aiming to assist developers in creating and deploying smart contracts successfully. Partisia gas pricing mechanism ensures predictability of gas costs for transactions, even as the amount of data handled by the contract grows. This predictability empowers developers to estimate and manage the computational resources required for their smart contract operations effectively and help them not have any unintended consequences when working with their smart contracts on the Partisia blockchain.
 
 ## Calculation of Gas Cost for a Transaction:
-The gas cost for a transaction in Partisia blockchain is determined by considering three main factors: network, [storage](storage-gas-price.md), and CPU. Storage is explained [in this article](storage-gas-price.md)
+The gas cost for deploying a contract in Partisia blockchain is determined by considering three main factors: network, CPU and [storage](storage-gas-price.md). Storage is explained [in this article](storage-gas-price.md). 
 
 **Network Cost:** The network cost is associated with the transmission of the transaction across the blockchain network. It takes into account the bandwidth and other networking resources utilized during the transaction's propagation.
 
@@ -20,15 +20,5 @@ The price for different services on the blockchain has been decided in [the yell
 - Network fee: 5 USD cents/kb.
 - CPU fee: 5 USD cents per 1000 instructions.
 - Storage fee: 1 USD cent/kb per year.
-
-## CPU Cost and its Operation:
-The CPU cost is a crucial aspect of gas pricing and is divided into three distinct stages:
-
-**Deserialize State:** Before executing a smart contract, the contract's current state needs to be deserialized. This process involves converting the serialized contract state into a data structure that can be manipulated and processed by the blockchain's virtual machine. The gas cost associated with this step depends on the size and complexity of the contract state.
-
-**Perform Work:** Once the contract state is deserialized, the required computations or work specified by the smart contract are performed. This work may involve various operations such as calculations, data manipulation, and interactions with other contracts or external systems. The gas cost for this stage depends on the complexity and intensity of the computations involved.
-
-**Serialize State:** After the work is completed, the contract state is serialized back into a format suitable for storage on the blockchain. This step ensures that the updated state can be stored and accessed efficiently. The gas cost associated with serialization depends on the size and complexity of the updated contract state.
-
 
 By considering the above gas pricing properties, Partisia blockchain empowers developers to estimate and manage the gas costs associated with smart contract transactions. This predictability facilitates successful deployment of smart contracts, even as the data handled by the contract grows. You should visit our article about [efficient gas practices](efficient-gas-practices.md) to understand how to optimize contracts gas usage. 
