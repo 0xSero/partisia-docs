@@ -19,4 +19,4 @@ To illustrate, let's consider two contracts: Contract A and Contract B. Contract
 
 <img alt="Deposit" style="width: 80%;" src="TxContract-Contract-Gas.png"/>
 
-Another addition to the above example is if contract A expects a response from contract B. Then the total price of the gas for any input becomes a total of three transactions: (tx &rarr; contract A) + (tx &rarr; contract B) + (tx &rarr; response from contract B to contract A).
+Another addition to the above example is if contract A expects a response from contract B. Then the total price of the gas for any input becomes a total of three transactions: (tx &rarr; contract A) + (tx &rarr; contract B) + (tx response from contract B &rarr; contract A).
