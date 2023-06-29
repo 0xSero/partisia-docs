@@ -3,6 +3,7 @@
 <div class="dot-navigation">
     <a class="dot-navigation__item" href="gas-pricing.html"></a>
     <a class="dot-navigation__item dot-navigation__item--active" href="storage-gas-price.html"></a>
+    <a class="dot-navigation__item" href="zk-computation-gas-fees.html"></a>
     <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
     <a class="dot-navigation__item" href="efficient-gas-practices.html"></a>
     <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
