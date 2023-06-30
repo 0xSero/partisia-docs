@@ -21,6 +21,6 @@ It is fundamental for a contract to ensure that it includes enough gas to cover 
 
 To illustrate, let's consider two contracts: Contract A and Contract B. Contract A needs to ensure that enough gas is sent to Contract B. In this case, the total gas cost for the input would be (Tx → Contract A) + (Tx → Contract B).
 
-<img alt="Deposit" style="width: 80%;" src="TxContract-Contract-Gas.png"/>
+<img alt="Deposit" style="width: 80%;" src="txcontract-contract-gas.png"/>
 
 Another addition to the above example is if contract A expects a response from contract B. Then the total price of the gas for any input becomes a total of three transactions: (tx &rarr; contract A) + (tx &rarr; contract B) + (tx response from contract B &rarr; contract A).
