@@ -20,17 +20,6 @@ A deployed ZK contract has a number of ZK computation nodes associated with it.
 
 These nodes each lock an amount of their MPC tokens as collateral for the computation. If any malicious activity by a ZK node is detected the collateral can be taken to punish the malicious ZK node. A user deploying a ZK contract decides the amount of MPC tokens that must be locked as collateral. In the following, these tokens are called locked stakes.
 
-In the ZK computation model, ZK nodes are either computation nodes or preprocessing nodes, such that a ZK contract is associated with both a number of computation nodes and a number of preprocessing nodes. In the current implementation the ZK computation nodes generate their own preprocessing material.
-
-Currently,
-
-* 1 MPC tokens = 40 USD cents
-
-* 1000 gas = 1 USD cent
-
-which means
-
-* 1 MPC token = 40,000 gas
 
 The source for the fees is the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view).
 

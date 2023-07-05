@@ -23,7 +23,7 @@ The cost of bringing your own coin
 
 To make a deposit of ETH you can use the [PBC Token Bridge](https://bridge.mpcexplorer.com).
 
-In broader terms follow these steps: 
+In practice you can follow these steps:
 1. Install the [Partisa Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
 2. Make a [Partisia Account](../pbc-fundamentals/create-an-account.md) with the wallet (or use the one you have already). You can use the Partisia Wallet to make additional accounts.
 3. Install Metamask [app](https://metamask.io/) or [extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn).
