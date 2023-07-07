@@ -12,11 +12,8 @@
 
 To see your testnet gas balance you will need to switch the network, at which your Partisia wallet is pointing to testnet.
 
-There are two ways to get gas on the testnet:
-A) Using a Gas Faucet contract that mints BYOC
-B) using the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/)
-
-### Method A
+To get gas on the testnet we recommend you to do the following: 
+Use our Gas Faucet contract that mints BYOC for you and then keep minting on the mint contract: 
 
 This method requires you to already have an account with a small amount of gas on the testnet. So, you need to be bootstrapped by [either visiting our faucet](https://testnet.mpcfaucet.com/) or by having another user with gas send you some gas using this Gas Faucet contract.
 
@@ -25,10 +22,6 @@ This method requires you to already have an account with a small amount of gas o
 - The contract action takes an account address as receiver of test ETH.
 - By default, the dashboard sets the transaction cost to 100k gas which is excessive for this transaction. The transaction should take approximately 7k-10k gas.
 - Execute the transaction - the specified account should now have gained approximately 1,000,000 gas (1M - TX cost).
-
-### Method B
-
-This mechanism for getting gas is similar to the old testnet and current mainnet (see above). To get [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3)) you need to find a faucet. This can be found using a simple web search. To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/) to get gas on the testnet. The mpc explorer for the testnet can be found [here](https://testnet.mpcexplorer.com/).
 
 ### Test your contract on the testnet
 Remember to use the testnet as it is the best way to exactly understand how much gas your contract is using. By testing your contract on the testnet and verify its cost on the blockchain you can implement exact costs when doing contract-to-contract or system-to-contract transactions. Developers can enhance gas cost with precision by using the testnet to understand exactly what it costs to use the testnet. 

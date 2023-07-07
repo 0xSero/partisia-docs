@@ -38,4 +38,7 @@ You get a confirmation as seen below if the deposit is successful.
 
 The confirmation also includes a link to the [mpc explorer](https://mpcexplorer.com/) where you can see the executed transaction. After the confirmed transfer your gas balance in the wallet should be positive. This means that you can deploy or interact with smart contracts on the blockchain and pay for those interactions with the coins to have sent over. Read more about smart contracts [here](../smart-contracts/what-is-a-smart-contract.md).
 
+### How to test BYOC?
+You need some value from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3)), we recommend you to find a faucet. This can be found using a simple web search. 
 
+To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/) to get gas on the testnet. You can verify that you have test_coins on your account on the testnet after the succesful bridging [here](https://testnet.partisiablockchain.com/info/account) which will end.
