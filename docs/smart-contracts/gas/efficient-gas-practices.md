@@ -52,3 +52,4 @@ The CPU cost plays a vital role in gas pricing and is divided into three key sta
 It is essential for developers to consider gas consumption during the architecture and design of contracts. By implementing these strategies, optimizing gas usage and improving the efficiency of smart contracts can be achieved.
 
 In conclusion, efficient gas practices involve minimizing gas usage when working with large data, optimizing CPU costs based on contract state size, and employing strategies to enhance gas efficiency. By incorporating these practices, developers can create smart contracts that are more cost-effective and performant on the blockchain.
+
