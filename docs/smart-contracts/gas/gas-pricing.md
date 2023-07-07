@@ -10,7 +10,7 @@
     <!-- Repeat above for more dots -->
 </div>
 
-Gas pricing plays a crucial role in the Partisia blockchain ecosystem, aiming to assist developers in creating and deploying smart contracts successfully. Partisia gas pricing mechanism ensures predictability of gas costs for transactions, even as the amount of data handled by the contract grows. This predictability empowers developers to estimate and manage the computational resources required for their smart contract operations effectively and help them not have any unintended consequences when working with their smart contracts on the Partisia blockchain.
+Here, we will explore the factors that determine the gas cost for deploying a contract in the Partisia blockchain. By considering the network, CPU, and storage aspects, developers can effectively estimate and manage the gas costs associated with their smart contract transactions to understand the specifics of gas pricing.
 
 ## Calculation of Gas Cost for a Transaction:
 The gas cost for deploying a contract in Partisia blockchain is determined by considering three main factors: network, CPU and [storage](storage-gas-price.md). Storage is explained [in this article](storage-gas-price.md). 
