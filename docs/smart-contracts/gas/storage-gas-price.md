@@ -14,6 +14,8 @@ When data is stored on a Partisia blockchain, it incurs a running gas cost. This
 
 For contracts on the blockchain, each contract has an associated account balance. It is essential for this balance to remain positive in order to prevent the contract from being deleted. This balance is used to cover the storage gas fees.
 
+**- Storage fee: 1 USD cent/kb per year.**
+
 
 ### Negative contract gas balance
 If a contract's gas balance becomes negative the contract gets deleted.

@@ -29,6 +29,5 @@ The price for different services on the blockchain has been decided in [the yell
 
 - Network fee: 5 USD cents/kb.
 - CPU fee: 5 USD cents per 1000 instructions.
-- Storage fee: 1 USD cent/kb per year.
 
-By considering the above gas pricing properties, Partisia blockchain empowers developers to estimate and manage the gas costs associated with smart contract transactions. This predictability facilitates successful deployment of smart contracts, even as the data handled by the contract grows. You should visit our article about [efficient gas practices](efficient-gas-practices.md) to understand how to optimize contracts gas usage. 
+By considering the above gas pricing properties, Partisia blockchain empowers developers to estimate and manage the gas costs associated with smart contract transactions. You should visit our article about [efficient gas practices](efficient-gas-practices.md) to understand how to optimize contracts gas usage. 
