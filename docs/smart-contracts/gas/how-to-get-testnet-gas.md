@@ -18,7 +18,7 @@ If you do not have any gas yet, we recommend you to visit [our faucet to get the
 To get even more gas you can do the following: 
 - Sign in to the [testnet dashboard](https://testnet.partisiablockchain.com/) (Icon in upper right corner).
 - Follow this [link](https://testnet.partisiablockchain.com/info/contract/02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd) to the Faucet contract
-- The contract action takes an account address as receiver of our test coin. You should use your own public key as the account address. You can find this in info.
+- The contract action takes an account address as receiver of our test coin (A [BYOC](../../pbc-fundamentals/byoc.md) that only exists on the testnet). You should use your own public key as the account address. You can find this in info.
 - By default, the dashboard sets the transaction cost to 100k gas which is excessive for this transaction. The transaction should take approximately 60000 gas.
 - Execute the transaction - the specified account should now have gained approximately 100.000.000 gas (1M - TX cost).
 
