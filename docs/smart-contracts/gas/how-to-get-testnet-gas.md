@@ -9,6 +9,9 @@
     <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
     <!-- Repeat above for more dots -->
 </div>
+When working with smart contracts, the testnet is the best way to test your smart contracts and estimate their gas cost. To test a smart contract you need gas, this article is here to get you started on getting gas. 
+
+We recommend using the testnet through either the [dashboard](https://testnet.partisiablockchain.com/) or the [browser](https://browser.testnet.partisiablockchain.com).
 
 To see your testnet gas balance you will need to switch the network, at which your Partisia wallet is pointing to testnet.
 

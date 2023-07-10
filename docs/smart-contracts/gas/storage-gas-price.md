@@ -9,12 +9,13 @@
     <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
     <!-- Repeat above for more dots -->
 </div>
+!!! info inline end "Storage fee"
+    1 USD cent/kb per year
 
 When data is stored on a Partisia blockchain, it incurs a running gas cost. This cost encompasses the gas required for writing the data to the blockchain's storage and ensuring its integrity over time. Storage gas is inherently not tied to any transaction.
 
 For contracts on the blockchain, each contract has an associated account balance. It is essential for this balance to remain positive in order to prevent the contract from being deleted. This balance is used to cover the storage gas fees.
 
-**- Storage fee: 1 USD cent/kb per year.**
 
 
 ### Negative contract gas balance
