@@ -9,8 +9,10 @@
     <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
     <!-- Repeat above for more dots -->
 </div>
-When working with smart contracts, the testnet is the best way to upload your smart contracts and estimate their gas cost. To test a smart contract you need gas, this article is here to get you started on getting gas on the testnet. 
 
+When working with smart contracts, the testnet is the best way to upload your smart contracts and estimate their gas cost. To test a smart contract you need gas, this article is here to get you started on getting gas on the testnet. By testing your contract on the testnet and verify its cost on the blockchain you can implement exact costs when doing contract-to-contract or system-to-contract transactions. Developers can enhance gas cost with precision by using the testnet to understand exactly what it costs to use the testnet. 
+
+### How to get gas on the testnet
 We recommend using the testnet through either the [dashboard](https://testnet.partisiablockchain.com/) or the [browser](https://browser.testnet.partisiablockchain.com). To see your testnet gas balance you can log into the dashboard or the browser. Under your account you can see how many test_coins you have. 
 
 If you do not have any gas yet, we recommend you to visit [our faucet to get the first amount of test_coins](https://testnet.mpcfaucet.com/)
@@ -22,5 +24,4 @@ To get even more gas you can do the following:
 - By default, the dashboard sets the transaction cost to 100k gas which is excessive for this transaction. The transaction should take approximately 60000 gas.
 - Execute the transaction - the specified account should now have gained approximately 100.000.000 gas (1M - TX cost).
 
-### Test your contract on the testnet
-Remember to use the testnet as it is the best way to exactly understand how much gas your contract is using. By testing your contract on the testnet and verify its cost on the blockchain you can implement exact costs when doing contract-to-contract or system-to-contract transactions. Developers can enhance gas cost with precision by using the testnet to understand exactly what it costs to use the testnet. 
+
