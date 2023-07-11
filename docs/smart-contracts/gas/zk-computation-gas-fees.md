@@ -1,6 +1,7 @@
 # ZK Computation Gas Fees
 
 <div class="dot-navigation">
+    <a class="dot-navigation__item" href="what-is-gas.html"></a>
     <a class="dot-navigation__item" href="gas-pricing.html"></a>
     <a class="dot-navigation__item" href="storage-gas-price.html"></a>
     <a class="dot-navigation__item dot-navigation__item--active" href="zk-computation-gas-fees.html"></a>
