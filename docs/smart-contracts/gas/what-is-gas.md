@@ -10,7 +10,7 @@
     <!-- Repeat above for more dots -->
 </div>
 
-Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. The gas cost for deploying a contract in Partisia blockchain is determined by considering three main factors: network, CPU and [storage](storage-gas-price.md). You can read [the pricing for CPU and network here](gas-pricing.md) and [the pricing for storage here](storage-gas-price.md).
+Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. The gas cost for deploying a contract in Partisia blockchain is determined by considering three main factors: network, CPU and [storage](storage-gas-price.md). You can read [the pricing for CPU and network here](transaction-gas-prices.md) and [the pricing for storage here](storage-gas-price.md).
 
 To be more efficient with gas consumption you can visit [our best practice article](efficient-gas-practices.md) and in general keep in mind to reduce the effort of the cpu and use less network traffic. In general the CPU cost is the most expensive consumer in terms of gas usage compared to network traffic and storage fees. 
 

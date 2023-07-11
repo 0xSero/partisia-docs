@@ -29,7 +29,7 @@ nav:
           - smart-contracts/zk-language-features.md
       - Gas:
           - smart-contracts/gas/what-is-gas.md
-          - smart-contracts/gas/gas-pricing.md
+          - smart-contracts/gas/transaction-gas-prices.md
           - smart-contracts/gas/storage-gas-price.md
           - smart-contracts/gas/zk-computation-gas-fees.md
           - smart-contracts/gas/how-to-get-testnet-gas.md

@@ -1,4 +1,4 @@
-# Gas Pricing
+# Transaction gas prices
 
 <div class="dot-navigation">
     <a class="dot-navigation__item" href="what-is-gas.html"></a>

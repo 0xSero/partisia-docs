@@ -3,10 +3,10 @@ In this article we will explain what byoc is, how to bring your own coins to the
 
 ### What is BYOC and gas
 
-BYOC means bring your own coin. The idea is that you can bring other cryptocurrencies onto PBC. Any coin you bring onto PBC stays as a reference to the coin you brought in. You can convert your BYOC [to gas](../smart-contracts/gas/gas-pricing.md). 
+BYOC means bring your own coin. The idea is that you can bring other cryptocurrencies onto PBC. Any coin you bring onto PBC stays as a reference to the coin you brought in. You can convert your BYOC [to gas](../smart-contracts/gas/transaction-gas-prices.md). 
 You need BYOC to convert to gas to interact with a contract on the blockchain.
 
-BYOC is needed to cover the payment of the node operators which are providing the services enabling the transactions to take place. You pay for interactions with gas that is converted from coins you have brought onto the chain, you can see the explained [gas fees here](../smart-contracts/gas/gas-pricing.md). 
+BYOC is needed to cover the payment of the node operators which are providing the services enabling the transactions to take place. You pay for interactions with gas that is converted from coins you have brought onto the chain, you can see the explained [gas fees here](../smart-contracts/gas/transaction-gas-prices.md). 
 
 ### How does it work
 
