@@ -14,11 +14,11 @@
 When working with smart contracts, the testnet is the best way to upload your smart contracts and estimate their gas cost. To test a smart contract you need gas, this article is here to get you started on getting gas on the testnet. By testing your contract on the testnet and verify its cost on the blockchain you can implement exact costs when doing contract-to-contract or system-to-contract transactions. 
 
 ### How to see your gas balance
-We recommend using the testnet through either the [dashboard](https://testnet.partisiablockchain.com/) or the [browser](https://browser.testnet.partisiablockchain.com). To see your testnet gas balance you can log into the dashboard or the browser. Under your account you can see how many test_coins you have. If you are logged into browser you can simply [click here to see your account balance](https://browser.testnet.partisiablockchain.com/account?tab=byoc).
+We recommend using the testnet through either the [dashboard](https://testnet.partisiablockchain.com/) or the [browser](https://browser.testnet.partisiablockchain.com). To see your testnet gas balance you can log into the dashboard or the browser. Under your account you can see how many TEST_COINs you have. If you are logged into browser you can simply [click here to see your account balance](https://browser.testnet.partisiablockchain.com/account?tab=byoc).
 
 
 ### How to get gas on the testnet
-If you do not have any gas yet, we recommend you to visit [our faucet to get the first amount of test_coins](https://testnet.mpcfaucet.com/)
+If you do not have any gas yet, we recommend you to visit [our faucet to get the first amount of TEST_COINS](https://testnet.mpcfaucet.com/).
 
 To get even more gas you can do the following: 
 - Sign in to the [testnet dashboard](https://testnet.partisiablockchain.com/) (Icon in upper right corner).
