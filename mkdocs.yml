@@ -28,6 +28,7 @@ nav:
           - smart-contracts/zk-rust-reference.md
           - smart-contracts/zk-language-features.md
       - Gas:
+          - smart-contracts/gas/what-is-gas.md
           - smart-contracts/gas/gas-pricing.md
           - smart-contracts/gas/storage-gas-price.md
           - smart-contracts/gas/zk-computation-gas-fees.md
