@@ -1,7 +1,7 @@
 # What is Gas?
 <div class="dot-navigation">
     <a class="dot-navigation__item dot-navigation__item--active" href="what-is-gas.html"></a>
-    <a class="dot-navigation__item" href="gas-pricing.html"></a>
+    <a class="dot-navigation__item" href="transaction-gas-prices"></a>
     <a class="dot-navigation__item" href="storage-gas-price.html"></a>
     <a class="dot-navigation__item" href="zk-computation-gas-fees.html"></a>
     <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
@@ -12,7 +12,7 @@
 
 Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. The gas cost for deploying a contract in Partisia blockchain is determined by considering three main factors: network, CPU and [storage](storage-gas-price.md). You can read [the pricing for CPU and network here](transaction-gas-prices.md) and [the pricing for storage here](storage-gas-price.md).
 
-To be more efficient with gas consumption you can visit [our best practice article](efficient-gas-practices.md) and in general keep in mind to reduce the effort of the cpu and use less network traffic. In general the CPU cost is the most expensive consumer in terms of gas usage compared to network traffic and storage fees. 
+To be more efficient with gas consumption you can visit [our best practice article](efficient-gas-practices.md) and keep in mind to reduce the effort of the cpu and use less network traffic when working on smart contracts. In general the CPU cost is the most expensive consumer in terms of gas usage compared to network traffic and storage fees. 
 
 ### CPU Cost in Gas Pricing: Understanding the Three CPU Stages to optimization
 The CPU cost reflects the computational resources consumed during the execution of a smart contract transaction. It consists of three primary stages: deserializing the contract state, performing the required work or computations, and serializing the updated contract state.
