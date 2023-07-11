@@ -9,33 +9,31 @@
     <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
     <!-- Repeat above for more dots -->
 </div>
+Minimizing gas usage is essential to ensure cost-effectiveness and optimal performance on the blockchain. In this article we have collected our best practices for handling gas optimization. 
 
-When developing smart contracts, it is crucial to consider gas usage, which measures the computational cost of executing transactions on a blockchain. Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. Minimizing gas usage is essential to ensure cost-effectiveness and optimal performance. In this article we have collected our best tips and strategies for handling gas optimization.
+To reiterate gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. To be more efficient is to reduce the effort of the cpu and use less network traffic. 
 
 ## Working with large amounts of data
-When working with a large amount of data it can quickly grow to cost a lot of gas. Whenever you work with many instructions we recommend you to always use a Vec<> with fix sized elements inside. If you use a struct its the same premise, when having a lot of entries, fix sized variables will save you the most amount of gas when used as part of either vec maps or structs..  
+When working with a large amount of data it can quickly grow to cost a lot of gas. It takes a lot of computation to calculate over large amounts of data, the expensive part is for the cpu to understand and figure out the different types of variables being used. To reduce the workload we can use data that has a fixed size, the blockchain can then understand and immediately serialize these by knowing the different lengths of the variables without looking at the actual data within. 
 
-### Table of fix sized elements on PBC
+Whenever you work with many instructions we recommend you to always use a Vec<> with fix sized elements inside. If you use a struct it's the same premise, when having a lot of entries, fix sized variables will save you the most amount of gas when used as part of either vec maps or structs. Below we have created a table of all fix sized elements on PBC you can freely use as a guide when choosing what variable is used where in your contracts. 
 
-| Type                                                                                                                  | Bit size | Byte size | Number range                   |
-|-----------------------------------------------------------------------------------------------------------------------|----------|-----------|--------------------------------|
-| [Address](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/address/struct.Address.html) | 168      | 21        | -                              |
-| [Hash](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/struct.Hash.html)               | 256      | 32        | -                              |
-| [bool](https://doc.rust-lang.org/stable/std/primitive.bool.html)                                                      | 8        | 1         | 0 to 1                         |
-| [u8](https://doc.rust-lang.org/stable/std/primitive.u8.html)                                                          | 8        | 1         | 0 to 255                       |
-| [u16](https://doc.rust-lang.org/stable/std/primitive.u16.html)                                                        | 16       | 4         | 0 to 65,535                    |
-| [u32](https://doc.rust-lang.org/stable/std/primitive.u32.html)                                                        | 32       | 8         | 0 to 4,294,967,295             |
-| [u64](https://doc.rust-lang.org/stable/std/primitive.u64.html)                                                        | 64       | 16        | 0 to 2^64^−1                   |
-| [u128](https://doc.rust-lang.org/stable/std/primitive.u128.html)                                                      | 128      | 16        | 0 to  2^128^-1                 |
-| [i8](https://doc.rust-lang.org/stable/std/primitive.i8.html)                                                          | 8        | 1         | -128 to 127                    |
-| [i16](https://doc.rust-lang.org/stable/std/primitive.i16.html)                                                        | 16       | 4         | -32,768 to 32,767              |
-| [i32](https://doc.rust-lang.org/stable/std/primitive.i32.html)                                                        | 32       | 8         | -2,147,483,648 to 2,147,483,647 |
-| [i64](https://doc.rust-lang.org/stable/std/primitive.i64.html)                                                        | 64       | 16        | −2^63^ to  2^63^-1             |
-| [i128](https://doc.rust-lang.org/stable/std/primitive.i128.html)                                                      | 128      | 16        | −2^127^ to  2^127^-1           |
-
-
-When handling large data volumes, it is essential to carefully consider the gas costs associated with different data structures. By leveraging fixed-sized elements in Vec<> or structs, you can minimize gas consumption significantly.
-
+!!! info inline end "Table of fix sized elements on PBC"
+    | Type | Bit size | Byte size | Number range |
+    |-----------------------------------------------------------------------------------------------------------------------|----------|-----------|--------------------------------|
+    | [Address](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/address/struct.Address.html) | 168      | 21        | -                              |
+    | [Hash](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/struct.Hash.html)               | 256      | 32        | -                              |
+    | [bool](https://doc.rust-lang.org/stable/std/primitive.bool.html)                                                      | 8        | 1         | 0 to 1                         |
+    | [u8](https://doc.rust-lang.org/stable/std/primitive.u8.html)                                                          | 8        | 1         | 0 to 255                       |
+    | [u16](https://doc.rust-lang.org/stable/std/primitive.u16.html)                                                        | 16       | 4         | 0 to 65,535                    |
+    | [u32](https://doc.rust-lang.org/stable/std/primitive.u32.html)                                                        | 32       | 8         | 0 to 4,294,967,295             |
+    | [u64](https://doc.rust-lang.org/stable/std/primitive.u64.html)                                                        | 64       | 16        | 0 to 2^64^−1                   |
+    | [u128](https://doc.rust-lang.org/stable/std/primitive.u128.html)                                                      | 128      | 16        | 0 to  2^128^-1                 |
+    | [i8](https://doc.rust-lang.org/stable/std/primitive.i8.html)                                                          | 8        | 1         | -128 to 127                    |
+    | [i16](https://doc.rust-lang.org/stable/std/primitive.i16.html)                                                        | 16       | 4         | -32,768 to 32,767              |
+    | [i32](https://doc.rust-lang.org/stable/std/primitive.i32.html)                                                        | 32       | 8         | -2,147,483,648 to 2,147,483,647 |
+    | [i64](https://doc.rust-lang.org/stable/std/primitive.i64.html)                                                        | 64       | 16        | −2^63^ to  2^63^-1             |
+    | [i128](https://doc.rust-lang.org/stable/std/primitive.i128.html)                                                      | 128      | 16        | −2^127^ to  2^127^-1           |
 
 ## Impact of Contract State Size on CPU Cost:
 The size of the contract state directly affects the CPU cost, particularly during serialization and deserialization processes. As the contract state grows larger, both serialization and deserialization require more computational resources, resulting in increased gas costs. It is crucial to be aware of this impact and optimize gas usage accordingly when creating smart contracts.
