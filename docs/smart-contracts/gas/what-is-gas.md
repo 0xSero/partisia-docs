@@ -1,7 +1,7 @@
 # What is Gas?
 <div class="dot-navigation">
     <a class="dot-navigation__item dot-navigation__item--active" href="what-is-gas.html"></a>
-    <a class="dot-navigation__item" href="transaction-gas-prices"></a>
+    <a class="dot-navigation__item" href="transaction-gas-prices.html"></a>
     <a class="dot-navigation__item" href="storage-gas-price.html"></a>
     <a class="dot-navigation__item" href="zk-computation-gas-fees.html"></a>
     <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
