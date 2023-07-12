@@ -23,7 +23,7 @@ These nodes each lock an amount of their MPC tokens as collateral for the comput
 The source for the fees is the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view).
 
 ### Network fees
-!!! info inline end "Storage fee"
+!!! info inline end "Network gas price"
     NETWORK_FEE = NETWORK_BYTES * 5,000 / 1,000
 
 When sending transactions to a ZK contract, a network fee is paid by the calling user in the same way as for 
@@ -31,12 +31,14 @@ regular transactions in public contracts.
 
 
 ### WASM execution fees
+!!! info inline end "WASM execution gas price"
+    WASM_EXECUTION_FEE = NO_OF_INSTRUCTIONS * 5,000 / 1,000
 
 For regular actions, gas is paid by the calling user, in the same way as for public contracts.
 
 Special ZK specific actions which are called when ZK nodes complete some work are paid by the contract.
 
-WASM_EXECUTION_FEE = NO_OF_INSTRUCTIONS * 5,000 / 1,000
+
 
 ### Staking fees
 
