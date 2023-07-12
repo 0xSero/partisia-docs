@@ -11,7 +11,6 @@
     <!-- Repeat above for more dots -->
 </div>
 
-
 Zero-knowledge (ZK) computation involves a number of gas fees to ensure that a contract's associated ZK nodes have enough gas to execute the ZK actions. You can find the overview on [our gas price table here](gas-price-table-overview.md). In this article we will dive into the specifics of gas fees when doing ZK actions on Partisia Blockchain. 
 
 ## ZK computation, MPC tokens and gas
@@ -23,24 +22,23 @@ These nodes each lock an amount of their MPC tokens as collateral for the comput
 The source for the fees is the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view).
 
 ### Network fees
-!!! info inline end "Network gas price"
+!!! info "Network gas price"
     NETWORK_FEE = NETWORK_BYTES * 5,000 / 1,000
 
 When sending transactions to a ZK contract, a network fee is paid by the calling user in the same way as for 
 regular transactions in public contracts.
 
-
 ### WASM execution fees
-!!! info inline end "WASM execution gas price"
+!!! info "WASM execution gas price"
     WASM_EXECUTION_FEE = NO_OF_INSTRUCTIONS * 5,000 / 1,000
 
 For regular actions, gas is paid by the calling user, in the same way as for public contracts.
 
 Special ZK specific actions which are called when ZK nodes complete some work are paid by the contract.
 
-
-
 ### Staking fees
+!!! info "Staking gas price"
+    STAKING_FEE = (LOCKED_STAKES(Minimum 2,000 MPC tokens) / 100) * 40,000
 
 A ZK contract needs to pay 1% of the total locked stakes per month, see yellow paper p. 16.
 
@@ -48,10 +46,9 @@ Currently, a ZK contract lives for 28 days, so this amount is only paid once. Th
 
 The staking fee depends on the locked stakes which are determined by the user deploying the contract. The locked stakes are a minimum of 2,000 MPC tokens. To convert to gas the staking fee is multiplied by 40,000.
 
-STAKING_FEE = (LOCKED_STAKES / 100) * 40,000
-
-
 ### Secret input fees
+!!! info "Secret input gas fees"
+    BASE_SERVICE_FEES: 25,000 gas
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some variable is inputted.
 
@@ -59,6 +56,8 @@ The input fee is part of the basic fees detailed in the yellow paper p. 16 and i
 This covers the transaction fees of each node (currently hardcoded to 5,000 each) + 5,000 extra gas to spare.
 
 ### ZK computation fees
+!!! info "ZK computation gas fees"
+    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when a ZK computation is executed as well as 
 for the multiplications in the computation.
@@ -73,13 +72,11 @@ Besides this, the multiplications done during the computation must also be paid 
 According to the yellow paper the price for this is 5 USD cent per 1000 multiplications. 
 Since this is multiplied by 1000 to convert to gas, the price for the multiplications is: 
 
-noOfMultiplications / 1000 * 5 * 1000 = noOfMultiplications * 5
-
-In summary:
-
-ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
+NO_OF_MULTIPLICATIONS / 1000 * 5 * 1000 = NO_OF_MULTIPLICATIONS * 5
 
 ### ZK preprocessing fees
+!!! info "ZK preprocessing gas fees"
+    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
 
 A ZK contract needs to pay for the preprocessing triples which the preprocessing nodes generate at various points during ZK computation.
 Preprocessing material is either multiplication triples used during computation to execute multiplications or input masks used during the generation of secret input variables.
@@ -100,25 +97,21 @@ while the material for each input mask batch costs
 
 which is multiplied by 1,000 to get the price in gas.
 
-In summary:
-
-ZK_PREPROCESSING_FEE = (2 * BASE_SERVICE_FEES + 5 * BATCH_SIZE) * NO_OF_BATCHES
-
-
 ### Opening secret variables fees
+!!! info "Opening secret variables gas fees"
+    OPEN_SECRET_VARIABLES_FEE = BASE_SERVICE_FEES
 
 Fees need to be paid for transactions that ZK nodes must send when some secret variable is opened. 
 This fee is paid by the owner of the variable, which is either a ZK contract or a user.
 
 The open secret variables fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to use BASE_SERVICE_FEES.
 
-OPEN_SECRET_VARIABLES_FEE = BASE_SERVICE_FEES
-
 
 ### Attestation fees
+!!! info "Opening secret variables gas fees"
+    ATTESTATION_FEE = BASE_SERVICE_FEES
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some data needs to be attested.
 
 The attestation fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to use BASE_SERVICE_FEES. 
 
-ATTESTATION_FEE = BASE_SERVICE_FEES
