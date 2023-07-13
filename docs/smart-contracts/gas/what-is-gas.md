@@ -1,7 +1,7 @@
 # What is Gas?
 <div class="dot-navigation">
     <a class="dot-navigation__item dot-navigation__item--active" href="what-is-gas.html"></a>
-    <a class="dot-navigation__item" href="transaction-gas-prices.html"></a>
+    <a class="dot-navigation__item" href="gas-pricing.html"></a>
     <a class="dot-navigation__item" href="storage-gas-price.html"></a>
     <a class="dot-navigation__item" href="zk-computation-gas-fees.html"></a>
     <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
@@ -12,7 +12,9 @@
 
 Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during contract execution. Each operation in a smart contract, such as reading or writing data, executing computations, or interacting with other contracts, consumes a specific amount of gas. The gas cost for deploying a contract in Partisia blockchain is determined by considering three main factors: network, CPU and [storage](storage-gas-price.md). You can read [the pricing for CPU and network here](transaction-gas-prices.md) and [the pricing for storage here](storage-gas-price.md).
 
-To be more efficient with gas consumption you can visit [our best practice article](efficient-gas-practices.md) and keep in mind to reduce the effort of the cpu and use less network traffic when working on smart contracts. In general the CPU cost is the most expensive consumer in terms of gas usage compared to network traffic and storage fees. 
+Gas is bought through [BYOC](../../pbc-fundamentals/byoc.md), any brought coin represents an amount of gas where you slowly burn away the value of the brought coin when using the gas. Burning of gas comes when a user [sends a transaction](transaction-gas-prices.md#transaction-gas-prices) to a smart contract, the contract needs gas to do its computation on the blockchain to pay the node operators for their work. Smart contracts themselves has a gas balance and this needs to stay positive for the contract to keep being on the blockchain to pay [for storage](storage-gas-price.md#negative-contract-gas-balance). Smart Contracts use their own balance when paying for [contract-to-contract transactions](contract-to-contract-gas-estimation.md#contract-to-contract-gas-estimation) and therefore needs more gas when using such actions on a smart contract.  
+
+To be more efficient with gas consumption you can visit [our best practice article](efficient-gas-practices.md) and in general keep in mind to reduce the effort of the cpu and use less network traffic. In general the CPU cost is the most expensive consumer in terms of gas usage compared to network traffic and storage fees. 
 
 ### CPU Cost in Gas Pricing: Understanding the Three CPU Stages to optimization
 The CPU cost reflects the computational resources consumed during the execution of a smart contract transaction. It consists of three primary stages: deserializing the contract state, performing the required work or computations, and serializing the updated contract state.

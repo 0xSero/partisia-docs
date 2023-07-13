@@ -11,7 +11,7 @@
     <!-- Repeat above for more dots -->
 </div>
 
-When working with smart contracts, the testnet is the best way to upload your smart contracts and estimate their gas cost. To test a smart contract you need gas, this article is here to get you started on getting gas on the testnet. By testing your contract on the testnet and verify its cost on the blockchain you can implement exact costs when doing contract-to-contract or system-to-contract transactions. 
+When working with smart contracts, the testnet is the best way to upload your smart contracts and estimate their gas cost. To test a smart contract you need gas, this article is here to get you started on getting gas on the testnet. By testing your contract on the testnet and verify its cost on the blockchain you can implement exact costs when doing [contract-to-contract](contract-to-contract-gas-estimation.md) or system-to-contract transactions. 
 
 ### How to see your gas balance
 We recommend using the testnet through either the [dashboard](https://testnet.partisiablockchain.com/) or the [browser](https://browser.testnet.partisiablockchain.com). To see your testnet gas balance you can log into the dashboard or the browser. Under your account you can see how many TEST_COINs you have. If you are logged into browser you can simply [click here to see your account balance](https://browser.testnet.partisiablockchain.com/account?tab=byoc).
@@ -28,4 +28,4 @@ To get even more gas you can do the following:
 - Execute the transaction - the specified account should now have gained approximately 1,000,000,000 gas which has a value of 10,000 TEST_COIN.
 
 
-You have now successfully learned how to acquire gas on the testnet and see your account balance. By utilizing the testnet, you can safely experiment with your contracts without incurring any real costs or affecting the main blockchain network.
+You have now successfully learned how to acquire gas on the testnet and see your account balance. By utilizing the testnet, you can safely experiment with your contracts without incurring any real costs or affecting the main blockchain network. If you need gas on the mainnet you should follow the method described in [BYOC](../../pbc-fundamentals/byoc.md).
