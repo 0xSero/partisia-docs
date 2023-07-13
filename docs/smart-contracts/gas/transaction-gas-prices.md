@@ -14,7 +14,9 @@
     **Network fee:** 5 USD cents/kb.
     **CPU fee:** 5 USD cents per 1000 instructions.
 
-Here, we will explore the factors that determine the gas cost for deploying a contract in the Partisia blockchain. By considering the network, CPU, and storage aspects, developers can effectively estimate and manage the gas costs associated with their smart contract transactions to understand the specifics of gas pricing.
+Here, we will explore the factors that determine the gas cost for deploying a contract in the Partisia blockchain. By considering the network, CPU, and storage aspects, developers can effectively estimate and manage the gas costs associated with their smart contract transactions to understand the specifics of gas pricing. 
+
+When a transaction is sent, the transaction needs to have enough gas to cover all resource usage. Otherwise the transaction will fail and the gas will go to waste. When developing a smart contract the developer should keep in mind that the best practice is to have your solution suggest the needed gas amount for the users of your smart contract. This should be as close to the bottom limit of the resource cost as to not have too expensive contracts on the blockchain. 
 
 ## The cost for using the blockchain
 
