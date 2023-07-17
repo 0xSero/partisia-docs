@@ -5,12 +5,6 @@
 The Partisia Blockchain Foundation provides the following reviewed smart contracts, as examples of real world problems with a blockchain solution. This page is created to explain the usecases of our example contracts and the titles reflect the name of the smart contract one-to-one.
 You want to solve problems with smart contracts. The easiest way of getting started coding smart contracts is to learn from concrete examples showing smart contracts solving problems similar to the one you need to solve. The examples includes both normal contracts and [zero-knowledge smart contracts](zk-smart-contracts.md)
 
-## Smart contracts ready and open for combinatorial innovation
-
-### auction
-
-The auction sells tokens of one type for another (can be the same token type). The contract works by escrowing bids as well as the tokens for sale. This is done through `transfer` calls to the token contracts with callbacks ensuring that the transfers were successful. If a bid is not the current highest bid the transferred bidding tokens can be claimed during any phase. The auction has a set `duration`. After this duration the auction no longer accepts bids and can be executed by anyone. Once `execute` has been called the contract moves the tokens for sale into the highest bidders claims and the highest bid into the contract owners claims. In the bidding phase any account can call `bid` on the auction which makes a token `transfer` from the bidder to the contract. Once the transfer is done the contract updates its highest bidder accordingly. The contract owner also has the ability to `cancel` the contract during the bidding phase. If cancel is called the highest bid is taken out of escrow such that the highest bidder can claim it again. The same is done for the tokens for sale which the contract owner then can claim.
-
 ### zk-second-price-auction
 
 One of the types of smart contracts you will be able to deploy on PBC is a second-price auction (also called [Vickrey auction](https://en.wikipedia.org/wiki/Vickrey_auction)), which is a sealed bid auction where the winner is the person with the highest bid (as in a normal auction), but the price paid is that of the second-highest bidder. When some valuable item changes hands through an auction it is desirable to have the change in ownership registered on an immutable record. It is however sometimes undesirable that individual maximum bids are public, since the seller can use a third party to drive up the price to the highest possible price.
