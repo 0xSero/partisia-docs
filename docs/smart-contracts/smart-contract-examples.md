@@ -12,7 +12,7 @@ Partisia has several successful use cases, pilot projects with private deploymen
 The scope of these applications include internet privacy, user control of data, financial privacy, cybersecurity, humanitarian aid and confidential health statistics.
 You can read more about these pilot projects [here](https://partisiablockchain.com/ecosystem).
 
-By combining the functionality of different types of smart contracts it is possible to create application on the public blockchain within the same areas as the successful pilot projects for quick MVPs. 
+By combining the functionality of different types of open sourced smart contracts it is possible to create application on the public blockchain within the same areas as the successful pilot projects for quick MVPs. 
 
 ## MPC examples
 
