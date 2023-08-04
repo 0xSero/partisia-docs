@@ -22,7 +22,7 @@ pages:
   dependencies:
   - build-site
   script:
-    - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
+  - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   only:
   - main
   artifacts:
@@ -38,6 +38,20 @@ pages-dev:
   - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   except:
   - main
+  artifacts:
+    paths:
+    - public
+
+dead-link-check:
+  image: registry.gitlab.com/partisia/dockerimages/shellscripting
+  stage: deploy
+  dependencies:
+  - build-site
+  except:
+  - main
+  script:
+  - apt update && apt install -y linkchecker
+  - linkchecker -t 8 --no-robots --check-extern public/index.html
   artifacts:
     paths:
     - public
