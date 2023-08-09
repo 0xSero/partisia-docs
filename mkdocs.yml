@@ -8,7 +8,7 @@ nav:
       - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/byoc-and-gas.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
-      - pbc-fundamentals/oracles-on-pbc.md
+      - pbc-fundamentals/oracles-on-partisia-blockcain.md
       - pbc-fundamentals/dictionary.md
   - Smart contracts:
       - smart-contracts/introduction-to-smart-contracts.md
