@@ -8,6 +8,7 @@ nav:
       - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/byoc-and-gas.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
+      - pbc-fundamentals/oracles-on-pbc.md
       - pbc-fundamentals/dictionary.md
   - Smart contracts:
       - smart-contracts/introduction-to-smart-contracts.md
@@ -47,7 +48,6 @@ nav:
       - node-operations/register-your-node.md
       - node-operations/node-health-and-maintenance.md
       - node-operations/update-your-nodes-public-information.md
-      - node-operations/oracles-on-partisia-blockchain.md
       - node-operations/price-oracle.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
