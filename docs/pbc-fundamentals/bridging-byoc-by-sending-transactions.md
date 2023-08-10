@@ -21,6 +21,8 @@ The basic idea behind the bridge is double bookkeeping, always maintaining a rec
 
 ### Make a withdrawal
 
+Claim your account's ETH on the Ethereum BYOC contract
+
 
 
 
