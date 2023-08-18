@@ -15,7 +15,7 @@ The basic idea behind the bridge is double bookkeeping, always maintaining a rec
 ### Make a deposit
 
 1. Deposit X ETH to PBC account A  
-- You invoke the contract action _deposit_ of the BYOC smart contract on Ethereum (_contract address_), the action take an account address and the transferred amount (find contract code in Git - ask EBO)
+- You invoke the contract action _deposit_ of the BYOC smart contract on Ethereum (_contract address_), the action take an account address and the transferred amount
 2. The deposit oracle on PBC reads and signs the deposit
 3. x BYOC twins are minted on PBC by the deposit oracle contract
 4. x ETH are added to the balance PBC account A 
