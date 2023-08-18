@@ -15,14 +15,17 @@ The basic idea behind the bridge is double bookkeeping, always maintaining a rec
 ### Make a deposit
 
 **Deposit X ETH from ETH account A to PBC account B**
-1. Invoke the contract action _deposit_:
+
+1. Invoke the contract action _deposit_:   
+
 ```SOL
 deposit(bytes21 destination, uint amount)
 ``` 
-on the BYOC smart contract on Ethereum (_contract address_)
-2. The deposit oracle on PBC reads and signs the deposit
-3. x BYOC twins are minted on PBC by the deposit oracle contract
-4. x ETH are added to the balance PBC account B 
+
+on the BYOC smart contract on Ethereum (_contract address_)   
+2. The deposit oracle on PBC reads and signs the deposit   
+3. x BYOC twins are minted on PBC by the deposit oracle contract   
+4. x ETH are added to the balance PBC account B   
 
 
 ![Diagram0](../pbc-fundamentals/depositBridge.png)
@@ -30,8 +33,10 @@ on the BYOC smart contract on Ethereum (_contract address_)
 
 ### Make a withdrawal
 
-**Withdraw X ETH from PBC account A**
-1. Add a pending withdrawal on PBC by invoking the action _Withdrawal_:
+**Withdraw X ETH from PBC account A**   
+
+1. Add a pending withdrawal on PBC by invoking the action _Withdrawal_:   
+
 ```JAVA
 public Withdrawal(
         EthereumAddress receiver,
@@ -39,7 +44,8 @@ public Withdrawal(
         int numberOfOracles,
         Hash requestingTransaction)
 
-```
+```   
+
 2. Invoke the contract action _withdraw_: 
 ```SOL
 withdraw(uint64 withdrawNonce,
@@ -49,6 +55,7 @@ withdraw(uint64 withdrawNonce,
    bytes calldata signatures
    )
 ```
+
 on the BYOC smart contract on Ethereum (_contract address_), the action take an account address and the transferred amount
 3. x ETH are added to the balance of ETH account A 
 
