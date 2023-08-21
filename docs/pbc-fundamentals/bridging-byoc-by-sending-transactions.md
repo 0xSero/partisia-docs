@@ -20,8 +20,7 @@ The basic idea behind the bridge is double bookkeeping, always maintaining a rec
 
 ```SOL
 deposit(bytes21 destination, uint amount)
-``` 
- 
+```
 2. The [deposit oracle](https://dashboard.partisiablockchain.com/info/contract/042f2f190765e27f175424783a1a272e2a983ef372) on PBC reads and signs the deposit   
 3. x BYOC twins are minted on PBC by the deposit oracle contract   
 4. x ETH are added to the balance PBC account B   
@@ -56,8 +55,7 @@ withdraw(uint64 withdrawNonce,
    )
 ```
 
-on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c), the action take an account address and the transferred amount
-3. x ETH are added to the balance of ETH account A 
+3. x ETH are added to the balance of ETH account A    
 
    
 ## Resources to get you started
