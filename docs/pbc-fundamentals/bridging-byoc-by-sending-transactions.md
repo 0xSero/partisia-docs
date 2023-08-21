@@ -65,22 +65,25 @@ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d0
 You need a way to sign transactions you put PBC and on the chain you are bridging to and from. There are public free wallet extensions for PBC and for the chains from which we accept BYOC. Besides that, you will need the addresses of the [oracle](.../node-operations/oracles-on-partisia-blockchain) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains.
 
 ### Bridging ETH
-[ETH deposit oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/042f2f190765e27f175424783a1a272e2a983ef372)
-[ETH withdrawal oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)
-[Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c)
-[Large oracle contract on Ethereum](https://etherscan.io/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)
+
+[ETH deposit oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/042f2f190765e27f175424783a1a272e2a983ef372)   
+[ETH withdrawal oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)   
+[Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c)   
+[Large oracle contract on Ethereum](https://etherscan.io/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
 
 
 ### Bridging USDC
-[USDC deposit oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/042f2f190765e27f175424783a1a272e2a983ef372)
-[USDC withdrawal oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)
-[Small oracle contract on Polygon](https://polygonscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)
-[Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)
+
+[USDC deposit oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/042f2f190765e27f175424783a1a272e2a983ef372)   
+[USDC withdrawal oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)   
+[Small oracle contract on Polygon](https://polygonscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
+[Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
 
 ### Bridging BNB Coin
-[BNB deposit oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/047e1c96cd53943d1e0712c48d022fb461140e6b9f)
-[BNB withdrawal oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/044bd689e5fe2995d679e946a2046f69f022be7c10)
-[Small oracle contract on BNB Smartchain](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1)
-[Large oracle contract on BNB smartchain](https://bscscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)
+
+[BNB deposit oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/047e1c96cd53943d1e0712c48d022fb461140e6b9f)   
+[BNB withdrawal oracle on PBC](https://dashboard.partisiablockchain.com/info/contract/044bd689e5fe2995d679e946a2046f69f022be7c10)   
+[Small oracle contract on BNB Smartchain](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1)   
+[Large oracle contract on BNB smartchain](https://bscscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
 
 
