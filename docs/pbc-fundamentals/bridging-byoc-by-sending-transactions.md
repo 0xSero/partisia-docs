@@ -46,6 +46,7 @@ public Withdrawal(
 ```   
 
 2. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c), the action take an account address and the transferred amount: 
+
 ```SOL
 withdraw(uint64 withdrawNonce,
    address destination,
