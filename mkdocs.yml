@@ -48,6 +48,7 @@ nav:
       - node-operations/register-your-node.md
       - node-operations/node-health-and-maintenance.md
       - node-operations/update-your-nodes-public-information.md
+      - node-operations/oracles-on-partisia-blockchain.md
       - node-operations/price-oracle.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
