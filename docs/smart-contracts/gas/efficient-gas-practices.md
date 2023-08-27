@@ -41,7 +41,28 @@ pub struct Aligned {
 Whereas if you reverse the order a takes 8 spaces followed by the 4 spaces alignment that is needed by u32, this ensures we do not need any padding since the total of the struct complies with the full lenght of the fields.
 
 ### Example 2
+To give another example we have created a `struct` looking like this:
 
+```rust 
+pub struct TransferData {
+    to: Address,
+    from: Address,
+    padding: [u8; 6],
+    amount: u128,
+    timestamp: i64,
+}
+```
+The `struct` has correctly introduced padding to ensure memory stays correct. The caveat here is the actual hierarchy or what happens when. To solve this issue we need to do two things. First we would need to introduce: `#[repr(C)]` to manage the exact order of memory. Secondly we needed to move the amount and timestamp up over the Address, this is becase an Address is 21 character long and having the other fix sized elements below created a bigger need for padding and thus skewering the ratio of the total size of the struct compared to the fix sized elements within it. The correct `struct` can be seen below
+
+```rust 
+pub struct TransferData {
+    amount: u128,
+    timestamp: i64,
+    to: Address,
+    from: Address,
+    padding: [u8; 6],
+}
+```
 
 In conclusion, efficient gas practices involve minimizing gas usage when working with large data, optimizing CPU costs based on contract state size, and employing strategies to enhance gas efficiency. By incorporating these practices, developers can create smart contracts that are more cost-effective and performant on the blockchain.
 
