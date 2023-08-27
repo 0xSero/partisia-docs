@@ -31,14 +31,14 @@ pub struct Unaligned {
     b: u128
 }
 ```
-Here the struct is unaligned because a is only 4 spaces in memory and b is placed on 8 in memory. This creates an empty four spaces in memory and therefore makes the struct Unaligned. 
+Here the `struct` is unaligned because a is only 4 spaces in memory and b is placed on 8 in memory. This creates an empty four spaces in memory and therefore makes the `struct` Unaligned. 
 ```rust
 pub struct Aligned {  
     a: u128,  
     b: u32
 }
 ```
-Whereas if you reverse the order a takes 8 spaces followed by the 4 spaces alignment that is needed by u32, this ensures we do not need any padding since the total of the struct complies with the full length of the fields.
+Whereas if you reverse the order a takes 8 spaces followed by the 4 spaces alignment that is needed by u32, this ensures we do not need any padding since the total of the `struct` complies with the full length of the fields.
 
 ### Example 2 of optimizing a `struct`
 To give another example we have created a `struct` looking like this:
