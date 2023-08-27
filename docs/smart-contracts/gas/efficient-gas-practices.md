@@ -17,11 +17,11 @@ The size of the contract state directly affects the CPU cost, particularly durin
 ## Working with large amounts of data
 When working with a large amount of data it can quickly grow to cost a lot of gas. It takes a lot of computation to calculate over large amounts of data, the expensive part is for the cpu to understand and figure out the different types of variables being used. To reduce the workload we can use data that has a fixed size, the blockchain can then understand and immediately serialize these by knowing the different lengths of the variables without looking at the actual data within. This makes it possible to serialize and deserialize with just one copy of the whole segment, thus only costing a fixed gas price. 
 
-When working with large sets of data we recommend you to always use a Vec<> with fix sized elements inside. If you use a struct it's the same premise, when having a lot of entries, fix sized variables will save you the most amount of gas when used as part of either vec maps or structs. We have created a [table of all fix sized elements](table-of-fixed-size-elements.md) on PBC you can freely refer to as a guide when choosing what variable to use in your contracts. 
+When working with large sets of data we recommend you to always use a `Vec<>` with fix sized elements inside. If you use a `struct` it's the same premise, when having a lot of entries, fix sized variables will save you the most amount of gas when used as part of either `Vec` `maps` or `struct`. We have created a [table of all fix sized elements](table-of-fixed-size-elements.md) on PBC you can freely refer to as a guide when choosing what variable to use in your contracts. 
 
-A vec made of thosands of addresses becomes feasible because of the above feature, it combines a vec map with the fix sized element Address ```Vec<Address>```. You can dive into the technicalities of serialize / deserialize by visiting [our Rust docs here](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/trait.ReadWriteState.html).
+A `Vec` made of thosands of addresses becomes feasible because of the above feature, it combines a `Vec` with the fix sized element Address `Vec<Address>`. You can dive into the technicalities of serialize and deserialize by visiting [our Rust docs here](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/trait.ReadWriteState.html).
 
-### Example 1
+### Example 1 of optimizing a `struct`
 
 When creating `structs` that are serializable_by_copy, i.e. the method described above, the sum of the `structs` fields amounts to the sum of the `struct` in memory, you can read more about it in [the rust docs](https://doc.rust-lang.org/reference/type-layout.html). 
 As an example of the above: 
@@ -38,9 +38,9 @@ pub struct Aligned {
     b: u32
 }
 ```
-Whereas if you reverse the order a takes 8 spaces followed by the 4 spaces alignment that is needed by u32, this ensures we do not need any padding since the total of the struct complies with the full lenght of the fields.
+Whereas if you reverse the order a takes 8 spaces followed by the 4 spaces alignment that is needed by u32, this ensures we do not need any padding since the total of the struct complies with the full length of the fields.
 
-### Example 2
+### Example 2 of optimizing a `struct`
 To give another example we have created a `struct` looking like this:
 
 ```rust 
