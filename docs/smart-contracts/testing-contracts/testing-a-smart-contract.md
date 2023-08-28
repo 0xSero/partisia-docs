@@ -44,24 +44,26 @@ public final class TokenTest extends JunitContractTest {
 
   private static final BigInteger TOTAL_SUPPLY = BigInteger.valueOf(123123);
 
-  private BlockchainAddress account1;
+  private BlockchainAddress owner;
   private BlockchainAddress token;
 
   /** Setup for all the other tests. Deploys token contract and instantiates accounts. */
   @ContractTest
   void setup() {
-    account1 = blockchain.newAccount(1);
+    owner = blockchain.newAccount(1);
 
-    token =
-        deployTokenContract(blockchain, account1, "My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
+    token = deployTokenContract(blockchain, owner, "My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
 
-    assertStateInvariants(state);
+    TokenContract.TokenState state =
+        TokenContract.TokenState.deserialize(blockchain.getContractState(token));
+    
     assertThat(state.totalSupply()).isEqualTo(TOTAL_SUPPLY);
   }
 }
+
 ````
 
-There are 3 things to notice here.
+There are 4 things to notice here.
 
 1. We have declared an instance of `ContractBytes`, where we specify the relative location of the .wasm and .abi file
 for our Token contract.
@@ -74,5 +76,60 @@ was deployed at.
 3. We have created the first test named `setup`. The method have the annotation `@ContractTest`. This marks the test as
 test, that be used by other tests as their setup. 
 
-We use the generated Java code, that is based on the ABI of the contract. This provides a Record object, which can be
-to deserialize the contract state into. The object can then be asserted on using standard Java assertions.
+4. The generated Java code, that is based on the ABI of the contract, provides a Record object, 
+`TokenContract.TokenState`, which can be used to deserialize the contract state into.
+The object can then be asserted on using standard Java assertions.
+
+
+### Second test using the first test as a setup
+
+We can now perform our first interaction with the deployed contract. So we add another test to our test class.
+Another account must be created, so we add another field, `receiver`, and create the account.
+
+````java
+public final class TokenTest extends JunitContractTest {
+
+  public static final ContractBytes CONTRACT_BYTES =
+      ContractBytes.fromPaths(
+          Path.of("../target/wasm32-unknown-unknown/release/token_contract.wasm"),
+          Path.of("../target/wasm32-unknown-unknown/release/token_contract.abi"));
+
+  private static final BigInteger TOTAL_SUPPLY = BigInteger.valueOf(123123);
+
+  private BlockchainAddress owner;
+  private BlockchainAddress receiver;
+  private BlockchainAddress token;
+
+  /** Setup for all the other tests. Deploys token contract and instantiates accounts. */
+  @ContractTest
+  void setup() {
+    owner = blockchain.newAccount(1);
+    receiver = blockchain.newAccount(2);
+
+    token = deployTokenContract(blockchain, owner, "My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
+
+    final TokenContract.TokenState state =
+        TokenContract.TokenState.deserialize(blockchain.getContractState(token));
+
+    assertThat(state.totalSupply()).isEqualTo(TOTAL_SUPPLY);
+  }
+
+  /** Transfer tokens from one account to another. */
+  @ContractTest
+  void transferTokens() {
+
+    BigInteger amount = BigInteger.TEN;
+    final byte[] transferRpc = TokenContract.transfer(receiver, amount);
+
+    blockchain.sendAction(owner, token, transferRpc);
+
+    TokenContract.TokenState state =
+        TokenContract.TokenState.deserialize(blockchain.getContractState(token));
+
+    assertThat(state.balances().get(owner)).isEqualTo(TOTAL_SUPPLY.subtract(amount));
+    assertThat(state.balances().get(receiver)).isEqualTo(amount);
+  }
+}
+
+````
+
