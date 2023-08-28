@@ -42,7 +42,7 @@ Special ZK specific actions which are called when ZK nodes complete some work ar
 
 A ZK contract needs to pay 1% of the total locked stakes per month, see yellow paper p. 16.
 
-Currently, a ZK contract lives for 28 days, so this amount is only paid once. The first (and at the moment only) of these payments is paid when the contract is deployed on the blockchain.
+Currently, the standard option for a ZK contract ensures that it is on the blockchain for 28 days, you can prolong this by up to half a year at a time after deploying the contract.
 
 The staking fee depends on the locked stakes which are determined by the user deploying the contract. The locked stakes are a minimum of 2,000 MPC tokens. To convert to gas the staking fee is multiplied by 40,000.
 
