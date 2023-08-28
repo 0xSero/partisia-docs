@@ -14,11 +14,11 @@ Minimizing gas usage is essential to ensure cost-effectiveness and optimal perfo
 
 The size of the contract state directly affects the CPU cost, particularly during serialization and deserialization processes. As the contract state grows larger, both serialization and deserialization require more computational resources, resulting in increased gas costs. It is important to be aware of this impact and optimize gas usage accordingly when creating smart contracts.
 
-## Working with large amounts of data
+## Working with large states
 
-When working with a large states they can quickly grow to cost a lot of gas. ~~It takes a lot of computation to calculate over large amounts of data, the expensive part is for the cpu to understand and figure out the different types of variables being used.~~ Converting between data formats used by the blockchain and that used internally by the Rust contract can be slow, depending upon how the state is structured. To reduce the workload we ~~can use data that has a fixed size~~ should structure our states using formats that are easier to convert between. Notably, prefer using data-structures with fixed sizes (avoiding `Option` and `Vec`.) such that the blockchain can then understand and immediately serialize these by knowing the different lengths of the variables without looking at the actual data within. This makes it possible to serialize and deserialize with just one copy of the whole segment, thus only costing a fixed gas price.
+When working with large states they can quickly grow to cost a lot of gas. Converting between data formats used by the blockchain and the formats used internally by the Rust contract can be slow, depending upon how the state is structured. To reduce the workload we should structure our states using formats that are easier to convert between. Notably, prefer using data-structures with fixed sizes (avoiding `Option` and `Vec`.) such that the blockchain can then understand and immediately serialize these by knowing the different lengths of the variables without looking at the actual data within. This makes it possible to serialize and deserialize with just one copy of the whole segment, thus only costing a fixed gas price.
 
-When working with large statea we recommend you to always use a `Vec<>` with fix sized elements inside. If you use a `struct` it's the same premise, when having a lot of fields, fix sized variables will save you the most amount of gas when used as part of either `Vec` `maps` or `struct`. We have created a [table of all fix sized elements](table-of-fixed-size-elements.md) on PBC you can freely refer to as a guide when choosing what variable to use in your contracts. 
+In general it is recommended to always use a `Vec<>` with fix sized elements inside. If using a `struct` it's the same premise, when having a lot of fields, fix sized variables will save you the most amount of gas when used as part of either `Vec` `maps` or `struct`. We have created a [table of all fix sized elements](table-of-fixed-size-elements.md) on PBC you can freely refer to as a guide when choosing what variable to use in your contracts. 
 
 A `Vec` containing thousands of addresses is more effective when taking the above points into account. You can dive into the technicalities of serialize and deserialize by visiting [our Rust docs here](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/trait.ReadWriteState.html).
 
@@ -31,31 +31,29 @@ As an example of the above:
 ```rust
 pub struct Unaligned {
     a: u8,    // offset 0, size 1
-    b: u16,   // offste 2, 2,
-    c: u8,    // 4, 1
-    // size: 5
+    b: u16,   // offset 2, size 2,
+    c: u8,    // offset 4, size 1
+    // total size: 5
 }
 ```
 
-Here the `struct` is unaligned because a is only 4 bytes in memory and b is placed on 8 in memory. This creates an empty four spaces in memory and therefore makes the `struct` Unaligned. 
+Here the `struct` is unaligned because a is only 1 byte in memory and b is placed on 2 in memory. This creates an empty space in memory and therefore makes the `struct` Unaligned. To align the struct you need to switch a and b to use the offset efficiently, this creates the correct ratio of the fields within the struct to the sum of the structs fields placement in memory. See updated version below: 
 
 ```rust
 pub struct Aligned {  
-    b: u16,  // 0, 2
-    a: u8,   // 2, 1
-    c: u8,   // 3, 1
-    // size: 4
+    b: u16,  // offset 0, size 2
+    a: u8,   // offset 2, size 1
+    c: u8,   // offset 3, size 1
+    // total size: 4
 }
 ```
-
-Whereas if you reverse the order a takes 8 spaces followed by the 4 bytes alignment that is needed by u32, this ensures we do not need any padding since the total of the `struct` complies with the full length of the fields.
 
 ### Example 2 of optimizing a `struct`
 
 To give another example we have created a `struct` looking like this:
 
 ```rust 
-pub struct TransferData {
+pub struct Unaligned {
     to: Address,            // offset 0, size 21
     from: Address,          // offset 21, size 21
     amount: u128,           // offset 42, size 16 (Offset after here is 58). 
@@ -66,7 +64,7 @@ pub struct TransferData {
 
 The `struct` has two address an amount and a timestamp. The problem here is that the sum of the struct is not total the sum of fields in memory, there are 6 unused bytes between amount and timestamp. To solve this issue we need to do two things. First we would need to introduce: `#[repr(C)]` to manage the exact order of memory ensuring that `Rust` does not reorder or try to fix the issue itself. Secondly we needed to introduce padding of 6 bytes `padding: [u8; 6]` to make sure that the `struct` has the correct ratio. The efficient `struct` can be seen below:
 ```rust 
-pub struct TransferData {
+pub struct Aligned {
     to: Address,            // offset 0, size 21
     from: Address,          // offset 21, size 21
     padding: [u8; 6],       // offset 42, size 6
