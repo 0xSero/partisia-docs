@@ -1,9 +1,9 @@
 # Testing a smart contract
 
-A smart contract is an atomic operation program. So to avoid mistakes and exploits in a contract, 
-which are permanent actions, we should have a form of testing.
+Tests for your smart contract helps you avoid mistakes and exploits in a contract, you
+are developing. 
 
-In the example contracts, we have tests, to show the behaviour for all the contracts. These tests are written in
+In the [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), we have tests, to show the behaviour for all the contracts. These tests are written in
 Java, using our testing framework Junit-contract-test. In the test we are provided a blockchain object, where we can
 deploy and interact with multiple different contracts. 
 
@@ -14,15 +14,16 @@ Compile the contracts:
 cargo partisia-contract build --release
 ```
 
-Compile the tests and run them.
+Go into the test dir, compile the tests and run them.
 ```bash
+cd java-test
 mvn test-compile test
 ```
 
 ## Write your first test
 
-Create a new test for the Token contract. Create a new java file in the `java-tests` folder, the name could be 
-`MyTokenTests.java`. In that file we can now define our test class
+Create a new test for the Token contract. Create a new java file in the `java-tests` folder, next to the other tests,
+the name could be `MyTokenTests.java`. In that file we can now define our test class:
 ```java
 public final class MyTokenTest extends JunitContractTest {
     // ...
@@ -40,7 +41,8 @@ public final class TokenTest extends JunitContractTest {
   public static final ContractBytes CONTRACT_BYTES =
       ContractBytes.fromPaths(
           Path.of("../target/wasm32-unknown-unknown/release/token_contract.wasm"),
-          Path.of("../target/wasm32-unknown-unknown/release/token_contract.abi"));
+          Path.of("../target/wasm32-unknown-unknown/release/token_contract.abi"),
+          Path.of("../target/wasm32-unknown-unknown/release/token_contract_runner"));
 
   private static final BigInteger TOTAL_SUPPLY = BigInteger.valueOf(123123);
 
@@ -56,7 +58,7 @@ public final class TokenTest extends JunitContractTest {
 
     TokenContract.TokenState state =
         TokenContract.TokenState.deserialize(blockchain.getContractState(token));
-    
+
     assertThat(state.totalSupply()).isEqualTo(TOTAL_SUPPLY);
   }
 }
@@ -67,9 +69,10 @@ There are 4 things to notice here.
 
 1. We have declared an instance of `ContractBytes`, where we specify the relative location of the .wasm and .abi file
 for our Token contract.
-The three paths declared are the path to the wasm, the abi and the local instrumented executable.
+The three paths declared are the path to the wasm, the abi and the local instrumented executable. 
+The local instrumented executable is used for code coverage. 
 
-2. The two fields with type BlockchainAddress, `account1` and `token`, these will be populated in the test, where we 
+2. The two fields with type BlockchainAddress, `owner` and `token`, these will be populated in the test, where we 
 create a public account and when we deploy the contract, the call returns the address the contract 
 was deployed at.
 
