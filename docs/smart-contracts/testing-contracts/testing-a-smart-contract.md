@@ -31,9 +31,7 @@ public final class MyTokenTest extends JunitContractTest {
 ```
 The test extends the JunitContractTest class, this is the abstract class providing the blockchain object.
 
-We can now write our first test. First we should deploy the token contract, such that we have a
-deployed contract to interact with in our tests. We can call this test `setup`, since we will be using this test
-as a starting point for our other tests.
+To write your first test, you should start by deploying the token contract. The deployed contract is needed to make sure we have a contract to interact with in our tests, you can also use your contract when writing your first test. Lets call this test 'setup', this first setup test will be the starting point for our future tests. 
 
 ````java
 public final class TokenTest extends JunitContractTest {
@@ -76,8 +74,7 @@ The local instrumented executable is used for code coverage.
 create a public account and when we deploy the contract, the call returns the address the contract 
 was deployed at.
 
-3. We have created the first test named `setup`. The method have the annotation `@ContractTest`. This marks the test as
-test, that be used by other tests as their setup. 
+3. We have created the first test named `setup`. The method have the annotation `@ContractTest`. This marks the test as a test, that can be used by other tests as their setup. 
 
 4. The generated Java code, that is based on the ABI of the contract, provides a Record object, 
 `TokenContract.TokenState`, which can be used to deserialize the contract state into.
