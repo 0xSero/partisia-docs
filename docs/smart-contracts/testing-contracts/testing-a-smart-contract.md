@@ -26,7 +26,7 @@ mvn test-compile test
 
 ## Write your first test
 
-Create a new test for the Token contract. Create a new java file in the `java-tests` folder, next to the other tests,
+Create a new test for the Token contract. Create a new java file in the `java-test` folder, next to the other tests,
 the name could be `MyTokenTests.java`. In that file we can now define our test class:
 ```java
 public final class MyTokenTest extends JunitContractTest {
