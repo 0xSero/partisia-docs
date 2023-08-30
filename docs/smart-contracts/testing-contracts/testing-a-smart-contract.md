@@ -95,6 +95,11 @@ was deployed at.
 `TokenContract.TokenState`, which can be used to deserialize the contract state into.
 The object can then be asserted on using standard Java assertions.
 
+Now try running the test. If you only want to run one test, you can run the following command while standing `java-test`:
+
+```bash
+mvn test -Dtest="MyTokenTest"
+```
 
 ### Second test using the first test as a setup
 
