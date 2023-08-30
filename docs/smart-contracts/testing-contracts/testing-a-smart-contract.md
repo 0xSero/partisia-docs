@@ -26,8 +26,8 @@ mvn test-compile test
 
 ## Write your first test
 
-Create a new test for the Token contract. Create a new java file in the `java-test` folder, next to the other tests,
-the name could be `MyTokenTests.java`. In that file we can now define our test class:
+Create a new test for the Token contract. Create a new java file next to the other tests in the example-contracts folder,
+the name could be `MyTokenTest.java`. In that file we can now define our test class:
 ```java
 public final class MyTokenTest extends JunitContractTest {
     // ...
@@ -38,7 +38,16 @@ The test extends the JunitContractTest class, this is the abstract class providi
 To write your first test, you should start by deploying the token contract. The deployed contract is needed to make sure we have a contract to interact with in our tests, you can also use your contract when writing your first test. Lets call this test 'setup', this first setup test will be the starting point for our future tests. 
 
 ````java
-public final class TokenTest extends JunitContractTest {
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.partisiablockchain.BlockchainAddress;
+import com.partisiablockchain.language.abicodegen.TokenContract;
+import com.partisiablockchain.language.junit.ContractBytes;
+import com.partisiablockchain.language.junit.ContractTest;
+import com.partisiablockchain.language.junit.JunitContractTest;
+import com.partisiablockchain.language.junit.TestBlockchain;
+
+public final class MyTokenTest extends JunitContractTest {
 
   public static final ContractBytes CONTRACT_BYTES =
       ContractBytes.fromPaths(
@@ -67,20 +76,22 @@ public final class TokenTest extends JunitContractTest {
 
 ````
 
-There are 4 things to notice here.
+There are 5 things to notice here.
 
-1. We have declared an instance of `ContractBytes`, where we specify the relative location of the .wasm and .abi file
+1. We have added imports for all the needed libraries and generated classes. 
+
+2. We have declared an instance of `ContractBytes`, where we specify the relative location of the .wasm and .abi file
 for our Token contract.
 The three paths declared are the path to the wasm, the abi and the local instrumented executable. 
 The local instrumented executable is used for code coverage. 
 
-2. The two fields with type BlockchainAddress, `owner` and `token`, these will be populated in the test, where we 
+3. The two fields with type BlockchainAddress, `owner` and `token`, these will be populated in the test, where we 
 create a public account and when we deploy the contract, the call returns the address the contract 
 was deployed at.
 
-3. We have created the first test named `setup`. The method have the annotation `@ContractTest`. This marks the test as a test, that can be used by other tests as their setup. 
+4. We have created the first test named `setup`. The method have the annotation `@ContractTest`. This marks the test as a test, that can be used by other tests as their setup. 
 
-4. The generated Java code, that is based on the ABI of the contract, provides a Record object, 
+5. The generated Java code, that is based on the ABI of the contract, provides a Record object, 
 `TokenContract.TokenState`, which can be used to deserialize the contract state into.
 The object can then be asserted on using standard Java assertions.
 
@@ -91,6 +102,8 @@ We can now perform our first interaction with the deployed contract. So we add a
 Another account must be created, so we add another field, `receiver`, and create the account.
 
 ````java
+// Imports from above
+
 public final class TokenTest extends JunitContractTest {
 
   public static final ContractBytes CONTRACT_BYTES =
