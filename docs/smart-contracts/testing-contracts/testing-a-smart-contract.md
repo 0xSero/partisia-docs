@@ -1,7 +1,11 @@
 # Testing a smart contract
 
 Tests for your smart contract helps you avoid mistakes and exploits in a contract, you
-are developing. 
+are developing. After reading this page, you should be able to do the following: 
+
+1. Write a test, that deploys a contract
+2. Use the deployment test as setup for another test.
+3. Interact with the contract in the test.
 
 In the [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), we have tests, to show the behaviour for all the contracts. These tests are written in
 Java, using our testing framework Junit-contract-test. In the test we are provided a blockchain object, where we can
@@ -115,7 +119,7 @@ public final class TokenTest extends JunitContractTest {
   }
 
   /** Transfer tokens from one account to another. */
-  @ContractTest
+  @ContractTest(previous = "setup")
   void transferTokens() {
 
     BigInteger amount = BigInteger.TEN;
@@ -132,4 +136,21 @@ public final class TokenTest extends JunitContractTest {
 }
 
 ````
+Notice in the annotation `@ContractTest`, we have provided an argument that points to our previous method,
+where we deployed our contract. In our example, that is `setup`.
+
+In this test, we send an action to our contract, the functionality we are testing is just a normal transfer from `owner`
+to `receiver`. We call the `.sendAction()`, where we provided the address of the contract, we want to send the action to.
+The sender of the action, and the rpc for the call. The rpc in this case contains the receiver of the transfer, and 
+the amount to send.
+
+So to sum it up. You have now seen:
+1. How to deploy a contract in a test, by specifying the bytes to use for the contract, and rpc for the init call.
+2. Use that test as a setup for another test, by pointing to the method name with the previous parameter,
+`@ContractTest(previous = "NAME-OF-SETUP-TEST")`.
+3. Interact with a contract by sending an action.
+
+If you want to more examples of testing smart contracts, go to 
+[example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), where there are multiple tests.
+
 
