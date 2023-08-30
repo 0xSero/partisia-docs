@@ -104,7 +104,7 @@ Another account must be created, so we add another field, `receiver`, and create
 ````java
 // Imports from above
 
-public final class TokenTest extends JunitContractTest {
+public final class MyTokenTest extends JunitContractTest {
 
   public static final ContractBytes CONTRACT_BYTES =
       ContractBytes.fromPaths(
