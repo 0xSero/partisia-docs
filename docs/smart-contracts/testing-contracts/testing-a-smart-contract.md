@@ -26,7 +26,7 @@ mvn test-compile test
 
 ## Write your first test
 
-Create a new test for the Token contract. Create a new java file next to the other tests in the example-contracts folder,
+Create a new test for the [Token contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/token?ref_type=heads). Create a new java file next to the other tests in the example-contracts folder,
 the name could be `MyTokenTest.java`. In that file we can now define our test class:
 ```java
 public final class MyTokenTest extends JunitContractTest {
@@ -86,7 +86,7 @@ There are 5 things to notice here.
 1. We have added imports for all the needed libraries and generated classes. 
 
 2. We have declared an instance of `ContractBytes`, where we specify the relative location of the .wasm and .abi file
-for our Token contract.
+for our [example Token contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/token?ref_type=heads).
 The three paths declared are the path to the wasm, the abi and the local instrumented executable. 
 The local instrumented executable is used for code coverage. 
 
@@ -133,7 +133,9 @@ public final class MyTokenTest extends JunitContractTest {
     owner = blockchain.newAccount(1);
     receiver = blockchain.newAccount(2);
 
-    token = deployTokenContract(blockchain, owner, "My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
+        byte[] initRpc = TokenContract.initialize("My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
+        
+        token = blockchain.deployContract(owner, CONTRACT_BYTES, initRpc);
 
     final TokenContract.TokenState state =
         TokenContract.TokenState.deserialize(blockchain.getContractState(token));
@@ -164,11 +166,11 @@ where we deployed our contract. In our example, that is `setup`.
 
 In this test, we send an action to our contract, the functionality we are testing is just a normal transfer from `owner`
 to `receiver`. We call the `.sendAction()`, where we provided the address of the contract, we want to send the action to.
-The sender of the action, and the rpc for the call. The rpc in this case contains the receiver of the transfer, and 
+The sender of the [action](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#action), and the [rpc](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#events) for the call. The rpc in this case contains the receiver of the transfer, and 
 the amount to send.
 
-So to sum it up. You have now seen:
-1. How to deploy a contract in a test, by specifying the bytes to use for the contract, and rpc for the init call.
+After reading the article, you should now be able to: 
+1. Deploy a contract in a test, by specifying the bytes to use for the contract, and rpc for the init call.
 2. Use that test as a setup for another test, by pointing to the method name with the previous parameter,
 `@ContractTest(previous = "NAME-OF-SETUP-TEST")`.
 3. Interact with a contract by sending an action.
