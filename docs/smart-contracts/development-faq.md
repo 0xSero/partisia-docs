@@ -42,7 +42,7 @@ Questions for ZK contracts:
 
 ## Partisia Blockchain MetaMask Snap
 
-The Partisia Blockchain MetaMask snap allows dapp developers to use MetaMask for when signing transactions towards Partisia Blockchain. The Snap feature is currently only available within MetaMask Flask.  
+The Partisia Blockchain MetaMask snap allows dapp developers to use MetaMask for when signing transactions towards Partisia Blockchain. The Snap feature is currently only available within [MetaMask Flask](https://metamask.io/flask/).
 
 - **What does the snap do?**: The snap allows users to use MetaMask to sign transactions. It allows getting the Partisia Blockchain address of the key and to sign transactions.
 - **How do I install the Snap?**: Using MetaMask `wallet_requestSnaps` with the snap identifier `npm:@partisiablockchain/snap`
