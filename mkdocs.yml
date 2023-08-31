@@ -10,7 +10,6 @@ nav:
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/dictionary.md
   - Smart contracts:
-
       - smart-contracts/introduction-to-smart-contracts.md
       - smart-contracts/what-is-a-smart-contract.md
       - smart-contracts/install-the-smart-contract-compiler.md
@@ -40,6 +39,7 @@ nav:
           - smart-contracts/integration/introduction-to-standard-contract-interfaces.md
           - smart-contracts/integration/mpc-20-token-contract.md
           - smart-contracts/integration/mpc-721-nft-contract.md
+          - smart-contracts/integration/metamask-snap-integration.md
       - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
       - smart-contracts/development-faq.md
   - Node Operations:
@@ -57,6 +57,7 @@ nav:
       - node-operations/register-your-node.md
       - node-operations/node-health-and-maintenance.md
       - node-operations/update-your-nodes-public-information.md
+      - node-operations/oracles-on-partisia-blockchain.md
       - node-operations/price-oracle.md
       - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
@@ -75,6 +76,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight
+  - pymdownx.details
   - admonition
   - pymdownx.superfences:
       # make exceptions to highlighting of code:
