@@ -47,31 +47,36 @@ import com.partisiablockchain.language.junit.ContractTest;
 import com.partisiablockchain.language.junit.JunitContractTest;
 import com.partisiablockchain.language.junit.TestBlockchain;
 
+import java.math.BigInteger;
+import java.nio.file.Path;
+
 public final class MyTokenTest extends JunitContractTest {
 
-  public static final ContractBytes CONTRACT_BYTES =
-      ContractBytes.fromPaths(
-          Path.of("../target/wasm32-unknown-unknown/release/token_contract.wasm"),
-          Path.of("../target/wasm32-unknown-unknown/release/token_contract.abi"),
-          Path.of("../target/wasm32-unknown-unknown/release/token_contract_runner"));
+    public static final ContractBytes CONTRACT_BYTES =
+            ContractBytes.fromPaths(
+                    Path.of("../target/wasm32-unknown-unknown/release/token_contract.wasm"),
+                    Path.of("../target/wasm32-unknown-unknown/release/token_contract.abi"),
+                    Path.of("../target/wasm32-unknown-unknown/release/token_contract_runner"));
 
-  private static final BigInteger TOTAL_SUPPLY = BigInteger.valueOf(123123);
+    private static final BigInteger TOTAL_SUPPLY = BigInteger.valueOf(123123);
 
-  private BlockchainAddress owner;
-  private BlockchainAddress token;
+    private BlockchainAddress owner;
+    private BlockchainAddress token;
 
-  /** Setup for all the other tests. Deploys token contract and instantiates accounts. */
-  @ContractTest
-  void setup() {
-    owner = blockchain.newAccount(1);
+    /** Setup for all the other tests. Deploys token contract and instantiates accounts. */
+    @ContractTest
+    void setup() {
+        owner = blockchain.newAccount(1);
 
-    token = deployTokenContract(blockchain, owner, "My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
+        byte[] initRpc = TokenContract.initialize("My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
+        
+        token = blockchain.deployContract(owner, CONTRACT_BYTES, initRpc);
 
-    TokenContract.TokenState state =
-        TokenContract.TokenState.deserialize(blockchain.getContractState(token));
+        TokenContract.TokenState state =
+                TokenContract.TokenState.deserialize(blockchain.getContractState(token));
 
-    assertThat(state.totalSupply()).isEqualTo(TOTAL_SUPPLY);
-  }
+        assertThat(state.totalSupply()).isEqualTo(TOTAL_SUPPLY);
+    }
 }
 
 ````
