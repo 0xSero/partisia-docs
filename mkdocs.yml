@@ -31,6 +31,7 @@ nav:
           - smart-contracts/integration/introduction-to-standard-contract-interfaces.md
           - smart-contracts/integration/mpc-20-token-contract.md
           - smart-contracts/integration/mpc-721-nft-contract.md
+          - smart-contracts/integration/metamask-snap-integration.md
       - Testing Contracts:
           - smart-contracts/testing-contracts/testing-a-smart-contract.md
       - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
@@ -68,6 +69,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight
+  - pymdownx.details
   - pymdownx.superfences:
       # make exceptions to highlighting of code:
       custom_fences:
