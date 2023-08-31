@@ -40,3 +40,11 @@ Questions for ZK contracts:
 - **ZkRust: Can I use feature X?**: [Check out the currently supported features.](../smart-contracts/zk-language-features.md)
 - **ZkRust: Why is important feature X not supported?**: ZkRust is an entire reimplementation of the Rust compiler targeted at Partisia Blockchain, and not all features have been prioritized.
 
+## Partisia Blockchain MetaMask Snap
+
+The Partisia Blockchain MetaMask snap allows dapp developers to use MetaMask for when signing transactions towards Partisia Blockchain. The Snap feature is currently only available within MetaMask Flask.  
+
+- **What does the snap do?**: The snap allows users to use MetaMask to sign transactions. It allows getting the Partisia Blockchain address of the key and to sign transactions.
+- **How do I install the Snap?**: Using MetaMask `wallet_requestSnaps` with the snap identifier `npm:@partisiablockchain/snap`
+- **How do I get the Partisia Blockchain address of the user?**: When the snap has been installed the snap invocation `get_address` will return the address of the user. 
+- **How do I sign a transaction?**: Use the snap method `sign_transaction`. The method requires a parameter object with two fields, `chainId` that is the chain id of the chain that the transaction are signed towards and `payload` that should be a hex encoded transaction. The method will return a hex encoded signature.
