@@ -133,9 +133,9 @@ public final class MyTokenTest extends JunitContractTest {
     owner = blockchain.newAccount(1);
     receiver = blockchain.newAccount(2);
 
-        byte[] initRpc = TokenContract.initialize("My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
-        
-        token = blockchain.deployContract(owner, CONTRACT_BYTES, initRpc);
+    byte[] initRpc = TokenContract.initialize("My Test Token", "TEST", (byte) 8, TOTAL_SUPPLY);
+
+    token = blockchain.deployContract(owner, CONTRACT_BYTES, initRpc);
 
     final TokenContract.TokenState state =
         TokenContract.TokenState.deserialize(blockchain.getContractState(token));
