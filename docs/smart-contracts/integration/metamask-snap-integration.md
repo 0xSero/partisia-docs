@@ -10,14 +10,20 @@ Blockchain address of the key and to sign transactions.
 To sign a transaction you can do the following:
 1. Deactivate the original MetaMask extension if you have it installed.
 2. Install [MetaMask Flask DEVELOPMENT BUILD chrome extension](https://metamask.io/flask/)
-3. Create a Wallet in MetaMask Flask. If you want to have the same wallet address as you have on the PBC wallet, you can reuse the seed phrase and get the same keys.
+3. Create a Wallet in MetaMask Flask. If you want to have the same wallet address as you have on the PBC wallet, you can reuse the seed phrase and get the same account address key.
 4. Run the [example-web-client](https://gitlab.com/partisiablockchain/language/example-web-client).
 
 Steps 5. 6. and 7. are done in the example-web-clients interface:
 
 5. "Connect Metamask Snap" - this installs the PBC Snap (Protocol 3757).
-6. If you created a new account, you need to read the account address key - and then get some testnet gas for the account. You can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
-7. Now you can use Metamask to sign your transactions. We recommend after making sure you have gas on the account that you to try out the "mint 10.000 tokens" action - and examine the transaction in [the Browser](https://browser.testnet.partisiablockchain.com/transactions). If it succeeds It will appear with the Action named "Mint" in the browser.
+6. If you created a new account, you need to read the account address key inside MetaMask Flask - and then get some testnet gas for the account. You can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
+7. Now you can use Metamask to sign your transactions. 
+
+We recommend you to try the "mint 10.000 tokens" action - and examine the transaction in [the Browser](https://browser.testnet.partisiablockchain.com/transactions). If it succeeds It will appear with the Action named "Mint" in the browser.
+
+???+ warning "Common Pitfalls"
+    1. If you have the standard MetaMask installed, and you install MetaMask Flask you need to ensure that you have disabled the standard MetaMask extension. Otherwise, you will experience that the snap is not available, since its only accessible in MetaMask Flask.
+    2. If your account has no gas it will still allow you to approve the transaction but will return `error 500`. Make sure that you have some gas on the account before signing transactions. 
 
 
 ### How do I install the Snap as a developer?
