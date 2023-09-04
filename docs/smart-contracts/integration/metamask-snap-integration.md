@@ -14,7 +14,7 @@ To sign a transaction you can do the following:
 3. Create a Wallet in MetaMask Flask. If you want to have the same wallet address as you have on the PBC wallet, you can reuse the seed phrase and get the same account address key.
 4. Run the [example-web-client](https://gitlab.com/partisiablockchain/language/example-web-client). **Steps 5, 6 and 7 are done in the example-web-clients interface**.
 5. "Connect Metamask Snap" - this installs the PBC Snap (Protocol 3757).
-6. If you created a new account, you need to read the account address key inside MetaMask Flask - and then get some testnet gas for the account. You can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
+6. Ensure that your account has gas. If you lack gas, you need to read the account address key inside MetaMask Flask - and then get some testnet gas for the account. You can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
 7. Now you can use Metamask to sign your transactions. 
 
 We recommend you to try the "mint 10.000 tokens" action - and examine the transaction in [the Browser](https://browser.testnet.partisiablockchain.com/transactions). If it succeeds It will appear with the Action named "Mint" in the browser.
