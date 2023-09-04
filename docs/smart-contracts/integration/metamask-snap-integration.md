@@ -17,10 +17,10 @@ To sign a transaction you can do the following:
 6. Ensure that your account has gas. If you lack gas, you need to read the account address key inside MetaMask Flask - and then get some testnet gas for the account. You can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
 7. Now you can use Metamask to sign your transactions. 
 
-We recommend you to try the "mint 10.000 tokens" action - and examine the transaction in [the Browser](https://browser.testnet.partisiablockchain.com/transactions). If it succeeds It will appear with the Action named "Mint" in the browser.
+We recommend you to try the "Mint 10.000 tokens" action - and examine the transaction in [the Browser](https://browser.testnet.partisiablockchain.com/transactions). If it succeeds it will appear with the Action named "Mint" in the browser.
 
 ???+ warning "Common Pitfalls"
-    1. If you have the standard MetaMask installed, and you install MetaMask Flask you need to ensure that you have disabled the standard MetaMask extension. Otherwise, you will experience that the snap is not available, since its only accessible in MetaMask Flask.
+    1. If you have the standard MetaMask installed, and you install MetaMask Flask you need to ensure that you have disabled the standard MetaMask extension. Otherwise, you will experience that the snap is not available.
     2. If your account has no gas it will still allow you to approve the transaction but will return `error 500`. Make sure that you have some gas on the account before signing transactions. 
 
 
