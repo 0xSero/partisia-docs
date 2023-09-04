@@ -57,3 +57,12 @@ should be a hex encoded transaction. The method will return a hex encoded signat
       },
     });
     ```
+
+To sign a transaction you can do the following:
+1. Deactivate the original MetaMask extension if you have it installed.
+2. Install MetaMask Flask DEVELOPMENT BUILD chrome extension 
+3. Create a Wallet. 
+4. Run the example-web-client. The following steps are done in the example:
+5. "Connect Metamask Snap" - Install the PBC Snap (Protocol 3757).
+6. Read the account address key - and then get some testnet gas for the account.
+7. Now you can use Metamask to sign your transactions. Try out the "mint 10.000 tokens" action - and examine the transaction in the Browser.
