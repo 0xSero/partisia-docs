@@ -9,12 +9,12 @@ Blockchain address of the key and to sign transactions.
 ### How to install and use the snap as a user?
 To sign a transaction you can do the following:
 
-1. Deactivate the original MetaMask extension if its installed.
+1. Deactivate the original MetaMask extension if it is installed.
 2. Install [MetaMask Flask DEVELOPMENT BUILD chrome extension](https://metamask.io/flask/)
-3. Create a Wallet in MetaMask Flask. You can reuse the seed phrase from PBC wallet if you want to get the same account address key as the one you have.
+3. Create a Wallet in MetaMask Flask. You can reuse the seed phrase from PBC wallet if you want to use the same account address and private key.
 4. Run the [example-web-client](https://gitlab.com/partisiablockchain/language/example-web-client). **Steps 5, 6 and 7 are done in the example-web-clients interface**.
 5. "Connect Metamask Snap" - this installs the PBC Snap (Protocol 3757).
-6. Ensure that your account has gas. If you lack gas, find the account address key inside MetaMask Flask, then get some testnet gas for the account. You can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
+6. Ensure that your PBC account has gas. If you lack gas, find the account address key inside MetaMask Flask, then get some testnet gas for the account. You can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
 7. Now you can use Metamask to sign your transactions. 
 
 We recommend you to try the "Mint 10.000 tokens" action - and examine the transaction in [the Browser](https://browser.testnet.partisiablockchain.com/transactions). If it succeeds it will appear with the Action named "Mint" in the browser.
