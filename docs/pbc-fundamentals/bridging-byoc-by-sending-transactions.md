@@ -14,6 +14,7 @@ The basic idea behind the bridge is to move liquid cryptocurrencies to and from 
 Withdrawal is the opposite operation. The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, the sign for the funds to be unlocked from the contract on the native chain.
 To use the bridge you must have an account on PBC and on the chain which coins you want to deposit or withdraw. You must have a wallet to sign transactions on both chains that you are interacting with. In the following examples we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Matic, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
 
+You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Plolygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well. To see how you use the metamask wallet to send transactions with the RPC method see [here](https://docs.metamask.io/wallet/how-to/send-transactions/). You can use the [Partisia Blockchain Wallet extension](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia) to sign and send transactions to PBC.
 
 ### Make a deposit
 
