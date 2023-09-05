@@ -7,6 +7,7 @@ nav:
       - pbc-fundamentals/introduction-to-the-fundamentals.md
       - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/byoc-and-gas.md
+      - pbc-fundamentals/bridging-byoc-by-sending-transactions.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/dictionary.md
   - Smart contracts:
