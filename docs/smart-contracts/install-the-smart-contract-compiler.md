@@ -5,12 +5,12 @@
 To develop and compile contracts for the Partisia Blockchain, you need to install Rust.
 To install Rust for you platform follow the instructions on <https://rustup.rs/>.
 
-The build tool partisia-contract works with rust version 1.69.0. Instruct rust to use that version by running:
+The build tool partisia-contract works with rust version 1.72.0 and up. Instruct rust to use that version by running:
 
 
 ```bash
-rustup install 1.69.0
-rustup default 1.69
+rustup install stable
+rustup default stable
 ```
 The target needs to be added manually, you add the target by running:
 ```bash
