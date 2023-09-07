@@ -41,6 +41,9 @@ Want to explore more possibilities? You can go visit the cli-execution-reference
 You can look in the commandline.sh that is placed within each test folder to understand the multitude of applications this tool can have. 
 
 ## The test framework
+In the [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), we have tests, to show the behaviour for all the contracts. These tests are written in
+Java, using our testing framework Junit-contract-test. In the test we are provided a blockchain object, where we can
+deploy and interact with multiple different contracts. You can see how to create your own tests by visiting this article: Insert link to Jens docs.
 
 ## Zk client
 
