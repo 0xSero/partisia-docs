@@ -11,12 +11,12 @@
     <!-- Repeat above for more dots -->
 </div>
 
-When creating a contract that sends transactions to other contracts, its beneficial to understand the relationship and adequately account for the gas required for these transactions. There are two important factors to consider in this process: 
+When creating a contract that sends transactions to other contracts, a developer need to adequately account for the gas required for these transactions. There are two important factors to consider in this process: 
 
 1. Total Number of Transactions: Determine the total number of transactions that need to be covered by the gas.
 2. Gas Price per Transaction: [Identify the exact gas price for each transaction.](how-to-get-testnet-gas.md#test-your-contract-on-the-testnet)
 
-It is fundamental for a contract to ensure that it includes enough gas to cover the transactions sent to the other contract. This means factoring in the cumulative gas costs of both transactions during the design of the initial transaction. The total cost for the input would be the sum of the gas costs for both the transaction from the first contract to the second contract and from the second contract to the target contract, be it a response or a third objective.
+A contract needs to ensure that it includes enough gas to cover the next set of transactions sent to another contract. This means factoring in the cumulative gas costs of both transactions during the design of the initial transaction. The total cost for the input would be the sum of the gas costs for both the transaction from the first contract to the second contract and from the second contract to the target contract, be it a callback or a third objective.
 
 ### Examples
 
@@ -24,4 +24,4 @@ To illustrate, let's consider two contracts: Contract A and Contract B. Contract
 
 <img alt="Deposit" style="width: 80%;" src="txcontract-contract-gas.png"/>
 
-Another addition to the above example is if contract A expects a response from contract B. Then the total price of the gas for any input becomes a total of three transactions: (tx &rarr; contract A) + (tx &rarr; contract B) + (tx response from contract B &rarr; contract A).
+Another addition to the above example is if contract A expects a callback from contract B. Then the total price of the gas for any input becomes a total of three transactions: (tx &rarr; contract A) + (tx &rarr; contract B) + (tx callback from contract B &rarr; contract A).
