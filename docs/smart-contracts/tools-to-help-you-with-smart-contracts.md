@@ -40,7 +40,14 @@ If you need the above specification for the tx you can type: `cargo partisia-con
 Want to explore more possibilities? You can go visit the cli-execution-reference-tests to see example usage of [the CLI tool](https://gitlab.com/partisiablockchain/language/partisia-cli/-/tree/main/src/test/resources/cli-execution-reference-tests?ref_type=heads) 
 You can look in the commandline.sh that is placed within each test folder to understand the multitude of applications this tool can have. 
 
-## Zk client
+## abi-client 
+Our Smart Contract Binary Interface Client Library helps you interact with the blockchain through code. If you need a serverside way of using the blockchain to deploy contracts or create transactions on your behalf this is a standard binary interface for that usecase. The abi-client has two versions, [one made for java](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main?ref_type=heads) and [one made for TypeScript](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts).
+
+We have created an example client to showcase a way of working with such integrations. You can visit [our java example]() or our [TypeScript example]()
+
+## zk-client
+Enables the generation of [rpc](https://partisiablockchain.gitlab.io/documentation/smart-contracts/smart-contract-binary-formats.html#rpc-binary-format) for ZK inputs. We have a two versions of the zk-client, [one made for java](https://gitlab.com/partisiablockchain/language/abi/zk-client/) and [one made for TypeScript](https://gitlab.com/partisiablockchain/language/abi/zk-client-ts). This client is here to help you interact with the blockchain through code integrations. You can visit the tests inside the projects to see how it works and start from there.
+
 
 ## Example client
 
