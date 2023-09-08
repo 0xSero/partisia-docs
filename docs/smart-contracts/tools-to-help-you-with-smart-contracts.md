@@ -40,11 +40,6 @@ If you need the above specification for the tx you can type: `cargo partisia-con
 Want to explore more possibilities? You can go visit the cli-execution-reference-tests to see example usage of [the CLI tool](https://gitlab.com/partisiablockchain/language/partisia-cli/-/tree/main/src/test/resources/cli-execution-reference-tests?ref_type=heads) 
 You can look in the commandline.sh that is placed within each test folder to understand the multitude of applications this tool can have. 
 
-## The test framework
-In the [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), we have tests, to show the behaviour for all the contracts. These tests are written in
-Java, using our testing framework Junit-contract-test. In the test we are provided a blockchain object, where we can
-deploy and interact with multiple different contracts. You can see how to create your own tests by visiting this article: Insert link to Jens docs.
-
 ## Zk client
 
 ## Example client
