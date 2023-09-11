@@ -9,7 +9,7 @@ Blockchain address of the key and to sign transactions.
 ### How to install and use the snap as a user?
 To sign a transaction you can do the following:
 
-1. Install the latest version of the MetaMask extension.
+1. Install the latest version of the [MetaMask extension](https://metamask.io/download/).
 2. Create a Wallet in MetaMask. You can reuse the seed phrase from PBC wallet if you want to use the same account address and private key.
 3. Run the [example-web-client](https://gitlab.com/partisiablockchain/language/example-web-client). **Steps 5, 6 and 7 are done in the example-web-clients interface**.
 4. "Connect Metamask Snap" - this installs the PBC Snap (Protocol 3757).
