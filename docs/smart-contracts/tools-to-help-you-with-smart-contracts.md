@@ -1,10 +1,15 @@
 # Overview of tools to help you with smart contracts
 
-Here we have collected all tools that you can use to either interact with the blockchain. The tools can be used either
-to locally test smart contracts, use the command line interface to interact with the blockhchain or use the abi codegen
+This article introduces tools that you can use to interact with the blockchain. The tools can be used
+to test smart contracts, use the command line interface to interact with the blockchain or
 to help you integrate the blockchain with your own applications.
 
 ## The browser
+The browser is a website that translates the blockchain to a web application. This helps a developer when creating smart contracts to get insights into the transactions they are sending or keeping track of your deployed contracts. 
+
+The browser has two versions: 
+[Testnet version](https://browser.testnet.partisiablockchain.com)
+[Mainnet version](https://browser.partisiablockchain.com)
 
 ## Partisia contract extensions
 
