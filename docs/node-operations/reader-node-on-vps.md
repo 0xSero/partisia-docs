@@ -1,20 +1,19 @@
 # Reader node on VPS
 <div class="dot-navigation" markdown>
    [](what-is-a-node-operator.md)
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
    [](run-a-reader-node-on-your-local-machine.md)
    [](vps.md)
    [](secure-your-vps.md)
    [*.*](reader-node-on-vps.md)
-   [](create-an-account-on-pbc.md)
-   [](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
    [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
 </div>
-
 The following steps are the same as you went through setting up a reader node on your local machine. You should use the non-root user you created in the previous [step](../node-operations/secure-your-vps.md). You need to install the [recommended software](../node-operations/recommended-hardware-and-software.md) before you start.
 
 ### Creating the folders
