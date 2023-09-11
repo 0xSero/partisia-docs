@@ -1,20 +1,19 @@
 # Get MPC tokens
 <div class="dot-navigation" markdown>
    [](what-is-a-node-operator.md)
+   [](create-an-account-on-pbc.md)
+   [*.*](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
    [](run-a-reader-node-on-your-local-machine.md)
    [](vps.md)
    [](secure-your-vps.md)
    [](reader-node-on-vps.md)
-   [](create-an-account-on-pbc.md)
-   [*.*](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
    [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
 </div>
-
 If you have not already bought the prerequisite amount of MPC tokens, you are welcome to contact us for further information. [Reach out here](https://kyc.partisiablockchain.com/).
 
 #### The current stakes are:
