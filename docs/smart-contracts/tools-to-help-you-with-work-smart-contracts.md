@@ -1,4 +1,4 @@
-# Overview of tools to help you with smart contracts
+# Overview of tools to help you work with smart contracts
 
 This article introduces tools that you can use to interact with the blockchain. The tools can be used
 to test smart contracts, use the command line interface to interact with the blockchain or
