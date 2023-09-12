@@ -34,7 +34,12 @@ When [signing a transaction](../compile-and-deploy-contracts.md) while logged in
 
 ![img.png](signing-transactions-metamask.png)
 
-### Developing dApps with the MetaMask Partisia Blockchain Snap
+## Developing dApps with the MetaMask Partisia Blockchain Snap
+When developing dApps or other application it can be beneficial to use the MetaMask Partisia Blockchain Snap as it creates an easy plug-and-play solution to help users sign transactions onto the chain. 
+
+As an example on how to integrate and use the snap as part of a dApp we recommend you visit our [web-client example](https://gitlab.com/partisiablockchain/language/example-web-client).
+
+### How do I install the Snap as a developer?
 Using MetaMask `wallet_requestSnaps` with the snap
   identifier `npm:@partisiablockchain/snap`.
   
@@ -52,7 +57,7 @@ Using MetaMask `wallet_requestSnaps` with the snap
       console.log(error);
     }
     ```
-As an example on how to integrate and use the snap as part of a dApp we recommend you visit our [web-client example](https://gitlab.com/partisiablockchain/language/example-web-client). 
+
 
 ### How do I get the Partisia Blockchain address of the user?
 When the snap has been installed the snap invocation `get_address` will return the address of the user.
