@@ -8,7 +8,7 @@ Blockchain address of the key and to sign transactions.
 
 ### How to install and use the snap as a user?
 1. Install the latest version of the [MetaMask extension](https://metamask.io/download/).
-2. Create a Wallet in MetaMask. You can reuse the seed phrase from PBC wallet if you want to use the same account address and private key.
+2. Create a Wallet in MetaMask. You can reuse the seed phrase from PBC wallet if you want to have the same account address and private key.
 3. Go [to MetaMask snaps](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/)
 4. Click add to MetaMask
 5. Sign in with your MetaMask account and accept the terms and conditions for the snap
