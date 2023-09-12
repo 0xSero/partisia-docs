@@ -6,8 +6,9 @@ This article introduces tools designed to enhance your interaction with smart co
 The browser serves as a web-based interface to translate blockchain data into a user-friendly application. It aids developers in creating smart contracts by providing insights into transaction details and contract deployment status. You can access two versions of the browser:
 
 The browser has two versions: 
-- [Testnet version](https://browser.testnet.partisiablockchain.com)
-- [Mainnet version](https://browser.partisiablockchain.com)
+
+- [TestNet version](https://browser.testnet.partisiablockchain.com)
+- [MainNet version](https://browser.partisiablockchain.com)
 
 ## Partisia contract extensions
 The Partisia contract is used to build and compile smart contracts. It offers several extensions to assist you in interacting with the blockchain and working with smart contracts. These extensions are thoroughly documented as part of the tool, enabling you to explore their capabilities inside `cargo partisia-contract`. Here is a brief overview of the primary extensions:
@@ -248,6 +249,7 @@ this tool can have.
 Our Smart Contract Binary Interface Client Library allows you to interact with the blockchain programmatically. It offers a standard binary interface for deploying contracts and creating transactions, making it ideal to use serverside for signing transactions. 
 
 ABI-Client has two versions:
+
 - [Java version](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main?ref_type=heads)
 - [TypeScript version](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts)
 
@@ -264,6 +266,7 @@ help you interact with the blockchain through code integrations. You can visit t
 it works and start from there.
 
 There are two versions of the zk-client:
+
 - [Java version](https://gitlab.com/partisiablockchain/language/abi/zk-client/)
 - [TypeScript version](https://gitlab.com/partisiablockchain/language/abi/zk-client-ts)
 
@@ -271,5 +274,6 @@ There are two versions of the zk-client:
 This is a front end and a backend example of how to integrate you application with Partisia Blockchain, specifically it uses the [abi-client](#abi-client) to send transactions and read states of the contracts. 
 
 The example client comes in two versions: 
+
 - [Java version](https://gitlab.com/secata/pbc/language/example-client)
 - [TypeScript version](https://gitlab.com/secata/pbc/language/example-web-client)
