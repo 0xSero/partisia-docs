@@ -1,5 +1,5 @@
 # Partisia Blockchain MetaMask Snap
-The Partisia Blockchain MetaMask snap users to use MetaMask for signing transactions towards
+The Partisia Blockchain MetaMask snap allows users to use MetaMask for signing transactions towards
 Partisia Blockchain. The Snap feature is available within the latest version of [MetaMask](https://metamask.io/).
 
 ### What does the snap do?
