@@ -12,16 +12,16 @@ Blockchain address of the key and to sign transactions.
 3. Go [to MetaMask snaps](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/)
 4. Click add to MetaMask
 5. Sign in with your MetaMask account and accept the terms and conditions for the snap
-6. Press the blue Connect button followed by the blue install button
+6. Click the blue Connect button followed by the blue install button
 7. Confirm the protocol `(Give 3757 (Unrecognized protocol)..)`
 8. You now have access to the MetaMask snap
 
 To use the newly installed MetaMask snap with Partisia Blockchain
 
 1. Go to [the browser TestNet](https://browser.testnet.partisiablockchain.com/) or [the browser MainNet](https://browser.partisiablockchain.com/)
-2. In the upper right corner press Sign In
+2. In the upper right corner click Sign In
 3. Click on the "Sign in using MetaMask" <br> ![img.png](sign-in-using-metamask.png)<br>
-4. Press the blue connect button
+4. Click the blue connect button
 5. You have now successfully signed in to your MetaMask account through the browser tool and can use the MetaMask Partisia Blockchain snap to sign transactions to the blockchain
 
 #### How to sign a transaction?
