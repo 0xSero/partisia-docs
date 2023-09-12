@@ -29,9 +29,7 @@ When [signing a transaction](../compile-and-deploy-contracts.md) while logged in
 
 ![img.png](signing-transactions-metamask.png)
 
-
-
-### How do I install the Snap as a developer?
+### Developing dApps with the MetaMask Partisia Blockchain Snap
 Using MetaMask `wallet_requestSnaps` with the snap
   identifier `npm:@partisiablockchain/snap`.
   
