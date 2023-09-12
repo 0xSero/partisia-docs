@@ -16,6 +16,9 @@ Blockchain address of the key and to sign transactions.
 7. Confirm the protocol `(Give 3757 (Unrecognized protocol)..)`
 8. You now have access to the MetaMask snap
 
+Video tutorial
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cdMVVQmyASU?si=u93J9vvArpPhxJgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 To use the newly installed MetaMask snap with Partisia Blockchain
 
 1. Go to [Partisia Blockchain Browser TestNet](https://browser.testnet.partisiablockchain.com/) or [Partisia Blockchain Browser MainNet](https://browser.partisiablockchain.com/)
@@ -47,23 +50,7 @@ Using MetaMask `wallet_requestSnaps` with the snap
       console.log(error);
     }
     ```
-
-**To sign a transaction you can do the following**:
-
-1. Install the latest version of the [MetaMask extension](https://metamask.io/download/).
-2. Create a Wallet in MetaMask. You can reuse the seed phrase from PBC wallet if you want to use the same account address and private key.
-3. Run the [example-web-client](https://gitlab.com/partisiablockchain/language/example-web-client). **Steps 5, 6 and 7 are done in the example-web-clients interface**.
-4. "Connect Metamask Snap" - this installs the PBC Snap (Protocol 3757).
-5. Ensure that your PBC account has gas. If you lack gas, find the account address key inside the example-webclient interface, then get some testnet gas for the account. You can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
-6. Now you can use Metamask to sign your transactions.
-
-We recommend you to try the "Mint 10.000 tokens" action - and examine the transaction in [Partisia Blockchain Browser](https://browser.testnet.partisiablockchain.com/transactions). If it succeeds it will appear with the Action named "Mint" in Partisia Blockchain Browser.
-
-???+ warning "Common Pitfalls"
-    If your account has no gas it will still allow you to approve the transaction but will return `error 500`. Make sure that you have [some gas on the account](../access-and-use-the-testnet.md) before signing transactions.
-
-Video tutorial
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cdMVVQmyASU?si=u93J9vvArpPhxJgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+As an example on how to integrate and use the snap as part of a dApp we recommend you visit our [web-client example](https://gitlab.com/partisiablockchain/language/example-web-client). 
 
 ### How do I get the Partisia Blockchain address of the user?
 When the snap has been installed the snap invocation `get_address` will return the address of the user.
