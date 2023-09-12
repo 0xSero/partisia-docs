@@ -12,9 +12,8 @@ Blockchain address of the key and to sign transactions.
 3. Go [to MetaMask snaps](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/)
 4. Click add to MetaMask
 5. Sign in with your MetaMask account and accept the terms and conditions for the snap
-6. Click the blue Connect button followed by the blue install button
-7. Confirm the protocol `(Give 3757 (Unrecognized protocol)..)`
-8. You now have access to the MetaMask snap
+6. "Connect Metamask Snap" - this installs the PBC Snap (Protocol 3757).
+7. You now have access to the MetaMask snap
 
 Video tutorial
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cdMVVQmyASU?si=u93J9vvArpPhxJgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -26,6 +25,7 @@ To use the newly installed MetaMask snap with Partisia Blockchain
 3. Click on the "Sign in using MetaMask" <br> ![img.png](sign-in-using-metamask.png)<br>
 4. Click the blue connect button
 5. You have now successfully signed in to your MetaMask account through Partisia Blockchain Browser tool and can use the MetaMask Partisia Blockchain snap to sign transactions to the blockchain
+6.  Ensure that your PBC account has gas. If you lack gas, find the account address key inside MetaMask, then get some gas for the account. For gas on the testnet you can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
 
 #### How to sign a transaction?
 When [signing a transaction](../compile-and-deploy-contracts.md) while logged in with the MetaMask extension you will get prompted with a approval window from the extension with all the details of the transaction. 
