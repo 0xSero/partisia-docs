@@ -24,6 +24,11 @@ To use the newly installed MetaMask snap with Partisia Blockchain
 4. Press the blue connect button.
 5. You have now successfully signed in to your MetaMask account through the browser tool and can use the MetaMask Partisia Blockchain snap to sign transactions to the blockchain.
 
+#### How to sign a transaction?
+When [signing a transaction](../compile-and-deploy-contracts.md) while logged in with the MetaMask extension you will get prompted with a approval window from the extension with all the details of the transaction. 
+
+![img.png](signing-transactions-metamask.png)
+
 
 
 ### How do I install the Snap as a developer?
