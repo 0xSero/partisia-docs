@@ -1,18 +1,21 @@
 # Partisia Blockchain MetaMask Snap
+The MetaMask snap feature is available in [the browser](https://browser.partisiablockchain.com/) to help you sign transactions as a user of the blockchain.
 The Partisia Blockchain MetaMask snap allows dapp developers to use MetaMask for when signing transactions towards
-Partisia Blockchain. The Snap feature is available within the latest version of [MetaMask](https://metamask.io/).
+Partisia Blockchain.
+The Snap feature is available within the latest version of [MetaMask](https://metamask.io/).
 
 ### What does the snap do?
 The snap allows users to use MetaMask to sign transactions. It allows getting the Partisia
 Blockchain address of the key and to sign transactions.
 
 ### How to install and use the snap as a user?
-1. Go [to MetaMask snaps](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/)
-2. Click add to MetaMask
-3. Sign in with your MetaMask account and accept the terms and conditions for the snap
-4. Press the blue Connect button followed by the blue install button
-5. Confirm the protocol `(Give 3757 (Unrecognized protocol)..)`
-6. You now have access to the MetaMask snap
+1. [Install MetaMask](https://metamask.io/download/)
+2. Go [to MetaMask snaps](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/)
+3. Click add to MetaMask
+4. Sign in with your MetaMask account and accept the terms and conditions for the snap
+5. Press the blue Connect button followed by the blue install button
+6. Confirm the protocol `(Give 3757 (Unrecognized protocol)..)`
+7. You now have access to the MetaMask snap
 
 To use the newly installed MetaMask snap with Partisia Blockchain
 
