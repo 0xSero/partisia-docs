@@ -27,6 +27,8 @@ To use the newly installed MetaMask snap with Partisia Blockchain
 5. You have now successfully signed in to your MetaMask account through Partisia Blockchain Browser tool and can use the MetaMask Partisia Blockchain snap to sign transactions to the blockchain
 6.  Ensure that your PBC account has gas. If you lack gas, find the account address key inside MetaMask, then get some gas for the account. For gas on the testnet you can visit [our article about getting testnet gas](../access-and-use-the-testnet.md).
 
+We recommend you to try the "Mint 10.000 tokens" action - and examine the transaction in [Partisia Blockchain Browser](https://browser.testnet.partisiablockchain.com/transactions). If it succeeds it will appear with the Action named "Mint" in the browser.
+
 #### How to sign a transaction?
 When [signing a transaction](../compile-and-deploy-contracts.md) while logged in with the MetaMask extension you will get prompted with a approval window from the extension with all the details of the transaction. 
 
