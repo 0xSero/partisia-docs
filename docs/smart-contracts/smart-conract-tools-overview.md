@@ -1,83 +1,98 @@
 # Smart Contract Tools overview
 
-This article introduces tools designed to enhance your interaction with smart contracts on the blockchain. These tools offer a range of capabilities, from testing smart contracts to facilitating command-line interactions with the blockchain, and even integrating the blockchain with your own applications.
+This article introduces tools designed to help developers working with smart contracts on the blockchain. These tools
+offer a range of capabilities, from testing smart contracts to facilitating command-line interactions with the
+blockchain, and even integrating the blockchain with your own applications.
 
 ## The browser
-The browser serves as a web-based interface to translate blockchain data into a user-friendly application. It aids developers in creating smart contracts by providing insights into transaction details and contract deployment status. You can access two versions of the browser:
 
-The browser has two versions: 
+The browser serves as a web-based interface to translate blockchain data into a user-friendly application. It aids
+developers in creating smart contracts by providing insights into transaction details and contract deployment status.
+You can access two versions of the browser:
+
+The browser has two versions:
 
 - [TestNet version](https://browser.testnet.partisiablockchain.com)
 - [MainNet version](https://browser.partisiablockchain.com)
 
 ## Partisia contract extensions
-The Partisia contract is used to build and compile smart contracts. It offers several extensions to assist you in interacting with the blockchain and working with smart contracts. These extensions are thoroughly documented as part of the tool, enabling you to explore their capabilities inside `cargo partisia-contract`. Here is a brief overview of the primary extensions:
+
+The Partisia contract is used to build and compile smart contracts. It offers several extensions to assist you in
+interacting with the blockchain and working with smart contracts. These extensions are thoroughly documented as part of
+the tool, enabling you to explore their capabilities inside `cargo partisia-contract`. Here is a brief overview of the
+primary extensions:
 
 ### `cargo partisia-contract abi`
 
-This extension is focused on helping you understand the [ABI](../pbc-fundamentals/dictionary.md#abi) actions of a contract, providing insight into its input requirements. By using the command `cargo partisa-contract abi show`, you can access information about a compiled contract's state, initialization, actions, and variables. It simplifies the process of identifying shortnames for existing contracts using optional arguments. This extension is using the [abi-client](#abi-client).
+This extension is focused on helping you understand the [ABI](../pbc-fundamentals/dictionary.md#abi) actions of a
+contract, providing insight into its input requirements. By using the command `cargo partisa-contract abi show`, you can
+access information about a compiled contract's state, initialization, actions, and variables. It simplifies the process
+of identifying shortnames for existing contracts using optional arguments. This extension is using
+the [abi-client](#abi-client).
 
-Example command: `cargo partisia-contract abi show example-contracts/target/wasm32-unknown-unknown/release/auction_contract.abi`
+Example
+command: `cargo partisia-contract abi show example-contracts/target/wasm32-unknown-unknown/release/auction_contract.abi`
 
 ??? example "Response from example command"
-    ```
-    pub struct Bid {
-        bidder: Address,
-        amount: u128,
-    }
-    pub struct SecretVarId {
-        raw_id: u32,
-    }
-    pub struct TokenClaim {
-        tokens_for_bidding: u128,
-        tokens_for_sale: u128,
-    }
-    #[state]
-    pub struct AuctionContractState {
-        contract_owner: Address,
-        start_time_millis: i64,
-        end_time_millis: i64,
-        token_amount_for_sale: u128,
-        token_for_sale: Address,
-        token_for_bidding: Address,
-        highest_bidder: Bid,
-        reserve_price: u128,
-        min_increment: u128,
-        claim_map: Map<Address, TokenClaim>,
-        status: u8,
-    }
-    #[init]
-    pub fn initialize (
-        token_amount_for_sale: u128,
-        token_for_sale: Address,
-        token_for_bidding: Address,
-        reserve_price: u128,
-        min_increment: u128,
-        auction_duration_hours: u32,
-    )
-    #[action(shortname = 0x01)]
-    pub fn start ()
-    #[action(shortname = 0x03)]
-    pub fn bid (
-        bid_amount: u128,
-    )
-    #[action(shortname = 0x05)]
-    pub fn claim ()
-    #[action(shortname = 0x06)]
-    pub fn execute ()
-    #[action(shortname = 0x07)]
-    pub fn cancel ()
-    #[callback(shortname = 0x02)]
-    pub fn start_callback ()
-    #[callback(shortname = 0x04)]
-    pub fn bid_callback (
-        bid: Bid,
-    )
-    ```
+```
+pub struct Bid {
+bidder: Address,
+amount: u128,
+}
+pub struct SecretVarId {
+raw_id: u32,
+}
+pub struct TokenClaim {
+tokens_for_bidding: u128,
+tokens_for_sale: u128,
+}
+#[state]
+pub struct AuctionContractState {
+contract_owner: Address,
+start_time_millis: i64,
+end_time_millis: i64,
+token_amount_for_sale: u128,
+token_for_sale: Address,
+token_for_bidding: Address,
+highest_bidder: Bid,
+reserve_price: u128,
+min_increment: u128,
+claim_map: Map<Address, TokenClaim>,
+status: u8,
+}
+#[init]
+pub fn initialize (
+token_amount_for_sale: u128,
+token_for_sale: Address,
+token_for_bidding: Address,
+reserve_price: u128,
+min_increment: u128,
+auction_duration_hours: u32,
+)
+#[action(shortname = 0x01)]
+pub fn start ()
+#[action(shortname = 0x03)]
+pub fn bid (
+bid_amount: u128,
+)
+#[action(shortname = 0x05)]
+pub fn claim ()
+#[action(shortname = 0x06)]
+pub fn execute ()
+#[action(shortname = 0x07)]
+pub fn cancel ()
+#[callback(shortname = 0x02)]
+pub fn start_callback ()
+#[callback(shortname = 0x04)]
+pub fn bid_callback (
+bid: Bid,
+)
+```
 
 ### `cargo partisia-contract abi codegen`
 
-Codegen offers autogenerated code in both Java & TypeScript to streamline interactions with contract actions. The autogenerated code provides methods to
+Codegen offers autogenerated code in both Java & TypeScript to streamline interactions with contract actions. The
+autogenerated code provides methods to
 interact with actions based on a smart contracts [abi](../pbc-fundamentals/dictionary.md#abi). We recommend you
 follow [the readme here](https://gitlab.com/secata/pbc/language/abi/abi-client/-/tree/main/maven-plugin?ref_type=heads)
 to automate your usage of abi codegen.
@@ -246,14 +261,19 @@ You can look in the commandline.sh that is placed within each test folder to und
 this tool can have.
 
 ## abi-client
-Our Smart Contract Binary Interface Client Library allows you to interact with the blockchain programmatically. It offers a standard binary interface for deploying contracts and creating transactions, making it ideal to use serverside for signing transactions. 
+
+Our Smart Contract Binary Interface Client Library allows you to interact with the blockchain programmatically. It
+offers a standard binary interface for deploying contracts and creating transactions, making it ideal to use serverside
+for signing transactions.
 
 ABI-Client has two versions:
 
 - [Java version](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main?ref_type=heads)
 - [TypeScript version](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts)
 
-When using the abi-client we generally recommend using codegen when possible for a more straightforward and plug-and-play interaction with the blockchain. Abi-client can be used to read from contracts that is not necessarily linked to a specific contract on the blockchain.
+When using the abi-client we generally recommend using codegen when possible for a more straightforward and
+plug-and-play interaction with the blockchain. Abi-client can be used to read from contracts that is not necessarily
+linked to a specific contract on the blockchain.
 
 We have created an [example client](#example-client) to showcase how to work with the abi-client.
 
@@ -271,9 +291,11 @@ There are two versions of the zk-client:
 - [TypeScript version](https://gitlab.com/partisiablockchain/language/abi/zk-client-ts)
 
 ## Example client
-This is a front end and a backend example of how to integrate you application with Partisia Blockchain, specifically it uses the [abi-client](#abi-client) to send transactions and read states of the contracts. 
 
-The example client comes in two versions: 
+This is a front end and a backend example of how to integrate you application with Partisia Blockchain, specifically it
+uses the [abi-client](#abi-client) to send transactions and read states of the contracts.
+
+The example client comes in two versions:
 
 - [Java version](https://gitlab.com/secata/pbc/language/example-client)
 - [TypeScript version](https://gitlab.com/secata/pbc/language/example-web-client)
