@@ -4,7 +4,7 @@
 
 This guide explains how to use transactions to bridge liquid cryptocurrencies recognized by PBC (generally referred to as BYOC bring your own coin) from and to outside chains. 
 
-For a guide to the bridging of BYOC with the bridge's UI see [here](byoc-and-gas.md)
+For a guide to the bridging of BYOC with the bridge's UI see [here](byoc.md)
 
 A Partisia Blockchain [account](create-an-account.md) holds the necessary information enabling the user to perform transactions. Among other fields the account state includes a balance of BYOC. Users can transfer BYOC between accounts internally on PBC, we call this BYOC transfer. It is also possible to transfer BYOC from and to other chains, we call this action bridging.   
 
