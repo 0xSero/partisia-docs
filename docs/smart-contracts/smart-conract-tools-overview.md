@@ -72,60 +72,60 @@ command: `cargo partisia-contract abi show example-contracts/target/wasm32-unkno
 
 ??? example "Response from example command"
 
-```
-pub struct Bid {
-bidder: Address,
-amount: u128,
-}
-pub struct SecretVarId {
-raw_id: u32,
-}
-pub struct TokenClaim {
-tokens_for_bidding: u128,
-tokens_for_sale: u128,
-}
-#[state]
-pub struct AuctionContractState {
-contract_owner: Address,
-start_time_millis: i64,
-end_time_millis: i64,
-token_amount_for_sale: u128,
-token_for_sale: Address,
-token_for_bidding: Address,
-highest_bidder: Bid,
-reserve_price: u128,
-min_increment: u128,
-claim_map: Map<Address, TokenClaim>,
-status: u8,
-}
-#[init]
-pub fn initialize (
-token_amount_for_sale: u128,
-token_for_sale: Address,
-token_for_bidding: Address,
-reserve_price: u128,
-min_increment: u128,
-auction_duration_hours: u32,
-)
-#[action(shortname = 0x01)]
-pub fn start ()
-#[action(shortname = 0x03)]
-pub fn bid (
-bid_amount: u128,
-)
-#[action(shortname = 0x05)]
-pub fn claim ()
-#[action(shortname = 0x06)]
-pub fn execute ()
-#[action(shortname = 0x07)]
-pub fn cancel ()
-#[callback(shortname = 0x02)]
-pub fn start_callback ()
-#[callback(shortname = 0x04)]
-pub fn bid_callback (
-bid: Bid,
-)
-```
+    ```
+    pub struct Bid {
+    bidder: Address,
+    amount: u128,
+    }
+    pub struct SecretVarId {
+    raw_id: u32,
+    }
+    pub struct TokenClaim {
+    tokens_for_bidding: u128,
+    tokens_for_sale: u128,
+    }
+    #[state]
+    pub struct AuctionContractState {
+    contract_owner: Address,
+    start_time_millis: i64,
+    end_time_millis: i64,
+    token_amount_for_sale: u128,
+    token_for_sale: Address,
+    token_for_bidding: Address,
+    highest_bidder: Bid,
+    reserve_price: u128,
+    min_increment: u128,
+    claim_map: Map<Address, TokenClaim>,
+    status: u8,
+    }
+    #[init]
+    pub fn initialize (
+    token_amount_for_sale: u128,
+    token_for_sale: Address,
+    token_for_bidding: Address,
+    reserve_price: u128,
+    min_increment: u128,
+    auction_duration_hours: u32,
+    )
+    #[action(shortname = 0x01)]
+    pub fn start ()
+    #[action(shortname = 0x03)]
+    pub fn bid (
+    bid_amount: u128,
+    )
+    #[action(shortname = 0x05)]
+    pub fn claim ()
+    #[action(shortname = 0x06)]
+    pub fn execute ()
+    #[action(shortname = 0x07)]
+    pub fn cancel ()
+    #[callback(shortname = 0x02)]
+    pub fn start_callback ()
+    #[callback(shortname = 0x04)]
+    pub fn bid_callback (
+    bid: Bid,
+    )
+    ```
 
 ### The ABI codegen tool `abi codegen`
 
