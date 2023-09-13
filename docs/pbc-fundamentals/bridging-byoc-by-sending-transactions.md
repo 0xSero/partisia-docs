@@ -24,8 +24,7 @@ To use the bridge you must have an account on PBC and on the chain which coins y
 
 **Deposit X ETH from ETH account A to PBC account B**
 
-1. Invoke the contract action _deposit_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c):   
-
+1. Invoke the contract action _deposit_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c):
 ```SOL
 deposit(bytes21 destination, uint amount)
 ```
