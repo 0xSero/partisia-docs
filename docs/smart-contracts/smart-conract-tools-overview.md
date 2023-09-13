@@ -350,7 +350,7 @@ zk-client is created in the following languages:
 - [Java](https://gitlab.com/partisiablockchain/language/abi/zk-client/)
 - [TypeScript](https://gitlab.com/partisiablockchain/language/abi/zk-client-ts)
 
-## Example client
+### Example client
 
 This is a front end and a backend example of how to integrate you application with Partisia Blockchain, specifically it
 uses the [client](#client) and the [abi-client](#abi-client) to send transactions and read states of the contracts.
