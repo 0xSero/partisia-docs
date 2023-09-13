@@ -300,6 +300,9 @@ Abi codegen can also be used manually. Here is an example of how:
 
 ## Libraries
 
+Partisia Blockchain offers a set of different libraries to help you create smart contracts, interact with smart
+contracts and work with the states of smart contracts.
+
 ### client
 
 Is a library that facilitates communication with a blockchain node it helps you to interact with the blockchain
