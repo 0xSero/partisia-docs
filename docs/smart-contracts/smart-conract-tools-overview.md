@@ -54,8 +54,8 @@ this tool can have.
 
 ### The ABI tool `abi`
 
-This tool is focused on helping you understand the [ABI](../pbc-fundamentals/dictionary.md#abi) actions of a
-contract, providing insight into its input requirements. By using the command `cargo partisa-contract abi show`, you can
+This tool is focused on helping you understand the [ABI](../pbc-fundamentals/dictionary.md#abi) actions and state of a
+contract. By using the command `cargo partisa-contract abi show`, you can
 access information about a compiled contract's state, initialization, actions, and variables. It simplifies the process
 of identifying shortnames for existing contracts using optional arguments. This tool is using
 the [abi-client](#abi-client).
