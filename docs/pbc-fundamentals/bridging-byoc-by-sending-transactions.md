@@ -10,11 +10,11 @@ A Partisia Blockchain [account](create-an-account.md) holds the necessary inform
 
 ## How does the bridge work
 
-The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC. To deposit funds on PBC from a foreign chain the coins are locked on an oracle contract on the foreign chain. A deposit oracle consisting of three nodes on PBC monitors this contract. When the oracle nodes confirm that the funds are locked on the relevant contract the oracle nodes can sign the minting of equivalent funds on PBC called BYOC (bring your own coin). The BYOC essentially works as IOUs that can only be created when the equal sum of mony is locked on the chain where the deposit comes from.
+![Diagram0](../pbc-fundamentals/bridge-overview.png)
+
+The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC. To deposit funds on PBC from a foreign chain the coins are locked on an oracle contract on the foreign chain. A deposit oracle consisting of three nodes on PBC monitors this contract. When the oracle nodes confirm that the funds are locked on the relevant contract the oracle nodes can sign the minting of equivalent funds on PBC called BYOC (bring your own coin). The BYOC essentially works as IOUs that can only be created when the equal sum of money is locked on the chain where the deposit comes from.
 Withdrawal is the opposite operation. The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, the sign for the funds to be unlocked from the contract on the native chain.
 To use the bridge you must have an account on PBC and on the chain which coins you want to deposit or withdraw. You must have a wallet to sign transactions on both chains that you are interacting with. In the following examples we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Matic, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
-
-You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Plolygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well. To see how you use the metamask wallet to send transactions with the RPC method see [here](https://docs.metamask.io/wallet/how-to/send-transactions/). You can use the [Partisia Blockchain Wallet extension](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia) to sign and send transactions to PBC.
 
 ### Make a deposit
 
@@ -25,12 +25,12 @@ You can use the [Metamask wallet](https://metamask.io/download/) to sign and sen
 ```SOL
 deposit(bytes21 destination, uint amount)
 ```
-2. The [deposit oracle](https://dashboard.partisiablockchain.com/info/contract/042f2f190765e27f175424783a1a272e2a983ef372) on PBC reads and signs the deposit   
+2. The [deposit oracle](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372) on PBC reads and signs the deposit   
 3. x BYOC twins are minted on PBC by the deposit oracle contract   
 4. x ETH are added to the balance PBC account B   
 
 
-![Diagram0](../pbc-fundamentals/depositBridge.png)
+![Diagram1](../pbc-fundamentals/depositBridge.png)
 
 
 ### Make a withdrawal
@@ -76,6 +76,7 @@ withdraw(uint64 withdrawNonce,
    uint32 bitmask,
    bytes calldata signatures
    )
+
 ```
 
 3. x ETH are added to the balance of ETH account A    
@@ -83,34 +84,36 @@ withdraw(uint64 withdrawNonce,
    
 ## Resources to get you started
 
-You need a way to sign transactions you put PBC and on the chain you are bridging to and from. There are public free wallet extensions for PBC and for the chains from which we accept BYOC. Besides that, you will need the addresses of the [oracle](.../node-operations/oracles-on-partisia-blockchain) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. We have test BYOC from ETH testnet, but do not have test coins from the other chains.
+You need a way to sign transactions you put PBC and on the chain you are bridging to and from. You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Plolygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well. To see how you use the metamask wallet to send transactions with the RPC method see [here](https://docs.metamask.io/wallet/how-to/send-transactions/). You can use the [Partisia Blockchain Wallet extension](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia) to sign and send transactions to PBC.
+
+Besides the wallets, you will need the addresses of the [oracle](.../node-operations/oracles-on-partisia-blockchain) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. We have test BYOC from ETH testnet, but do not have test coins from the other chains.
 
 ### Bridging test ETH
 
-[ETH deposit oracle on PBC testnet](https://browser.testnet.partisiablockchain.com/contract/042f2f190765e27f175424783a1a272e2a983ef372)   
-[ETH withdrawal oracle on PBC testnet](https://browser.testnet.partisiablockchain.com/contract/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)
-[Small oracle contract on Ethereum testnet](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3)
-[Large oracle contract on Ethereum testnet](https://goerli.etherscan.io/address/0x5De7b80e5CeB9550ee1BeC3291b15e9B04E8de68)
+[ETH deposit oracle on PBC testnet](https://browser.testnet.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)       
+[ETH withdrawal oracle on PBC testnet](https://browser.testnet.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)     
+[Small oracle contract on Ethereum testnet](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3)    
+[Large oracle contract on Ethereum testnet](https://goerli.etherscan.io/address/0x5De7b80e5CeB9550ee1BeC3291b15e9B04E8de68)    
 
 ### Bridging ETH
 
-[ETH deposit oracle on PBC](https://browser.partisiablockchain.com/contract/042f2f190765e27f175424783a1a272e2a983ef372)   
-[ETH withdrawal oracle on PBC](https://browser.partisiablockchain.com/contract/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)   
+[ETH deposit oracle on PBC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
+[ETH withdrawal oracle on PBC](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)   
 [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c)   
 [Large oracle contract on Ethereum](https://etherscan.io/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
 
 
 ### Bridging USDC
 
-[USDC deposit oracle on PBC](https://browser.partisiablockchain.com/contract/042f2f190765e27f175424783a1a272e2a983ef372)   
-[USDC withdrawal oracle on PBC](https://browser.partisiablockchain.com/contract/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)   
+[USDC deposit oracle on PBC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
+[USDC withdrawal oracle on PBC](https://browser.partisiablockchain.com/contracts/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)   
 [Small oracle contract on Polygon](https://polygonscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
 [Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
 
 ### Bridging BNB Coin
 
-[BNB deposit oracle on PBC](https://browser.partisiablockchain.com/contract/047e1c96cd53943d1e0712c48d022fb461140e6b9f)   
-[BNB withdrawal oracle on PBC](https://browser.partisiablockchain.com/contract/044bd689e5fe2995d679e946a2046f69f022be7c10)   
+[BNB deposit oracle on PBC](https://browser.partisiablockchain.com/contracts/047e1c96cd53943d1e0712c48d022fb461140e6b9f)   
+[BNB withdrawal oracle on PBC](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)   
 [Small oracle contract on BNB Smartchain](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1)   
 [Large oracle contract on BNB smartchain](https://bscscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
 
