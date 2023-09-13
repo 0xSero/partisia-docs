@@ -332,7 +332,7 @@ We have created an [example client](#example-client) to showcase how to work wit
 ### zk-client
 
 Sending secret input to ZK Rust smart contracts. The zk-client is a library that can help you interact with the
-blockchain through code integrations. Secondly the zk-client can fetch the secret data that you have ownership of from a
+blockchain. Secondly the zk-client can fetch the secret data that you have ownership of from a
 ZK contract deployed onto the chain. You can visit the tests inside the projects to see how
 it works and start from there.
 
