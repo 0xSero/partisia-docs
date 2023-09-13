@@ -18,7 +18,7 @@ Partisia blockchain browser can be used to:
 - Manage your own account, including your MPC tokens and becoming a Node Operator.
 - Create local references of contracts and accounts to help you keep track of already deployed contracts.
 
-Partisia blockchain browser can be used with the TestNet and the MainNet:
+Partisia Blockchain browser can be used with the TestNet and the MainNet:
 
 - [TestNet](https://browser.testnet.partisiablockchain.com)
 - [MainNet](https://browser.partisiablockchain.com)
