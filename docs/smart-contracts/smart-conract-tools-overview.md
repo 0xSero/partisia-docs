@@ -344,7 +344,7 @@ zk-client is created in the following languages:
 ## Example client
 
 This is a front end and a backend example of how to integrate you application with Partisia Blockchain, specifically it
-uses the [abi-client](#abi-client) to send transactions and read states of the contracts.
+uses the [client](#client) and the [abi-client](#abi-client) to send transactions and read states of the contracts.
 
 Example client is created in the following languages:
 
