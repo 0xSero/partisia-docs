@@ -49,7 +49,13 @@ Setting up the node require some technical skills. You need to be able to config
 
 The following sections take you through the signup process. If you do not yet have MPC tokens or an appropriate server for running a node you can still complete the firs part of the guide showing you how to run a reader node. A reader node is free. When you have completed the [introduction](../node-operations/what-is-a-node-operator.md), [first](../node-operations/recommended-hardware-and-software.md) and [second](../node-operations/run-a-reader-node-on-your-local-machine.md) step, then you should know if you have the skills required to run a node performing services on Partisia Blockchain. If you want to buy MPC Tokens, you can follow this [link](https://kyc.partisiablockchain.com/) for information about sale.
 
-## Run a node on Partisia Blockchain
+# Run a reader node
+
+1. [Why you need a reader node](../node-operations/recommended-hardware-and-software.md)
+2. [How to run a reader node](../node-operations/run-a-reader-node-on-your-local-machine.md)
+3. [The reader node's role on PBC](../node-operations/vps.md)
+
+## Run a block producing node on Partisia Blockchain
 
 The following guide has 9 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
 
