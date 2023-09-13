@@ -47,6 +47,7 @@ It can help you specifically with:
 - Showing smart contracts state
 
 To start using the CLI you can try minting some test_coin with the following command:
+
 `cargo partisia-contract cli tx action 02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd feed_me [PublicAddressYouWantMintToGoTo] --gas 60000 --privatekey=PathToPrivatekeyFile`
 
 If you want to try an action yourself you can type: `cargo partisia-contract cli tx action` and the CLI will help you
