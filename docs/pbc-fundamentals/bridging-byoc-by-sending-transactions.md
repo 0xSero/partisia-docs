@@ -10,7 +10,11 @@ A Partisia Blockchain [account](create-an-account.md) holds the necessary inform
 
 ## How does the bridge work
 
+&nbsp;
+
 ![Diagram0](../pbc-fundamentals/bridge-overview.png)
+
+&nbsp;  
 
 The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC. To deposit funds on PBC from a foreign chain the coins are locked on an oracle contract on the foreign chain. A deposit oracle consisting of three nodes on PBC monitors this contract. When the oracle nodes confirm that the funds are locked on the relevant contract the oracle nodes can sign the minting of equivalent funds on PBC called BYOC (bring your own coin). The BYOC essentially works as IOUs that can only be created when the equal sum of money is locked on the chain where the deposit comes from.
 Withdrawal is the opposite operation. The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, the sign for the funds to be unlocked from the contract on the native chain.
@@ -37,38 +41,15 @@ deposit(bytes21 destination, uint amount)
 
 **Withdraw X ETH from PBC account A**   
 
-1. Add a pending withdrawal on PBC by invoking the action _Withdrawal_ on the [ETH withdrawal oracle contract on PBC](https://browser.partisiablockchain.com/contract/043b1822925da011657f9ab3d6ff02cf1e0bfe0146):   
-
-```JAVA
+1. Add a pending withdrawal on PBC by invoking the action _Withdrawal_ on the [ETH withdrawal oracle contract on PBC](https://browser.partisiablockchain.com/contract/043b1822925da011657f9ab3d6ff02cf1e0bfe0146):
+```JAVA 
  public ByocOutgoingContractState addPendingWithdrawal(
-        SysContractContext context,
-        ByocOutgoingContractState state,
-        EthereumAddressRpc receiver,
-        Unsigned256 amount) {
-        BlockchainAddress sender = context.getFrom();
-        EthereumAddress ethereumAddress = receiver.convert();
-        ensure(
-        amount.compareTo(state.getWithdrawMinimum()) >= 0,
-        "Amount must be larger than or equal the minimum: %s",
-        state.getWithdrawMinimum());
-
-        SystemEventManager eventManager = context.getRemoteCallsCreator();
-        eventManager.registerCallbackWithCostFromRemaining(
-        Callbacks.createWithdrawal(sender, ethereumAddress, amount));
-
-        LocalPluginStateUpdate accountUpdate =
-        LocalPluginStateUpdate.create(
-        sender, AccountPluginRpc.deductCoinBalance(state.getSymbol(), amount));
-        eventManager.updateLocalAccountPluginState(accountUpdate);
-
-        return state;
-        }
-
-
-```   
-
-2. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c), the action take an account address and the transferred amount: 
-
+      SysContractContext context,
+      ByocOutgoingContractState state,
+      EthereumAddressRpc receiver,
+      Unsigned256 amount) 
+```
+2. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce,
    address destination,
@@ -78,7 +59,6 @@ withdraw(uint64 withdrawNonce,
    )
 
 ```
-
 3. x ETH are added to the balance of ETH account A    
 
    
