@@ -10,15 +10,21 @@ A Partisia Blockchain [account](create-an-account.md) holds the necessary inform
 
 ## How does the bridge work
 
+The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC.
+
 &nbsp;
 
 ![Diagram0](../pbc-fundamentals/bridge-overview.png)
 
 &nbsp;  
 
-The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC. To deposit funds on PBC from a foreign chain the coins are locked on an oracle contract on the foreign chain. A deposit oracle consisting of three nodes on PBC monitors this contract. When the oracle nodes confirm that the funds are locked on the relevant contract the oracle nodes can sign the minting of equivalent funds on PBC called BYOC (bring your own coin). The BYOC essentially works as IOUs that can only be created when the equal sum of money is locked on the chain where the deposit comes from.
-Withdrawal is the opposite operation. The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, the sign for the funds to be unlocked from the contract on the native chain.
-To use the bridge you must have an account on PBC and on the chain which coins you want to deposit or withdraw. You must have a wallet to sign transactions on both chains that you are interacting with. In the following examples we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Matic, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
+
+To deposit funds on PBC from a foreign chain the coins are locked on an oracle contract on the foreign chain. A deposit oracle consisting of three nodes on PBC monitors this contract. When the oracle nodes confirm that the funds are locked on the relevant contract the oracle nodes can sign the minting of equivalent funds on PBC called BYOC (bring your own coin).   
+The BYOC essentially works as IOUs that can only be created when the equal sum of money is locked on the chain where the deposit comes from.
+   
+Withdrawal is the same operation in reverse order:    
+The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, the sign for the funds to be unlocked from the contract on the native chain.
+To use the bridge you must have an account on PBC and on the chain which coins you want to deposit or withdraw. You must have a wallet to sign transactions on both chains that you are interacting with. In the following examples we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
 
 ### Make a deposit
 
@@ -63,7 +69,7 @@ withdraw(uint64 withdrawNonce,
    
 ## Resources to get you started
 
-You need a way to sign transactions you put PBC and on the chain you are bridging to and from. You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Plolygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well. To see how you use the metamask wallet to send transactions with the RPC method see [here](https://docs.metamask.io/wallet/how-to/send-transactions/). You can use the [Partisia Blockchain Wallet extension](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia) to sign and send transactions to PBC.
+You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Polygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well. To see how you use the metamask wallet to send transactions with the RPC method see [here](https://docs.metamask.io/wallet/how-to/send-transactions/). You can use the [Partisia Blockchain Wallet extension](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia) to sign and send transactions to PBC.
 
 Besides the wallets, you will need the addresses of the [oracle](.../node-operations/oracles-on-partisia-blockchain) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. We have test BYOC from ETH testnet, but do not have test coins from the other chains.
 
