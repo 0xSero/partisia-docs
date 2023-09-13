@@ -41,13 +41,17 @@ contracts or .zkwa for ZK rust contracts.
 ### The Command-line Interface `cli`
 
 cli is a command-line interface for you to interact with the blockchain.
+It can help you specifically with: 
+- Sending transactions to smart contracts
+- Deploying your own smart contracts
+- Showing smart contracts state
 
 To start using the CLI you can try minting some test_coin with the following command:
 `cargo partisia-contract cli tx action 02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd feed_me [PublicAddressYouWantMintToGoTo] --gas 60000 --privatekey=PathToPrivatekeyFile`
 
-If you need the above specification for the tx you can type: `cargo partisia-contract cli tx action`
+If you want to try an action yourself you can type: `cargo partisia-contract cli tx action` and the CLI will help you from there.
 
-Want to explore more possibilities? You can go visit the [cli-execution-reference-tests to see example usage
+Want to explore more possibilities within the CLI? You can go visit the [cli-execution-reference-tests to see example usage
 of the CLI tool](https://gitlab.com/partisiablockchain/language/partisia-cli/-/tree/main/src/test/resources/cli-execution-reference-tests?ref_type=heads)
 You can look in the commandline.sh that is placed within each test folder to understand the multitude of applications
 this tool can have.
