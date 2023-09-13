@@ -6,8 +6,17 @@ blockchain, and even integrating the blockchain with your own applications.
 
 ## Partisia Blockchain browser
 
-Partisia blockchain browser serves as a web-based interface to translate blockchain data into a user-friendly application. It aids
-developers in creating smart contracts by providing insights into transaction details and contract deployment status.
+Partisia blockchain browser is a web-based interface which translates the blockchains data into a user-friendly
+application. It aids
+developers in creating smart contracts by providing insights into transaction details and contract deployment status, its essentially a complete UI for Partisia Blockchain.
+
+The browser can be used to: 
+- Display details for the entire ledger: blocks and transactions.
+- Display details for all accounts and smart contracts.
+- Interact with any smart contract.
+- Deploy your own new smart contracts.
+- Manage your own account, including your MPC tokens and becoming a Node Operator.
+- Create local references of contracts and accounts to help you keep track of already deployed contracts. 
 
 The browser can access both Partisia TestNet and MainNet:
 
@@ -33,6 +42,7 @@ Example
 command: `cargo partisia-contract abi show example-contracts/target/wasm32-unknown-unknown/release/auction_contract.abi`
 
 ??? example "Response from example command"
+
 ```
 pub struct Bid {
 bidder: Address,
@@ -259,11 +269,13 @@ of the CLI tool](https://gitlab.com/partisiablockchain/language/partisia-cli/-/t
 You can look in the commandline.sh that is placed within each test folder to understand the multitude of applications
 this tool can have.
 
-
-## Libraries 
+## Libraries
 
 ### client
-https://gitlab.com/partisiablockchain/core/client Library der hjælper med at kommunikere med en blockchain node. Kan hente data om blokke, transaktioner, smart kontrakter accounts mm. Har funktionalitet til at skabe og sende transactioner.
+
+https://gitlab.com/partisiablockchain/core/client Library der hjælper med at kommunikere med en blockchain node. Kan
+hente data om blokke, transaktioner, smart kontrakter accounts mm. Har funktionalitet til at skabe og sende
+transactioner.
 
 ### abi-client
 
