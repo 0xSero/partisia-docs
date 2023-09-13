@@ -34,8 +34,8 @@ a short description and use case for each of these sub-tools.
 
 This is a primary part of developings smart contracts. The `build` command
 compiles [rust smart contracts](compile-and-deploy-contracts.md)
-and [ZK Rust smart contracts](compile-and-deploy-zk-contract.md). It compiles and returns .abi file and a .wasm for rust
-contracts or .zkwa for ZK rust contracts.
+and [ZK Rust smart contracts](compile-and-deploy-zk-contract.md). It compiles and returns `.abi` file and a `.wasm` for rust
+contracts or `.zkwa` for ZK rust contracts.
 
 ### The Command-line Interface `cli`
 
