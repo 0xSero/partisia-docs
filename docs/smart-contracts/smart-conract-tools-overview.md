@@ -310,20 +310,22 @@ create and send transactions
 ### abi-client
 
 Our Smart Contract Binary Interface Client Library. It offers a standard binary interface for deploying contracts and
-creating transactions, making it ideal for several use cases: 
+creating transactions, making it ideal for several use cases:
+
 - Creating binary RPC, which calls an action with parameters on a smart contract.
-- Decode binary contract states to readable types. 
-- Decode binary parts of transactions and events. 
+- Decode binary contract states to readable types.
+- Decode binary parts of transactions and events.
 
 ABI-Client is created in the following languages:
 
 - [Java](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main?ref_type=heads)
 - [TypeScript](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts)
 
-When using the abi-client we generally recommend using codegen when possible for a more straightforward and
-plug-and-play interaction with the blockchain. Abi-client can be used to read from contracts that is not necessarily
-linked to a specific contract on the blockchain.
-
+When using the abi-client using codegen can help you as a developer to create a plug-and-play interactions with the
+blockchain. Abi-client can be used to read from contracts that is not necessarily
+linked to a specific contract on the blockchain. The strength of [codegen](#the-abi-codegen-tool-abi-codegen) compared to abi-client is to
+handle specific contracts you want to work with. Whereas abi-client is more generalistic in its approach to contracts
+not already know to the system.  
 We have created an [example client](#example-client) to showcase how to work with the abi-client.
 
 ### zk-client
