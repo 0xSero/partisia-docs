@@ -4,18 +4,18 @@ This article introduces tools designed to help developers working with smart con
 offer a range of capabilities, from testing smart contracts to facilitating command-line interactions with the
 blockchain, and even integrating the blockchain with your own applications.
 
-## The browser
+## Partisia Blockchain browser
 
-The browser serves as a web-based interface to translate blockchain data into a user-friendly application. It aids
+Partisia blockchain browser serves as a web-based interface to translate blockchain data into a user-friendly application. It aids
 developers in creating smart contracts by providing insights into transaction details and contract deployment status.
 You can access two versions of the browser:
 
-The browser has two versions:
+The browser can access both Partisia TestNet and MainNet:
 
 - [TestNet version](https://browser.testnet.partisiablockchain.com)
 - [MainNet version](https://browser.partisiablockchain.com)
 
-## Partisia contract extensions
+## Command-line tools
 
 The Partisia contract is used to build and compile smart contracts. It offers several extensions to assist you in
 interacting with the blockchain and working with smart contracts. These extensions are thoroughly documented as part of
@@ -260,13 +260,19 @@ of the CLI tool](https://gitlab.com/partisiablockchain/language/partisia-cli/-/t
 You can look in the commandline.sh that is placed within each test folder to understand the multitude of applications
 this tool can have.
 
-## abi-client
+
+## Libraries 
+
+### client
+https://gitlab.com/partisiablockchain/core/client Library der hjælper med at kommunikere med en blockchain node. Kan hente data om blokke, transaktioner, smart kontrakter accounts mm. Har funktionalitet til at skabe og sende transactioner.
+
+### abi-client
 
 Our Smart Contract Binary Interface Client Library allows you to interact with the blockchain programmatically. It
 offers a standard binary interface for deploying contracts and creating transactions, making it ideal to use serverside
 for signing transactions.
 
-ABI-Client has two versions:
+ABI-Client has two:
 
 - [Java version](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main?ref_type=heads)
 - [TypeScript version](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts)
@@ -277,7 +283,7 @@ linked to a specific contract on the blockchain.
 
 We have created an [example client](#example-client) to showcase how to work with the abi-client.
 
-## zk-client
+### zk-client
 
 Enables the generation
 of [rpc](https://partisiablockchain.gitlab.io/documentation/smart-contracts/smart-contract-binary-formats.html#rpc-binary-format)
