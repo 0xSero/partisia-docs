@@ -323,17 +323,17 @@ ABI-Client is created in the following languages:
 
 When using the abi-client using codegen can help you as a developer to create a plug-and-play interactions with the
 blockchain. Abi-client can be used to read from contracts that is not necessarily
-linked to a specific contract on the blockchain. The strength of [codegen](#the-abi-codegen-tool-abi-codegen) compared to abi-client is to
+linked to a specific contract on the blockchain. The strength of [codegen](#the-abi-codegen-tool-abi-codegen) compared
+to abi-client is to
 handle specific contracts you want to work with. Whereas abi-client is more generalistic in its approach to contracts
 not already know to the system.  
 We have created an [example client](#example-client) to showcase how to work with the abi-client.
 
 ### zk-client
 
-Enables the generation
-of [rpc](https://partisiablockchain.gitlab.io/documentation/smart-contracts/smart-contract-binary-formats.html#rpc-binary-format)
-for ZK inputs. The zk-client is here to
-help you interact with the blockchain through code integrations. You can visit the tests inside the projects to see how
+Sending secret input to ZK Rust smart contracts. The zk-client is a library that can help you interact with the
+blockchain through code integrations. Secondly the zk-client can fetch the secret data that you have ownership of from a
+ZK contract deployed onto the chain. You can visit the tests inside the projects to see how
 it works and start from there.
 
 zk-client is created in the following languages:
