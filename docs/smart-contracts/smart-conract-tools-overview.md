@@ -7,8 +7,7 @@ blockchain, and even integrating the blockchain with your own applications.
 ## Partisia Blockchain browser
 
 Partisia blockchain browser is a web-based interface which translates the blockchains data into a user-friendly
-application. It aids
-developers in creating smart contracts by providing insights into transaction details and contract deployment status, its essentially a complete UI for Partisia Blockchain.
+application. Partisia blockchain browser is essentially a complete UI for Partisia Blockchain.
 
 The browser can be used to: 
 - Display details for the entire ledger: blocks and transactions.
