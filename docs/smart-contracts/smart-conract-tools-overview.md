@@ -315,7 +315,7 @@ contracts and work with the states of smart contracts on the chain.
 
 ### client
 
-Is a library that facilitates communication with a blockchain node it helps you to interact with the blockchain
+Facilitates communication with a blockchain node. It helps you to interact with the blockchain
 programmatically. It can get data about blocks, transactions, smart contracts, accounts etc. It has the functionality to
 create and send transactions.
 
@@ -330,7 +330,7 @@ creating transactions, making it ideal for several use cases:
 - Decode binary contract states to readable types.
 - Decode binary parts of transactions and events.
 
-ABI-Client is created in the following languages:
+ABI-Client is available in the following programming languages:
 
 - [Java](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main?ref_type=heads)
 - [TypeScript](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts)
