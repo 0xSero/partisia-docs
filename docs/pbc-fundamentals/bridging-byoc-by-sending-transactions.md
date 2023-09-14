@@ -71,7 +71,7 @@ withdraw(uint64 withdrawNonce,
 
 You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Polygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well. To see how you use the metamask wallet to send transactions with the RPC method see [here](https://docs.metamask.io/wallet/how-to/send-transactions/). You can use the [Partisia Blockchain Wallet extension](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia) to sign and send transactions to PBC.
 
-Besides the wallets, you will need the addresses of the [oracle](.../node-operations/oracles-on-partisia-blockchain) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. We have test BYOC from ETH testnet, but do not have test coins from the other chains.
+Besides the wallets, you will need the addresses of the [oracle](.../node-operations/oracles-on-partisia-blockchain) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet test BYOC from the ETH Goerli testnet is available, but do no other BYOC test coins from other chains.
 
 ### Bridging test ETH
 
