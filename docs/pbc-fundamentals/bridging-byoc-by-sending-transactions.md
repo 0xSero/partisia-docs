@@ -46,7 +46,7 @@ deposit(bytes21 destination, uint amount)
 
 **Withdraw X ETH from PBC account A**   
 
-1. Add a pending withdrawal on PBC by invoking the action _Withdrawal_ on the [ETH withdrawal oracle contract on PBC](https://browser.partisiablockchain.com/contract/043b1822925da011657f9ab3d6ff02cf1e0bfe0146):
+1. Add a pending withdrawal on PBC by invoking the action _Withdrawal_ on the [ETH withdrawal oracle contract on PBC](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146):
 ```JAVA 
  public ByocOutgoingContractState addPendingWithdrawal(
       SysContractContext context,
