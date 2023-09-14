@@ -13,6 +13,7 @@ nav:
   - Smart contracts:
       - smart-contracts/introduction-to-smart-contracts.md
       - smart-contracts/what-is-a-smart-contract.md
+      - smart-contracts/smart-contract-interactions-on-the-blockchain.md
       - smart-contracts/install-the-smart-contract-compiler.md
       - smart-contracts/compile-and-deploy-contracts.md
       - smart-contracts/access-and-use-the-testnet.md
