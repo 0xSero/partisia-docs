@@ -317,7 +317,8 @@ contracts and work with the states of smart contracts on the chain.
 
 Is a library that facilitates communication with a blockchain node it helps you to interact with the blockchain
 programmatically. It can get data about blocks, transactions, smart contracts, accounts etc. It has the functionality to
-create and send transactions
+create and send transactions.
+
 [Client library](https://gitlab.com/partisiablockchain/core/client)
 
 ### abi-client
