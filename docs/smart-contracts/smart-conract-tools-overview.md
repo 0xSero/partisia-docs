@@ -319,7 +319,7 @@ Facilitates communication with a blockchain node. It helps you to interact with 
 programmatically. It can get data about blocks, transactions, smart contracts, accounts etc. It has the functionality to
 create and send transactions.
 
-[Client library](https://gitlab.com/partisiablockchain/core/client)
+- [Client library](https://gitlab.com/partisiablockchain/core/client)
 
 ### abi-client
 
