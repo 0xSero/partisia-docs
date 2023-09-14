@@ -350,7 +350,7 @@ blockchain. Secondly the zk-client can fetch the secret data that you have owner
 ZK contract deployed onto the chain. You can visit the tests inside the projects to see how
 it works and start from there.
 
-zk-client is created in the following languages:
+zk-client is available in the following programming languages:
 
 - [Java](https://gitlab.com/partisiablockchain/language/abi/zk-client/)
 - [TypeScript](https://gitlab.com/partisiablockchain/language/abi/zk-client-ts)
@@ -360,7 +360,7 @@ zk-client is created in the following languages:
 This is a front end and a backend example of how to integrate you application with Partisia Blockchain, specifically it
 uses the [client](#client) and the [abi-client](#abi-client) to send transactions and read states of the contracts.
 
-Example client is created in the following languages:
+Example client is available in the following programming languages:
 
 - [Java](https://gitlab.com/secata/pbc/language/example-client)
 - [TypeScript](https://gitlab.com/secata/pbc/language/example-web-client)
