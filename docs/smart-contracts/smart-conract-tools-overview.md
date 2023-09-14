@@ -310,8 +310,8 @@ cargo partisia-contract abi codegen --ts mySmartContract/target/wasm32-unknown-u
 
 ## Libraries
 
-Partisia Blockchain offers a set of different libraries to help you create smart contracts, interact with smart
-contracts and work with the states of smart contracts.
+Partisia Blockchain offers a set of different libraries to help you interact with smart
+contracts and work with the states of smart contracts on the chain.
 
 ### client
 
