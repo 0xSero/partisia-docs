@@ -1,8 +1,30 @@
-Developing smart contracts on Partisia Blockchain involves several key understandings. Here's a mental model of the interactions available when developing smart contracts on PBC:
+Developing smart contracts on Partisia Blockchain involves several key understandings. Here's a mental model of the interactions available when developing smart contracts on PBC.
 
-# Standard interaction
+
+## Definition of interactions
+Smart contracts has four types of interaction on Partisia Blockchain: 
+`Init`
+`Action`
+`Event`
+`Callback`
+
+**Contracts are asynchronous**: A contract can be placed on any given shard of the [multiple shards](../pbc-fundamentals/sharding.md) on Partisia Blockchain. This means that all actions take place in an order you can define as a developer, but the time it takes to complete an action can be dependent on what shard the contract is on and the geolocation of the node. This becomes much more relevant when looking at contract-to-contract actions. 
+
+Even though state is not an interaction its important to understand what state is as a developer. Simply written a state is a distributed record, where each action can be perceived as a change in the record. This is part of both the functional and the asynchronous desing of PBC. 
+
+**Contracts are functional**: Each interaction point, whether init or action take some input, and return some output. Interactions cannot produce side effects, visible or not. The state will thus not be changed should a transaction, action or event fail while running the contract code, whether due to panics or insufficient gas.
+
+
+Of further interest here, is that the entire contract is essentially "reset" after every interaction. Any `static mut` items will possess their initial value, once again. The only state your contract can possess is the state returned from interactions.
+
+
+## Simple interaction model
+A user can sign a transaction, a transaction creates an event (dotted line) which spawns an action. This action is what programmatically is written into a given smart contract. An action always changes the state if its successful, even if there is no writing to the state of the contract as part of the action. The change in such a case will be to note that the action has happened on the state. 
 
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
+
+## Contract-to-contract interaction model. 
+
 
 
 
