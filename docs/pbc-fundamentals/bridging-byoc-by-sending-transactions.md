@@ -34,8 +34,8 @@ To use the bridge you must have an account on PBC and on the chain which coins y
 ```SOL
 deposit(bytes21 destination, uint amount)
 ```
-2. The [deposit oracle](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351) on PBC reads and signs the deposit   
-3. x BYOC twins are minted on PBC by the deposit oracle contract   
+2. The deposit oracle nodes on PBC reads and signs the deposit   
+3. x BYOC twins are minted on PBC by [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
 4. x ETH are added to the balance PBC account B   
 
 
@@ -46,7 +46,7 @@ deposit(bytes21 destination, uint amount)
 
 **Withdraw X ETH from PBC account A**   
 
-1. Add a pending withdrawal on PBC by invoking the action _Withdrawal_ on the [ETH withdrawal oracle contract on PBC](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146):
+1. Add a pending withdrawal on PBC by invoking the action _Withdrawal_ at [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146):
 ```JAVA 
  public ByocOutgoingContractState addPendingWithdrawal(
       SysContractContext context,
@@ -54,7 +54,7 @@ deposit(bytes21 destination, uint amount)
       EthereumAddressRpc receiver,
       Unsigned256 amount) 
 ```
-2. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c), the action take an account address and the transferred amount:
+2. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce,
    address destination,
@@ -69,7 +69,8 @@ withdraw(uint64 withdrawNonce,
    
 ## Resources to get you started
 
-You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Polygon, BNB smartchain and Partisia. This wallet is primarily designed for Ethereum, but can interact with the other chains as well. To see how you use the metamask wallet to send transactions with the RPC method see [here](https://docs.metamask.io/wallet/how-to/send-transactions/). If you want a wallet that is designed to interact with PBC, use the [Partisia Blockchain Wallet extension](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia) to sign and send your transactions to PBC.
+You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Polygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well.    
+On Partisia Blockchain the easiest solution is to use [Partisia MetaMask Snap](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/) to sign your transaction.  Alternatively you can use the [Partisia Wallet](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
 
 Besides the wallets, you will need the addresses of the [oracle](../node-operations/oracles-on-partisia-blockchain.md) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet test BYOC from the ETH Goerli testnet is available, but do no other BYOC test coins from other chains.
 
