@@ -51,7 +51,7 @@ visit [our article on handling gas on a contract-to-contract basis](gas/contract
 
 ## Contract-to-contract with callback
 
-
+Working with callbacks expands the mental model to include another event that is made from the action of the secondary contract. When a user signs a transaction, its creates and action. This action is made with a callback which simply creates the first event as if it was a contract-to-contract interaction with instructions to create a callback after. The callback is first produced after the action is made in Smart contract 2. The callback will always have a success or failure indikation along with whatever else is packed into the callback itself. This callback event creates a callback action. The example highlights that on smart contract 1 there are three state changes, often the actual state would not change after the first action, but presumably only after the callback has happened. 
 
 ![SmartContractMentalModelWithCallback.svg](mental-models%2FSmartContractMentalModelWithCallback.svg)
 
