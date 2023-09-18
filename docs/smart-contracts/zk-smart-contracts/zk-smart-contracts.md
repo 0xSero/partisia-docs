@@ -53,7 +53,7 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
 
 ```
 
-[You can see the code handling the remaining contract phases further down the page](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md#full-zksc-code-example)
+[You can see the code handling the remaining contract phases further down the page](zk-smart-contracts.md#full-zksc-code-example)
 
 ### Use zero knowledge smart contracts on PBC as a second layer
 
