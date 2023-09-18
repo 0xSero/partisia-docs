@@ -32,7 +32,10 @@ interactions.
 A user can sign a transaction, a transaction creates an event (dotted line) which spawns an action. This action is what
 programmatically is written into a given smart contract. An action always changes the state if its successful, even if
 there is no writing to the state of the contract as part of the action. The change in such a case will be to note that
-the action has happened on the state.
+the action has happened on the state. 
+
+This example could also have been a model with no before state and the signed transaction
+would be the [init bytes(RPC)](smart-contract-binary-formats.md#rpc-binary-format) required to deploy a smart contract on Partisia Blockchain.
 
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
 
