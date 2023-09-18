@@ -35,13 +35,19 @@ The other three actions will be available after successful deployment.
 In the _total_supply_ field you put the number of tokens you want minted for total supply of the contract
 from the moment of deployment.
 The _decimals_ field indicates placement of decimal point in total supply.
-E.g. total supply: 1050 decimals: 3 will mint supply of 1.050 token. After you send the contract to
+E.g. total supply: 1050 decimals: 3 will mint supply of 1.050 token. 
+
+It should look like this before deployment: 
+
+![compile-and-deploy-contracts-before-deploy.png](compile-and-deploy-contracts-before-deploy.png)
+
+After you send the contract to
 the chain a box appears below. You are provided with the following information fields
 _Execution status_, _Hash_, _Invocation_ and _Deployed at_.  
 Successful deployment will look like
 this:
 
-![deployment](deployment.png)
+![compile-and-deploy-contracts-after-deploy.png](compile-and-deploy-contracts-after-deploy.png)
 
 You are now ready to interact with the contract. Copy the address of deployment and paste it into the menu _Interact Wasm Contract_ in the dashboard. Now you can mint and transfer your tokens.
 
