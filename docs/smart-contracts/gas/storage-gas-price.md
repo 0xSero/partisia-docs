@@ -1,14 +1,13 @@
 # Storage gas price
 
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-gas.html"></a>
-    <a class="dot-navigation__item" href="transaction-gas-prices.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="storage-gas-price.html"></a>
-    <a class="dot-navigation__item" href="zk-computation-gas-fees.html"></a>
-    <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
-    <a class="dot-navigation__item" href="efficient-gas-practices.html"></a>
-    <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [](what-is-gas.md)
+   [](transaction-gas-prices.md)
+   [*.*](storage-gas-price.md)
+   [](zk-computation-gas-fees.md)
+   [](how-to-get-testnet-gas.md)
+   [](efficient-gas-practices.md)
+   [](contract-to-contract-gas-estimation.md)
 </div>
 !!! info inline end "Storage fee"
     1 USD cent/kb per year
