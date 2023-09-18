@@ -80,6 +80,6 @@ Questions for ZK contracts:
   Examples: `Sbi128`, `(Sbi32, Sbi32)`, `SecretPoint` (defined as `struct SecretPoint { x: Sbi32, y: Sbi32 }`.) To
   produce multiple variables, return them as a tuple.
 - **ZkRust: Can I use feature X?
-  **: [Check out the currently supported features.](../smart-contracts/zk-language-features.md)
+  **: [Check out the currently supported features.](zk-smart-contracts/zk-language-features.md)
 - **ZkRust: Why is important feature X not supported?**: ZkRust is an entire reimplementation of the Rust compiler
   targeted at Partisia Blockchain, and not all features have been prioritized.
