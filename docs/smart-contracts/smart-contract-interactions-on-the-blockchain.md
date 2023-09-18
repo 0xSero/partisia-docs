@@ -36,9 +36,9 @@ the action has happened on the state.
 
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
 
-## Contract-to-contract intera4ction model.
+## Contract-to-contract interaction model.
 
-This example builds on the simple interaction model. When creating an 
+This example builds on the simple interaction model. When creating an interaction with another contract. What the system is creating is a new action. Actions are created with events. The smart contract 2 in the example, has its own state and can be interacted with at any given time. The asynchronous way of creating contract-to-contract interaction becomes more cluttered with every contract you wish to call from that point. In another example the smart contract 2 can even create new actions for more and more smart contracts on the blockchain. The tricky part becomes handling gas and callbacks for a system with many contract-to-contract interactions, you can visit [our article on handling gas on a contract-to-contract basis](gas/contract-to-contract-gas-estimation.md). 
 
 ![SmartContractMentalModelcontract-to-contract.svg](mental-models%2FSmartContractMentalModelcontract-to-contract.svg)
 
