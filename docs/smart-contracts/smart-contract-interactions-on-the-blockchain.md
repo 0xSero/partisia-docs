@@ -24,7 +24,7 @@ A user can sign a transaction, a transaction creates an event (dotted line) whic
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
 
 ## Contract-to-contract interaction model. 
-
+½
 
 
 
