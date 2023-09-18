@@ -55,6 +55,8 @@ Working with callbacks expands the mental model to include another event that is
 
 ![SmartContractMentalModelWithCallback.svg](mental-models%2FSmartContractMentalModelWithCallback.svg)
 
+## Contract-to-two-contracts with one callback. 
+
 ![SmartContractMentalModelTwoActionsOneCallback.svg](mental-models%2FSmartContractMentalModelTwoActionsOneCallback.svg)
 
 Understanding PBC's Unique Features:
