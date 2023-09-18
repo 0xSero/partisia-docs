@@ -30,8 +30,9 @@ Ensure that you have some gas, if you want to try for free you can get som testn
 Select the `token_contract.wasm` and the `token_contract.abi`.
 The dashboard will then render a form for the initialization function. If you look at `lib.rs` file in your IDE,
 you will see that this matches the _initialize_ function.
-The other three actions will be available after successful deployment.
+The other three actions will be available after successful deployment. 
 
+You can give your token contract any name and symbol to reflect the token you are creating a mint for.
 In the _total_supply_ field you put the number of tokens you want minted for total supply of the contract
 from the moment of deployment.
 The _decimals_ field indicates placement of decimal point in total supply.
