@@ -67,10 +67,11 @@ change after the first action, but presumably only after the callback has happen
 ## Contract-to-two-contracts with one callback.
 
 A contract can have multiple events spawning multiple actions to multiple contracts. They can share the same callback if
-they are all created from same action. The callback can have all statuses from the callbacks from the different
-contracts. Which means that contract 1 creates an event that creates an action in contract 2 and 3. The callbacks from
+they are all created from the same action. The callback can collect and include all statuses and responses from the
+callbacks from the different
+contracts. Simply put, contract 1 creates an event that creates an action in contract 2 and 3. The callbacks from
 contract 2 and 3 are collected into one event which is then returned to contract 1. This creates the possibility of
-error handling specific use cases on the chain without needing to refire the full event chain, thus helping with gas
+error handling specific use cases on the chain without needing to re-trigger the full event chain, thus helping with gas
 efficiency.
 
 ![SmartContractMentalModelTwoActionsOneCallback.svg](mental-models%2FSmartContractMentalModelTwoActionsOneCallback.svg)
