@@ -41,15 +41,12 @@ It should look like this before deployment:
 
 ![compile-and-deploy-contracts-before-deploy.png](compile-and-deploy-contracts-before-deploy.png)
 
-After you send the contract to
-the chain a box appears below. You are provided with the following information fields
-_Execution status_, _Hash_, _Invocation_ and _Deployed at_.  
 Successful deployment will look like
 this:
 
 ![compile-and-deploy-contracts-after-deploy.png](compile-and-deploy-contracts-after-deploy.png)
 
-You are now ready to interact with the contract. Copy the address of deployment and paste it into the menu _Interact Wasm Contract_ in the dashboard. Now you can mint and transfer your tokens.
+You are now ready to interact with the contract. You can now click _Interact_ in the browser and start using the actions like mint and transfer of your tokens.
 
 <div class="embed-video-wrapper">
 <iframe width="711" height="400" src="https://www.youtube.com/embed/qV2grtWDxUE" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
