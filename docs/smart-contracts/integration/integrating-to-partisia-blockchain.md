@@ -21,7 +21,7 @@ https://node1.testnet.partisiablockchain.com/shards/Shard2/blockchain/contracts/
 Example
 of the endpoint giving information about a smart contract including the ABI and current state.
 
-### Libraries
+## Libraries
 
 [Client library](../smart-conract-tools-overview.md#client) for fetching information from the node REST server, and
 for submitting transactions.
