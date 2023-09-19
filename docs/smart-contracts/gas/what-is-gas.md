@@ -1,14 +1,13 @@
 # What is Gas?
 
-<div class="dot-navigation">
-    <a class="dot-navigation__item dot-navigation__item--active" href="what-is-gas.html"></a>
-    <a class="dot-navigation__item" href="transaction-gas-prices.html"></a>
-    <a class="dot-navigation__item" href="storage-gas-price.html"></a>
-    <a class="dot-navigation__item" href="zk-computation-gas-fees.html"></a>
-    <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
-    <a class="dot-navigation__item" href="efficient-gas-practices.html"></a>
-    <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [*.*](what-is-gas.md)
+   [](transaction-gas-prices.md)
+   [](storage-gas-price.md)
+   [](zk-computation-gas-fees.md)
+   [](how-to-get-testnet-gas.md)
+   [](efficient-gas-practices.md)
+   [](contract-to-contract-gas-estimation.md)
 </div>
 
 Gas is a unit of computational effort on blockchain networks. It serves as a measure of the resources consumed during
