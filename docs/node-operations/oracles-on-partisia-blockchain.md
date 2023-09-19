@@ -38,7 +38,7 @@ Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic
 6. Open the contract state
 7. Search for your blockchain address to find the address of the deposit or withdrawal oracle in which your node serves
 8. Go to the contract of the oracle your node is working in
-9. Invoke the contract action _DEREGISTER_
+9. Invoke the contract action _requestNewOracle_ (You can only invoke this action when serving in the oracle and 28 days have past)
 10. Submit transaction
 
 ## How to join a price oracle
