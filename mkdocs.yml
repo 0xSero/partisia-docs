@@ -20,7 +20,7 @@ nav:
       - smart-contracts/programmers-guide-to-smart-contracts.md
       - smart-contracts/smart-contract-binary-formats.md
       - smart-contracts/how-to-create-a-vote-from-a-smart-contract.md
-      - smart-contracts/client-interactions.md
+
       - Zero Knowledge (ZK) Smart Contracts:
           - smart-contracts/zk-smart-contracts/zk-smart-contracts.md
           - smart-contracts/zk-smart-contracts/compile-and-deploy-zk-contract.md
@@ -36,6 +36,8 @@ nav:
           - smart-contracts/gas/efficient-gas-practices.md
           - smart-contracts/gas/contract-to-contract-gas-estimation.md
       - Integration:
+          - smart-contracts/integration/integrating-to-partisia-blockchain.md
+          - smart-contracts/integration/client-interactions.md
           - smart-contracts/integration/introduction-to-standard-contract-interfaces.md
           - smart-contracts/integration/mpc-20-token-contract.md
           - smart-contracts/integration/mpc-721-nft-contract.md
