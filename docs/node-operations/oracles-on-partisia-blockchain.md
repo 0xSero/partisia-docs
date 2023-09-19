@@ -46,8 +46,8 @@ Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic
 Price oracles monitor prices of the BYOC. They do not rely on a random selection process. Any node with sufficient tokens associated to the large oracle contract can register as a price oracle. To be eligible for a price oracle the price is 5K MPC tokens.
 
 1. Go to the [Browser](https://browser.partisiablockchain.com/) and log in
-2. Associate 5000 MPC tokens to the [Large Oracle Contract](https://browser.partisiablockchain.com/info/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014) by choosing the invocation named "AssociateTokensToContract" from the drop-down-menu (Skip this step if you have 5000 or more unused tokens already asociated with this contract)
-4. Go to the [ETH Price Oracle Contract](https://browser.partisiablockchain.com/info/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d) or [BNB Price Oracle Contract](https://browser.partisiablockchain.com/info/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39) and register by the invocation named "Register" from the drop-down-menu
+2. Associate 5000 MPC tokens to the [Large Oracle Contract](https://browser.partisiablockchain.com/info/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014) by choosing the invocation named _AssociateTokensToContract_ from the drop-down-menu (Skip this step if you have 5000 or more unused tokens already asociated with this contract)
+4. Go to the [ETH Price Oracle Contract](https://browser.partisiablockchain.com/info/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d) or [BNB Price Oracle Contract](https://browser.partisiablockchain.com/info/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39) and register by the invocation named _Register_ from the drop-down-menu
 
 You can learn more about the price oracles [here](price-oracle.md) 
 
@@ -60,5 +60,5 @@ To leave the price oracle one simply needs to invoke deregistration at the contr
 3. Open the contract state
 4. Search for your blockchain address to find the address of the price oracle in which your node serves
 5. Go to the contract of the price oracle your node is working in 
-6. Invoke the contract action _DEREGISTER_
+6. Invoke the contract action _Deregister_
 7. Submit transaction
