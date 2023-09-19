@@ -45,7 +45,7 @@ Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic
 Price oracles monitor prices of the BYOC. They do not rely on a random selection process. Any node with sufficient tokens associated to the large oracle contract can register as a price oracle. To be eligible for a price oracle the price is 5K MPC tokens.
 
 1. Go to the [Browser](https://browser.partisiablockchain.com/) and log in
-2. Associate 5000 MPC tokens to the [Large Oracle Contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)    
+2. Associate 5000 MPC tokens to the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)    
 4. Go to the [ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d/register) or [BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39/register) and register
 
 You can learn more about the price oracles [here](price-oracle.md) 
