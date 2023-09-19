@@ -1,4 +1,7 @@
+# Integrating to Partisia Blockchain
+An important part of working with the blockchain is being able to use the blockchain in other systems. Here we have collected multiple links to help you navigate how you can access REST endpoints and work with transactions.
 
+Secondly we also keep our standard contract interfaces to help you recognize tokens or NFTs on the blockchain.  
 
 
 
