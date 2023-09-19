@@ -10,7 +10,7 @@ In this category you can explore how to create your own smart contract. The spec
 - [Programmers Guide to PBC smart contracts](../smart-contracts/programmers-guide-to-smart-contracts.md)
 - [Partisia Blockchain Smart Contract Binary Formats](../smart-contracts/smart-contract-binary-formats.md)
 - [How to create a smart contract with a specific scenario](../smart-contracts/how-to-create-a-vote-from-a-smart-contract.md)
-- [Zero Knowledge Smart Contracts](../smart-contracts/zk-smart-contracts.md)
+- [Zero Knowledge Smart Contracts](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md)
 - [What is gas?](gas/what-is-gas.md)
 - [Standard Contract Interfaces](integration/introduction-to-standard-contract-interfaces.md)
 - [Connect a dApp to the wallet extension (dApp SDK)](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia)

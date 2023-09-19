@@ -1,14 +1,13 @@
 # Contract to contract gas estimation
 
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-gas.html"></a>
-    <a class="dot-navigation__item" href="transaction-gas-prices.html"></a>
-    <a class="dot-navigation__item" href="storage-gas-price.html"></a>
-    <a class="dot-navigation__item" href="zk-computation-gas-fees.html"></a>
-    <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
-    <a class="dot-navigation__item" href="efficient-gas-practices.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="contract-to-contract-gas-estimation.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [](what-is-gas.md)
+   [](transaction-gas-prices.md)
+   [](storage-gas-price.md)
+   [](zk-computation-gas-fees.md)
+   [](how-to-get-testnet-gas.md)
+   [](efficient-gas-practices.md)
+   [*.*](contract-to-contract-gas-estimation.md)
 </div>
 
 When creating a contract that sends transactions to other contracts, a developer need to adequately account for the gas required for these transactions. There are two important factors to consider in this process: 

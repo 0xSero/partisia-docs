@@ -1,14 +1,13 @@
 # ZK Computation Gas Fees
 
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-gas.html"></a>
-    <a class="dot-navigation__item" href="transaction-gas-prices.html"></a>
-    <a class="dot-navigation__item" href="storage-gas-price.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="zk-computation-gas-fees.html"></a>
-    <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
-    <a class="dot-navigation__item" href="efficient-gas-practices.html"></a>
-    <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [](what-is-gas.md)
+   [](transaction-gas-prices.md)
+   [](storage-gas-price.md)
+   [*.*](zk-computation-gas-fees.md)
+   [](how-to-get-testnet-gas.md)
+   [](efficient-gas-practices.md)
+   [](contract-to-contract-gas-estimation.md)
 </div>
 
 Zero-knowledge (ZK) computation involves a number of gas fees to ensure that a contract's associated ZK nodes have enough gas to execute the ZK actions. You can find the overview on [our gas price table here](gas-price-table-overview.md). In this article we will dive into the specifics of gas fees when doing ZK actions on Partisia Blockchain. 

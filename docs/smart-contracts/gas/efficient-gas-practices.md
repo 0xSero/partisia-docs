@@ -1,15 +1,15 @@
 # Efficient gas practices
 
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-gas.html"></a>
-    <a class="dot-navigation__item" href="transaction-gas-prices.html"></a>
-    <a class="dot-navigation__item" href="storage-gas-price.html"></a>
-    <a class="dot-navigation__item" href="zk-computation-gas-fees.html"></a>
-    <a class="dot-navigation__item" href="how-to-get-testnet-gas.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="efficient-gas-practices.html"></a>
-    <a class="dot-navigation__item" href="contract-to-contract-gas-estimation.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [](what-is-gas.md)
+   [](transaction-gas-prices.md)
+   [](storage-gas-price.md)
+   [](zk-computation-gas-fees.md)
+   [](how-to-get-testnet-gas.md)
+   [*.*](efficient-gas-practices.md)
+   [](contract-to-contract-gas-estimation.md)
 </div>
+
 Minimizing gas usage is essential to ensure cost-effectiveness and optimal performance on the blockchain. In this article we have collected our best practice for handling gas optimization.
 
 The size of the contract state directly affects the CPU cost, particularly during serialization and deserialization processes. As the contract state grows larger, both serialization and deserialization require more computational resources, resulting in increased gas costs. It is important to be aware of this impact and optimize gas usage accordingly when creating smart contracts.
