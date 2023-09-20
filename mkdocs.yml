@@ -6,7 +6,8 @@ nav:
   - PBC fundamentals:
       - pbc-fundamentals/introduction-to-the-fundamentals.md
       - pbc-fundamentals/create-an-account.md
-      - pbc-fundamentals/byoc-and-gas.md
+      - pbc-fundamentals/byoc.md
+      - pbc-fundamentals/bridging-byoc-by-sending-transactions.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/dictionary.md
   - Smart contracts:
@@ -21,12 +22,19 @@ nav:
       - smart-contracts/how-to-create-a-vote-from-a-smart-contract.md
       - smart-contracts/client-interactions.md
       - Zero Knowledge (ZK) Smart Contracts:
-          - smart-contracts/zk-smart-contracts.md
-          - smart-contracts/compile-and-deploy-zk-contract.md
-          - smart-contracts/zk-computation-gas-fees.md
-          - smart-contracts/zk-rust-language-zkrust.md
-          - smart-contracts/zk-rust-reference.md
-          - smart-contracts/zk-language-features.md
+          - smart-contracts/zk-smart-contracts/zk-smart-contracts.md
+          - smart-contracts/zk-smart-contracts/compile-and-deploy-zk-contract.md
+          - smart-contracts/zk-smart-contracts/zk-rust-language-zkrust.md
+          - smart-contracts/zk-smart-contracts/zk-rust-reference.md
+          - smart-contracts/zk-smart-contracts/zk-language-features.md
+      - Gas:
+          - smart-contracts/gas/what-is-gas.md
+          - smart-contracts/gas/transaction-gas-prices.md
+          - smart-contracts/gas/storage-gas-price.md
+          - smart-contracts/gas/zk-computation-gas-fees.md
+          - smart-contracts/gas/how-to-get-testnet-gas.md
+          - smart-contracts/gas/efficient-gas-practices.md
+          - smart-contracts/gas/contract-to-contract-gas-estimation.md
       - Integration:
           - smart-contracts/integration/introduction-to-standard-contract-interfaces.md
           - smart-contracts/integration/mpc-20-token-contract.md
@@ -35,6 +43,7 @@ nav:
       - Testing Contracts:
           - smart-contracts/testing-contracts/testing-a-smart-contract.md
       - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
+      - smart-contracts/smart-conract-tools-overview.md
       - smart-contracts/development-faq.md
   - Node Operations:
       - node-operations/what-is-a-node-operator.md
@@ -66,10 +75,13 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
+  - md_in_html
+  - pymdownx.caret
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight
   - pymdownx.details
+  - admonition
   - pymdownx.superfences:
       # make exceptions to highlighting of code:
       custom_fences:
