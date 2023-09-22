@@ -1,9 +1,7 @@
 # Integrating to Partisia Blockchain
 
-An important part of working with the blockchain is being able to use the blockchain in other systems. Here we have
-collected multiple links to help you navigate how you can access REST endpoints and work with transactions and articles
-to give understandings of standard contract interfaces or how to use other systems with PBC
-REST Server
+This page is a collection of links to help you navigate how you can access REST endpoints and work with transactions. The next set of articles
+are created to give insights on how to do on-chain / off-chain interactions, how to understand our standard contract interfaces to recognize NFTs or tokens as part of your application. The integration article series are individually grounded information which aims to help you work with the blockchain from your own application. 
 
 Blockchain nodes, including reader nodes gives access to blocks, transactions, contract state and more through suitable
 REST endpoints. We have collected the most important examples below:
