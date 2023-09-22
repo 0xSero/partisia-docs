@@ -1,8 +1,11 @@
 # Integrating to Partisia Blockchain
 
-This page is a collection of links to help you navigate how you can access REST endpoints and work with transactions. The next set of articles
-are created to give insights on how to do on-chain / off-chain interactions, how to understand our standard contract interfaces to recognize NFTs or tokens as part of your application. The integration article series are individually grounded information which aims to help you work with the blockchain from your own application. 
+This page is a collection of links to help you navigate how you can access REST endpoints and work with transactions.
+The next set of articles aims to explain how to do on-chain / off-chain interactions, how to understand our standard contract
+interfaces to recognize NFTs or tokens as part of your application. Lastly there are individual articles which specifies specific integration topics to help you work with the blockchain from your own application. 
 
+
+## Rest endpoint examples
 Blockchain nodes, including reader nodes gives access to blocks, transactions, contract state and more through suitable
 REST endpoints. We have collected the most important examples below:
 
@@ -25,4 +28,3 @@ and [RPC](../smart-contract-binary-formats.md#rpc-binary-format) send to
 smart contracts.
 
 [The ABI that is used for deserializing fundamental transaction & event structures](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main/client/src/main/resources?ref_type=heads).
-
