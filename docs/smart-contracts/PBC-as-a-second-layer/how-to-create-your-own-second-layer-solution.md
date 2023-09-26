@@ -1,4 +1,4 @@
-# How to create your own solution with PBC as a second layer
+# How to create your own second layer solution
 <div class="dot-navigation">
     <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
     <a class="dot-navigation__item" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
@@ -26,7 +26,7 @@ as second layer for any type of application.
 
 ## Voting example code
 
-The [voting example](pbc-as-a-second-layer-live-example-ethereum.md) works by having two separate 
+The [voting example](live-example-of-pbc-as-a-second-layer.md) works by having two separate 
 smart contracts, one deployed on the PBC testnet and another deployed on the Goerli testnet.
 
 The source code contracts can be found in the public repository 
@@ -55,7 +55,7 @@ build tool.
 The `public-voting` directory contains Hardhat project for the public Solidity contract.
 The solidity contract is defined in `contracts/PublicVoting.sol`. The `scripts` folder contains
 a script for deploying and interacting with the solidity contract, and some helper functions for
-converting data formats. See [this page](pbc-as-second-layer-technical-differences-eth-pbc.md) for
+converting data formats. See [this page](technical-differences-between-eth-and-pbc.md) for
 a more detailed explanation of why the conversion is needed.
 
 The solidity contract can be built and the scripts can run with Node.js version 16.15.0.
@@ -280,8 +280,8 @@ We don't do this for a couple of reasons:
 The second things to notice is that the addresses of the computation nodes are **not** the 
 identifies of computation nodes. Rather they are derived from the nodes public keys.
 
-For more details on how to derive the addresses see [this page](pbc-as-second-layer-technical-differences-eth-pbc.md).
-The [How to deploy](pbc-as-a-second-layer-how-to-deploy.md) page describes how to deploy the 
+For more details on how to derive the addresses see [this page](technical-differences-between-eth-and-pbc.md).
+The [How to deploy](how-to-deploy-your-second-layer-solution.md) page describes how to deploy the 
 solidity contract using the computation nodes public keys.
 
 

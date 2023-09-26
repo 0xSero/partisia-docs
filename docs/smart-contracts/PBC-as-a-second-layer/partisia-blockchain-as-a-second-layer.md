@@ -20,7 +20,7 @@ PBC as a second layer only supports a movement of data from layer one to layer t
 
 ![ConceptPBCAsSecondLayer](ConceptPBCAsSecondLayer.png)
 
-The model is made from the perspective of our live example on ethereum, you can check how the process works from our running example on [this page.](pbc-as-a-second-layer-live-example-ethereum.md)
+The model is made from the perspective of our live example on ethereum, you can check how the process works from our running example on [this page.](live-example-of-pbc-as-a-second-layer.md)
 
 In general we recommend building an outside layer of automation that can move the information from the layer one blockchain to PBC and vice versa.
 

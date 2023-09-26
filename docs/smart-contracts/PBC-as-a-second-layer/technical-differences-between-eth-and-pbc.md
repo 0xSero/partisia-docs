@@ -1,4 +1,4 @@
-# Technical differences between ETH and PBC for the running example
+# Technical differences between ETH and PBC
 
 <div class="dot-navigation">
     <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
@@ -22,10 +22,10 @@ One of the problems with transferring data between PBC and Ethereum is that the 
 different approaches on how information is represented. Specifically, the differences relevant for
 using PBC as second layer are:
 
-1. [How user data is encoded](pbc-as-second-layer-technical-differences-eth-pbc.md#encoding-data)
-2. [The hashing algorithm used](pbc-as-second-layer-technical-differences-eth-pbc.md#hashing-data)
-3. [How contract or account addresses are derived](pbc-as-second-layer-technical-differences-eth-pbc.md#deriving-addresses)
-4. [The encoding of signatures](pbc-as-second-layer-technical-differences-eth-pbc.md#signatures)
+1. [How user data is encoded](technical-differences-between-eth-and-pbc.md#encoding-data)
+2. [The hashing algorithm used](technical-differences-between-eth-and-pbc.md#hashing-data)
+3. [How contract or account addresses are derived](technical-differences-between-eth-and-pbc.md#deriving-addresses)
+4. [The encoding of signatures](technical-differences-between-eth-and-pbc.md#signatures)
 
 ### Encoding data
 
@@ -49,7 +49,7 @@ payload, which can be done by implementing the `WriteRPC` trait which defines th
 method.
 
 To illustrate this, consider the two following code snippets using the code from the 
-[voting example](pbc-as-a-second-layer-how-to-create-your-own-solution.md).
+[voting example](how-to-create-your-own-second-layer-solution.md).
 
 ```rust
 #[test]

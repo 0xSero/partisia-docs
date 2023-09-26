@@ -1,4 +1,4 @@
-# Test the live example of our voting contract
+# Live example of PBC as a second layer
 <div class="dot-navigation">
    <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
    <a class="dot-navigation__item dot-navigation__item--active" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
@@ -66,7 +66,7 @@ These steps shows you how to securely move the vote result to the Ethereum publi
 
 Following the example above, it may be a bit difficult to see how the transfer of data to Ethereum is secured, i.e. who signs the result of a vote and how does Ethereum verify the signatures?
 
-As illustrated on the [concept page](pbc-as-second-layer.md), the result is signed by the same nodes that run the ZK computation. When trusting these nodes to handle the computation securely, we can also trust them to sign the result correctly.
+As illustrated on the [concept page](partisia-blockchain-as-a-second-layer.md), the result is signed by the same nodes that run the ZK computation. When trusting these nodes to handle the computation securely, we can also trust them to sign the result correctly.
 
 To be able to verify the signatures on the Ethereum side, the smart contract needs to know the identities of the computation nodes. Additionally, the Ethereum smart contract also needs to know the address of the smart contract that ran the secret vote on PBC.
 
@@ -96,7 +96,7 @@ information about the ZK computation nodes, including their PBC address listed a
 
 You may notice that that four addresses listed on the two contracts are not the same. To understand
 why this is the case, you can read about how addresses are derived on either chain 
-[here](pbc-as-second-layer-technical-differences-eth-pbc.md).
+[here](technical-differences-between-eth-and-pbc.md).
 
 The four engine objects also has a field called "publicKey" which is the public key that corresponds to the private key they used to sign the voting result. The addresses listed on the Ethereum contract were derived from these keys.
 

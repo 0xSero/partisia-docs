@@ -1,4 +1,4 @@
-# How to deploy your own solution with PBC as a second layer
+# How to deploy your second layer solution
 <div class="dot-navigation">
     <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
     <a class="dot-navigation__item" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
@@ -9,7 +9,7 @@
 </div>
 
 !!! note 
-    We recommend that you read the [walkthrough of the example contracts](pbc-as-a-second-layer-how-to-create-your-own-solution.md) to understand the contracts being deployed in this guide.
+    We recommend that you read the [walkthrough of the example contracts](how-to-create-your-own-second-layer-solution.md) to understand the contracts being deployed in this guide.
 
 ## Deploying a PBC as second layer solution
 
@@ -18,7 +18,7 @@ contract in such a way that the solidity contract utilizes the PBC private smart
 second layer for ZK services.
 
 The guide will use the
-[example voting solution](pbc-as-a-second-layer-how-to-create-your-own-solution.md)
+[example voting solution](how-to-create-your-own-second-layer-solution.md)
 and will deploy to the PBC testnet and Ethereum Goerli testnet.
 
 To follow the guide you must have an [PBC testnet account](../accounts.md) with
@@ -47,7 +47,7 @@ match the one in the example, and uses the deployment scripts found in the examp
 #### Deploy a ZK contract on PBC
 
 We recommend you to follow our guide on how to deploy contracts on PBC
-[here](../contract-compilation.md)
+[here](../../contract-compilation.md)
 
 Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard
 estimates, remember to add more gas (4x). You can test down to the exact gas amount on the
@@ -140,4 +140,4 @@ npx hardhat run scripts/verify.js --network goerli
 
 To test that the deployment of the PBC as second layer solution works, you can run a test similar to
 what is described in the
-[live voting example walkthrough](pbc-as-a-second-layer-live-example-ethereum.md). 
+[live voting example walkthrough](live-example-of-pbc-as-a-second-layer.md). 
