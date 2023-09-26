@@ -41,7 +41,7 @@ the approach PBC uses.
 Similarly, PBC also has two ways to encode or serialize data based on what they are used for.
 The main difference is that data that is stored in state is serialized in little endian order, and 
 data that is serialized for RPC calls is serialized in big endian order.
-See [documentation](../abiv.md) for more details.
+Read [the article about binary formats](../smart-contract-binary-formats.md) for more details.
 
 Data that is meant to be sent to Ethereum must therefore be encoded as an argument for an RPC 
 payload, which can be done by implementing the `WriteRPC` trait which defines the 
