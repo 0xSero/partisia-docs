@@ -1,53 +1,60 @@
 # Testing a smart contract
 
 Tests for your smart contract helps you avoid mistakes and exploits in a contract, you
-are developing. After reading this page, you should be able to do the following: 
+are developing. After reading this page, you should be able to do the following:
 
 1. Write a test, that deploys a contract
 2. Use the deployment test as setup for another test.
 3. Interact with the contract in the test.
 
-In the [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), we have tests, to show the behaviour for all the contracts. These tests are written in
-Java, using our testing framework Junit-contract-test. In the test we are provided a blockchain object, where we can
-deploy and interact with multiple different contracts. 
+In the [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), we have tests, to demonstrate the
+behaviour for all the contracts. These tests are written in
+Java, utilizing our testing framework Junit-contract-test. During the test we are, provided a blockchain object,
+which allows us to deploy and interact with multiple different contracts.
 
-To run the tests stand in the root of contract examples and run the following commands in order.
+To run the tests navigate to the root of contract examples and execute the following commands in order.
 
 Compile the contracts:
+
 ```bash
 cargo partisia-contract build --release
 ```
 
 Go into the test dir, compile the tests and run them.
+
 ```bash
 cd java-test
 mvn test-compile test
 ```
 
-
-You can also run the provided script `run-java-tests.sh`, where a build flag, `-b`, for compiling the contracts before test run, can
+You can also run the provided script `run-java-tests.sh`, where a build flag, `-b`, for compiling the contracts before
+test run, can
 be given. This would be equivalent to running the above commands in order.
+
 ````bash
 ./run-java-tests.sh -b
 ````
 
-To run a single test class, use the maven option `-Dtest="Name of Test Class"`, and run it while standing in the test dir.
+To run a single test class, use the maven option `-Dtest="Name of Test Class"`, and run it while standing in the test
+dir.
+
 ```bash
 mvn test -Dtest="VotingTest"
 ```
-## Run test with code coverage
 
-To see that the tests hits the different parts of the code, we can run the tests, where all events are propagated to
-an instrumented executable. This will generate the coverage information, which can be made into a report. 
-Run the tests with coverage enabled, by running the `run-java-tests.sh` with the build flag, `-b`, and the coverage flag,
-`-c`.
+### Run test with code coverage
+
+To see that the tests hits the different parts of the smart contract code, we can run the tests, with coverage enabled.
+The tests will generate coverage information, which can be compiled into a report. To run the tests with coverage enabled,
+execute `run-java-tests.sh` with the build flag, `-b`, and the coverage flag, `-c`.
+
 ````bash
 ./run-java-tests.sh -c -b
 ````
+
 This will create the instrumented executable, and run the test with coverage enabled.
 
-
-# Break down of a test
+## Break down of a test
 
 ````java
 import com.partisiablockchain.BlockchainAddress;
@@ -56,18 +63,20 @@ import com.partisiablockchain.language.junit.ContractBytes;
 import com.partisiablockchain.language.junit.ContractTest;
 import com.partisiablockchain.language.junit.JunitContractTest;
 import com.partisiablockchain.language.junit.exceptions.ActionFailureException;
+
 import java.nio.file.Path;
 import java.util.List;
+
 import org.assertj.core.api.Assertions;
 
 /** Test suite for the Voting contract. */
 public final class VotingTest extends JunitContractTest {
 
   private static final ContractBytes VOTING_CONTRACT_BYTES =
-          ContractBytes.fromPaths(
-                  Path.of("../target/wasm32-unknown-unknown/release/voting.wasm"),
-                  Path.of("../target/wasm32-unknown-unknown/release/voting.abi"),
-                  Path.of("../target/wasm32-unknown-unknown/release/voting_runner"));
+      ContractBytes.fromPaths(
+          Path.of("../target/wasm32-unknown-unknown/release/voting.wasm"),
+          Path.of("../target/wasm32-unknown-unknown/release/voting.abi"),
+          Path.of("../target/wasm32-unknown-unknown/release/voting_runner"));
   private BlockchainAddress voter1;
   private BlockchainAddress voter2;
   private BlockchainAddress voter3;
@@ -94,19 +103,19 @@ public final class VotingTest extends JunitContractTest {
     Assertions.assertThat(state.votes().size()).isEqualTo(1);
     Assertions.assertThat(state.votes().get(voter1)).isTrue();
   }
+}
 
 ````
 
-## Imports and Abstract Class
-The test extends the JunitContractTest class, this is the abstract class providing the blockchain object, it is also the
-class that provides the use of chain-state from a previous test as setup.
+### Imports and Abstract Class
+
+The test extends the JunitContractTest class, this is the extension providing the blockchain object. This enables
+testing
+of smart contracts. This enables automated testing of smart contracts, since the tests can be run on a single machine.
 
 ???+ info "Imports explained:"
 
     ```java
-    import java.math.BigInteger; // The Big Integer type.
-    import java.nio.file.Path; // Paths used for specifying the location of the contact bytecode.
-    
     import org.assertj.core.api.Assertions; // Library to make assertions on objects during test run.
 
     import com.partisiablockchain.BlockchainAddress; // The Blockchain Address type, used create transactions and target contracts deployed at them.
@@ -123,12 +132,12 @@ class that provides the use of chain-state from a previous test as setup.
     }
     ```
 
-
-## ContractBytes - Specify the bytecode to deploy
+### ContractBytes - Specify the bytecode to deploy
 
 We have declared an instance of `ContractBytes`, where we specify the relative location of the .wasm and .abi file
-for our [example Voting contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/voting?ref_type=heads).
-The three paths declared are the path to the wasm, the abi and the local instrumented executable. 
+for
+our [example Voting contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/voting?ref_type=heads).
+The three paths declared are the path to the wasm, the abi and the local instrumented executable.
 The local instrumented executable is used for code coverage, the executable is named runner after the contract name.
 
 ???+ info "ContractBytes explained:"
@@ -142,17 +151,19 @@ The local instrumented executable is used for code coverage, the executable is n
           );
     ````
 
-## BlockchainAddress Fields - Values transferred
-The four fields with type BlockchainAddress, `voter1`, `voter2`, `voter3` and `voting`, 
+### BlockchainAddress Fields - Values transferred
+
+The four fields with type BlockchainAddress, `voter1`, `voter2`, `voter3` and `voting`,
 these will be populated in the test, where a public account is created for each voter,
-and when deploying the voting contract, the call returns the address the contract 
-was deployed at. 
+and when deploying the voting contract, the call returns the address the contract
+was deployed at.
 
 These fields will be transferred to tests depending on the test, if the field is populated at the end of test execution.
-This means we only have to instantiate the field once. To create an account, we call the `blockchain.newAccount(1)`, 
+This means we only have to instantiate the field once. To create an account, we call the `blockchain.newAccount(1)`,
 where `1` is the secret key for the Address created.
 
-The address for the contract, is created when it is deployed. To deploy a contract, the address sending the transaction is needed,
+The address for the contract, is created when it is deployed. To deploy a contract, the address sending the transaction
+is needed,
 the bytecode to deploy and the arguments for the initialize call, creating the initial state of the contract.
 
 ???+ info "Addresses - By deployment or creation"
@@ -169,46 +180,95 @@ the bytecode to deploy and the arguments for the initialize call, creating the i
         blockchain.deployContract(voter1, VOTING_CONTRACT_BYTES, initRpc); // Deployment of a contract, returns the address the contract is deployed at.
     ````
 
-### Serialize RPC with generated code - ABI Codegen
+#### Serialize RPC with generated code - ABI Codegen
 
-In the deployment call, the RPC is serialized using code generated with the ABI for the contract. This can either be 
-generated with [ABI client](https://gitlab.com/partisiablockchain/language/abi/abi-client), or using the [Maven plugin](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main/maven-plugin?ref_type=heads).
+In the deployment call, the RPC is serialized using code generated with the ABI for the contract. This can either be
+generated
+with [ABI client](https://partisiablockchain.gitlab.io/documentation/smart-contracts/smart-conract-tools-overview.html#the-abi-codegen-tool-abi-codegen),
+or using
+the [Maven plugin](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main/maven-plugin?ref_type=heads).
 
-The generated code provides methods for serializing the RPC for all actions in the contract. It also provides a 
+The generated code provides methods for serializing the RPC for all actions in the contract. It also provides a
 state deserialization method, which deserializes a state given in bytes, to a record object, which can be used to assert
-on state in a test. 
+on state in a test. An example of the state serialization is in the second test.
 
-We have created the first test named `setup`. The method have the annotation `@ContractTest`. This marks the test as a test, that can be used by other tests as their setup. 
+???+ State deserialization
 
-The generated Java code, that is based on the ABI of the contract, provides a Record object, 
-`TokenContract.TokenState`, which can be used to deserialize the contract state into.
-The object can then be asserted on using standard Java assertions.
+    ````java
+    Voting.VoteState state = // The state variable created from the deserialization. 
+        Voting.VoteState.deserialize(blockchain.getContractState(voting)); // The call to the generated deserialize state method
 
-Now try running the test. If you only want to run one test, you can run the following command while standing `java-test`:
+    Assertions.assertThat(state.votes().size()).isEqualTo(1); // Assertion on the amount of votes currently.
+    Assertions.assertThat(state.votes().get(voter1)).isTrue(); // Assertion on who voted.
+    ````
+### Continue from another test
+Smart contracts are great since the order of operations are clear, from the perspective of behavioural execution. This also means
+that everytime we would have to test 2 different actions, meaning two different behaviours, on the same state.
+Tests would have to perform all the actions up to that point, to then perform one of the actions, 
+and then perform them all again for the other action. 
 
+Here the testing framework helps, the methods with the annotation `@ContractTest`, 
+can be used as setup for other tests. 
 
+???+ @ContractTest and previous
 
+      ````java
+     @ContractTest // The annotation with no previous, means the test is independent of other test, also called 'root-test'. 
+     void setUp() {
+       // Omitted
+     }
+   
+     /** An eligible voter can cast a vote. */
+     @ContractTest(previous = "setUp") // The previous for the test, is the 'setUp', so for the test to succeed the 'setUp' test must be run before this test.
+     public void castVote() {
+       // Omitted
+     }
+      ````
+
+### Sending an Action to a deployed contract.
+Interaction with the contract, is made by sending an action to a deployed contract. The action needs three parameters,
+the address for the contract the action is targeting, the address of the sender and the RPC, which specifies the arguments
+for the action call. 
+
+???+ Send action.
+
+      ````java
+     @ContractTest(previous = "setUp")
+     public void castVote() {
+     byte[] votingRpc = Voting.vote(true); // Create the RPC with the generated code.
+     blockchain.sendAction(voter1, voting, votingRpc); // Send the action, with the sender, the target contract and the RPC.
+     Voting.VoteState state = Voting.VoteState.deserialize(blockchain.getContractState(voting)); // Get the state of the contract and deserialize.
+
+     Assertions.assertThat(state.votes().size()).isEqualTo(1); // Assert the vote is registered.
+     Assertions.assertThat(state.votes().get(voter1)).isTrue(); // Assert the registered vote is from 'voter1'.
+}
+      ````
 ### Second test using the first test as a setup
 
 We can now perform our first interaction with the deployed contract. So we add another test to our test class.
 Another account must be created, so we add another field, `receiver`, and create the account.
 
-
 Notice in the annotation `@ContractTest`, we have provided an argument that points to our previous method,
 where we deployed our contract. In our example, that is `setup`.
 
 In this test, we send an action to our contract, the functionality we are testing is just a normal transfer from `owner`
-to `receiver`. We call the `.sendAction()`, where we provided the address of the contract, we want to send the action to.
-The sender of the [action](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#action), and the [rpc](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#events) for the call. The rpc in this case contains the receiver of the transfer, and 
+to `receiver`. We call the `.sendAction()`, where we provided the address of the contract, we want to send the action
+to.
+The sender of
+the [action](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#action),
+and
+the [rpc](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#events)
+for the call. The rpc in this case contains the receiver of the transfer, and
 the amount to send.
 
-After reading the article, you should now be able to: 
+After reading the article, you should now be able to:
+
 1. Deploy a contract in a test, by specifying the bytes to use for the contract, and rpc for the init call.
 2. Use that test as a setup for another test, by pointing to the method name with the previous parameter,
-`@ContractTest(previous = "NAME-OF-SETUP-TEST")`.
+   `@ContractTest(previous = "NAME-OF-SETUP-TEST")`.
 3. Interact with a contract by sending an action.
 
-If you want to more examples of testing smart contracts, go to 
+If you want to more examples of testing smart contracts, go to
 [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), where there are multiple tests.
 
 
