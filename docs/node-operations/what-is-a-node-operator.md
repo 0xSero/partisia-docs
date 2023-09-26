@@ -4,12 +4,10 @@
    [](create-an-account-on-pbc.md)
    [](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
-   [](run-a-reader-node-on-your-local-machine.md)
    [](vps.md)
    [](secure-your-vps.md)
    [](reader-node-on-vps.md)
    [](complete-synaps-kyb.md)
-   [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
@@ -44,23 +42,21 @@ In addition to the stake you need a computer to run the node. Most node operator
 When a block of transactions is validated, the node signs off on it with a unique digital signature. The signature is created with the node owner's private key. The signature is verifiable from the public version of the signing key. The different keys play different roles. One keypair references your account with the stake, another refers to your identity on the network and in the PBC internal register. A full description of the keys you will need kan be found in this [section](../pbc-fundamentals/dictionary.md#public-key-cryptography). TODO: the last sentence is wrong.
 
 **The Skills**  
-Setting up the node require some technical skills. You need to be able to configure and run your node, or alternatively pay someone you trust to help you with the setup and upkeep of the node.
+Setting up the node requires some technical skills. You need to be able to configure and run your node, or alternatively pay someone you trust to help you with the setup and upkeep of the node.
 
-The following sections take you through the signup process. If you do not yet have MPC tokens or an appropriate server for running a node you can still complete the firs part of the guide showing you how to run a reader node. A reader node is free. When you have completed the [introduction](../what-is-a-node-operator.md), [first](../node-operations/recommended-hardware-and-software.md) and [second](../node-operations/run-a-reader-node-on-your-local-machine.md) step, then you should know if you have the skills required to run a node performing services on Partisia Blockchain. If you want to buy MPC Tokens, you can follow this [link](https://kyc.partisiablockchain.com/) for information about sale.
+The following sections take you through the signup process. If you do not yet have MPC tokens or an appropriate server for running a node you can still complete the firs part of the guide showing you how to run a reader node. A reader node is free. When you have completed the [introduction](../what-is-a-node-operator.md), [first](recommended-hardware-and-software.md) and [second](reader-node-on-vps.md) step, then you should know if you have the skills required to run a node performing services on Partisia Blockchain. If you want to buy MPC Tokens, you can follow this [link](https://kyc.partisiablockchain.com/) for information about sale.
 
 ## Run a node on Partisia Blockchain
 
-The following guide has 12 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
+The following guide has 11 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
 
 1. [Create a PBC Account](create-an-account-on-pbc.md)
 1. [Get MPC tokens](get-mpc-tokens.md)
 1. [Recommended hardware and software](recommended-hardware-and-software.md)
-1. [Run a reader node locally](run-a-reader-node-on-your-local-machine.md)
 1. [Get a VPS](vps.md)
 1. [Secure your VPS](secure-your-vps.md)
 1. [Run a reader node on a VPS](reader-node-on-vps.md)
 1. [Complete the Synaps KYB](complete-synaps-kyb.md)
-1. [Create keys for config and registration](keys-for-bp-config-and-registration.md)
 1. [Upgrade config to a block producing node on the VPS](run-a-block-producing-node.md)
 1. [Register your node](register-your-node.md)
 1. [Node health and maintenance](node-health-and-maintenance.md)
