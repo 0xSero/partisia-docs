@@ -3,12 +3,6 @@ interactions available when developing smart contracts on PBC.
 
 ## Definition of interactions
 
-Smart contracts has four types of interaction on Partisia Blockchain:
-`Init`,
-`Action`,
-`Event` and
-`Callback`
-
 **Contracts are asynchronous**: A contract can be placed on any given shard of
 the [multiple shards](../pbc-fundamentals/sharding.md) on Partisia Blockchain. This means that all actions take place in
 an order you can define as a developer, but the time it takes to complete an action can be dependent on what shard the
