@@ -21,8 +21,8 @@ The guide will use the
 [example voting solution](how-to-create-your-own-second-layer-solution.md)
 and will deploy to the PBC testnet and Ethereum Goerli testnet.
 
-To follow the guide you must have an [PBC testnet account](../accounts.md) with
-[testnet gas](../byoc.md).
+To follow the guide you must have an [PBC testnet account](../../pbc-fundamentals/create-an-account.md) with
+[testnet gas](../gas/how-to-get-testnet-gas.md).
 You must also have
 an [Ethereum Goerli testnet account](https://ethereum.org/en/wallets/find-wallet/)
 with Goerli testnet ETH. Goerli testnet ETH can be obtained via a
@@ -42,7 +42,7 @@ or use your own contracts.
 Note that the rest of this guide expects the constructor arguments of the solidity contract to
 match the one in the example, and uses the deployment scripts found in the example.
 
-[Compile your PBC private smart contract](../compile-zk.md).
+[Compile your PBC private smart contract](../zk-smart-contracts/compile-and-deploy-zk-contract.md).
 
 #### Deploy a ZK contract on PBC
 
@@ -51,7 +51,7 @@ We recommend you to follow our guide on how to deploy contracts on PBC
 
 Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard
 estimates, remember to add more gas (4x). You can test down to the exact gas amount on the
-[testnet for free](../testnet.md).
+[testnet for free](../access-and-use-the-testnet.md).
 
 #### Note the address of the newly deployed contract.
 

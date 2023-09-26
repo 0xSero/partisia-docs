@@ -64,8 +64,8 @@ The solidity contract can be built and the scripts can run with Node.js version 
 
 Explaining how the ZK computation in `src/zk_compute.rs` and how all the hooks in `src/contract.rs`
 works are beyond the scope of this walkthrough. We urge you to read the contract yourself carefully,
-and refer to [this page](../zk-language.md) for understanding the ZK computation and
-[this page](../ZKSC.md) for the smart contract.
+and refer to [this page](../zk-smart-contracts/zk-rust-language-zkrust.md) for understanding the ZK computation and
+[this page](../zk-smart-contracts/zk-smart-contracts.md) for the smart contract.
 
 However, we will briefly talk about the overall flow of the contract, and point out specific code
 snippets that are relevant for understanding how PBC as second layer works.
