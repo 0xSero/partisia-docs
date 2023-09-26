@@ -23,10 +23,6 @@ functional and the asynchronous desing of PBC.
 Interactions cannot produce side effects, visible or not. The state will thus not be changed should a transaction,
 action or event fail while running the contract code, whether due to panics or insufficient gas.
 
-Of further interest here, is that the entire contract is essentially "reset" after every interaction. Any `static mut`
-items will possess their initial value, once again. The only state your contract can possess is the state returned from
-interactions.
-
 ## Simple interaction model
 
 A user can sign a transaction, a transaction creates an event (dotted line) which spawns an action. This action is what
