@@ -9,7 +9,7 @@ The author of the contracts determines what information should be publicly avail
 
 ![ConceptPBCAsSecondLayer](concept-pbc-as-second-layer.png)
 
-To illustrate PBC as a second layer, we will use the model outlined above and describe it with reference to an example that you can find on the following page. This example is based on using Ethereum as the first layer and PBC as the second layer. The scenario involves a voting system where the goal is to privately calculate the results of the votes without revealing how individual voters cast their ballots.
+To illustrate PBC as a second layer, we will use the model outlined above and describe it with reference to an example that you can find on [the following page](live-example-of-pbc-as-a-second-layer.md). This example is based on using Ethereum as the first layer and PBC as the second layer. The scenario involves a voting system where the goal is to privately calculate the results of the votes without revealing how individual voters cast their ballots.
 
 1. A Solidity (.sol) smart contract is deployed on layer 1, in our example layer 1 is Ethereum. The smart contract has the following objectives:
    - It handles the list of allowed voters on the contract.

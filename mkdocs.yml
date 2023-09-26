@@ -40,8 +40,8 @@ nav:
           - smart-contracts/integration/mpc-20-token-contract.md
           - smart-contracts/integration/mpc-721-nft-contract.md
           - smart-contracts/integration/metamask-snap-integration.md
-      - Zero knowledge as a service
-          - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-a-second-layer.md
+      - Zero knowledge/PBC as a service:
+          - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
           - smart-contracts/pbc-as-second-layer/live-example-of-pbc-as-a-second-layer.md
           - smart-contracts/pbc-as-second-layer/how-to-create-your-own-second-layer-solution.md
           - smart-contracts/pbc-as-second-layer/how-to-deploy-your-second-layer-solution.md
