@@ -1,11 +1,11 @@
 # Live example of PBC as a second layer
-<div class="dot-navigation">
-   <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
-   <a class="dot-navigation__item dot-navigation__item--active" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
-   <a class="dot-navigation__item" href="pbc-as-a-second-layer-how-to-create-your-own-solution.html"></a>
-   <a class="dot-navigation__item" href="pbc-as-a-second-layer-how-to-deploy.html"></a>
-   <a class="dot-navigation__item" href="pbc-as-second-layer-technical-differences-eth-pbc.html"></a>
-   <!-- Repeat above for more dots -->
+
+<div class="dot-navigation" markdown>
+   [](partisia-blockchain-as-second-layer.md)
+   [*.*](live-example-of-pbc-as-second-layer.md)
+   [](how-to-create-your-own-second-layer-solution.md)
+   [](how-to-deploy-your-second-layer-solution.md)
+   [](technical-differences-between-eth-and-pbc.md)
 </div>
 
 !!! note 

@@ -1,11 +1,11 @@
 # How to create your own second layer solution
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
-    <a class="dot-navigation__item" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="pbc-as-a-second-layer-how-to-create-your-own-solution.html"></a>
-    <a class="dot-navigation__item" href="pbc-as-a-second-layer-how-to-deploy.html"></a>
-    <a class="dot-navigation__item" href="pbc-as-second-layer-technical-differences-eth-pbc.html"></a>
-    <!-- Repeat above for more dots -->
+
+<div class="dot-navigation" markdown>
+   [](partisia-blockchain-as-second-layer.md)
+   [](live-example-of-pbc-as-second-layer.md)
+   [*.*](how-to-create-your-own-second-layer-solution.md)
+   [](how-to-deploy-your-second-layer-solution.md)
+   [](technical-differences-between-eth-and-pbc.md)
 </div>
 
 In this section we will show you how to create you own application that uses PBC as a second 
@@ -26,7 +26,7 @@ as second layer for any type of application.
 
 ## Voting example code
 
-The [voting example](live-example-of-pbc-as-a-second-layer.md) works by having two separate 
+The [voting example](live-example-of-pbc-as-second-layer.md) works by having two separate 
 smart contracts, one deployed on the PBC testnet and another deployed on the Goerli testnet.
 
 The source code contracts can be found in the public repository 

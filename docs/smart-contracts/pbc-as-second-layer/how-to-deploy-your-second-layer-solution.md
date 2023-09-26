@@ -1,11 +1,11 @@
 # How to deploy your second layer solution
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="pbc-as-second-layer.html"></a>
-    <a class="dot-navigation__item" href="pbc-as-a-second-layer-live-example-ethereum.html"></a>
-    <a class="dot-navigation__item" href="pbc-as-a-second-layer-how-to-create-your-own-solution.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="pbc-as-a-second-layer-how-to-deploy.html"></a>
-    <a class="dot-navigation__item" href="pbc-as-second-layer-technical-differences-eth-pbc.html"></a>
-    <!-- Repeat above for more dots -->
+
+<div class="dot-navigation" markdown>
+   [](partisia-blockchain-as-second-layer.md)
+   [](live-example-of-pbc-as-second-layer.md)
+   [](how-to-create-your-own-second-layer-solution.md)
+   [*.*](how-to-deploy-your-second-layer-solution.md)
+   [](technical-differences-between-eth-and-pbc.md)
 </div>
 
 !!! note 
@@ -140,4 +140,4 @@ npx hardhat run scripts/verify.js --network goerli
 
 To test that the deployment of the PBC as second layer solution works, you can run a test similar to
 what is described in the
-[live voting example walkthrough](live-example-of-pbc-as-a-second-layer.md). 
+[live voting example walkthrough](live-example-of-pbc-as-second-layer.md). 

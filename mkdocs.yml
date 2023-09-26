@@ -42,7 +42,7 @@ nav:
           - smart-contracts/integration/metamask-snap-integration.md
       - Zero knowledge/PBC as a service:
           - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
-          - smart-contracts/pbc-as-second-layer/live-example-of-pbc-as-a-second-layer.md
+          - smart-contracts/pbc-as-second-layer/live-example-of-pbc-as-second-layer.md
           - smart-contracts/pbc-as-second-layer/how-to-create-your-own-second-layer-solution.md
           - smart-contracts/pbc-as-second-layer/how-to-deploy-your-second-layer-solution.md
           - smart-contracts/pbc-as-second-layer/technical-differences-between-eth-and-pbc.md
