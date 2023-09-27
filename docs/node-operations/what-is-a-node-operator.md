@@ -1,19 +1,18 @@
 # What is a node operator
-<div class="dot-navigation">
-    <a class="dot-navigation__item dot-navigation__item--active" href="what-is-a-node-operator.html"></a>
-    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
-    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
-    <a class="dot-navigation__item " href="vps.html"></a>
-    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
-    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
-    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
-    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
-    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
-    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
-    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
-    <a class="dot-navigation__item " href="register-your-node.html"></a>
-    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [*.*](what-is-a-node-operator.md)
+   [](recommended-hardware-and-software.md)
+   [](run-a-reader-node-on-your-local-machine.md)
+   [](vps.md)
+   [](secure-your-vps.md)
+   [](reader-node-on-vps.md)
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
+   [](complete-synaps-kyb.md)
+   [](keys-for-bp-config-and-registration.md)
+   [](run-a-block-producing-node.md)
+   [](register-your-node.md)
+   [](node-health-and-maintenance.md)
 </div>
 
 Nodes are the computers in the blockchain network. They perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue.
@@ -51,17 +50,17 @@ The following sections take you through the signup process. If you do not yet ha
 
 ## Run a node on Partisia Blockchain
 
-The following guide has 9 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
+The following guide has 12 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
 
-1. [Hardware and software for running the node](../node-operations/recommended-hardware-and-software.md)
-2. [Run a reader node locally](../node-operations/run-a-reader-node-on-your-local-machine.md)
-3. [Get a VPS](../node-operations/vps.md)
-4. [Secure your VPS](../node-operations/secure-your-vps.md)
-5. [Run a reader node on a VPS](../node-operations/reader-node-on-vps.md)
-6. [Create a PBC Account](../node-operations/create-an-account-on-pbc.md)
-7. [Get MPC tokens](../node-operations/get-mpc-tokens.md)
-8. [Complete the Synaps KYB](../node-operations/complete-synaps-kyb.md)
-9. [Create keys for config and registration](../node-operations/keys-for-bp-config-and-registration.md)
-10. [Upgrade config to a block producing node on the VPS](../node-operations/run-a-block-producing-node.md)
-11. [Register your node](../node-operations/register-your-node.md)
-12. [Node health and maintenance](../node-operations/node-health-and-maintenance.md)
+1. [Recommended hardware and software](recommended-hardware-and-software.md)
+2. [Run a reader node locally](run-a-reader-node-on-your-local-machine.md)
+3. [Get a VPS](vps.md)
+4. [Secure your VPS](secure-your-vps.md)
+5. [Run a reader node on a VPS](reader-node-on-vps.md)
+6. [Create a PBC Account](create-an-account-on-pbc.md)
+7. [Get MPC tokens](get-mpc-tokens.md)
+8. [Complete the Synaps KYB](complete-synaps-kyb.md)
+9. [Create keys for config and registration](keys-for-bp-config-and-registration.md)
+10. [Upgrade config to a block producing node on the VPS](run-a-block-producing-node.md)
+11. [Register your node](register-your-node.md)
+12. [Node health and maintenance](node-health-and-maintenance.md)
