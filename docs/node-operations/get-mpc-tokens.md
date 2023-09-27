@@ -12,7 +12,9 @@
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
 </div>
-If you have not already bought the prerequisite amount of MPC tokens, you are welcome to contact us for further information. [Reach out here](https://kyc.partisiablockchain.com/).
+
+If you have not already bought the prerequisite amount of MPC tokens, you are welcome to contact us for further 
+information. [Reach out here](https://kyc.partisiablockchain.com/).
 
 #### The current stakes are:
 
@@ -21,5 +23,5 @@ If you have not already bought the prerequisite amount of MPC tokens, you are we
 - ZK Node 75,000 MPC Tokens.
 - Oracle Node 250,000 MPC Tokens.
 
-ZK and oracle nodes are an upgraded version of baker nodes, so the oracle and ZK stakes are not including the stake for running a baker node.
-Because ZK and oracle nodes still perform baker services of producing and signing blocks.
+ZK and oracle nodes are an upgraded version of baker nodes, so the oracle and ZK stakes are not including the stake for
+running a baker node. Because ZK and oracle nodes still perform baker services of producing and signing blocks.
