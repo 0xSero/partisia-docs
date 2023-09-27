@@ -29,6 +29,22 @@ would be the [init bytes(RPC)](smart-contract-binary-formats.md#rpc-binary-forma
 
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_______________________________________________
+for keepsake dont mind this part
 ## Contract-to-contract interaction model.
 
 When interacting with another contract, the first contracts action creates an event which creates the action for smart
