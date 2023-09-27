@@ -18,7 +18,7 @@ Your information is verified through a KYB (know your business) or KYC (know you
 
 The processes differ between business and personal accounts.
 
-**You will need your ID, access to a webcam for likeness and company documents ready.**
+**You will need to have your ID, access to a webcam for likeness and company documents ready.**
 
 
 ## Verification process for individuals (KYC)

@@ -58,7 +58,7 @@ readable by the PBC node and root. `chmod 700` makes the storage folder readable
 
 ### Pull docker image
 
-The guide assumes the node is run using the `docker-compose`.
+The guide assumes the node is run using `docker-compose`.
 
 Start by creating a directory `pbc` and add a file named `docker-compose.yml`.
 
