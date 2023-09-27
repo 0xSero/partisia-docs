@@ -18,7 +18,7 @@ The final step in becoming a block producer in the Partisia Blockchain is the re
 There are three prerequisites for registering:
 
 1. You have staked the minimum amount of tokens
-1. You have completed your KYC/KYB and it is verified
+1. You have completed your KYC/KYB and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
 1. You have a reader node running that is up-to-date with the rest of the network
 
 For the following you need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.
