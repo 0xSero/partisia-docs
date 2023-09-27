@@ -1,4 +1,4 @@
-# Complete Synaps KYB
+# Complete Synaps KYB/KYC
 <div class="dot-navigation" markdown>
    [](what-is-a-node-operator.md)
    [](create-an-account-on-pbc.md)
@@ -13,21 +13,32 @@
    [](node-health-and-maintenance.md)
 </div>
 
-To ensure a decentralized approval process, the public information about the entity operating the node is verified by an independent 3rd party company called Synaps.
-Your information is verified through a KYB (know your customer) site, where your identity and company credentials are checked.
+To ensure a decentralized approval process, the public information about the entity operating the node is verified by an independent third-party company called Synaps.
+Your information is verified through a KYB (know your business) or KYC (know your customer) process, where your identity and company credentials are checked.
 
-#### You will need your ID, access to a webcam for likeness and company documents ready
+The processes differ between business and personal accounts.
+
+**You will need your ID, access to a webcam for likeness and company documents ready.**
+
+
+## Verification process for individuals (KYC)
+
+1. Go to the [Node Registration KYC page](https://browser.partisiablockchain.com/node-registration).
+1. Fill out the form and submit it
+1. Go to the [Synaps portal](https://partisiablockchain.synaps.me/)
+1. Choose Individual
+1. Click the *Sign Up* button
+1. Upload documents in the order they are requested  
+1. You will receive a confirmation e-mail when the documents have been approved
+
+## Verification process for businesses (KYB)
 
 1. Go to the [Synaps portal](https://partisiablockchain.synaps.me/)
-2. Choose Corporate
-3. Click the sign-up button
-4. Upload documents in the order they are requested  
-5. You will receive a comfirmation e-mail when the documents have been approved  
+1. Choose Corporate
+1. Click the *Sign Up* button
+1. Upload documents in the order they are requested  
+1. You will receive a confirmation e-mail when the documents have been approved  
 
-Now you need to retrieve your session ID:
+## Next steps
 
-1. Log in to the [Synaps Portal](https://partisiablockchain.synaps.me/) (using Chrome)
-2. The session ID is shown in the portal
-3. Copy session ID
-
-Copy and save your session ID for later use.
+The verification process can take several business days, which is a perfect time to setup your [reader node](reader-node-on-vps.md) running.

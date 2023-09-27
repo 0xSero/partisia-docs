@@ -13,40 +13,48 @@
    [](node-health-and-maintenance.md)
 </div>
 
-The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a stake of MPC Tokens and sending a registration form. Both are done with transaction you can perform in the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register).
+The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a stake of MPC Tokens and sending a registration form. Staking is done in the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register), registration is done on the node via the `node-register.sh` script.
 
-1. You need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.
-2. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc.md) for help to get gas in your account.
-3. For this your KYB must be verified (you will have received a verification e-mail). You need to get your Synapse Session ID.
+There are three prerequisites for registering:
 
-   - Log in to https://partisiablockchain.synaps.me/ (using Chrome)
-   - Ctrl+Shift+i (To inspect page)
-   - Click Networks (refresh page)
-   - Click Fetch XHR
-   - Click the partisia bucket
-   - Copy session ID
+1. You have staked the minimum amount of tokens
+1. You have completed your KYC/KYB and it is verified
+1. You have a reader node running that is up-to-date with the rest of the network
 
-4. Go to the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register). Log in.
-5. Log in to your account. Click upper right corner (View activity). This will take you to your account page.
-6. Click on _Node register_ on the menu bar and then click on _Manage MPC Tokens_. From there, click _Stake MPC Tokens_ and stake 25k or more tokens to your account.
-7. Click Register or Update tab on the menu and fill out the registration information (details below)
-8. Send Register Transaction.
+For the following you need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.
 
-## Content of Staking Transaction
+## Staking tokens
 
-- Amount (The amount of MPC Tokens you are staking)
+1. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc.md) for help to get gas in your account.
+1. Log in to your account. Click upper right corner (View activity). This will take you to your account page.
+1. Click on _Node register_ on the menu bar and then click on _Manage MPC Tokens_. From there, click _Stake MPC Tokens_ and stake 25k or more tokens to your account.
 
-## How to fill out the form for the Register Transaction
+## Registering the node
 
-You need the same 3 keypairs that you used in the `config.json`. You use the private key of your account to log into your wallet and the Explorer. The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node.
+The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
 
-- Session ID from [Synaps KYB](https://partisiablockchain.synaps.me/)
-- Finalization private key in the form called BLS Signing key
-- Network public key
-- Website
-- ServerJurisdiction (pick location from slide down menu)
+**NOTE:** Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
 
-**NB.** You can change your public information from the Register Transaction by doing a new registration transaction.
+To send the register transaction you need to log in to your node and go to the `~/pbc` folder and call the `node-register.sh` script.
+
+```bash
+cd ~/pbc
+```
+
+```bash
+./node-register.sh register-node
+```
+
+Follow the on-screen instructions and you should now be registered.
+
+
+**NOTE:** You can change your public information from the Register Transaction by doing a new registration transaction.
+
+If something goes wrong you need to first ensure that you have enough gas to send the transaction, see [here](../pbc-fundamentals/byoc.md).
+
+Then you need to verify that the account key you have in the `config.json` file matches the blockchain address you've used in your KYC/KYB.
+
+If it still fails then reach out to the community.
 
 ## Conditions for inclusion
 
