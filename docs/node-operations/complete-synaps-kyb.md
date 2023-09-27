@@ -25,11 +25,10 @@ The processes differ between business and personal accounts.
 
 1. Go to the [Node Registration KYC page](https://browser.partisiablockchain.com/node-registration).
 1. Fill out the form and submit it
-1. Go to the [Synaps portal](https://partisiablockchain.synaps.me/)
-1. Choose Individual
-1. Click the *Sign Up* button
-1. Upload documents in the order they are requested  
-1. You will receive a confirmation e-mail when the documents have been approved
+1. Go to the [Synaps portal](https://partisiablockchain-kyc.synaps.me/)        
+1. Click on *Signup Now*    
+1. Upload documents in the order they are requested    
+1. You will receive a confirmation e-mail when the documents have been approved    
 
 ## Verification process for businesses (KYB)
 
