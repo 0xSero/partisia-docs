@@ -1,31 +1,19 @@
-Developing smart contracts on Partisia Blockchain involves several key understandings. Here's a mental model of the
-interactions available when developing smart contracts on PBC.
+# Smart Contract interactions on the Blockchain
 
-## Definition of interactions
-
-**Contracts are asynchronous**: A contract can be placed on any given shard of
-the [multiple shards](../pbc-fundamentals/sharding.md) on Partisia Blockchain. This means that all actions take place in
-an order you can define as a developer, but the time it takes to complete an action can be dependent on what shard the
-contract is on and the geolocation of the node. This becomes much more relevant when looking at contract-to-contract
-actions.
-
-Even though state is not an interaction its important to understand what state is as a developer. Simply written a state
-is a distributed record, where each action can be perceived as a change in the record. This is part of both the
-functional and the asynchronous desing of PBC.
-
-**Contracts atomic interaction**: Each atomic interaction point, whether init or action take some input, and return some output.
-Atomic interactions cannot produce side effects, visible or not. The state will not be changed should a transaction,
-action or event fail while running the contract code, whether due to panics or insufficient gas. 
+Atomic interactions are the smallest unit of interaction possible on the blockchain. Each atomic interaction point,
+whether init or action
+take some input, and return some
+output. Atomic interactions cannot produce side effects, visible or not. The state will not be changed should a
+transaction,
+action or event fail while running the contract code, whether due to panics or insufficient gas.
 
 ## Simple interaction model
 
-A user can sign a transaction, a transaction creates an event (dotted line) which spawns an action. This action is what
-programmatically is written into a given smart contract. An action always changes the state if its successful, even if
-there is no writing to the state of the contract as part of the action. The change in such a case will be to note that
-the action has happened on the state. 
-
-This example could also have been a model with no before state and the signed transaction
-would be the [init bytes(RPC)](smart-contract-binary-formats.md#rpc-binary-format) required to deploy a smart contract on Partisia Blockchain.
+A user can sign a transaction, a transaction creates an event (dotted line) which spawns an action. This action is
+created through the smart contracts code. An action always updates the state if its
+successful. If its unsuccesful there will be no update to the state. This is caused by the atomic idea behind actions,
+they can either be fully done or reverted back to what it was before the action happened. There is no in between in the
+interaction layer on the blockchain.
 
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
 
@@ -45,6 +33,14 @@ would be the [init bytes(RPC)](smart-contract-binary-formats.md#rpc-binary-forma
 
 _______________________________________________
 for keepsake dont mind this part
+
+**Contracts are asynchronous**: A contract can be placed on any given shard of
+the [multiple shards](../pbc-fundamentals/sharding.md) on Partisia Blockchain. This means that all actions take place in
+an order you can define as a developer, but the time it takes to complete an action can be dependent on what shard the
+contract is on and the geolocation of the node. This becomes much more relevant when looking at contract-to-contract
+actions. The asynchronous behaviour is part of what makes it possible for actions with callbacks to have multiple
+actions within the one callback.
+
 ## Contract-to-contract interaction model.
 
 When interacting with another contract, the first contracts action creates an event which creates the action for smart
