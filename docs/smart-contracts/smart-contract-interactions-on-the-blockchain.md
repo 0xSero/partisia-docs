@@ -13,8 +13,8 @@ Even though state is not an interaction its important to understand what state i
 is a distributed record, where each action can be perceived as a change in the record. This is part of both the
 functional and the asynchronous desing of PBC.
 
-**Contracts atomic interaction**: Each interaction point, whether init or action take some input, and return some output.
-Interactions cannot produce side effects, visible or not. The state will not be changed should a transaction,
+**Contracts atomic interaction**: Each atomic interaction point, whether init or action take some input, and return some output.
+Atomic interactions cannot produce side effects, visible or not. The state will not be changed should a transaction,
 action or event fail while running the contract code, whether due to panics or insufficient gas. 
 
 ## Simple interaction model
