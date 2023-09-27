@@ -725,7 +725,7 @@ label {
 }
 
 .dot-navigation p a em {
-  display: none;
+    display: none;
 }
 
 .dot-navigation p a {
@@ -743,14 +743,14 @@ label {
 }
 
 .dot-navigation p a:not(:has(em)):hover {
-  background-color: #f9f9f9;
-  border: 1px solid #0000A3;
+    background-color: #f9f9f9;
+    border: 1px solid #0000A3;
 }
 
 /* Active dot */
 .dot-navigation p a:has(em) {
-  background-color: #0000A3;
-  border-color: #0000A3;
+    background-color: #0000A3;
+    border-color: #0000A3;
 }
 
 /* Active dot */
