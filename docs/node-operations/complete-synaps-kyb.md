@@ -13,6 +13,7 @@
    [](node-health-and-maintenance.md)
 </div>
 
+
 To ensure a decentralized approval process, the public information about the entity operating the node is verified by an independent third-party company called Synaps.
 Your information is verified through a KYB (know your business) or KYC (know your customer) process, where your identity and company credentials are checked.
 

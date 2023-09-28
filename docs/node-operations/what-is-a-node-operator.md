@@ -48,7 +48,7 @@ The following sections take you through the signup process. If you do not yet ha
 
 ## Run a node on Partisia Blockchain
 
-The following guide has 11 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
+The following guide has 10 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
 
 1. [Create a PBC Account](create-an-account-on-pbc.md)
 1. [Get MPC tokens](get-mpc-tokens.md)
