@@ -15,7 +15,7 @@
 
 The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a 
 stake of MPC Tokens and sending a registration form. Staking is done in the
-[Partisia Blochain Browser](https://browser.partisiablockchain.com/node-operation) on the *Stake* button; registration 
+[Partisia Blockhain Browser](https://browser.partisiablockchain.com/node-operation) on the *Stake* button; registration 
 is done on the node via the `node-register.sh` script.
 
 There are three prerequisites for registering:
