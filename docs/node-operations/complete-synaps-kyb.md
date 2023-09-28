@@ -27,7 +27,7 @@ The KYC provider Synaps then verifies your identity and the on-chain data you ha
 
 1. Go to the [Node Registration KYC page](https://browser.partisiablockchain.com/node-registration).
 1. Fill out the form and submit it
-1. Go to the [Synaps portal](https://partisiablockchain-kyc.synaps.me/)        
+1. Go to the [Synaps portal](https://partisiablockchain-kyc.synaps.me/). It is important that the information you provide matches that you sent in the previous step.
 1. Click on *Signup Now*
 1. Upload documents in the order they are requested
 1. You will receive a confirmation e-mail when the documents have been approved
