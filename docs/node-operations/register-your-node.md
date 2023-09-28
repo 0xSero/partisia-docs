@@ -24,7 +24,8 @@ There are three prerequisites for registering:
 1. You have completed your KYC/KYB and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
 1. You have a reader node running that is up-to-date with the rest of the network
 
-For the following you need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.
+For the following you need the Metamask Wallet extension for [Chrome](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
+or for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/).
 
 ## Staking tokens
 
