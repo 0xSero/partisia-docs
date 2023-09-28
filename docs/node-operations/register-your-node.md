@@ -38,6 +38,13 @@ The registration ensures that your account and tokens are associated with your n
 
 **NOTE:** Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
 
+The node REST server will respond with a code `204 No Content` if it is up-to-date with the network. 
+You can check the status by running the following command:
+
+```bash
+[[ $(curl -L http://localhost:8080/ -o /dev/null -w '%{http_code}\n' -s) == "204" ]] || echo "Not up-to-date"
+```
+
 To send the register transaction you need to log in to your node and go to the `~/pbc` folder and call the `node-register.sh` script.
 
 ```bash
