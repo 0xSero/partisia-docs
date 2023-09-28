@@ -58,7 +58,7 @@ cd ~/pbc
 Follow the on-screen instructions and you should now be registered.
 
 
-**NOTE:** You can change your public information from the Register Transaction by doing a new registration transaction.
+**NOTE:** You can update your information from the Register Transaction by doing a new registration transaction.
 
 If something goes wrong you need to first ensure that you have enough gas to send the transaction, see [here](../pbc-fundamentals/byoc.md).
 
