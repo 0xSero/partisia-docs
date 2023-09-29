@@ -12,7 +12,9 @@ Blockchain address of the key and to sign transactions.
 
 1. Install the latest version of the [MetaMask extension](https://metamask.io/download/).
 2. Create a Wallet in MetaMask. You can reuse the seed phrase from PBC wallet if you want to have the same account
-   address and private key. You cannot import the private key directly into MetaMask. 
+   address and private key. You cannot import the private key directly into MetaMask. If you want to use multiple
+   wallets with the MetaMask snap you need to use [multiple accounts with MetaMask](https://support.metamask.io/hc/en-us/articles/12174759849371#h_01GQ58M3T5NQ19NYWTQ1C1XS2M). The Partisia Blockchain snap can only use your primary
+   MetaMask account when signing transaction on the Partisia Blockchain Browser.
 3. Go [to Partisia MetaMask Snap](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/)
 4. Click add to MetaMask
 5. Sign in with your MetaMask account and accept the terms and conditions for the snap
