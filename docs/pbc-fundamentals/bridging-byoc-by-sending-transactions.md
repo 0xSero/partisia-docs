@@ -32,7 +32,7 @@ To use the bridge you must have an account on PBC and on the chain which coins y
 
 1. Invoke the contract action _deposit_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract):
 ```SOL
-deposit(bytes21 destination, uint amount)
+deposit(bytes21 destination, uint amount) //bytes21 is the PBC address to recieve the BYOC, minimum amount is 0.1 ETH
 ```
 2. The deposit oracle nodes on PBC reads and signs the deposit   
 3. x BYOC twins are minted on PBC by [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
