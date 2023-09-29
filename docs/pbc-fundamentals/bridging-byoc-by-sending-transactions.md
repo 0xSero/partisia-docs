@@ -54,7 +54,8 @@ deposit(bytes21 destination, uint amount) //bytes21 is the PBC address to reciev
       EthereumAddressRpc receiver,
       Unsigned256 amount) 
 ```
-2. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
+2. Wait until withdrawal have received two signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
+3. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce,
    address destination,
