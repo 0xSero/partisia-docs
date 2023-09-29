@@ -1,18 +1,28 @@
 # Smart Contract interactions on the Blockchain
 
-Atomic interactions are the smallest unit of interaction possible on the blockchain. Each atomic interaction point,
-whether init or action
-take some input, and return some
-output. Atomic interactions cannot produce side effects, visible or not. The state will not be changed should a
-transaction,
-action or event fail while running the contract code, whether due to panics or insufficient gas.
+On Partisia Blockchain an _atomic action_ is an indivisible and irreducible series of operations such that either all
+occurs, or nothing occurs. A guarantee of atomicity
+prevents updates to the blockchain occurring only partially.
+Consequently an atomic action is either _successful_ in which case the changes are committed to the blockchain and
+visible
+for everyone or it _fails_ in which case no state changes on the blockchain. We apply
+the [atomicity](https://en.wikipedia.org/wiki/Atomicity_(database_systems)) argument to the blockchain on the
+same level as you would do with a database system.
 
 ## Simple interaction model
 
-A user can sign a transaction, a transaction creates an event (dotted line) which spawns an action. This action is
-created through the smart contracts code. An action always updates the state if its
-successful. If its unsuccesful there will be no update to the state. This is caused by the atomic idea behind actions,
-they can either be fully done or reverted back to what it was before the action happened. There is no in between in the
+Users change the state of Partisia Blockchain by sending a _signed transaction_ to a _smart contract_. The signature
+ensures that the user has authorized the transaction.
+When the blockchain receives a signed transaction and verified the signature it spawns an _event_ (dotted line), which
+is
+forwarded to the smart contract. The event carries the information about which _action_ to perform to the smart
+contract.
+When receiving the event the smart contract will execute the action. This executes the _code_ of the smart contract,
+which
+results in updating the _state_ of the smart contract. The action code is executed atomicly as explained above, meaning
+that if the action is _successful_ the state changes are committed to the blockchain and visible for everyone, if it
+_fails_
+in no state will change on the blockchain. There is no in between in the
 interaction layer on the blockchain.
 
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
