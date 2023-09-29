@@ -13,7 +13,9 @@ Blockchain address of the key and to sign transactions.
 1. Install the latest version of the [MetaMask extension](https://metamask.io/download/).
 2. Create a Wallet in MetaMask. You can reuse the seed phrase from PBC wallet if you want to have the same account
    address and private key. You cannot import the private key directly into MetaMask. If you want to use multiple
-   wallets with the MetaMask snap you need to use [multiple accounts with MetaMask](https://support.metamask.io/hc/en-us/articles/12174759849371#h_01GQ58M3T5NQ19NYWTQ1C1XS2M). The Partisia Blockchain snap can only use your primary
+   wallets with the MetaMask snap you need to follow the MetaMask article
+   about: [How to manage multiple wallets](https://support.metamask.io/hc/en-us/articles/12174759849371#h_01GQ58M3T5NQ19NYWTQ1C1XS2M).
+   The Partisia Blockchain snap can only use your primary
    MetaMask account when signing transaction on the Partisia Blockchain Browser.
 3. Go [to Partisia MetaMask Snap](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/)
 4. Click add to MetaMask
@@ -62,17 +64,18 @@ Using MetaMask `wallet_requestSnaps` with the snap
 identifier `npm:@partisiablockchain/snap`.
 
 ???+ example "How to install the snap"
+
 ```javascript
 try {
-const result = await window.ethereum.request({
-method: 'wallet_requestSnaps',
-params: {
-'npm:@partisiablockchain/snap': {},
-},
-});
-console.log(result);
+    const result = await window.ethereum.request({
+        method: 'wallet_requestSnaps',
+        params: {
+            'npm:@partisiablockchain/snap': {},
+        },
+    });
+    console.log(result);
 } catch (error) {
-console.log(error);
+    console.log(error);
 }
 ```
 
@@ -81,12 +84,14 @@ console.log(error);
 When the snap has been installed the snap invocation `get_address` will return the address of the user.
 
 ???+ example "How to get address of the user"
+
 ```javascript
 window.ethereum.request({
-method: 'wallet_invokeSnap',
-params: {
-snapId: "npm:@partisiablockchain/snap",
-request: {method: 'get_address'}},
+    method: 'wallet_invokeSnap',
+    params: {
+        snapId: "npm:@partisiablockchain/snap",
+        request: {method: 'get_address'}
+    },
 });
 ```
 
@@ -98,19 +103,20 @@ are signed towards and `payload` that
 should be a hex encoded transaction. The method will return a hex encoded signature.
 
 ???+ example "How to create a signature"
+
 ```javascript
 window.ethereum.request({
-method: 'wallet_invokeSnap',
-params: {
-snapId: "npm:@partisiablockchain/snap",
-request: {
-method: 'sign_transaction',
-params: {
-payload: payload,
-chainId: chainId
-},
-},
-},
+    method: 'wallet_invokeSnap',
+    params: {
+        snapId: "npm:@partisiablockchain/snap",
+        request: {
+            method: 'sign_transaction',
+            params: {
+                payload: payload,
+                chainId: chainId
+            },
+        },
+    },
 });
 ```
 
