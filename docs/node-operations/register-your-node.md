@@ -1,6 +1,5 @@
 # Register your node
 <div class="dot-navigation" markdown>
-   [](what-is-a-node-operator.md)
    [](create-an-account-on-pbc.md)
    [](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
@@ -20,18 +19,9 @@ is done on the node via the `node-register.sh` script.
 
 There are three prerequisites for registering:
 
-1. You have staked the minimum amount of tokens
+1. You have staked the minimum amount of tokens (see [Get MPC tokens](get-mpc-tokens.md))
 1. You have completed your KYC/KYB, and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
-1. You have a reader node running that is up-to-date with the rest of the network, see [below](#register-your-node) how to check this
-
-For the following you need the Metamask Wallet extension for [Chrome](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
-or for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/).
-
-## Staking tokens
-
-1. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc.md) for help to get gas in your account.
-1. Log in to your account. Click upper right corner (View activity). This will take you to your account page.
-1. Click on _Node register_ on the menu bar and then click on _Manage MPC Tokens_. From there, click _Stake MPC Tokens_ and stake 25k or more tokens to your account.
+1. You have a reader node running that is up-to-date with the rest of the network, see below how to check this
 
 ## Registering the node
 

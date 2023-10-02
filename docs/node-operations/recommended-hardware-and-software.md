@@ -1,6 +1,5 @@
 # Recommended hardware and software
 <div class="dot-navigation" markdown>
-   [](what-is-a-node-operator.md)
    [](create-an-account-on-pbc.md)
    [](get-mpc-tokens.md)
    [*.*](recommended-hardware-and-software.md)
