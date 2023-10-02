@@ -39,9 +39,13 @@ NB. bytes21 is the receiving PBC address decoded to bytes, amount is ETH convert
 3. x BYOC twins are minted on PBC by [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
 4. x ETH are added to the balance PBC account B   
 
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
 
-![Diagram1](../pbc-fundamentals/depositBridge.png)
-
+![Diagram1](../pbc-fundamentals/depositBridge.png) 
 
 ### Make a withdrawal
 
@@ -55,7 +59,7 @@ NB. bytes21 is the receiving PBC address decoded to bytes, amount is ETH convert
       EthereumAddressRpc receiver,
       Unsigned256 amount) 
 ```
-You can [download](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=transactions) the contract ABI in upper right corner of the contract page. That allows you to call the contract action from your terminal without having to format the payload yourself. Use ABI with this command:
+You can [download](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=transactions) the contract ABI in upper right corner of the contract page. This helps you build a Typescript file that can help you build your transaction to call the contract with. Use ABI with this command:
 ```BASH
 cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/packages/maven/com/partisiablockchain/language/abi-client/3.25.0/abi-client-3.25.0-jar-with-dependencies.jar codegen --ts <path to .abi file> <output TS file>
 ```
