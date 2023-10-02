@@ -34,7 +34,8 @@ To use the bridge you must have an account on PBC and on the chain which coins y
 ```SOL
 deposit(bytes21 destination, uint amount)
 ```
-**NB.** _bytes21_ is the receiving PBC address decoded to bytes // _amount_ is ETH converted to Wei, minimum amount is 0.1 ETH
+	* _bytes21_ is the receiving PBC address decoded to bytes 
+	* _amount_ is ETH converted to Wei, minimum amount is 0.1 ETH
 2. The deposit oracle nodes on PBC reads and signs the deposit   
 3. x BYOC twins are minted on PBC by [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
 4. x ETH are added to the balance PBC account B   
@@ -65,10 +66,12 @@ withdraw(uint64 withdrawNonce,
    address destination, 
    uint amount, 
    uint32 bitmask, 
-   bytes calldata signatures 
-   )
+   bytes calldata signatures)
 ```
-**NB.** _withdrawNonce_ is found in the JSON state field named "key" // you must subtract 0.1% (fee for oracle services) of the _uint amount_ compared with the amount in step 1 // _uint32 bitmask_ express which oracle nodes that have signed the withdrawal, e.g. 101 first and last node signed, input the three bits as the equivalent decimal number: (101)<sub>2</sub> = 5 // for calldata 27 is added recovery id of signature, then moved to end. e.g. PBC-signature 01/.../ gives ETH-signature /.../1c
+	* _withdrawNonce_ is found in the JSON state field named "key" 
+	* you must subtract 0.1% (fee for oracle services) of the _uint amount_ compared with the amount in step 1 
+	* _uint32 bitmask_ express which oracle nodes that have signed the withdrawal, e.g. 101 first and last node signed, input the three bits as the equivalent decimal number: (101)<sub>2</sub> = 5 				 
+	* for calldata 27 is added recovery id of signature, then moved to end. e.g. PBC-signature 01/.../ gives ETH-signature /.../1c
 3. x ETH are added to the balance of ETH account A    
 
    
