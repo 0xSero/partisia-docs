@@ -63,7 +63,7 @@ cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/pa
 ```SOL
 withdraw(uint64 withdrawNonce, //nonce in field named "key"
    address destination, //your ETH address
-   uint amount, //you must subtract 1 % of the amount from step 1, this is fee for oracle services.
+   uint amount, //you must subtract 1 % of the amount from step 1, this is fee for oracle services
    uint32 bitmask, //express which oracle nodes that signed, e.g. 101 first and last node signed
    bytes calldata signatures // 27 is added recovery id of signature, then moved to end 
    )
