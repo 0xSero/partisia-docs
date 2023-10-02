@@ -21,8 +21,8 @@ is done on the node via the `node-register.sh` script.
 There are three prerequisites for registering:
 
 1. You have staked the minimum amount of tokens
-1. You have completed your KYC/KYB and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
-1. You have a reader node running that is up-to-date with the rest of the network
+1. You have completed your KYC/KYB, and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
+1. You have a reader node running that is up-to-date with the rest of the network, see [below](#register-your-node) how to check this
 
 For the following you need the Metamask Wallet extension for [Chrome](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
 or for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/).
@@ -37,7 +37,9 @@ or for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/)
 
 The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
 
-**NOTE:** Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
+???+ note
+
+    Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
 
 The node REST server will respond with a code `204 No Content` if it is up-to-date with the network. 
 You can check the status by running the following command:
@@ -45,6 +47,10 @@ You can check the status by running the following command:
 ```bash
 [[ $(curl -L http://localhost:8080/ -o /dev/null -w '%{http_code}\n' -s) == "204" ]] || echo "Not up-to-date"
 ```
+
+You will need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
+[Partisia Blockchain Browser](https://browser.partisiablockchain.com), go to *Your Account* and then *BYOC*, where your
+gas balance is shown.
 
 To send the register transaction you need to log in to your node and go to the `~/pbc` folder and call the `node-register.sh` script.
 
@@ -61,11 +67,9 @@ Follow the on-screen instructions and you should now be registered.
 
 **NOTE:** You can update your information from the Register Transaction by doing a new registration transaction.
 
-If something goes wrong you need to first ensure that you have enough gas to send the transaction, see [here](../pbc-fundamentals/byoc.md).
-
 Then you need to verify that the account key you have in the `config.json` file matches the blockchain address you've used in your KYC/KYB.
 
-If it still fails then reach out to the community.
+If it still fails then reach out to the [community](../get-support-from-pbc-community.md).
 
 ## Conditions for inclusion
 
