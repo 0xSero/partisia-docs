@@ -40,4 +40,4 @@ The KYC provider Synaps then verifies your identity and the on-chain data you ha
 
 ## Next steps
 
-The verification process can take several business days, which is a perfect time to setup your [reader node](reader-node-on-vps.md) running.
+The verification process can take several business days. Use the time to ensure that  your [reader node](reader-node-on-vps.md) is running correctly.
