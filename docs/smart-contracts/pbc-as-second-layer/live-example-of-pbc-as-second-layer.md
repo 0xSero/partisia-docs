@@ -102,7 +102,7 @@ The four engine objects also has a field called "publicKey" which is the public 
 
 To validate that the keys corresponds to the addresses that the Ethereum contract knows, do the following for each key _k_ in the "engines" list.
 
-1. Download the example code from https://gitlab.com/partisiablockchain/<todo>.
+1. Download the [example code zk-as-a-service](https://gitlab.com/secata/pbc/language/contracts/zk-as-a-service)
 2. In the command line, navigate to the `public-voting` directory
 3. Run the command
    ```shell

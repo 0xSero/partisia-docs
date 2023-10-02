@@ -47,7 +47,7 @@ match the one in the example, and uses the deployment scripts found in the examp
 #### Deploy a ZK contract on PBC
 
 We recommend you to follow our guide on how to deploy contracts on PBC
-[here](../../contract-compilation.md)
+[here](../../smart-contracts/compile-and-deploy-contracts.md)
 
 Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard
 estimates, remember to add more gas (4x). You can test down to the exact gas amount on the
