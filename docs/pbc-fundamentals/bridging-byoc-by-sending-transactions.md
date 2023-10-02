@@ -62,7 +62,7 @@ cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/pa
 3. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce, //nonce in field named "key"
-   address destination,
+   address destination, //your ETH address
    uint amount, //you must subtract 1 % of the amount from step 1, this is fee for oracle services.
    uint32 bitmask, //express which oracle nodes that signed, e.g. 101 first and last node signed
    bytes calldata signatures // 27 is added recovery id of signature, then moved to end 
