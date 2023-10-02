@@ -32,7 +32,7 @@ To use the bridge you must have an account on PBC and on the chain which coins y
 
 1. Invoke the contract action _deposit_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract):
 ```SOL
-deposit(bytes21 destination, uint amount) //bytes21 is the PBC address to recieve the BYOC, minimum amount is 0.1 ETH
+deposit(bytes21 destination, uint amount) //bytes21 is the recieving PBC address decoded to bytes, amount is ETH converted to Wei, minimum amount is 0.1 ETH
 ```
 2. The deposit oracle nodes on PBC reads and signs the deposit   
 3. x BYOC twins are minted on PBC by [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
@@ -54,14 +54,18 @@ deposit(bytes21 destination, uint amount) //bytes21 is the PBC address to reciev
       EthereumAddressRpc receiver,
       Unsigned256 amount) 
 ```
-2. Wait until withdrawal have received two signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
+You can [download](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=transactions) the contract ABI in upper right corner of the contract page.That allows you to call the contract action from your terminal without having to format the payload yourself. Use ABI with this command:
+```BASH
+cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/packages/maven/com/partisiablockchain/language/abi-client/3.25.0/abi-client-3.25.0-jar-with-dependencies.jar codegen --ts <path to .abi file> <output TS file>
+```
+2. Wait until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
 3. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
-withdraw(uint64 withdrawNonce,
+withdraw(uint64 withdrawNonce, //nonce in field named "key"
    address destination,
-   uint amount,
-   uint32 bitmask,
-   bytes calldata signatures
+   uint amount, //you must subtract 1 % of the amount from step 1, this is fee for oracle services.
+   uint32 bitmask, //express which oracle nodes that signed, e.g. 101 first and last node signed
+   bytes calldata signatures // 27 is added recovery id of signature, then moved to end 
    )
 
 ```
