@@ -34,7 +34,7 @@ To use the bridge you must have an account on PBC and on the chain which coins y
 ```SOL
 deposit(bytes21 destination, uint amount)
 ```
-bytes21 is the receiving PBC address decoded to bytes, amount is ETH converted to Wei, minimum amount is 0.1 ETH
+NB. bytes21 is the receiving PBC address decoded to bytes, amount is ETH converted to Wei, minimum amount is 0.1 ETH
 2. The deposit oracle nodes on PBC reads and signs the deposit   
 3. x BYOC twins are minted on PBC by [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
 4. x ETH are added to the balance PBC account B   
@@ -62,14 +62,14 @@ cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/pa
 2. Wait until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
 3. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
-withdraw(uint64 withdrawNonce, //nonce in field named "key"
-   address destination, //your ETH address
-   uint amount, //you must subtract 1 % of the amount from step 1, this is fee for oracle services
-   uint32 bitmask, //express which oracle nodes that signed, e.g. 101 first and last node signed
-   bytes calldata signatures // 27 is added recovery id of signature, then moved to end 
+withdraw(uint64 withdrawNonce, 
+   address destination, 
+   uint amount, 
+   uint32 bitmask, 
+   bytes calldata signatures 
    )
-
 ```
+NB. withdrawNonce is found in the JSON state field named "key" // you must subtract 0.1% (fee for oracle services) of the uint amount compared with the amount in step 1 // uint32 bitmask, //express which oracle nodes that signed, e.g. 101 first and last node signed, the three binary bits are written inputted as a decimal number: 101 -> 5, 
 3. x ETH are added to the balance of ETH account A    
 
    
