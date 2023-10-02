@@ -69,7 +69,7 @@ withdraw(uint64 withdrawNonce,
    bytes calldata signatures 
    )
 ```
-NB. withdrawNonce is found in the JSON state field named "key" // you must subtract 0.1% (fee for oracle services) of the uint amount compared with the amount in step 1 // uint32 bitmask, //express which oracle nodes that signed, e.g. 101 first and last node signed, the three binary bits are written inputted as a decimal number: 101 -> 5, 
+NB. withdrawNonce is found in the JSON state field named "key" // you must subtract 0.1% (fee for oracle services) of the uint amount compared with the amount in step 1 // uint32 bitmask, // bitmask express which oracle nodes that have signed the withdrawal, e.g. 101 first and last node signed, input the three bits as the equivalent decimal number: (101)<sub>2</sub> = 5 // for calldata 27 is added recovery id of signature, then moved to end. e.g. PBC-signature 01/.../ gives ETH-signature /.../1c
 3. x ETH are added to the balance of ETH account A    
 
    
