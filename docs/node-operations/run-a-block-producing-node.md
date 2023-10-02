@@ -40,7 +40,7 @@ To fill out the config.json for a block producing node you need to add the follo
 - Ethereum and Polygon API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.
 - The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`, e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known producers should be obtained by reaching out to the community.
 
-We will again use the `node-register.sh` tool:
+To fill out the needed information we will use the `node-register.sh` tool:
 
 ```bash
 ./node-register.sh create-config
@@ -50,8 +50,10 @@ When asked if the node is a block producing node, answer `yes`.
 The tool validates your inputs, and you will not be able to finish the configuration generation without inputting *all*
 the required information.
 
-**NOTE:** Be sure to back up the keys the tool prints at the end. They are written in `config.json` and  cannot be 
-recovered if it is deleted. 
+???+ note
+
+    Be sure to back up the keys the tool prints at the end. They are written in `config.json` and  cannot be 
+    recovered if it is deleted. 
 
 You can verify the contents of the files are what you expect by opening them with `cat`:
 

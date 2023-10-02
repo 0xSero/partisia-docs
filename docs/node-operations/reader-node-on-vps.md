@@ -140,14 +140,14 @@ You can now start the node:
 docker-compose up -d
 ````
 
-This should pull the latest image and start the reader node in the background. If the command was executed successfully
-it won't print anything. To verify that the node is running, run:
+If the command is successful it will pull the latest image and start the reader node in the background. 
+To verify that the node is running, run:
 
 ````bash
 docker logs -f pbc-mainnet
 ````
 
-This should print a bunch of log statements. All the timestamps are
+This will print your log statements. All the timestamps are
 in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your
 local time.
 
