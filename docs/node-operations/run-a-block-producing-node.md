@@ -1,77 +1,59 @@
 # Run a block producing node
 <div class="dot-navigation" markdown>
    [](what-is-a-node-operator.md)
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
-   [](run-a-reader-node-on-your-local-machine.md)
    [](vps.md)
    [](secure-your-vps.md)
    [](reader-node-on-vps.md)
-   [](create-an-account-on-pbc.md)
-   [](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
-   [](keys-for-bp-config-and-registration.md)
    [*.*](run-a-block-producing-node.md)
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
 </div>
 
-How to change node config from reader to block producer
+This page will describe how to change your node config from reader to block producer.
 
-You must finish the previous two sections([Reader node on VPS](../node-operations/reader-node-on-vps.md) and [Keys for BP](../node-operations/keys-for-bp-config-and-registration.md)) is a prerequisite.
+You must finish the previous section [Reader node on VPS](../node-operations/reader-node-on-vps.md) before you can continue.
 
 ### Step 1 - Stop your reader node
 
-Find the reader node container name:
+Change the directory to the folder where you have your `docker-compose.yml` file:
 
-```` bash
-docker ps
-````
+```shell
+cd ~/pbc
+```
 
-Stop the reader node:
+Stop the node container:
 
-```` bash
-docker stop yourContainerNamer
-````
+```bash
+docker-compose down
+```
 
 ### Step 2 - Change `config.json` to support block production
 
 To fill out the config.json for a block producing node you need to add the following information:
 
-- Network privateKey   
-- Account privateKey   
-- Finalization privateKey   
+- Account key (the account you've staked MPC with)
 - IP address of the server hosting your node (You get this from your VPS service provider)   
 - Ethereum and Polygon API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.
-- Ip and network public key of at least one other producer on the format 'networkPublicKey:ip:port', e.g. '02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999'. The location of other known producers should be obtained by reaching out to the community.
+- The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`, e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known producers should be obtained by reaching out to the community.
 
-Go to your VPS and open `config.json` in `nano`:
+To fill out the needed information we will use the `node-register.sh` tool:
 
+```bash
+./node-register.sh create-config
+```
 
-````bash
-sudo nano /opt/pbc-mainnet/conf/config.json
-````
+When asked if the node is a block producing node, answer `yes`. 
+The tool validates your inputs, and you will not be able to finish the configuration generation without inputting *all*
+the required information.
 
-Config for the block producing nodes - baker nodes, ZK nodes and oracle nodes Put your private [keys](../node-operations/keys-for-bp-config-and-registration.md) and IP inside the quotation marks replacing descriptions in capital letters. The IP address must be a public IPv4.:
-````json
-{
-  "restPort": 8080,
-  "floodingPort": 9888,
-  "networkKey": "NETWORK_PRIVATE_KEY",
-  "producerConfig": {
-    "host": "PUBLIC_IPV4_OF_SERVER_HOSTING_THIS_NODE",
-    "accountKey": "PRIVATE_KEY_FROM_ACCOUNT_HOLDING STAKE",
-    "finalizationKey": "FINALIZATION_PRIVATE_KEY_BLS",
-    "ethereumUrl": "ETHEREUM_MAINNET_HTTP_ENDPOINT",
-    "polygonUrl": "POLYGON_MAINNET_HTTP_ENDPOINT",
-    "bnbSmartChainUrl": "BNB_SMART_CHAIN_MAINNET_ENDPOINT"
-  },
-  "knownPeers": [
-    "PUBLIC_KEY_IP_PORT_OF_OTHER_PRODUCER(S)"
-  ]
-}
-````
+???+ note
 
-To save the file press `CTRL+O` and then `ENTER` and then `CTRL+X`.
+    Be sure to back up the keys the tool prints at the end. They are written in `config.json` and  cannot be 
+    recovered if it is deleted. 
 
 You can verify the contents of the files are what you expect by opening them with `cat`:
 

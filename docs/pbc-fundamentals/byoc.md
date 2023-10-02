@@ -10,7 +10,7 @@ BYOC is needed to cover the payment of the node operators which are providing th
 
 ### How does it work
 
-To be able to spend and transfer your coins, you will need to transfer your own liquid cryptocurrency using [the PBC Token Bridge](https://bridge.mpcexplorer.com/). This will move your ETH to a contract and mint a PBC version of the coin you brought. This new PBC based version of your coin can interact with the payment scheme of PBC. In essence you can deposit, withdraw and transfer ETH or other cryptocurrencies with your PBC wallet.
+To be able to spend and transfer your coins, you will need to transfer your own liquid cryptocurrency using [the PBC Token Bridge](https://bridge.mpcexplorer.com/). This will move your ETH to a contract and mint a PBC version of the coin you brought. This new PBC based version of your coin can interact with the payment scheme of PBC. In essence, you can deposit, withdraw and transfer ETH or other cryptocurrencies with your PBC wallet.
 You can see what bridges are available on our page: [Bridging BYOC by sending transactions](bridging-byoc-by-sending-transactions.md).
 
 The cost of bringing your own coin
@@ -42,4 +42,4 @@ The confirmation also includes a link to the [mpc explorer](https://mpcexplorer.
 ### How to test BYOC?
 You need some value from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3)), we recommend you to find a faucet. This can be found using a simple web search. 
 
-To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/) to get gas on the testnet. You can verify that you have test_coins on your account on the testnet after the succesful bridging [here](https://testnet.partisiablockchain.com/info/account) which will end.
+To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/) to get gas on the testnet. You can verify that you have test_coins on your account on the testnet after the successful bridging [here](https://testnet.partisiablockchain.com/info/account) which will end.
