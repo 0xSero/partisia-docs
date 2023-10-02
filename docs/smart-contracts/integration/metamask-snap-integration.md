@@ -65,19 +65,19 @@ identifier `npm:@partisiablockchain/snap`.
 
 ???+ example "How to install the snap"
 
-```javascript
-try {
-    const result = await window.ethereum.request({
-        method: 'wallet_requestSnaps',
-        params: {
-            'npm:@partisiablockchain/snap': {},
-        },
-    });
-    console.log(result);
-} catch (error) {
-    console.log(error);
-}
-```
+      ```javascript
+      try {
+          const result = await window.ethereum.request({
+              method: 'wallet_requestSnaps',
+              params: {
+                  'npm:@partisiablockchain/snap': {},
+              },
+          });
+          console.log(result);
+      } catch (error) {
+          console.log(error);
+      }
+      ```
 
 ### How do I get the Partisia Blockchain address of the user?
 
@@ -85,15 +85,15 @@ When the snap has been installed the snap invocation `get_address` will return t
 
 ???+ example "How to get address of the user"
 
-```javascript
-window.ethereum.request({
-    method: 'wallet_invokeSnap',
-    params: {
-        snapId: "npm:@partisiablockchain/snap",
-        request: {method: 'get_address'}
-    },
-});
-```
+      ```javascript
+      window.ethereum.request({
+          method: 'wallet_invokeSnap',
+          params: {
+              snapId: "npm:@partisiablockchain/snap",
+              request: {method: 'get_address'}
+          },
+      });
+      ```
 
 ### How do I sign a transaction?
 
@@ -104,19 +104,19 @@ should be a hex encoded transaction. The method will return a hex encoded signat
 
 ???+ example "How to create a signature"
 
-```javascript
-window.ethereum.request({
-    method: 'wallet_invokeSnap',
-    params: {
-        snapId: "npm:@partisiablockchain/snap",
-        request: {
-            method: 'sign_transaction',
-            params: {
-                payload: payload,
-                chainId: chainId
-            },
-        },
-    },
-});
-```
+      ```javascript
+      window.ethereum.request({
+          method: 'wallet_invokeSnap',
+          params: {
+              snapId: "npm:@partisiablockchain/snap",
+              request: {
+                  method: 'sign_transaction',
+                  params: {
+                      payload: payload,
+                      chainId: chainId
+                  },
+              },
+          },
+      });
+      ```
 
