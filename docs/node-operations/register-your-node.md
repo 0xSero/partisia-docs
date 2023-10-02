@@ -64,8 +64,9 @@ cd ~/pbc
 
 Follow the on-screen instructions and you should now be registered.
 
+???+ note
 
-**NOTE:** You can update your information from the Register Transaction by doing a new registration transaction.
+    You can update your information from the Register Transaction by doing a new registration transaction.
 
 Then you need to verify that the account key you have in the `config.json` file matches the blockchain address you've used in your KYC/KYB.
 
