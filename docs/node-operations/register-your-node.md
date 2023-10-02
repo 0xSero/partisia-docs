@@ -35,7 +35,7 @@ The node REST server will respond with a code `204 No Content` if it is up-to-da
 You can check the status by running the following command:
 
 ```bash
-[[ $(curl -L http://localhost:8080/ -o /dev/null -w '%{http_code}\n' -s) == "204" ]] || echo "Not up-to-date"
+./node-register.sh status
 ```
 
 You will need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
