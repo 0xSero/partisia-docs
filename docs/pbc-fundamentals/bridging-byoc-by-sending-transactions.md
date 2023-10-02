@@ -54,7 +54,7 @@ deposit(bytes21 destination, uint amount) //bytes21 is the recieving PBC address
       EthereumAddressRpc receiver,
       Unsigned256 amount) 
 ```
-You can [download](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=transactions) the contract ABI in upper right corner of the contract page.That allows you to call the contract action from your terminal without having to format the payload yourself. Use ABI with this command:
+You can [download](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=transactions) the contract ABI in upper right corner of the contract page. That allows you to call the contract action from your terminal without having to format the payload yourself. Use ABI with this command:
 ```BASH
 cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/packages/maven/com/partisiablockchain/language/abi-client/3.25.0/abi-client-3.25.0-jar-with-dependencies.jar codegen --ts <path to .abi file> <output TS file>
 ```
