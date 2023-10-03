@@ -13,7 +13,7 @@ REST endpoints. We have collected the most important examples below:
 
 [A rest server source where you can find different endpoints and data types returned](https://gitlab.com/partisiablockchain/core/server).
 
-[Endpoint for traversing transactions on a shard](https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112).
+If you want to look for specific transactions on a shard, we have an endpoint that helps you get [the latest transactions](https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112).
 
 [Endpoint for looking at a single specific transaction on a shard](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5).
 
