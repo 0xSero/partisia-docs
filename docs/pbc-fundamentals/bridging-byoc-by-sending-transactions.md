@@ -23,7 +23,7 @@ To deposit funds on PBC from a foreign chain the coins are locked on an oracle c
 The BYOC essentially works as IOUs that can only be created when the equal sum of money is locked on the chain where the deposit comes from.
    
 Withdrawal is the same operation in reverse order:    
-The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they sign for the funds to be unlocked from the contract on the native chain.
+The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they sign for the funds to be unlocked from the contract on the native chain.    
 To use the bridge you must have an account on PBC and on the chain which coins you want to deposit or withdraw. You must have a wallet to sign transactions on both chains that you are interacting with. In the following examples we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
 
 ### Make a deposit
