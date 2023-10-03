@@ -61,6 +61,29 @@ sudo cat /opt/pbc-mainnet/conf/config.json
 # The config file should be printed here
 ```
 
+Your file should have similar contents to the one in the example below.
+
+??? example "Example: Block producing config"
+
+    ```
+    {
+        "restPort": 8080,
+        "floodingPort": 9888,
+        "knownPeers": [
+            // your known peers
+        ],
+        "networkKey": "YOUR NETWORK KEY",
+        "producerConfig": {
+            "accountKey": "YOUR ACCOUNT KEY",
+            "finalizationKey": "YOUR FINALIZATION KEY",
+            "ethereumUrl": "https://example.com",
+            "polygonUrl": "https://example.com",
+            "bnbSmartChainUrl": "https://example.com",
+            "host": "YOUR IP"
+        }
+    }
+    ```
+
 ## Start your block producing node
 
 ```bash

@@ -129,6 +129,16 @@ Start the tool with the `create-config` argument:
 As we are creating a reader node we will not be producing blocks.
 Your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
 
+The config should look like the example below.
+
+??? example "Example: Basic reader config"
+
+    ```
+    {
+        "networkKey": "YOUR NETWORK KEY"  
+    }
+    ```
+
 ### Starting the node
 
 You can now start the node:
