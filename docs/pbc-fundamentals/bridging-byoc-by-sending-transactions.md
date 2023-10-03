@@ -38,7 +38,8 @@ deposit(bytes21 destination, uint amount)
 	* _amount_ is ETH converted to Wei, minimum amount is 0.1 ETH
 2. The deposit oracle nodes on PBC reads and signs the deposit   
 3. x BYOC twins are minted on PBC by [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
-4. x ETH are added to the balance PBC account B   
+4. x ETH are added to the balance PBC account B
+5. The PBC wallet will read the account balance, now the account owner have access to the deposited funds
 
 
 ![Diagram1](../pbc-fundamentals/depositBridge.png) 
