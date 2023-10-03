@@ -39,7 +39,7 @@ You can check the status by running the following command:
 ```
 
 You will need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
-[Partisia Blockchain Browser](https://browser.partisiablockchain.com), go to *Your Account* and then *BYOC*, where your
+[Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
 gas balance is shown.
 
 To send the register transaction you need to log in to your node and go to the `~/pbc` folder and call the `node-register.sh` script.
