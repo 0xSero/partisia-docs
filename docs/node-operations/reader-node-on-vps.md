@@ -98,8 +98,6 @@ services:
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
 
-You don't yet have access to the Partisia container repository, so you first need to log in.
-
 ### The `node-register.sh` script
 
 The `node-register.sh` script will help you generate a valid node configuration file.
