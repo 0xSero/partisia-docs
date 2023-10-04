@@ -82,6 +82,7 @@ withdraw(uint64 withdrawNonce,
 	* For each signature, 27 is added to the recovery id of the PBC-signature. This id needs to be moved to the end of the signature. e.g. a PBC-signature with a hex value of 01/.../ gives ETH-signature /.../1c
 6. (n - fee) ETH are released from the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract) and again available for use by ETH account A    
 
+![Diagram1](../pbc-fundamentals/withdrawBridge.png)
    
 ## Resources to get you started
 
