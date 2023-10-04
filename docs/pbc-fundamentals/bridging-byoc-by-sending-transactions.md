@@ -39,10 +39,12 @@ deposit(bytes21 destination, uint amount)
 ```
 	* _bytes21_ is the receiving PBC address decoded to bytes 
 	* _amount_ is ETH converted to Wei, minimum amount is 0.1 ETH
-2. The deposit oracle nodes on PBC reads and signs the deposit   
-3. The action _deposit_ is invoked on [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351) by the oracle, given that there are enough valid signatures the contract mints n BYOC twins  
-4. n ETH are added to the balance PBC account B
-5. The PBC wallet will read the account balance, now the account owner have access to the deposited funds
+2. The contract locks n ETH
+3. By reading the incoming transaction on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract) confirm the deposit has been made and generates the signatures   
+4. The action _deposit_ is invoked on [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351/deposit) by the oracle 
+5. Given that there are enough valid signatures the contract mints n BYOC twins  
+6. (n - fee) ETH are added to the balance PBC account B
+7. The PBC wallet will read the account balance, now the account owner have access to the deposited funds
 
 
 ![Diagram1](../pbc-fundamentals/depositBridge.png) 
@@ -51,7 +53,7 @@ deposit(bytes21 destination, uint amount)
 
 **Withdraw n ETH from PBC account A**   
 
-1. Add a pending withdrawal on PBC by invoking the action _addPendingWithdrawal_ at [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146):
+1. Add a pending withdrawal on PBC by invoking the action _addPendingWithdrawal_ at [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146/addPendingWithdrawal):
 ```JAVA 
  public ByocOutgoingContractState addPendingWithdrawal(
       SysContractContext context,
@@ -63,8 +65,10 @@ You can [download](https://browser.partisiablockchain.com/contracts/043b1822925d
 ```BASH
 cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/packages/maven/com/partisiablockchain/language/abi-client/3.25.0/abi-client-3.25.0-jar-with-dependencies.jar codegen --ts <path to .abi file> <output TS file>
 ```
-2. Wait until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
-3. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
+2. ETH Withdrawal contract burns n ETH twins minus the fee to pay the oracle nodes
+3. Each of the nodes in the ETH Withdrawal oracle confirming the ETH twins have been burned, then they generate the signatures necessary for a release from the ETH contract, (the signatures are available in the state of [ETH Withdraw](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state))
+4. The account owner retrieve the nonce, signatures and bitmask from the [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state)) waits until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
+5. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce, 
    address destination, 
@@ -76,7 +80,7 @@ withdraw(uint64 withdrawNonce,
 	* you must subtract 0.1% (fee for oracle services) of the _uint amount_ compared with the amount in step 1 
 	* _uint32 bitmask_ express which oracle nodes that have signed the withdrawal, e.g. 101 first and last node signed, input the three bits as the equivalent decimal number: (101)<sub>2</sub> = 5 				 
 	* For each signature, 27 is added to the recovery id of the PBC-signature. This id needs to be moved to the end of the signature. e.g. a PBC-signature with a hex value of 01/.../ gives ETH-signature /.../1c
-3. n ETH are added to the balance of ETH account A    
+6. (n - fee) ETH are released from the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract) and again available for use by ETH account A    
 
    
 ## Resources to get you started
