@@ -1,25 +1,24 @@
 # Register your node
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-a-node-operator.html"></a>
-    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
-    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
-    <a class="dot-navigation__item " href="vps.html"></a>
-    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
-    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
-    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
-    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
-    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
-    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
-    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="register-your-node.html"></a>
-    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [](what-is-a-node-operator.md)
+   [](recommended-hardware-and-software.md)
+   [](run-a-reader-node-on-your-local-machine.md)
+   [](vps.md)
+   [](secure-your-vps.md)
+   [](reader-node-on-vps.md)
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
+   [](complete-synaps-kyb.md)
+   [](keys-for-bp-config-and-registration.md)
+   [](run-a-block-producing-node.md)
+   [*.*](register-your-node.md)
+   [](node-health-and-maintenance.md)
 </div>
 
 The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a stake of MPC Tokens and sending a registration form. Both are done with transaction you can perform in the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register).
 
 1. You need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.
-2. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc-and-gas.md) for help to get gas in your account.
+2. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc.md) for help to get gas in your account.
 3. For this your KYB must be verified (you will have received a verification e-mail). You need to get your Synapse Session ID.
 
    - Log in to https://partisiablockchain.synaps.me/ (using Chrome)
