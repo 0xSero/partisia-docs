@@ -40,7 +40,7 @@ deposit(bytes21 destination, uint amount)
 	* _bytes21_ is the receiving PBC address decoded to bytes 
 	* _amount_ is ETH converted to Wei, minimum amount is 0.1 ETH
 2. The deposit oracle nodes on PBC reads and signs the deposit   
-3. The action _deposit_ is invoked on [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351) by the oracle, given that there are enough valid signatures the contract mints X BYOC twins  
+3. The action _deposit_ is invoked on [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351) by the oracle, given that there are enough valid signatures the contract mints n BYOC twins  
 4. n ETH are added to the balance PBC account B
 5. The PBC wallet will read the account balance, now the account owner have access to the deposited funds
 
