@@ -10,13 +10,10 @@ A Partisia Blockchain [account](create-an-account.md) holds the necessary inform
 
 ## How does the bridge work
 
-The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC. In the deposit and withdrawal examples  below we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
-PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, so in case of a withdrawal the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain. 
-
-
-**Safety**
-
-The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). Each of these oracles consist of 3 nodes with a 250K MPC tokens staked to the service. The stake of a node can be used to pay compensation for misconduct committed with the node. For deposit and withdrawal there is a maximum amount that can be transferred. When the limit is met three new nodes are selected to serve in the oracle. The value staked to the service vastly exceeds the maximum value that can be transferred in each given period until the limit has been met. You can learn more about the concept of staking in the [MPC token model](mpc-token-model-and-account-elements.md).
+The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC. 
+In the deposit and withdrawal examples  below we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
+PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, so in case of a withdrawal the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain.
+The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md).
 
 **Cost**
 
