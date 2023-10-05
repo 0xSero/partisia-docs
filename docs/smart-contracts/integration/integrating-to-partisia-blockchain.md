@@ -10,9 +10,12 @@ dev-community [on our discord](../../get-support-from-pbc-community.md).
 
 Blockchain nodes, including reader nodes gives access to blocks, transactions, contract state and more through
 REST endpoints. A REST endpoint can be any node which allows for you to access through their endpoint. Most often the
-endpoint is a reader node which allows you to read blocks, state and transactions and makes it possible for you to send
-transactions. We have created libraries to help you create such transactions for the blockchain. Below is a collection
-of important rest endpoints and other erssources.
+endpoint is a [reader node](../../node-operations/what-is-a-node-operator.md) which allows you to read blocks, state and
+transactions and makes it possible for you to send
+transactions. We have created libraries to help you
+create such transactions for the blockchain and help you use the rest endpoints available. Below is a collection
+of commonly used rest endpoints. If you are in need of access to a rest server without running your own reader node, the best way would be
+to ask in the [Discord of the community](../../get-support-from-pbc-community.md). 
 
 In our [rest server source repo](https://gitlab.com/partisiablockchain/core/server), you can find different endpoints
 and what data types they return.
