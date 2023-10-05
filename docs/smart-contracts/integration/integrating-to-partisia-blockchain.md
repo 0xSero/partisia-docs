@@ -7,15 +7,20 @@ The next set of articles aims to explain how to do on-chain / off-chain interact
 interfaces to recognize NFTs or tokens as part of your application. Lastly there are individual articles which specifies specific integration topics to help you work with the blockchain from your own application. 
 
 
-## Rest endpoint examples
-Blockchain nodes, including reader nodes gives access to blocks, transactions, contract state and more through suitable
-REST endpoints. We have collected the most important examples below:
+## Rest endpoint examples and libraries
+Blockchain nodes, including reader nodes gives access to blocks, transactions, contract state and more through
+REST endpoints. A REST endpoint can be any node which allows for you to access through their endpoint. Most often the endpoint is a reader node which allows you to read blocks, state and transactions and makes it possible for you to send transactions. We have created libraries to help you create such transactions for the blockchain. Below is a collection of important rest endpoints and other erssources. 
 
-[A rest server source where you can find different endpoints and data types returned](https://gitlab.com/partisiablockchain/core/server).
+In our [rest server source repo](https://gitlab.com/partisiablockchain/core/server), you can find different endpoints and what data types they return.
 
-If you want to look for specific transactions on a shard, we have an endpoint that helps you get [the latest transactions](https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112).
+If you want to look for specific transactions on a shard, we have an endpoint that helps you get the latest transactions. Click the link to see a live example. 
 
-[Endpoint for looking at a single specific transaction on a shard](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5).
+[`https://reader.partisiablockchain.com/shards/[Shard that you want the lastest transaction from]/blockchain/transaction/latest/10/2018112`](https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112)
+
+If you need to look at a specific transaction on a shard you can use this endpoint for finding the transaction. You can click the below link to see a live example. 
+
+[`https://reader.partisiablockchain.com/shards/[Shard that your transaction is on]/blockchain/transaction/[YOUR TRANSACTION HASH]`](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5)
+
 
 [Endpoint giving information about a smart contract including the ABI and current state](https://node1.testnet.partisiablockchain.com/shards/Shard2/blockchain/contracts/0296b935f95dbf30d0921ee23686099027b9759480?requireContractState=true).
 
