@@ -72,7 +72,7 @@ cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/pa
 ```
 2. ETH Withdrawal contract burns n ETH twins minus the fee to pay the oracle nodes
 3. Each of the nodes in the ETH Withdrawal oracle confirming the ETH twins have been burned, then they generate the signatures necessary for a release from the ETH contract, (the signatures are available in the state of [ETH Withdraw](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state))
-4. The account owner retrieve the nonce, signatures and bitmask from the [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state)) waits until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
+4. The account owner retrieve the nonce, signatures and bitmask from the [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) waits until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
 5. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce, 
