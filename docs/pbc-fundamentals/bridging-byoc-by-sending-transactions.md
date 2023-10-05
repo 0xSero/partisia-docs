@@ -10,15 +10,7 @@ A Partisia Blockchain [account](create-an-account.md) holds the necessary inform
 
 ## How does the bridge work
 
-The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC.
-
-&nbsp;
-
-![Diagram0](../pbc-fundamentals/bridge-overview.png)
-
-&nbsp;  
-
-In the deposit and withdrawal examples  below we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
+The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC. In the deposit and withdrawal examples  below we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
 
 **Safety**
 
