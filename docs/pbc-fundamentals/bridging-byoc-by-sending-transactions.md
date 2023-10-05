@@ -33,7 +33,7 @@ deposit(bytes21 destination, uint amount)
     * _amount_ is ETH converted to Wei, minimum amount is 0.1 ETH
 2. The contract locks n ETH
 3. The oracle nodes read the incoming transaction on the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract)    
-4. The action _deposit_ is invoked on [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351/deposit) by the oracle nodes (the invocation requires 2/3 nodes invoke with same input) 
+4. The action _deposit_ is invoked on [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351/deposit) by the oracle nodes (the invocation requires 2/3 nodes to invoke with same input) 
 5. Given that 2 of 3 oracle nodes invoked deposit the contract mints n BYOC twins  
 6. (n - fee) ETH are added to the balance the PBC account
 7. The PBC wallet will read the account balance, and the account owner will now have access to the deposited funds
