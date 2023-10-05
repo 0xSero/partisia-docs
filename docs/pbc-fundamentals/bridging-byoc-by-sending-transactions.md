@@ -50,7 +50,7 @@ deposit(bytes21 destination, uint amount)
 
 #### How to make a withdrawal
 
-Withdrawal is the same operation in reverse order. The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they sign for the funds to be unlocked from the contract on the native chain.        
+When you withdraw funds from PBC the BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they each generate a signature. You need these to unlock the funds from the contract on the native chain.        
 To use the bridge you must have an account on PBC and on the chain which coins you want to deposit or withdraw. You must have a wallet to sign transactions on both chains that you are interacting with. In the following examples we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
 
 PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, e.g. a PBC node has an Ethereum endpoint and can read when a deposit have been made to a contract on Ethereum, but Ethereum nodes do not read information on PBC. So, in case of a withdrawal the user needs to provide information from the state of [ETH Withdraw](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) on PBC to the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract).
