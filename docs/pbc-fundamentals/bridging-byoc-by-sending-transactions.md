@@ -26,7 +26,7 @@ The transfer of cryptocurrencies to and from PBC is facilitated by deposit and w
 
 Every time the bridge is used 0.1% of transferred value is subtracted as a fee to pay for the service provided by oracle nodes. If you bridge 1 ETH, then 0.999 ETH is transferred and 0.001 ETH is paid to the oracle nodes.
 
-### Make a deposit
+#### How to make a deposit
 
 To deposit funds on PBC from a foreign chain the coins are locked on an oracle contract on the foreign chain. A deposit oracle consisting of three nodes on PBC monitors this contract. When the oracle nodes confirm that the funds are locked on the relevant contract the oracle nodes can sign the minting of equivalent funds on PBC called BYOC (bring your own coin).   
 The BYOC essentially works as IOUs that can only be created when the equal sum of money is locked on the chain where the deposit comes from.
@@ -49,7 +49,7 @@ deposit(bytes21 destination, uint amount)
 
 ![Diagram1](../pbc-fundamentals/depositBridge.png) 
 
-### Make a withdrawal
+#### How to make a withdrawal
 
 Withdrawal is the same operation in reverse order. The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they sign for the funds to be unlocked from the contract on the native chain.        
 To use the bridge you must have an account on PBC and on the chain which coins you want to deposit or withdraw. You must have a wallet to sign transactions on both chains that you are interacting with. In the following examples we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
