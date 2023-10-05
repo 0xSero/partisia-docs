@@ -40,7 +40,7 @@ deposit(bytes21 destination, uint amount)
 7. The PBC wallet will read the account balance, now the account owner have access to the deposited funds
 
 
-![Diagram1](../pbc-fundamentals/depositBridge.png) 
+![Diagram1](../pbc-fundamentals/depositBridge.svg) 
 
 #### How to make a withdrawal
 
@@ -80,7 +80,7 @@ withdraw(uint64 withdrawNonce,
 	* For each signature, 27 is added to the recovery id of the PBC-signature. This id needs to be moved to the end of the signature. e.g. a PBC-signature with a hex value of 01/.../ gives ETH-signature /.../1c
 6. (n - fee) ETH are released from the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract) and again available for use by the owner the ETH account    
 
-![Diagram1](../pbc-fundamentals/withdrawBridge.png)
+![Diagram1](../pbc-fundamentals/withdrawBridge.svg)
    
 ## Resources to get you started
 
