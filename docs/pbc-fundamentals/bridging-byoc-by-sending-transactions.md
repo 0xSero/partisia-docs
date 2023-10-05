@@ -28,8 +28,8 @@ Every time the bridge is used 0.1% of transferred value is subtracted as a fee t
 
 #### How to make a deposit
 
-To deposit funds on PBC from a foreign chain the coins are locked on an oracle contract on the foreign chain. A deposit oracle consisting of three nodes on PBC monitors this contract. When the oracle nodes confirm that the funds are locked on the relevant contract the oracle nodes can sign the minting of equivalent funds on PBC called BYOC (bring your own coin).   
-The BYOC essentially works as IOUs that can only be created when the equal sum of money is locked on the chain where the deposit comes from.
+BYOC acts as IOUs that can only be created when the equal sum of value is locked on the chain where the deposit comes from. The deposited coins are locked to the oracle contract on that chain.    
+A deposit oracle consists of three PBC nodes, they monitor the BYOC contract for activity. When activity is detected and two out of three nodes of the oracle confirms a users locked funds, it invokes a contract action resulting in the minting of equivalent funds on PBC called BYOC.
 
 **Deposit n amount of ETH from an ETH account to a PBC account**
 
