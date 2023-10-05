@@ -11,7 +11,7 @@ A Partisia Blockchain [account](create-an-account.md) holds the necessary inform
 ## How does the bridge work
 
 The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC. In the deposit and withdrawal examples  below we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
-PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, e.g. a PBC node has an Ethereum endpoint and can read when a deposit have been made to a contract on Ethereum, but Ethereum nodes do not read information on PBC. So, in case of a withdrawal the user needs to provide information from the state of [ETH Withdraw](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) on PBC to the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract).
+PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, so in case of a withdrawal the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain. 
 
 
 **Safety**
