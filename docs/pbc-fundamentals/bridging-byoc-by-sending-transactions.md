@@ -29,7 +29,7 @@ BYOC acts as IOUs that can only be created when the equal sum of value is locked
 ```SOL
 deposit(bytes21 destination, uint amount)
 ```
-	* _bytes21_ is the receiving PBC address decoded to bytes 
+	* _destination_ is the receiving PBC address decoded to bytes 
 	* _amount_ is ETH converted to Wei, minimum amount is 0.1 ETH
 2. The contract locks n ETH
 3. The oracle nodes read the incoming transaction on the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract)    
