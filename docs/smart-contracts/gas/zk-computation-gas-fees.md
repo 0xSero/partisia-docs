@@ -10,7 +10,7 @@
    [](contract-to-contract-gas-estimation.md)
 </div>
 
-Zero-knowledge (ZK) computation involves a number of gas fees to ensure that a contract's associated ZK nodes have enough gas to execute the ZK actions. You can find the overview on [our gas price table here](gas-price-table-overview.md). In this article we will dive into the specifics of gas fees when doing ZK actions on Partisia Blockchain. 
+Zero-knowledge (ZK) computation involves a number of gas fees to ensure that a contract's associated ZK nodes have enough gas to execute the ZK actions. You can find the overview on [our gas price table here](gas-price-table-overview.md). In this article we will dive into the specifics of gas fees when doing ZK actions on Partisia Blockchain.
 
 ## ZK computation, MPC tokens and gas
 
@@ -24,7 +24,7 @@ The source for the fees is the [Partisia Blockchain yellow paper](https://drive.
 !!! info "Network gas price"
     NETWORK_FEE = NETWORK_BYTES * 5,000 / 1,000
 
-When sending transactions to a ZK contract, a network fee is paid by the calling user in the same way as for 
+When sending transactions to a ZK contract, a network fee is paid by the calling user in the same way as for
 regular transactions in public contracts.
 
 ### WASM execution fees
@@ -58,18 +58,18 @@ This covers the transaction fees of each node (currently hardcoded to 5,000 each
 !!! info "ZK computation gas fees"
     ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
 
-A ZK contract needs to pay for the transactions that ZK nodes must send when a ZK computation is executed as well as 
+A ZK contract needs to pay for the transactions that ZK nodes must send when a ZK computation is executed as well as
 for the multiplications in the computation.
 
-During a computation transactions are sent from each computation node. 
+During a computation transactions are sent from each computation node.
 For an optimistic computation each node sends 1 transaction to the binder.
-If the optimistic attempt fails, a pessimistic computation must be executed which 
+If the optimistic attempt fails, a pessimistic computation must be executed which
 entails each node sending 1 additional transaction to the binder. The cost of each of these
 transactions is covered using BASE_SERVICE_FEES.
 
-Besides this, the multiplications done during the computation must also be paid for. 
-According to the yellow paper the price for this is 5 USD cent per 1000 multiplications. 
-Since this is multiplied by 1000 to convert to gas, the price for the multiplications is: 
+Besides this, the multiplications done during the computation must also be paid for.
+According to the yellow paper the price for this is 5 USD cent per 1000 multiplications.
+Since this is multiplied by 1000 to convert to gas, the price for the multiplications is:
 
 NO_OF_MULTIPLICATIONS / 1000 * 5 * 1000 = NO_OF_MULTIPLICATIONS * 5
 
@@ -86,7 +86,7 @@ The cost of each of these transactions is covered using BASE_SERVICE_FEES.
 As per the yellow paper, the fee for preprocessing material is 5 USD cent per 1000 preprocessing triples.
 
 Preprocessing material is requested in batches of 100,000 triples for multiplication triples and batches of 1,000 triples for input masks.
-This means the material for each batch of multiplication triples costs 
+This means the material for each batch of multiplication triples costs
 
 100,000 / 1,000 * 5 = 5,000 USD cents
 
@@ -100,8 +100,7 @@ which is multiplied by 1,000 to get the price in gas.
 !!! info "Opening secret variables gas fees"
     OPEN_SECRET_VARIABLES_FEE = BASE_SERVICE_FEES
 
-Fees need to be paid for transactions that ZK nodes must send when some secret variable is opened. 
-This fee is paid by the owner of the variable, which is either a ZK contract or a user.
+Fees need to be paid for transactions that ZK nodes must send when secret variables are opened.
 
 The open secret variables fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to use BASE_SERVICE_FEES.
 
@@ -112,5 +111,5 @@ The open secret variables fee is part of the basic fees detailed in the yellow p
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some data needs to be attested.
 
-The attestation fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to use BASE_SERVICE_FEES. 
+The attestation fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to use BASE_SERVICE_FEES.
 
