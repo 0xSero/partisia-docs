@@ -1,21 +1,16 @@
 # VPS
 <div class="dot-navigation" markdown>
-   [](what-is-a-node-operator.md)
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
-   [](run-a-reader-node-on-your-local-machine.md)
    [*.*](vps.md)
    [](secure-your-vps.md)
    [](reader-node-on-vps.md)
-   [](create-an-account-on-pbc.md)
-   [](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
-   [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
 </div>
-
-## What is VPS
 
 A VPS is a Virtual Private server. Just like you can have a virtual machines on your PC, it is possible to rent server space for virtual machine from an internet hosting service (IHS). That is called a VPS. You choose a VPS just like you would choose a PC. You decide on an operating system (OS), for running nodes on Partisia Blockchain you choose Linux based OS (In this guide we used Ubuntu).
 Your VPS is physically capable of running the node if you align it with the [recommended machine specs](../node-operations/recommended-hardware-and-software.md).
