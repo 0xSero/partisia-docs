@@ -29,6 +29,4 @@ The private key has a public counterpart called a public key. This key is derive
 key can be recovered if lost, but the private key cannot. An account also has an address which is a number with fewer
 digits derived from the public key.
 
-### Read more
-
 **You can read more about PBC accounts [here](../pbc-fundamentals/create-an-account.md).**
