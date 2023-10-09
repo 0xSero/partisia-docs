@@ -27,66 +27,51 @@ interaction layer on the blockchain.
 
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_______________________________________________
-for keepsake dont mind this part
-
-**Contracts are asynchronous**: A contract can be placed on any given shard of
-the [multiple shards](../pbc-fundamentals/sharding.md) on Partisia Blockchain. This means that all actions take place in
-an order you can define as a developer, but the time it takes to complete an action can be dependent on what shard the
-contract is on and the geolocation of the node. This becomes much more relevant when looking at contract-to-contract
-actions. The asynchronous behaviour is part of what makes it possible for actions with callbacks to have multiple
-actions within the one callback.
-
 ## Contract-to-contract interaction model.
 
-When interacting with another contract, the first contracts action creates an event which creates the action for smart
-contract 2. The smart contract 2 in the
-example, has its own state and
-can be interacted with at any given time. Smart contract 1 knows when the interaction is sent but is not expecting a
-callback. The asynchronous way of creating contract-to-contract interaction becomes more
-cluttered with every contract you wish to call from that point. In another example the smart contract 2 can even create
-new actions for more and more smart contracts on the blockchain. The tricky part becomes handling gas and callbacks for
-a system with many contract-to-contract interactions, you can
-visit [our article on handling gas on a contract-to-contract basis](gas/contract-to-contract-gas-estimation.md).
+Expanding on the simple interaction model, a user sends a signed transaction to a smart contract. The signed transaction
+creates the first action to smart contract 1. Smart contract 1 has an action wherein we need to call contract 2. When
+the action is triggered it spawns a new event which will create the new action in smart contract 2. Any of these two
+actions can fail and if it does, the atomicity of Partisia Blockchain will ensure that the _failed action_ did not
+change the state of the smart contract. Any action can spawn any number of events to other contracts.
 
 ![SmartContractMentalModelcontract-to-contract.svg](mental-models%2FSmartContractMentalModelcontract-to-contract.svg)
 
 ## Contract-to-contract with callback
 
-Working with callbacks expands the mental model to include another event that is made from the action of the secondary
-contract. When a user signs a transaction, its creates an action. This action is made with a callback, a callback is a
-future event that creates a new action for the same contract with the wanted responses and failure/success statuses.
+Incorporating callbacks into our mental model introduces a layer of interaction possibilities, especially
+with secondary contracts. When a user sends a signed transaction, it creates an action. This
+action has a _callback_, which is an _anticipatory_ event for a subsequent action
+within the same contract.
 
-In the example below the callback is first produced after the action is made in Smart contract 2. The callback will
-always have a success or
-failure indication along with whatever else is packed into the callback itself. This callback event creates a callback
-action on smart contract 1. In smart contract 1 there are three state changes, often the actual state would not
-change after the first action, but presumably only after the callback has happened.
+A callback is created when an action is executed within Smart Contract 2.
+This callback event will either succeed or fail. Whether the callback fails or succeeds it will send the status in
+addition to any
+data it may
+carry. The information sent from Smart Contract 2 to Smart Contract 1 can be changed within the
+code of the action. Subsequently, this callback event spawns a callback action for Smart
+Contract 1.
+
+Smart Contract 1 callback-starting action sets in motion a potential sequence of state changes.
+Typically, the state remains unaltered after the initial action, with transformations anticipated only after the
+conclusion of the callback event. Callbacks, in essence, act as controllers of change when doing contract-to-contract
+interactions.
 
 ![SmartContractMentalModelWithCallback.svg](mental-models%2FSmartContractMentalModelWithCallback.svg)
 
 ## Contract-to-two-contracts with one callback.
 
-A contract can have multiple events spawning multiple actions to multiple contracts. They can share the same callback if
-they are all created from the same action. The callback can collect and include all statuses and responses from the
-callbacks from the different
-contracts. Simply put, contract 1 creates an event that creates an action in contract 2 and 3. The callbacks from
-contract 2 and 3 are collected into one event which is then returned to contract 1. This creates the possibility of
-error handling specific use cases on the chain without needing to re-trigger the full event chain, thus helping with gas
-efficiency.
+Smart contracts operate _asynchronously_ on PBC. The contracts are placed on any shard within the blockchain's
+architecture and events can define what contracts they belong to and what actions they can trigger. _Asynchrony_ is what
+enables callbacks to manage multiple actions within the same callback.
+
+Contracts can create events leading to actions in other contracts, and these actions can share a single callback when
+initiated from the same action. Callbacks _aggregate_ status updates and responses.
+
+As an example, Smart contract 1 can initiate events that create actions in Smart contract 2 and Smart contract 3. The
+resulting callbacks from these contracts are consolidated into a single event, which is then relayed to Smart contract 1. 
+In practice, Smart Contract 2 may succeed while Smart Contract 3's action fails. Both outcomes can be conveyed in the
+same callback to be managed by Smart Contract 1. This allows efficient error handling without the need for re-triggering
+the entire event chain.
 
 ![SmartContractMentalModelTwoActionsOneCallback.svg](mental-models%2FSmartContractMentalModelTwoActionsOneCallback.svg)
