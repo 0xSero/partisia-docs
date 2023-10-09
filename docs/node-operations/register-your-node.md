@@ -1,55 +1,66 @@
 # Register your node
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-a-node-operator.html"></a>
-    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
-    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
-    <a class="dot-navigation__item " href="vps.html"></a>
-    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
-    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
-    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
-    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
-    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
-    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
-    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="register-your-node.html"></a>
-    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
+   [](recommended-hardware-and-software.md)
+   [](vps.md)
+   [](secure-your-vps.md)
+   [](reader-node-on-vps.md)
+   [](complete-synaps-kyb.md)
+   [](run-a-block-producing-node.md)
+   [*.*](register-your-node.md)
+   [](node-health-and-maintenance.md)
 </div>
 
-The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a stake of MPC Tokens and sending a registration form. Both are done with transaction you can perform in the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register).
+The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a 
+stake of MPC Tokens and sending a registration form. Staking is done in the
+[Partisia Blockhain Browser](https://browser.partisiablockchain.com/node-operation) on the *Stake* button; registration 
+is done on the node via the `node-register.sh` script.
 
-1. You need the [MPC Wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh) for your browser.
-2. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc.md) for help to get gas in your account.
-3. For this your KYB must be verified (you will have received a verification e-mail). You need to get your Synapse Session ID.
+There are three prerequisites for registering:
 
-   - Log in to https://partisiablockchain.synaps.me/ (using Chrome)
-   - Ctrl+Shift+i (To inspect page)
-   - Click Networks (refresh page)
-   - Click Fetch XHR
-   - Click the partisia bucket
-   - Copy session ID
+1. You have staked the minimum amount of tokens (see [Get MPC tokens](get-mpc-tokens.md))
+1. You have completed your KYC/KYB, and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
+1. You have a reader node running that is up-to-date with the rest of the network, see below how to check this
 
-4. Go to the [Partisia Blochain Explorer](https://mpcexplorer.com/node-register). Log in.
-5. Log in to your account. Click upper right corner (View activity). This will take you to your account page.
-6. Click on _Node register_ on the menu bar and then click on _Manage MPC Tokens_. From there, click _Stake MPC Tokens_ and stake 25k or more tokens to your account.
-7. Click Register or Update tab on the menu and fill out the registration information (details below)
-8. Send Register Transaction.
+## Registering the node
 
-## Content of Staking Transaction
+The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
 
-- Amount (The amount of MPC Tokens you are staking)
+???+ note
 
-## How to fill out the form for the Register Transaction
+    Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
 
-You need the same 3 keypairs that you used in the `config.json`. You use the private key of your account to log into your wallet and the Explorer. The registration ensures that your account and tokens are associated with your node. Also, it creates a profile with public information about your node.
+The node REST server will respond with a code `204 No Content` if it is up-to-date with the network. 
+You can check the status by running the following command:
 
-- Session ID from [Synaps KYB](https://partisiablockchain.synaps.me/)
-- Finalization private key in the form called BLS Signing key
-- Network public key
-- Website
-- ServerJurisdiction (pick location from slide down menu)
+```bash
+./node-register.sh status
+```
 
-**NB.** You can change your public information from the Register Transaction by doing a new registration transaction.
+You will need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
+[Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
+gas balance is shown.
+
+To send the register transaction you need to log in to your node and go to the `~/pbc` folder and call the `node-register.sh` script.
+
+```bash
+cd ~/pbc
+```
+
+```bash
+./node-register.sh register-node
+```
+
+Follow the on-screen instructions and you should now be registered.
+
+???+ note
+
+    You can update your information from the Register Transaction by doing a new registration transaction.
+
+Then you need to verify that the account key you have in the `config.json` file matches the blockchain address you've used in your KYC/KYB.
+
+If it still fails then reach out to the [community](../get-support-from-pbc-community.md).
 
 ## Conditions for inclusion
 

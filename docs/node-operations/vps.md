@@ -1,22 +1,16 @@
 # VPS
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-a-node-operator.html"></a>
-    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
-    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="vps.html"></a>
-    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
-    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
-    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
-    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
-    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
-    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
-    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
-    <a class="dot-navigation__item " href="register-your-node.html"></a>
-    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
+   [](recommended-hardware-and-software.md)
+   [*.*](vps.md)
+   [](secure-your-vps.md)
+   [](reader-node-on-vps.md)
+   [](complete-synaps-kyb.md)
+   [](run-a-block-producing-node.md)
+   [](register-your-node.md)
+   [](node-health-and-maintenance.md)
 </div>
-
-## What is VPS
 
 A VPS is a Virtual Private server. Just like you can have a virtual machines on your PC, it is possible to rent server space for virtual machine from an internet hosting service (IHS). That is called a VPS. You choose a VPS just like you would choose a PC. You decide on an operating system (OS), for running nodes on Partisia Blockchain you choose Linux based OS (In this guide we used Ubuntu).
 Your VPS is physically capable of running the node if you align it with the [recommended machine specs](../node-operations/recommended-hardware-and-software.md).
