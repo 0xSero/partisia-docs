@@ -1,19 +1,15 @@
 # Recommended hardware and software
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-a-node-operator.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="recommended-hardware-and-software.html"></a>
-    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
-    <a class="dot-navigation__item " href="vps.html"></a>
-    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
-    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
-    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
-    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
-    <a class="dot-navigation__item" href="complete-synaps-kyb.html"></a>
-    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
-    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
-    <a class="dot-navigation__item " href="register-your-node.html"></a>
-    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
-    <!-- Repeat above for more dots -->
+<div class="dot-navigation" markdown>
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
+   [*.*](recommended-hardware-and-software.md)
+   [](vps.md)
+   [](secure-your-vps.md)
+   [](reader-node-on-vps.md)
+   [](complete-synaps-kyb.md)
+   [](run-a-block-producing-node.md)
+   [](register-your-node.md)
+   [](node-health-and-maintenance.md)
 </div>
 ## Recommended machine specs
 

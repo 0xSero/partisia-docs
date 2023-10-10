@@ -1,39 +1,43 @@
-# Complete Synaps KYB
-<div class="dot-navigation">
-    <a class="dot-navigation__item" href="what-is-a-node-operator.html"></a>
-    <a class="dot-navigation__item" href="recommended-hardware-and-software.html"></a>
-    <a class="dot-navigation__item" href="run-a-reader-node-on-your-local-machine.html"></a>
-    <a class="dot-navigation__item " href="vps.html"></a>
-    <a class="dot-navigation__item" href="secure-your-vps.html"></a>
-    <a class="dot-navigation__item" href="reader-node-on-vps.html"></a>
-    <a class="dot-navigation__item" href="create-an-account-on-pbc.html"></a>
-    <a class="dot-navigation__item " href="get-mpc-tokens.html"></a>
-    <a class="dot-navigation__item dot-navigation__item--active" href="complete-synaps-kyb.html"></a>
-    <a class="dot-navigation__item" href="keys-for-bp-config-and-registration.html"></a>
-    <a class="dot-navigation__item" href="run-a-block-producing-node.html"></a>
-    <a class="dot-navigation__item " href="register-your-node.html"></a>
-    <a class="dot-navigation__item" href="node-health-and-maintenance.html"></a>
-    <!-- Repeat above for more dots -->
+# Complete Synaps KYB/KYC
+<div class="dot-navigation" markdown>
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
+   [](recommended-hardware-and-software.md)
+   [](vps.md)
+   [](secure-your-vps.md)
+   [](reader-node-on-vps.md)
+   [*.*](complete-synaps-kyb.md)
+   [](run-a-block-producing-node.md)
+   [](register-your-node.md)
+   [](node-health-and-maintenance.md)
 </div>
 
-To ensure a decentralized approval process, the public information about the entity operating the node is verified by an independent 3rd party company called Synaps.
-Your information is verified through a KYB (know your customer) site, where your identity and company credentials are checked.
+To ensure a decentralized approval process, the public information about the entity operating the node is verified by an independent third-party company called Synaps.
+Your information is verified through a KYB (know your business) or KYC (know your customer) process, where your identity and company credentials are checked.
 
-#### You will need ID access to a webcam for likeness, and company documents ready.
+The processes differ between business and personal accounts.
 
-1. Go to the [Synaps portal](https://partisiablockchain.synaps.me/)   
-2. Choose Corporate   
-3. Click the sign-up button   
-4. Upload documents in the order they are requested  
-5. You will receive a comfirmation e-mail when the documents have been approved  
+**You will need to have your ID, access to a webcam for likeness and company documents ready.**
 
-Now you need to retrieve your session ID:
+## Verification process for individuals (KYC)
 
-1. Log in to the [Synaps Portal](https://partisiablockchain.synaps.me/) (using Chrome)   
-2. Ctrl+Shift+i (To inspect page)   
-3. Click Networks (refresh page)   
-4. Click Fetch XHR   
-5. Click the Partisia bucket   
-6. Copy session ID    
+Registering a node on the chain requires that you send personal data on-chain.
+The KYC provider Synaps then verifies your identity and the on-chain data you have uploaded.
 
-Copy and save your session ID for later use.
+1. Go to the [Node Registration KYC page](https://browser.partisiablockchain.com/node-registration).
+2. Fill out the form and submit it
+3. Go to the [Synaps portal](https://partisiablockchain-kyc.synaps.me/). It is important that the information you provide matches that you sent in the previous step.
+4. Click on *Signup Now*
+5. Upload documents in the order they are requested
+6. You will receive a confirmation e-mail when the documents have been approved
+
+## Verification process for businesses (KYB)
+
+1. Go to the [Synaps portal](https://partisiablockchain.synaps.me/)
+2. Click the *Sign Up* button
+3. Upload documents in the order they are requested  
+4. You will receive a confirmation e-mail when the documents have been approved  
+
+## Next steps
+
+The verification process can take several business days. Use the time to ensure that  your [reader node](reader-node-on-vps.md) is running correctly.
