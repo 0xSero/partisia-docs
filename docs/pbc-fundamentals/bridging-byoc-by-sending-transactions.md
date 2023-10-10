@@ -23,9 +23,9 @@ Every time the bridge is used 0.1% of transferred value is subtracted as a fee t
 
 BYOC acts as IOUs that can only be created when the equal sum of value is locked on the chain where the deposit comes from. The deposited coins are locked to the oracle contract on that chain. A deposit oracle consists of three PBC nodes, they monitor the BYOC contract for activity. When activity is detected and two out of three nodes of the oracle confirms a users locked funds, it invokes a contract action resulting in the minting of equivalent funds on PBC called BYOC.
 
-**Deposit n amount of ETH from an ETH account to a PBC account**
-
 ![Diagram1](../pbc-fundamentals/depositBridge.png)
+
+**Deposit n amount of ETH from an ETH account to a PBC account**
 
 1. Invoke the contract action _deposit_ on the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract):
 ```SOL
@@ -45,10 +45,9 @@ deposit(bytes21 destination, uint amount)
 
 When you withdraw funds from PBC the BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they each generate a signature. You need these to unlock the funds from the contract on the native chain.        
 
-
-**Withdraw n amount of ETH from a PBC account**   
-
 ![Diagram1](../pbc-fundamentals/withdrawBridge.png)
+
+**Withdraw n amount of ETH from a PBC account**
 
 1. Add a pending withdrawal on PBC by invoking the action _addPendingWithdrawal_ at [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146/addPendingWithdrawal):
 ```JAVA 
