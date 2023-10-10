@@ -9,6 +9,6 @@ The following guide has 10 parts. If you do the steps of the guide in order, you
 1. [Secure your VPS](secure-your-vps.md)
 1. [Run a reader node on a VPS](reader-node-on-vps.md)
 1. [Complete the Synaps KYB](complete-synaps-kyb.md)
-1. [Upgrade config to a block producing node on the VPS](run-a-block-producing-node.md)
+1. [Upgrade reader to block producer](run-a-block-producing-node.md)
 1. [Register your node](register-your-node.md)
 1. [Node health and maintenance](node-health-and-maintenance.md)

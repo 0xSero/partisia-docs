@@ -9,7 +9,6 @@
    [](create-an-account-on-pbc.md)
    [](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
-   [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
