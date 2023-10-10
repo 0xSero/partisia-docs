@@ -43,7 +43,7 @@ deposit(bytes21 destination, uint amount)
 
 ![Diagram1](../pbc-fundamentals/depositBridge.png) 
 
-#### How to make a withdrawal
+### How to make a withdrawal
 
 When you withdraw funds from PBC the BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they each generate a signature. You need these to unlock the funds from the contract on the native chain.        
 
