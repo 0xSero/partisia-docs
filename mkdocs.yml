@@ -47,7 +47,6 @@ nav:
       - node-operations/what-is-a-node-operator.md
       - node-operations/how-to-run-a-reader-node.md
       - Run a block producing node node:
-          - node-operations/how-to-run-a-block-producing-node-on-partisia-blockchain.md
           - node-operations/create-an-account-on-pbc.md
           - node-operations/get-mpc-tokens.md
           - node-operations/recommended-hardware-and-software.md
