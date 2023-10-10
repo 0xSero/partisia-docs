@@ -25,6 +25,8 @@ BYOC acts as IOUs that can only be created when the equal sum of value is locked
 
 **Deposit n amount of ETH from an ETH account to a PBC account**
 
+![Diagram1](../pbc-fundamentals/depositBridge.png)
+
 1. Invoke the contract action _deposit_ on the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract):
 ```SOL
 deposit(bytes21 destination, uint amount)
@@ -39,14 +41,14 @@ deposit(bytes21 destination, uint amount)
 7. The PBC wallet will read the account balance, and the account owner will now have access to the deposited funds
 
 
-![Diagram1](../pbc-fundamentals/depositBridge.png) 
-
 ### How to make a withdrawal
 
 When you withdraw funds from PBC the BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they each generate a signature. You need these to unlock the funds from the contract on the native chain.        
 
 
 **Withdraw n amount of ETH from a PBC account**   
+
+![Diagram1](../pbc-fundamentals/withdrawBridge.png)
 
 1. Add a pending withdrawal on PBC by invoking the action _addPendingWithdrawal_ at [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146/addPendingWithdrawal):
 ```JAVA 
@@ -80,9 +82,7 @@ withdraw(uint64 withdrawNonce,
 For your interaction with the PBC contract in step 1 you may find it useful to [download](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=transactions) the contract ABI in upper right corner of the contract page. This helps you build a Typescript file that can help you build your transaction to call the contract with. Use ABI with this command:
 ```BASH
 cargo partisia-contract abi --use https://gitlab.com/api/v4/projects/35039227/packages/maven/com/partisiablockchain/language/abi-client/3.25.0/abi-client-3.25.0-jar-with-dependencies.jar codegen --ts <path to .abi file> <output TS file>
-```
-
-![Diagram1](../pbc-fundamentals/withdrawBridge.png)
+```   
    
 ## Resources to get you started
 
