@@ -18,7 +18,7 @@
 
 ## Casting secret votes on the PBC contract
 
-1. Go to [https://testnet.partisiablockchain.com/info/contract/<todo>](https://testnet.partisiablockchain.com/info/contract/<todo>)
+1. Go to [https://browser.testnet.partisiablockchain.com/contracts/03c3b8c99b05417e431ca79296e8ec6b7bf7398276?tab=transactions](https://browser.testnet.partisiablockchain.com/contracts/03c3b8c99b05417e431ca79296e8ec6b7bf7398276?tab=transactions)
 2. Press the “Cast Vote” button to input your secret vote.
    Choose the "True" option for casting a "yes" vote, or the "False" option for casting a "no" vote.
    Press the "Submit" button to send the secret vote.
@@ -62,7 +62,7 @@ These steps shows you how to securely move the vote result to the Ethereum publi
 4. Fill in the values of the vote result and the proof of the result shown in PBC.
 5. Try and alter the result to see for yourself that it is tamper-proof when trying to add votes or other kinds of manipulation. You will see that the transaction will fail when doing so.
 
-## Optionally validate the PBC &rarr; Ethereum link
+## Validate the PBC &rarr; Ethereum link
 
 Following the example above, it may be a bit difficult to see how the transfer of data to Ethereum is secured, i.e. who signs the result of a vote and how does Ethereum verify the signatures?
 
