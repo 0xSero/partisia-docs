@@ -12,7 +12,7 @@ To get your reader node you are first completing 4 of the 10 steps from the bloc
 1. [Recommended hardware and software](recommended-hardware-and-software.md)
 2. [Get a VPS](vps.md)
 3. [Secure your VPS](secure-your-vps.md)
-4. [Set up a reader on VPS]((reader-node-on-vps.md)) **NB.** Stop before running `node-register.sh` and go to step 5, you will use the script in step 7
-5. [Automatically update the node software]((reader-node-on-vps.md))
+4. [Set up a reader on VPS](reader-node-on-vps.md) **NB.** Stop before running `node-register.sh` and go to step 5, you will use the script in step 7
+5. [Automatically update the node software](https://partisiablockchain.gitlab.io/-/documentation/-/jobs/5203104211/artifacts/public/node-operations/node-health-and-maintenance.html#get-automatic-updates)
 6. [Set up reverse proxy using example in ZK node guide](rhttps://drive.google.com/file/d/1WOzM63QsBntSVQMpWhG7oDuEWYJE2Ass/view) (You can choose a hostname different from ZK)
 7. [Create reader config with node register tool](https://partisiablockchain.gitlab.io/documentation/node-operations/reader-node-on-vps.html#the-node-registersh-script)
