@@ -1,14 +1,17 @@
 # Create an account on PBC
 
 <div class="dot-navigation" markdown>
-   [](what-is-a-node-operator.md)
    [*.*](create-an-account-on-pbc.md)
    [](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
+   [](run-a-reader-node-on-your-local-machine.md)
    [](vps.md)
    [](secure-your-vps.md)
    [](reader-node-on-vps.md)
+   [*.*](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
+   [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
@@ -29,7 +32,5 @@ private key safe for two reasons:
 The private key has a public counterpart called a public key. This key is derived from the private key, so the public
 key can be recovered if lost, but the private key cannot. An account also has an address which is a number with fewer
 digits derived from the public key.
-
-### Read more
 
 **You can read more about PBC accounts [here](../pbc-fundamentals/create-an-account.md).**

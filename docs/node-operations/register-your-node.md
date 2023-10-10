@@ -1,13 +1,16 @@
 # Register your node
 <div class="dot-navigation" markdown>
-   [](what-is-a-node-operator.md)
    [](create-an-account-on-pbc.md)
    [](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
+   [](run-a-reader-node-on-your-local-machine.md)
    [](vps.md)
    [](secure-your-vps.md)
    [](reader-node-on-vps.md)
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
+   [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
    [*.*](register-your-node.md)
    [](node-health-and-maintenance.md)
@@ -20,18 +23,9 @@ is done on the node via the `node-register.sh` script.
 
 There are three prerequisites for registering:
 
-1. You have staked the minimum amount of tokens
+1. You have staked the minimum amount of tokens (see [Get MPC tokens](get-mpc-tokens.md))
 1. You have completed your KYC/KYB, and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
-1. You have a reader node running that is up-to-date with the rest of the network, see [below](#register-your-node) how to check this
-
-For the following you need the Metamask Wallet extension for [Chrome](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
-or for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/).
-
-## Staking tokens
-
-1. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc.md) for help to get gas in your account.
-1. Log in to your account. Click upper right corner (View activity). This will take you to your account page.
-1. Click on _Node register_ on the menu bar and then click on _Manage MPC Tokens_. From there, click _Stake MPC Tokens_ and stake 25k or more tokens to your account.
+1. You have a reader node running that is up-to-date with the rest of the network, see below how to check this
 
 ## Registering the node
 
@@ -45,11 +39,11 @@ The node REST server will respond with a code `204 No Content` if it is up-to-da
 You can check the status by running the following command:
 
 ```bash
-[[ $(curl -L http://localhost:8080/ -o /dev/null -w '%{http_code}\n' -s) == "204" ]] || echo "Not up-to-date"
+./node-register.sh status
 ```
 
 You will need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
-[Partisia Blockchain Browser](https://browser.partisiablockchain.com), go to *Your Account* and then *BYOC*, where your
+[Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
 gas balance is shown.
 
 To send the register transaction you need to log in to your node and go to the `~/pbc` folder and call the `node-register.sh` script.
@@ -64,8 +58,9 @@ cd ~/pbc
 
 Follow the on-screen instructions and you should now be registered.
 
+???+ note
 
-**NOTE:** You can update your information from the Register Transaction by doing a new registration transaction.
+    You can update your information from the Register Transaction by doing a new registration transaction.
 
 Then you need to verify that the account key you have in the `config.json` file matches the blockchain address you've used in your KYC/KYB.
 

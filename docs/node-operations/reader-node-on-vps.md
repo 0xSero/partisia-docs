@@ -1,21 +1,24 @@
 # Reader node on VPS
 
 <div class="dot-navigation" markdown>
-   [](what-is-a-node-operator.md)
    [](create-an-account-on-pbc.md)
    [](get-mpc-tokens.md)
    [](recommended-hardware-and-software.md)
+   [](run-a-reader-node-on-your-local-machine.md)
    [](vps.md)
    [](secure-your-vps.md)
    [*.*](reader-node-on-vps.md)
+   [](create-an-account-on-pbc.md)
+   [](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
+   [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
 </div>
 
 When setting up the node you should use the non-root user you created in the previous [step](../node-operations/secure-your-vps.md). 
-You need to install the [recommended software](../node-operations/recommended-hardware-and-software.md) before you start.
+You need to install the [recommended software](../node-operations/recommended-hardware-and-software.md#recommended-software) before you start.
 The node will run as user:group `1500:1500`
 
 
@@ -99,8 +102,6 @@ services:
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
 
-You don't yet have access to the Partisia container repository, so you first need to log in.
-
 ### The `node-register.sh` script
 
 The `node-register.sh` script will help you generate a valid node configuration file.
@@ -129,8 +130,18 @@ Start the tool with the `create-config` argument:
 ./node-register.sh create-config
 ```
 
-The first answer `no` to the node is block producing, and follow the on-screen instructions.
-That should do it.
+As we are creating a reader node we will not be producing blocks.
+Your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
+
+The config should look like the example below.
+
+??? example "Example: Basic reader config"
+
+    ```
+    {
+        "networkKey": "YOUR NETWORK KEY"  
+    }
+    ```
 
 ### Starting the node
 
