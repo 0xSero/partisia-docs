@@ -8,7 +8,6 @@
    [](secure-your-vps.md)
    [](reader-node-on-vps.md)
    [](create-an-account-on-pbc.md)
-   [*.*](get-mpc-tokens.md)
    [](complete-synaps-kyb.md)
    [](keys-for-bp-config-and-registration.md)
    [](run-a-block-producing-node.md)
