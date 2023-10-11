@@ -10,43 +10,46 @@ A Partisia Blockchain [account](create-an-account.md) holds the necessary inform
 
 ## How does the bridge work
 
-The basic idea behind the bridge is to move liquid cryptocurrencies to and from PBC.
+The idea behind the bridge is to move cryptocurrencies to and from PBC. 
+In the deposit and withdrawal examples below, we will show how to bridge ETH. The method works for all BYOCs on PBC. Currently, BYOCs include ETH, BNB, and USDC.
 
-&nbsp;
+Below you will learn which contracts and invocations are used for deposits and withdrawals.
+PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, in the case of a withdrawal the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain.
+The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md).    
 
-![Diagram0](../pbc-fundamentals/bridge-overview.png)
+Every time the bridge is used 0.1% of transferred value is subtracted as a fee to pay for the service provided by oracle nodes. If you bridge 1 ETH, then 0.999 ETH is transferred and 0.001 ETH is paid to the oracle nodes.
 
-&nbsp;  
+### How to make a deposit
 
-
-To deposit funds on PBC from a foreign chain the coins are locked on an oracle contract on the foreign chain. A deposit oracle consisting of three nodes on PBC monitors this contract. When the oracle nodes confirm that the funds are locked on the relevant contract the oracle nodes can sign the minting of equivalent funds on PBC called BYOC (bring your own coin).   
-The BYOC essentially works as IOUs that can only be created when the equal sum of money is locked on the chain where the deposit comes from.
-   
-Withdrawal is the same operation in reverse order:    
-The BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they sign for the funds to be unlocked from the contract on the native chain.
-To use the bridge you must have an account on PBC and on the chain which coins you want to deposit or withdraw. You must have a wallet to sign transactions on both chains that you are interacting with. In the following examples we will assume, that you are trying to bridge ETH. The method used for other BYOCs is the same. Currently, BYOCs include ETH, Binance Coin and USDC. There is a detailed description below, describing which contracts and invocations are used for deposits and withdrawals.
-
-### Make a deposit
-
-**Deposit X ETH from ETH account A to PBC account B**
-
-1. Invoke the contract action _deposit_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract):
-```SOL
-deposit(bytes21 destination, uint amount)
-```
-2. The deposit oracle nodes on PBC reads and signs the deposit   
-3. x BYOC twins are minted on PBC by [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
-4. x ETH are added to the balance PBC account B   
-
+BYOC acts as IOUs that can only be created when the equal sum of value is locked on the chain where the deposit comes from. The deposited coins are locked to the oracle contract on that chain. A deposit oracle consists of three PBC nodes, they monitor the BYOC contract for activity. When activity is detected and two out of three nodes of the oracle confirms a users locked funds, it invokes a contract action resulting in the minting of equivalent funds on PBC called BYOC.
 
 ![Diagram1](../pbc-fundamentals/depositBridge.png)
 
+**Deposit n amount of ETH from an ETH account to a PBC account**
 
-### Make a withdrawal
+1. Invoke the contract action _deposit_ on the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract):
+```SOL
+deposit(bytes21 destination, uint amount)
+```
+    * _destination_ is the receiving PBC address decoded to bytes 
+    * _amount_ is ETH converted to Wei, minimum amount is 0.01 ETH
+2. The contract locks n ETH
+3. The oracle nodes read the incoming transaction on the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract)    
+4. The action _deposit_ is invoked on [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351/deposit) by the oracle nodes (the invocation requires 2/3 nodes to invoke with same input) 
+5. Given that 2 of 3 oracle nodes invoked deposit the contract mints n BYOC twins  
+6. (n - fee) ETH are added to the balance the PBC account
+7. The PBC wallet reads the account balance, now you have access to the deposited funds
 
-**Withdraw X ETH from PBC account A**   
 
-1. Add a pending withdrawal on PBC by invoking the action _addPendingWithdrawal_ at [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146):
+### How to make a withdrawal
+
+When you withdraw funds from PBC the BYOCs are first burned on PBC, then when the withdrawal oracle nodes confirm this, they each generate a signature. You need these to unlock the funds from the contract on the native chain.        
+
+![Diagram1](../pbc-fundamentals/withdrawBridge.png)
+
+**Withdraw n amount of ETH from a PBC account**
+
+1. Add a pending withdrawal on PBC by invoking the action _addPendingWithdrawal_ at [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146/addPendingWithdrawal):
 ```JAVA 
  public ByocOutgoingContractState addPendingWithdrawal(
       SysContractContext context,
@@ -54,17 +57,22 @@ deposit(bytes21 destination, uint amount)
       EthereumAddressRpc receiver,
       Unsigned256 amount) 
 ```
-2. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
+2. The ETH Withdrawal contract burns n ETH twins minus the fee to pay the oracle nodes
+3. When the ETH Withdrawal oracle confirms the ETH twins have been burned, they generate the signatures necessary for a release from the ETH contract. The signatures are available in the state of [ETH Withdraw](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state)
+4. You retrieve the [nonce](https://partisiablockchain.gitlab.io/-/documentation/-/jobs/5230191090/artifacts/public/pbc-fundamentals/dictionary.html#nonce), signatures and bitmask from the [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) waits until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
+5. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
-withdraw(uint64 withdrawNonce,
-   address destination,
-   uint amount,
-   uint32 bitmask,
-   bytes calldata signatures
-   )
-
+withdraw(uint64 withdrawNonce, 
+   address destination, 
+   uint amount, 
+   uint32 bitmask, 
+   bytes calldata signatures)
 ```
-3. x ETH are added to the balance of ETH account A    
+	* _withdrawNonce_ is found in the JSON state field named "key" 
+	* you must subtract 0.1% (fee for oracle services) of the _uint amount_ compared with the amount in step 1 
+	* _uint32 bitmask_ express which oracle nodes that have signed the withdrawal, e.g. 101 first and last node signed, input the three bits as the equivalent decimal number: (101)<sub>2</sub> = 5 				 
+	* For each signature, 27 is added to the recovery id of the PBC-signature. This id needs to be moved to the end of the signature. e.g. a PBC-signature with a hex value of 01/.../ gives ETH-signature /.../1c
+6. (n - fee) ETH are released from the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract) and again available for use by the owner the ETH account    
 
    
 ## Resources to get you started
