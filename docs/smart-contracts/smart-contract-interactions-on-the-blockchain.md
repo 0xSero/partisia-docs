@@ -5,7 +5,9 @@ occurs, or nothing occurs. A guarantee of atomicity
 prevents updates to the blockchain occurring only partially.
 Consequently an atomic action is either _successful_ in which case the changes are committed to the blockchain and
 visible
-for everyone or it _fails_ in which case no state changes on the blockchain. [Atomicity](https://en.wikipedia.org/wiki/Atomicity_(database_systems)) on the Partisia Blockchain works in the same way as in a database system.
+for everyone or it _fails_ in which case no state changes on the
+blockchain. [Atomicity](https://en.wikipedia.org/wiki/Atomicity_(database_systems)) on the Partisia Blockchain works in
+the same way as in a database system.
 
 ## Simple interaction model
 
@@ -39,18 +41,19 @@ successful actions can spawn events. Any action can spawn any number of events t
 
 ## Contract-to-contract with callback
 
-Incorporating callbacks into our mental model introduces a layer of interaction possibilities, especially
-with secondary contracts. When a user sends a signed transaction, it creates an action. This
+When a user sends a signed transaction, it creates an action. This
 action has a _callback_, which is an _anticipatory_ event for a subsequent action
 within the same contract.
 
-A callback is created when an action is executed within Smart Contract 2.
-This callback event will either succeed or fail. Whether the callback fails or succeeds it will send the status in
+Expanding on the former example: When creating an auction you would need a callback to give information whether the
+token contracts escrow transfer was a success or failure to update the highest bid on your auction contract. A callback
+is created when an action is executed within the token contract.
+Whether the action creating the callback fails or succeeds it will send the actions status with the callback in
 addition to any
 data it may
-carry. The information sent from Smart Contract 2 to Smart Contract 1 can be changed within the
-code of the action. Subsequently, this callback event spawns a callback action for Smart
-Contract 1.
+carry. The information sent from the token contract to the auction contract can be changed within the
+code of the action. Subsequently, this callback event spawns a callback action for the auction contract, thus changing
+the state.
 
 Smart Contract 1 callback-starting action sets in motion a potential sequence of state changes.
 Typically, the state remains unaltered after the initial action, with transformations anticipated only after the
