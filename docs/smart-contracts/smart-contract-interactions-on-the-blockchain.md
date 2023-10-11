@@ -27,13 +27,15 @@ interaction layer on the blockchain.
 
 ![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
 
-## Contract-to-contract interaction model.
+## Contract-to-contract interaction model
 
 Expanding on the simple interaction model, a user sends a signed transaction to a smart contract. The signed transaction
-creates the first action to smart contract 1. Smart contract 1 has an action wherein we need to call contract 2. When
-the action is triggered it spawns a new event which will create the new action in smart contract 2. Any of these two
+calls the bid action on the auction contract. To perform the bid the auction will ask a token contract to transfer the
+amount of tokens from the users account to the auction contract itself as escrow payment. When the bid
+action is triggered it spawns a new event which will start the escrow transfer in the token contract. Any of these two
 actions can fail and if it does, the atomicity of Partisia Blockchain will ensure that the _failed action_ did not
-change the state of the smart contract. Any action can spawn any number of events to other contracts.
+change the state of the smart contract. If the bid action fails it will never spawn the escrow action-event, only
+successful actions can spawn events. Any action can spawn any number of events to other contracts.
 
 ![SmartContractMentalModelcontract-to-contract.svg](mental-models%2FSmartContractMentalModelcontract-to-contract.svg)
 
@@ -69,7 +71,10 @@ Contracts can create events leading to actions in other contracts, and these act
 initiated from the same action. Callbacks _aggregate_ status updates and responses.
 
 As an example, Smart contract 1 can initiate events that create actions in Smart contract 2 and Smart contract 3. The
-resulting callbacks from these contracts are consolidated into a single event, which is then relayed to Smart contract 1. 
+resulting callbacks from these contracts are consolidated into a single event, which is then relayed to Smart contract
+
+1.
+
 In practice, Smart Contract 2 may succeed while Smart Contract 3's action fails. Both outcomes can be conveyed in the
 same callback to be managed by Smart Contract 1. This allows efficient error handling without the need for re-triggering
 the entire event chain.
