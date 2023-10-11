@@ -169,6 +169,7 @@ number and size of reads and writes is entirely dependent on the traffic on the 
 
 ### Reader for development
 
-If your plan is to run a reader for creating a dApp you should [set up reverse proxy using example in ZK node guide](https://drive.google.com/file/d/1WOzM63QsBntSVQMpWhG7oDuEWYJE2Ass/view). 
+If your plan is to run a reader for a dApp or a front-end you should go to the next step from the [reader main page](how-to-run-a-reader-node.md).
+
 
 To run a block producing node continue to next page.
