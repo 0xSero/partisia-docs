@@ -57,8 +57,8 @@ the state.
 
 The auction contract callback-starting action sets in motion a potential sequence of state changes.
 Typically, the state remains unaltered after the initial action, with transformations anticipated only after the
-conclusion of the callback event. In the example you would only want to update the highest bidder when the bid went
-through. Callbacks, in essence, act as controllers of change when doing contract-to-contract
+conclusion of the callback event. In the example you would only want to update the highest bidder if the bid went
+succeeded and do nothing if the bid failed. Callbacks, in essence, act as controllers of change when doing contract-to-contract
 interactions.
 
 ![SmartContractMentalModelWithCallback.svg](mental-models%2FSmartContractMentalModelWithCallback.svg)
