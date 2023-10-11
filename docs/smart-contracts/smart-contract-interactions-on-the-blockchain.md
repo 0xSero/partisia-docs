@@ -72,13 +72,13 @@ enables callbacks to manage multiple actions within the same callback.
 Contracts can create events leading to actions in other contracts, and these actions can share a single callback when
 initiated from the same action. Callbacks _aggregate_ status updates and responses.
 
-As an example, Smart contract 1 can initiate events that create actions in Smart contract 2 and Smart contract 3. The
-resulting callbacks from these contracts are consolidated into a single event, which is then relayed to Smart contract
-
-1.
-
-In practice, Smart Contract 2 may succeed while Smart Contract 3's action fails. Both outcomes can be conveyed in the
-same callback to be managed by Smart Contract 1. This allows efficient error handling without the need for re-triggering
+As an example, when the auction is won we need two things to happen, 1. transfer of the winning item to the winner. 2.
+Token transfer to the owner of the auction. In this case we would have three contracts, the auction contract, the
+token transfer and the winning item transfer, as an example this could be a NFT contract. The auction contract
+initiates the winning of the auction, this will create two events that will spawn two separate actions, one for token
+transfer and one for the NFT transfer, with the same callback. The resulting callbacks from the contracts are
+consolidated into a single event which is then relayed to the auction contract. This makes sense when you only want both
+of the actions happening if both are a success. This allows efficient error handling without the need for re-triggering
 the entire event chain.
 
 ![SmartContractMentalModelTwoActionsOneCallback.svg](mental-models%2FSmartContractMentalModelTwoActionsOneCallback.svg)
