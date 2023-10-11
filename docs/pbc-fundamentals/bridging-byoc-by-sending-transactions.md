@@ -38,7 +38,7 @@ deposit(bytes21 destination, uint amount)
 4. The action _deposit_ is invoked on [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351/deposit) by the oracle nodes (the invocation requires 2/3 nodes to invoke with same input) 
 5. Given that 2 of 3 oracle nodes invoked deposit the contract mints n BYOC twins  
 6. (n - fee) ETH are added to the balance the PBC account
-7. The PBC wallet will read the account balance, and the account owner will now have access to the deposited funds
+7. The PBC wallet reads the account balance, now you have access to the deposited funds
 
 
 ### How to make a withdrawal
