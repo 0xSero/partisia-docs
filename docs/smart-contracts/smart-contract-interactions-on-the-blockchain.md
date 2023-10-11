@@ -5,9 +5,7 @@ occurs, or nothing occurs. A guarantee of atomicity
 prevents updates to the blockchain occurring only partially.
 Consequently an atomic action is either _successful_ in which case the changes are committed to the blockchain and
 visible
-for everyone or it _fails_ in which case no state changes on the blockchain. We apply
-the [atomicity](https://en.wikipedia.org/wiki/Atomicity_(database_systems)) argument to the blockchain on the
-same level as you would do with a database system.
+for everyone or it _fails_ in which case no state changes on the blockchain. [Atomicity](https://en.wikipedia.org/wiki/Atomicity_(database_systems)) on the Partisia Blockchain works in the same way as in a database system.
 
 ## Simple interaction model
 
