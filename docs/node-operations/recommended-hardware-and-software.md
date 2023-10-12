@@ -11,6 +11,7 @@
    [](register-your-node.md)
    [](node-health-and-maintenance.md)
 </div>
+
 ## Recommended machine specs
 
 - 8 vCPU or 8 cores

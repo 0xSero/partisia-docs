@@ -166,3 +166,10 @@ logs [here](https://docs.docker.com/config/containers/logging/configure/).
 
 The storage of the node is based on RocksDB. It is write-heavy and will increase in size for the foreseeable future. The
 number and size of reads and writes is entirely dependent on the traffic on the network.
+
+### Reader for development
+
+If your plan is to run a reader for a dApp or a front-end you should go to the next step from the [reader main page](how-to-run-a-reader-node.md).
+
+
+To run a block producing node continue to next page.
