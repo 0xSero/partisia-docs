@@ -78,6 +78,7 @@ Facilitates the change of state of MPC tokens as well as transfer of MPC tokens 
 ## Zero Knowledge and MPC
 
 #### [ZK Deploy](https://browser.partisiablockchain.com/contracts/018bc1ccbb672b87710327713c97d43204905082cb)
+Responsible for the deployment of new ZK contracts
 
 #### [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65)
 Handles registration of new ZK nodes, as well as disputes and allocation to specific ZK jobs.
