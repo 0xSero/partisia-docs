@@ -43,7 +43,7 @@ Facilitates the deployment of new deposit and withdrawal [oracles](../node-opera
 
 ### [Small oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)
 
-Below you see the oracle contracts handling deposits and withdrawals for the currently accepted BYOCs: ETH, BNB and USDC. These contracs have a transfer limit
+Below you see the oracle contracts handling deposits and withdrawals for the currently accepted BYOCs: ETH, BNB and USDC. These contracts have a transfer limit controlling when the nodes providing the service will be rotated.
 
 
 #### [ETH Deposit on PBC](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)  
