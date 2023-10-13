@@ -31,7 +31,7 @@ The system update contract facilitates votes from committee members (confirmed a
 The KYC contract validates block producer's personal information coming from the KYC provider before they can be confirmed as block producers and listed in the BPO contract. 
 
 
-## BYOC
+## [BYOC](../pbc-fundamentals/byoc.md)
 
 #### [Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
 
@@ -43,7 +43,7 @@ Facilitates the deployment of new deposit and withdrawal [oracles](../node-opera
 
 ### [Small oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)
 
-Below you see the oracle contracts handling deposits and withdrawals for the currently accepted BYOCs: ETH, BNB and USDC. These contracts have a transfer limit controlling when the nodes providing the service will be rotated.
+Below you see the oracle contracts handling deposits and withdrawals for the currently accepted BYOCs: ETH, BNB and USDC. These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The contract state shows which nodes serve the oracle, the transaction they are handling
 
 
 #### [ETH Deposit on PBC](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)  
