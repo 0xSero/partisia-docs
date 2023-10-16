@@ -18,7 +18,7 @@
 
 ## Casting secret votes on the PBC contract
 
-1. Go to [https://browser.testnet.partisiablockchain.com/contracts/03c3b8c99b05417e431ca79296e8ec6b7bf7398276?tab=transactions](https://browser.testnet.partisiablockchain.com/contracts/03c3b8c99b05417e431ca79296e8ec6b7bf7398276?tab=transactions)
+1. Go to [https://browser.testnet.partisiablockchain.com/contracts/03c3b8c99b05417e431ca79296e8ec6b7bf7398276?tab=transactions](https://browser.testnet.partisiablockchain.com/contracts/03c3b8c99b05417e431ca79296e8ec6b7bf7398276?tab=transactions). _If the deployed contract is expired you need to_ [deploy a new example](how-to-deploy-your-second-layer-solution.md) _to test the live solution_.
 2. Press the “Cast Vote” button to input your secret vote.
    Choose the "True" option for casting a "yes" vote, or the "False" option for casting a "no" vote.
    Press the "Submit" button to send the secret vote.
