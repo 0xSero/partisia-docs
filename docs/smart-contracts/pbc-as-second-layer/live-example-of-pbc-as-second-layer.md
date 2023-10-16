@@ -18,7 +18,7 @@
 
 ## Casting secret votes on the PBC contract
 
-1. Go to [https://browser.testnet.partisiablockchain.com/contracts/03c3b8c99b05417e431ca79296e8ec6b7bf7398276?tab=transactions](https://browser.testnet.partisiablockchain.com/contracts/03c3b8c99b05417e431ca79296e8ec6b7bf7398276?tab=transactions). _If the deployed contract is expired you need to_ [deploy a new example](how-to-deploy-your-second-layer-solution.md) _to test the live solution_.
+1. Go to [https://browser.testnet.partisiablockchain.com/contracts/03e5161cd8d3aa2de10392c5bb9607f68916158a45?tab=transactions](https://browser.testnet.partisiablockchain.com/contracts/03e5161cd8d3aa2de10392c5bb9607f68916158a45?tab=transactions). If the deployed contract is expired you need to [deploy a new example](how-to-deploy-your-second-layer-solution.md) to test the live solution.
 2. Press the “Cast Vote” button to input your secret vote.
    Choose the "True" option for casting a "yes" vote, or the "False" option for casting a "no" vote.
    Press the "Submit" button to send the secret vote.
@@ -56,7 +56,7 @@ If you encounter any issues while casting your vote or counting the result, you 
 
 These steps shows you how to securely move the vote result to the Ethereum public voting contract while ensuring integrity.
 
-1. Go to [https://goerli.etherscan.io/address/0x<todo>](https://goerli.etherscan.io/address/0x<todo>).
+1. Go to [https://goerli.etherscan.io/address/0x591D89F2D1c8869e5cDE32619AA6410DE492D0b3#writeContract](https://goerli.etherscan.io/address/0x591D89F2D1c8869e5cDE32619AA6410DE492D0b3#writeContract).
 2. Press the “Contract” button and then the “Write Contract” button to interact with the public contract.
 3. Find the “publishResult” action.
 4. Fill in the values of the vote result and the proof of the result shown in PBC.
@@ -75,30 +75,30 @@ To be able to verify the signatures on the Ethereum side, the smart contract nee
 Validating that the Ethereum smart contract links to the right secret voting contract is straight 
 forward.
 
-[On etherscan](https://goerli.etherscan.io/address/0x<todo>), find the `privateVotingPbcAddress` in 
+[On etherscan](https://goerli.etherscan.io/address/0x591D89F2D1c8869e5cDE32619AA6410DE492D0b3#readContract), find the `privateVotingPbcAddress` in 
 the contract state. This is a state variable of 21 bytes, that should correspond to the address of 
-the secret voting contract on PBC, i.e. `0x03<todo>`.
+the secret voting contract on PBC, i.e. `03e5161cd8d3aa2de10392c5bb9607f68916158a45`.
 
 ### Validating computation nodes identities
 
 Validating that the Ethereum smart contract knows the computation nodes' identities is a bit more 
 complicated.
 
-[On etherscan](https://goerli.etherscan.io/address/0x<todo>), find the `computationNodes` in
+[On etherscan](https://goerli.etherscan.io/address/0x591D89F2D1c8869e5cDE32619AA6410DE492D0b3#readContract), find the `computationNodes` in
 the contract state. This is a list of Ethereum addresses corresponding to the computation nodes on 
 the PBC secret voting contract.
 
-Next, [on PBC](https://testnet.partisiablockchain.com/info/contract/<todo>) read the 
-"ZK State as JSON", and find the list called "engines". This list contains 4 objects which holds
+Next, [on PBC](https://browser.testnet.partisiablockchain.com/contracts/03e5161cd8d3aa2de10392c5bb9607f68916158a45?tab=state) read the 
+"ZK nodes". This tab contains 4 objects which holds
 information about the ZK computation nodes, including their PBC address listed as "identity".
 
-![EnginesObjectFromZKStateAsJSON](ScreenShotZkStateAsJSON.png)
+![ScreenshotPBCIdentity](ScreenshotPBCIdentity.png)
 
 You may notice that that four addresses listed on the two contracts are not the same. To understand
 why this is the case, you can read about how addresses are derived on either chain 
 [here](technical-differences-between-eth-and-pbc.md).
 
-The four engine objects also has a field called "publicKey" which is the public key that corresponds to the private key they used to sign the voting result. The addresses listed on the Ethereum contract were derived from these keys.
+The four objects also has a field called "public key" which is the public key that corresponds to the private key they used to sign the voting result. The addresses listed on the Ethereum contract were derived from these keys.
 
 To validate that the keys corresponds to the addresses that the Ethereum contract knows, do the following for each key _k_ in the "engines" list.
 
