@@ -36,7 +36,7 @@ deploying the solidity contract.
 #### Getting the contracts ready
 
 Download the example project from the git
-repository [https://gitlab.com/partisiablockchain/language/<todo>](https://gitlab.com/partisiablockchain/language/<todo>),
+repository [https://gitlab.com/partisiablockchain/language/contracts/zk-as-a-service](https://gitlab.com/partisiablockchain/language/contracts/zk-as-a-service/),
 or use your own contracts.
 
 Note that the rest of this guide expects the constructor arguments of the solidity contract to
