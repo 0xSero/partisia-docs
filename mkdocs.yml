@@ -50,21 +50,23 @@ nav:
       - smart-contracts/development-faq.md
   - Node Operations:
       - node-operations/what-is-a-node-operator.md
-      - How to set up a node:
-        - node-operations/create-an-account-on-pbc.md
-        - node-operations/get-mpc-tokens.md
-        - node-operations/recommended-hardware-and-software.md
-        - node-operations/vps.md
-        - node-operations/secure-your-vps.md
-        - node-operations/reader-node-on-vps.md
-        - node-operations/complete-synaps-kyb.md
-        - node-operations/run-a-block-producing-node.md
-        - node-operations/register-your-node.md
-        - node-operations/node-health-and-maintenance.md
-      - node-operations/update-your-nodes-public-information.md
-      - node-operations/oracles-on-partisia-blockchain.md
-      - node-operations/price-oracle.md
-      - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
+      - node-operations/how-to-run-a-reader-node.md
+      - Run a block producing node:
+          - node-operations/create-an-account-on-pbc.md
+          - node-operations/get-mpc-tokens.md
+          - node-operations/recommended-hardware-and-software.md
+          - node-operations/vps.md
+          - node-operations/secure-your-vps.md
+          - node-operations/reader-node-on-vps.md
+          - node-operations/complete-synaps-kyb.md
+          - node-operations/run-a-block-producing-node.md
+          - node-operations/register-your-node.md
+          - node-operations/node-health-and-maintenance.md
+          - node-operations/update-your-nodes-public-information.md
+      - Upgraded node services:
+          - node-operations/oracles-on-partisia-blockchain.md
+          - node-operations/price-oracle.md
+  - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
 
 extra_css:

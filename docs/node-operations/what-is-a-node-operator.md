@@ -31,9 +31,14 @@ When a block of transactions is validated, the node signs off on it with a uniqu
 **The Skills**  
 Setting up the node requires some technical skills. You need to be able to configure and run your node, or alternatively pay someone you trust to help you with the setup and upkeep of the node.
 
-The following sections take you through the signup process. If you do not yet have MPC tokens or an appropriate server for running a node you can still complete the firs part of the guide showing you how to run a reader node. A reader node is free. When you have completed the [introduction](what-is-a-node-operator.md), [first](recommended-hardware-and-software.md) and [second](reader-node-on-vps.md) step, then you should know if you have the skills required to run a node performing services on Partisia Blockchain. If you want to buy MPC Tokens, you can follow this [link](https://kyc.partisiablockchain.com/) for information about sale.
+## Onboarding    
 
-## Run a node on Partisia Blockchain
+If you want to run a node, please join our community. We would like to offer you the best possible support and be able to notify you in case we or community members register a problem with your node. We also send you news of relevant updates for example when node operators can support deposit or withdrawal of a new coin on the chain ([oracle service](oracles-on-partisia-blockchain.md)). Node operators will also be alerted to upcoming votes on vital updates.    
+
+1. Fill out the node operator onboarding [form](https://forms.monday.com/forms/8de1fb7d3099178333db642c4d1fe640?r=euc1) to sign yourself up as a node operator applicant
+2. Join [discord](https://discord.com/invite/KYjucw3Sad) and submit a support ticket to get added as a node operator applicant. In the ticket, submit a screenshot of your wallet showing your account balance.    
+
+## How to run a block producing node on Partisia Blockchain
 
 The following guide has 10 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
 
@@ -44,6 +49,6 @@ The following guide has 10 parts. If you do the steps of the guide in order, you
 1. [Secure your VPS](secure-your-vps.md)
 1. [Run a reader node on a VPS](reader-node-on-vps.md)
 1. [Complete the Synaps KYB](complete-synaps-kyb.md)
-1. [Upgrade config to a block producing node on the VPS](run-a-block-producing-node.md)
+1. [Run a block producing node](run-a-block-producing-node.md)
 1. [Register your node](register-your-node.md)
 1. [Node health and maintenance](node-health-and-maintenance.md)
