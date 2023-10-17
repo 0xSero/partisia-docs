@@ -66,10 +66,11 @@ check. Fill out the payload form above with all the received information to be a
 payloads.
 
 Validate that the parameters match what is expected:
- - Does the supplied price match the price of the token?
- - Is the name of the token correct?
- - Is the supplied reference contract a chain link reference for the bridged symbol? And does the decimal count match the ones on the contract?
- - Is the supplied ERC20 contract a valid ERC20 contract for the token? And does the decimal count match the decimals on the ERC20 contract?
+
+- Does the supplied price match the price of the token?
+- Is the name of the token correct?
+- Is the supplied reference contract a chain link reference for the bridged symbol? And does the decimal count match the ones on the contract?
+- Is the supplied ERC20 contract a valid ERC20 contract for the token? And does the decimal count match the decimals on the ERC20 contract?
 
 For both of the deployed contracts lookup the transaction that deployed them, find the payload of
 the transaction and verify that this matches exactly the payload generated in the form.
