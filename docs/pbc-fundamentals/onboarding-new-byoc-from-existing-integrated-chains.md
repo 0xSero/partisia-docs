@@ -1,6 +1,6 @@
 # Onboarding new BYOC from existing integrated chains
 
-This article helps you onboard ERC20 (ETH based) or BEP20 (BNB based) tokens to Partisia Blockchains using the PBC bridge. In order for the
+This article helps you onboard ERC20 and its extension tokens to Partisia Blockchains using the PBC bridge. In order for the
 bridge to work between chains, you must have a contract in the Ethereum or BNB chain network as well as on the Partisia
 Blockchain network. We provide a template for anyone to tweak and submit a proposal to add the coin of their choice to
 Partisia Blockchian.
