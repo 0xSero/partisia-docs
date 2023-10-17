@@ -29,28 +29,26 @@ For ERC20 tokens the token contract address and the number of decimals is needed
 
 The bytecode for the contracts on the EVM chain should be fetched
 from [Gitlab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth/-/packages/8687576).
-For ERC20 tokens use _WithdrawAndDepositErc20.json_, for native token use
-_WithdrawAndDepositEth.json_.  
-The _ERC1967Proxy.json_ need to be used as proxy. For all the files the value in 'bytecode' should
-be used.
 
-| Parameter                              | Name                | Value                                                                                                                                                               |
-|----------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Implementation contract byte code      |                     | See above                                                                                                                                                           |
-| ERC1967Proxy                           |                     | See above                                                                                                                                                           |
-| Current price in USD (price)           | price               | Need to be supplied                                                                                                                                                 |
-| Maximum withdrawal                     | maxWithdrawal       | 200000 / price                                                                                                                                                      |
-| Minimum withdrawal                     | minWithdrawal       | 25 / price                                                                                                                                                          |
-| Maximum deposit                        | maxDeposit          | 100000 / price                                                                                                                                                      |
-| Minimum deposit                        | minDeposit          | minWithdrawal                                                                                                                                                       |
-| Large oracle address                   | loAddress           | 0x81a19EE43bcF9FF57ab2694B3f435e3354894B3A (Ethereum)<br/>0x3435359Df1D8C126ea1b68BB51E958fdf43F8272 (Polygon)<br/>0x4c4ECb1EFb3BC2a065af1F714B60980a6562C26f (BSC) |
-| Name of token                          | tokenName           | Need to be supplied                                                                                                                                                 |
-| Chain link reference contract          | referenceAddress    | Need to be supplied                                                                                                                                                 |
-| Chain link reference contract decimals | priceOracleDecimals | Need to be supplied                                                                                                                                                 |
-| ERC20 contract                         | erc20Contract       | Need to be supplied                                                                                                                                                 |
-| ERC20 decimals                         | erc20Decimals       | Need to be supplied                                                                                                                                                 |
-| Implementation contract address        | implAddress         | Deployed as part of the proposal                                                                                                                                    |
-| Proxy contract address                 | proxyAddress        | Deployed as part of the proposal                                                                                                                                    |
+For all the files the value in 'bytecode' should be used.
+
+| Parameter                              | Value                                                                                                                                                               |
+|----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Implementation contract byte code      | For ERC20 tokens use _WithdrawAndDepositErc20.json_, for native token use _WithdrawAndDepositEth.json_                                                              |
+| ERC1967Proxy                           | Use _ERC1967Proxy.json_ from Gitlab                                                                                                                                 |
+| Current price in USD (price)           | Need to be supplied                                                                                                                                                 |
+| Maximum withdrawal                     | 200000 / price                                                                                                                                                      |
+| Minimum withdrawal                     | 25 / price                                                                                                                                                          |
+| Maximum deposit                        | 100000 / price                                                                                                                                                      |
+| Minimum deposit                        | minWithdrawal                                                                                                                                                       |
+| Large oracle address                   | 0x81a19EE43bcF9FF57ab2694B3f435e3354894B3A (Ethereum)<br/>0x3435359Df1D8C126ea1b68BB51E958fdf43F8272 (Polygon)<br/>0x4c4ECb1EFb3BC2a065af1F714B60980a6562C26f (BSC) |
+| Name of token                          | Need to be supplied                                                                                                                                                 |
+| Chain link reference contract          | Need to be supplied                                                                                                                                                 |
+| Chain link reference contract decimals | Need to be supplied                                                                                                                                                 |
+| ERC20 contract                         | Need to be supplied                                                                                                                                                 |
+| ERC20 decimals                         | Need to be supplied                                                                                                                                                 |
+| Implementation contract address        | Deployed as part of the proposal                                                                                                                                    |
+| Proxy contract address                 | Deployed as part of the proposal                                                                                                                                    |
 
 ## Generating payloads
 
