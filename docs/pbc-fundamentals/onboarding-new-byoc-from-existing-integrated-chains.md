@@ -57,7 +57,20 @@ proposing the update on Partisia Blockchain.
 
 The bytecode for the contracts have been populated from the compiled artifacts on Gitlab.
 
-TODO: The form below is not finalized.
+1. Select the chain where the token resides
+2. Select if the token to be deployed is an ERC20 or a native token
+3. Deploy the implementation contract (note the address for later usage)
+4. Fill information needed for initializing the implementation contract
+5. Deploy the ERC197Proxy with initialization of the implementation contract (note the address for
+   later usage)
+6. Fill remaining information to prepare vote on Partisia Blockchain
+7. Create vote on Partisia Blockchain
+
+For step 2 and 4 the form below allows using Metamask to send the transactions.
+
+For step 7 go to
+the [system update contract in the browser](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/proposeUpdate)
+to propose a 'PollUpdateType$INVOKE_CONTRACT(6)' vote with the update RPC from the below form.
 
 --8<-- "docs/snippets/byoc-onboarding-form.html"
 
