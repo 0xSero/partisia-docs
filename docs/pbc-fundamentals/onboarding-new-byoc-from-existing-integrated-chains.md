@@ -1,17 +1,21 @@
 # Onboarding new BYOC from existing integrated chains
 
-Onboarding ...  
-TODO: Write high level intro
+This article helps you onboard ERC20 (ETH based) or BEP20 (BNB based) tokens to Partisia Blockchains using the PBC bridge. In order for the
+bridge to work between chains, you must have a contract in the Ethereum or BNB chain network as well as on the Partisia
+Blockchain network. We provide a template for anyone to tweak and submit a proposal to add the coin of their choice to
+Partisia Blockchian.
+This proposal will go to a vote to our node operator committee. The committee then has 7 days to review the proposal and
+either accept or reject the proposal.
+If it is accepted, the contract will go live and the token will become available as an asset in the network.
 
-## High level process
+## How to create a proposal for a new coin
 
-1. Deploy implementation contract on integrated chain
-2. Deploy configured proxy contract on integrated chain
-3. Propose a vote on Partisia Blockchain to enable to the BYOC
-4. All node operators need to verify the proposed information and vote on the BYOC to enable it on
-   Partisia Blockchain
+1. Deploy implementation contract on the chain you want to integrate with.
+2. Deploy configured proxy contract on the chain you want to integrate with.
+3. Propose a vote on Partisia Blockchain to get node operators consent to enable your new BYOC.
+4. When node operators have verified the proposed information and voted yes to the BYOC it will be accepted as a mintable coin on Partisia Blockchain. To understand bridging visit our article about [bridging coins to PBC](bridging-byoc-by-sending-transactions.md#how-does-the-bridge-work).
 
-Before preparing the contracts on the integrated chain some information need to be collected:
+Before preparing the contracts on the integrated chain some information needs to be collected:
 
 - Which integrated chain does the coin reside on (Ethereum, Polygon or BNB Smart Chain)
 - What is the current USD value of a single coin
