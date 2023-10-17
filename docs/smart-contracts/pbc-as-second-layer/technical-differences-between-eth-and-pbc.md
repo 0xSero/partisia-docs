@@ -9,7 +9,7 @@
 </div>
 
 This segment discusses the challenges that arise when transferring data between Partisia Blockchain 
-and Ethereum, especially when using PBC as a second layer. The main issues discussed are the 
+and Ethereum, especially when using PBC as second layer. The main issues discussed are the 
 differences in how data is encoded, the hashing algorithm used, how contract/account addresses are 
 derived, and the encoding of signatures. 
 It is placed as the last page to help explain some of the seemingly arbitrary technical details 

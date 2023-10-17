@@ -9,7 +9,7 @@
 </div>
 
 !!! note
-Before you can test the already deployed example, you need the following setup:
+    Before you can test the already deployed example, you need the following setup:
 
     1. A [testnet](/docs/testnet.md) [PBC account](/docs/accounts.md) [with gas](/docs/byoc.md)
     2. A test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used [a faucet from the official docs](https://ethereum.org/en/developers/docs/networks/#goerli)
@@ -40,7 +40,7 @@ Before you can test the already deployed example, you need the following setup:
 ## Counting secret votes
 
 !!! note
-Before counting votes you should note the id of the current vote. This is required to find the result later.
+    Before counting votes you should note the id of the current vote. This is required to find the result later.
 
 1. Start the vote counting process by pressing the "Start Vote Counting" button and then "Submit". This will initiate
    the ZK computation and new votes cannot be cast while it is running. The computation can take a minute or two to

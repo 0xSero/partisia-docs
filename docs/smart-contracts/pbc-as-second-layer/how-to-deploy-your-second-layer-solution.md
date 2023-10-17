@@ -8,8 +8,9 @@
    [](technical-differences-between-eth-and-pbc.md)
 </div>
 
-!!! note 
-    We recommend that you read the [walkthrough of the example contracts](how-to-create-your-own-second-layer-solution.md) to understand the contracts being deployed in this guide.
+!!! note
+        We recommend that you read the [walkthrough of the example contracts](how-to-create-your-own-second-layer-solution.md)
+        to understand the contracts being deployed in this guide.
 
 ## Deploying a PBC as second layer solution
 
@@ -40,17 +41,18 @@ repository [https://gitlab.com/partisiablockchain/language/contracts/zk-as-a-ser
 or use your own contracts.
 
 Note that the rest of this guide expects the constructor arguments of the solidity contract to
-match the one in the example, and uses the deployment scripts found in the example.
+match the one in the example, and uses the deployment scripts found in
+the [example repo](https://gitlab.com/partisiablockchain/language/contracts/zk-as-a-service/).
 
 [Compile your PBC private smart contract](../zk-smart-contracts/compile-and-deploy-zk-contract.md).
 
 #### Deploy a ZK contract on PBC
 
-We recommend you to follow our guide on how to deploy contracts on PBC
-[here](../../smart-contracts/compile-and-deploy-contracts.md)
+We recommend you to follow our guide on how to deploy ZK contracts on PBC
+[here](../../smart-contracts/zk-smart-contracts/compile-and-deploy-zk-contract.md)
 
 Please keep in mind that deploying private contracts (.zkwa) is more expensive than the dashboard
-estimates, remember to add more gas (4x). You can test down to the exact gas amount on the
+estimates, remember to add more gas (around 3x to 4x the amount). You can test down to the exact gas amount on the
 [testnet for free](../access-and-use-the-testnet.md).
 
 #### Note the address of the newly deployed contract.
@@ -64,17 +66,13 @@ If you deployed your contract on PBC through the dashboard app, you can grab it 
 #### Read the public keys of the ZK computation nodes
 
 Go to the contract info page
-e.g. https://testnet.partisiablockchain.com/info/contract/030102030405060708090AA0908070605040302010
+e.g. [https://testnet.partisiablockchain.com/info/contract/030102030405060708090AA0908070605040302010](https://testnet.partisiablockchain.com/info/contract/030102030405060708090AA0908070605040302010)
 
-Read the ZK state by pressing the “Show ZK State as JSON” button.
+Find information about the ZK nodes by pressing the “ZK nodes” button. For each of the nodes, note down the Base64
+encoded "publicKey".
 
-The JSON contains a lot of information needed to run a ZK computation, but we are only interested
-in the information about the chosen ZK computation nodes.
-
-Find the list called "engines". This list contains 4 objects, each with information about the ZK
-computation nodes. For each of the nodes, note down the Base64 encoded "publicKey".
-
-**Note** that the order of the nodes in the list is important and should not be changed!
+**Note** that the order of the nodes in the list is important and should not be changed! You should take them from left
+to right to keep the correct order.
 
 ### Deploy Ethereum solidity contract
 
@@ -91,22 +89,24 @@ Before being able to deploy the solidity contract, the deployment script
 These can be added by writing them down in an .env file. See the example below.
 
 ```text
-API_URL = "<WRITE_YOUR_OWN_API_ENDPOINT>"
-PRIVATE_KEY = "<WRITE_YOUR_OWN_PRIVATE_KEY_HERE>"
-PBC_CONTRACT_ADDRESS = "030102030405060708090AA0908070605040302010"
-ZK_ENGINE_PUB_KEY_0 = "A/J83e6pRe9ARxCJNrUxu2iVfh3HTKk4CEYyZFxWn4NG"
-ZK_ENGINE_PUB_KEY_1 = "AmThsZafkQKXdpGkBDGwtnIFXc8xFjiX2ZZDRCDmyV3J"
-ZK_ENGINE_PUB_KEY_2 = "A7NVEdZ+Y/plUtt0C0irptIwwheZ5lpmR6XL/Hie8BhL"
-ZK_ENGINE_PUB_KEY_3 = "A54hWPDXwNXybDeR7++nlZdlTnorJGT1Kx7mwTR3ae9X"
+GOERLI_API_URL = "<ENDPOINT_TO_GOERLI_TESTNET>"
+GOERLI_PRIVATE_KEY = "<GOERLI_TESTNET_PRIVATE_KEY>"
+GOERLI_CONTRACT_ADDRESS = "<ADDRESS_OF_THE_CONTRACT_ON_GOERLI>"
+ETHERSCAN_API_KEY = "<API_KEY_TO_ETHERSCAN>"
+PBC_CONTRACT_ADDRESS = "<ADDRESS_OF_THE_CONTRACT_ON_PBC_TESTNET>"
+ZK_NODE_PUBLIC_KEY_1 = "<1ST_BASE64_ENCODED_PUBLIC_KEY_FOUND_IN_ZK_STATE>"
+ZK_NODE_PUBLIC_KEY_2 = "<2ND_BASE64_ENCODED_PUBLIC_KEY_FOUND_IN_ZK_STATE>"
+ZK_NODE_PUBLIC_KEY_3 = "<3RD_BASE64_ENCODED_PUBLIC_KEY_FOUND_IN_ZK_STATE>"
+ZK_NODE_PUBLIC_KEY_4 = "<4TH_BASE64_ENCODED_PUBLIC_KEY_FOUND_IN_ZK_STATE>"
 ```
 
-In the above, API_URL is the url of an endpoint to the Ethereum Goerli testnet. The PRIVATE_KEY
+In the above, GOERLI_API_URL is the url of an endpoint to the Ethereum Goerli testnet. The GOERLI_PRIVATE_KEY
 is the private key of you Ethereum Goerli test account. PBC_CONTRACT_ADDRESS is the address of
 the PBC private smart contract you just deployed, and ZK_ENGINE_PUB_KEY_0, ...,
 ZK_ENGINE_PUB_KEY_3 are the public keys of the PBC private smart contract.
 
 **Note** that the order in which the public keys are written must match the order in which they
-are listed in private smart contract's ZK state.
+are listed in private smart contract's ZK nodes going from left to right.
 
 #### Deploy the solidity contract
 
