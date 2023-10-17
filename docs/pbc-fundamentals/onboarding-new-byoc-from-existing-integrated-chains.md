@@ -1,19 +1,27 @@
 # Onboarding new BYOC from existing integrated chains
 
-This article helps you onboard ERC20 and its extension tokens to Partisia Blockchains using the PBC bridge. In order for the
-bridge to work between chains, you must have a contract in the Ethereum or BNB chain network as well as on the Partisia
-Blockchain network. We provide a template for anyone to tweak and submit a proposal to add the coin of their choice to
+This article helps you onboard ERC20 and its extension tokens to Partisia Blockchains using the PBC
+bridge. In order for the
+bridge to work between chains, you must have a contract in the Ethereum, Polygon or BNB smart chain
+network as well
+as on the Partisia
+Blockchain network. We provide a template for anyone to tweak and submit a proposal to add the coin
+of their choice to
 Partisia Blockchian.
-This proposal will go to a vote to our node operator committee. The committee then has 7 days to review the proposal and
+This proposal will go to a vote to our node operator committee. The committee then has 7 days to
+review the proposal and
 either accept or reject the proposal.
-If it is accepted, the contract will go live and the token will become available as an asset in the network.
+If it is accepted, the contract will go live and the token will become available as an asset in the
+network.
 
 ## How to create a proposal for a new coin
 
 1. Deploy implementation contract on the chain you want to integrate with.
 2. Deploy configured proxy contract on the chain you want to integrate with.
 3. Propose a vote on Partisia Blockchain to get node operators consent to enable your new BYOC.
-4. When node operators have verified the proposed information and voted yes to the BYOC it will be accepted as a mintable coin on Partisia Blockchain. To understand bridging visit our article about [bridging coins to PBC](bridging-byoc-by-sending-transactions.md#how-does-the-bridge-work).
+4. When node operators have verified the proposed information and voted yes to the BYOC it will be
+   accepted as a mintable coin on Partisia Blockchain. To understand bridging visit our article
+   about [bridging coins to PBC](bridging-byoc-by-sending-transactions.md#how-does-the-bridge-work).
 
 Before preparing the contracts on the integrated chain some information needs to be collected:
 
