@@ -1,96 +1,106 @@
 <form id="byoc-onboarding-form" class="generator-form md-typeset" action="javascript:"
+      onchange="updateFields()"
       onsubmit="generateConfigs()">
   <p>
-    <label for="byoc-onboarding-proxy-byte-code">
-      <span>ERC1967Proxy bytecode:</span>
+    <label>
+      <span>(1) Token type</span>
+      <select  id="byoc-onboarding-token-type">
+        <option value="erc20">ERC20</option>
+        <option value="native">Native token</option>
+      </select>
     </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-proxy-byte-code">
   </p>
   <p>
-    <label for="byoc-onboarding-implementation-byte-code">
-      <span>Implementation bytecode:</span>
+    <label>
+      <span>(2) Integrated chain</span>
+      <select  id="byoc-onboarding-chain">
+        <option value="Ethereum">Ethereum</option>
+        <option value="Polygon">Polygon</option>
+        <option value="BSC">BNB Smart Chain</option>
+      </select>
     </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-implementation-byte-code">
   </p>
+
   <p>
-    <label for="byoc-onboarding-chain">
-      <span>Integrated chain:</span>
+    <label for="byoc-onboarding-implementation-payload">
+      <span>(3) Payload for deploying implementation contract:</span>
     </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-chain">
+    <input class="md-input md-input--stretch" id="byoc-onboarding-implementation-payload" readonly>
   </p>
-  <p>
-    <label for="byoc-onboarding-price">
-      <span>Current price:</span>
-    </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-price">
-  </p>
-  <p>
-    <label for="byoc-onboarding-reference-contract">
-      <span>Chain link reference contract:</span>
-    </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-reference-contract">
-  </p>
-  <p>
-    <label for="byoc-onboarding-reference-symbols">
-      <span>Chain link contract decimals:</span>
-    </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-reference-symbols">
-  </p>
-  <p>
-    <label for="byoc-onboarding-erc20">
-      <span>ERC20 contract:</span>
-    </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-erc20">
-  </p>
-  <p>
-    <label for="byoc-onboarding-erc20-decimals">
-      <span>ERC20 decimals:</span>
-    </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-erc20-decimals">
-  </p>
+  <div class="button-container">
+    <!-- TODO onClick -->
+    <button type="button" class="md-button">Deploy with Metamask</button>
+  </div>
   <p>
     <label for="byoc-onboarding-implementation-address">
-      <span>Deployed implementation contract address (Inserted after first generate click):</span>
+      <span>(4) Deployed implementation contract address:</span>
     </label>
     <input class="md-input md-input--stretch" id="byoc-onboarding-implementation-address">
   </p>
+
   <p>
-    <label for="byoc-onboarding-implementation-address">
-      <span>Deployed proxy contract address (Inserted after second generate click):</span>
+    <label for="byoc-onboarding-price">
+      <span>(4) Current price:</span>
+    </label>
+    <input class="md-input md-input--stretch" id="byoc-onboarding-price">
+  </p>
+  <p class="erc20">
+    <label for="byoc-onboarding-erc20">
+      <span>(4) ERC20 contract:</span>
+    </label>
+    <input class="md-input md-input--stretch" id="byoc-onboarding-erc20">
+  </p>
+  <p class="erc20">
+    <label for="byoc-onboarding-erc20-decimals">
+      <span>(4) ERC20 decimals:</span>
+    </label>
+    <input class="md-input md-input--stretch" id="byoc-onboarding-erc20-decimals">
+  </p>
+
+  <p>
+    <label for="byoc-onboarding-proxy-payload">
+      <span>(5) Payload for deploying proxy contract:</span>
+    </label>
+    <input class="md-input md-input--stretch" id="byoc-onboarding-proxy-payload">
+  </p>
+  <div class="button-container">
+    <!-- TODO onClick -->
+    <button type="button" class="md-button">Deploy with Metamask</button>
+  </div>
+
+  <p>
+    <label for="byoc-onboarding-proxy-address">
+      <span>(6) Deployed proxy contract address:</span>
     </label>
     <input class="md-input md-input--stretch" id="byoc-onboarding-proxy-address">
   </p>
 
-  <div>
-    <div class="button-container">
-      <button type="submit" class="md-button">Generate</button>
-    </div>
-  </div>
+  <p>
+    <label>
+      <span>(6) Is stable coin?</span>
+      <select onchange="changeStableCoin()" id="byoc-onboarding-is-stable-coin">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+    </label>
+  </p>
+  <p class="price-oracle-info">
+    <label for="byoc-onboarding-reference-contract">
+      <span>(6) Chain link reference contract:</span>
+    </label>
+    <input class="md-input md-input--stretch" id="byoc-onboarding-reference-contract">
+  </p>
+  <p class="price-oracle-info">
+    <label for="byoc-onboarding-reference-symbols">
+      <span>(6) Chain link contract decimals:</span>
+    </label>
+    <input class="md-input md-input--stretch" id="byoc-onboarding-reference-symbols">
+  </p>
 
   <div>
     <p>
-      <label for="byoc-onboarding-implementation-payload">
-        <span>Payload for deploying implementation contract:</span>
-      </label>
-      <input class="md-input md-input--stretch" id="byoc-onboarding-implementation-payload">
-    </p>
-    <div class="button-container">
-      <!-- TODO onClick -->
-      <button type="button" class="md-button">Deploy with Metamask</button>
-    </div>
-    <p>
-      <label for="byoc-onboarding-proxy-payload">
-        <span>Payload for deploying proxy contract:</span>
-      </label>
-      <input class="md-input md-input--stretch" id="byoc-onboarding-proxy-payload">
-    </p>
-    <div class="button-container">
-      <!-- TODO onClick -->
-      <button type="button" class="md-button">Deploy with Metamask</button>
-    </div>
-    <p>
       <label for="byoc-onboarding-vote-payload">
-        <span>Update RPC for vote on Partisia Blockchain:</span>
+        <span>(7) Update RPC for vote on Partisia Blockchain:</span>
       </label>
       <input class="md-input md-input--stretch" id="byoc-onboarding-vote-payload">
     </p>
@@ -99,6 +109,30 @@
 </form>
 
 <script>
+
+  function isNativeToken() {
+    return document.getElementById("byoc-onboarding-token-type").value === "native";
+  }
+
+  function changeTokenType() {
+    const form = document.getElementById("byoc-onboarding-form");
+    form.classList.toggle("native-token", isNativeToken());
+  }
+
+  function isStableCoin() {
+    return document.getElementById("byoc-onboarding-is-stable-coin").value === "yes";
+  }
+
+  function changeStableCoin() {
+    const form = document.getElementById("byoc-onboarding-form");
+    form.classList.toggle("stable-coin", isStableCoin());
+  }
+
+  function updateFields() {
+    changeTokenType();
+    changeStableCoin();
+  }
+
   function generateConfigs() {
     // TOOD hardcode contract bytecode
     const proxyByteCode = document.getElementById("byoc-onboarding-proxy-byte-code").value;
@@ -149,11 +183,10 @@
     const deployImplementationPayload = implementationByteCode;
 
     console.log(erc20);
-    const isErc20 = erc20.length !== 0;
     let functionHeader;
     let offset;
     let decimals;
-    if (isErc20) {
+    if (!isNativeToken()) {
       functionHeader = "347b6398" + pad(erc20);
       offset = "c0";
       decimals = Number(erc20Decimals);
@@ -162,8 +195,6 @@
       offset = "a0";
       decimals = 18;
     }
-
-    //TODO Strip optional 0x
 
     const priceBigInt = BigInt(price);
 

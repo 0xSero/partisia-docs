@@ -792,10 +792,18 @@ form.generator-form:focus-within {
 }
 
 #byoc-onboarding-form label > span {
-    display: inline-block;
+    display: block;
     min-width: 150px;
 }
 
 #byoc-onboarding-form .button-container {
     text-align: right;
+}
+
+#byoc-onboarding-form.native-token .erc20 {
+    display: none;
+}
+
+#byoc-onboarding-form.stable-coin .price-oracle-info {
+    display: none;
 }
