@@ -8,15 +8,16 @@
    [](technical-differences-between-eth-and-pbc.md)
 </div>
 
-In this section we will show you how to create you own application that uses PBC as a second 
+In this section we will show you how to create you own application that uses PBC as a second
 layer.
 
-We will use the code from the voting example, but it should be evident that is possible to use PBC 
+We will use the code from the voting example, but it should be evident that is possible to use PBC
 as second layer for any type of application.
 
-!!! note 
-    We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure we suggest you to read up on how to do the following when trying to recreate the example contract of ours:
-   
+!!! note
+We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure
+we suggest you to read up on how to do the following when trying to recreate the example contract of ours:
+
     1. How to create smart contracts on PBC. Our documentation starts on this page: 
     [What is a smart contract](/docs/contract-development.md)
     2. How to create smart contracts in ETH (or another layer one chain for this case).
@@ -26,11 +27,12 @@ as second layer for any type of application.
 
 ## Voting example code
 
-The [voting example](live-example-of-pbc-as-second-layer.md) works by having two separate 
+The [voting example](live-example-of-pbc-as-second-layer.md) works by having two separate
 smart contracts, one deployed on the PBC testnet and another deployed on the Goerli testnet.
 
-The source code contracts can be found in the public repository 
-https://gitlab.com/partisiablockchain/. We urge you to study the two contracts to understand their 
+The source code contracts can be found in
+the [public repository](https://gitlab.com/partisiablockchain/language/contracts/zk-as-a-service/). We urge you to study
+the two contracts to understand their
 common design, their differences, and how data is shared between them.
 
 We will not provide a line-by-line walkthrough of the code, as some knowledge of both PBC and EVM
@@ -49,7 +51,8 @@ The public part of the contract is defined in `src/contract.rs` and the ZK compu
 The contract depends on version 15.1.0 of the
 [contract-sdk](https://gitlab.com/partisiablockchain/language/contract-sdk) crate, version 3.80.0 of
 the [zk-compiler](https://gitlab.com/partisiablockchain/language/zk-compiler), and can be compiled
-with version 1.25.0 of the [cargo-partisia-contract](https://gitlab.com/partisiablockchain/language/cargo-partisia-contract)
+with version 1.25.0 of
+the [cargo-partisia-contract](https://gitlab.com/partisiablockchain/language/cargo-partisia-contract)
 build tool.
 
 The `public-voting` directory contains Hardhat project for the public Solidity contract.
@@ -72,12 +75,12 @@ snippets that are relevant for understanding how PBC as second layer works.
 
 The flow of the contract is as follows:
 
-1. Once the contract is deployed on PBC, it is initialized with an empty list of voting results and 
+1. Once the contract is deployed on PBC, it is initialized with an empty list of voting results and
    an initial vote id of 1.
 2. Anyone can cast a single secret vote on the currently active vote.
 3. Anyone can at anytime count the cast votes of the currently active vote.
    This is what the ZK computation does.
-4. Once the votes have been counted the result, i.e. the number of yes votes and no votes, is 
+4. Once the votes have been counted the result, i.e. the number of yes votes and no votes, is
    archived in the state and the next vote is activated by deleting the inputs and
    incrementing the vote id.
 5. Additionally, the result is attested by the computation nodes, meaning that they each sign it.
@@ -140,7 +143,7 @@ To be able to verify the signatures later in the Solidity contract it is importa
 are exactly the same here as when we serialize the result in Solidity. That means the fields should
 be written in the right order and right format which is big endian.
 
-Actually what will be signed is an SHA-256 hash of the bytes prepended with additional data, but 
+The signed signature is an SHA-256 hash of the bytes prepended with additional data, but
 more on that later.
 
 After the data has been signed, the following code is executed.
@@ -213,7 +216,7 @@ fn as_evm_string(signature: &Signature) -> String {
 ```
 
 As the previous code, this snippet is abbreviated to highlight the most relevant parts. The code is
-invoked after all the computation nodes have signed the data that we request before. It then cleans
+invoked after all the computation nodes have signed the data that we requested before. It cleans
 up the contract state and prepares for the next vote to begin. But more importantly for us, it also
 takes the signatures the nodes provided and converts them into a format that can be understood by
 the Solidity contract. To make it easier to find the signature for a given result it stores them
@@ -223,8 +226,8 @@ Note that this is not strictly necessary since the signatures will remain availa
 doing this will make it much easier to find the proof for a given result and not needing to convert
 it when moving the data to the Solidity contract.
 
-It should be clear from the above code examples that any type of data can be signed and moved out of 
-the private smart contract, and that the code needed for doing so is independent of the actual 
+It should be clear from the above code examples that any type of data can be signed and moved out of
+the private smart contract, and that the code needed for doing so is independent of the actual
 application code.
 
 Next we will discuss how the Solidity contract can receive and validate the result of a concluded
@@ -237,20 +240,20 @@ To understand the contract we urge you to study the code carefully.
 
 The flow of the public voting contract can be summarized as:
 
-1. The contract is deployed with parameters that establishes its connection to the PBC private 
+1. The contract is deployed with parameters that establishes its connection to the PBC private
    contract.
-2. Once a vote has concluded on PBC the result can be published, using the actual numbers of the 
+2. Once a vote has concluded on PBC the result can be published, using the actual numbers of the
    result along with the proof provided by PBC.
 
 For the purposes of using PBC as second layer for this contract, step 1 and 2 above are interesting
 to discuss further as they are the ones that allow us to move data from PBC to this contract without
-loss of integrity.
+[loss of integrity](partisia-blockchain-as-second-layer.md#how-do-we-handle-the-information-and-make-sure-the-middle-man-is-not-cheating-the-users-of-the-smart-contracts).
 
 Let's look at the code in more details to understand how this works.
 
 #### Establishing the connection to PBC
 
-The following abbreviated code from the Solidity contract highlights how it knows of and trusts the 
+The following abbreviated code from the Solidity contract highlights how it knows of and trusts the
 deployed PBC private smart contract.
 
 ```solidity
@@ -264,7 +267,7 @@ constructor(bytes21 _pbcContractAddress, address[] memory _computationNodes) {
 }
 ```
 
-We store two state variables on the contract. The first is the _PBC_ address of the deployed private 
+We store two state variables on the contract. The first is the _PBC_ address of the deployed private
 smart contract. The second is an array of _Ethereum_ addresses of the nodes selected to perform ZK
 computations for the private smart contract.
 We need both of these variables when we later verify the proof of a result.
@@ -274,21 +277,21 @@ The first is that we do not use the built-in `address` type for the address of t
 We don't do this for a couple of reasons:
 
 1. A PBC address is 21 bytes instead of the 20 bytes of an Ethereum address, and
-2. The `address` type has specified functions that do not make sense for the PBC address, e.g. 
+2. The `address` type has specified functions that do not make sense for the PBC address, e.g.
    `transfer()` or `call()`.
 
-The second things to notice is that the addresses of the computation nodes are **not** the 
+The second things to notice is that the addresses of the computation nodes are **not** the
 identifies of computation nodes. Rather they are derived from the nodes public keys.
 
-For more details on how to derive the addresses see [this page](technical-differences-between-eth-and-pbc.md).
-The [How to deploy](how-to-deploy-your-second-layer-solution.md) page describes how to deploy the 
+For more details on how to derive the addresses
+see [this page](technical-differences-between-eth-and-pbc.md#deriving-pbc-addresses).
+The [How to deploy](how-to-deploy-your-second-layer-solution.md) page describes how to deploy the
 solidity contract using the computation nodes public keys.
-
 
 #### Verifying the result of a secret vote
 
-The following code shows how the result of vote can be sent to this contract, while validating that 
-it originates from the private voting contract, and that it was signed by the trusted computation 
+The following code shows how the result of vote can be sent to this contract, while validating that
+it originates from the private voting contract, and that it was signed by the trusted computation
 nodes.
 
 ```solidity
@@ -348,18 +351,15 @@ To publish the result the function takes the three inputs that identifies which 
 the numbers of the results and the proof provided by the contract.
 
 Before we can trust that the result is correct and has not been tampered with we need to verify the
-signatures. 
+signatures.
 
-We do this by calculating the digest of the result, for which we need the address of the 
+We do this by calculating the digest of the result, for which we need the address of the
 private contract that the result originates from, i.e. the address provided when the contract was
 deployed. The algorithm used is SHA-256, since this is what PBC uses.
 
-Once we have the digest we verify each signature against the node addresses we also stored when 
+Once we have the digest we verify each signature against the node addresses we also stored when
 the contract was deployed.
 
-If all four signatures can be verified, we can trust that the result was not tampered with, and we
-can publish it.
-
-As for the PBC contract, the code need for adding the PBC connection and for validating incoming 
+As for the PBC contract, the code needed for adding the PBC connection and for validating incoming
 data is independent of the logic needed for the actual application, meaning that the contract can be
 modified to match any needs.
