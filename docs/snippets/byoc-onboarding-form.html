@@ -4,7 +4,7 @@
   <p>
     <label>
       <span>(1) Token type</span>
-      <select  id="byoc-onboarding-token-type">
+      <select id="byoc-onboarding-token-type">
         <option value="erc20">ERC20</option>
         <option value="native">Native token</option>
       </select>
@@ -13,7 +13,7 @@
   <p>
     <label>
       <span>(2) Integrated chain</span>
-      <select  id="byoc-onboarding-chain">
+      <select id="byoc-onboarding-chain">
         <option value="Ethereum">Ethereum</option>
         <option value="Polygon">Polygon</option>
         <option value="BSC">BNB Smart Chain</option>
@@ -131,6 +131,7 @@
   function updateFields() {
     changeTokenType();
     changeStableCoin();
+
   }
 
   function generateConfigs() {
@@ -196,10 +197,17 @@
       decimals = 18;
     }
 
-    const priceBigInt = BigInt(price);
-
-    //TODO Price decimals
-    const priceDecimals = 0;
+    const indexOf = price.indexOf(".");
+    let priceDecimals = 0;
+    let priceBigInt;
+    if (indexOf > -1) {
+      const withoutDecimalPoint = price.replace(".", "")
+      priceDecimals = withoutDecimalPoint.length - indexOf;
+      priceBigInt = BigInt(withoutDecimalPoint);
+    } else {
+      priceDecimals = 0;
+      priceBigInt = BigInt(price);
+    }
 
     function valueToCoins(value) {
       const coinsBigInt = BigInt(value) * (BigInt(10) ** BigInt(decimals + priceDecimals))
