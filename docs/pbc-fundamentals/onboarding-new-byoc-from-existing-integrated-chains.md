@@ -47,8 +47,8 @@ For all the files the value in 'bytecode' should be used.
 
 | Parameter                              | Value                                                                                                                                                               |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Implementation contract byte code      | For ERC20 tokens use _WithdrawAndDepositErc20.json_, for native token use _WithdrawAndDepositEth.json_                                                              |
-| ERC1967Proxy                           | Use _ERC1967Proxy.json_ from Gitlab                                                                                                                                 |
+| Implementation contract byte code      | For ERC20 tokens use _WithdrawAndDepositErc20.json_, for native token use _WithdrawAndDepositEth.json_ from the Gitlab link above                                   |
+| ERC1967Proxy                           | Use _ERC1967Proxy.json_ from the Gitlab link above                                                                                                                  |
 | Current price in USD (price)           | Need to be supplied                                                                                                                                                 |
 | Maximum withdrawal                     | 200000 / price                                                                                                                                                      |
 | Minimum withdrawal                     | 25 / price                                                                                                                                                          |
