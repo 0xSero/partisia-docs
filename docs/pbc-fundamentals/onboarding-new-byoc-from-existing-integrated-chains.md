@@ -23,6 +23,10 @@ network.
    accepted as a mintable coin on Partisia Blockchain. To understand bridging visit our article
    about [bridging coins to PBC](bridging-byoc-by-sending-transactions.md#how-does-the-bridge-work).
 
+The existing BNB bridge is an example of a successful deployment,
+see [implementation contract](0xf393d008077c97f2632fa04a910969ac58f88e3c)
+and [proxy contract](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1).
+
 Before preparing the contracts on the integrated chain some information needs to be collected:
 
 - Which integrated chain does the coin reside on (Ethereum, Polygon or BNB Smart Chain)
