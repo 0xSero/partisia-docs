@@ -34,6 +34,7 @@ Before preparing the contracts on the integrated chain some information needs to
 
 For non-stable coins a ChainLink reference contract on Ethereum that tracks the current price needs
 to be available.
+See [Chainlink contracts on Ethereum mainnet](https://data.chain.link/ethereum/mainnet)
 
 For ERC20 tokens the token contract address and the number of decimals is needed.
 
