@@ -225,7 +225,7 @@
       let offset;
       let decimals;
       if (!isNativeToken()) {
-        functionHeader = "347b6398" + pad(erc20);
+        functionHeader = "907cc7b1" + pad(erc20);
         offset = "c0";
         decimals = Number(erc20Decimals);
       } else {
@@ -272,7 +272,8 @@
           + pad(implementationAddress)
           + "0000000000000000000000000000000000000000000000000000000000000040"
           + pad((encodedInit.length / 2).toString(16))
-          + encodedInit;
+          + encodedInit
+          + "00000000000000000000000000000000000000000000000000000000";
 
       const referenceContract = document.getElementById("byoc-onboarding-reference-contract").value;
       const referenceDecimals = document.getElementById("byoc-onboarding-reference-decimals").value;
