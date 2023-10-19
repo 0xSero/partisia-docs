@@ -7,8 +7,8 @@ network as well
 as on the Partisia
 Blockchain network. We provide a template for anyone to tweak and submit a proposal to add the coin
 of their choice to
-Partisia Blockchian.
-This proposal will go to a vote to our node operator committee. The committee then has 7 days to
+Partisia Blockchain.
+This proposal will go to a vote to our node operator committee. The committee has 7 days to
 review the proposal and
 either accept or reject the proposal.
 If it is accepted, the contract will go live and the token will become available as an asset in the
@@ -23,7 +23,7 @@ network.
    accepted as a mintable coin on Partisia Blockchain. To understand bridging visit our article
    about [bridging coins to PBC](bridging-byoc-by-sending-transactions.md#how-does-the-bridge-work).
 
-The existing BNB bridge is an example of a successful deployment,
+The existing BNB bridge is an example of a successful deployment of a new BYOC,
 see [implementation contract](https://bscscan.com/address/0xf393d008077c97f2632fa04a910969ac58f88e3c)
 and [proxy contract](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1).
 
@@ -51,7 +51,7 @@ The bytecode for the contracts have been populated from the compiled artifacts o
 4. Fill information needed for initializing the implementation contract
 5. Deploy the ERC197Proxy with initialization of the implementation contract (note the address for
    later usage)
-6. Fill remaining information to prepare vote on Partisia Blockchain
+6. Fill remaining information to prepare a vote on Partisia Blockchain
 7. Create vote on Partisia Blockchain
 
 For step 2 and 4 the form below allows using Metamask to send the transactions.
