@@ -1,4 +1,4 @@
-# Onboarding new BYOC from existing integrated chains
+# Onboarding new BYOC
 
 This article helps you onboard ERC20 and its extension tokens to Partisia Blockchains using the PBC
 bridge. In order for the
