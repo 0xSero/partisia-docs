@@ -45,8 +45,8 @@ proposing the update on Partisia Blockchain.
 
 The bytecode for the contracts have been populated from the compiled artifacts on Gitlab.
 
-1. Select the chain where the token resides
-2. Select if the token to be deployed is an ERC20 or a native token
+1. Select if the token to be deployed is an ERC20 or a native token
+2. Select the chain where the token resides
 3. Deploy the implementation contract (note the address for later usage)
 4. Fill information needed for initializing the implementation contract
 5. Deploy the ERC197Proxy with initialization of the implementation contract (note the address for
