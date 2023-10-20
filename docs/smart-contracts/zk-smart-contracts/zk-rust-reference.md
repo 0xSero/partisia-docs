@@ -53,3 +53,4 @@ Does not cover deprecated functions.
 | [`zk_on_compute_complete`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.zk_on_compute_complete.html)   | Declares an automatic hook for when the zero-knowledge computation is finished.               |
 | [`zk_on_variables_opened`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.zk_on_variables_opened.html)   | Declares an automatic hook for when secret variables is ready to be read..                    |
 | [`zk_on_attestation_complete`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.zk_on_attestation_complete.html)                                                                                                               | Declares an automatic hook for when the contract have asked nodes to attest a piece of data,. |
+
