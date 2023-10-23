@@ -72,18 +72,18 @@ Facilitates the sale of MPC tokens.
 
 
 
-## MPC Tokens
+## [MPC Tokens](mpc-token-model-and-account-elements.md)
 
 #### [MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
 
-Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account[](check accuracy of this statement in the code!).
+Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account.
 
 
 ## Zero Knowledge and MPC
 
 #### [ZK Deploy](https://browser.partisiablockchain.com/contracts/018bc1ccbb672b87710327713c97d43204905082cb)
 
-Responsible for the deployment of new ZK contracts
+Responsible for the deployment of new ZK smart contracts.
 
 #### [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65)
 
