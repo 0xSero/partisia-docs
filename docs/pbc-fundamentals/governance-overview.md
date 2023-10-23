@@ -40,8 +40,6 @@ On Partisia Blockchain you use coins from other chains (BYOC) as payment for tra
 
 The Large oracle (LO) contract handles a special function of the committee when voting on important issues such as membership of the committee and approval of all BYOC movements in each epoch when the nodes perform these special duties they are referred to as the large oracle. LO contract allocates eligible nodes to the small oracles handling movement of on- and off-chain of BYOC and price oracles.
 
-#### [BYOC orchestration contract](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
-
 Facilitates the deployment of new deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md).
 
 ### [Small oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)
@@ -85,6 +83,8 @@ Facilitates the change of state (location, association, staking, vesting) of MPC
 
 
 ## Zero Knowledge and MPC
+
+The most distinguishing feature of PBC setting it aside form other blockchains is the ability to do zero knowledge computations most notably secure multiparty computations. For this you need to be able to register, and allocate a select group of nodes to handles the secret calculation you want to do. The nodes involved in MPC have to fulfill requirements of a higher stake and encrypting the traffic related to the communication with the other nodes involved in the secret calculation. You have the ability to deploy your own ZK smart contracts, so you can allocate nodes to a problem you define. 
 
 #### [ZK Deploy](https://browser.partisiablockchain.com/contracts/018bc1ccbb672b87710327713c97d43204905082cb)
 
