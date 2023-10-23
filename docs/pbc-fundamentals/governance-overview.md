@@ -84,7 +84,8 @@ Facilitates the change of state (location, association, staking, vesting) of MPC
 
 ## Zero Knowledge and MPC
 
-The most distinguishing feature of PBC setting it aside form other blockchains is the ability to do zero knowledge computations most notably secure multiparty computations. For this you need to be able to register, and allocate a select group of nodes to handles the secret calculation you want to do. The nodes involved in MPC have to fulfill requirements of a higher stake and encrypting the traffic related to the communication with the other nodes involved in the secret calculation. You have the ability to deploy your own ZK smart contracts, so you can allocate nodes to a problem you define. 
+The most distinguishing feature of PBC setting it aside form other blockchains is the ability to do zero knowledge computations most notably secure multiparty computations. For this you need to be able to register, and allocate a select group of nodes to handles the secret calculation you want to do. The nodes involved in MPC have to fulfill requirements: higher stake and encrypting the traffic communication with the other nodes involved in the secret calculation.    
+You have the ability to deploy your own ZK smart contracts with the ZK Deploy contract, so you can allocate nodes to a problem you define. The calculations are done on secret shared data and preprocessed to ensure that individual secret inputs cannot be recreated from the variables in the calculation.
 
 #### [ZK Deploy](https://browser.partisiablockchain.com/contracts/018bc1ccbb672b87710327713c97d43204905082cb)
 
