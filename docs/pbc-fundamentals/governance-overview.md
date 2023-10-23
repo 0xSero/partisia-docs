@@ -2,15 +2,16 @@
 
 This article helps you find the contract you need to interact with, depending on what properties of the blockchain you want to utilize.
 
-Partisia Blockchain is governed by a group of system smart contracts called governance contracts. They solve different types of tasks. Below the contracts indexed according to the tasks they handle.
+Partisia Blockchain is governed by a group of system smart contracts called governance contracts. The governance contracts solve different types of tasks. Below the contracts and plugins are listed under a category and description of their overall responsibilities. Each contract has a link for to the contract through the [Partisia Blockchain Browser](https://browser.partisiablockchain.com/). There you can see the contract state and invoke the actions of the contract with your [wallet](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/).
 
 
 ## Accounts
 
 On Partisia Blockchain addresses can refer either to a [contract](../smart-contracts/what-is-a-smart-contract.md) or an [account](create-an-account.md). Accounts hold vital user information such as your balance of MPC tokens and [BYOC](byoc.md). Only governance contracts can change the state of an account i.e. user deployed smart contracts cannot change account balances. PBC has an open account structure, meaning that any private key of a valid format can create a new account. Accounts and contracts reside on a specific [shard](sharding.md).
 
-## Block Producers
+## Node operation
 
+[Node operators](../node-operations/what-is-a-node-operator.md) (also referred to as block producers) own and operate the nodes (servers) where the blockchain software runs. Several contracts are necessary to make this part of the blockchain infrastructure work in a decentralized manner. Contracts are needed for listing and staking of confirmed node operators, payment for services, votes on software updates and registration of new node operators.
 
 #### [Block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
 
@@ -31,11 +32,13 @@ The system update contract facilitates votes from committee members (confirmed a
 The KYC contract validates block producer's personal information coming from the KYC provider before they can be confirmed as block producers and listed in the BPO contract. 
 
 
-## [BYOC](../pbc-fundamentals/byoc.md)
+## Transfer of liquid cryptocurrencies ([BYOC](byoc.md))
+
+On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users transfer BYOC between accounts and contracts. The BYOC system relies on contracts controlling allocations of nodes handling the transfers, withdrawals and deposits. As well as staking of those nodes and the audit of the transfers in each epoch. 
 
 #### [Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
 
-The LO contract handles a special function of the committee when voting on important issues such as membership of the committee and approval of all BYOC movements in each epoch when the nodes perform these special duties they are referred to as the large oracle. LO contract allocates eligible nodes to the small oracles handling movement of on- and off-chain of BYOC and price oracles.
+The Large oracle (LO) contract handles a special function of the committee when voting on important issues such as membership of the committee and approval of all BYOC movements in each epoch when the nodes perform these special duties they are referred to as the large oracle. LO contract allocates eligible nodes to the small oracles handling movement of on- and off-chain of BYOC and price oracles.
 
 #### [BYOC orchestration contract](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
 
@@ -61,6 +64,8 @@ Below you see the oracle contracts handling deposits and withdrawals for the cur
 
 
 ## Foundation
+
+Partisia Blockchain is a public blockchain and is controlled in a decentralized manner. The research and infrastructure behind the chain supported by an independent non-profit [foundation](https://partisiablockchain.com/foundation). This foundation can choose to provide incentives for node operators in form of tokens and raise funds for providing infrastructure through the sale of tokens.
 
 #### [Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
 
