@@ -2,29 +2,29 @@
 
 This article helps you find the contract you need to interact with, depending on what properties of the blockchain you want to utilize.
 
-Partisia Blockchain is governed by a group of system smart contracts called governance contracts. They solve different types of tasks. Below the contracts indexed according to the tasks they ahndle.
+Partisia Blockchain is governed by a group of system smart contracts called governance contracts. They solve different types of tasks. Below the contracts indexed according to the tasks they handle.
 
 
 ## Accounts
 
-On PBC addresses can refer either to a contract or an account. Accounts hold vital user information such as your balance of MPC tokens and BYOC. You can read more [here](create-an-account.md)
+On PBC addresses can refer either to a [contract](../smart-contracts/what-is-a-smart-contract.md) or an [account](create-an-account.md). Accounts hold vital user information such as your balance of MPC tokens and BYOC.
 
 ## Block Producers
 
 
 #### [Block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
 
-The BPO contract holds the information about block producers. In the state you can see the current and previous committees. You can see the timestamp showing the last committee change. You can invoke the contract to change committee if the current committee is more than a month old.
+The Block producer orchestration (BPO) contract holds the information about block producers. In the state you can see the current and previous committees. You can see the timestamp showing the last committee change. You can invoke the contract to change committee if the current committee is more than a month old.
 
 
 #### [Fee distribution](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9)
 
-Fee distribution contract takes care of the payment for baker node services. Every node makes a list of how many signatures they have received from every other node. Roughly, the top ⅔ best performers in each list get a vote. If more than ⅓ producers vote for your node, then it will be paid in that epoch.
+The Fee distribution contract takes care of the payment for baker node services. Every node makes a list of how many signatures they have received from every other node. Roughly, the top ⅔ best performers in each list get a vote. If more than ⅓ producers vote for your node, then it will be paid in that epoch.
 
 
 #### [System update](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)
 
-The system update contract facilitates votes from committee members (confirmed and active block producers) on updates of on chain information. There are manual and automated votes. Automated votes are yes votes by default unless actively changed by the individual node operator. 
+The system update contract facilitates votes from committee members (confirmed and active block producers) on updates of on chain information, such as updates to governance contracts. There are manual and automated votes. Automated votes are yes votes by default unless actively changed by the individual node operator. 
 
 #### [Synaps KYC / KYB contract](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)
 
