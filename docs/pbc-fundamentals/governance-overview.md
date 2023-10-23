@@ -7,7 +7,7 @@ Partisia Blockchain is governed by a group of system smart contracts called gove
 
 ## Accounts
 
-On PBC addresses can refer either to a [contract](../smart-contracts/what-is-a-smart-contract.md) or an [account](create-an-account.md). Accounts hold vital user information such as your balance of MPC tokens and BYOC.
+On Partisia Blockchain addresses can refer either to a [contract](../smart-contracts/what-is-a-smart-contract.md) or an [account](create-an-account.md). Accounts hold vital user information such as your balance of MPC tokens and [BYOC](byoc.md). Only governance contracts can change the state of an account i.e. user deployed smart contracts cannot change account balances. PBC has an open account structure, meaning that any private key of a valid format can create a new account. Accounts and contracts reside on a specific [shard](sharding.md).
 
 ## Block Producers
 
@@ -43,7 +43,7 @@ Facilitates the deployment of new deposit and withdrawal [oracles](../node-opera
 
 ### [Small oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)
 
-Below you see the oracle contracts handling deposits and withdrawals for the currently accepted BYOCs: ETH, BNB and USDC. These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The contract state shows which nodes serve the oracle, the transaction they are handling
+Below you see the oracle contracts handling deposits and withdrawals for the currently accepted BYOCs: ETH, BNB and USDC. These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The contract state shows which nodes serve the oracle and a list of the deposits or withdrawals they have completed.
 
 
 #### [ETH Deposit on PBC](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)  
@@ -76,7 +76,7 @@ Facilitates the sale of MPC tokens.
 
 #### [MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
 
-Facilitates the change of state of MPC tokens as well as transfer of MPC tokens between accounts.
+Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account[](check accuracy of this statement in the code!).
 
 
 ## Zero Knowledge and MPC
