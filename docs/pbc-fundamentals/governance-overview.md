@@ -75,11 +75,13 @@ Facilitates the sale of MPC tokens.
 
 
 
-## [MPC Tokens](mpc-token-model-and-account-elements.md)
+## The native token on PBC - MPC tokens
+
+MPC tokens  are used by node operators and other token holders for staking on a service provided by a node. Tokens can be confiscated in case of malicious behaviour and be used for dispute settlement. Staked tokens incentives honest and reliable node services.
 
 #### [MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
 
-Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account.
+Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account. You can learn more about MPC tokens and their properties in the [MPC token model](mpc-token-model-and-account-elements.md)
 
 
 ## Zero Knowledge and MPC
