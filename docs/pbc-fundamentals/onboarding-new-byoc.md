@@ -43,7 +43,7 @@ For ERC20 tokens the token contract address and the number of decimals is needed
 The below form helps generate the needed binary transactions for deploying on the external chain and
 proposing the update on Partisia Blockchain.
 
-The bytecode for the contracts have been populated from the compiled artifacts on Gitlab.
+The bytecode for the contracts have been populated from the compiled artifacts [on Gitlab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth/-/packages/8687576).
 
 1. Select if the token to be deployed is an ERC20 or a native token
 2. Select the chain where the token resides
