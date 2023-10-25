@@ -2,6 +2,9 @@
       onchange="updateFields()"
       onsubmit="generateConfigs()">
   <p>
+  <h2>1. Deploy implementation contract</h2>
+  </p>
+  <p>
     <label>
       <span>(1) Token type</span>
       <select id="byoc-onboarding-token-type">
@@ -31,6 +34,9 @@
     <button type="button" class="md-button" onclick="deployImplementation()">Deploy with Metamask
     </button>
   </div>
+  <p>
+  <h2>2. Deploy configured proxy contract</h2>
+  </p>
   <p>
     <label for="byoc-onboarding-implementation-address">
       <span>(4) Deployed implementation contract address:</span>
@@ -66,7 +72,9 @@
   <div class="button-container">
     <button type="button" class="md-button" onclick="deployProxy()">Deploy with Metamask</button>
   </div>
-
+  <p>
+    <h2>3. Propose a vote on Partisia Blockchain</h2>
+  </p>
   <p>
     <label for="byoc-onboarding-proxy-address">
       <span>(6) Deployed proxy contract address:</span>
