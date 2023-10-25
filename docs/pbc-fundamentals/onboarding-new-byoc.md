@@ -1,7 +1,7 @@
 # Onboarding new BYOC
 
 This article helps you onboard ERC20 and its extension tokens to Partisia Blockchains using the PBC
-bridge. In order for the
+bridge and how to verify a proposal. In order for the
 bridge to work between chains, you must have a contract in the Ethereum, Polygon or BNB smart chain
 network as well
 as on the Partisia
@@ -14,7 +14,7 @@ either accept or reject the proposal.
 If it is accepted, the contract will go live and the token will become available as an asset in the
 network.
 
-## How to create a proposal for a new coin
+## How to propose a new BYOC coin
 These are the three high level steps you need to do to create a proposal for a new coin: 
 
 1. Deploy implementation contract on the chain you want to integrate with.
@@ -62,11 +62,11 @@ For step 2 and 4 the form below allows using Metamask to send the transactions.
 
 --8<-- "docs/snippets/byoc-onboarding-form.html"
 
-## Verify a proposed BYOC
+## How to verify a proposed BYOC
 
-The proposer should have made all the configuration parameters available for the node operators to
+This guide is intended for someone to ensure that a new BYOC proposal is valid. The proposer should have made all the configuration parameters available for the node operators to
 check. Fill out the payload form above with all the received information to be able to verify the
-payloads.
+payloads. 
 
 Validate that the parameters match what is expected:
 
