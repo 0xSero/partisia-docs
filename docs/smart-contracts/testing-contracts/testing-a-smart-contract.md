@@ -7,12 +7,12 @@ are developing. After reading this page, you should be able to do the following:
 2. Use the deployment test as setup for another test.
 3. Interact with the contract in the test.
 
-In the [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), we have tests, to demonstrate the
+In the [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), we have tests to demonstrate the
 behaviour for all the contracts. These tests are written in
 Java, utilizing our testing framework Junit-contract-test. During the test we are, provided a blockchain object,
 which allows us to deploy and interact with multiple different contracts.
 
-To run the tests navigate to the root of contract examples and execute the following commands in order.
+To run the tests, navigate to the root of contract examples and execute the following commands in order.
 
 Compile the contracts:
 
@@ -44,7 +44,7 @@ mvn test -Dtest="VotingTest"
 
 ### Run test with code coverage
 
-To see that the tests hits the different parts of the smart contract code, we can run the tests, with coverage enabled.
+To see that the tests hits the different parts of the smart contract code, we can run the tests with coverage enabled.
 The tests will generate coverage information, which can be compiled into a report. To run the tests with coverage enabled,
 execute `run-java-tests.sh` with the build flag, `-b`, and the coverage flag, `-c`.t pyu
 
@@ -55,7 +55,8 @@ execute `run-java-tests.sh` with the build flag, `-b`, and the coverage flag, `-
 This will create the instrumented executable, and run the test with coverage enabled.
 
 ## Break down of a test
-
+The following section is an example of a test of a "voting"
+ smart contract. The most important aspects of this example will be explained in the following sections.
 ````java
 import com.partisiablockchain.BlockchainAddress;
 import com.partisiablockchain.language.abicodegen.Voting;
@@ -89,6 +90,7 @@ public final class VotingTest extends JunitContractTest {
     voter2 = blockchain.newAccount(3);
     voter3 = blockchain.newAccount(4);
 
+    // Initialize a voting with a proposal ID, a list of voters and a deadline.
     byte[] initRpc = Voting.initialize(10, List.of(voter1, voter2, voter3), 60 * 60 * 1000);
     voting = blockchain.deployContract(voter1, VOTING_CONTRACT_BYTES, initRpc);
   }
@@ -97,9 +99,12 @@ public final class VotingTest extends JunitContractTest {
   @ContractTest(previous = "setUp")
   public void castVote() {
     byte[] votingRpc = Voting.vote(true);
+    // An eligible voter casts a vote
     blockchain.sendAction(voter1, voting, votingRpc);
+    // Get the current state of the voting contract 
     Voting.VoteState state = Voting.VoteState.deserialize(blockchain.getContractState(voting));
 
+    // One vote should be cast, and it should be "true"
     Assertions.assertThat(state.votes().size()).isEqualTo(1);
     Assertions.assertThat(state.votes().get(voter1)).isTrue();
   }
@@ -132,8 +137,10 @@ of smart contracts. This enables automated testing of smart contracts, since the
     }
     ```
 
-### ContractBytes - Specify the bytecode to deploy
+### Deploying smart contract bytecode
 
+
+In order to test a smart contract, you need to deploy the contract, which is done using `ContractBytes`.  
 We have declared an instance of `ContractBytes`, where we specify the relative location of the .wasm and .abi file
 for
 our [example Voting contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/voting?ref_type=heads).
@@ -180,7 +187,7 @@ the bytecode to deploy and the arguments for the initialize call, creating the i
         blockchain.deployContract(voter1, VOTING_CONTRACT_BYTES, initRpc); // Deployment of a contract, returns the address the contract is deployed at.
     ````
 
-#### Serialize RPC with generated code - ABI Codegen
+#### Using ABI codegen for RPC
 
 In the deployment call, the RPC is serialized using code generated with the ABI for the contract. This can either be
 generated
