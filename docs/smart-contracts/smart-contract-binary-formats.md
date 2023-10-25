@@ -7,6 +7,9 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
+- Version **5.2** to **5.3**:
+    * Added new type `AvlTreeMap`, a map whose content is not serialized to the wasm state format, but instead allows
+  for lazy access to its contents.
 - Version **5.1** to **5.2**:
     * Added new `FnKind: 0x17` called `ZkSecretInputWithExplicitType`.
     * Added `SecretArgument` field to `FnAbi` to support ZK inputs. Only present when `FnKind` is `ZkSecretInputWithExplicitType`.
@@ -139,6 +142,7 @@ $$
 | \ & \text{b:}\byte{} \ \text{arg:}\text{State} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
 | \ & f_1 \text{:State} \dots f_n \text{:State} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
 | \ & \text{variant:} \byte{} \ f_1 \text{:State} \dots f_n \text{:State} \Rightarrowx \text{Enum}\ \{ \text{variant}, f_1, f_2, \dots, f_n \} & \\
+| \ & \bytes{4} \ \Rightarrowx \text{AvlTreeMap} \\
 \end{align*}
 }
 $$
@@ -154,6 +158,12 @@ $$
 \end{align*}
 }
 $$
+
+**Note:** An AvlTreeMap is only stored in wasm state as an integer. The actual content of the AvlTreeMap is stored
+outside the wasm code. The content of the AvlTreeMap is accessed using external calls to the java code. 
+The integer stored is the tree id of the AvlTreeMap and is used as a pointer to find the correct AvlTreeMap.
+This is done to avoid having to serialize and deserialize the entire content of the Map for every invocation
+saving gas cost.
 
 <!-- fix syntax highlighting* -->
 
@@ -250,6 +260,7 @@ $$
 | \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Set<}\text{T>} \\
 | \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]}  (\hexi{00} \leq L \leq \hexi{7F}) \\
 | \ &\hexi{12} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Option<}\text{T>} \\
+| \ &\hexi{19} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{AvlTreeMap <}\text{K}, \text{V>} \\
 \\
 \end{align*}
 }
