@@ -46,7 +46,7 @@ mvn test -Dtest="VotingTest"
 
 To see that the tests hits the different parts of the smart contract code, we can run the tests, with coverage enabled.
 The tests will generate coverage information, which can be compiled into a report. To run the tests with coverage enabled,
-execute `run-java-tests.sh` with the build flag, `-b`, and the coverage flag, `-c`.
+execute `run-java-tests.sh` with the build flag, `-b`, and the coverage flag, `-c`.t pyu
 
 ````bash
 ./run-java-tests.sh -c -b
