@@ -19,7 +19,11 @@ network.
 
 ## How to propose a new BYOC coin
 
-These are the three high level steps you need to do to create a proposal for a new coin:
+To create a proposal of a new BYOC coin you need to be able
+to [stake-to-self](mpc-token-model-and-account-elements.md#stakedtoself) [100000 MPC tokens](https://gitlab.com/partisiablockchain/governance/voting/-/blob/main/src/main/java/com/partisiablockchain/governance/voting/VotingContract.java#L42).
+Besides the staking these are the
+technical three high level
+steps you need to do to create a proposal for a new coin:
 
 1. Deploy implementation contract on the chain you want to integrate with.
 2. Deploy configured proxy contract on the chain you want to integrate with.
