@@ -19,8 +19,7 @@ network.
 
 ## How to propose a new BYOC coin
 
-To create a proposal of a new BYOC coin you need to be able
-to [stake-to-self](mpc-token-model-and-account-elements.md#stakedtoself) [100000 MPC tokens](https://gitlab.com/partisiablockchain/governance/voting/-/blob/main/src/main/java/com/partisiablockchain/governance/voting/VotingContract.java#L42).
+To create a proposal of a new BYOC coin you need to be have at least 100.000 MPC tokens staked [to your own account](mpc-token-model-and-account-elements.md#stakedtoself).
 Besides being able to stake the MPC tokens you need to do the following
 technical high level
 steps to create a proposal for a new coin: 
