@@ -90,7 +90,7 @@ RPC deployed on a foreign chain, you need to find their deployment transaction b
 Field 7 is a transaction to
 the [system contract](../../smart-contracts/what-is-a-smart-contract.md#the-different-contract-types-and-their-life-on-the-blockchain)
 on PBC. You need to find the initializing transaction of the proposal you are voting on in
-the [system contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620). If
+the [system update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620). If
 no
 configuration
 is shared with the community, verifying the proposal is very difficult.
