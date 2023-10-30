@@ -68,7 +68,7 @@ These steps specify what information is needed in the below form, each number co
    the [system update contract in the browser](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/proposeUpdate)
    create the vote you use the interaction: `PollUpdateType$INVOKE_CONTRACT(6)` vote with the generated RPC from the
    below form in field (7).
-8. After the creation of the proposal, we suggest you share your forms details with the community to make it easier for
+8. After the creation of the proposal, we suggest you share your forms details with [the community](../../get-support-from-pbc-community.md) to make it easier for
    them to verify your proposal.
 
 For step 2 and 4 the form below allows using Metamask to send the transactions.
