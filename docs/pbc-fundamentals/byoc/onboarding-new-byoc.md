@@ -68,7 +68,8 @@ These steps specify what information is needed in the below form, each number co
    the [system update contract in the browser](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/proposeUpdate)
    create the vote you use the interaction: `PollUpdateType$INVOKE_CONTRACT(6)` vote with the generated RPC from the
    below form in field (7).
-8. After the creation of the proposal, we suggest you share your forms details with [the community](../../get-support-from-pbc-community.md) to make it easier for
+8. After the creation of the proposal, we suggest you share your forms details
+   with [the community](../../get-support-from-pbc-community.md) to make it easier for
    them to verify your proposal.
 
 For step 2 and 4 the form below allows using Metamask to send the transactions.
@@ -79,20 +80,22 @@ For step 2 and 4 the form below allows using Metamask to send the transactions.
 
 This guide is intended for someone to ensure that a new BYOC proposal is valid. The proposer should have made all the
 configuration parameters available (The above form is an example of this) for the node operators to
-check. Fill out the payload form above with all the received information to be able to verify the
-payloads.
+check.
 
-To verify payloads you go to the deployed contracts, find the transaction that holds the same RPC as what the forms
-generate. You take the RPC for each of these contracts and see that
-it matches the same RPC you are creating in the form with the same input as the proposer has stated. The RPC is
-generated in the above form and is generated in field 1, 4 and 7. Field 1 and 4 forces you to visit another chain to see
-the RPC sent in to create the contract there, whereas field 7 is a transaction on
-our [system contract](../../smart-contracts/what-is-a-smart-contract.md#the-different-contract-types-and-their-life-on-the-blockchain)
-on PBC. If no
+Fill out the payload form above with all the received information to be able to verify the
+payloads, the exact
+same
+way as the proposer did, [see above](onboarding-new-byoc.md#how-to-propose-a-new-byoc-coin). Field 3 and 5 are contract
+RPC deployed on a foreign chain, you need to find their deployment transaction before you can verify its the same RPC.
+Field 7 is a transaction to
+the [system contract](../../smart-contracts/what-is-a-smart-contract.md#the-different-contract-types-and-their-life-on-the-blockchain)
+on PBC. You need to find the initializing transaction of the proposal you are voting on in
+the [system contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620). If
+no
 configuration
-is shared verifying the proposal is very hard and could show malicious intent.
+is shared with the community, verifying the proposal is very difficult.
 
-Validate that the parameters match what is expected:
+When validating the proposal ensure that the parameters match what is expected:
 
 - Does the supplied price match the price of the token?
 - Is the name of the token correct?
@@ -101,11 +104,9 @@ Validate that the parameters match what is expected:
 - Is the supplied ERC20 contract a valid ERC20 contract for the token? And does the decimal count
   match the decimals on the ERC20 contract?
 
-For both of the deployed contracts lookup the transaction that deployed them, find the payload of
+To sum up, you need to find both of the deployed contracts, lookup the transaction that deployed them, find the payload
+of
 the transaction and verify that this matches exactly the payload generated in the form.
-
-For the vote on Partisia Blockchain the content of the vote should match exactly the payload from
-the above form.
 
 ## Configuration parameters
 
