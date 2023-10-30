@@ -19,10 +19,11 @@ network.
 
 ## How to propose a new BYOC coin
 
-To create a proposal of a new BYOC coin you need to be have at least 100.000 MPC tokens staked [to your own account](../mpc-token-model-and-account-elements.md#stakedtoself).
+To create a proposal of a new BYOC coin you need to be have at least 100.000 MPC tokens
+staked [to your own account](../mpc-token-model-and-account-elements.md#stakedtoself).
 Besides being able to stake the MPC tokens you need to do the following
 technical high level
-steps to create a proposal for a new coin: 
+steps to create a proposal for a new coin:
 
 1. Deploy implementation contract on the chain you want to integrate with.
 2. Deploy configured proxy contract on the chain you want to integrate with.
@@ -67,6 +68,8 @@ These steps specify what information is needed in the below form, each number co
    the [system update contract in the browser](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/proposeUpdate)
    create the vote you use the interaction: `PollUpdateType$INVOKE_CONTRACT(6)` vote with the generated RPC from the
    below form in field (7).
+8. After the creation of the proposal, we suggest you share your forms details with the community to make it easier for
+   them to verify your proposal.
 
 For step 2 and 4 the form below allows using Metamask to send the transactions.
 
@@ -75,9 +78,19 @@ For step 2 and 4 the form below allows using Metamask to send the transactions.
 ## How to verify a proposed BYOC
 
 This guide is intended for someone to ensure that a new BYOC proposal is valid. The proposer should have made all the
-configuration parameters available for the node operators to
+configuration parameters available (The above form is an example of this) for the node operators to
 check. Fill out the payload form above with all the received information to be able to verify the
 payloads.
+
+To verify payloads you go to the deployed contracts, find the transaction that holds the same RPC as what the forms
+generate. You take the RPC for each of these contracts and see that
+it matches the same RPC you are creating in the form with the same input as the proposer has stated. The RPC is
+generated in the above form and is generated in field 1, 4 and 7. Field 1 and 4 forces you to visit another chain to see
+the RPC sent in to create the contract there, whereas field 7 is a transaction on
+our [system contract](../../smart-contracts/what-is-a-smart-contract.md#the-different-contract-types-and-their-life-on-the-blockchain)
+on PBC. If no
+configuration
+is shared verifying the proposal is very hard and could show malicious intent.
 
 Validate that the parameters match what is expected:
 
