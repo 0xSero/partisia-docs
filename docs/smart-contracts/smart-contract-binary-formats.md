@@ -404,7 +404,7 @@ $$
 $$
 <!-- fix syntax highlighting* -->
 
-Note that sections must occur in order of increasing ids. The .pbc file format expects
+Note that sections must occur in order of increasing ids. The .pbc format expects
 three sections indexed by the following ids:
 
 - `0x01`: Stores the contract's ABI.
