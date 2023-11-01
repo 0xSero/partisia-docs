@@ -374,7 +374,7 @@ Note that section must occur in order of increasing ids. Two ids are
 Section ids `0x00` to `0x0F` are reserved for "well-known" usage. All others
 are passed through the interpreter without modification.
 
-## Pbc file result format
+## Pbc file format
 
 The format used by .pbc-files is a section-based format defined as following:
 
