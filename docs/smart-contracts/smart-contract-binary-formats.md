@@ -373,3 +373,30 @@ Note that section must occur in order of increasing ids. Two ids are
 
 Section ids `0x00` to `0x0F` are reserved for "well-known" usage. All others
 are passed through the interpreter without modification.
+
+## Pbc file result format
+
+The format used by .pbc-files is a section-based format defined as following:
+
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<PbcFile>} \ :=
+\ & \text{PbcHeader:}\bytes{4},\text{The header is always "PBSC" in ASCII}\ \\
+\ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
+\text{<Section >} \ :=
+\ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
+\end{align*}
+}
+$$
+<!-- fix syntax highlighting* -->
+
+Note that sections must occur in order of increasing ids. Three ids are
+"well-known" and specially handled by the interpreter:
+
+- `0x01`: Stores the contract's ABI.
+- `0x02`: Stores the contract's WASM code.
+- `0x03`: Stores the contract's ZK-circuit byte code.
+
+The length of a section is parsed as a 32-bit big-endian unsigned integer and 
+should match the number of bytes of data held in the section.
