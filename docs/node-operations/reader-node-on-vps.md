@@ -47,10 +47,6 @@ sudo chmod 500 /opt/pbc-mainnet/conf
 sudo chmod 700 /opt/pbc-mainnet/storage
 ````
 
-````bash
-sudo chmod 400 /opt/pbc-mainnet/conf/config.json
-````
-
 The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder
 readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
 
@@ -138,6 +134,12 @@ The config should look like the example below.
         "networkKey": "YOUR NETWORK KEY"  
     }
     ```
+
+After creating the config we need to ensure that the user has the right file permissions by running: 
+
+````bash
+sudo chmod 400 /opt/pbc-mainnet/conf/config.json
+````
 
 ### Starting the node
 
