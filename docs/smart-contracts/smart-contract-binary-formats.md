@@ -391,7 +391,7 @@ are passed through the interpreter without modification.
 
 ## Pbc file format
 
-The format used by .pbc-files is a section-based format defined as following:
+The format used by Partisia Blockchain files is written as .pbc. This is a [section format](#section-format) defined as:
 
 $$
 \textcolor{mathcolor}{
