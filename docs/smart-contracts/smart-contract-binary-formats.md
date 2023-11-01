@@ -348,24 +348,39 @@ Also note that if a function has the deprecated kind `ZkSecretInput`, the defaul
 secret argument associated with it is of type i32. 
 
 <!-- fix syntax highlighting* -->
+## Section format
+
+A section is an indexed chunk of a binary file of dynamic length, which is defined as follows:
+
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<Section >} \ :=
+\ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
+\end{align*}
+}
+$$
+
+The id of a section is a single, leading byte that identifies the section.
+The section's length then follows and is given as a 32-bit, big-endian,
+unsigned integer. The byte length of the following dynamically sized data
+of the section should match this length.
 
 ## Wasm contract result format
 
-The format used by Wasm contracts to return results is a section-based format defined as following:
+The format used by Wasm contracts to return results is a section-based format defined as follows:
 
 $$
 \textcolor{mathcolor}{
 \begin{align*}
 \text{<Result>} \ :=
   \ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
-\text{<Section >} \ :=
-  \ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
 \end{align*}
 }
 $$
 <!-- fix syntax highlighting* -->
 
-Note that section must occur in order of increasing ids. Two ids are
+Note that sections must occur in order of increasing ids. Two ids are
 "well-known" and specially handled by the interpreter:
 
 - `0x01`: Stores event information.
@@ -384,19 +399,16 @@ $$
 \text{<PbcFile>} \ :=
 \ & \text{PbcHeader:}\bytes{4},\text{The header is always "PBSC" in ASCII}\ \\
 \ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
-\text{<Section >} \ :=
-\ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
 \end{align*}
 }
 $$
 <!-- fix syntax highlighting* -->
 
-Note that sections must occur in order of increasing ids. Three ids are
-"well-known" and specially handled by the interpreter:
+Note that sections must occur in order of increasing ids. The .pbc file format expects
+three sections indexed by the following ids:
 
 - `0x01`: Stores the contract's ABI.
 - `0x02`: Stores the contract's WASM code.
 - `0x03`: Stores the contract's ZK-circuit byte code.
 
-The length of a section is parsed as a 32-bit big-endian unsigned integer and 
-should match the number of bytes of data held in the section.
+The last one should only be present for a ZK-contract.
