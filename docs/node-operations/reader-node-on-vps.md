@@ -135,12 +135,6 @@ The config should look like the example below.
     }
     ```
 
-After creating the config we need to ensure that the user has the right file permissions by running: 
-
-````bash
-sudo chmod 400 /opt/pbc-mainnet/conf/config.json
-````
-
 ### Starting the node
 
 You can now start the node:
