@@ -368,7 +368,7 @@ of the section should match this length.
 
 ## Wasm contract result format
 
-The format used by Wasm contracts to return results is a section-based format defined as follows:
+The format used by Wasm contracts to return results is a [section format](#section-format) defined as follows:
 
 $$
 \textcolor{mathcolor}{
@@ -391,7 +391,7 @@ are passed through the interpreter without modification.
 
 ## Partisia Blockchain file format
 
-The format used by Partisia Blockchain files is written as .pbc. This is a [section format](#section-format) defined as:
+The file extension of Partisia Blockchain files is written as ".pbc". This is a [section format](#section-format) defined as:
 
 $$
 \textcolor{mathcolor}{
@@ -404,11 +404,9 @@ $$
 $$
 <!-- fix syntax highlighting* -->
 
-Note that sections must occur in order of increasing ids. The .pbc format expects
-three sections indexed by the following ids:
+Note that sections must occur in order of increasing ids. The .pbc format can
+consist of up to three sections indexed by the following ids:
 
-- `0x01`: Stores the contract's ABI.
-- `0x02`: Stores the contract's WASM code.
-- `0x03`: Stores the contract's ZK-circuit byte code.
-
-The last one should only be present for a ZK-contract.
+- `0x01`: The contract's [ABI](#abi-binary-format).
+- `0x02`: The contract's WASM code.
+- `0x03`: The contract's ZK-circuit byte code.
