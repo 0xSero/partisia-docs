@@ -11,7 +11,7 @@ Addresses can refer to a [contract](../smart-contracts/what-is-a-smart-contract.
 
 ## Node operation
 
-[Node operators](../node-operations/what-is-a-node-operator.md) (also referred to as block producers) own and operate the nodes (servers) where the blockchain software runs. Several contracts are necessary to make this part of the blockchain infrastructure work in a decentralized manner. Contracts are needed for listing and staking of confirmed node operators, payment for services, votes on software updates and registration of new node operators.
+[Node operators](../node-operations/what-is-a-node-operator.md) (also referred to as block producers) own and operate the nodes (servers) where the blockchain software runs. The system contracts are needed for listing and staking of confirmed node operators, payment for services, votes on software updates and registration of new node operators.
 
 #### [Block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
 
@@ -32,9 +32,9 @@ The system update contract facilitates votes from committee members (confirmed a
 The KYC contract validates block producer's personal information coming from the KYC provider before they can be confirmed as block producers and listed in the BPO contract. 
 
 
-## Transfer of liquid cryptocurrencies ([BYOC](byoc.md))
+## Transfer of cryptocurrencies across chains ([BYOC](byoc.md))
 
-On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users transfer BYOC between accounts and contracts. The BYOC system relies on contracts controlling allocations of nodes handling the transfers, withdrawals and deposits. As well as staking of those nodes and the audit of the transfers in each epoch. 
+On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users transfer BYOC between accounts and contracts. The BYOC system contracts controls allocations of nodes handling the transfers, withdrawals, deposits, staking of nodes and the audit of transfers done in each epoch.
 
 #### [Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
 
@@ -63,7 +63,7 @@ Below you see the oracle contracts handling deposits and withdrawals for the cur
 
 ## Foundation
 
-Partisia Blockchain is a public blockchain and is controlled in a decentralized manner. The research and infrastructure behind the chain supported by an independent non-profit [foundation](https://partisiablockchain.com/foundation). This foundation can choose to provide incentives for node operators in form of tokens and raise funds for providing infrastructure through the sale of tokens.
+[Partisia Blockchain foundation](https://partisiablockchain.com/foundation) can choose to provide incentives for node operators in form of tokens and raise funds for providing infrastructure through the sale of tokens, this is done by the following system contracts. 
 
 #### [Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
 
@@ -75,9 +75,9 @@ Facilitates the sale of MPC tokens.
 
 
 
-## The native token on PBC - MPC tokens
+## MPC tokens
 
-MPC tokens  are used by node operators and other token holders for staking on a service provided by a node. Tokens can be confiscated in case of malicious behaviour and be used for dispute settlement. Staked tokens incentives honest and reliable node services.
+[MPC tokens](dictionary.md#mpc-token) are used by node operators and other token holders for staking on a service provided by a node. Tokens can be confiscated in case of malicious behaviour and be used for dispute settlement. Staked tokens incentives honest and reliable node services.
 
 #### [MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
 
