@@ -11,7 +11,7 @@ Addresses can refer to a [contract](../smart-contracts/what-is-a-smart-contract.
 
 ## Node operation
 
-[Node operators](../node-operations/what-is-a-node-operator.md) (also referred to as block producers) own and operate the nodes (servers) where the blockchain software runs. Several contracts are necessary to make this part of the blockchain infrastructure work in a decentralized manner. Contracts are needed for listing and staking of confirmed node operators, payment for services, votes on software updates and registration of new node operators.
+[Node operators](../node-operations/what-is-a-node-operator.md) (also referred to as block producers) own and operate the nodes (servers) where the blockchain software runs. The system contracts are needed for listing and staking of confirmed node operators, payment for services, votes on software updates and registration of new node operators.
 
 #### [Block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
 
