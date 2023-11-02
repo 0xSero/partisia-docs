@@ -69,14 +69,12 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
 operators in form of tokens and raise funds for providing infrastructure through the sale of tokens, this is done by the
 following system contracts.
 
-#### [Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
+??? info "[Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)"
+    Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
+    infrastructure and expansion of services.
 
-Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
-infrastructure and expansion of services.
-
-#### [Foundation Sale](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)
-
-Facilitates the sale of MPC tokens.
+??? info "[Foundation Sale](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)"
+    Facilitates the sale of MPC tokens.
 
 ## MPC tokens
 
