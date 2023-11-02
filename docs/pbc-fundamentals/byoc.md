@@ -77,6 +77,8 @@ In practice, you can follow these steps:
 5. Wait for the nodes to sign the pending withdrawal (Pending withdrawals on the connected chain can be seen in the top right notification menu)
 6. Click the withdraw button in the notification menu
 
+Once the withdrawal transaction has gone through on the external chain, the coins will be available for you in the MetaMask wallet.
+
 ### How to test BYOC?
 You need some value from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we recommend you to find a faucet. This can be found using a simple web search. 
 
