@@ -1,4 +1,4 @@
-# Governance overview
+# Governance system smart contracts overview
 
 This article helps you find the contract you need to interact with, depending on what properties of the blockchain you want to utilize.
 
