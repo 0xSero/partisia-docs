@@ -3,43 +3,82 @@ In this article we will explain what byoc is, how to bring your own coins to the
 
 ### What is BYOC and gas
 
-BYOC means bring your own coin. The idea is that you can bring other cryptocurrencies onto PBC. Any coin you bring onto PBC stays as a reference to the coin you brought in. You can convert your BYOC [to gas](../smart-contracts/gas/transaction-gas-prices.md). 
+BYOC means bring your own coin. The idea is that you can bring other cryptocurrencies onto PBC. 
+Any coin you bring onto PBC stays as a reference to the coin you brought in. 
+You can convert your BYOC [to gas](../smart-contracts/gas/transaction-gas-prices.md). 
 You need BYOC to convert to gas to interact with a contract on the blockchain.
 
-BYOC is needed to cover the payment of the node operators which are providing the services enabling the transactions to take place. You pay for interactions with gas that is converted from coins you have brought onto the chain, you can see the explained [gas fees here](../smart-contracts/gas/transaction-gas-prices.md). 
+BYOC is needed to cover the payment of the node operators which are providing the services enabling the transactions to take place. 
+You pay for interactions with gas that is converted from coins you have brought onto the chain, you can see the explained [gas fees here](../smart-contracts/gas/transaction-gas-prices.md). 
 
 ### How does it work
 
-To be able to spend and transfer your coins, you will need to transfer your own liquid cryptocurrency using [the PBC Token Bridge](https://bridge.mpcexplorer.com/). This will move your ETH to a contract and mint a PBC version of the coin you brought. This new PBC based version of your coin can interact with the payment scheme of PBC. In essence, you can deposit, withdraw and transfer ETH or other cryptocurrencies with your PBC wallet.
+To be able to spend and transfer your coins, you will need to transfer your own cryptocurrency using [the PBC Token Bridge](https://browser.partisiablockchain.com/account?tab=byoc). 
+This will move your external coins to a contract and mint a PBC version of the coin you brought. 
+This new PBC based version of your coin can interact with the payment scheme of PBC. 
+In essence, you can deposit, withdraw and transfer ETH or other cryptocurrencies with your MetaMask wallet.
 You can see what bridges are available on our page: [Bridging BYOC by sending transactions](bridging-byoc-by-sending-transactions.md).
 
-The cost of bringing your own coin
+**BYOC fee(tentative):** <br/>
+Bridging has a small fee, since transferring coins between chains requires the nodes to sign the transfers.
 
-**BYOC (tentative):**
-0,1% of the value transferred with a threshold of 25 USD as minimum transfer (equal to a minimum BYOC fee of 2,5 USD cents).
+The cost of bringing your own coin is 0,1% of the value transferred with a threshold of 25 USD as minimum transfer 
+(equal to a minimum BYOC fee of 2,5 USD cents).
+
+### Requirements
+[//]: # ( TODO not sure we want how to create accounts to be a part of this page)
+To be able to bridge your coins you will need an account on PBC, and an account on MetaMask holding the
+coins you want to transfer. The bridge only supports the MetaMask wallet extension for interacting with
+other chains than PBC.
+
+1. Install the [MetaMask Wallet Extension](https://metamask.io/download/).
+2. Create an account in the wallet or connect using your secret phrase. (This is different from your Partisia Account)
+   If you want to import an account using a secret key or a hardware wallet, you can do that in the extension as well.
+3. Login on [PBC](https://browser.partisiablockchain.com/account?tab=byoc) using MetaMask (or use the account you already have on PBC).
+
+### How to deposit using the Bridge
+
+To make a deposit, you can use the [PBC Token Bridge](https://browser.partisiablockchain.com/account?tab=byoc).
+Depending on whether the coin you want to transfer is a native coin (e.g. ETH or BNB) or a token based coin (e.g. USDC) the steps to transfer
+differ. This is because tokens needs to be approved, such that the external byoc contract is able to transfer the tokens for you.
+
+In practice, you can follow these steps:
+
+| Native coin                                                                                                                     | Token Based coin                                                                                                     |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account                    | Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account         |
+| Click deposit on the coin you want to transfer                                                                                  | Click approve on the coin you want to transfer                                                                       |
+| Connect MetaMask to connect your external account                                                                               | Connect MetaMask to connect your external account                                                                    |
+| Enter the amount you wish to transfer in the dialog                                                                             | Enter the amount you wish to approve in the dialog                                                                   |
+| Wait for the nodes to sign the deposit (Pending deposits on the connected chain can be seen in the top right notification menu) | Wait for the transaction on the external chain                                                                       |
+|                                                                                                                                 | Click deposit on the coin you want to transfer                                                                       |
+|                                                                                                                                 | Enter the amount you wish to deposit in the dialog (Note that you cannot deposit more than you have approved)        |
+|                                                                                                                                 | Wait for the nodes to sign the deposit (Pending deposits on the connected chain can be seen in the top right corner) |
+
+When the nodes have signed the deposit, the coins will be available for you on PBC, and can be seen on the [Bridge page](https://browser.partisiablockchain.com/account?tab=byoc).
+After the confirmed transfer your gas balance in the wallet should be positive. This means that you can deploy or interact with smart contracts on the blockchain and pay for those interactions with the coins that you have bridged. 
+Read more about smart contracts [here](../smart-contracts/what-is-a-smart-contract.md).
 
 
-### How to get started
+### How to withdraw using the Bridge
 
-To make a deposit of ETH you can use the [PBC Token Bridge](https://bridge.mpcexplorer.com).
+To withdraw a coin from PBC to your external account, you can use the [PBC Token Bridge](https://browser.partisiablockchain.com/account?tab=byoc).
+The withdrawal process has two steps. First you have to make a pending withdrawal on the PBC chain.
+When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
+withdrawal contract. At this point the coins can be withdrawn to your external account by withdrawing on
+the withdrawal contract. Both steps can be performed in the [Browser](https://browser.partisiablockchain.com/account?tab=byoc).
 
-In practice you can follow these steps:
+In practice, you can follow these steps:
 
-1. Install the [Partisa Wallet Extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
-2. Make a [Partisia Account](../pbc-fundamentals/create-an-account.md) with the wallet (or use the one you have already). You can use the Partisia Wallet to make additional accounts.
-3. Install Metamask [app](https://metamask.io/) or [extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn).
-4. Make an Ethereum account, you can use Metamask to do it. (This is different from your Partisia Account)
-5. Set the network in Metamask to Ethereum Mainnet in upper right corner.
-6. You can use Metamask to buy ETH. You can add funds with card or Apple Pay.
-7. Use the [PBC Token bridge](https://bridge.mpcexplorer.com/) to transfer ETH from the Ethereum account into the PBC account.
-
-You get a confirmation as seen below if the deposit is successful. 
-
-<img alt="Deposit" src="bridge-transfer-confirmation.png" width="350"/>
-
-The confirmation also includes a link to the [mpc explorer](https://mpcexplorer.com/) where you can see the executed transaction. After the confirmed transfer your gas balance in the wallet should be positive. This means that you can deploy or interact with smart contracts on the blockchain and pay for those interactions with the coins to have sent over. Read more about smart contracts [here](../smart-contracts/what-is-a-smart-contract.md).
+1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account
+2. Click withdraw on the coin you want to transfer
+3. Connect MetaMask to connect your external account
+4. Enter the amount you wish to withdraw in the dialog
+5. Wait for the nodes to sign the pending withdrawal (Pending withdrawals on the connected chain can be seen in the top right notification menu)
+6. Click the withdraw button in the notification menu
 
 ### How to test BYOC?
-You need some value from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3)), we recommend you to find a faucet. This can be found using a simple web search. 
+You need some value from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we recommend you to find a faucet. This can be found using a simple web search. 
 
-To see the GoerliETH in Metamask you need to change the network to the Goerli Test Network. After having deposited GoerliETH to your Metamask account you can use the [bridge from test ETH GOERLI](https://testnet-bridge.mpcexplorer.com/) to get gas on the testnet. You can verify that you have test_coins on your account on the testnet after the successful bridging [here](https://testnet.partisiablockchain.com/info/account) which will end.
+To see the GoerliETH in MetaMask you need to change the network to the Goerli Test Network. 
+After having deposited GoerliETH to your Metamask account you can use the [PBC testnet Token Bridge](https://browser.testnet.partisiablockchain.com/account?tab=byoc) to [deposit](#how-to-deposit-using-the-bridge) GoerliETH and get gas on the testnet.
