@@ -63,7 +63,7 @@ Below you see the oracle contracts handling deposits and withdrawals for the cur
 
 ## Foundation
 
-Partisia Blockchain is a public blockchain and is controlled in a decentralized manner. The research and infrastructure behind the chain supported by an independent non-profit [foundation](https://partisiablockchain.com/foundation). This foundation can choose to provide incentives for node operators in form of tokens and raise funds for providing infrastructure through the sale of tokens.
+[Partisia Blockchain foundation](https://partisiablockchain.com/foundation) can choose to provide incentives for node operators in form of tokens and raise funds for providing infrastructure through the sale of tokens, this is done by the following system contracts. 
 
 #### [Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
 
