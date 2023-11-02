@@ -32,7 +32,7 @@ The system update contract facilitates votes from committee members (confirmed a
 The KYC contract validates block producer's personal information coming from the KYC provider before they can be confirmed as block producers and listed in the BPO contract. 
 
 
-## Transfer of liquid cryptocurrencies ([BYOC](byoc.md))
+## Transfer of cryptocurrencies across chains ([BYOC](byoc.md))
 
 On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users transfer BYOC between accounts and contracts. The BYOC system relies on contracts controlling allocations of nodes handling the transfers, withdrawals and deposits. As well as staking of those nodes and the audit of the transfers in each epoch. 
 
