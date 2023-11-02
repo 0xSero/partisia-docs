@@ -75,7 +75,7 @@ Facilitates the sale of MPC tokens.
 
 
 
-## The native token on PBC - MPC tokens
+## MPC tokens
 
 MPC tokens  are used by node operators and other token holders for staking on a service provided by a node. Tokens can be confiscated in case of malicious behaviour and be used for dispute settlement. Staked tokens incentives honest and reliable node services.
 
