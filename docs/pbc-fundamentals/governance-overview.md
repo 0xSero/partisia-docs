@@ -89,7 +89,7 @@ tokens incentives honest and reliable node services.
 
 ## Public smart contracts and Zero Knowledge smart contract
 
-The most distinguishing feature of PBC setting it aside form other blockchains is the ability to
+Users can deploy two types of smart contracts, public and zero knowledge. Public SC has a public state so anyone can see what the contract is doing. ZKSCs additionally have a secret state, meaning the contracts can keep data used in calculations private. This is one of the most important features of PBC, the ability to
 do [zero knowledge computations](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md) most notably secure
 multiparty computations. For this you need to be able to register, and allocate a select group of nodes to handles the
 secret calculation you want to do. The nodes involved in MPC have to fulfill requirements: higher stake and encrypting
@@ -107,4 +107,5 @@ inputs cannot be recreated from the variables in the calculation.
 ??? info "[ZK Preprocess](https://browser.partisiablockchain.com/contracts/01385fedf807390c3dedf42ba51208bc51292e2657)"
     Preprocesses data prior to use for secure multiparty computation by currently allocated ZK nodes.
 
-
+??? info "[WASM Deploy](https://browser.partisiablockchain.com/contracts/0197a0e238e924025bad144aa0c4913e46308f9a4d)"
+    Facilitates deployment of public smart contracts.
