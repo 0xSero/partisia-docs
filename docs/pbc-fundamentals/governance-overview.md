@@ -7,7 +7,7 @@ Partisia Blockchain is governed by a group of system smart contracts called gove
 
 ## Accounts
 
-On Partisia Blockchain addresses can refer either to a [contract](../smart-contracts/what-is-a-smart-contract.md) or an [account](create-an-account.md). Accounts hold vital user information such as your balance of MPC tokens and [BYOC](byoc.md). Only governance contracts can change the state of an account i.e. user deployed smart contracts cannot change account balances. PBC has an open account structure, meaning that any private key of a valid format can create a new account. Accounts and contracts reside on a specific [shard](sharding.md).
+Addresses can refer to a [contract](../smart-contracts/what-is-a-smart-contract.md) or an [account](create-an-account.md). Accounts holds the users information such as your balance of MPC tokens and [BYOC](byoc.md). Only governance contracts can change the state of an account i.e. user deployed smart contracts cannot change account balances. PBC has an open account structure, meaning that any private key of a valid format can create a new account. Accounts and contracts reside on a specific [shard](sharding.md).
 
 ## Node operation
 
