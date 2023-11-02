@@ -23,7 +23,7 @@ The Block producer orchestration (BPO) contract holds the information about bloc
 The Fee distribution contract takes care of the payment for baker node services. Every node makes a list of how many signatures they have received from every other node. Roughly, the top ⅔ best performers in each list get a vote. If more than ⅓ producers vote for your node, then it will be paid in that epoch.
 
 
-#### [System update](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)
+#### [System update](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)  
 
 The system update contract facilitates votes from committee members (confirmed and active block producers) on updates of on chain information, such as updates to governance contracts. There are manual and automated votes. Automated votes are yes votes by default unless actively changed by the individual node operator. 
 
