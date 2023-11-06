@@ -12,7 +12,7 @@ invoke the actions of the contract with your [wallet](https://snaps.metamask.io/
 
 ## Node operation
 
-[Node operators](../node-operations/what-is-a-node-operator.md) (also reffered to as block producers) own and operate
+[Node operators](../node-operations/what-is-a-node-operator.md) (also referred to as block producers) own and operate
 the nodes (servers) where the blockchain software runs. The system contracts are needed for listing and staking of 
 confirmed node operators, payment for services, votes on software updates and registration of new node operators.
 
