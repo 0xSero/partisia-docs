@@ -80,7 +80,7 @@ following system contracts. [Read more about PBC foundation](https://partisiablo
 
 [MPC tokens](dictionary.md#mpc-token) are used by node operators and other token holders for staking on a service
 provided by a node. Tokens can be confiscated in case of malicious behaviour and be used for dispute settlement. Staked
-tokens incentives honest and reliable node services.
+tokens incentives honest and reliable node services. [Read more about MPC tokens](dictionary.md#mpc-token)
 
 ??? info "[MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)"
     Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC
