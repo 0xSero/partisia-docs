@@ -102,10 +102,10 @@ inputs cannot be recreated from the variables in the calculation.
     Responsible for the deployment of new ZK smart contracts. [See contract in browser](https://browser.partisiablockchain.com/contracts/018bc1ccbb672b87710327713c97d43204905082cb)
 
 ??? info "[ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65)"
-    Handles registration of new ZK nodes, as well as disputes and allocation to specific ZK jobs.
+    Handles registration of new ZK nodes, as well as disputes and allocation to specific ZK jobs. [See contract in browser](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65)
 
 ??? info "[ZK Preprocess](https://browser.partisiablockchain.com/contracts/01385fedf807390c3dedf42ba51208bc51292e2657)"
-    Preprocesses data prior to use for secure multiparty computation by currently allocated ZK nodes.
+    Preprocesses data prior to use for secure multiparty computation by currently allocated ZK nodes. [See contract in browser](https://browser.partisiablockchain.com/contracts/01385fedf807390c3dedf42ba51208bc51292e2657)
 
 ??? info "[WASM Deploy](https://browser.partisiablockchain.com/contracts/0197a0e238e924025bad144aa0c4913e46308f9a4d)"
-    Facilitates deployment of public smart contracts.
+    Facilitates deployment of public smart contracts. [See contract in browser](https://browser.partisiablockchain.com/contracts/0197a0e238e924025bad144aa0c4913e46308f9a4d)
