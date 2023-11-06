@@ -45,6 +45,7 @@ Does not cover deprecated functions.
 | `pbc_zk::secret_variable_ids() -> Iterator<i32>`  | Creates an iterator for secret variable ids. |
 
 ## Lifetime attribute macros
+These macros define what the zero knowledge server cluster should do when given the input. 
 | Macro                                                                                                                                          | Documentation                                                                                 |
 |------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [`zk_on_secret_input`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.zk_on_secret_input.html)           | Declares an endpoint that the contract can be interacted with to add secret variables.        |
