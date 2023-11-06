@@ -38,7 +38,7 @@ confirmed node operators, payment for services, votes on software updates and re
 ## Transfer of cryptocurrencies across chains ([BYOC](byoc.md))
 
 On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users
-transfer BYOC between accounts and contracts. The BYOC system contracts controls allocations of nodes handling the
+transfer BYOC between [accounts](create-an-account.md) and contracts. The BYOC system contracts controls allocations of nodes handling the
 transfers, withdrawals, deposits, staking of nodes and the audit of transfers done in each epoch.
 
 ??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)"
