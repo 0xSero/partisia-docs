@@ -33,7 +33,7 @@ confirmed node operators, payment for services, votes on software updates and re
 
 ??? info "[Synaps KYC / KYB contract](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)"
     The KYC contract validates block producer's personal information coming from the KYC provider before they can be
-    confirmed as block producers and listed in the BPO contract.
+    confirmed as block producers and listed in the BPO contract. [See contract in browser](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)
 
 ## Transfer of cryptocurrencies across chains ([BYOC](byoc.md))
 
@@ -49,13 +49,13 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
 
 
 ??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
-    Facilitates the deployment of new deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md)
+    Facilitates the deployment of new deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b
 
 
 ??? info "[Small oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)"
     Below you see the oracle contracts handling deposits and withdrawals for the currently accepted BYOCs: ETH, BNB and
     USDC. These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The
-    contract state shows which nodes serve the oracle and a list of the deposits or withdrawals they have completed.    
+    contract state shows which nodes serve the oracle and a list of the deposits or withdrawals they have completed. [Read more about oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)   
     [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)    
     [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)    
     [POLYGON_USDC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
@@ -67,14 +67,14 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
 
 [Partisia Blockchain foundation](https://partisiablockchain.com/foundation) can choose to provide incentives for node
 operators in form of tokens and raise funds for providing infrastructure through the sale of tokens, this is done by the
-following system contracts.
+following system contracts. [Read more about PBC foundation](https://partisiablockchain.com/foundation)
 
 ??? info "[Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)"
     Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
-    infrastructure and expansion of services.
+    infrastructure and expansion of services. [See contract in browser](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
 
 ??? info "[Foundation Sale](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)"
-    Facilitates the sale of MPC tokens.
+    Facilitates the sale of MPC tokens. [See contract in browser](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)
 
 ## MPC tokens
 
