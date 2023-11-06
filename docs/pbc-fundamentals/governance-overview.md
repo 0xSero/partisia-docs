@@ -19,7 +19,7 @@ confirmed node operators, payment for services, votes on software updates and re
 ??? info "[Block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)"
     The Block producer orchestration (BPO) contract holds the information about block producers. In the state you can see
     the current and previous committees. You can see the timestamp showing the last committee change. You can invoke the
-    contract to change committee if the current committee is more than a month old.
+    contract to change committee if the current committee is more than a month old. [See contract in browser](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
 
 ??? info "[Fee distribution](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9)"
     The Fee distribution contract takes care of the payment for baker node services. Every node makes a list of how many
