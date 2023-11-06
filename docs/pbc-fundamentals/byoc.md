@@ -70,28 +70,30 @@ Read more about smart contracts [here](../smart-contracts/what-is-a-smart-contra
 
 To withdraw a coin from PBC to your external account, you can use
 the [PBC Token Bridge](https://browser.partisiablockchain.com/account?tab=byoc).
-The withdrawal process has two steps. First you have to make a pending withdrawal on the PBC chain.
+The withdrawal process has two steps: 
+1. First, you have to make a pending withdrawal on the PBC chain.
 When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
-withdrawal contract. At this point the coins can be withdrawn to your external account by withdrawing on
-the withdrawal contract. Both steps can be performed in
+withdrawal contract. 
+2. Second, after the signed withdrawal the coins can be transferred to your external account by withdrawing on
+the withdrawal contract. Both steps are performed in
 the [Browser](https://browser.partisiablockchain.com/account?tab=byoc).
 
-In practice, you can follow these steps:
+In practice, you should follow these steps:
 
 1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account
-2. Click withdraw on the coin you want to transfer
-3. Connect MetaMask to connect your external account
+2. Click _withdraw_, through the three dots menu, on the coin you want to transfer
+3. Click _Connect MetaMask_ to connect your external account
 4. Enter the amount you wish to withdraw in the dialog
 5. Wait for the nodes to sign the pending withdrawal (Pending withdrawals on the connected chain can be seen in the top
-   right notification menu)
-6. Click the withdraw button in the notification menu
+   right notification menu, this menu only shows if you have pending transactions)
+6. Click the _withdraw button_ in the notification menu
 
 Once the withdrawal transaction has gone through on the external chain, the coins will be available for you in the
 MetaMask wallet.
 
 ### How to test BYOC?
 
-You need some value from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we
+You need coins from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we
 recommend you to find a faucet. This can be found using a simple web search.
 
 To see the GoerliETH in MetaMask you need to change the network to the Goerli Test Network.
