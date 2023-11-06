@@ -33,15 +33,11 @@ The cost of bringing your own coin is 0,1% of the value transferred with a thres
 ### Requirements
 
 [//]: # ( TODO not sure we want how to create accounts to be a part of this page)
-To be able to bridge your coins you will need an account on PBC, and an account on MetaMask holding the
-coins you want to transfer. The bridge only supports the MetaMask wallet extension for interacting with
-other chains than PBC.
+To be able to bridge your coins you will need:
 
-1. Install the [MetaMask Wallet Extension](https://metamask.io/download/).
-2. Create an account in the wallet or connect using your secret phrase. (This is different from your Partisia Account)
-   If you want to import an account using a secret key or a hardware wallet, you can do that in the extension as well.
-3. Login on [PBC](https://browser.partisiablockchain.com/account?tab=byoc) using MetaMask (or use the account you
-   already have on PBC).
+* An account on PBC.
+* An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
+  extension for interacting with other chains.
 
 ### How to deposit using the Bridge
 
@@ -56,7 +52,7 @@ In practice, you can follow these steps:
 | Deposit native coin                                                                                                                | Deposit token based coin                                                                                                |
 |------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | 1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account                    | 1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account         |
-| 2. Click _deposit_ on the coin you want to transfer                                                                                | 2. Click approve on the coin you want to transfer                                                                       |
+| 2. Click _deposit_, either directly or through the three dots menu, on the coin you want to transfer                               | 2. Click approve, through the three dots menu, on the coin you want to transfer                                         |
 | 3. Connect MetaMask to connect your external account                                                                               | 3. Connect MetaMask to connect your external account                                                                    |
 | 4. Enter the amount you wish to transfer in the dialog                                                                             | 4. Enter the amount you wish to approve in the dialog                                                                   |
 | 5. Wait for the nodes to sign the deposit (Pending deposits on the connected chain can be seen in the top right notification menu) | 5. Wait for the transaction on the external chain                                                                       |
