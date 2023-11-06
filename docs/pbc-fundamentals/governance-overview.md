@@ -45,7 +45,7 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
     The Large oracle (LO) contract handles a special function of the committee when voting on important issues such as
     membership of the committee and approval of all BYOC movements in each epoch when the nodes perform these special duties
     they are referred to as the large oracle. LO contract allocates eligible nodes to the small oracles handling movement of
-    on- and off-chain of BYOC and price oracles.
+    on- and off-chain of BYOC and price oracles. [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
 
 
 ??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
