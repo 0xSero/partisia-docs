@@ -24,12 +24,12 @@ confirmed node operators, payment for services, votes on software updates and re
 ??? info "[Fee distribution](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9)"
     The Fee distribution contract takes care of the payment for baker node services. Every node makes a list of how many
     signatures they have received from every other node. Roughly, the top ⅔ best performers in each list get a vote. If more
-    than ⅓ producers vote for your node, then it will be paid in that [epoch](dictionary.md#epoch).
+    than ⅓ producers vote for your node, then it will be paid in that [epoch](dictionary.md#epoch). [See contract in browser](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9)
 
 ??? info "[System update](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)"
     The system update contract facilitates votes from committee members (confirmed and active block producers) on updates of
     on chain information, such as updates to governance contracts. There are manual and automated votes. Automated votes are
-    yes votes by default unless actively changed by the individual node operator.
+    yes votes by default unless actively changed by the individual node operator. [See contract in browser](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)
 
 ??? info "[Synaps KYC / KYB contract](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)"
     The KYC contract validates block producer's personal information coming from the KYC provider before they can be
