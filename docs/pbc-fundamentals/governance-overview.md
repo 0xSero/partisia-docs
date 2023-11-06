@@ -3,7 +3,7 @@
 This article helps you find the contract you need to interact with, depending on what properties of the blockchain you
 want to utilize.
 
-Partisia Blockchain is governed by a group of system smart contracts called governance contracts. The governanceeun choi
+Partisia Blockchain is governed by a group of system smart contracts. The system
 contracts solve different types of tasks. Below the contracts and plugins are listed under a category and description of
 their overall responsibilities. Each contract has a link for to the contract through
 the [Partisia Blockchain Browser](https://browser.partisiablockchain.com/). There you can see the contract state and
