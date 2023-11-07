@@ -53,8 +53,7 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
 
 
 ??? info "[Small oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)"
-    Below you see the oracle contracts handling deposits and withdrawals for the currently accepted BYOCs: ETH, BNB and
-    USDC. These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The
+    Below you see the oracle contracts handling deposits and withdrawals for BYOCs. These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The
     contract state shows which nodes serve the oracle and a list of the deposits or withdrawals they have completed. [Read more about oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)   
     [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)    
     [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)    
