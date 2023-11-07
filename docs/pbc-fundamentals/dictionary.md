@@ -65,7 +65,7 @@ Gas is a small fraction of BYOC. The cost of transactions on PBC is measured in 
 ### Large Oracle
 
 After each [epoch](dictionary.md#epoch) (When all baker nodes have had their turn as producers) a large Oracle consisting of all Baker nodes or the blockchain as a whole
-ensures that the risk managed by the small Oracle in the latest epoch is contained. The large oracle sign off on new small oracle (the oracle nodes which have perform services relating to BYOC). Large oracle also signs when the committee change.
+ensures that the risk managed by the small Oracle in the latest [epoch](dictionary.md#epoch) is contained. The large oracle sign off on new small oracle (the oracle nodes which have perform services relating to BYOC). Large oracle also signs when the committee change.
 
 ### MPC
 
