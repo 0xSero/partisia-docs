@@ -6,7 +6,7 @@ want to utilize.
 Partisia Blockchain is governed by a group of system smart contracts. The system
 contracts solve different types of tasks. Below the contracts and plugins are listed under a category and description of
 their overall responsibilities. Each contract has a link for to the contract through
-the [Partisia Blockchain Browser](https://browser.partisiablockchain.com/). There you can see the contract state and
+the [Partisia Blockchain Browser](https://browser.partisiablockchain.com/). In the browser you can see the contract state and
 invoke the actions of the contract with your [wallet](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/).
 
 
