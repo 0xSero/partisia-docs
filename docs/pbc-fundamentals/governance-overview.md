@@ -88,14 +88,8 @@ tokens incentives honest and reliable node services. [Read more about MPC tokens
 
 ## Public smart contracts and Zero Knowledge smart contract
 
-Users can deploy two types of smart contracts, public and zero knowledge. Public SC has a public state so anyone can see what the contract is doing. ZKSCs additionally have a secret state, meaning the contracts can keep data used in calculations private. This is one of the most important features of PBC, the ability to
-do [zero knowledge computations](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md) most notably secure
-multiparty computations. For this you need to be able to register, and allocate a select group of nodes to handles the
-secret calculation you want to do. The nodes involved in MPC have to fulfill requirements: higher stake and encrypting
-the traffic communication with the other nodes involved in the secret calculation.    
-You have the ability to deploy your own ZK smart contracts with the ZK Deploy contract, so you can allocate nodes to a
-problem you define. The calculations are done on secret shared data and preprocessed to ensure that individual secret
-inputs cannot be recreated from the variables in the calculation.
+Users can deploy two types of smart contracts, public and zero knowledge. For zero knowledge contracts you need to be able to register and allocate a select group of nodes to handle the
+secret calculation. You have the ability to deploy your own smart contracts with WASM Deploy and ZK Deploy linked below.
 
 ??? info "[ZK Deploy](https://browser.partisiablockchain.com/contracts/018bc1ccbb672b87710327713c97d43204905082cb)"
     Responsible for the deployment of new ZK smart contracts. [See contract in browser](https://browser.partisiablockchain.com/contracts/018bc1ccbb672b87710327713c97d43204905082cb)
