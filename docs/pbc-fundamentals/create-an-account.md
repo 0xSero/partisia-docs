@@ -10,7 +10,7 @@ and [BYOC](byoc.md). Only [system contracts](governance-overview.md) can change 
 cannot change account balances. PBC has an open account structure, meaning that any private key of a valid format can
 create a new account. Accounts and contracts reside on a specific [shard](sharding.md). You can find the values of any account attribute of a specific account by looking up the account address in the [browser](https://browser.partisiablockchain.com/accounts).
 
-Every account has the attributes defined below
+Every account has the attributes defined below:
 
 - Address (a unique identity derived from the [public key](../pbc-fundamentals/dictionary.md#public-key-cryptography))
 - Balance (the balance of [BYOC](../pbc-fundamentals/byoc.md))
