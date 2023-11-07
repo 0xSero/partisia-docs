@@ -39,11 +39,11 @@ confirmed node operators, payment for services, votes on software updates and re
 
 On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users
 transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC system contracts controls allocations of nodes handling the
-transfers, withdrawals, deposits, staking of nodes and the audit of transfers done in each epoch.
+transfers, withdrawals, deposits, staking of nodes and the audit of transfers done in each [epoch](dictionary.md#epoch).
 
 ??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)"
     The Large oracle (LO) contract handles a special function of the committee when voting on important issues such as
-    membership of the committee and approval of all BYOC movements in each epoch when the nodes perform these special duties
+    membership of the committee and approval of all BYOC movements in each [epoch](dictionary.md#epoch) when the nodes perform these special duties
     they are referred to as the large oracle. LO contract allocates eligible nodes to the small oracles handling movement of
     on- and off-chain of BYOC and price oracles. [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
 
