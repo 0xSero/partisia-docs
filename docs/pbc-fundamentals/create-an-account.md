@@ -12,7 +12,7 @@ create a new account. Accounts and contracts reside on a specific [shard](shardi
 
 Every account has the attributes defined below
 
-- address (a unique identity derived from the [public key](../pbc-fundamentals/dictionary.md#Public-key cryptography))
+- address (a unique identity derived from the [public key](../pbc-fundamentals/dictionary.md#public-key cryptography))
 - balance (the balance of [BYOC](../pbc-fundamentals/byoc.md))
 - mpcTokens (the balance of[MPC Tokens](../pbc-fundamentals/mpc-token-model-and-account-elements.md))
 - [nonce (number used only once)](../pbc-fundamentals/dictionary.md#nonce) (the account nonce is incremented when transactions are signed)
