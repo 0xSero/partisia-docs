@@ -12,8 +12,8 @@ invoke the actions of the contract with your [wallet](https://snaps.metamask.io/
 
 ## Node operation
 
-[Node operators](../node-operations/what-is-a-node-operator.md) (also referred to as block producers) own and operate
-the nodes (servers) where the blockchain software runs. The system contracts are needed for listing and staking of 
+[Node operators](../node-operations/what-is-a-node-operator.md) own and operate
+the nodes (servers) where the blockchain software runs. System contracts are needed for listing and staking of 
 confirmed node operators, payment for services, votes on software updates and registration of new node operators.
 
 ??? info "[Block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)"
