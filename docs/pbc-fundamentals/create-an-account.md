@@ -8,7 +8,7 @@ Every account has an individual private key used for signing transactions, this 
 A Partisia Blockchain account holds the information necessary to enabling the user to perform transactions. This information includes:
 
 - A unique identity called an address, it is derived from the [public key](../pbc-fundamentals/dictionary.md#Public-key cryptography)
-- The account balance of [BYOC](../pbc-fundamentals/byoc.md)
+- The account balance of [BYOC](byoc/introduction-to-byoc.md)
 - Balance of [MPC Tokens](../pbc-fundamentals/introduction-to-the-fundamentals.md)
 - An account [nonce (number used only once)](../pbc-fundamentals/dictionary.md#nonce), which is incremented when transactions are signed.
 
@@ -21,4 +21,4 @@ Since the account nonce is part of the signature it can be used only once. This 
 
 ### Relevant pages
 
-[Bring Your Own Coin (BYOC), Gas and generel pricing](../pbc-fundamentals/byoc.md)
+[Bring Your Own Coin (BYOC), Gas and generel pricing](byoc/introduction-to-byoc.md)
