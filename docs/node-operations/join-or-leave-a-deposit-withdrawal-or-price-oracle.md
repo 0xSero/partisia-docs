@@ -34,7 +34,8 @@ Price oracles monitor prices of the BYOC. They do not rely on a random selection
 3. Invoke the contract action _AssociateTokenstoContract_ with a minimum amount of 5000 MPC tokens
 4. Go to the [ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d/register) or [BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39/register) and invoke the action _Register_
 
-You can learn more about the price oracles [here](price-oracle.md)
+You can learn more about the price oracles [here](../pbc-fundamentals/dictionary.md#price-oracle)
+
 
 ## How to leave a price oracle
 

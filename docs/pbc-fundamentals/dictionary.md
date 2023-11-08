@@ -110,6 +110,13 @@ Same as [Account](../pbc-fundamentals/dictionary.md#account), see entry above.
 
 The immutable record or ledger, that keeps track of transactions that have already taken place. There is a copy of the ledger on all nodes. Partisia Blockchain has sharding, the ledger records the activities on all shards, they are combined to form the complete ledger.
 
+### Price oracle
+
+The price oracles on PBC help to keep the BYOC price up to date by using data from nodes on Chainlink. This means that the price you get when bridging ETH or other BYOC to and from PBC has been checked for accuracy within the last hour. Each price oracle consist of at least three nodes. Every hour each node in the price oracle performs a price check. The node operator is paid a reward for performing this service. If three nodes in the price oracle agree on the price they report the price.    
+In addition to checking and reporting prices a price oracle node also compares its own checks with the reports of the other price oracles. If it sees a discrepancy in price the price oracle node starts a dispute. The party found to be responsible in a price oracle dispute will have their 5000 MPC slashed. Types of malicious behavior can include reporting incorrect prices or incorrect dispute claims against other oracle nodes.
+
+
+
 ### Public-key cryptography
 
 Public-key cryptography is a form of cryptography that uses pairs of keys: A public key that may be shared with anyone and a private key that must be kept secret. The public and private keys are generated in mathematically connected pairs. The public key can be used to encrypt a message that can be decrypted by the private key, meaning that anyone can send an encrypted message to any recipient assuming they know their public key. PBC uses elliptic curve cryptography, specifically the curve [secp256k1](https://en.bitcoinwiki.org/wiki/Secp256k1).

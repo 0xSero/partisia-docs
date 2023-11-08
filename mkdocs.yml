@@ -64,7 +64,6 @@ nav:
           - Upgraded node services (ZK and oracle service):
               - node-operations/oracles-on-partisia-blockchain.md
               - node-operations/join-or-leave-a-deposit-withdrawal-or-price-oracle.md
-              - node-operations/price-oracle.md
   - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
 
