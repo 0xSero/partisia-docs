@@ -49,7 +49,7 @@ nav:
       - node-operations/how-to-run-a-reader-node.md
       - Paid node services:
           - node-operations/paid-node-services.md
-            - Run a block producing node:
+          - Run a block producing node:
               - node-operations/create-an-account-on-pbc.md
               - node-operations/get-mpc-tokens.md
               - node-operations/recommended-hardware-and-software.md
