@@ -16,8 +16,8 @@ ZK and oracle nodes are upgrades services. Higher paying services depend on firs
 ### Conditions for running a service
 
 
-Node services are handled by specific [system contracts](../pbc-fundamentals/governance-overview.md). To sign up for services a node operator associates a stake of token to the contract administrating the service 
-([ see amount to stake for specific services](what-is-a-node-operator.md#requirements-of-a-node-operator)). Stakes work as an incentive against malicious behaviour.
+Node services are handled by specific [system contracts](insert link for governace overview when merged). To sign up for services a node operator associates a stake of token to the contract administrating the service 
+([see amount to stake for specific services](what-is-a-node-operator.md#requirements-of-a-node-operator)). Stakes work as an incentive against malicious behaviour.
 
 All nodes running a paid service must first register as block producers in the block producer orchestration contract. This makes the node eligible to perform baker services. While a service is being performed the tokens are locked to the contract. A node operator can resign from a service 
 
