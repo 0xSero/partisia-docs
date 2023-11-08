@@ -32,8 +32,9 @@ It is possible to start a dispute against a node operator that has done a servic
 
 The purpose of slashing tokens is to prevent malicious activity. And to create an incentive structure ensuring that active node operators are being rewarded.
 Examples of malicious activity:
-- Signing two distinct blocks with same block time (can create forks).
-- Signing a wrong oracle transfers (Allow stealing)
-- Signing a wrong price
-- Starting an incorrect dispute
+
+- Signing two distinct blocks with same block time (can create forks)   
+- Signing a wrong oracle transfers (Allow stealing)   
+- Signing a wrong price   
+- Starting an incorrect dispute   
 
