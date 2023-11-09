@@ -20,7 +20,7 @@ or for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/)
 
 ## Staking tokens
 
-1. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc.md) for help to get gas in your account.
+1. You need to be able to cover gas costs of transaction, click [here](../pbc-fundamentals/byoc/introduction-to-byoc.md) for help to get gas in your account.
 1. Log in to your account. Click upper right corner (View activity). This will take you to your account page.
 1. Click on _Node register_ on the menu bar and then click on _Manage MPC Tokens_. From there, click _Stake MPC Tokens_ and stake 25k or more tokens to your account.
 
