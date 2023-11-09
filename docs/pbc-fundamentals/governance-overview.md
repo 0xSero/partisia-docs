@@ -49,7 +49,9 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
     Facilitates the deployment of new deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
 
 ??? info "[Price Oracles](../node-operations/price-oracle.md)"
-    Price oracles ensures accurate prices for specific BYOC on PBC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [Read more about the price oracles](../node-operations/price-oracle.md) 
+    Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [Read more about the price oracles](../node-operations/price-oracle.md). The contracts responsible for the price oracles are below.    
+    [ETH Price Oracle](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d)    
+    [BNB Price Oracle](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39)
 
 
 ??? info "[Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)"
