@@ -32,11 +32,11 @@ confirmed block producers, as well as for payment to node operators for the serv
     The KYC contract validates block producer's personal information coming from the KYC provider before they can be
     confirmed as block producers and listed in the BPO contract. [See contract in browser](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)
 
-## Transfer of cryptocurrencies across chains ([BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md))
+## [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md) - The system of liquidity
 
 On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users to
 transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC system contracts controls allocations of nodes handling the
-transfers, withdrawals, deposits, staking of nodes and the audit of transfers done in each [epoch](dictionary.md#epoch).
+transfers, withdrawals, deposits, price monitoring, staking of nodes and the audit of transfers done in each [epoch](dictionary.md#epoch).
 
 ??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)"
     The Large oracle (LO) contract handles a special function of the committee when voting on important issues such as
@@ -45,8 +45,6 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
     on- and off-chain of BYOC and price oracles. [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
 
 
-??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
-    Facilitates the deployment of new deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
 
 ??? info "[Price Oracles](../node-operations/price-oracle.md)"
     Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [Read more about the price oracles](../node-operations/price-oracle.md). The contracts responsible for the price oracles are below.    
@@ -63,6 +61,10 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
     [POLYGON_USDC](https://browser.partisiablockchain.com/contracts/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)    
     [BNB Deposit](https://browser.partisiablockchain.com/contracts/047e1c96cd53943d1e0712c48d022fb461140e6b9f)    
     [BNB Withdrawal](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)    
+
+??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
+Facilitates the deployment of new deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
+
 
 ## MPC tokens
 
