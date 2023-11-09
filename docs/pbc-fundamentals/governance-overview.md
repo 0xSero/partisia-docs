@@ -35,7 +35,7 @@ confirmed block producers, as well as for payment to node operators for the serv
     The KYC contract validates block producer's personal information coming from the KYC provider before they can be
     confirmed as block producers and listed in the BPO contract. [See contract in browser](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)
 
-## Transfer of cryptocurrencies across chains ([BYOC](byoc.md))
+## Transfer of cryptocurrencies across chains ([BYOC]()
 
 On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users to
 transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC system contracts controls allocations of nodes handling the
@@ -49,7 +49,7 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
 
 
 ??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
-    Facilitates the deployment of new deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b
+    Facilitates the deployment of new deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
 
 
 ??? info "[Small oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)"
