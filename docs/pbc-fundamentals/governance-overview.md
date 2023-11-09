@@ -39,11 +39,10 @@ transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC syste
 transfers, withdrawals, deposits, price monitoring, staking of nodes and the audit of transfers done in each [epoch](dictionary.md#epoch).
 
 ??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)"
-    The Large oracle (LO) contract handles a special function of the committee when voting on important issues such as
-    membership of the committee and approval of all BYOC movements in each [epoch](dictionary.md#epoch) when the nodes perform these duties
-    they are referred to as the large oracle. LO contract allocates eligible nodes to the small oracles handling movement of
-    on- and off-chain of BYOC and price oracles. [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
-
+    The Large oracle (LO) contract has 3 main tasks:    
+    - Auditing all transfers on-chain and off-chain of BYOC     
+    - Allocation of eligible nodes to facilitate transfers and price monitoring (small oracles)   
+    - Handle all disputes regarding BYOC [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
 
 
 ??? info "[Price Oracles](../node-operations/price-oracle.md)"
