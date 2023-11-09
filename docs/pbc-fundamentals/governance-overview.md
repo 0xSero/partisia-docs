@@ -97,9 +97,9 @@ secret calculation. You have the ability to deploy your own smart contracts with
 
 ## Foundation
 
-[Partisia Blockchain foundation](https://partisiablockchain.com/foundation) can choose to provide incentives for node
-operators in form of tokens and raise funds for providing infrastructure through the sale of tokens, this is done by the
-following system contracts. [Read more about PBC foundation](https://partisiablockchain.com/foundation)
+[Partisia Blockchain foundation](https://partisiablockchain.com/foundation) provide incentives for node
+operators in form of token rewards. The incentives depend on initial time and size of investment as well measured scores of reliability and trust. The foundation raise funds for infrastructure through the sale of tokens. These two tasks are handled 
+by following system contracts. [Read more about PBC foundation](https://partisiablockchain.com/foundation)
 
 ??? info "[Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)"
 Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
