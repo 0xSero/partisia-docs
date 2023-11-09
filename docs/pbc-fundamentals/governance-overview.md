@@ -40,7 +40,6 @@ transfers, withdrawals, deposits, price monitoring, staking of nodes and the aud
 
 ??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)"
 The Large oracle (LO) contract is responsible for 3 of the main tasks foundational to BYOC:
-
 * Auditing all transfers on-chain and off-chain of BYOC     
 * Allocation of eligible nodes to facilitate transfers and price monitoring (small oracles)   
 * Handle all disputes regarding BYOC [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
