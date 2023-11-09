@@ -6,13 +6,13 @@ In this article we will explain what byoc is, how to bring your own coins to the
 
 BYOC means bring your own coin. The idea is that you can bring other cryptocurrencies onto PBC.
 Any coin you bring onto PBC stays as a reference to the coin you brought in.
-You can convert your BYOC [to gas](../smart-contracts/gas/transaction-gas-prices.md), this is done automatically when
+You can convert your BYOC [to gas](../../smart-contracts/gas/transaction-gas-prices.md), this is done automatically when
 using gas.
 
 BYOC is needed to cover the payment of the node operators which are providing the services enabling the transactions to
 take place.
 You pay for interactions with gas that is converted from coins you have brought onto the chain, you can see the
-explained [gas fees here](../smart-contracts/gas/transaction-gas-prices.md).
+explained [gas fees here](../../smart-contracts/gas/transaction-gas-prices.md).
 
 ### How does it work
 
@@ -32,7 +32,6 @@ The cost of bringing your own coin is 0,1% of the value transferred with a thres
 
 ### Requirements
 
-[//]: # ( TODO not sure we want how to create accounts to be a part of this page)
 To be able to bridge your coins you will need:
 
 * An account on PBC.
@@ -64,7 +63,7 @@ When the nodes have signed the deposit, the coins will be available for you on P
 the [Bridge page](https://browser.partisiablockchain.com/account?tab=byoc).
 After the confirmed transfer your gas balance in the wallet should be positive. This means that you can deploy or
 interact with smart contracts on the blockchain and pay for those interactions with the coins that you have bridged.
-Read more about smart contracts [here](../smart-contracts/what-is-a-smart-contract.md).
+Read more about smart contracts [here](../../smart-contracts/what-is-a-smart-contract.md).
 
 ### How to withdraw using the Bridge
 
