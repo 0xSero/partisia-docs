@@ -6,10 +6,11 @@ nav:
   - PBC fundamentals:
       - pbc-fundamentals/introduction-to-the-fundamentals.md
       - pbc-fundamentals/create-an-account.md
-      - pbc-fundamentals/byoc.md
-      - pbc-fundamentals/bridging-byoc-by-sending-transactions.md
-      - pbc-fundamentals/onboarding-new-byoc.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
+      - BYOC:
+          - pbc-fundamentals/byoc/introduction-to-byoc.md
+          - pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md
+          - pbc-fundamentals/byoc/onboarding-new-byoc.md
       - pbc-fundamentals/dictionary.md
   - Smart contracts:
       - smart-contracts/introduction-to-smart-contracts.md
@@ -97,6 +98,11 @@ markdown_extensions:
 
 plugins:
   - search
+  - redirects:
+      redirect_maps:
+        'pbc-fundamentals/byoc.md' : 'pbc-fundamentals/byoc/introduction-to-byoc.md'
+        'pbc-fundamentals/onboarding-new-byoc.md' : 'pbc-fundamentals/byoc/onboarding-new-byoc.md'
+        'pbc-fundamentals/bridging-byoc-by-sending-transactions.md' : 'pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md'
   - mermaid2:
       arguments:
         securityLevel: "loose"
