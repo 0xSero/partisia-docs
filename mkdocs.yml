@@ -11,6 +11,10 @@ nav:
       - pbc-fundamentals/onboarding-new-byoc.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/governance-overview.md
+      - BYOC:
+          - pbc-fundamentals/byoc/introduction-to-byoc.md
+          - pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md
+          - pbc-fundamentals/byoc/onboarding-new-byoc.md
       - pbc-fundamentals/dictionary.md
   - Smart contracts:
       - smart-contracts/introduction-to-smart-contracts.md

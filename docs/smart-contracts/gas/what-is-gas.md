@@ -19,7 +19,7 @@ and [the pricing for storage here](storage-gas-price.md).
 
 ### Gas value and contract balance
 
-Gas is bought through [BYOC](../../pbc-fundamentals/byoc.md), any brought coin represents an amount of gas where you
+Gas is bought through [BYOC](../../pbc-fundamentals/byoc/introduction-to-byoc.md), any brought coin represents an amount of gas where you
 slowly siphon away the value of the brought coin when using the gas. The brought coins value slowly dimishes when you
 convert the value to gas. The gas is used when a
 user [sends a transaction](transaction-gas-prices.md#transaction-gas-prices) to a smart contract, the contract needs gas
