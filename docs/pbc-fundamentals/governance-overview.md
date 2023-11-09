@@ -62,19 +62,6 @@ transfers, withdrawals, deposits, staking of nodes and the audit of transfers do
     [BNB Deposit](https://browser.partisiablockchain.com/contracts/047e1c96cd53943d1e0712c48d022fb461140e6b9f)    
     [BNB Withdrawal](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)    
 
-## Foundation
-
-[Partisia Blockchain foundation](https://partisiablockchain.com/foundation) can choose to provide incentives for node
-operators in form of tokens and raise funds for providing infrastructure through the sale of tokens, this is done by the
-following system contracts. [Read more about PBC foundation](https://partisiablockchain.com/foundation)
-
-??? info "[Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)"
-    Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
-    infrastructure and expansion of services. [See contract in browser](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
-
-??? info "[Foundation Sale](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)"
-    Facilitates the sale of MPC tokens. [See contract in browser](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)
-
 ## MPC tokens
 
 [MPC tokens](dictionary.md#mpc-token) are used by node operators and other token holders for staking on a service
@@ -102,3 +89,16 @@ secret calculation. You have the ability to deploy your own smart contracts with
 
 ??? info "[WASM Deploy](https://browser.partisiablockchain.com/contracts/0197a0e238e924025bad144aa0c4913e46308f9a4d)"
     Facilitates deployment of public smart contracts. [See contract in browser](https://browser.partisiablockchain.com/contracts/0197a0e238e924025bad144aa0c4913e46308f9a4d)
+
+## Foundation
+
+[Partisia Blockchain foundation](https://partisiablockchain.com/foundation) can choose to provide incentives for node
+operators in form of tokens and raise funds for providing infrastructure through the sale of tokens, this is done by the
+following system contracts. [Read more about PBC foundation](https://partisiablockchain.com/foundation)
+
+??? info "[Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)"
+Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
+infrastructure and expansion of services. [See contract in browser](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
+
+??? info "[Foundation Sale](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)"
+Facilitates the sale of MPC tokens. [See contract in browser](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)
