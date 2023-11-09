@@ -38,10 +38,8 @@ On Partisia Blockchain you use coins from other chains (BYOC) as payment for tra
 transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC system contracts controls allocations of nodes handling the
 transfers, withdrawals, deposits, price monitoring, staking of nodes and the audit of transfers done in each [epoch](dictionary.md#epoch).
 
-??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014) - administrates and oversees work of small oracles"
-    * Auditing all transfers on-chain and off-chain of [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md)     
-    * Allocation of eligible nodes to facilitate transfers and price monitoring ([small oracles](../node-operations/oracles-on-partisia-blockchain.md#what-is-a-small-oracle))   
-    * Handle all disputes regarding BYOC   
+??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)"
+    Administrates and oversees work done by [small oracles](../node-operations/oracles-on-partisia-blockchain.md#what-is-a-small-oracle). This includes allocation of eligible nodes to serve in the small oracles, the tokens staked on oracle service and voting on all disputes regarding the small oracles' work with BYOC.   
     [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)    
 
 ### Small oracles
