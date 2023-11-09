@@ -69,7 +69,7 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
 
 ## MPC tokens
 
-[MPC tokens](dictionary.md#mpc-token) are used by node operators and other token holders for staking on a service
+[MPC tokens](dictionary.md#mpc-token) are the native tokens of PBC, they are used by node operators and other token holders for staking on a service
 provided by a node. Tokens can be confiscated in case of malicious behaviour and be used for dispute settlement. Staked
 tokens incentives honest and reliable node services. [Read more about MPC tokens](dictionary.md#mpc-token)
 
