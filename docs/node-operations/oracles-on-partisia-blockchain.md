@@ -13,7 +13,7 @@ The large oracle is synonymous with the current committee, and is responsible fo
 
 ## What is a small oracle
 
-There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include deposit oracles, withdrawal oracles and price oracles. 
+There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include deposit oracles, withdrawal oracles and price oracles. 
 
 ## How to join a deposit or withdrawal oracle
 
