@@ -102,8 +102,8 @@ operators in form of token rewards. The incentives depend on initial time and si
 by following system contracts. [Read more about PBC foundation](https://partisiablockchain.com/foundation)
 
 ??? info "[Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)"
-Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
-infrastructure and expansion of services. [See contract in browser](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
+    Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
+    infrastructure and expansion of services. [See contract in browser](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
 
 ??? info "[Foundation Sale](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)"
-Facilitates the sale of MPC tokens. [See contract in browser](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)
+    Facilitates the sale of MPC tokens. [See contract in browser](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)
