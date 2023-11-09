@@ -1,8 +1,5 @@
 # Governance system smart contracts overview
 
-This article helps you find the contract you need to interact with, depending on what properties of the blockchain you
-want to utilize.
-
 Partisia Blockchain is governed by a group of system smart contracts. The system
 contracts solve different types of tasks. Below the contracts are listed under a category and description of
 their overall responsibilities. Each contract description links to the contract on chain via the
@@ -35,7 +32,7 @@ confirmed block producers, as well as for payment to node operators for the serv
     The KYC contract validates block producer's personal information coming from the KYC provider before they can be
     confirmed as block producers and listed in the BPO contract. [See contract in browser](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)
 
-## Transfer of cryptocurrencies across chains ([BYOC]()
+## Transfer of cryptocurrencies across chains ([BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md))
 
 On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users to
 transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC system contracts controls allocations of nodes handling the
