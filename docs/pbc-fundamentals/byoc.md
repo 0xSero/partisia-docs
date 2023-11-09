@@ -33,15 +33,11 @@ The cost of bringing your own coin is 0,1% of the value transferred with a thres
 ### Requirements
 
 [//]: # ( TODO not sure we want how to create accounts to be a part of this page)
-To be able to bridge your coins you will need an account on PBC, and an account on MetaMask holding the
-coins you want to transfer. The bridge only supports the MetaMask wallet extension for interacting with
-other chains than PBC.
+To be able to bridge your coins you will need:
 
-1. Install the [MetaMask Wallet Extension](https://metamask.io/download/).
-2. Create an account in the wallet or connect using your secret phrase. (This is different from your Partisia Account)
-   If you want to import an account using a secret key or a hardware wallet, you can do that in the extension as well.
-3. Login on [PBC](https://browser.partisiablockchain.com/account?tab=byoc) using MetaMask (or use the account you
-   already have on PBC).
+* An account on PBC.
+* An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
+  extension for interacting with other chains.
 
 ### How to deposit using the Bridge
 
@@ -53,16 +49,16 @@ for you.
 
 In practice, you can follow these steps:
 
-| Deposit native coin                                                                                                                | Deposit token based coin                                                                                                |
-|------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| 1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account                    | 1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account         |
-| 2. Click _deposit_ on the coin you want to transfer                                                                                | 2. Click approve on the coin you want to transfer                                                                       |
-| 3. Connect MetaMask to connect your external account                                                                               | 3. Connect MetaMask to connect your external account                                                                    |
-| 4. Enter the amount you wish to transfer in the dialog                                                                             | 4. Enter the amount you wish to approve in the dialog                                                                   |
-| 5. Wait for the nodes to sign the deposit (Pending deposits on the connected chain can be seen in the top right notification menu) | 5. Wait for the transaction on the external chain                                                                       |
-|                                                                                                                                    | 6. Click deposit on the coin you want to transfer                                                                       |
-|                                                                                                                                    | 7. Enter the amount you wish to deposit in the dialog (Note that you cannot deposit more than you have approved)        |
-|                                                                                                                                    | 8. Wait for the nodes to sign the deposit (Pending deposits on the connected chain can be seen in the top right corner) |
+| Deposit native coin                                                                                                                                                                         | Deposit token based coin                                                                                                                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account                                                                             | 1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account                                                                  |
+| 2. Click _deposit_, either directly or through the three dots menu, on the coin you want to transfer                                                                                        | 2. Click approve, through the three dots menu, on the coin you want to transfer                                                                                                  |
+| 3. Click _Connect MetaMask_ to connect your external account                                                                                                                                | 3. Click _Connect MetaMask_ to connect your external account                                                                                                                     |
+| 4. Enter the amount you wish to transfer in the dialog                                                                                                                                      | 4. Enter the amount you wish to approve in the dialog                                                                                                                            |
+| 5. Wait for the nodes to sign the deposit (Pending deposits on the connected chain can be seen in the top right notification menu, which only appears when you have a pending notification) | 5. Wait for the transaction on the external chain                                                                                                                                |
+|                                                                                                                                                                                             | 6. Click _deposit_ on the coin you want to transfer                                                                                                                              |
+|                                                                                                                                                                                             | 7. Enter the amount you wish to deposit in the dialog (_Note_ that you cannot deposit more than you have approved)                                                               |
+|                                                                                                                                                                                             | 8. Wait for the nodes to sign the deposit (Pending deposits on the connected chain can be seen in the top right corner, which only appears when you have a pending notification) |
 
 When the nodes have signed the deposit, the coins will be available for you on PBC, and can be seen on
 the [Bridge page](https://browser.partisiablockchain.com/account?tab=byoc).
@@ -74,28 +70,30 @@ Read more about smart contracts [here](../smart-contracts/what-is-a-smart-contra
 
 To withdraw a coin from PBC to your external account, you can use
 the [PBC Token Bridge](https://browser.partisiablockchain.com/account?tab=byoc).
-The withdrawal process has two steps. First you have to make a pending withdrawal on the PBC chain.
+The withdrawal process has two steps: 
+1. First, you have to make a pending withdrawal on the PBC chain.
 When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
-withdrawal contract. At this point the coins can be withdrawn to your external account by withdrawing on
-the withdrawal contract. Both steps can be performed in
+withdrawal contract. 
+2. Second, after the signed withdrawal the coins can be transferred to your external account by withdrawing on
+the withdrawal contract. Both steps are performed in
 the [Browser](https://browser.partisiablockchain.com/account?tab=byoc).
 
-In practice, you can follow these steps:
+In practice, you should follow these steps:
 
 1. Go to the [byoc page](https://browser.partisiablockchain.com/account?tab=byoc) and login to your PBC account
-2. Click withdraw on the coin you want to transfer
-3. Connect MetaMask to connect your external account
+2. Click _withdraw_, through the three dots menu, on the coin you want to transfer
+3. Click _Connect MetaMask_ to connect your external account
 4. Enter the amount you wish to withdraw in the dialog
 5. Wait for the nodes to sign the pending withdrawal (Pending withdrawals on the connected chain can be seen in the top
-   right notification menu)
-6. Click the withdraw button in the notification menu
+   right notification menu, this menu only shows if you have pending transactions)
+6. Click the _withdraw button_ in the notification menu
 
 Once the withdrawal transaction has gone through on the external chain, the coins will be available for you in the
 MetaMask wallet.
 
 ### How to test BYOC?
 
-You need some value from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we
+You need coins from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we
 recommend you to find a faucet. This can be found using a simple web search.
 
 To see the GoerliETH in MetaMask you need to change the network to the Goerli Test Network.
