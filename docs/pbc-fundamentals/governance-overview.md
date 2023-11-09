@@ -88,7 +88,7 @@ tokens incentives honest and reliable node services. [Read more about MPC tokens
 
 ## Public smart contracts and Zero Knowledge smart contract
 
-Users can deploy two types of smart contracts, [public contracts](../smart-contracts/what-is-a-smart-contract.md) and [zero knowledge contracts](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md). Node operators can [register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode) their nodes for ZK services. ZK calculations require the allocation of 4 these registered nodes to handle the
+Users can deploy two types of smart contracts, [public contracts](../smart-contracts/what-is-a-smart-contract.md) and [zero knowledge contracts](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md). Node operators can [register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode) their nodes for ZK services. ZK calculations requires the allocation of 4 registered nodes to handle the
 secret calculation. You have the ability to deploy your own smart contracts with WASM Deploy and ZK Deploy.
 
 ??? info "[ZK Deploy](https://browser.partisiablockchain.com/contracts/018bc1ccbb672b87710327713c97d43204905082cb)"
