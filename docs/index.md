@@ -36,10 +36,10 @@ This is our official documentation where we introduce key concepts, fundamental 
         </a>
     </div>
     <div class="front-page-hover-wrap">
-        <a href="node-operations/what-is-a-node-operator.html">
+        <a href="node-operations/start-running-a-node.html">
             <img src="assets/categories/node-operations.svg" alt="Node Operations" class="front-page-pictures front-page-pictures-top" />
         </a>
-        <a href="node-operations/what-is-a-node-operator.html">
+        <a href="node-operations/start-running-a-node.html">
             <img src="assets/categories/node-operations-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover" />
         </a>
     </div>

@@ -48,8 +48,8 @@ nav:
       - smart-contracts/development-faq.md
   - Node Operations:
       - node-operations/start-running-a-node.md
-      - node-operations/run-a-reader.md
-      - node-operations/run-a-baker.md
+      - node-operations/run-a-reader-node.md
+      - node-operations/run-a-baker-node.md
       - node-operations/run-a-zk-node.md
       - node-operations/run-an-oracle-node.md
       - Node upkeep:

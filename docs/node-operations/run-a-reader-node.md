@@ -1,4 +1,4 @@
-# How to run a reader node
+# Run a reader node
 
 
 ## Why you need a reader node
