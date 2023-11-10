@@ -48,10 +48,11 @@ nav:
       - smart-contracts/development-faq.md
   - Node Operations:
       - node-operations/what-is-a-node-operator.md
-      - node-operations/how-to-run-a-reader-node.md
-      - Paid node services:
-          - node-operations/paid-node-services.md
-          - Run a block producing node (baker service):
+      - node-operations/run-a-reader.md
+      - node-operations/run-a-baker.md
+      - node-operations/run-a-zk-node.md
+      - node-operations/run-an-oracle-node.md
+      - Node upkeep:
               - node-operations/create-an-account-on-pbc.md
               - node-operations/get-mpc-tokens.md
               - node-operations/recommended-hardware-and-software.md
@@ -63,7 +64,6 @@ nav:
               - node-operations/register-your-node.md
               - node-operations/node-health-and-maintenance.md
               - node-operations/update-your-nodes-public-information.md
-          - Upgraded node services (ZK and oracle service):
               - node-operations/oracles-on-partisia-blockchain.md
               - node-operations/join-or-leave-a-deposit-withdrawal-or-price-oracle.md
   - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
