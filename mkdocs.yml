@@ -47,7 +47,7 @@ nav:
       - smart-contracts/smart-conract-tools-overview.md
       - smart-contracts/development-faq.md
   - Node Operations:
-      - node-operations/what-is-a-node-operator.md
+      - node-operations/start-running-a-node.md
       - node-operations/run-a-reader.md
       - node-operations/run-a-baker.md
       - node-operations/run-a-zk-node.md

@@ -85,7 +85,7 @@ A non-fungible-token. Non-fungible means that it is unique unlike other types of
 
 ### Node
 
-Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](../node-operations/what-is-a-node-operator.md)
+Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](../node-operations/start-running-a-node.md)
 
 ### Node operator
 
@@ -96,7 +96,7 @@ A node operator is a person who runs and maintains a node on Partisia Blockchain
 - ZK Node: A node that performs zero knowledge computations in addition to baker node services.
 - Oracle Node: A node that performs oracle services in addition to ZK and baker services.
 
-See requirements of a node operator and how to run a node [here](../node-operations/what-is-a-node-operator.md).
+See requirements of a node operator and how to run a node [here](../node-operations/start-running-a-node.md).
 
 ### Nonce
 
@@ -144,6 +144,17 @@ PBC distributes the workload to a number of parallel shards. This allows for sca
 ### Smart Contracts
 
 A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC. Read more [here](../smart-contracts/what-is-a-smart-contract.md)
+
+### Stake/Staking
+
+If you want to be a node operator you are required to have a stake in the network. A stake is basically a deposit strengthening the security and user confidence of the network. The stake means that the node operator has something to lose should they try to cheat or damage the network.
+Staking requires that the node operator buys the required stake of MPC Tokens. Services have a hierarchy of cost and security as well as payment. Therefore, higher paid services require a higher stake. To acquire MPC Tokens go through this [contact page](https://kyc.partisiablockchain.com/). The current stake requirements are:
+
+- Reader Node is free, since it does not perform paid services
+- Baker Node 25,000 MPC Tokens
+- ZK Node 75,000 MPC Tokens
+- Oracle Node 250,000 MPC Tokens
+- Price Oracle Node 5,000 MPC Tokens
 
 ### Transactions
 
