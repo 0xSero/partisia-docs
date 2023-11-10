@@ -296,7 +296,7 @@
       if (isAddress(proxyAddress) && priceInformationSupplied && tokenName !== "") {
         const symbol = (isNativeToken() ? tokenName : chain + "_" + tokenName).toUpperCase();
 
-        let numerator = priceBigInt;
+        let numerator = priceBigInt * BigInt(100000);
         let denominator = (BigInt(10) ** BigInt(decimals + priceDecimals));
         const maxValue = BigInt(2) ** BigInt(63);
         while (numerator > maxValue || denominator > maxValue) {
