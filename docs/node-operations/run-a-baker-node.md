@@ -1,14 +1,157 @@
-## How to run a block producing node on Partisia Blockchain
+# Run a baker node
 
-The following guide has 10 parts. If you do the steps of the guide in order, you should know how to set up your node correctly, before you commit your stake. In other words, you can find out if you have the skills and patience for running a block producing node, before you tie your stake to the performance of the node.
+Baker nodes sign and produce blocks.
 
-1. [Create a PBC Account](create-an-account-on-pbc.md)
-1. [Get MPC tokens](get-mpc-tokens.md)
-1. [Recommended hardware and software](recommended-hardware-and-software.md)
-1. [Get a VPS](vps.md)
-1. [Secure your VPS](secure-your-vps.md)
-1. [Run a reader node on a VPS](reader-node-on-vps.md)
-1. [Complete the Synaps KYB](complete-synaps-kyb.md)
-1. [Run a block producing node](run-a-block-producing-node.md)
-1. [Register your node](register-your-node.md)
-1. [Node health and maintenance](node-health-and-maintenance.md)
+!!! info "Requirements"
+    - [Stake 25 K MPC tokens](https://browser.partisiablockchain.com/node-operation)
+    - Verified Synaps  [KYC](https://partisiablockchain-kyc.synaps.me/auth/init)/[KYB](https://partisiablockchain.synaps.me/signup)
+    - [VPS](vps.md) with a reader node
+
+
+This page will describe how to change your node config from reader to block producer.
+
+You must finish the previous section [Reader node on VPS](../node-operations/reader-node-on-vps.md) before you can continue.
+
+### Step 1 - Stop your reader node
+
+Change the directory to the folder where you have your `docker-compose.yml` file:
+
+```shell
+cd ~/pbc
+```
+
+Stop the node container:
+
+```bash
+docker-compose down
+```
+
+### Step 2 - Change `config.json` to support block production
+
+To fill out the config.json for a block producing node you need to add the following information:
+
+- Account key (the account you've staked MPC with)
+- IP address of the server hosting your node (You get this from your VPS service provider)
+- Ethereum and Polygon API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.
+- The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`, e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known producers should be obtained by reaching out to the community.
+
+To fill out the needed information we will use the `node-register.sh` tool:
+
+```bash
+./node-register.sh create-config
+```
+
+When asked if the node is a block producing node, answer `yes`.
+The tool validates your inputs, and you will not be able to finish the configuration generation without inputting *all*
+the required information.
+
+???+ note
+
+    Be sure to back up the keys the tool prints at the end. They are written in `config.json` and  cannot be
+    recovered if it is deleted.
+
+You can verify the contents of the files are what you expect by opening them with `cat`:
+
+```bash
+sudo cat /opt/pbc-mainnet/conf/config.json
+# The config file should be printed here
+```
+
+Your file should have similar contents to the one in the example below.
+
+??? example "Example: Block producing config"
+
+    ```
+    {
+        "restPort": 8080,
+        "floodingPort": 9888,
+        "knownPeers": [
+            // your known peers
+        ],
+        "networkKey": "YOUR NETWORK KEY",
+        "producerConfig": {
+            "accountKey": "YOUR ACCOUNT KEY",
+            "finalizationKey": "YOUR FINALIZATION KEY",
+            "ethereumUrl": "https://example.com",
+            "polygonUrl": "https://example.com",
+            "bnbSmartChainUrl": "https://example.com",
+            "host": "YOUR IP"
+        }
+    }
+    ```
+
+## Start your block producing node
+
+```bash
+docker-compose up -d
+```
+
+This should pull the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running, run:
+
+````bash
+docker logs -f pbc-mainnet
+````
+
+This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
+
+In the [maintenance section](../node-operations/node-health-and-maintenance.md) you can see what the logs mean.
+
+## Register your node
+
+The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a
+stake of MPC Tokens and sending a registration form. Staking is done in the
+[Partisia Blockhain Browser](https://browser.partisiablockchain.com/node-operation) on the *Stake* button; registration
+is done on the node via the `node-register.sh` script.
+
+There are three prerequisites for registering:
+
+1. You have staked the minimum amount of tokens (see [Get MPC tokens](get-mpc-tokens.md))
+1. You have completed your KYC/KYB, and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
+1. You have a reader node running that is up-to-date with the rest of the network, see below how to check this
+
+## Registering the node
+
+The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
+
+???+ note
+
+    Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
+
+The node REST server will respond with a code `204 No Content` if it is up-to-date with the network.
+You can check the status by running the following command:
+
+```bash
+./node-register.sh status
+```
+
+You will need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
+[Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
+gas balance is shown.
+
+To send the register transaction you need to log in to your node and go to the `~/pbc` folder and call the `node-register.sh` script.
+
+```bash
+cd ~/pbc
+```
+
+```bash
+./node-register.sh register-node
+```
+
+Follow the on-screen instructions and you should now be registered.
+
+???+ note
+
+    You can update your information from the Register Transaction by doing a new registration transaction.
+
+Then you need to verify that the account key you have in the `config.json` file matches the blockchain address you've used in your KYC/KYB.
+
+If it still fails then reach out to the [community](../get-support-from-pbc-community.md).
+
+## Conditions for inclusion
+
+Formal conditions for inclusion in the network is stipulated in the Yellow Paper [YP_0.98 Ch. 2.3.1 pp. 11-12](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view):
+
+- The public information regarding the node given by the operator must be verified by Synaps.
+- Sufficient stakes committed.
+- The transaction fees of Register and Staking Transaction have been paid.

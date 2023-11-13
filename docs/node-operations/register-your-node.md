@@ -20,8 +20,9 @@ is done on the node via the `node-register.sh` script.
 There are three prerequisites for registering:
 
 1. You have staked the minimum amount of tokens (see [Get MPC tokens](get-mpc-tokens.md))
-1. You have completed your KYC/KYB, and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
-1. You have a reader node running that is up-to-date with the rest of the network, see below how to check this
+2. You have completed your KYC/KYB, and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
+3. You have a reader node running that is up-to-date with the rest of the network, see below how to check this
+4. You need to have [gas](../pbc-fundamentals/byoc/introduction-to-byoc.md) in your account
 
 ## Registering the node
 
