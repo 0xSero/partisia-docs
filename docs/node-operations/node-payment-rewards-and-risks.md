@@ -1,6 +1,6 @@
-# Paid node services
+# Node payment, rewards and risk
 
-
+Here you can read about paid services nodes can perform as well as rewards, and risks of disputes.
 
 ### Types of services and how they earn fees and rewards
 

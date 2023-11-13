@@ -65,7 +65,8 @@ Gas is a small fraction of BYOC. The cost of transactions on PBC is measured in 
 ### Large Oracle
 
 After each [epoch](dictionary.md#epoch) (When all baker nodes have had their turn as producers) a large Oracle consisting of all Baker nodes or the blockchain as a whole
-ensures that the risk managed by the small Oracle in the latest [epoch](dictionary.md#epoch) is contained. The large oracle sign off on new small oracle (the oracle nodes which have perform services relating to BYOC). Large oracle also signs when the committee change.
+ensures that the risk managed by the small Oracle in the latest [epoch](dictionary.md#epoch) is contained. The large oracle sign off on new small oracle (the oracle nodes which have perform services relating to BYOC). Large oracle also signs when the committee change. The large oracle is synonymous with the current committee, and is responsible for settling disputes related to the actions of the small oracle. The large oracle consists of all the nodes in the current committee. Each node holds a keyshare that allows it to cast a vote on oracle decisions. Votes are decided by a 2/3s majority. The rules governing the large oracle are directed by the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014). Node operators can associate tokens to this contract. The tokens can be used as a stake to be eligible for a job in a specific small oracle.
+
 
 ### MPC
 
@@ -124,14 +125,13 @@ The price oracles on PBC help to keep the BYOC price up to date by using data fr
 In addition to checking and reporting prices a price oracle node also compares its own checks with the reports of the other price oracles. If it sees a discrepancy in price the price oracle node starts a dispute. The party found to be responsible in a price oracle dispute will have their 5000 MPC slashed. Types of malicious behavior can include reporting incorrect prices or incorrect dispute claims against other oracle nodes.
 
 
-
 ### Public-key cryptography
 
 Public-key cryptography is a form of cryptography that uses pairs of keys: A public key that may be shared with anyone and a private key that must be kept secret. The public and private keys are generated in mathematically connected pairs. The public key can be used to encrypt a message that can be decrypted by the private key, meaning that anyone can send an encrypted message to any recipient assuming they know their public key. PBC uses elliptic curve cryptography, specifically the curve [secp256k1](https://en.bitcoinwiki.org/wiki/Secp256k1).
 
 ### Reader Node
 
-A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](../node-operations/reader-node-on-vps.md).
+A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](../node-operations/run-a-reader-node.md).
 
 ### Rest Server
 
@@ -140,6 +140,11 @@ A rest server is a server that gives access to the REST API. An API conforming t
 ### Shards
 
 PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](../pbc-fundamentals/consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](../pbc-fundamentals/sharding.md).
+
+### Small oracle
+
+There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit), [withdrawal oracles](../pbc-fundamentals/bridging-byoc-by-sending-transactions.md#how-to-make-a-withdrawal) and [price oracles](../pbc-fundamentals/dictionary.md#price-oracle).
+
 
 ### Smart Contracts
 
@@ -155,6 +160,7 @@ Staking requires that the node operator buys the required stake of MPC Tokens. S
 - ZK Node 75,000 MPC Tokens
 - Oracle Node 250,000 MPC Tokens
 - Price Oracle Node 5,000 MPC Tokens
+Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
 
 ### Transactions
 

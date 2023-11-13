@@ -165,7 +165,7 @@ If you cannot open your status endpoint there is probably a problem with the ope
 ````bash
 sudo ufw status
 ````
-Make sure you have opened for ports 9888-9897. If not consult instructions [here](../node-operations/secure-your-vps.md).
+Make sure you have opened for ports 9888-9897. If not consult instructions [here](../node-operations/run-a-reader-node.md).
 
 ## How to find and use metrics to measure performance
 
@@ -322,7 +322,7 @@ This will give you the blocks you have signed the last hour. You might also want
 When changing VPS there are a few important precautions you take ensuring a problem free migration.
 
 **You may never run two nodes performing baker services at the same time**   
-Running two nodes with same config can be interpreted as malicious behavior.You can start a [reader node](../node-operations/reader-node-on-vps.md) on the new VPS. Then, when you are ready to change the `config.json` to the BP version, you stop the node from running on the old server:
+Running two nodes with same config can be interpreted as malicious behavior.You can start a [reader node](../node-operations/run-a-reader-node.md) on the new VPS. Then, when you are ready to change the `config.json` to the BP version, you stop the node from running on the old server:
 
 ````bash
 docker stop  nameOfDockerContainer

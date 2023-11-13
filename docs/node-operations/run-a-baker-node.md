@@ -4,8 +4,8 @@ Baker nodes sign and produce blocks.
 
 !!! info "Requirements"   
     - [Stake 25 K MPC tokens](https://browser.partisiablockchain.com/node-operation)    
-    - Verified Synaps  [KYC](https://partisiablockchain-kyc.synaps.me/auth/init) / [KYB](https://partisiablockchain.synaps.me/signup)   
-    - [VPS](vps.md) with a reader node
+    - Verified Synaps  [KYC](complete-synaps-kyb.md#verification-process-for-individuals-kyc) / [KYB](complete-synaps-kyb.md#verification-process-for-businesses-kyb)   
+    - [VPS](../pbc-fundamentals/dictionary.md#vps) with a [reader node](run-a-reader-node.md)
 
 
 This page will describe how to change your node config from reader to block producer.
@@ -98,20 +98,8 @@ In the [maintenance section](../node-operations/node-health-and-maintenance.md) 
 
 ## Register your node
 
-The final step in becoming a block producer in the Partisia Blockchain is the registration. This is done by committing a
-stake of MPC Tokens and sending a registration form. Staking is done in the
-[Partisia Blockhain Browser](https://browser.partisiablockchain.com/node-operation) on the *Stake* button; registration
-is done on the node via the `node-register.sh` script.
 
-There are three prerequisites for registering:
-
-1. You have staked the minimum amount of tokens (see [Get MPC tokens](get-mpc-tokens.md))
-1. You have completed your KYC/KYB, and it is verified (you will have received a verification e-mail). Write down your Synaps Session ID
-1. You have a reader node running that is up-to-date with the rest of the network, see below how to check this
-
-## Registering the node
-
-The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
+Registration is done on the node via the `node-register.sh` script. The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
 
 ???+ note
 
@@ -155,3 +143,5 @@ Formal conditions for inclusion in the network is stipulated in the Yellow Paper
 - The public information regarding the node given by the operator must be verified by Synaps.
 - Sufficient stakes committed.
 - The transaction fees of Register and Staking Transaction have been paid.
+
+Continue on the following pages to upgrade to an oracle node or zk node.

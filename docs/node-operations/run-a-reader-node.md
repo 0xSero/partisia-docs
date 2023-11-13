@@ -124,8 +124,7 @@ sudo ufw status
 
 ## Set up a reader on VPS
 
-When setting up the node you should use the non-root user you created in the previous [step](../node-operations/secure-your-vps.md).
-You need to install the [recommended software](../node-operations/recommended-hardware-and-software.md#recommended-software) before you start.
+When setting up the node you should use the non-root user you created above.
 The node will run as user:group `1500:1500`
 
 
