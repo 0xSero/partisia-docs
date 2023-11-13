@@ -3,20 +3,375 @@
 
 ## Why you need a reader node
 
-Readers are useful for getting information from the blockchain. Be it from the state of accounts and contracts or information about specific blocks. If you are developing a dApp or a front-end you will probably need to run your own reader node. If many parties query the same reader, it might be slowed down or become unstable. For this reason you will want to have your own reader for development.
+A reader node is the most basic form of node you can run, and it does not require a stake. You can upgrade a reader node to a baker node and from there to a node running any type of node service on PBC.    
+Readers are also useful in their own right for getting information from the blockchain. Be it from the state of accounts and contracts or information about specific blocks. If you are developing a dApp or a front-end you will probably need to run your own reader node. If many parties query the same reader, it might be slowed down or become unstable. For this reason you will want to have your own reader for development.
 
 ???+ note
 
     The "public" [reader](https://reader.partisiablockchain.com/) has a built-in traffic limit that prevents any single application from using it to much. If you encounter this limit the solution is for you to run your own reader node. 
 
-## Step by step
 
-To get your reader node you are first completing 4 of the 10 steps from the block producer node guide, then setting up automatic updates and a reverse proxy. Use the links below, so you do not end up following unnecessary steps.
 
-1. [Recommended hardware and software](recommended-hardware-and-software.md)
-2. [Get a VPS](vps.md)
-3. [Secure your VPS](secure-your-vps.md)
-4. [Set up a reader on VPS](reader-node-on-vps.md) 
-5. [Automatically update the node software](https://partisiablockchain.gitlab.io/documentation/node-operations/node-health-and-maintenance.html#get-automatic-updates)
-6. [Set up reverse proxy using example in ZK node guide](https://drive.google.com/file/d/1WOzM63QsBntSVQMpWhG7oDuEWYJE2Ass/view)
+## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
+
+It is a good idea to give your node a basic layer of security.
+
+### Change root password
+
+When you get a VPS with Lixux OS you will be provided with a root password by the VPS provider. Change the root password:
+
+````bash
+sudo passwd root
+````
+
+### Add a non-root user
+
+For best security practice root should not be default user. Add a non-root user:
+
+````bash
+sudo adduser userNameHere
+````
+
+### Install Network Time Protocol
+
+To avoid time drift use Network Time Protocol (NTP). First install:
+
+````bash
+ sudo apt-get update
+````
+
+````bash
+ sudo apt-get install ntp ntpdate
+````
+
+Stop NTP service and point to NTP server:
+
+````bash
+sudo service ntp stop
+````
+
+````bash
+sudo ntpdate pool.ntp.org
+````
+
+Start NTP service and check status:
+
+````bash
+sudo service ntp start
+````
+
+````bash
+sudo systemctl status ntp
+````
+
+### Install Htop
+
+It is useful to be able to monitor CPU and memory use on your server. For this purpose install Htop:
+
+````bash
+sudo apt install htop
+````
+
+### Secure shell (SSH)
+
+It is sensible to use SSH when connection to your server. Most VPS hosting sites have a SSH guide specific to their hosting platform, so you should follow the specifics of your hosting provider's SSH guide.
+
+### Configure your firewall
+
+Disable firewall off, set default to block incoming traffic and allow outgoing:
+
+````bash
+sudo ufw disable
+````
+
+````bash
+sudo ufw default deny incoming
+````
+
+````bash
+sudo ufw default allow outgoing
+````
+
+Allow specific ports for Secure Shell (SSH) and Partisia:
+
+````bash
+sudo ufw allow your-SSH-port-number
+````
+
+````bash
+sudo ufw allow 9888:9897/tcp
+````
+
+Enable rate limiting on your SSH connection
+
+````bash
+sudo ufw limit your-SSH-port-number
+````
+
+Enable logging, start the firewall and check status:
+
+````bash
+sudo ufw logging on
+````
+
+````bash
+sudo ufw enable
+````
+
+````bash
+sudo ufw status
+````
+
+## Set up a reader on VPS
+
+When setting up the node you should use the non-root user you created in the previous [step](../node-operations/secure-your-vps.md).
+You need to install the [recommended software](../node-operations/recommended-hardware-and-software.md#recommended-software) before you start.
+The node will run as user:group `1500:1500`
+
+
+### Creating the configuration and storage folders
+
+In this guide we will be running the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`. First we need
+to create the `conf` and `storage` folders for the application:
+
+````bash
+sudo mkdir -p /opt/pbc-mainnet/conf
+````
+
+````bash
+sudo mkdir -p /opt/pbc-mainnet/storage
+````
+
+### Setting file permissions
+
+Now we need to make sure the user with uid `1500` has the needed access to the files:
+
+````bash
+sudo chown -R "1500:1500" /opt/pbc-mainnet
+````
+
+````bash
+sudo chmod 500 /opt/pbc-mainnet/conf
+````
+
+````bash
+sudo chmod 700 /opt/pbc-mainnet/storage
+````
+
+The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder
+readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
+
+
+### Pull docker image
+
+The guide assumes the node is run using `docker-compose`.
+
+Start by creating a directory `pbc` and add a file named `docker-compose.yml`.
+
+````bash
+mkdir -p pbc
+````
+
+````bash
+cd pbc
+````
+
+````bash
+nano docker-compose.yml
+````
+
+The contents of the file should be the following:
+
+````yaml
+version: "2.0"
+services:
+  pbc:
+    image: registry.gitlab.com/partisiablockchain/mainnet:latest
+    container_name: pbc-mainnet
+    user: "1500:1500"
+    restart: always
+    expose:
+    - "8080"
+    ports:
+    - "9888-9897:9888-9897"
+    command: [ "/conf/config.json", "/storage/" ]
+    volumes:
+    - /opt/pbc-mainnet/conf:/conf
+    - /opt/pbc-mainnet/storage:/storage
+    environment:
+    - JAVA_TOOL_OPTIONS="-Xmx8G"
+````
+
+Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
+
+### The `node-register.sh` script
+
+The `node-register.sh` script will help you generate a valid node configuration file.
+
+To generate the `config.json` for a reader node you need following information:
+
+- The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`, e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known producers should be obtained by reaching out to the community.You can see how to reach the community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
+
+
+The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
+
+```shell
+curl https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh --output node-register.sh
+```
+
+Once it is downloaded you need to make it executable:
+
+```shell
+chmod +x node-register.sh
+```
+
+You are now ready to generate your `config.json` file.
+
+### Generating your `config.json` file
+
+The `node-register.sh` script makes it easy to generate a reader node config.
+The tool ensures your `config.json` is well-formed and that it is stored in the correct folder on the machine.
+
+Start the tool with the `create-config` argument:
+
+```shell
+./node-register.sh create-config
+```
+
+As we are creating a reader node we will not be producing blocks.
+Your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
+
+The config should look like the example below.
+
+??? example "Example: Basic reader config"
+
+    ```
+    {
+        "networkKey": "YOUR NETWORK KEY"  
+    }
+    ```
+
+### Starting the node
+
+You can now start the node:
+
+````bash
+docker-compose up -d
+````
+
+If the command is successful it will pull the latest image and start the reader node in the background.
+To verify that the node is running, run:
+
+````bash
+docker logs -f pbc-mainnet
+````
+
+This will print your log statements. All the timestamps are
+in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your
+local time.
+
+## Logs and storage
+
+The logs of the node are written to the standard output of the container and are therefore managed using the tools
+provided by Docker. You can read about configuring Docker
+logs [here](https://docs.docker.com/config/containers/logging/configure/).
+
+The storage of the node is based on RocksDB. It is write-heavy and will increase in size for the foreseeable future. The
+number and size of reads and writes is entirely dependent on the traffic on the network.
+
+
+## Get automatic updates
+
+All nodes independent of type should be set up to update their software automatically.
+To set up automatic updates you will need Cron, which is a time based job scheduler. See if you have the Cron package installed:
+
+````bash
+dpkg -l cron
+````
+
+If not:
+
+````bash
+apt-get install cron
+````
+
+Now you are ready to start.
+
+**1. Create the auto update script:**
+
+Go to the directory where `docker-compose.yml` is located.
+
+````bash
+cd ~/pbc
+````
+
+Open the file in nano:
+
+````bash
+nano update_docker.sh
+````
+
+Paste the following content into the file:
+
+````yaml
+#!/bin/bash
+
+DATETIME=$(date -u)
+echo "$DATETIME"
+
+cd ~/pbc
+
+/usr/local/bin/docker-compose pull
+/usr/local/bin/docker-compose up -d
+````
+Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+
+**2. Make the file executable:**
+
+````bash
+chmod +x update_docker.sh
+````
+
+Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now executable.
+
+**3. Set update frequency to once a day at a random time:**
+
+````bash
+crontab -e
+````
+This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to edit the cron rule. If you have not already chosen a preference.
+
+Paste and add the rule to the scheduler. **NB**. No "#" in front of the rule:
+````bash
+m h * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
+````
+For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23.
+If you are in doubt about what the cron rule means you can use this page:
+<https://crontab.guru/> to see the rule expressed in words.
+
+Press `CTRL+X` and then `Y` and then `ENTER`.
+
+This rule will make the script run and thereby check for available updates once every day.
+
+To see if the script is working you can read the update log with the *cat command*:
+
+````bash
+cat update.log
+````
+You might want to change the timing the first time, so you do not have to wait 30 minutes to confirm that it works.
+
+If your version is up-to-date, you should see:
+````
+YOUR_CONTAINER_NAME is up-to-date
+````
+If you are currently updating you should see:
+````
+Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
+````
+**NB.** Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
+
+## Final step
+
+If you plan on using your reader node for development or if you plan to upgrade your node to a zk node, then you will need to [set up reverse proxy using example in ZK node guide](https://drive.google.com/file/d/1WOzM63QsBntSVQMpWhG7oDuEWYJE2Ass/view). Otherwise, you can go to the next page to upgrade to a [baker node](run-a-baker-node.md). 
 

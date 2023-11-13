@@ -51,11 +51,10 @@ nav:
       - node-operations/run-a-reader-node.md
       - node-operations/run-a-baker-node.md
       - node-operations/run-a-zk-node.md
-      - node-operations/run-an-oracle-node.md
+      - node-operations/run-a-deposit-or-withdrawal-oracle-node.md
       - node-operations/create-an-account-on-pbc.md
       - node-operations/get-mpc-tokens.md
       - node-operations/recommended-hardware-and-software.md
-      - node-operations/vps.md
       - node-operations/secure-your-vps.md
       - node-operations/reader-node-on-vps.md
       - node-operations/complete-synaps-kyb.md

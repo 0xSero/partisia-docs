@@ -10,9 +10,9 @@ Baker nodes sign and produce blocks.
 
 This page will describe how to change your node config from reader to block producer.
 
-You must finish the previous section [Reader node on VPS](../node-operations/reader-node-on-vps.md) before you can continue.
+You must finish the previous section [Run a reader node](../node-operations/run-a-reader-node.md) before you can continue.
 
-### Step 1 - Stop your reader node
+### Stop your reader node
 
 Change the directory to the folder where you have your `docker-compose.yml` file:
 
@@ -26,7 +26,7 @@ Stop the node container:
 docker-compose down
 ```
 
-### Step 2 - Change `config.json` to support block production
+### Change `config.json` to support block production
 
 To fill out the config.json for a block producing node you need to add the following information:
 
