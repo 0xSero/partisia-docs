@@ -2,9 +2,9 @@
 
 Baker nodes sign and produce blocks.
 
-!!! info "Requirements"
-    - [Stake 25 K MPC tokens](https://browser.partisiablockchain.com/node-operation)
-    - Verified Synaps  [KYC](https://partisiablockchain-kyc.synaps.me/auth/init)/[KYB](https://partisiablockchain.synaps.me/signup)
+!!! info "Requirements"   
+    - [Stake 25 K MPC tokens](https://browser.partisiablockchain.com/node-operation)    
+    - Verified Synaps  [KYC](https://partisiablockchain-kyc.synaps.me/auth/init) / [KYB](https://partisiablockchain.synaps.me/signup)   
     - [VPS](vps.md) with a reader node
 
 
