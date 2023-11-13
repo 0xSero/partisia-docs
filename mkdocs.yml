@@ -52,20 +52,19 @@ nav:
       - node-operations/run-a-baker-node.md
       - node-operations/run-a-zk-node.md
       - node-operations/run-an-oracle-node.md
-      - Node upkeep:
-              - node-operations/create-an-account-on-pbc.md
-              - node-operations/get-mpc-tokens.md
-              - node-operations/recommended-hardware-and-software.md
-              - node-operations/vps.md
-              - node-operations/secure-your-vps.md
-              - node-operations/reader-node-on-vps.md
-              - node-operations/complete-synaps-kyb.md
-              - node-operations/run-a-block-producing-node.md
-              - node-operations/register-your-node.md
-              - node-operations/node-health-and-maintenance.md
-              - node-operations/update-your-nodes-public-information.md
-              - node-operations/oracles-on-partisia-blockchain.md
-              - node-operations/join-or-leave-a-deposit-withdrawal-or-price-oracle.md
+      - node-operations/create-an-account-on-pbc.md
+      - node-operations/get-mpc-tokens.md
+      - node-operations/recommended-hardware-and-software.md
+      - node-operations/vps.md
+      - node-operations/secure-your-vps.md
+      - node-operations/reader-node-on-vps.md
+      - node-operations/complete-synaps-kyb.md
+      - node-operations/run-a-block-producing-node.md
+      - node-operations/register-your-node.md
+      - node-operations/node-health-and-maintenance.md
+      - node-operations/update-your-nodes-public-information.md
+      - node-operations/oracles-on-partisia-blockchain.md
+      - node-operations/join-or-leave-a-deposit-withdrawal-or-price-oracle.md
   - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
 
