@@ -56,7 +56,7 @@ nav:
       - node-operations/complete-synaps-kyb.md
       - node-operations/node-health-and-maintenance.md
       - node-operations/update-your-nodes-public-information.md
-      - node-operation/node-payment-rewards-and-risks.md
+      - node-operations/node-payment-rewards-and-risks.md
   - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
 
