@@ -2,9 +2,9 @@
 
 ZK nodes do zk computations in addition to their baker node work of signing and producing blocks.
 
-!!! info "Requirements"   
+!!! Warning " You must complete these requirements before you can continue"  
     - [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
-    - A running [baker node](run-a-baker-node.md)
+    - [Run baker node](run-a-baker-node.md)
     - You have set up a reverse proxy and purchased a domain as described [here](https://drive.google.com/file/d/1WOzM63QsBntSVQMpWhG7oDuEWYJE2Ass/view?usp=sharing)
     - [Gas](../pbc-fundamentals/byoc/introduction-to-byoc.md) for the transaction
 

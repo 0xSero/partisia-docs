@@ -2,8 +2,12 @@
 
 Price oracles monitor prices of the BYOC. They do not rely on a random selection process. Any node with sufficient tokens associated to the large oracle contract can register as a price oracle. Price oracles monitor prices of the BYOC. They do not rely on a random selection process. Any node with sufficient tokens associated to the large oracle contract can register as a price oracle.
 
-## Join a price oracle
+!!! Warning " You must complete these requirements before you can continue"    
+    - [Stake 30 K MPC tokens](https://browser.partisiablockchain.com/node-operation) (including the 25 K for baker service)     
+    - [Run a baker node](run-a-baker-node.md)    
 
+
+## Join a price oracle
 
 1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
 2. Sign in (upper right corner)
