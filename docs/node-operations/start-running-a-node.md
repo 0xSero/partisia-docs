@@ -21,7 +21,7 @@ You must first set up and register as a baker node, before you can register your
 | 25 K                   | [Baker node](../node-operations/run-a-baker-node.md)                   |
 | 30 K                   | [Price oracle node](../node-operations/run-a-price-oracle-node.md.md)                 |
 | 100 K                  | [ZK node](../node-operations/run-a-zk-node.md)                      |
-| 275 K                  | [Deposit or withdrawal oracle node](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md.md) |
+| 275 K                  | [Deposit or withdrawal oracle node](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md) |
 
 
 !!! note "NB. All nodes require a VPS with these specs or better"   
