@@ -18,7 +18,7 @@ You must first set up and register as a baker node, before you can register your
 
 | **Your MPC token balance** | **Node service you can run** | **Service consist of**                            |
 |----------------------------|------------------------------|---------------------------------------------------|
-| 0                          | Reader node                  | Reading the blockchain state                      |
+| 0                          | [Reader node]()                  | Reading the blockchain state                      |
 | 25 K                       | Baker node                   | Signing and producing blocks                      |
 | 30 K                       | Price oracle                 | Baker node service + price monitoring             |
 | 100 K                      | ZK node                      | Baker node service + ZK computations              |
