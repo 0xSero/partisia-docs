@@ -23,6 +23,7 @@ You must first set up and register as a baker node, before you can register your
 | 100 K                      | ZK node                      | Baker node service + ZK computations              |
 | 275 K                      | Deposit or withdrawal oracle | Baker node service + Moving BYOC on and off chain |
 
+
 !!! note "NB. All nodes require a VPS with these specs or better"   
 - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated JVM), 60 GB SSD, publicly accessible IPv4 with ports 9888-9897 open
 - Recommended software: Docker, Docker Compose, Linux 20.04.3, nano 4.3 or other text editor
