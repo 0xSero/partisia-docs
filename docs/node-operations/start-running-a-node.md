@@ -12,18 +12,17 @@ If you want to run a node, please join our community. We would like to offer you
 
 ## Which node should you run?
 
-Nodes performing paid services require a [stake](../pbc-fundamentals/dictionary.md#stakestaking) of MPC tokens. Higher stakes services earn higher revenue.
-You must first set up and register as a baker node, before you can register your node for higher paying services.   
+Nodes performing paid services require a [stake](../pbc-fundamentals/dictionary.md#stakestaking) of MPC tokens. Higher stakes services earn higher revenue.    
+Set up of the different nodes overlap. All nodes have the setup related to reader nodes in common. All staking nodes have the baker node setup in common. Therefore, you must first set up and register as a baker node, before you can configure and register your node for higher paying services.   
 
 
-| **Your MPC token balance** || **Node service you can run** | **Service consist of**                            |
-|----------------------------||------------------------------|---------------------------------------------------|
-| 0                          || [Reader node](run-a-reader-node.md)                  | Reading the blockchain state                      |
-| 25 K                       || [Baker node](run-a-baker-node.md)                   | Signing and producing blocks                      |
-| 30 K                       || [Price oracle](run-aprice-oracle-node.md)                 | Baker node service + price monitoring             |
-| 100 K                      || [ZK node]()                      | Baker node service + ZK computations              |
-| 275 K                      || [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | Baker node service + Moving BYOC on and off chain |
-
+| **Your MPC token balance** | **Node service you can run** | **Service consist of**                            |
+|----------------------------|------------------------------|---------------------------------------------------|
+| 0                          | [Reader node](run-a-reader-node.md)                  | Reading the blockchain state                      |
+| 25 K                       | [Baker node](run-a-baker-node.md)                   | Reader node service + signing and producing blocks                      |
+| 30 K                       | [Price oracle](run-aprice-oracle-node.md)                 | Baker node service + price monitoring             |
+| 100 K                      | [ZK node]()                      | Baker node service + ZK computations              |
+| 275 K                      | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | Baker node service + Moving BYOC on and off chain |
 
 !!! note "NB. All nodes require a VPS with these specs or better"   
 - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated JVM), 60 GB SSD, publicly accessible IPv4 with ports 9888-9897 open
