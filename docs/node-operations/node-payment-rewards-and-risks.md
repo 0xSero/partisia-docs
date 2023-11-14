@@ -21,7 +21,7 @@ In addition to the fees paid for service nodes receive rewards in the form of MP
 
 
 Node services are handled by specific [system contracts](insert link for governace overview when merged). To sign up for services a node operator associates a stake of token to the contract administrating the service 
-([see amount to stake for specific services](what-is-a-node-operator.md#requirements-of-a-node-operator)). Stakes work as an incentive against malicious behaviour.
+([see amount to stake for specific services](start-running-a-node.md)). Stakes work as an incentive against malicious behaviour.
 
 All nodes running a paid service must first register as block producers in the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91). This makes the node eligible to perform baker services. While a service is being performed the tokens are locked to the contract. A node operator can resign from a service, and release the tokens staked on the service. A delay of release ensures sufficient time for making dispute claim.
 Upgraded services require stake of tokens in addition to what is already staked on baker service, but they also have a bigger earning potential.
