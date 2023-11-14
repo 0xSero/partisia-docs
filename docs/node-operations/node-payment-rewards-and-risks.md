@@ -28,7 +28,7 @@ Upgraded services require stake of tokens in addition to what is already staked 
 
 ### Dispute claims and malicious behaviour
 
-It is possible to start a dispute against a node operator that has done a service for you. Dispute claims will be audited by the [large oracle](oracles-on-partisia-blockchain.md#what-is-a-large-oracle). If the node operator is found responsible for the node's alleged malicious behaviour tokens staked on the service may be confiscated (slashed) to compensate for damaged caused by the malicious behaviour. Filing an illegitimate dispute claim against another node can also be considered malicious behaviour and result in slashing.
+It is possible to start a dispute against a node operator that has done a service for you. Dispute claims will be audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible for the node's alleged malicious behaviour tokens staked on the service may be confiscated (slashed) to compensate for damaged caused by the malicious behaviour. Filing an illegitimate dispute claim against another node can also be considered malicious behaviour and result in slashing.
 
 The purpose of slashing tokens is to prevent malicious activity. And to create an incentive structure ensuring that active node operators are being rewarded.
 Examples of malicious activity:

@@ -15,7 +15,7 @@ In the deposit and withdrawal examples below, we will show how to bridge ETH. Th
 
 Below you will learn which contracts and invocations are used for deposits and withdrawals.
 PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, in the case of a withdrawal the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain.
-The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../../node-operations/oracles-on-partisia-blockchain.md).    
+The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../dictionary.md#small-oracle).    
 
 Every time the bridge is used 0.1% of transferred value is subtracted as a fee to pay for the service provided by oracle nodes. If you bridge 1 ETH, then 0.999 ETH is transferred and 0.001 ETH is paid to the oracle nodes.
 
@@ -80,7 +80,7 @@ withdraw(uint64 withdrawNonce,
 You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Polygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well.    
 On Partisia Blockchain the easiest solution is to use [Partisia MetaMask Snap](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/) to sign your transaction.  Alternatively you can use the [Partisia Wallet](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
 
-Besides the wallets, you will need the addresses of the [oracle](../../node-operations/oracles-on-partisia-blockchain.md) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet test BYOC from the ETH Goerli testnet is available, but no other BYOC test coins from other chains.
+Besides the wallets, you will need the addresses of the [oracle](../dictionary.md#small-oracle) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet test BYOC from the ETH Goerli testnet is available, but no other BYOC test coins from other chains.
 
 ### Bridging test ETH
 

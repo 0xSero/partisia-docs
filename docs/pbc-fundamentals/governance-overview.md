@@ -39,7 +39,7 @@ transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC syste
 transfers, withdrawals, deposits, price monitoring, staking of nodes and the audit of transfers done in each [epoch](dictionary.md#epoch).
 
 ??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)"
-    Administrates and oversees work done by [small oracles](../node-operations/oracles-on-partisia-blockchain.md#what-is-a-small-oracle). This includes allocation of eligible nodes to serve in the small oracles, the tokens staked on oracle service and voting on all disputes regarding the small oracles' work with BYOC.   
+    Administrates and oversees work done by [small oracles](../pbc-fundamentals/dictionary.md#small-oracle). This includes allocation of eligible nodes to serve in the small oracles, the tokens staked on oracle service and voting on all disputes regarding the small oracles' work with BYOC.   
     [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)    
 
 ### Small oracles
@@ -63,7 +63,7 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
     [BNB Withdrawal](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)    
 
 ??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
-    Facilitates the deployment of new price, deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
+    Facilitates the deployment of new price, deposit and withdrawal [oracles](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
 
 
 ## MPC tokens
