@@ -1,16 +1,4 @@
 # Node health and maintenance
-<div class="dot-navigation" markdown>
-   [](create-an-account-on-pbc.md)
-   [](get-mpc-tokens.md)
-   [](recommended-hardware-and-software.md)
-   [](vps.md)
-   [](secure-your-vps.md)
-   [](reader-node-on-vps.md)
-   [](complete-synaps-kyb.md)
-   [](run-a-block-producing-node.md)
-   [](register-your-node.md)
-   [*.*](node-health-and-maintenance.md)
-</div>
 
 If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your  node is not updated regularly, it is bound to fall out of committee. Only nodes up-to-date can participate in forming a new committee, so every time a new committee is formed from registered nodes, only nodes with newest version of Partisia Software can be included. 
 Your node can only perform services and by extension earn rewards when in the committee. After you are included you want to make sure your node is able to continue to participate.  
