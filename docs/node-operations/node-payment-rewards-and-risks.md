@@ -13,7 +13,7 @@ Node operators get paid for running 3 types of services:
 
 ZK and oracle nodes are upgrades services. Higher paying services depend on first registering for baker services.
 
-When a user commits a transaction on the blockchain he pays a gas cost in [BYOC](../pbc-fundamentals/byoc.md). That gas covers the fee for the service performed by the nodes.
+When a user commits a transaction on the blockchain he pays a gas cost in [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). That gas covers the fee for the service performed by the nodes.
 
 In addition to the fees paid for service nodes receive rewards in the form of MPC tokens. Rewards node performed measured through block production as well as tokens staked and their vesting schedule. [See how rewards are calculated and distributed](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads)
 
