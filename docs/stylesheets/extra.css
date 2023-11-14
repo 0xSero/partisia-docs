@@ -74,6 +74,12 @@ h4 {
     font-family: "Playfair Display";
     color: #0b073f !important;
 }
+th, td {
+    border-right: 1px solid var(--md-typeset-table-color);
+}
+table {
+    border-right: 0px!important;
+}
 
 .md-typeset {
     font-size: .7rem;
