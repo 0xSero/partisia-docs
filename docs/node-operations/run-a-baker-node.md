@@ -1,6 +1,6 @@
 # Run a baker node
 
-Baker nodes sign and produce blocks.
+Baker nodes sign and produce blocks. This page will describe how to change your node config from reader to baker.
 
 !!! Warning " You must complete these requirements before you can continue"   
     - [Stake 25 K MPC tokens](https://browser.partisiablockchain.com/node-operation)    
@@ -8,9 +8,6 @@ Baker nodes sign and produce blocks.
     - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with and [run a reader node](run-a-reader-node.md)
 
 
-This page will describe how to change your node config from reader to block producer.
-
-You must finish the previous section [Run a reader node](../node-operations/run-a-reader-node.md) before you can continue.
 
 ### Stop your reader node
 
