@@ -34,6 +34,6 @@ If you need to get information about a smart contract with the ABI and current s
 [`https://node1.testnet.partisiablockchain.com/shards/[Shard that your transaction is on]/blockchain/contracts/[YOUR CONTRACT HASH]?requireContractState=true`](https://node1.testnet.partisiablockchain.com/shards/Shard2/blockchain/contracts/0296b935f95dbf30d0921ee23686099027b9759480?requireContractState=true)
 
 To integrate and help you create transactions onto the blockchain we have a big collection
-of [libraries](../smart-conract-tools-overview.md#libraries).
+of [libraries](../smart-contract-tools-overview.md#libraries).
 
 [The ABI that is used for deserializing fundamental transaction & event structures](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main/client/src/main/resources?ref_type=heads).
