@@ -1,8 +1,8 @@
 # MPC-20 Token Contract
 
-## Version 1
-
 A token is a standardized digital asset on the Partisia blockchain, the token standard is inspired from the guidelines outlined in the [Ethereum Improvement Proposal (EIP) 20](https://eips.ethereum.org/EIPS/eip-20). The token standard provides basic functionality to transfer tokens as well as approve the transfer of the token. 
+
+## Version 1
 
 A contract is detected as a valid Token V1 Contract if:
 The following actions exists where names and types match exactly:
@@ -25,7 +25,6 @@ You can dive into our [token example contract](https://gitlab.com/partisiablockc
 ## Version 2
 
 This new version makes use of Avl Trees to store balances. This allows the contract to store many more balances with reduced gas cost.
-The only difference from version 1 is that the type of balances is switched to an AvlTreeMap.
 
 A contract is detected as a valid Token V2 Contract if:
 The following actions exists where names and types match exactly:
@@ -41,13 +40,16 @@ balances: AvlTreeMap<Address, u128>
 name: String
 symbol: String
 decimals: u8
+allowed: AvlTreeMap<AllowedAddress, u128>,
 ```
 
-You can dive into our [token-v2 example contract](https://gitlab.com/partisiablockchain/language/contracts/defi/-/tree/main/token-v2) to explore this standard.
+Where `AllowedAddress` is a sub-struct with fields where names and types match exactly:
+```
+owner: Address,
+spender: Address,
+```
 
 #### References:
 [https://ethereum.org/en/developers/docs/standards/tokens/erc-20/](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)
 
 [https://gitlab.com/partisiablockchain/language/contracts/defi/-/tree/main/token](https://gitlab.com/partisiablockchain/language/contracts/defi/-/tree/main/token)
-
-[https://gitlab.com/secata/pbc/language/contracts/defi/-/tree/main/token-v2](https://gitlab.com/secata/pbc/language/contracts/defi/-/tree/main/token-v2)
