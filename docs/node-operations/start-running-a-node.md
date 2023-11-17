@@ -23,7 +23,7 @@ If you have completed the reader and baker part of the guide you can (given suff
 | 0                          | [Reader node](run-a-reader-node.md)                  | Reading the blockchain state                      |
 | 25 K                       | [Baker node](run-a-baker-node.md)                   | Reader node service<br />Signing and producing blocks                      |
 | 30 K                       | [Price oracle](run-a-price-oracle-node.md)                 | Baker node service<br />Price monitoring             |
-| 100 K                      | [ZK node]()                      | Baker node service<br />ZK computations              |
+| 100 K                      | [ZK node](run-a-zk-node.md)                      | Baker node service<br />ZK computations              |
 | 275 K                      | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | Baker node service<br />Moving BYOC on and off chain |
 
 !!! note "NB. All nodes require a [VPS](../pbc-fundamentals/dictionary.md#vps) with these specs or better"   
