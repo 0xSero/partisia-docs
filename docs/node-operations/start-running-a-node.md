@@ -18,7 +18,7 @@ Set-up of the different nodes overlap. All nodes have the set-up related to read
 If you have completed the reader and baker part of the guide you can (given sufficient tokens) any combination of the other services, including multiple oracles on the same node.   
 
 
-| **Your MPC token balance** | **Node service you can run** | **Service consist of**                            |
+| **Required MPC token balance** | **Node service you can run** | **Service consist of**                            |
 |----------------------------|------------------------------|---------------------------------------------------|
 | 0                          | [Reader node](run-a-reader-node.md)                  | Reading the blockchain state                      |
 | 25 K                       | [Baker node](run-a-baker-node.md)                   | Reader node service + signing and producing blocks                      |
