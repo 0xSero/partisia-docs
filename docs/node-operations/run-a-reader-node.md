@@ -63,7 +63,7 @@ sudo systemctl status ntp
 
 ### Install Htop
 
-It is useful to be able to monitor CPU and memory use on your server. For this purpose install Htop:
+To monitor your CPU and memory we recommend you use Htop. To install Htop run:
 
 ````bash
 sudo apt install htop
