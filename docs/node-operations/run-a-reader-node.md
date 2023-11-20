@@ -11,7 +11,7 @@ The "public" [reader](https://reader.partisiablockchain.com/shards/Shard1/metric
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
-To minimise the risks of running a nodeIt is a good idea to give your node a basic layer of security.
+You need to set up security measures to minimise the risks of your node crashing or being hacked. You now learn how to configure the firewall and monitor your hardware.
 
 ### Change root password
 
