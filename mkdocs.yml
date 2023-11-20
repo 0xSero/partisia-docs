@@ -16,6 +16,7 @@ nav:
   - Smart contracts:
       - smart-contracts/introduction-to-smart-contracts.md
       - smart-contracts/what-is-a-smart-contract.md
+      - smart-contracts/smart-contract-interactions-on-the-blockchain.md
       - smart-contracts/install-the-smart-contract-compiler.md
       - smart-contracts/compile-and-deploy-contracts.md
       - smart-contracts/access-and-use-the-testnet.md
@@ -23,7 +24,7 @@ nav:
       - smart-contracts/programmers-guide-to-smart-contracts.md
       - smart-contracts/smart-contract-binary-formats.md
       - smart-contracts/how-to-create-a-vote-from-a-smart-contract.md
-      - smart-contracts/client-interactions.md
+
       - Zero Knowledge (ZK) Smart Contracts:
           - smart-contracts/zk-smart-contracts/zk-smart-contracts.md
           - smart-contracts/zk-smart-contracts/compile-and-deploy-zk-contract.md
@@ -39,12 +40,19 @@ nav:
           - smart-contracts/gas/efficient-gas-practices.md
           - smart-contracts/gas/contract-to-contract-gas-estimation.md
       - Integration:
+          - smart-contracts/integration/integrating-to-partisia-blockchain.md
+          - smart-contracts/integration/client-interactions.md
           - smart-contracts/integration/introduction-to-standard-contract-interfaces.md
           - smart-contracts/integration/mpc-20-token-contract.md
           - smart-contracts/integration/mpc-721-nft-contract.md
           - smart-contracts/integration/metamask-snap-integration.md
-      - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
-      - smart-contracts/smart-conract-tools-overview.md
+      - Partisia blockchain as second layer:
+          - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
+          - smart-contracts/pbc-as-second-layer/live-example-of-pbc-as-second-layer.md
+          - smart-contracts/pbc-as-second-layer/how-to-create-your-own-second-layer-solution.md
+          - smart-contracts/pbc-as-second-layer/how-to-deploy-your-second-layer-solution.md
+          - smart-contracts/pbc-as-second-layer/technical-differences-between-eth-and-pbc.md
+      - smart-contracts/smart-contract-tools-overview.md
       - smart-contracts/development-faq.md
   - Node Operations:
       - node-operations/start-running-a-node.md
@@ -86,6 +94,11 @@ markdown_extensions:
 
 plugins:
   - search
+  - redirects:
+        redirect_maps:
+          'pbc-fundamentals/byoc.md': 'pbc-fundamentals/byoc/introduction-to-byoc.md'
+          'pbc-fundamentals/onboarding-new-byoc.md': 'pbc-fundamentals/byoc/onboarding-new-byoc.md'
+          'pbc-fundamentals/bridging-byoc-by-sending-transactions.md': 'pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md'
   - mermaid2:
       arguments:
         securityLevel: "loose"
