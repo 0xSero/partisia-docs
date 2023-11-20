@@ -72,7 +72,7 @@ sudo apt install htop
 
 ### Secure shell (SSH)
 
-It is sensible to use SSH when connection to your server. Most VPS hosting sites have a SSH guide specific to their hosting platform, so you should follow the specifics of your hosting provider's SSH guide.
+Use SSH when connection to your server. Most VPS hosting sites have a SSH guide specific to their hosting platform, so you should follow the specifics of your hosting provider's SSH guide.
 
 ### Configure your firewall
 
