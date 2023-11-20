@@ -2,6 +2,7 @@
 
 Nodes are the computers in the blockchain network. They perform services for the users of the blockchain, first and foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue.
 
+This page explains how you join the node operator community, so you can get support and important information. And which node service you can run depending on your MPC token holdings.
 
 ## Onboarding
 
