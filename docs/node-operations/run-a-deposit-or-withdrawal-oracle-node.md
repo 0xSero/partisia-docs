@@ -1,6 +1,6 @@
 #Run a deposit or withdrawal oracle
 
-The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal oracles consisting each of three nodes. Below you can see how you make your node eligible for serving in a deposit or withdrawal oracle.
+The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal oracles consisting each of three nodes. Below you can see how you make your node eligible for serving in a deposit or withdrawal oracle, and how to de register if you want to stop providing the service.
 
 !!! Warning " You must complete these requirements before you can continue"    
     - [Run baker node](run-a-baker-node.md)    
