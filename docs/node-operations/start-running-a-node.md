@@ -9,7 +9,7 @@ This page explains how you join the node operator community, so you can get supp
 If you want to run a node, please join our community. We would like to offer you the best possible support and be able to notify you in case we or community members register a problem with your node. We also send you news of relevant updates for example when node operators can support deposit or withdrawal of a new coin on the chain ([oracle service](../pbc-fundamentals/dictionary.md#small-oracle)). Node operators will also be alerted to upcoming votes on vital updates.
 
 1. Fill out the node operator onboarding [form](https://forms.monday.com/forms/8de1fb7d3099178333db642c4d1fe640?r=euc1) to sign yourself up as a node operator applicant
-2. Join [discord](https://discord.com/invite/KYjucw3Sad) and submit a support ticket to get added as a node operator applicant. In the ticket, submit a screenshot of your wallet showing your account balance.
+2. [Join Discord](https://discord.com/invite/KYjucw3Sad) and submit a node operator support ticket. In the ticket, submit a screenshot of your wallet showing your MPC account balance.
 
 ## Which node should you run?
 
