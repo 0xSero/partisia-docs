@@ -6,12 +6,12 @@ The "public" [reader](https://reader.partisiablockchain.com/shards/Shard1/metric
 
 
 !!! Warning " You must complete these requirements before you can continue"   
-    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with that live of to the [minimum specifications](start-running-a-node.md)
+    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with that fulfill the [minimum specifications](start-running-a-node.md)
 
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
-It is a good idea to give your node a basic layer of security.
+To minimise the risks of running a nodeIt is a good idea to give your node a basic layer of security.
 
 ### Change root password
 
