@@ -32,7 +32,7 @@ Cross-chain bridges connect the Partisia Blockchain with other blockchains, enab
 
 ### BYOC
 
-The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](byoc/introduction-to-byoc.md).
+The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](../pbc-fundamentals/byoc/introduction-to-byoc.md).
 
 ### Committee
 
@@ -44,7 +44,7 @@ The amount of time, that passes before an oracle or committee changes members.
 
 ### ETH
 
-The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](byoc/introduction-to-byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
+The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](../pbc-fundamental/byoc/introduction-to-byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
 
 ### Event transactions
 
