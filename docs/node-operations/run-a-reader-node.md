@@ -89,7 +89,7 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ````
 
-Allow specific ports for Secure Shell (SSH) and Partisia:
+Allow specific ports for Secure Shell (SSH) and the ports used by the [flooding network](../pbc-fundamentals/dictionary.md#flooding-network):
 
 ````bash
 sudo ufw allow your-SSH-port-number

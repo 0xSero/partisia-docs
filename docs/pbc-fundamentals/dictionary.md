@@ -67,7 +67,6 @@ Gas is a small fraction of BYOC. The cost of transactions on PBC is measured in 
 After each [epoch](dictionary.md#epoch) (When all baker nodes have had their turn as producers) a large Oracle consisting of all Baker nodes or the blockchain as a whole
 ensures that the risk managed by the small Oracle in the latest [epoch](dictionary.md#epoch) is contained. The large oracle sign off on new small oracle (the oracle nodes which have perform services relating to BYOC). Large oracle also signs when the committee change. The large oracle is synonymous with the current committee, and is responsible for settling disputes related to the actions of the small oracle. The large oracle consists of all the nodes in the current committee. Each node holds a keyshare that allows it to cast a vote on oracle decisions. Votes are decided by a 2/3s majority. The rules governing the large oracle are directed by the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014). Node operators can associate tokens to this contract. The tokens can be used as a stake to be eligible for a job in a specific small oracle.
 
-
 ### MPC
 
 Secure multiparty computation (for the token see MPC token). The privacy layer of Partisia Blockchain utilizes several zero knowledge protocols. Most notably MPC. MPC allows for calculation on private data, where you can make the result of the calculation public and keep the private data secure at the same time. A simple example of this could be calculation of average salary in a company. You do not want to disclose your own income, but it would be nice to know if you make more or less than the average. Instead of sending your private data to your peers you can send a random bite (share) of the private data out to several peers. They do the same. When doing the calculation no salaries are revealed but the total sum of the numbers is the same. So, you get the correct result even though the calculation is done on the data in a randomised form.
@@ -143,7 +142,7 @@ PBC distributes the workload to a number of parallel shards. This allows for sca
 
 ### Small oracle
 
-There are oracles handling tasks related to [BYOC](/byoc/byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md)
+There are oracles handling tasks related to [BYOC](/byoc/introduction-to-byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md)
 bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit), [withdrawal oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md)
 bridging-byoc-by-sending-transactions.md#how-to-make-a-withdrawal) and [price oracles](../pbc-fundamentals/dictionary.md#price-oracle).
 
