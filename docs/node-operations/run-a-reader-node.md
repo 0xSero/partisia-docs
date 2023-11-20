@@ -5,7 +5,7 @@ Readers are also useful in their own right for getting information from the bloc
 
 ???+ note
 
-    The "public" [reader](https://reader.partisiablockchain.com/) has a built-in traffic limit that prevents any single application from using it to much. If you encounter this limit the solution is for you to run your own reader node. 
+    The "public" [reader](https://reader.partisiablockchain.com/shards/Shard1/metrics/blocks/1500) has a built-in traffic limit that prevents any single application from using it to much. If you encounter this limit the solution is for you to run your own reader node. 
 
 
 
