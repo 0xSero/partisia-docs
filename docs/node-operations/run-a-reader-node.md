@@ -5,7 +5,7 @@ Readers are also useful in their own right for getting information from the bloc
 The "public" [reader](https://reader.partisiablockchain.com/shards/Shard1/metrics/blocks/1500) has a built-in traffic limit that prevents any single application from using it to much. If you encounter this limit the solution is for you to run your own reader node.
 
 
-!!! Warning " You must complete these requirements before you can continue"   
+!!! Warning " You must complete this requirements before you can continue"   
     - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with that fulfill the [minimum specifications](start-running-a-node.md)
 
 
