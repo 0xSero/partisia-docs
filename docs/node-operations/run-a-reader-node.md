@@ -75,7 +75,7 @@ It is sensible to use SSH when connection to your server. Most VPS hosting sites
 
 ### Configure your firewall
 
-Disable firewall off, set default to block incoming traffic and allow outgoing:
+Disable firewall, set default to block incoming traffic and allow outgoing:
 
 ````bash
 sudo ufw disable
