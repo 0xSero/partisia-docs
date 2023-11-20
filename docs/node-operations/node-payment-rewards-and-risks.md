@@ -38,3 +38,5 @@ Examples of malicious activity:
 - Signing a wrong price   
 - Starting an incorrect dispute   
 
+### How are baker fees calculated
+
