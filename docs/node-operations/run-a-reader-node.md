@@ -4,6 +4,7 @@ A reader node is the most basic form of node you can run, and it does not requir
 Readers are also useful in their own right for getting information from the blockchain. Be it from the state of accounts and contracts or information about specific blocks. If you are developing a dApp or a front-end you will probably need to run your own reader node. If many parties query the same reader, it might be slowed down or become unstable. For this reason you will want to have your own reader for development.    
 The "public" [reader](https://reader.partisiablockchain.com/shards/Shard1/metrics/blocks/1500) has a built-in traffic limit that prevents any single application from using it to much. If you encounter this limit the solution is for you to run your own reader node.
 
+This page explains how you give your [VPS](../pbc-fundamentals/dictionary.md#vps) a basic level of security and how to set up and run a reader node.
 
 !!! Warning " You must complete this requirements before you can continue"   
     - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with that fulfill the [minimum specifications](start-running-a-node.md)
@@ -371,3 +372,4 @@ Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 
 If you plan on using your reader node for development or if you plan to upgrade your node to a zk node, then you will need to [set up reverse proxy using example in ZK node guide](https://drive.google.com/file/d/1WOzM63QsBntSVQMpWhG7oDuEWYJE2Ass/view). Otherwise, you can go to the next page to upgrade to a [baker node](run-a-baker-node.md). 
 
+You should now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker node. A baker node is a required step for all [paid node services](node-payment-rewards-and-risks.md).
