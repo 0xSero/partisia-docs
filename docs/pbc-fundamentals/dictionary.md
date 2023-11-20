@@ -44,7 +44,7 @@ The amount of time, that passes before an oracle or committee changes members.
 
 ### ETH
 
-The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](../pbc-fundamental/byoc/introduction-to-byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
+The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](../pbc-fundamentals/byoc/introduction-to-byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
 
 ### Event transactions
 
