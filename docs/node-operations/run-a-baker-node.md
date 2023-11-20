@@ -1,6 +1,6 @@
 # Run a baker node
 
-Baker nodes sign and produce blocks. This page will describe how to change your node config from reader to baker.
+Baker nodes sign and produce blocks. This page will describe how to change your node config from reader to baker. When you have completed the steps below, you should have a node that is signing and producing blocks.
 
 !!! Warning " You must complete these requirements before you can continue"   
     - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with and [run a reader node](run-a-reader-node.md)
@@ -141,4 +141,5 @@ Formal conditions for inclusion in the network is stipulated in the Yellow Paper
 - Sufficient stakes committed.
 - The transaction fees of Register and Staking Transaction have been paid.
 
-Continue on the following pages to upgrade to an oracle node or zk node.
+
+If you completed all the steps you should now have a baker node running on your VPS. When your node has caught up to the ledger, you should be able to confirm in your docker logs, that your node is signing and producing blocks. It is a good idea to keep a look at your node's performance, because baker node revenue depend on performance. You can learn more about this in the [health and maintenance section](node-health-and-maintenance.md) of the guide. Continue on the following pages to upgrade to an oracle node or zk node.
