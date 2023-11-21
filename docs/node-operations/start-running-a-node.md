@@ -3,7 +3,7 @@
 This page gives you a brief introduction of what a node is, the importance of joining the node community if you want to run a node and an overview of what type of node you can run with the amount of MPC tokens you have available. 
 
 ## What is a node? 
-Nodes are the computers in the blockchain network. They perform services for the users of the blockchain, first and foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue.
+Nodes are the computers in the blockchain network. They perform services for the users of the blockchain, first and foremost they facilitate the transactions that happens on the blockchain. From the transaction costs the node operator can make revenue.
 
 ## Onboarding
 
