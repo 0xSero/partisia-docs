@@ -16,10 +16,9 @@ To start your journey becoming a node operator on the Partisia Blockchain comple
 2. [Join Discord](https://discord.com/invite/KYjucw3Sad) and submit a node operator support ticket. In the ticket,
    submit a screenshot of your wallet showing your MPC account balance.
 
-We offer support and notify you in case we or community members register a problem with your node. We also send you
-news of relevant updates for example when node operators can support deposit or withdrawal of a new coin on the
-chain ([oracle service](../pbc-fundamentals/dictionary.md#small-oracle)). Node operators are alerted to
-upcoming votes on vital updates.
+We offer support and notify you in case we or community members register a problem with your node. You get
+news of updates subject to node operator votes, for example when node operators can support a new coin on the
+chain ([oracle service](../pbc-fundamentals/dictionary.md#small-oracle)).
 
 ## Which node should you run?
 
