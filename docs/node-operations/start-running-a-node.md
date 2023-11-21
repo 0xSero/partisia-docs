@@ -17,7 +17,7 @@ We will offer support and notify you in case we or community members register a 
 
 ## Which node should you run?
 
-Nodes performing paid services require a [stake](../pbc-fundamentals/dictionary.md#stakestaking) of MPC tokens. Higher stakes services earn higher revenue.    
+Nodes performing paid services require a [stake](../pbc-fundamentals/dictionary.md#stakestaking) of MPC tokens. Higher stake services earn higher revenue.    
 Set-up of the different nodes overlap. All nodes have the set-up related to reader nodes in common. All staking nodes have the baker node set-up in common. Therefore, you must first set up and register as a baker node, before you can configure and register your node for higher paying services. 
 
 If you have completed the reader and baker part of the guide you can (given sufficient tokens) any combination of the other services, including multiple oracles on the same node.   
