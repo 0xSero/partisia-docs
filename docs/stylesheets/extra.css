@@ -775,3 +775,35 @@ label {
 .dot-navigation__item--active {
     background-color: #0000A3;
 }
+
+
+form.generator-form {
+    margin-top: 5px;
+    margin-bottom: 25px;
+    padding: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+
+    border: 2px solid #b9b9b9;
+}
+
+form.generator-form:focus-within {
+    border: 2px solid var(--md-accent-fg-color);
+}
+
+#byoc-onboarding-form label > span {
+    display: block;
+    min-width: 150px;
+}
+
+#byoc-onboarding-form .button-container {
+    text-align: right;
+}
+
+#byoc-onboarding-form.native-token .erc20 {
+    display: none;
+}
+
+#byoc-onboarding-form.stable-coin .price-oracle-info {
+    display: none;
+}

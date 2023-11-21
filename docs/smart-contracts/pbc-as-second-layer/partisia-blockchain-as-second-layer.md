@@ -1,5 +1,13 @@
 # Partisia Blockchain as second layer
 
+<div class="dot-navigation" markdown>
+   [*.*](partisia-blockchain-as-second-layer.md)
+   [](live-example-of-pbc-as-second-layer.md)
+   [](how-to-create-your-own-second-layer-solution.md)
+   [](how-to-deploy-your-second-layer-solution.md)
+   [](technical-differences-between-eth-and-pbc.md)
+</div>
+
 This article explains how Partisia Blockchain (PBC) can function as a second layer. We will dive into a running example and demonstrate how to test the implementation from a layer one testnet to our [PBC testnet](/docs/access-and-use-the-testnet.md). Lastly, we will explain how to develop and recreate our testnet solution to get you started with using PBC as a second layer.
 
 To use PBC's zero-knowledge contracts as a second layer to handle privacy, secrecy or other great possibilities, the minimum viable design stays the same.
@@ -9,7 +17,7 @@ The author of the contracts determines what information should be publicly avail
 
 ![ConceptPBCAsSecondLayer](concept-pbc-as-second-layer.png)
 
-To illustrate PBC as a second layer, we will use the model outlined above and describe it with reference to an example that you can find on the following page. This example is based on using Ethereum as the first layer and PBC as the second layer. The scenario involves a voting system where the goal is to privately calculate the results of the votes without revealing how individual voters cast their ballots.
+To illustrate PBC as a second layer, we will use the model outlined above and describe it with reference to an example that you can find on [the following page](live-example-of-pbc-as-second-layer.md). This example is based on using Ethereum as the first layer and PBC as the second layer. The scenario involves a voting system where the goal is to privately calculate the results of the votes without revealing how individual voters cast their ballots.
 
 1. A Solidity (.sol) smart contract is deployed on layer 1, in our example layer 1 is Ethereum. The smart contract has the following objectives:
    - It handles the list of allowed voters on the contract.
