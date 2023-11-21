@@ -142,7 +142,7 @@ The test extends the JunitContractTest class, this is the extension providing th
 In order to test a smart contract, you need to deploy the contract. To deploy a contract, we must specify the bytecode
 to deploy.
 We have declared an instance of `ContractBytes`, where we specify the location of the .wasm and .abi file for
-the [example Voting contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/voting?ref_type=heads).
+the [example voting contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/voting?ref_type=heads).
 The three paths declared are the path to the wasm, the abi and the local instrumented executable.
 The local instrumented executable is used for code coverage, the executable is named runner after the contract name.
 
