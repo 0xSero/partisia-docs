@@ -18,7 +18,10 @@ are, provided a blockchain object,
 which allows us to deploy and interact with multiple different contracts.
 
 ### How to run our example tests
-To run the tests, navigate to the root of [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts) and execute the following commands in order.
+
+To run the tests, navigate to the root
+of [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts) and execute the following
+commands in order.
 
 Compile the contracts:
 
@@ -62,10 +65,11 @@ execute `run-java-tests.sh` with the build flag, `-b`, and the coverage flag, `-
 This will create the instrumented executable, and run the test with coverage enabled. The coverage report will
 be located in the `java-test/target/coverage/html`, where the `index.html` can be opened in your browser.
 
-## Break down of a test
+## Detailed explanation of the voting test example
 
-The following section is an example of a test of a ["voting" smart contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/blob/main/java-test/src/test/java/examples/VotingTest.java?ref_type=heads).
-The most important aspects of this example will be explained in the following sections.
+The following section is the JUnit test of
+our [voting smart contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/blob/main/java-test/src/test/java/examples/VotingTest.java?ref_type=heads).
+This example will be explained in the following sections.
 
 ````java
 import com.partisiablockchain.BlockchainAddress;
@@ -196,7 +200,7 @@ the [Maven plugin](https://gitlab.com/partisiablockchain/language/abi/abi-client
 The generated code provides methods for serializing the RPC for all actions in the contract. The generated code
 also provides a state deserialization method. The generated code deserializes a state given in bytes,
 to a record object, which can be used to assert on the state of a contract in a test.
-An example of the state serialization is in the second test.
+An example of the state serialization is in [the second test](#second-test-using-the-first-test-as-a-setup).
 
 ???+ State deserialization
 
@@ -208,31 +212,30 @@ An example of the state serialization is in the second test.
     Assertions.assertThat(state.votes().get(voter1)).isTrue(); // Assertion on who voted.
     ````
 
-### Continue from another test
+### How to build on top of an already existing test
 
 Smart contracts are great since the order of operations are clear, from the perspective of behavioural execution. This
-also means
-that everytime we would have to test 2 different actions, meaning two different behaviours, on the same state.
+means that everytime we would have to test 2 different actions, meaning two different behaviours, on the same state.
 Tests would have to perform all the actions up to that point, to then perform one of the actions,
 and then perform them all again for the other action.
 
 Here the testing framework helps, the methods with the annotation `@ContractTest`,
 can be used as setup for other tests.
 
-???+ @ContractTest and previous
+???+ "@ContractTest and previous"
 
-      ````java
-     @ContractTest // The annotation with no previous, means the test is independent of other test, also called 'root-test'. 
-     void setUp() {
-       // Omitted
-     }
-   
-     /** An eligible voter can cast a vote. */
-     @ContractTest(previous = "setUp") // The previous for the test, is the 'setUp', so for the test to succeed the 'setUp' test must be run before this test.
-     public void castVote() {
-       // Omitted
-     }
-      ````
+    ````java
+    @ContractTest // The annotation with no previous, means the test is independent of other test, also called 'root-test'. 
+    void setUp() {
+    // Omitted
+    }
+    
+    /** An eligible voter can cast a vote. */
+    @ContractTest(previous = "setUp") // The previous for the test, is the 'setUp', so for the test to succeed the 'setUp' test must be run before this test.
+    public void castVote() {
+    // Omitted
+    }
+    ````
 
 ### Sending an Action to a deployed contract.
 
@@ -241,20 +244,21 @@ the address for the contract the action is targeting, the address of the sender 
 arguments
 for the action call.
 
-???+ Send action.
+???+ "Send action."
 
-      ````java
-     @ContractTest(previous = "setUp")
-     public void castVote() {
-     byte[] votingRpc = Voting.vote(true); // Create the RPC with the generated code.
-     blockchain.sendAction(voter1, voting, votingRpc); // Send the action, with the sender, the target contract and the RPC.
-     Voting.VoteState state = Voting.VoteState.deserialize(blockchain.getContractState(voting)); // Get the state of the contract and deserialize.
-
-     Assertions.assertThat(state.votes().size()).isEqualTo(1); // Assert the vote is registered.
-     Assertions.assertThat(state.votes().get(voter1)).isTrue(); // Assert the registered vote is from 'voter1'.
-
-}
-````
+    ````java
+    @ContractTest(previous = "setUp")
+    public void castVote() {
+    byte[] votingRpc = Voting.vote(true); // Create the RPC with the generated code.
+    blockchain.sendAction(voter1, voting, votingRpc); // Send the action, with the sender, the target contract and the RPC.
+    Voting.VoteState state = Voting.VoteState.deserialize(blockchain.getContractState(voting)); // Get the state of the contract and deserialize.
+    
+    Assertions.assertThat(state.votes().size()).isEqualTo(1); // Assert the vote is registered.
+    Assertions.assertThat(state.votes().get(voter1)).isTrue(); // Assert the registered vote is from 'voter1'.
+    
+    }
+    
+    ````
 
 ### Second test using the first test as a setup
 
@@ -271,9 +275,7 @@ The sender of
 the [action](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#action),
 and
 the [rpc](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#events)
-for the call.
-The rpc in this case contains the receiver of the transfer, and
-the amount to send.
+for the call. The rpc in this case contains the receiver of the transfer, and the amount to send.
 
 If you want to more examples of testing smart contracts, go to
 [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), where there are multiple tests.
