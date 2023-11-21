@@ -84,6 +84,7 @@ h4 {
     font-weight: bold;
 }
 
+
 .md-typeset h2 {
     font-weight: bold;
 }
@@ -91,6 +92,10 @@ h4 {
 .md-typeset h3 {
     font-weight: bold;
 }
+
+
+
+
 
 .md-header {
     background-color: #0b073f;
@@ -119,8 +124,7 @@ h4 {
 }
 
 .logo-flex img {
-    width: 40px;
-    height: 40px;
+    height: 30px;
 }
 
 .logo-text {
