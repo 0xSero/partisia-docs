@@ -18,13 +18,14 @@ balances: Map<Address, u128>
 name: String
 symbol: String
 decimals: u8
+allowed: Map<Address, Map<Address, u128>>
 ```
 
 You can dive into our [token example contract](https://gitlab.com/partisiablockchain/language/contracts/defi/-/tree/main/token) to explore this standard.
 
 ## Version 2
 
-This new version makes use of Avl Trees to store balances. This allows the contract to store many more balances with reduced gas cost.
+This version makes use of Avl Trees to store balances. This allows the contract to store many more balances with reduced gas cost.
 
 A contract is detected as a valid Token V2 Contract if:
 The following actions exists where names and types match exactly:
