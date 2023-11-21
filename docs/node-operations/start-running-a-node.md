@@ -31,6 +31,6 @@ If you have completed the reader and baker part of the guide you can (given suff
 | 100 K                      | [ZK node](run-a-zk-node.md)                      | Baker node service<br />ZK computations              |
 | 275 K                      | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | Baker node service<br />Moving BYOC on and off chain |
 
-!!! note "NB. All nodes require a [VPS](../pbc-fundamentals/dictionary.md#vps) with these specs or better"   
+!!! note "All nodes require a [VPS](../pbc-fundamentals/dictionary.md#vps) with these specs or better"   
     - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated JVM), 60 GB SSD, publicly accessible IPv4 with ports 9888-9897 open
     - Recommended software: Docker, Docker Compose, Linux 20.04.3, nano 4.3 or other text editor
