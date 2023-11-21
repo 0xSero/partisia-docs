@@ -1,10 +1,11 @@
 # Run a reader node
 
+This page explains how to set up and run a reader node on [VPS](../pbc-fundamentals/dictionary.md#vps).
+
+### What is a reader node
+
 A reader node can read the blockchain state, it does not require a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade a reader node to a baker node and from there to a node running any type of node service on PBC.    
 The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp or a front-end you will often need to run your own reader node. When parties query the same reader, it slows down. Run your own reader to avoid this.    
-The "public" [reader](https://reader.partisiablockchain.com/shards/Shard1/metrics/blocks/1500) has a built-in traffic limit that prevents any single application from using it too much. If you encounter this limit the solution is for you to run your own reader node.
-
-This page explains how you give your [VPS](../pbc-fundamentals/dictionary.md#vps) a basic level of security and how to set up and run a reader node.
 
 !!! Warning " You must complete this requirements before you can continue"   
     - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with that fulfill the [minimum specifications](start-running-a-node.md)
