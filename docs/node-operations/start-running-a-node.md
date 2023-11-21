@@ -1,18 +1,16 @@
 # Start running a node
 
-This page gives you a brief introduction of what a node is, the importance of joining the node community if you want to
-run a node and an overview of what type of node you can run with the amount of MPC tokens you have available.
+This page explains what a node is, how to join the node operator community and an
+overview of what type of node you can run with the amount of MPC tokens you have.
 
 ## What is a node?
 
-Nodes are the computers in the blockchain network. They perform services for the users of the blockchain, first and
-foremost they facilitate the transactions that happens on the blockchain. From the transaction costs the node operator
-can make revenue.
+Nodes are the computers in the blockchain network. They perform services for the users of the blockchain by facilitating the transactions on the blockchain. The node operator
+can make revenue from the transaction costs.
 
 ## Onboarding
 
-To start your journey on becoming a node operator on the Partisia Blockchain you will need to do the following two steps
-to begin the onboarding proces:
+To start your journey on becoming a node operator on the Partisia Blockchain complete the two onboarding steps:
 
 1. Fill out the [node operator onboarding form](https://forms.monday.com/forms/8de1fb7d3099178333db642c4d1fe640?r=euc1).
 2. [Join Discord](https://discord.com/invite/KYjucw3Sad) and submit a node operator support ticket. In the ticket,
@@ -31,7 +29,7 @@ Set-up of the different nodes overlap. All nodes have the set-up related to read
 have the baker node set-up in common. Therefore, you must first set up and register as a baker node, before you can
 configure and register your node for higher paying services.
 
-If you have completed the reader and baker part of the guide you can (given sufficient tokens) any combination of the
+If you have completed the reader and baker part of the guide you can do (given sufficient tokens) any combination of the
 other services, including multiple oracles on the same node.
 
 | **Required MPC token balance** | **Node service you can run** | **Service consist of**                            |
