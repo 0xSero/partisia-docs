@@ -64,7 +64,7 @@ be located in the `java-test/target/coverage/html`, where the `index.html` can b
 
 ## Break down of a test
 
-The following section is an example of a test of a "voting" smart contract.
+The following section is an example of a test of a ["voting" smart contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/blob/main/java-test/src/test/java/examples/VotingTest.java?ref_type=heads).
 The most important aspects of this example will be explained in the following sections.
 
 ````java
@@ -82,13 +82,12 @@ import org.assertj.core.api.Assertions;
 
 /** Test suite for the Voting contract. */
 public final class VotingTest extends JunitContractTest {
-
     private static final ContractBytes VOTING_CONTRACT_BYTES =
             ContractBytes.fromPaths(
                     Path.of("../target/wasm32-unknown-unknown/release/voting.wasm"),
                     Path.of("../target/wasm32-unknown-unknown/release/voting.abi"),
                     Path.of("../target/wasm32-unknown-unknown/release/voting_runner"));
-    private BlockchainAddress voter1;
+    private BlockchainAddress voter1; //Unique address of a voter on Partisia Blockchain
     private BlockchainAddress voter2;
     private BlockchainAddress voter3;
     private BlockchainAddress voting;
