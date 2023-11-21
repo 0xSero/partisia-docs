@@ -18,7 +18,7 @@ To start your journey becoming a node operator on the Partisia Blockchain comple
 
 We offer support and notify you in case we or community members register a problem with your node. We also send you
 news of relevant updates for example when node operators can support deposit or withdrawal of a new coin on the
-chain ([oracle service](../pbc-fundamentals/dictionary.md#small-oracle)). Node operators will also be alerted to
+chain ([oracle service](../pbc-fundamentals/dictionary.md#small-oracle)). Node operators are alerted to
 upcoming votes on vital updates.
 
 ## Which node should you run?
