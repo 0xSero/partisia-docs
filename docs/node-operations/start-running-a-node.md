@@ -10,7 +10,7 @@ can make revenue from the transaction costs.
 
 ## Onboarding
 
-To start your journey on becoming a node operator on the Partisia Blockchain complete the two onboarding steps:
+To start your journey becoming a node operator on the Partisia Blockchain complete the two onboarding steps:
 
 1. Fill out the [node operator onboarding form](https://forms.monday.com/forms/8de1fb7d3099178333db642c4d1fe640?r=euc1).
 2. [Join Discord](https://discord.com/invite/KYjucw3Sad) and submit a node operator support ticket. In the ticket,
