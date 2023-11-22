@@ -70,7 +70,7 @@ sudo systemctl status ntp
 
 ### Install Htop
 
-Use Htopoto monitor your CPU and memory. Install Htop:
+Use `htop` to monitor your CPU and memory. Install `htop`:
 
 ````bash
 sudo apt install htop
@@ -126,7 +126,7 @@ sudo ufw enable
 sudo ufw status
 ````
 
-## Set up a reader on VPS
+## Set up a reader on your VPS
 
 When setting up the node you should use the non-root user you created above.
 The node will run as user:group `1500:1500`
