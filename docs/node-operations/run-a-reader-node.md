@@ -292,13 +292,7 @@ number and size of reads and writes is entirely dependent on the traffic on the 
 ## Get automatic updates
 
 All nodes independent of type should be set up to update their software automatically.
-To set up automatic updates you will need Cron, which is a time based job scheduler. See if you have the Cron package installed:
-
-````bash
-dpkg -l cron
-````
-
-If not:
+To set up automatic updates you will need to install Cron, a time based job scheduler:
 
 ````bash
 apt-get install cron
