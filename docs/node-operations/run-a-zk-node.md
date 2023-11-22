@@ -1,4 +1,4 @@
-# Run a zk node
+# Run a ZK node
 
 ZK nodes do ZK computations in addition to their baker node work of signing and producing blocks. By completing the steps below your node will be eligible to be allocated for specific computations by [ZK smart contracts](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md) and earning revenue for the computations performed. 
 
