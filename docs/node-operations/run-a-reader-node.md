@@ -68,7 +68,7 @@ sudo service ntp start
 sudo systemctl status ntp
 ````
 
-### Install Htop
+### Install htop
 
 Use `htop` to monitor your CPU and memory. Install `htop`:
 
