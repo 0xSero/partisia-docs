@@ -1,10 +1,10 @@
 # Run a reader node
 
-This page explains how to set up and run a reader node on [VPS](../pbc-fundamentals/dictionary.md#vps).
+This page explains what a reader node is and how to run it on a [VPS](../pbc-fundamentals/dictionary.md#vps).
 
 ### What is a reader node
 
-A reader node can read the blockchain state, it does not require a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade a reader node to a baker node and from there to a node running any type of node service on PBC.    
+A reader node can read the blockchain state, it does not require a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade a reader node to a baker node and from there to a node running any type of node service.    
 The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp or a front-end you will often need to run your own reader node. When parties query the same reader, it slows down. Run your own reader to avoid this.    
 
 !!! Warning " You must complete this requirements before you can continue"   
