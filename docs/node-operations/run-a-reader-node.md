@@ -323,7 +323,7 @@ nano update_docker.sh
 Paste the following content into the file:
 
 ````bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 DATETIME=$(date -u)
 echo "$DATETIME"
