@@ -23,7 +23,7 @@ To optimize your nodes earning potential you should implement automatic updates 
 
 ## Updating
 
-In the following it is assumed we assume you are using `~/pbc` as directory for your `docker-compose.yml`.
+In the following it is assumed you are using `~/pbc` as directory for your `docker-compose.yml`.
 
 Updating the PBC node is a simple 3-step process:
 
