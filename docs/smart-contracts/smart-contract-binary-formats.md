@@ -391,8 +391,9 @@ are passed through the interpreter without modification.
 
 ## ZKWA format
 
-ZK-contracts have their own binary format that contains their compiled code with
-the extension ".zkwa". This is a [section format](#section-format) defined as:
+ZK-contracts have their own binary file format  with the extension ".zkwa"
+that contains their compiled WASM code and ZK-circuit byte code. 
+This is a [section format](#section-format) defined as:
 
 $$
 \textcolor{mathcolor}{
