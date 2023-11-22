@@ -207,8 +207,8 @@ services:
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
-!!! Warning "Beware of indentation in YAML files"
-    YAML is whitespace sensitive. It won't work if the indentation is off.
+!!! Warning "Make sure your file match the example"
+    It won't work if the indentation is off, because YAML is whitespace sensitive.
 
 
 Keep an eye on the indentation  it won't work if the indentation is off.
