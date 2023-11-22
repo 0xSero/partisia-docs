@@ -70,7 +70,7 @@ sudo systemctl status ntp
 
 ### Install Htop
 
-To monitor your CPU and memory use Htop. To install Htop run:
+Use Htopoto monitor your CPU and memory. Install Htop:
 
 ````bash
 sudo apt install htop
