@@ -16,7 +16,7 @@ your own reader to avoid this.
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
-You need to set up security measures to minimise the risks of your node crashing or being hacked. You now learn how to
+You need to set up security measures to minimize the risks of your node crashing or being hacked. You now learn how to
 configure the firewall and monitor your hardware.
 
 ### Change root password
