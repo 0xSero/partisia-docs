@@ -2,14 +2,16 @@
 
 A NFT (Non-Fungible Token) is a unique digital asset on the Partisia blockchain, the nft standard is inspired from the guidelines outlined in the [Ethereum Improvement Proposal (EIP) 721](https://eips.ethereum.org/EIPS/eip-721). Unlike fungible tokens, each NFT possesses distinct characteristics and cannot be exchanged on a one-to-one basis with other tokens. This standard provides basic functionality to track, transfer and approve NFTs.
 
-A contract is detected as a valid NFT Contract if:
+## Version 1
+
+A contract is detected as a valid NFT V1 Contract if:
 The following actions exists where names and types match exactly:
 ```
 #[action(shortname=0x03)] transfer_from(from: Address, to:Address, token_id: u128)
 #[action(shortname=0x05)] approve(approved: Option<Address>, token_id: u128)
 #[action(shortname=0x07)] set_approval_for_all(operator: Address,approved: bool)
 ```
-The root state struct has each of the following state fields itself or in a sub-struct that has a 1-1 composition with the root state struct where names and types match exactly:
+The root state struct has each of the following state fields where names and types match exactly:
 ```
 name: String
 symbol: String
@@ -27,7 +29,7 @@ operator: Address
 This extension used to give each NFT a unique URI. The extension is optional.
 
 An NFT contract is detected as a valid NFT Contract with URIs if:
-The root state struct has each of the following state fields itself or in a sub-struct that has a 1-1 composition with the root state struct where names and types match exactly:
+The root state struct has each of the following state fields where names and types match exactly:
 ```
 uri_template: String
 token_uri_details: Map<u128, [u8;NN]>
@@ -40,6 +42,47 @@ For example if
 ```uri_template``` has the value ```ipfs://{}```
 ```token_uri_details[id]``` has the value ```bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi```
 (plus any zeros needed to fill the fixed size array)
+The token will have the following full URI ```ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi```
+
+## Version 2
+
+This version makes use of Avl Trees to store NFTs. This allows the contract to store many more NFTs with reduced gas cost.
+
+A contract is detected as a valid NFT V2 Contract if:
+The following actions exists where names and types match exactly:
+```
+#[action(shortname=0x03)] transfer_from(from: Address, to:Address, token_id: u128)
+#[action(shortname=0x05)] approve(approved: Option<Address>, token_id: u128)
+#[action(shortname=0x07)] set_approval_for_all(operator: Address,approved: bool)
+```
+The root state struct has each of the following state fields where names and types match exactly:
+```
+name: String
+symbol: String
+owners: AvlTreeMap<u128, Address>
+token_approvals: AvlTreeMap<u128, Address>
+operator_approvals: AvlTreeMap<OperatorApproval, Unit>
+```
+Where Unit is an empty struct and OperatorApproval is a struct with at least the following fields:
+```
+owner: Address
+operator: Address
+```
+
+### URI extension
+This extension used to give each NFT a unique URI. The extension is optional.
+
+An NFT contract is detected as a valid NFT Contract with URIs if:
+The root state struct has each of the following state fields where names and types match exactly:
+```
+uri_template: String
+token_uri_details: AvlTreeMap<u128, String>
+```
+The full URI for an NFT token is found by taking ```uri_template```  and replacing ```{}``` with the ```token_uri_details``` for the token.
+
+For example if  
+```uri_template``` has the value ```ipfs://{}```
+```token_uri_details[id]``` has the value ```bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi```
 The token will have the following full URI ```ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi```
 
 
