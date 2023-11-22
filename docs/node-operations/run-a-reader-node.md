@@ -4,7 +4,7 @@ This page explains what a reader node is and how to run it on a [VPS](../pbc-fun
 
 ### What is a reader node
 
-A reader node can read the blockchain state, it does not require
+A reader node can read the blockchain state and it does not require
 a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade from reader to a baker node and from there
 to a node running any node service.    
 The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp
