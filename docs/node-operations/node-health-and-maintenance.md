@@ -153,7 +153,7 @@ If you cannot open your status endpoint there is probably a problem with the ope
 ````bash
 sudo ufw status
 ````
-Make sure you have opened for ports 9888-9897. If not consult instructions [here](../node-operations/run-a-reader-node.md).
+Make sure you have opened for ports 9888-9897. If not consult the instructions [here](../node-operations/run-a-reader-node.md).
 
 ## How to find and use metrics to measure performance
 
