@@ -249,8 +249,7 @@ Start the tool:
 ./node-register.sh create-config
 ```
 
-As we are creating a reader node we will not be producing blocks.
-Your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
+We are creating a reader node. So, your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
 
 The config should look like the example below.
 
