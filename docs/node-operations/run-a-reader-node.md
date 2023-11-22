@@ -4,20 +4,25 @@ This page explains what a reader node is and how to run it on a [VPS](../pbc-fun
 
 ### What is a reader node
 
-A reader node can read the blockchain state, it does not require a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade a reader node to a baker node and from there to a node running any type of node service.    
-The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp or a front-end you will often need to run your own reader node. When parties query the same reader, it slows down. Run your own reader to avoid this.    
+A reader node can read the blockchain state, it does not require
+a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade from reader to a baker node and from there
+to a node running any node service.    
+The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp
+or a front-end you will often need to run your own reader node. When parties query the same reader, it slows down. Run
+your own reader to avoid this.
 
 !!! Warning " You must complete this requirements before you can continue"   
     - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with that fulfill the [minimum specifications](start-running-a-node.md)
 
-
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
-You need to set up security measures to minimise the risks of your node crashing or being hacked. You now learn how to configure the firewall and monitor your hardware.
+You need to set up security measures to minimise the risks of your node crashing or being hacked. You now learn how to
+configure the firewall and monitor your hardware.
 
 ### Change root password
 
-When you get a VPS with Lixux OS you will be provided with a root password by the VPS provider. Change the root password:
+When you get a VPS with Lixux OS you will be provided with a root password by the VPS provider. Change the root
+password:
 
 ````bash
 sudo passwd root
