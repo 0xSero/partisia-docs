@@ -21,7 +21,7 @@ configure the firewall and monitor your hardware.
 
 ### Change root password
 
-When you get a VPS with Lixux OS you will be provided with a root password by the VPS provider. Change the root
+When you get a VPS with Lixux OS you receive a root password from the provider. Change the root
 password:
 
 ````bash
