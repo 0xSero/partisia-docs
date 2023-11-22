@@ -134,7 +134,7 @@ The node will run as user:group `1500:1500`
 
 ### Creating the configuration and storage folders
 
-In this guide we will be running the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`. First we need
+You run the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`. First we need
 to create the `conf` and `storage` folders for the application:
 
 ````bash
