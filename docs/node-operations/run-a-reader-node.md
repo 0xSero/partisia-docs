@@ -106,7 +106,7 @@ sudo ufw allow your-SSH-port-number
 sudo ufw allow 9888:9897/tcp
 ````
 
-Enable rate limiting on your SSH connection
+Enable rate limiting on your SSH connection:
 
 ````bash
 sudo ufw limit your-SSH-port-number
