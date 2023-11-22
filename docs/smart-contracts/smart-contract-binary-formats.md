@@ -389,9 +389,30 @@ Note that sections must occur in order of increasing ids. Two ids are
 Section ids `0x00` to `0x0F` are reserved for "well-known" usage. All others
 are passed through the interpreter without modification.
 
-## Partisia Blockchain file format
+## ZKWA format
 
-The file extension of Partisia Blockchain files is written as ".pbc". This is a [section format](#section-format) defined as:
+ZK-contracts have their own binary format that contains their compiled code with
+the extension ".zkwa". This is a [section format](#section-format) defined as:
+
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<ZKWA>} \ :=
+\ & \text{section}_0\text{: Section} \ \text{section}_1\text{: Section} \\
+\end{align*}
+}
+$$
+<!-- fix syntax highlighting* -->
+
+Note that sections must occur in order of increasing ids. The .zkwa format consists
+of two sections indexed by the following ids:
+
+- `0x02`: The contract's WASM code.
+- `0x03`: The contract's ZK-circuit byte code.
+
+## Partisia Blockchain Contract File
+
+The file extension of Partisia Blockchain Contract Files is written as ".pbc". This is a [section format](#section-format) defined as:
 
 $$
 \textcolor{mathcolor}{
