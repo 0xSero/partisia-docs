@@ -219,7 +219,10 @@ The `node-register.sh` script will help you generate a valid node configuration 
 
 To generate the `config.json` for a reader node you need following information:
 
-- The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`, e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known producers should be obtained by reaching out to the community.You can see how to reach the community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
+- The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
+  e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999` (give the public key as hexadecimal or Base64). The location of other known
+  producers should be obtained by reaching out to the community.You can see how to reach the
+  community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
 
 
 The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
@@ -238,10 +241,9 @@ You are now ready to generate your `config.json` file.
 
 ### Generating your `config.json` file
 
-The `node-register.sh` script makes it easy to generate a reader node config.
 The tool ensures your `config.json` is well-formed and that it is stored in the correct folder on the machine.
 
-Start the tool with the `create-config` argument:
+Start the tool:
 
 ```shell
 ./node-register.sh create-config
