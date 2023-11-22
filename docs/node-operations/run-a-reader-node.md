@@ -183,7 +183,7 @@ cd pbc
 nano docker-compose.yml
 ````
 
-The contents of the file should be the following:
+Copy and paste content below into the file:
 
 ````yaml
 version: "2.0"
@@ -206,7 +206,12 @@ services:
 ````
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
-Keep an eye on the indentation since YAML is whitespace sensitive, and it won't work if the indentation is off.
+
+!!! Warning "Beware of indentation in YAML files"
+    YAML is whitespace sensitive. It won't work if the indentation is off.
+
+
+Keep an eye on the indentation  it won't work if the indentation is off.
 
 ### The `node-register.sh` script
 
