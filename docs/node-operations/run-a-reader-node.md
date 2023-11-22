@@ -289,7 +289,6 @@ logs [here](https://docs.docker.com/config/containers/logging/configure/).
 The storage of the node is based on RocksDB. It is write-heavy and will increase in size for the foreseeable future. The
 number and size of reads and writes is entirely dependent on the traffic on the network.
 
-
 ## Get automatic updates
 
 All nodes independent of type should be set up to update their software automatically.
@@ -351,7 +350,7 @@ crontab -e
 ````
 This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to edit the cron rule. If you have not already chosen a preference.
 
-Paste and add the rule to the scheduler. **NB**. No "#" in front of the rule:
+Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
 ````bash
 m h * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
 ````
@@ -368,7 +367,7 @@ To see if the script is working you can read the update log with the *cat comman
 ````bash
 cat update.log
 ````
-You might want to change the timing the first time, so you do not have to wait 30 minutes to confirm that it works.
+You can change the time of the first update if you don't want to wait a day to confirm that it works.
 
 If your version is up-to-date, you should see:
 ````
@@ -378,7 +377,9 @@ If you are currently updating you should see:
 ````
 Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 ````
-**NB.** Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
+
+!!! Warning "Warning"
+    Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
 
 ## Final step
 
