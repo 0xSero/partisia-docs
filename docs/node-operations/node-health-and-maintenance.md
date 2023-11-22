@@ -8,7 +8,7 @@ To optimize your nodes earning potential you should implement automatic updates 
 
 - Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://dashboard.partisiablockchain.com/info/consensus). This can be affirmed in the metrics explained below.   
 - Your node is signing blocks. Can be checked in the logs as explained below.   
-- Your node is running the newest version of Partisia Software. The easiest way to assure this is by implementing automatic updates.    
+- Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing automatic updates.    
 
 
 ### The following section covers how to:
@@ -23,7 +23,7 @@ To optimize your nodes earning potential you should implement automatic updates 
 
 ## Updating
 
-In the following it is assumed we assume you are using `~/pbc` as directory for your `docker-compose.yml`.
+In the following it is assumed you are using `~/pbc` as directory for your `docker-compose.yml`.
 
 Updating the PBC node is a simple 3-step process:
 
@@ -153,7 +153,7 @@ If you cannot open your status endpoint there is probably a problem with the ope
 ````bash
 sudo ufw status
 ````
-Make sure you have opened for ports 9888-9897. If not consult instructions [here](../node-operations/run-a-reader-node.md).
+Make sure you have opened for ports 9888-9897. If not consult the instructions [here](../node-operations/run-a-reader-node.md).
 
 ## How to find and use metrics to measure performance
 
