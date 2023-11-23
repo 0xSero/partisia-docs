@@ -21,7 +21,7 @@ To be eligible for selection to a deposit or withdrawal oracle a node must assoc
 It is possible to leave the oracle before the deposit or withdrawal limit has been met. If a node chooses to leave, then 3 new nodes will be selected to form the oracle. The tokens associated with a specific oracle will get pending status when a node leaves an oracle. However, the leaver can be chosen for the new oracle if they have enough tokens. For that reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an oracle.
 Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic.
 
-1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract) with the address 04f1ab744630e57fb9cfcd42e6ccbf386977680014
+1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract) with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Sign in (upper right corner)
 3. Invoke the contract action _DisassociateTokensFromContract_
 4. Match amount to the tokens not used by a specific oracle job
