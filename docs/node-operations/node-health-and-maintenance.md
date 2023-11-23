@@ -48,9 +48,7 @@ Install Cron package:
 apt-get install cron
 ````
 
-Now you are ready to start.
-
-**1. Create the auto update script:**
+### Create the auto update script
 
 Go to the directory where `docker-compose.yml` is located.
 
@@ -79,7 +77,7 @@ cd ~/pbc
 ````
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
-**2. Make the file executable:**
+### Make the file executable
 
 ````bash
 chmod +x update_docker.sh
@@ -87,7 +85,7 @@ chmod +x update_docker.sh
 
 Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now executable.
 
-**3. Set update frequency to once a day at a random time:**
+### Set update frequency to once a day at a random time
 
 ````bash
 crontab -e
