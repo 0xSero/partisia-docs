@@ -123,7 +123,7 @@ Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 
 ## Check software version and uptime with your personal endpoint
 
-Your node can only get registered as a block producer and participate in the committee if your host IP is reachable, and you are running the newest version of the Partisia software. 
+Your node can only get registered as a block producer and participate in the committee if your host IP is reachable. 
 Replace the letters in the URL below with the IP of the server hosting your node. This should navigate you to a page showing a JSON, with the following information:
 
 http://PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE:9888/status
@@ -131,13 +131,21 @@ http://PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE:9888/status
 
 ````json
 {
-versionIdentifier: "VERSION_NUMBER",  
-uptime: number,
-- knownPeersNetworkKeys: [listOfProducers],
-  networkKey: "NETWORK_PUBLIC_KEY",
-  blockchainAddress: "BLOCKCHAIN_ADDRESS"
+  "versionIdentifier": "3.0.0",
+  "uptime": 11552567,
+  "systemTime": 1700491419888,
+  "knownPeersNetworkKeys": ["The network keys of all the node"],
+  "networkKey": "AyDolTquYOsSWbFEkeUtQiBjpVfeU6DsbjzUGBGysuWR",
+  "blockchainAddress": "009ef85210e6e76693649ed08ecb5d036011a743dd",
+  "finalizationKey": "t0s2PxknbY+apDTEaxh0M6rCMs3JKMYPi8UXP0guAYixd26hSqAoO1avbIed6ba/F+FWUsNXHXCbVQhQi8RuSr3I38dvulet1wgllKc2qlnfuTp3rzboujQC/cvO0IGD",
+  "numberOfProcessors": 8,
+  "systemLoad": 0.51,
+  "freeMemory": 1574211176,
+  "totalMemory": 2701131776,
+  "maxMemory": 17179869184
+}
 ````
-You can see which version of Partisia software you are running. Uptime is measured in milliseconds, and show how long your server has been running uninterrupted.
+The version number refers to the version of the block producer orchestration contract. Uptime is measured in milliseconds, and show how long your server has been running uninterrupted.
 
 If you cannot open your status endpoint there is probably a problem with the opening of ports of the VPS. See which ports are allowed through the firewall:   
 
