@@ -30,4 +30,4 @@ Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic
 7. Search for your blockchain address to find the address of the deposit or withdrawal oracle in which your node serves
 8. Go to the contract of the oracle your node is working in
 9. Invoke the contract action _requestNewOracle_ (you can only invoke this action if you are serving in the oracle and 28 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix timestamp in the field named _"oracleTimestamp"_)
-10. Submit transaction
+10. Submit transaction    
