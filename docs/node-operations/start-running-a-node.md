@@ -5,7 +5,7 @@ overview of what type of node you can run with the amount of MPC tokens you have
 
 ## What is a node?
 
-Nodes are the computers in the blockchain network. They perform services for the users by facilitating the transactions on the blockchain. The node operator
+Nodes are the computers on the blockchain network. They perform services for the users by facilitating the transactions on the blockchain. The node operator
 can make revenue from the transaction costs.
 
 ## Onboarding
@@ -33,7 +33,7 @@ configure and register your node for higher paying services.
 If you have completed the reader and baker part of the guide you can do (given sufficient tokens) any combination of the
 other services, including multiple oracles on the same node.
 
-| **Required MPC token balance** | **Node service you can run** | **Service consist of**                            |
+| **Required MPC token balance** | **Availasble Node service** | **Service consist of**                            |
 |----------------------------|------------------------------|---------------------------------------------------|
 | 0                          | [Reader node](run-a-reader-node.md)                  | Reading the blockchain state                      |
 | 25 K                       | [Baker node](run-a-baker-node.md)                   | Reader node service<br />Signing and producing blocks                      |
