@@ -42,13 +42,7 @@ First you change the directory to where you put your `docker-compose.yml`. You t
 
 ## Get automatic updates
 
-To set up automatic updates you will need Cron, which is a time based job scheduler. See if you have the Cron package installed:
-
-````bash
-dpkg -l cron
-````
-
-If not:   
+Install Cron package:
 
 ````bash
 apt-get install cron
