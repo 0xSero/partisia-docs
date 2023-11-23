@@ -11,7 +11,7 @@ The transfer of cryptocurrencies to and from PBC is facilitated by deposit and w
 
 To be eligible for selection to a deposit or withdrawal oracle a node must associate 250K MPC tokens to the large oracle contract. Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in the oracle until the deposit or withdrawal limit has been met. Then three new nodes are selected. After serving a term the tokens associated to the large oracle contract will be locked in a pending status until a new oracle is selected. This allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in the same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract to meet the conditions for eligibility. It is also possible to serve in more than one small oracle if enough tokens are available.
 
-1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract) with the address 04f1ab744630e57fb9cfcd42e6ccbf386977680014
+1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract) with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Sign in (upper right corner)
 3. Invoke the contract action _AssociateTokenstoContract_ with a minimum amount of 250K MPC token
 4. Submit transaction
