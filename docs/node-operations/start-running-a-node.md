@@ -5,7 +5,7 @@ overview of what type of node you can run with the amount of MPC tokens you have
 
 ## What is a node?
 
-Nodes are the computers in the blockchain network. They perform services for the users by facilitating the transactions on the blockchain. The node operator
+Nodes are the computers on the blockchain network. They perform services for the users by facilitating the transactions on the blockchain. The node operator
 can make revenue from the transaction costs.
 
 ## Onboarding
