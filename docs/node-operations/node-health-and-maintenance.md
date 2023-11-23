@@ -160,11 +160,14 @@ Make sure you have opened for ports 9888-9897. If not consult the instructions [
 
 The node operator community has made several tools that can help you monitor the performance of your node:
 
-https://mpcnodestats.dreamhosters.com/
-https://apps.apple.com/gr/app/mpc-node-stats/id1661132518
-https://play.google.com/store/apps/details?id=com.mpcnodeio.mpcstats&pli=1
-https://partiscan.io/
-https://discord.com/channels/819902335567265792/1075334307821920337 (Nodes wishing to accept stake delegation list themselves, stats and webpages here)
+Check block production and finalization time with MPC Node Stats:    
+- [Browser Version](https://mpcnodestats.dreamhosters.com/)   
+- [iPhone](https://apps.apple.com/gr/app/mpc-node-stats/id1661132518)   
+- [Android](https://play.google.com/store/apps/details?id=com.mpcnodeio.mpcstats&pli=1)   
+
+Compare your received stake delegations with that of other committee members:   
+- [Parti Scan](https://partiscan.io/)    
+
 
 ## Logs and storage
 
