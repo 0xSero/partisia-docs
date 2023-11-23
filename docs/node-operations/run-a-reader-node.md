@@ -8,7 +8,7 @@ A reader node can read the blockchain state and it does not require
 a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade from reader to a baker node and from there
 to a node running any [node service](start-running-a-node.md).    
 The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp
-or a front-end you will often need to run your own reader node. When many parties query the same reader, it puts a load on the server and may cause slowdowns. Run
+or a front-end you will often need to run your own reader node. When many parties query the same reader, it creates load on the server and can cause slowdowns. Run
 your own reader to avoid this.
 
 !!! Warning "You must complete this requirement before you can continue"   
