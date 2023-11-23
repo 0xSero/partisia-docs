@@ -63,7 +63,7 @@ owners: AvlTreeMap<u128, Address>
 token_approvals: AvlTreeMap<u128, Address>
 operator_approvals: AvlTreeMap<OperatorApproval, Unit>
 ```
-Where Unit is an empty struct and OperatorApproval is a struct with at least the following fields:
+Where Unit is an empty struct and OperatorApproval is a struct with the following fields:
 ```
 owner: Address
 operator: Address
