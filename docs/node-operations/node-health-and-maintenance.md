@@ -1,5 +1,14 @@
 # Node health and maintenance
 
+- How to know if your node is working
+- Update your node manually
+- Implement automatic updates
+- Check your IP accessibility and peers
+- Metrics of node performance
+- Interpret log messages and debugging problems - See if your node is signing blocks.
+- How to migrate your node to a different VPS
+
+
 If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your  node is not updated regularly, it is bound to fall out of committee. Only nodes up-to-date can participate in forming a new committee, so every time a new committee is formed from registered nodes, only nodes with newest version of Partisia Software can be included. 
 Your node can only perform services and by extension earn rewards when in the committee. After you are included you want to make sure your node is able to continue to participate.  
 To optimize your nodes earning potential you should implement automatic updates and check up on the node's performance regularly.
@@ -8,18 +17,7 @@ To optimize your nodes earning potential you should implement automatic updates 
 
 - Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://dashboard.partisiablockchain.com/info/consensus). This can be affirmed in the metrics explained below.   
 - Your node is signing blocks. Can be checked in the logs as explained below.   
-- Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing automatic updates.    
-
-
-### The following section covers how to:
-
-- Update your node manually.   
-- Implement automatic updates.   
-- Check your IP accessibility and version of Partisia Software.   
-- Metrics of node performance - See if your node is producing blocks and have a reasonable finalization time.   
-- Interpret log messages and debugging problems - See if your node is signing blocks.   
-- How to migrate your node to a different VPS
-
+- Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing automatic updates.
 
 ## Updating
 
@@ -119,9 +117,11 @@ If you are currently updating you should see:
 ````
 Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 ````
-**NB.** Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
 
-## Check software version and uptime with your personal endpoint
+!!! warning "Warning"    
+    Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
+
+## Check your connection to the peers in the network and your uptime
 
 Your node can only get registered as a block producer and participate in the committee if your host IP is reachable. 
 Replace the letters in the URL below with the IP of the server hosting your node. This should navigate you to a page showing a JSON, with the following information:
