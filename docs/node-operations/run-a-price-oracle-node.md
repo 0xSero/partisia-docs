@@ -23,7 +23,7 @@ You can learn more about the price oracles [here](../pbc-fundamentals/dictionary
 
 To leave the price oracle one simply needs to invoke deregistration at the contract the specific price oracle that your node is working for.
 
-1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014) with the address 04f1ab744630e57fb9cfcd42e6ccbf386977680014
+1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014) with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Open the contract state
 3. Search for your blockchain address to find the address of the price oracle in which your node serves
 4. Go to the contract of the price oracle your node is working in
