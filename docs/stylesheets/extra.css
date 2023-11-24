@@ -49,7 +49,7 @@
 }
 
 body {
-    font-family: "Montserrat", sans-serif !important;
+    font-family: "DM Sans", sans-serif !important;
 }
 
 html::-webkit-scrollbar {
@@ -64,14 +64,14 @@ p,
 li,
 a,
 strong {
-    font-family: "Montserrat", sans-serif;
+    font-family: "DM Sans", sans-serif;
 }
 
 h1,
 h2,
 h3,
 h4 {
-    font-family: "Playfair Display";
+    font-family: "DM Sans";
     color: #0b073f !important;
 }
 
@@ -82,6 +82,7 @@ h4 {
 .md-typeset h1 {
     letter-spacing: 0em !important;
     font-weight: bold;
+    margin: 1em 0 0 !important;
 }
 
 
@@ -93,16 +94,13 @@ h4 {
     font-weight: bold;
 }
 
-
-
-
-
 .md-header {
-    background-color: #0b073f;
+    background-color: rgb(10, 0, 40);
     position: -webkit-sticky;
     position: sticky;
     padding: 5px 0px;
     z-index: 4;
+    height: 80px;
 }
 
 .md-header__inner {
@@ -123,14 +121,11 @@ h4 {
     margin-left: 9%;
 }
 
-.logo-flex img {
-    height: 30px;
-}
 
 .logo-text {
     font-size: 17px;
     margin-left: 10px;
-    font-family: "Montserrat", bold !important;
+    font-family: "DM Sans", bold !important;
     padding: 0px;
     margin-right: 49%;
 }
@@ -152,8 +147,8 @@ h4 {
 }
 
 .header-link {
-    margin-left: 33%;
-    font-family: "Montserrat", sans-serif;
+    margin-left: 15%;
+    font-family: "DM Sans", sans-serif;
 }
 
 .md-search {
@@ -753,19 +748,19 @@ label {
 
 
 @-moz-document url-prefix() {
-  .dot-navigation p a em {
-      display: inline-block;
-      color: transparent;
-      background: #0000A3;
-      width: 100%;
-      height: 100%;
-      border-radius: 999px;
-  }
+    .dot-navigation p a em {
+        display: inline-block;
+        color: transparent;
+        background: #0000A3;
+        width: 100%;
+        height: 100%;
+        border-radius: 999px;
+    }
 
-  .dot-navigation p a:hover {
-      background-color: #f9f9f9;
-      border: 1px solid #0000A3;
-  }
+    .dot-navigation p a:hover {
+        background-color: #f9f9f9;
+        border: 1px solid #0000A3;
+    }
 
 }
 
@@ -810,4 +805,10 @@ form.generator-form:focus-within {
 
 #byoc-onboarding-form.stable-coin .price-oracle-info {
     display: none;
+}
+
+@media screen and (min-width: 125em) {
+    html {
+        font-size: 137.5%;
+    }
 }
