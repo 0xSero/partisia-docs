@@ -64,6 +64,7 @@ p,
 li,
 a,
 strong {
+    word-spacing: -0.5px;
     font-family: "DM Sans", sans-serif;
 }
 
@@ -73,10 +74,6 @@ h3,
 h4 {
     font-family: "DM Sans";
     color: #0b073f !important;
-}
-
-.md-typeset {
-    font-size: .7rem;
 }
 
 .md-typeset h1 {
