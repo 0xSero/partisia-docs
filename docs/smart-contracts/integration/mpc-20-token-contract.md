@@ -12,7 +12,7 @@ The following actions exists where names and types match exactly:
 #[action(shortname=0x05)] approve(spender: Address, amount: u128)
 ```
 
-The root state struct has the following state fields where names and types match exactly:
+The root state struct has the following state fields in the root state struct or a sub-struct that has a 1-1 composition with the root state struct where names and types match exactly:
 ```
 balances: Map<Address, u128>
 name: String
