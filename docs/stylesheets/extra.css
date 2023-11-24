@@ -76,6 +76,10 @@ h4 {
     color: #0b073f !important;
 }
 
+.md-typeset {
+    font-size: .75rem;
+}
+
 .md-typeset h1 {
     letter-spacing: 0em !important;
     font-weight: bold;
