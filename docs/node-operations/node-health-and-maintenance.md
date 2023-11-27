@@ -132,10 +132,10 @@ http://PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE:9888/status
 
 ````json
 {
-  "versionIdentifier": "3.0.0",
+  "versionIdentifier": "Version number of BYOC orchestration contract",
   "uptime": 11552567,
   "systemTime": 1700491419888,
-  "knownPeersNetworkKeys": [],
+  "knownPeersNetworkKeys": ["network addresses (Base64) of connected baker nodes"],
   "networkKey": "Network address(Base64)",
   "blockchainAddress": "account address (Hex)",
   "finalizationKey": "finalization publicKey (base64)",
@@ -146,9 +146,9 @@ http://PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE:9888/status
   "maxMemory": 17179869184
 }
 ````
-The version number refers to the version of the block producer orchestration contract. Uptime is measured in milliseconds, and show how long your server has been running uninterrupted.
+Uptime is measured in milliseconds, and show how long your server has been running uninterrupted.
 
-If you cannot open your status endpoint there is probably a problem with the opening of ports of the VPS. See which ports are allowed through the firewall:   
+If you cannot open your status endpoint there is probably a problem with the opening of ports of the [VPS](../pbc-fundamentals/dictionary.md#vps). See which ports are allowed through the firewall:   
 
 
 ````bash
