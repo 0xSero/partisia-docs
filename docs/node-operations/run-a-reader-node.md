@@ -12,7 +12,7 @@ or a front-end you will often need to run your own reader node. When many partie
 your own reader to avoid this.
 
 !!! Warning "You must complete this requirement before you can continue"   
-    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with that fulfill the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
+    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
