@@ -1,6 +1,7 @@
 # Node health and maintenance
 
-The maintenance page takes you through the following node issues:   
+The maintenance page takes you through the following node issues: 
+
 - How to know if your node is working   
 - Update your node manually   
 - Check your IP accessibility and peers    
