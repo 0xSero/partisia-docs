@@ -48,8 +48,9 @@ First you change the directory to where you put your `docker-compose.yml`. You t
 Your node can only get registered as a block producer and participate in the committee if your host IP is reachable. 
 Replace the letters in the URL below with the IP of the server hosting your node. This should navigate you to a page showing a JSON, with the following information:
 
+````html
 http://PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE:9888/status
-
+````
 
 ````json
 {
