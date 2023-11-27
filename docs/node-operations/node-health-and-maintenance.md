@@ -7,8 +7,9 @@ The maintenance page takes you through the following node issues:
 - Check your IP accessibility and peers    
 - Tools for measuring node performance   
 - Interpret log messages and debugging problems - See if your node is signing blocks   
-- How to migrate your node to a different VPS   
+- How to migrate your node to a different VPS
 
+## How to know if your node is working
 
 If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your  node is not updated regularly, it is bound to fall out of committee. Only nodes up-to-date can participate in forming a new committee, so every time a new committee is formed from registered nodes, only nodes with newest version of Partisia Software can be included. 
 Your node can only perform services and by extension earn rewards when in the committee. After you are included you want to make sure your node is able to continue to participate.  
