@@ -2,10 +2,9 @@
 
 The maintenance page takes you through the following node issues:   
 - How to know if your node is working   
-- Update your node manually   
-- Implement automatic updates   
+- Update your node manually
 - Check your IP accessibility and peers   
-- Metrics of node performance   
+- Tools node performance   
 - Interpret log messages and debugging problems - See if your node is signing blocks   
 - How to migrate your node to a different VPS   
 
@@ -21,6 +20,8 @@ To optimize your nodes earning potential you should implement automatic updates 
 - Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing automatic updates.
 
 ## Updating
+
+You should always have enabled [automatic updates](run-a-reader-node.md#get-automatic-updates) on your node. But, there can be situation where you want to update it manually if you have had a problem on the node.
 
 In the following it is assumed you are using `~/pbc` as directory for your `docker-compose.yml`.
 
@@ -39,88 +40,6 @@ docker-compose up -d
 
 First you change the directory to where you put your `docker-compose.yml`. You then pull the newest image and start it again. You should now be running the newest version of the software.
 
-## Get automatic updates
-
-Install Cron package:
-
-````bash
-apt-get install cron
-````
-
-### Create the auto update script
-
-Go to the directory where `docker-compose.yml` is located.
-
-````bash
-cd ~/pbc
-````
-
-Open the file in nano:
-
-````bash
-nano update_docker.sh
-````
-
-Paste the following content into the file:
-
-````yaml
-#!/bin/bash
-
-DATETIME=$(date -u)
-echo "$DATETIME"
-
-cd ~/pbc
-
-/usr/local/bin/docker-compose pull
-/usr/local/bin/docker-compose up -d
-````
-Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
-
-### Make the file executable
-
-````bash
-chmod +x update_docker.sh
-````
-
-Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now executable.
-
-### Set update frequency to once a day at a random time
-
-````bash
-crontab -e
-````
-This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to edit the cron rule. If you have not already chosen a preference.   
-
-Paste and add the rule to the scheduler. **NB**. No "#" in front of the rule:
-````bash
-m h * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
-````
-For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23.
-If you are in doubt about what the cron rule means you can use this page:
-<https://crontab.guru/> to see the rule expressed in words.
-
-Press `CTRL+X` and then `Y` and then `ENTER`.
-
-This rule will make the script run and thereby check for available updates once every day.
-
-To see if the script is working you can read the update log with the *cat command*:
-
-````bash
-cat update.log
-````
-You might want to change the timing the first time, so you do not have to wait 30 minutes to confirm that it works.
-
-If your version is up-to-date, you should see:   
-````
-YOUR_CONTAINER_NAME is up-to-date
-````
-If you are currently updating you should see:
-````
-Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
-````
-
-!!! warning "Warning"    
-    Never include a shutdown command in your update script, otherwise your node will go offline every time checks for updates.
 
 ## Check your connection to the peers in the network and your uptime
 
@@ -132,7 +51,7 @@ http://PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE:9888/status
 
 ````json
 {
-  "versionIdentifier": "Version number of BYOC orchestration contract",
+  "versionIdentifier": "Version number of PBC",
   "uptime": 11552567,
   "systemTime": 1700491419888,
   "knownPeersNetworkKeys": ["network addresses (Base64) of connected baker nodes"],
