@@ -2,8 +2,8 @@
 
 The maintenance page takes you through the following node issues:   
 - How to know if your node is working   
-- Update your node manually
-- Check your IP accessibility and peers   
+- Update your node manually   
+- Check your IP accessibility and peers    
 - Tools for measuring node performance   
 - Interpret log messages and debugging problems - See if your node is signing blocks   
 - How to migrate your node to a different VPS   
