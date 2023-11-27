@@ -1,5 +1,5 @@
 :root {
-    --md-default-fg-color: rgba(0, 0, 0, 0.87);
+    --md-default-fg-color: rgba(0, 0, 0);
     --md-default-fg-color--light: rgba(0, 0, 0, 1);
     --md-default-fg-color--lighter: rgba(0, 0, 0, 0.54);
     --md-default-fg-color--lightest: rgba(0, 0, 0, 0.07);
@@ -42,10 +42,10 @@
     --md-admonition-fg-color: var(--md-default-fg-color);
     --md-admonition-bg-color: var(--md-default-bg-color);
     --md-footer-fg-color: #fff;
-    --md-footer-fg-color--light: hsla(0, 0%, 100%, 0.7);
-    --md-footer-fg-color--lighter: hsla(0, 0%, 100%, 0.3);
-    --md-footer-bg-color: rgba(0, 0, 0, 0.87);
-    --md-footer-bg-color--dark: rgba(0, 0, 0, 0.32);
+    --md-footer-fg-color--light: rgb(10, 0, 40);
+    --md-footer-fg-color--lighter: rgb(10, 0, 40);
+    --md-footer-bg-color: rgb(10, 0, 40);
+    --md-footer-bg-color--dark: rgb(10, 0, 40);
 }
 
 body {
@@ -134,7 +134,7 @@ h4 {
 .icon-flex {
     display: flex;
     align-items: center;
-    margin-right: 14.2%;
+    margin-right: 14%;
 }
 
 .icon-flex label:nth-of-type(1) {
@@ -552,7 +552,7 @@ nav.md-nav ul.md-nav__list {
 }
 
 .md-nav__link--active {
-    border-left: 0.5px solid #545281 !important;
+    border-left: 0.5px solid var(--md-typeset-a-color) !important;
     padding-left: 10px;
 }
 
@@ -734,7 +734,7 @@ label {
 
 .dot-navigation p a:not(:has(em)):hover {
     background-color: #f9f9f9;
-    border: 1px solid #0000A3;
+    border: 1px solid var(--md-typeset-a-color);
 }
 
 
@@ -742,7 +742,7 @@ label {
     .dot-navigation p a em {
         display: inline-block;
         color: transparent;
-        background: #0000A3;
+        background: var(--md-typeset-a-color);
         width: 100%;
         height: 100%;
         border-radius: 999px;
@@ -750,20 +750,20 @@ label {
 
     .dot-navigation p a:hover {
         background-color: #f9f9f9;
-        border: 1px solid #0000A3;
+        border: 1px solid var(--md-typeset-a-color);
     }
 
 }
 
 /* Active dot */
 .dot-navigation p a:has(em) {
-    background-color: #0000A3;
-    border-color: #0000A3;
+    background-color: var(--md-typeset-a-color);
+    border-color: var(--md-typeset-a-color);
 }
 
 /* Active dot */
 .dot-navigation__item--active {
-    background-color: #0000A3;
+    background-color: var(--md-typeset-a-color);
 }
 
 
