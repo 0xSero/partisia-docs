@@ -123,7 +123,7 @@ cd ~/pbc
 ./node-register.sh register-node
 ```
 
-Follow the on-screen instructions and you should now be registered.
+Follow the on-screen instructions until the registration is completed.
 
 ???+ note
 
