@@ -89,7 +89,7 @@ This pulls the latest image and start the reader node in the background. If the 
 docker logs -f pbc-mainnet
 ````
 
-This should print a bunch of log statements. It will take the node hours to process the existing blocks in the ledger and catch up to the present. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset up to 12 hours from your local time.
+This prints a sequence of log statements. It will take the node hours to process the existing blocks in the ledger and catch up to the present. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset up to 12 hours from your local time.
 
 In the [maintenance section](../node-operations/node-health-and-maintenance.md) you can see what the logs mean.
 
