@@ -97,5 +97,5 @@ recommend you to find a faucet. This can be found using a simple web search.
 
 To see the GoerliETH in MetaMask you need to change the network to the Goerli Test Network.
 After having deposited GoerliETH to your Metamask account you can use
-the [PBC testnet Token Bridge](https://browser.testnet.partisiablockchain.com/account?tab=byoc)
+the [PBC testnet Token Bridge](https://browser.partisiablockchain.com/bridge)
 to [deposit](#how-to-deposit-using-the-bridge) GoerliETH and get gas on the testnet.
