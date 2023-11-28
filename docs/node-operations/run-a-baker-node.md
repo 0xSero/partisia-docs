@@ -83,7 +83,7 @@ Your file should have similar contents to the one in the example below.
 docker-compose up -d
 ```
 
-This pulls the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running:
+This pulls the latest image and starts the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running:
 
 ````bash
 docker logs -f pbc-mainnet
@@ -95,7 +95,7 @@ In the [maintenance section](../node-operations/node-health-and-maintenance.md) 
 
 ## Register your node
 
-Registration is done on the node via the `node-register.sh` script. The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
+Registration of the node via the `node-register.sh` script. The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
 
 ???+ note
 
@@ -128,7 +128,7 @@ Follow the on-screen instructions until the registration is completed.
 
     You can update your information from the Register Transaction by doing a new registration transaction.
 
-Then you need to verify that the account key you have in the `config.json` file matches the blockchain address you've used in your KYC/KYB.
+Verify that the account key you have in the `config.json` file matches the blockchain address you've used in your KYC/KYB.
 
 If it still fails then reach out to the [community](../get-support-from-pbc-community.md).
 
