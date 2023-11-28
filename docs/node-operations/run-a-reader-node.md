@@ -379,5 +379,5 @@ Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 If you plan on using your reader node for development then you will
 need to [set up reverse proxy using example in ZK node guide](run-a-zk-node.md).
 
-You should now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker
+You now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker
 node. A baker node is a required step for all [paid node services](node-payment-rewards-and-risks.md).    
