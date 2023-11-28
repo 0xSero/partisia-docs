@@ -136,9 +136,9 @@ If it still fails then reach out to the [community](../get-support-from-pbc-comm
 
 Formal conditions for inclusion in the network is stipulated in the Yellow Paper [YP_0.98 Ch. 2.3.1 pp. 11-12](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view):
 
-- The public information regarding the node given by the operator must be verified by Synaps.
-- Sufficient stakes committed.
-- The transaction fees of Register and Staking Transaction have been paid.
+- The public information regarding the node given by the operator must be verified by Synaps
+- Sufficient stakes committed
+- The transaction fees of _Register_ and _Staking_ transaction have been paid
 
 
 You now have a baker node running on your VPS. When your node has caught up to the ledger, you should be able to confirm in your docker logs, that your node is signing and producing blocks. It is a good idea to keep a look at your node's performance, because baker node revenue depend on performance. You can learn more about this in the [health and maintenance section](node-health-and-maintenance.md) of the guide. Continue on the following pages to upgrade to an [oracle node](run-a-deposit-or-withdrawal-oracle-node.md) or [ZK node](run-a-zk-node.md).
