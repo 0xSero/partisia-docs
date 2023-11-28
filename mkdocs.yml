@@ -46,6 +46,7 @@ nav:
           - smart-contracts/integration/mpc-20-token-contract.md
           - smart-contracts/integration/mpc-721-nft-contract.md
           - smart-contracts/integration/metamask-snap-integration.md
+          - smart-contracts/integration/integrating-to-partisia-as-an-exchange.md
       - Partisia blockchain as second layer:
           - smart-contracts/pbc-as-second-layer/partisia-blockchain-as-second-layer.md
           - smart-contracts/pbc-as-second-layer/live-example-of-pbc-as-second-layer.md

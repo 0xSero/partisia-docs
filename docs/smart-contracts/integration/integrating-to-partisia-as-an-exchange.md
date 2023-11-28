@@ -5,16 +5,22 @@ Rosetta API can be used to create a transfer of tokens from one account to anoth
 
 All nodes (unless explicitly turned off) will run a Rosetta API endpoint at
 
-`https://node_hostname.tld/rosetta`
+```
+https://node_hostname.tld/rosetta
+```
 
 E.g., the query PBC’s network information, one can make a call
 to [/network/list](https://www.rosetta-api.org/docs/NetworkApi.html#networklist) which is available at
 
-`https://node_hostname.tld/rosetta/network/list`
+```
+https://node_hostname.tld/rosetta/network/list
+```
 
 The rest of the document will use a PBC testnet node as the Rosetta API. The URL of this node is
 
-`https://node1.testnet.partisiablockchain.com/rosetta/`
+```
+https://node1.testnet.partisiablockchain.com/rosetta/
+```
 
 ## Networks
 
