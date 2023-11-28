@@ -11,7 +11,7 @@ Baker nodes sign and produce blocks. This page describes how to change your node
 
 ### Stop your reader node
 
-Change the directory to the folder where you have your `docker-compose.yml` file:
+Change to the directory of `docker-compose.yml`:
 
 ```shell
 cd ~/pbc
@@ -27,8 +27,8 @@ docker-compose down
 
 To fill out the config.json for a block producing node you need to add the following information:
 
-- Account key (the account you've staked MPC with)
-- IP address of the server hosting your node (You get this from your VPS service provider)
+- Account private key (the account you've staked MPC with)
+- IPv4 address of the server hosting your node (You get this from your VPS service provider)
 - Ethereum and Polygon API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (You should use a source you find trustworthy). [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0) has a provider list and further information about endpoints.
 - The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`, e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known producers should be obtained by reaching out to the community.
 
@@ -83,18 +83,17 @@ Your file should have similar contents to the one in the example below.
 docker-compose up -d
 ```
 
-This should pull the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running, run:
+This pulls the latest image and start the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running:
 
 ````bash
 docker logs -f pbc-mainnet
 ````
 
-This should print a bunch of log statements. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset several hours from your local time.
+This should print a bunch of log statements. It will take the node hours to process the existing blocks in the ledger and catch up to the present. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset up to 12 hours from your local time.
 
 In the [maintenance section](../node-operations/node-health-and-maintenance.md) you can see what the logs mean.
 
 ## Register your node
-
 
 Registration is done on the node via the `node-register.sh` script. The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
 
@@ -109,7 +108,7 @@ You can check the status by running the following command:
 ./node-register.sh status
 ```
 
-You will need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
+You need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
 [Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
 gas balance is shown.
 
