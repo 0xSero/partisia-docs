@@ -17,7 +17,7 @@ explained [gas fees here](../../smart-contracts/gas/transaction-gas-prices.md).
 ### How does it work
 
 To be able to spend and transfer your coins, you will need to transfer your own cryptocurrency
-using [the PBC Token Bridge](https://browser.partisiablockchain.com/account?tab=byoc).
+using [the PBC Token Bridge](https://browser.partisiablockchain.com/bridge).
 This will move your external coins to a contract and mint a PBC version of the coin you brought.
 This new PBC based version of your coin can interact with the payment scheme of PBC.
 In essence, you can deposit, withdraw and transfer ETH or other cryptocurrencies with your MetaMask wallet.
