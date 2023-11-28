@@ -20,7 +20,7 @@ To optimize your nodes earning potential you should implement automatic updates 
 
 - Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators). This can be affirmed in the metrics explained below.   
 - Your node is signing blocks. Can be checked in the logs as explained below.   
-- Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing automatic updates.
+- Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing [automatic updates](run-a-reader-node.md#get-automatic-updates).
 
 ## Updating
 
