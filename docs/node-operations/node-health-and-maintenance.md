@@ -18,9 +18,17 @@ To optimize your nodes earning potential you should implement automatic updates 
 
 **Your baker node is working when:**   
 
-- Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators). This can be affirmed in the metrics explained below.   
-- Your node is signing blocks. Can be checked in the logs as explained below.   
-- Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing [automatic updates](run-a-reader-node.md#get-automatic-updates).
+- Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators). This can be affirmed in the metrics explained below      
+- Your node is signing blocks. Can be checked in the logs as explained below    
+- Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing [automatic updates](run-a-reader-node.md#get-automatic-updates)
+
+You can confirm that your node software is up-to-date with the following command:
+
+````BASH
+docker inspect --format='{{.Image}}' YOUR_CONTAINER_NAME
+````
+
+The number must match the latest [configuration digest](https://gitlab.com/partisiablockchain/mainnet/container_registry/3175145).
 
 ## Updating
 
