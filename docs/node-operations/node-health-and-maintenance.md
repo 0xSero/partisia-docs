@@ -2,7 +2,7 @@
 
 The maintenance page takes you through the following node issues: 
 
-- How to know if your node is working   
+- How to know if your baker node is working   
 - Update your node manually   
 - Check your IP accessibility and peers    
 - Tools for measuring node performance   
@@ -11,13 +11,13 @@ The maintenance page takes you through the following node issues:
 
 ## How to know if your node is working
 
-If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your  node is not updated regularly, it is bound to fall out of committee. Only nodes up-to-date can participate in forming a new committee, so every time a new committee is formed from registered nodes, only nodes with newest version of Partisia Software can be included. 
+If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your  node is not updated regularly, it is bound to fall out of committee. Only nodes up-to-date can participate in forming a new committee, so every time a new committee is formed from registered nodes, only nodes with the newest version of Partisia Software can be included. 
 Your node can only perform services and by extension earn rewards when in the committee. After you are included you want to make sure your node is able to continue to participate.  
 To optimize your nodes earning potential you should implement automatic updates and check up on the node's performance regularly.
 
-**Your node is working when:**   
+**Your baker node is working when:**   
 
-- Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://dashboard.partisiablockchain.com/info/consensus). This can be affirmed in the metrics explained below.   
+- Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the list of [committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators). This can be affirmed in the metrics explained below.   
 - Your node is signing blocks. Can be checked in the logs as explained below.   
 - Your node is running the newest version of Partisia Software. The easiest way to ensure this is by implementing automatic updates.
 
