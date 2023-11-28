@@ -2,14 +2,15 @@
 
 The maintenance page takes you through the following node issues: 
 
-- How to know if your baker node is working   
+- Is your baker node working   
 - Update your node manually   
 - Check your IP accessibility and peers    
 - Tools for measuring node performance   
 - Interpret log messages and debugging problems - See if your node is signing blocks   
+- Confirm that your BYOC endpoints are working
 - How to migrate your node to a different VPS
 
-## How to know if your node is working
+## Is your baker node working
 
 If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your  node is not updated regularly, it is bound to fall out of committee. Only nodes up-to-date can participate in forming a new committee, so every time a new committee is formed from registered nodes, only nodes with the newest version of Partisia Software can be included. 
 Your node can only perform services and by extension earn rewards when in the committee. After you are included you want to make sure your node is able to continue to participate.  
@@ -142,6 +143,26 @@ docker logs --since 1h pbc-mainnet | grep "Signing BlockState"
 ````
 
 This will give you the blocks you have signed the last hour. You might also want to look for blocks you created when you were chosen as producer ``| grep "Created Block"``.
+
+## Confirm that your BYOC endpoints are working
+
+Check if your BYOC endpoints for other chains in config.json are working:
+
+```BASH
+curl "ENDPOINT_YOU_WANT_TO_CHECK" \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"method":"eth_chainId","params":[],"id":1,"jsonrpc":"2.0"}'
+```
+Alternatively:
+
+```BASH
+curl -X POST "ENDPOINT_YOU_WANT_TO_CHECK" \
+  -H 'Content-Type: application/json' \
+  --data '{"method":"eth_blockNumber", "jsonrpc":"2.0", "params":[],"id":1}'
+```
+
+If the block number is way off, or if you don't get anything with either command, there is likely a problem with the endpoint, replace it!
 
 ### How to migrate your node to a different VPS
 
