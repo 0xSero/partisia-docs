@@ -1,6 +1,9 @@
 #Run a deposit or withdrawal oracle
 
-The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal oracles consisting each of three nodes. Below you can see how you make your node eligible for serving in a deposit or withdrawal oracle, and how to de register if you want to stop providing the service.
+Below you can see how you make your node eligible for serving in a deposit or
+withdrawal [oracle](../pbc-fundamentals/dictionary.md#oracle-node), and how to de register if you want to stop providing
+the service. The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal oracles
+consisting each of three nodes.
 
 !!! Warning " You must complete these requirements before you can continue"    
     - [Run baker node](run-a-baker-node.md)    
@@ -9,7 +12,14 @@ The transfer of cryptocurrencies to and from PBC is facilitated by deposit and w
 
 ## How to join a deposit or withdrawal oracle
 
-To be eligible for selection to a deposit or withdrawal oracle a node must associate 250K MPC tokens to the large oracle contract. Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in the oracle until the deposit or withdrawal limit has been met. Then three new nodes are selected. After serving a term the tokens associated to the large oracle contract will be locked in a pending status until a new oracle is selected. This allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in the same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract to meet the conditions for eligibility. It is also possible to serve in more than one small oracle if enough tokens are available.
+To be eligible for selection to a deposit or withdrawal oracle a node must associate 250K MPC tokens to the large oracle
+contract. Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in
+the oracle until the deposit or withdrawal limit has been met. Then three new nodes are selected. After serving a term
+the tokens associated to the large oracle contract will be locked in a pending status until a new oracle is selected.
+This allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in
+the same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract to meet
+the conditions for eligibility. It is also possible to serve in more than one small oracle if enough tokens are
+available.
 
 1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract) with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Sign in (upper right corner)
@@ -18,8 +28,11 @@ To be eligible for selection to a deposit or withdrawal oracle a node must assoc
 
 ## How to leave a deposit or withdrawal oracle
 
-It is possible to leave the oracle before the deposit or withdrawal limit has been met. If a node chooses to leave, then 3 new nodes will be selected to form the oracle. The tokens associated with a specific oracle will get pending status when a node leaves an oracle. However, the leaver can be chosen for the new oracle if they have enough tokens. For that reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an oracle.
-Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic.
+It is possible to leave the oracle before the deposit or withdrawal limit has been met. If a node chooses to leave, then
+3 new nodes will be selected to form the oracle. The tokens associated with a specific oracle will get pending status
+when a node leaves an oracle. However, the leaver can be chosen for the new oracle if they have enough tokens. For that
+reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
+oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic.
 
 1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract) with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Sign in (upper right corner)
