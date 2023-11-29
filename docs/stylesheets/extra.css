@@ -399,6 +399,16 @@ div.embed-video-wrapper {
 
 .social-icon-logo svg {
     margin-right: 8px;
+    margin-top: -4%;
+}
+
+.footer-menu-center {
+    margin-top: 1.6%;
+    margin-left: 45%;
+}
+
+.footer-menu-right {
+    margin-top: 1.6%;
 }
 
 
@@ -413,20 +423,6 @@ div.embed-video-wrapper {
     font-weight: 700;
 }
 
-.md-footer ul {
-    padding-left: 0px;
-}
-
-.md-footer li {
-    list-style-type: none;
-    padding-left: 0px;
-    padding-bottom: 15px;
-    color: hsla(0, 0%, 100%, 0.3);
-}
-
-.md-footer li:hover {
-    color: white;
-}
 
 .md-nav .md-nav--footer {
     display: none;
@@ -471,9 +467,13 @@ div.embed-video-wrapper {
     padding-top: 30px !important;
 }
 
-@media (max-width: 1200px) {
-    .footer-main-flex {
-        flex-direction: column-reverse;
+@media (max-width: 1201px) {
+    .footer-menu-center{
+        margin-left: 0%;
+        margin-top: 4%;
+    }
+    .footer-menu-right{
+        margin-top: 4%;
     }
 }
 
