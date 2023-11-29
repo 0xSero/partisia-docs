@@ -1,8 +1,9 @@
 # Run a price oracle node
 
-Price oracles monitor prices of the BYOC. Any node with sufficient tokens associated to the large oracle contract can register as a price oracle.
+This page teaches you to register your baker node for the additional service of price oracle. And how to deregister from the service in case you want to use the tokens for something else.
 
-This page teaches you to register your baker node for the additional service of price oracle. And how to deregister from the service in case you want to use the tokens for something else. 
+Price oracles monitor and report prices of the [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). Any node with sufficient tokens associated to the large oracle contract can register as a price oracle.
+
 
 !!! Warning " You must complete these requirements before you can continue"    
     - [Stake 30 K MPC tokens](https://browser.partisiablockchain.com/node-operation) (including the 25 K for baker service)     
