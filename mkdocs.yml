@@ -119,7 +119,7 @@ theme:
   name: material
   custom_dir: overrides
   font:
-    text: Montserrat
+    text: DM Sans
   features:
     - navigation.indexes
 
