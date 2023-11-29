@@ -184,6 +184,6 @@ A VPS is a Virtual Private server. Just like you can have a virtual machines on 
 
 Abbreviation for WebAssembly, a standardized binary code format which is used for the smart contracts deployed at PBC.
 
-### ZK computation
+### ZK Computation
 
 See [MPC](dictionary.md#mpc)
