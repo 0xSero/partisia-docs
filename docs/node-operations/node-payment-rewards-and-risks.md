@@ -7,7 +7,7 @@ Here you can read about paid services nodes can perform as well as rewards, and 
 Node operators get paid for running 3 types of services:
 
 - Baker services - signing and producing
-  blocks ([Fee distribution contract](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9)
+  blocks   
   pays out fees for baker services depending on performance measured by peers)
 - ZK services - preprocessing data, executing ZK
   computations ([See the fees paid for different ZK operations](https://partisiablockchain.gitlab.io/documentation/smart-contracts/gas/zk-computation-gas-fees.html))
@@ -25,6 +25,13 @@ nodes.
 In addition to the fees paid for service nodes receive rewards in the form of MPC tokens. Rewards node performed
 measured through block production as well as tokens staked and their vesting
 schedule. [See how rewards are calculated and distributed](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads)
+
+### How are baker fees calculated
+
+Fees for baker service are paid out by the [Fee distribution contract](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9). In the state of the contract you can see a list from each node, showing how many signed blocks they have seen from each of the other nodes. When every node has produced 100 blocks, the epoch is over and earned fees are distributed equally among the nodes receiving a vote from 2/3s of the nodes.
+A peer node will count how often your node's signature has appeared on a block it has seen. It creates a sorted list of the performers. It cast a vote for each node in the top 2/3s.   
+Everyone that has received a vote from 2/3s of the committee gets paid an equal share of the fees of the epoch.
+
 
 ### Conditions for running a service
 
@@ -55,6 +62,3 @@ active node operators are being rewarded. Examples of malicious activity:
 - Signing a wrong oracle transfers (Allow stealing)
 - Signing a wrong price
 - Starting an incorrect dispute
-
-### How are baker fees calculated
-
