@@ -8,7 +8,8 @@ The maintenance page takes you through the following node issues:
 - Tools for measuring node performance
 - Interpret log messages and debugging problems - See if your node is signing blocks
 - Confirm that your BYOC endpoints are working
-- How to migrate your node to a different VPS
+- How to migrate your node to a different VPS   
+- Install Network Time Protocol (NTP) to avoid time drift   
 
 ## Is your baker node working
 
@@ -239,3 +240,35 @@ From the storage directory `/opt/pbc-mainnet/storage` of your old node host you 
 directory of the new server:
 
 `large-oracle-backup-database.db`, `large-oracle-database.db` and `peers.json`
+
+### Install Network Time Protocol
+
+To avoid time drift use Network Time Protocol (NTP). First install:
+
+````bash
+ sudo apt-get update
+````
+
+````bash
+ sudo apt-get install ntp ntpdate
+````
+
+Stop NTP service and point to NTP server:
+
+````bash
+sudo service ntp stop
+````
+
+````bash
+sudo ntpdate pool.ntp.org
+````
+
+Start NTP service and check status:
+
+````bash
+sudo service ntp start
+````
+
+````bash
+sudo systemctl status ntp
+````
