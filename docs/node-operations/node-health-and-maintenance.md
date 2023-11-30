@@ -40,7 +40,7 @@ docker inspect --format='{{.Image}}' YOUR_CONTAINER_NAME
 The number must match the
 latest [configuration digest](https://gitlab.com/partisiablockchain/mainnet/container_registry/3175145).
 
-## Updating your node manually.
+## Updating your node manually
 
 You should always have enabled [automatic updates](run-a-reader-node.md#get-automatic-updates) on your node. But, there
 can be situation where you want to update it manually if you have had a problem on the node.
