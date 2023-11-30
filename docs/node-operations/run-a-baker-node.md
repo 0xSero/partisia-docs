@@ -141,4 +141,6 @@ Formal conditions for inclusion in the network is stipulated in the Yellow Paper
 - The transaction fees of _Register_ and _Staking_ transaction have been paid
 
 
-You now have a baker node running on your VPS. When your node has caught up to the ledger, you should be able to confirm in your docker logs, that your node is signing and producing blocks. It is a good idea to keep a look at your node's performance, because baker node revenue depend on performance. You can learn more about this in the [health and maintenance section](node-health-and-maintenance.md) of the guide. Continue on the following pages to upgrade to an [oracle node](run-a-deposit-or-withdrawal-oracle-node.md) or [ZK node](run-a-zk-node.md).
+You now have a baker node running on your VPS. When your node has caught up to the ledger, you should be able to confirm in your docker logs, that your node is signing and producing blocks. It is a good idea to keep a look at your node's performance, because baker node revenue depend on performance. You can learn more about this in the [health and maintenance section](node-health-and-maintenance.md) of the guide. 
+
+Continue on the following pages to upgrade to an [oracle node](run-a-deposit-or-withdrawal-oracle-node.md) or [ZK node](run-a-zk-node.md).
