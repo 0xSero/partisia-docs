@@ -19,7 +19,7 @@ updated regularly, it is bound to fall out of committee. Only nodes up-to-date c
 committee, so every time a new committee is formed from registered nodes, only nodes with the newest version of Partisia
 Software can be included. Your node can only perform services and by extension earn rewards when in the committee. After
 you are included you want to make sure your node is able to continue to participate.  
-To optimize your nodes earning potential you should implement automatic updates and check up on the node's performance
+To optimize your node's earning potential you should implement automatic updates and check up on the node's performance
 regularly.
 
 **Your baker node is working when:**
@@ -40,7 +40,7 @@ docker inspect --format='{{.Image}}' YOUR_CONTAINER_NAME
 The number must match the
 latest [configuration digest](https://gitlab.com/partisiablockchain/mainnet/container_registry/3175145).
 
-## Updating
+## Updating your node manually.
 
 You should always have enabled [automatic updates](run-a-reader-node.md#get-automatic-updates) on your node. But, there
 can be situation where you want to update it manually if you have had a problem on the node.
