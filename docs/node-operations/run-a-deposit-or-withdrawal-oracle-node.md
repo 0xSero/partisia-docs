@@ -1,4 +1,4 @@
-#Run a deposit or withdrawal oracle
+# Run a deposit or withdrawal oracle
 
 Below you can see how you make your node eligible for serving in a deposit or
 withdrawal [oracle](../pbc-fundamentals/dictionary.md#oracle-node), and how to de register if you want to stop providing
@@ -6,9 +6,9 @@ the service. The transfer of cryptocurrencies to and from PBC is facilitated by 
 consisting each of three nodes.
 
 !!! Warning " You must complete these requirements before you can continue"    
-    - [Run baker node](run-a-baker-node.md)    
-    - [Stake 275 K MPC tokens](https://browser.partisiablockchain.com/node-operation) (this includes the 25 K for running a baker)        
-
+- [Run baker node](run-a-baker-node.md)    
+- [Stake 275 K MPC tokens](https://browser.partisiablockchain.com/node-operation) (this includes the 25 K for running a
+baker)
 
 ## How to join a deposit or withdrawal oracle
 
@@ -21,7 +21,9 @@ the same oracle, if they have enough tokens (excluding the ones pending) associa
 the conditions for eligibility. It is also possible to serve in more than one small oracle if enough tokens are
 available.
 
-1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract) with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
+1. Find
+   the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
+   with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Sign in (upper right corner)
 3. Invoke the contract action _AssociateTokenstoContract_ with a minimum amount of 250K MPC token
 4. Submit transaction
@@ -34,7 +36,9 @@ when a node leaves an oracle. However, the leaver can be chosen for the new orac
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
 oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic.
 
-1. Find the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract) with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
+1. Find
+   the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
+   with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Sign in (upper right corner)
 3. Invoke the contract action _DisassociateTokensFromContract_
 4. Match amount to the tokens not used by a specific oracle job
@@ -42,5 +46,7 @@ oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC a
 6. Open the contract state
 7. Search for your blockchain address to find the address of the deposit or withdrawal oracle in which your node serves
 8. Go to the contract of the oracle your node is working in
-9. Invoke the contract action _requestNewOracle_ (you can only invoke this action if you are serving in the oracle and 28 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix timestamp in the field named _"oracleTimestamp"_)
+9. Invoke the contract action _requestNewOracle_ (you can only invoke this action if you are serving in the oracle and
+   28 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix
+   timestamp in the field named _"oracleTimestamp"_)
 10. Submit transaction    
