@@ -32,7 +32,7 @@ Fees for baker service are paid out by the [Fee distribution contract](https://b
 A peer node will count how often your node's signature has appeared on a block it has seen. It creates a sorted list of the performers. It cast a vote for each node in the top 2/3s.   
 Everyone that has received a vote from 2/3s of the committee gets paid an equal share of the fees of the epoch.
 
-??? example
+!!! example
     If there are 100 nodes in the current committee then your node needs a vote from 66 other nodes each epoch to get paid.        
 
 
