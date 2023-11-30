@@ -95,13 +95,16 @@ This pulls the latest image and starts the reader node in the background. If the
 docker logs -f pbc-mainnet
 ````
 
-This prints a sequence of log statements. The node needs hours to process the existing blocks in the ledger and catch up to the present. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can therefore be offset up to 12 hours from your local time.
+This prints a sequence of log statements. The node needs hours to process the existing blocks in the ledger and catch up
+to the present. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can
+therefore be offset up to 12 hours from your local time.
 
 In the [maintenance section](../node-operations/node-health-and-maintenance.md) you can see what the logs mean.
 
 ## Register your node
 
-Registration of the node via the `node-register.sh` script. The registration ensures that your account and tokens are associated with your node. It also creates a profile with public information about your node.
+Registration of the node via the `node-register.sh` script. The registration ensures that your account and tokens are
+associated with your node. It also creates a profile with public information about your node.
 
 ???+ note
 
@@ -146,7 +149,10 @@ Formal conditions for inclusion in the network is stipulated in the Yellow Paper
 - Sufficient stakes committed
 - The transaction fees of _Register_ and _Staking_ transaction have been paid
 
+You now have a baker node running on your VPS. When your node has caught up to the ledger, you should be able to confirm
+in your docker logs, that your node is signing and producing blocks. It is a good idea to keep a look at your node's
+performance, because baker node revenue depend on performance. You can learn more about this in
+the [health and maintenance section](node-health-and-maintenance.md) of the guide.
 
-You now have a baker node running on your VPS. When your node has caught up to the ledger, you should be able to confirm in your docker logs, that your node is signing and producing blocks. It is a good idea to keep a look at your node's performance, because baker node revenue depend on performance. You can learn more about this in the [health and maintenance section](node-health-and-maintenance.md) of the guide. 
-
-Continue on the following pages to upgrade to an [oracle node](run-a-deposit-or-withdrawal-oracle-node.md) or [ZK node](run-a-zk-node.md).
+Continue on the following pages to upgrade to an [oracle node](run-a-deposit-or-withdrawal-oracle-node.md)
+or [ZK node](run-a-zk-node.md).
