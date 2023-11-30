@@ -11,6 +11,8 @@ The maintenance page takes you through the following node issues:
 - How to migrate your node to a different VPS   
 - Install Network Time Protocol (NTP) to avoid time drift   
 
+Navigate to the topic you want through the sidebar.
+
 ## Is your baker node working
 
 If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential
