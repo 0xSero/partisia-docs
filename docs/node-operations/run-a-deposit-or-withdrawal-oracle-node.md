@@ -12,14 +12,14 @@ baker)
 
 ## How to join a deposit or withdrawal oracle
 
-To be eligible for selection to a deposit or withdrawal oracle a node must associate 250K MPC tokens to the large oracle
+To be eligible for serving a deposit or withdrawal oracle the node account must associate 250K MPC tokens to
+the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle)
 contract. Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in
-the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected. After serving a term
-the tokens associated to the large oracle contract will be locked in a pending status until a new oracle is selected.
-This allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in
-the same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract to meet
-the conditions for eligibility. It is also possible to serve in more than one small oracle if enough tokens are
-available.
+the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected. After serving a term the
+tokens associated to the large oracle contract will be locked in a pending status until a new oracle is selected. This
+allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in the
+same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract. It is also
+possible to serve in more than one small oracle if enough tokens are available.
 
 1. Find
    the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
