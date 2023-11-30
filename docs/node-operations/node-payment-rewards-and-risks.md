@@ -12,10 +12,11 @@ Node operators get paid for running 3 types of services:
 - ZK services - preprocessing data, executing ZK
   computations ([See the fees paid for different ZK operations](https://partisiablockchain.gitlab.io/documentation/smart-contracts/gas/zk-computation-gas-fees.html))
 - Oracle services - services related to BYOC, signing transfers and signing a reported price (deposit and withdrawal
-  oracle nodes receive 0.1% of transferred value, price oracle nodes get a steady fee per signed price )
+  oracle nodes receive 0.1% of transferred value, price oracle nodes get a steady fee per signed price)
 
-ZK and oracle nodes are upgrades services. Higher paying services depend on first registering for baker services and
-then committing additional stake and registering for the new service.
+!!! note   
+    ZK and oracle nodes are upgrades services. Higher paying services depend on first registering for baker services and
+    then committing additional stake and registering for the new service.
 
 When a user commits a transaction on the blockchain he pays a gas cost
 in [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). That gas covers the fee for the service performed by the
