@@ -1,7 +1,7 @@
 # Run a deposit or withdrawal oracle
 
 Below you see how to make your node eligible for serving in a deposit or
-withdrawal [oracle](../pbc-fundamentals/dictionary.md#oracle-node), and how to de register if you want to stop providing
+withdrawal [oracle](../pbc-fundamentals/dictionary.md#oracle-node), and how to de-register if you want to stop providing
 the service. The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal oracles
 consisting each of three nodes.
 
@@ -14,7 +14,7 @@ baker)
 
 To be eligible for selection to a deposit or withdrawal oracle a node must associate 250K MPC tokens to the large oracle
 contract. Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in
-the oracle until the deposit or withdrawal limit has been met. Then three new nodes are selected. After serving a term
+the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected. After serving a term
 the tokens associated to the large oracle contract will be locked in a pending status until a new oracle is selected.
 This allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in
 the same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract to meet
