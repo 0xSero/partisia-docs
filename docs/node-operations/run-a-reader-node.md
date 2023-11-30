@@ -35,38 +35,6 @@ For best security practice root should not be default user. Add a non-root user:
 sudo adduser userNameHere
 ````
 
-### Install Network Time Protocol
-
-To avoid time drift use Network Time Protocol (NTP). First install:
-
-````bash
- sudo apt-get update
-````
-
-````bash
- sudo apt-get install ntp ntpdate
-````
-
-Stop NTP service and point to NTP server:
-
-````bash
-sudo service ntp stop
-````
-
-````bash
-sudo ntpdate pool.ntp.org
-````
-
-Start NTP service and check status:
-
-````bash
-sudo service ntp start
-````
-
-````bash
-sudo systemctl status ntp
-````
-
 ### Install htop
 
 Use `htop` to monitor your CPU and memory. Install `htop`:
