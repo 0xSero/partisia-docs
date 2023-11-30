@@ -48,7 +48,7 @@ When asked if the node is a block producing node, answer `yes`.
 The tool validates your inputs, and you will not be able to finish the configuration generation without inputting *all*
 the required information.
 
-???+ note
+!!! warning
 
     Be sure to back up the keys the tool prints at the end. They are written in `config.json` and  cannot be
     recovered if it is deleted.
