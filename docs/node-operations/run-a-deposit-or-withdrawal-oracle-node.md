@@ -6,8 +6,8 @@ the service. The transfer of cryptocurrencies to and from PBC is facilitated by 
 consisting each of three nodes.
 
 !!! Warning " You must complete these requirements before you can continue"    
-- [Run baker node](run-a-baker-node.md)    
-- [Stake 275 K MPC tokens](https://browser.partisiablockchain.com/node-operation) (this includes the 25 K for running a
+    - [Run baker node](run-a-baker-node.md)    
+    - [Stake 275 K MPC tokens](https://browser.partisiablockchain.com/node-operation) (this includes the 25 K for running a
 baker)
 
 ## How to join a deposit or withdrawal oracle
