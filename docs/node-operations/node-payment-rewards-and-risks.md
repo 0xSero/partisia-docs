@@ -7,8 +7,7 @@ Here you can read about paid services nodes can perform as well as rewards, and 
 Node operators get paid for running 3 types of services:
 
 - Baker services - signing and producing
-  blocks   
-  pays out fees for baker services depending on performance measured by peers)
+  blocks (pays out fees for baker services depending on performance measured by peers)
 - ZK services - preprocessing data, executing ZK
   computations ([See the fees paid for different ZK operations](https://partisiablockchain.gitlab.io/documentation/smart-contracts/gas/zk-computation-gas-fees.html))
 - Oracle services - services related to BYOC, signing transfers and signing a reported price (deposit and withdrawal
