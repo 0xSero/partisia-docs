@@ -52,16 +52,15 @@ is already staked on baker service, but they also have a bigger earning potentia
 
 ### Dispute claims and malicious behaviour
 
+Malicious node behaviour can result in slashing of staked tokens (slashed tokens get burned). The purpose of slashing is to prevent malicious activity.
+
+!!! example "Examples of malicious activity"
+- Signing a wrong oracle transfers (Allow stealing)
+- Signing a wrong price
+- Starting an incorrect dispute
+
 It is possible to start a dispute against a node operator that has done a service for you. Dispute claims will be
 audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible
 for the node's alleged malicious behaviour tokens staked on the service may be confiscated (slashed) to compensate for
 damaged caused by the malicious behaviour. Filing an illegitimate dispute claim against another node can also be
 considered malicious behaviour and result in slashing.
-
-The purpose of slashing tokens is to prevent malicious activity. And to create an incentive structure ensuring that
-active node operators are being rewarded. Examples of malicious activity:
-
-- Signing two distinct blocks with same block time (can create forks)
-- Signing a wrong oracle transfers (Allow stealing)
-- Signing a wrong price
-- Starting an incorrect dispute
