@@ -1,7 +1,10 @@
 # Run a ZK node
 
-This page explains how to change the configuration of your baker node to ZK node's and how to register your node for the service. 
-ZK nodes do [ZK computations](../pbc-fundamentals/dictionary.md#mpc) in addition to their baker node work of signing and producing blocks. By completing the steps below your node will be eligible to be allocated for specific computations by [ZK smart contracts](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md) and earning revenue for the computations performed. 
+This page explains how to change the configuration of your baker node to ZK node's and how to register your node for the
+service. ZK nodes do [ZK computations](../pbc-fundamentals/dictionary.md#mpc) in addition to their baker node work of
+signing and producing blocks. By completing the steps below your node will be eligible to be allocated for specific
+computations by [ZK smart contracts](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md) and earning revenue
+for the computations performed.
 
 !!! Warning " You must complete these requirements before you can continue"  
     - [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
