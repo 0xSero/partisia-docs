@@ -11,7 +11,7 @@ sufficient tokens associated to the large oracle contract can register as a pric
     - [Run a baker node](run-a-baker-node.md)    
 
 
-## Join a price oracle
+## Register as a price oracle
 
 1. Find
    the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
