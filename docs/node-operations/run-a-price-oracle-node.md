@@ -39,6 +39,7 @@ Find out which price oracle your node serves (If you know already skip ahead to 
 5. Open the map `lockedToOracle`   
 6. You can see the addresses of the oracles your node serve and MPC tokens staked to them   
 7. Copy the address of the oracle you want to leave (you can distinguish the price oracles from deposit and withdrawal oracles by looking at the amount of MPC tokes they have "locked", price oracles have 5000, deposit and withdrawal oracles 250000)
+8. Paste the address to the search field of the browser, to navigate to the contract   
 
 Deregister:
 1. Go to the contract of the price oracle your node serves
