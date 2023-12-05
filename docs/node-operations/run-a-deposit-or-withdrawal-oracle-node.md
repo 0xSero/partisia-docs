@@ -30,23 +30,28 @@ possible to serve in more than one small oracle if enough tokens are available.
 
 ## How to leave a deposit or withdrawal oracle
 
-It is possible to leave the oracle before the deposit or withdrawal limit has been met. If a node chooses to leave, then
+It is possible to leave the oracle before the deposit or withdrawal limit has been met by requesting a new oracle. If a node chooses to leave, then
 3 new nodes will be selected to form the oracle. The tokens associated with a specific oracle will get pending status
 when a node leaves an oracle. However, the leaver can be chosen for the new oracle if they have enough tokens. For that
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
 oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic.
 
-1. Find
-   the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
-   with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
-2. Sign in (upper right corner)
-3. Invoke the contract action _DisassociateTokensFromContract_
-4. Match amount to the tokens not used by a specific oracle job
-5. Submit transaction
-6. Open the contract state
-7. Search for your blockchain address to find the address of the deposit or withdrawal oracle in which your node serves
-8. Go to the contract of the oracle your node is working in
-9. Invoke the contract action _requestNewOracle_ (you can only invoke this action if you are serving in the oracle and
-   28 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix
-   timestamp in the field named _"oracleTimestamp"_)
-10. Submit transaction    
+Find out which price oracle your node serves (If you know already skip ahead to Request new oracle):
+1. Open the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
+2. Open the map `stakedTokens`
+3. Search for your blockchain address `CTRL+f`
+4. Open the struct next to your blockchain address
+5. Open the map `lockedToOracle`
+6. You can see the addresses of the oracles your node serve and MPC tokens staked to them
+7. Copy the address of the oracle you want to leave (you can distinguish the price oracles from deposit and withdrawal oracles by looking at the amount of MPC tokes they have "locked", price oracles have 5000, deposit and withdrawal oracles 250000)
+8. Paste the address to the search field of the browser, to navigate to the contract
+
+Request new oracle:
+- Invoke the contract action _requestNewOracle_ (you must by logged in to perform this action)
+ 
+
+!!! note "Note"
+    you can only invoke this action if you are serving in the oracle and
+    28 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix
+    timestamp in the field named `"oracleTimestamp"`
+    
