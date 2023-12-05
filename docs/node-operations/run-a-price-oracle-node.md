@@ -26,7 +26,7 @@ sufficient tokens associated to the large oracle contract can register as a pric
 You can learn more about the price oracles [here](../pbc-fundamentals/dictionary.md#price-oracle)
 
 
-## How to leave a price oracle
+## How to deregister as a price oracle
 
 To leave the price oracle one simply needs to invoke deregistration at the contract the specific price oracle that your node is working for.
 
