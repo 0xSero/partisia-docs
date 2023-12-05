@@ -36,7 +36,8 @@ when a node leaves an oracle. However, the leaver can be chosen for the new orac
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
 oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic.
 
-Find out which price oracle your node serves (If you know already skip ahead to Request new oracle):
+**Find out which price oracle your node serves (If you know already skip ahead to Request new oracle):**   
+
 1. Open the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
 2. Open the map `stakedTokens`
 3. Search for your blockchain address `CTRL+f`
@@ -46,12 +47,13 @@ Find out which price oracle your node serves (If you know already skip ahead to 
 7. Copy the address of the oracle you want to leave (you can distinguish the price oracles from deposit and withdrawal oracles by looking at the amount of MPC tokes they have "locked", price oracles have 5000, deposit and withdrawal oracles 250000)
 8. Paste the address to the search field of the browser, to navigate to the contract
 
-Request new oracle:
-- Invoke the contract action _requestNewOracle_ (you must by logged in to perform this action)
+**Request new oracle:**   
+
+- Invoke the contract action _requestNewOracle_ (you must by logged in to perform this action)   
  
 
 !!! note "Note"
-    you can only invoke this action if you are serving in the oracle and
+    You can only invoke this action if you are serving in the oracle and
     28 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix
     timestamp in the field named `"oracleTimestamp"`
     
