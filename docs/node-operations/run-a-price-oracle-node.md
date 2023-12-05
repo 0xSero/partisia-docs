@@ -1,6 +1,6 @@
 # Run a price oracle node
 
-This page teaches you to register your baker node for the additional service of price oracle. And how to deregister from
+This page teaches you to register your baker node for the additional service of price oracle, and how to deregister from
 the service in case you want to use the tokens for something else.
 
 Price oracles monitor and report prices of the [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). Any node with
