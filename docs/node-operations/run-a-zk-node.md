@@ -8,7 +8,7 @@ ZK nodes do [ZK computations](../pbc-fundamentals/dictionary.md#mpc) in addition
     - [Run baker node](run-a-baker-node.md)
     - You have set up a reverse proxy and purchased a domain as described [here](https://drive.google.com/file/d/1WOzM63QsBntSVQMpWhG7oDuEWYJE2Ass/view?usp=sharing)
 
-## Complete the following steps
+## How to setup your Zero Knowledge node
 
 1. [Associate](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/associateTokens) 75 K MPC tokens to the ZK Node Registry contract
 2. [Register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode) as a ZK node (You need to have your https rest endpoint ready)
