@@ -9,7 +9,7 @@ the contract state.
 
 ## 1) Compile a contract example
 
-The token contract can be found in the [example contract archive](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/token?ref_type=heads)
+The token contract can be found in the [example contract archive](https://gitlab.com/partisiablockchain/language/contracts/defi/-/tree/main/token)
 The following will compile it and generate an ABI for it:
 
 ```bash
