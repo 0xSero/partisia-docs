@@ -10,7 +10,7 @@ Every user on Partisia Blockchain has an account. The account has an address and
 
 ### Address
 
-An addresses on PBC is a unique number that identifies the recipients and senders of transactions. User accounts and smart contracts can be senders and recipients of transactions and hence both have addresses. The address is a hexadecimal number derived from the public key. You use addresses when you deposit or withdraw BYOC. And when you transfer tokens to other accounts. Deployed contracts shows the owners account address and the contract address. In public node information the address refers to the geographical address of the entity (person or company) operating the node.
+An address on PBC is a unique number that identifies the recipients and senders of transactions. User accounts and smart contracts can be senders and recipients of transactions and hence both have addresses. The address is a hexadecimal number derived from the public key. You use an address when you deposit or withdraw BYOC. And when you transfer tokens to other accounts. Deployed contracts shows the owners account address and the contract address. In public node information the address refers to the geographical address of the entity (person or company) operating the node.
 
 ### Baker Node
 
