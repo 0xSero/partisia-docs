@@ -19,7 +19,7 @@ your identity and the on-chain data you have uploaded.
    provide matches what you sent in the previous step.
 4. Click on *Signup Now*
 5. Upload documents in the order they are requested
-6. You will receive a confirmation e-mail when the documents have been approved
+6. You will receive a confirmation email when the documents have been approved
 
 ## Verification process for businesses (KYB)
 
