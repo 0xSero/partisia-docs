@@ -16,7 +16,7 @@ your identity and the on-chain data you have uploaded.
 1. Go to the [Node Registration KYC page](https://browser.partisiablockchain.com/node-registration).
 2. Fill out the form and submit it
 3. Go to the [Synaps portal](https://partisiablockchain-kyc.synaps.me/). It is important that the information you
-   provide matches that you sent in the previous step.
+   provide matches what you sent in the previous step.
 4. Click on *Signup Now*
 5. Upload documents in the order they are requested
 6. You will receive a confirmation e-mail when the documents have been approved
