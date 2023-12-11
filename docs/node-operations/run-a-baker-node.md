@@ -34,7 +34,7 @@ To fill out the config.json for a block producing node you need to add the follo
   You should use a source you find trustworthy)
   . [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0)
   has a provider list and further information about endpoints.
-- The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
+- The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
   producers should be obtained by reaching out to the community.
 
