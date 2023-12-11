@@ -12,7 +12,7 @@ baker)
 
 ## How to join a deposit or withdrawal oracle
 
-To be eligible for serving a deposit or withdrawal oracle the node account must associate 250K MPC tokens to
+To be eligible for serving a deposit or withdrawal oracle the node account must associate 250,000 MPC tokens to
 the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle)
 contract. Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in
 the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected. After serving a term the
