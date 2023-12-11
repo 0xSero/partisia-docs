@@ -36,7 +36,9 @@ when a node leaves an oracle. However, the leaver can be chosen for the new orac
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
 oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic.
 
-**Find out which price oracle your node serves (If you know already skip ahead to Request new oracle):**   
+### How to find out which price oracle your node serves
+
+If you know which price oracle your node is serving, you should skip ahead to Request new oracle
 
 1. Open the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
 2. Open the map `stakedTokens`
