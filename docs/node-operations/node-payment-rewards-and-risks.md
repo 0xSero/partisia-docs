@@ -37,7 +37,7 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
 
 ### Conditions for running a service
 
-Node services are handled by specific [system contracts](insert link for governace overview when merged). To sign up for
+Node services are handled by specific [system contracts](../pbc-fundamentals/governance-overview.md). To sign up for
 services a node operator associates a stake of token to the contract administrating the service
 ([see amount to stake for specific services](start-running-a-node.md)). Stakes work as an incentive against malicious
 behaviour.
@@ -54,9 +54,10 @@ is already staked on baker service, but they also have a bigger earning potentia
 Malicious node behaviour can result in slashing of staked tokens (slashed tokens get burned). The purpose of slashing is to prevent malicious activity.
 
 !!! example "Examples of malicious activity"
-    - Signing a wrong oracle transfers (Allow stealing)
-    - Signing a wrong price
-    - Starting an incorrect dispute
+    - A withdrawal oracle node signing a BYOC withdrawal that wasn't initiated on PBC   
+    - A deposit oracle node signing a BYOC deposit that wasn't initiated on the external chain   
+    - A price oracle node signing a wrong price   
+    - An account starting an incorrect dispute   
 
 It is possible to start a dispute against a node operator that has done a service for you. Dispute claims are
 audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible
