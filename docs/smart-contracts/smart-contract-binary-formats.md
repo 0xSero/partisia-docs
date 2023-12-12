@@ -8,8 +8,8 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 
 ## ABI Version changes
 - Version **5.4** to **5.5**:
-    * Smart contracts now support (0..\(\infty\)) of `FnKind: 0x11` (from (0..1)).
-    * Smart contracts now support (0..\(\infty\)) of `FnKind: 0x13` (from (0..1)).
+    * Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x11`.
+    * Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x13`.
     * `FnKind 0x11` now requires a Shortname.
     * `FnKind 0x13` now requires a Shortname.
 - Version **5.3** to **5.4**:
