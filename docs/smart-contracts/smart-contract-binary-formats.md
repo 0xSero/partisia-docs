@@ -7,6 +7,11 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
+- Version **5.4** to **5.5**:
+    * Smart contracts now support (0..\(\infty\)) of `FnKind: 0x11` (from (0..1)).
+    * Smart contracts now support (0..\(\infty\)) of `FnKind: 0x13` (from (0..1)).
+    * `FnKind 0x11` now requires a Shortname.
+    * `FnKind 0x13` now requires a Shortname.
 - Version **5.3** to **5.4**:
     * Added new `FnKind: 0x18` called `ZkExternalEvent`.
 - Version **5.2** to **5.3**:
@@ -332,9 +337,9 @@ $$
 |\ &\hexi{02} \ \Rightarrowx \text{Action}  &\text{(0..}\infty\text{)}\\
 |\ &\hexi{03} \ \Rightarrowx \text{Callback}  &\text{(0..}\infty\text{)}\\
 |\ &\hexi{10} \ \Rightarrowx \text{ZkSecretInput}  &\text{(0..}\infty\text{)}\\
-|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..1)}\\
+|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..}\infty\text{))}\\
 |\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected}  &\text{(0..1)}\\
-|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..1)}\\
+|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..}\infty\text{))}\\
 |\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
 |\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
 |\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\
