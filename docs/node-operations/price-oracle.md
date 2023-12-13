@@ -17,7 +17,7 @@ Each price oracle consist of at least three nodes. Every hour each node in the p
 ### Register as a price oracle node   
 
 1. Go to the [Browser](https://browser.partisiablockchain.com/) and log in
-2. Associate 5000 MPC tokens to the [Large Oracle Contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014) by clicking the contract interaction button named "ASSOCIATETOKENSTOCONTRACT" (Skip this step if you have 5000 or more unused tokens already asociated with this contract)
+2. Associate 5000 MPC tokens to the [Large Oracle Contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014) using the interaction "Associate tokens to contract" (Skip this step if you have 5000 or more unused tokens already associated with this contract)
 3. Go to the [ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d), [BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39) or [MATIC Price Oracle Contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33) and register using the interaction "Register"
 
 
