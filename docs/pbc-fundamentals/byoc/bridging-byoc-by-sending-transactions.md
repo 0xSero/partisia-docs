@@ -82,6 +82,8 @@ On Partisia Blockchain the easiest solution is to use [Partisia MetaMask Snap](h
 
 Besides the wallets, you will need the addresses of the [oracle](../../node-operations/oracles-on-partisia-blockchain.md) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet test BYOC from the ETH Goerli testnet is available, but no other BYOC test coins from other chains.
 
+To use a standardised digital asset on PBC you need to align with the [MPC-20 standard format](../../smart-contracts/integration/mpc-20-token-contract.md).
+
 ### Bridging test ETH
 
 [ETH_GOERLI Deposit on PBC testnet](https://browser.testnet.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)       

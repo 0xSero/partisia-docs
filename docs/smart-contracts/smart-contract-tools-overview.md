@@ -30,11 +30,8 @@ interacting with the blockchain and working with smart contracts. These tools ar
 within `cargo partisia-contract`, enabling you to explore their capabilities inside `cargo partisia-contract`. Below are
 a short description and use case for each of these sub-tools.
 
-You can find the `cargo partisia-contract` crate [here](https://crates.io/crates/cargo-partisia-contract). To install the tool run the
-command 
-```
-cargo install cargo-partisia-contract
-```
+??? note 
+    If you want to use any of the command-line tools you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
 
 ### The Compiler `build`
 
