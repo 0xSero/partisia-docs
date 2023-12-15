@@ -1,7 +1,13 @@
 # Introduction to smart contracts
-In this category you can explore how to create your own smart contract. The specifications behind smart contracts. How to compile and deploy smart contracts on the testnet and mainnet and what zero knowledge smart contracts are. If you are in need of help when developing smart contracts, we recommend you visit [our support page or join the active community](../get-support-from-pbc-community.md)
 
-In Partisia Blockchain there are two types of smart contracts, there are user based contracts which you compile and deploy yourself and there are the system contracts. To get an overview of the system contracts you can visit our [governance contracts overview](../pbc-fundamentals/governance-system-smart-contracts-overview.md). 
+In Partisia Blockchain there are two types of smart contracts, there are user based contracts which you compile and
+deploy yourself and there are the system contracts. To get an overview of the system contracts you can visit
+our [governance contracts overview](../pbc-fundamentals/governance-system-smart-contracts-overview.md).
+
+Smart contracts refer to user created contracts and in this category you can explore how to create your own smart
+contract. The specifications behind smart contracts. How to compile and deploy smart contracts on the testnet and
+mainnet and what zero knowledge smart contracts are. If you are in need of help when developing smart contracts, we
+recommend you visit [our support page or join the active community](../get-support-from-pbc-community.md)
 
 ## Content
 
