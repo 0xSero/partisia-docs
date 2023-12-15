@@ -16,7 +16,20 @@ When working with smart contracts, the testnet is the best way to upload your sm
 We recommend using the testnet the [browser](https://browser.testnet.partisiablockchain.com). To see your testnet gas balance you can log into the [the browser](https://browser.testnet.partisiablockchain.com/) or the [dashboard](https://testnet.partisiablockchain.com/). Under your account you can see how many TEST_COINs you have. If you are logged into browser you can simply go to your account tab and see your balance.
 
 ### How to get gas on the testnet
-If you do not have any gas yet, we recommend you to visit [our faucet to get the first amount of TEST_COINS](https://testnet.mpcfaucet.com/).
+You can create an account with gas by calling the following command.
+
+````shell
+cargo partisia-contract cli account create
+````
+
+The command create a new account, and print the account address and the private key for the account.
+The account will also be filled with gas.
+
+To get gas on an account already created, run the following command.
+
+````shell
+cargo partisia-contract cli account mintgas <account-address>
+````
 
 To get even more gas you can do the following: 
 

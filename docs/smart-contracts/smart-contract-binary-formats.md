@@ -7,6 +7,8 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
+- Version **5.3** to **5.4**:
+    * Added new `FnKind: 0x18` called `ZkExternalEvent`.
 - Version **5.2** to **5.3**:
     * Added new type `AvlTreeMap`, a map whose content is not serialized to the wasm state format, but instead allows
   for lazy access to its contents.
@@ -337,6 +339,7 @@ $$
 |\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
 |\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\
 |\ &\hexi{17} \ \Rightarrowx \text{ZkSecretInputWithExplicitType} &\text{(0..}\infty\text{)} \\
+|\ &\hexi{18} \ \Rightarrowx \text{ZkExternalEvent} &\text{(0..1} \\
 \end{align*}
 } \\
 $$

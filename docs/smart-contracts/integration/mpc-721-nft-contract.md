@@ -55,7 +55,7 @@ The following actions exists where names and types match exactly:
 #[action(shortname=0x05)] approve(approved: Option<Address>, token_id: u128)
 #[action(shortname=0x07)] set_approval_for_all(operator: Address,approved: bool)
 ```
-The root state struct has each of the following state fields where names and types match exactly:
+The root state struct has each of the following state fields itself or in a sub-struct that has a 1-1 composition with the root state struct where names and types match exactly:
 ```
 name: String
 symbol: String
@@ -73,7 +73,7 @@ operator: Address
 This extension used to give each NFT a unique URI. The extension is optional.
 
 An NFT contract is detected as a valid NFT Contract with URIs if:
-The root state struct has each of the following state fields where names and types match exactly:
+The root state struct has each of the following state fields itself or in a sub-struct that has a 1-1 composition with the root state struct where names and types match exactly:
 ```
 uri_template: String
 token_uri_details: AvlTreeMap<u128, String>
