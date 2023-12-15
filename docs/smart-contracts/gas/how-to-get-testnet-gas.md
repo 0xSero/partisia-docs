@@ -25,6 +25,12 @@ cargo partisia-contract cli account create
 The command create a new account, and print the account address and the private key for the account.
 The account will also be filled with gas.
 
+To get gas on an account already created, run the following command.
+
+````shell
+cargo partisia-contract cli account mintgas <account-address>
+````
+
 To get even more gas you can do the following: 
 
 - Sign in to the [testnet browser](https://browser.testnet.partisiablockchain.com) (Icon in upper right corner).
