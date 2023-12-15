@@ -30,7 +30,7 @@ interacting with the blockchain and working with smart contracts. These tools ar
 within `cargo partisia-contract`, enabling you to explore their capabilities inside `cargo partisia-contract`. Below are
 a short description and use case for each of these sub-tools.
 
-??? note 
+???+ note 
     If you want to use any of the command-line tools you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
 
 ### The Compiler `build`
