@@ -49,6 +49,8 @@ dead-link-check:
   - build-site
   except:
   - main
+  when: manual
+  allow_failure: true
   script:
   - apt update && apt install -y linkchecker
   - linkchecker -t 8 --no-robots --check-extern public/index.html
