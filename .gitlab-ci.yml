@@ -57,29 +57,7 @@ dead-link-check:
     paths:
     - public
 
-spellcheck-changed:
-  image: registry.gitlab.com/partisia/dockerimages/shellscripting
-  stage: build
-  dependencies:
-  - build-site
-  except:
-  - main
-  allow_failure: true
-  script:
-  - apt update && apt install -y aspell
-  - MD_FILES=$(git diff-tree --no-commit-id --name-only -r $CI_DEFAULT_BRANCH | grep ".md" | awk '{ print $NF }')
-  - |
-    readarray -t files <<<"$(shfmt -f .)"
-    for (( i = 0; i < "${#files[@]}"; i++ )); do
-      local file="${files[i]}"
-      echo "Spellchecking $file"
-      echo "------"
-      cat "$file" | aspell --mode markdown -d en_US list | sort | uniq -i || true
-      echo -e "\033[30m-\033[0m"
-      echo -e "\033[30m-\033[0m"
-    done
-
-spellcheck-all:
+spellcheck:
   image: registry.gitlab.com/partisia/dockerimages/shellscripting
   stage: build
   dependencies:
