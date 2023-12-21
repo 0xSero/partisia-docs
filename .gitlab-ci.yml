@@ -56,3 +56,46 @@ dead-link-check:
   artifacts:
     paths:
     - public
+
+spellcheck-changed:
+  image: registry.gitlab.com/partisia/dockerimages/shellscripting
+  stage: deploy
+  dependencies:
+  - build-site
+  except:
+  - main
+  allow_failure: true
+  script:
+  - apt update && apt install -y aspell
+  - MD_FILES=$(git diff --name-status origin/main | grep -v -E '^D\s.*' | grep ".md" | awk '{ print $NF }')
+  - |
+    readarray -t files <<<"$(shfmt -f .)"
+    for (( i = 0; i < "${#files[@]}"; i++ )); do
+      local file="${files[i]}"
+      echo "Spellchecking $file"
+      echo "------"
+      cat "$file" | aspell --mode markdown -d en_US list | sort | uniq -i || true
+      echo -e "\033[30m-\033[0m"
+      echo -e "\033[30m-\033[0m"
+    done
+
+spellcheck-all:
+  image: registry.gitlab.com/partisia/dockerimages/shellscripting
+  stage: deploy
+  dependencies:
+  - build-site
+  except:
+  - main
+  when: manual
+  allow_failure: true
+  script:
+  - apt update && apt install -y aspell
+  - shopt -s globstar
+  - |
+    for file in **/*.md; do
+      echo "Spellchecking $file"
+      echo "------"
+      cat "$file" | aspell --mode markdown -d en_US list | sort | uniq -i || true
+      echo -e "\033[30m-\033[0m"
+      echo -e "\033[30m-\033[0m"
+    done
