@@ -93,10 +93,18 @@ spellcheck-all:
   - apt update && apt install -y aspell
   - shopt -s globstar
   - |
+    touch maybe-misspelled-words.txt
     for file in **/*.md; do
       echo "Spellchecking $file"
       echo "------"
-      cat "$file" | aspell --mode markdown -d en_US list | sort | uniq -i || true
+      cat "$file" | aspell --mode markdown -d en_US list | sort | uniq -i | tee -a maybe-misspelled-words.txt || true
       echo -e "\033[30m-\033[0m"
       echo -e "\033[30m-\033[0m"
     done
+
+    echo -e "\033[30m-\033[0m"
+    echo -e "\033[30m-\033[0m"
+    echo -e "\033[30m-\033[0m"
+
+    echo "All unique potentially misspelled words, sorted:"
+    cat maybe-misspelled-words.txt | sort | uniq -i
