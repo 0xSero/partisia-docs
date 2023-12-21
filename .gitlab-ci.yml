@@ -59,7 +59,7 @@ dead-link-check:
 
 spellcheck-changed:
   image: registry.gitlab.com/partisia/dockerimages/shellscripting
-  stage: deploy
+  stage: build
   dependencies:
   - build-site
   except:
@@ -67,7 +67,7 @@ spellcheck-changed:
   allow_failure: true
   script:
   - apt update && apt install -y aspell
-  - MD_FILES=$(git diff --name-status "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" | grep -v -E '^D\s.*' | grep ".md" | awk '{ print $NF }')
+  - MD_FILES=$(git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA | grep ".md" | awk '{ print $NF }')
   - |
     readarray -t files <<<"$(shfmt -f .)"
     for (( i = 0; i < "${#files[@]}"; i++ )); do
@@ -81,7 +81,7 @@ spellcheck-changed:
 
 spellcheck-all:
   image: registry.gitlab.com/partisia/dockerimages/shellscripting
-  stage: deploy
+  stage: build
   dependencies:
   - build-site
   except:
