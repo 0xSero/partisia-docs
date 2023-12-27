@@ -31,7 +31,7 @@ with [gas](gas/what-is-gas.md) to cover transaction costs.
 
 To deploy a contract you can visit
 the [Partisia Blockchain browser](https://browser.partisiablockchain.com/contracts/deploy).
-Ensure that you have some gas, if you want to try for free you can get som testnet gas here and deploy
+Ensure that you have some gas, if you want to try for free you can get some testnet gas here and deploy
 through [the testnet](https://browser.testnet.partisiablockchain.com/contracts/deploy).
 
 Select the `token_contract.wasm` and the `token_contract.abi`.
