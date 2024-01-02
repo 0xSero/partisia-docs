@@ -2,7 +2,7 @@
 
 The maintenance page takes you through the following node issues:
 
-- [Is your baker node working](#is-your-baker-node-working)   
+- [Is your baker node working?](#is-your-baker-node-working)   
 - [Update your node manually](#updating-your-node-manually)   
 - [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)   
 - [How to monitor node performance](#how-to-monitor-node-performance)   
@@ -11,7 +11,7 @@ The maintenance page takes you through the following node issues:
 - [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)   
 - [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)   
 
-## Is your baker node working
+## Is your baker node working?
 
 If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential
 and the safety of your stake. Your node has to be up-to-date to participate in the committee. If your node is not
