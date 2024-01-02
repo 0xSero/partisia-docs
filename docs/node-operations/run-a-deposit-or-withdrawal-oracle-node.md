@@ -34,7 +34,7 @@ It is possible to leave the oracle before the deposit or withdrawal limit has be
 3 new nodes will be selected to form the oracle. The tokens associated with a specific oracle will get pending status
 when a node leaves an oracle. However, the leaver can be chosen for the new oracle if they have enough tokens. For that
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
-oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic.
+oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic ([List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridging-test-eth)).
 
 ### How to find out which price oracle your node serves
 
@@ -49,9 +49,9 @@ If you know which price oracle your node is serving, you should skip ahead to Re
 7. Copy the address of the oracle you want to leave (you can distinguish the price oracles from deposit and withdrawal oracles by looking at the amount of MPC tokes they have "locked", price oracles have 5000, deposit and withdrawal oracles 250,000)
 8. Paste the address to the search field of the browser, to navigate to the contract
 
-**Request new oracle:**   
+### Request new oracle   
 
-- Invoke the contract action _requestNewOracle_ (you must by logged in to perform this action)   
+- Invoke the contract action _requestNewOracle_ [List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridging-test-eth) (you must be logged in to perform this action)   
  
 
 !!! note "Note"
