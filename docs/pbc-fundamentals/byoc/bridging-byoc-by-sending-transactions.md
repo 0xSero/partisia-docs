@@ -111,4 +111,9 @@ Besides the wallets, you will need the addresses of the [oracle](../dictionary.m
 [Small oracle contract on BNB Smartchain](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1)   
 [Large oracle contract on BNB smartchain](https://bscscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
 
+### Bridging Matic
 
+[Matic Deposit on PBC](https://browser.partisiablockchain.com/contracts/0411b34e3b8965035fbc12c5ef05e1ed00c6d1261c)   
+[Matic Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/04bcac555ce8397e120384fad0e148793a19ed980f)   
+[Small oracle contract on Polygon](https://polygonscan.com/address/0xe98670C2cBAfB2205BC99eBE33093233F7f07CC1)   
+[Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359Df1D8C126ea1b68BB51E958fdf43F8272)   
