@@ -37,7 +37,7 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
 
 ### Conditions for running a service
 
-Node services are handled by specific [system contracts](../pbc-fundamentals/governance-overview.md). To sign up for
+Node services are handled by specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md). To sign up for
 services a node operator associates a stake of token to the contract administrating the service
 ([see amount to stake for specific services](start-running-a-node.md)). Stakes work as an incentive against malicious
 behaviour.
