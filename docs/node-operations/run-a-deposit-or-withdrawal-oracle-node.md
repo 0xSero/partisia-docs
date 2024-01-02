@@ -1,7 +1,7 @@
 # Run a deposit or withdrawal oracle
 
 Below you see how to make your node eligible for serving in a deposit or
-withdrawal [oracle](../pbc-fundamentals/dictionary.md#oracle-node), and how to de-register if you want to stop providing
+withdrawal [oracle](../pbc-fundamentals/dictionary.md#oracle-node), and how to deregister if you want to stop providing
 the service. The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal oracles each 
 consisting of three nodes.
 
