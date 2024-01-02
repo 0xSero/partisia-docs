@@ -75,7 +75,7 @@ tokens incentives honest and reliable node services. [Read more about MPC tokens
 ??? info "[MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)"
     Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC
     tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account. You can
-    learn more about MPC tokens and their properties in the [MPC token model](mpc-token-model-and-account-elements.md)
+    learn more about MPC tokens and their properties in the [MPC token model](mpc-token-model-and-account-elements.md). The MPC Token contract uses [the standard of MPC-20](../smart-contracts/integration/mpc-20-token-contract.md). 
 
 ## Public smart contracts and Zero Knowledge smart contract
 
