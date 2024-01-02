@@ -2,16 +2,14 @@
 
 The maintenance page takes you through the following node issues:
 
-- Is your baker node working
-- Update your node manually
-- Check your IP accessibility and peers
-- Tools for measuring node performance
-- Interpret log messages and debugging problems - See if your node is signing blocks
-- Confirm that your BYOC endpoints are working
-- How to migrate your node to a different VPS   
-- Install Network Time Protocol (NTP) to avoid time drift   
-
-Navigate to the topic you want through the sidebar.
+- [Is your baker node working](#is-your-baker-node-working)   
+- [Update your node manually](#updating-your-node-manually)   
+- [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)   
+- [How to monitor node performance](#how-to-monitor-node-performance)   
+- [Interpret log messages and debugging problems - See if your node is signing blocks](#logs-and-storage)   
+- [Confirm that your BYOC endpoints are working](#confirm-that-your-byoc-endpoints-are-working)   
+- [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)   
+- [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)   
 
 ## Is your baker node working
 
