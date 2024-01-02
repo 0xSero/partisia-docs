@@ -96,7 +96,6 @@ Besides the wallets, you will need the addresses of the [oracle](../dictionary.m
 [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c)   
 [Large oracle contract on Ethereum](https://etherscan.io/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
 
-
 ### Bridging USDC
 
 [POLYGON_USDC Deposit on PBC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
