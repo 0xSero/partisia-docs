@@ -56,23 +56,15 @@ nav:
       - smart-contracts/smart-contract-tools-overview.md
       - smart-contracts/development-faq.md
   - Node Operations:
-      - node-operations/what-is-a-node-operator.md
-      - node-operations/how-to-run-a-reader-node.md
-      - Run a block producing node:
-          - node-operations/create-an-account-on-pbc.md
-          - node-operations/get-mpc-tokens.md
-          - node-operations/recommended-hardware-and-software.md
-          - node-operations/vps.md
-          - node-operations/secure-your-vps.md
-          - node-operations/reader-node-on-vps.md
-          - node-operations/complete-synaps-kyb.md
-          - node-operations/run-a-block-producing-node.md
-          - node-operations/register-your-node.md
-          - node-operations/node-health-and-maintenance.md
-          - node-operations/update-your-nodes-public-information.md
-      - Upgraded node services:
-          - node-operations/oracles-on-partisia-blockchain.md
-          - node-operations/price-oracle.md
+      - node-operations/start-running-a-node.md
+      - node-operations/run-a-reader-node.md
+      - node-operations/run-a-baker-node.md
+      - node-operations/run-a-price-oracle-node.md
+      - node-operations/run-a-zk-node.md
+      - node-operations/run-a-deposit-or-withdrawal-oracle-node.md
+      - node-operations/complete-synaps-kyb.md
+      - node-operations/node-health-and-maintenance.md
+      - node-operations/node-payment-rewards-and-risks.md
   - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
 
@@ -109,6 +101,19 @@ plugins:
           'pbc-fundamentals/onboarding-new-byoc.md': 'pbc-fundamentals/byoc/onboarding-new-byoc.md'
           'pbc-fundamentals/bridging-byoc-by-sending-transactions.md': 'pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md'
           'pbc-fundamentals/governance-overview.md': 'pbc-fundamentals/governance-system-smart-contracts-overview.md'
+          'node-operations/what-is-a-node-operator.md': 'node-operations/start-running-a-node.md'
+          'node-operations/how-to-run-a-reader-node.md': 'node-operations/run-a-reader-node.md'
+          'node-operations/create-an-account.md': 'node-operations/start-running-a-node.md'
+          'node-operations/get-mpc-tokens.md': 'node-operations/start-running-a-node.md'
+          'node-operations/recommended-hardware-and-software.md': 'node-operations/start-running-a-node.md'
+          'node-operations/vps.md': 'node-operations/run-a-reader-node.md'
+          'node-operations/secure-your-vps.md': 'node-operations/run-a-reader-node.md'
+          'node-operations/reader-node-on-vps.md': 'node-operations/run-a-reader-node.md'
+          'node-operations/run-a-block-producing-node.md': 'node-operations/run-a-baker-node.md'
+          'node-operations/register-your-node.md': 'node-operations/run-a-baker-node.md'
+          'node-operations/update-your-nodes-public-information.md': 'node-operations/node-health-and-maintenance.md'
+          'node-operations/oracles-on-partisia-blockchain.md': 'node-operations/run-a-deposit-or-withdrawal-oracle-node.md'
+          'node-operations/price-oracle.md': 'node-operations/run-a-price-oracle-node.md'
   - mermaid2:
       arguments:
         securityLevel: "loose"

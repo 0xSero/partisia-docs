@@ -15,7 +15,7 @@ In the deposit and withdrawal examples below, we will show how to bridge ETH. Th
 
 Below you will learn which contracts and invocations are used for deposits and withdrawals.
 PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, in the case of a withdrawal the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain.
-The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../../node-operations/oracles-on-partisia-blockchain.md).    
+The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../dictionary.md#small-oracle).    
 
 Every time the bridge is used 0.1% of transferred value is subtracted as a fee to pay for the service provided by oracle nodes. If you bridge 1 ETH, then 0.999 ETH is transferred and 0.001 ETH is paid to the oracle nodes.
 
@@ -80,7 +80,7 @@ withdraw(uint64 withdrawNonce,
 You can use the [Metamask wallet](https://metamask.io/download/) to sign and send transaction for Ethereum, Polygon and BNB smartchain. This wallet is primarily designed for Ethereum, but can interact with the other chains as well.    
 On Partisia Blockchain the easiest solution is to use [Partisia MetaMask Snap](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/) to sign your transaction.  Alternatively you can use the [Partisia Wallet](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
 
-Besides the wallets, you will need the addresses of the [oracle](../../node-operations/oracles-on-partisia-blockchain.md) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet test BYOC from the ETH Goerli testnet is available, but no other BYOC test coins from other chains.
+Besides the wallets, you will need the addresses of the [oracle](../dictionary.md#small-oracle) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet test BYOC from the ETH Goerli testnet is available, but no other BYOC test coins from other chains.
 
 To use a standardised digital asset on PBC you need to align with the [MPC-20 standard format](../../smart-contracts/integration/mpc-20-token-contract.md).
 
@@ -98,7 +98,6 @@ To use a standardised digital asset on PBC you need to align with the [MPC-20 st
 [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c)   
 [Large oracle contract on Ethereum](https://etherscan.io/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
 
-
 ### Bridging USDC
 
 [POLYGON_USDC Deposit on PBC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
@@ -113,4 +112,9 @@ To use a standardised digital asset on PBC you need to align with the [MPC-20 st
 [Small oracle contract on BNB Smartchain](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1)   
 [Large oracle contract on BNB smartchain](https://bscscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
 
+### Bridging Matic
 
+[Matic Deposit on PBC](https://browser.partisiablockchain.com/contracts/0411b34e3b8965035fbc12c5ef05e1ed00c6d1261c)   
+[Matic Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/04bcac555ce8397e120384fad0e148793a19ed980f)   
+[Small oracle contract on Polygon](https://polygonscan.com/address/0xe98670C2cBAfB2205BC99eBE33093233F7f07CC1)   
+[Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359Df1D8C126ea1b68BB51E958fdf43F8272)   

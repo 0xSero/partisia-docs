@@ -9,7 +9,7 @@ invoke the actions of the contract with your [wallet](https://snaps.metamask.io/
 
 ## Node operation
 
-[Node operators](../node-operations/what-is-a-node-operator.md) own and operate
+[Node operators](../node-operations/start-running-a-node.md) own and operate
 the nodes (servers) where the blockchain software runs. System contracts are needed for listing and staking for 
 confirmed block producers, as well as for payment to node operators for the services they provide, votes on software updates and registration of new node operators.
 
@@ -39,15 +39,15 @@ transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC syste
 transfers, withdrawals, deposits, price monitoring, staking of nodes and the audit of transfers done in each [epoch](dictionary.md#epoch).
 
 ??? info "[Large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)"
-    Administrates and oversees work done by [small oracles](../node-operations/oracles-on-partisia-blockchain.md#what-is-a-small-oracle). This includes allocation of eligible nodes to serve in the small oracles, the tokens staked on oracle service and voting on all disputes regarding the small oracles' work with BYOC.   
+    Administrates and oversees work done by [small oracles](../pbc-fundamentals/dictionary.md#small-oracle). This includes allocation of eligible nodes to serve in the small oracles, the tokens staked on oracle service and voting on all disputes regarding the small oracles' work with BYOC.   
     [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)    
 
 ### Small oracles
 
-Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)) or check prices ([Price Oracles](../node-operations/price-oracle.md)). Each deposit and withdrawal oracle consist of 3 nodes selected by the Large oracle. There is a small oracle contract for each deposit and withdrawal oracle corresponding to the different coins supported on PBC. Price oracles can be supported by a large number of nodes, there is likewise a small oracle contract for each price oracle monitoring a price of a specific BYOC.
+Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)) or check prices ([Price Oracles](../pbc-fundamentals/dictionary.md#price-oracle)). Each deposit and withdrawal oracle consist of 3 nodes selected by the Large oracle. There is a small oracle contract for each deposit and withdrawal oracle corresponding to the different coins supported on PBC. Price oracles can be supported by a large number of nodes, there is likewise a small oracle contract for each price oracle monitoring a price of a specific BYOC.
 
-??? info "[Price Oracles](../node-operations/price-oracle.md)"
-    Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [Read more about the price oracles](../node-operations/price-oracle.md). The contracts responsible for the price oracles are below.    
+??? info "[Price Oracles](../pbc-fundamentals/dictionary.md#price-oracle)"
+    Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [price oracle explanation](../pbc-fundamentals). The contracts responsible for the price oracles are below.    
     [ETH Price Oracle](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d)    
     [BNB Price Oracle](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39)
 
@@ -63,7 +63,7 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
     [BNB Withdrawal](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)    
 
 ??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
-    Facilitates the deployment of new price, deposit and withdrawal [oracles](../node-operations/oracles-on-partisia-blockchain.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
+    Facilitates the deployment of new price, deposit and withdrawal [oracles](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
 
 
 ## MPC tokens
