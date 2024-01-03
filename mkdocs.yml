@@ -112,6 +112,8 @@ plugins:
           'node-operations/run-a-block-producing-node.md': 'node-operations/run-a-baker-node.md'
           'node-operations/register-your-node.md': 'node-operations/run-a-baker-node.md'
           'node-operations/update-your-nodes-public-information.md': 'node-operations/node-health-and-maintenance.md'
+          'node-operations/oracles-on-partisia-blockchain.md': 'node-operations/run-a-deposit-or-withdrawal-oracle-node.md'
+          'node-operations/price-oracle.md': 'node-operations/run-a-price-oracle-node.md'
   - mermaid2:
       arguments:
         securityLevel: "loose"
