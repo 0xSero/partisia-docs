@@ -132,9 +132,9 @@ number and size of reads and writes is entirely dependent on the traffic on the 
 **Not signing as shutdown is active** - You may assume all is well. Shutdown happens when chosen producer fails to
 produce a block, a reset block is made, and then a new node is chosen for the role of producer.   
 **Not signing** - This is not a good sign, you are not signing blocks. First, check if you are on the list
-of [current committee members](https://mpcexplorer.com/validators), if you are not, and you have already sent the
+of [current committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators), if you are not, and you have already sent the
 Register Transaction, then you should search for your PBC account address in the state
-the [Block Producer Orchestration Contract](https://dashboard.partisiablockchain.com/info/contract/04203b77743ad0ca831df9430a6be515195733ad91) (
+the [Block Producer Orchestration Contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91) (
 BPOC). There is a field for each producer called "status": - after this you will see either "CONFIRMED" or "PENDING".
 Confirmed means you are registered as a block producer and are formally eligible to participate in the committee.
 Pending means your public information is still awaiting manual approval from the team cross-checking the information you
