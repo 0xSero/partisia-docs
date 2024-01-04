@@ -33,7 +33,7 @@ configure and register your node for higher paying services.
 If you have completed the reader and baker part of the guide you can do (given sufficient tokens) any combination of the
 other services, including multiple oracles on the same node.
 
-| **Required MPC token balance** | **Availasble Node service** | **Service consist of**                            |
+| **Required MPC token balance** | **Available Node service** | **Service consist of**                            |
 |----------------------------|------------------------------|---------------------------------------------------|
 | 0                          | [Reader node](run-a-reader-node.md)                  | Reading the blockchain state                      |
 | 25 K                       | [Baker node](run-a-baker-node.md)                   | Reader node service<br />Signing and producing blocks                      |
