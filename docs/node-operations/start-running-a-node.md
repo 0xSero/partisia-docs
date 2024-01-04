@@ -26,6 +26,7 @@ Joining the Discord server and completing the survey gives you the following ben
 
 Nodes performing paid services require a [stake](../pbc-fundamentals/dictionary.md#stakestaking) of MPC tokens. Higher
 stake services earn higher revenue. For paid services it is also required that the node's owner completes [Synaps KYC/B](complete-synaps-kyb.md).    
+
 Set-up of the different nodes overlap. All nodes have the set-up related to reader nodes in common. All staking nodes
 have the baker node set-up in common. Therefore, you must first set up and register as a baker node, before you can
 configure and register your node for higher paying services.
