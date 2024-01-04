@@ -32,7 +32,7 @@ have the baker node set-up in common. Therefore, you must first set up and regis
 configure and register your node for higher paying services.
 
 If you have completed the reader and baker part of the guide you can do (given sufficient tokens) any combination of the
-other services, including multiple oracles on the same node. All nodes 
+other services, including multiple oracles on the same node.   
 
 | **Required MPC token balance** | **Available Node service** | **Service consist of**                            |
 |----------------------------|------------------------------|---------------------------------------------------|
