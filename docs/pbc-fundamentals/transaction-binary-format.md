@@ -9,9 +9,9 @@ To put a transaction on the blockchain you need to have an account with gas. You
 }
 
 <InnerPart> := {
-    nonce: 0xnn*8
-    validToTime: 0xnn*8
-    gasCost: 0xnn*8
+    nonce: 0xnn*8                           (big-endian)
+    validToTime: 0xnn*8                     (big-endian)
+    gasCost: 0xnn*8                         (big-endian)
     innerTransaction: Transaction
 }
 ```
@@ -24,7 +24,7 @@ the amount of gas allocated to executing the transaction, and the actual content
     rpc := Rpc
 }
 
-<Rpc> := len:0xnn*4 payload:0xnn*len
+<Rpc> := len:0xnn*4 payload:0xnn*len        (len is big-endian)
 ```
 
 The transaction itself contains the address of the contract that is the target of the transaction 
@@ -37,7 +37,7 @@ The signature is created using the secp256k1 elliptic curve by signing a sha256 
 ````
 <ToBeHashed> := innerPart:InnerPart chainId:ChainId
 
-<ChainId> := len:0xnn*4 utf8:0xnn*len
+<ChainId> := len:0xnn*4 utf8:0xnn*len       (len is big-endian)
 ````
 
 The chain id is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
