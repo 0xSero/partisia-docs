@@ -8,6 +8,7 @@ nav:
       - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/governance-system-smart-contracts-overview.md
+      - pbc-fundamentals/transaction-binary-format.md
       - BYOC:
           - pbc-fundamentals/byoc/introduction-to-byoc.md
           - pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md
