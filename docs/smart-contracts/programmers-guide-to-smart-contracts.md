@@ -44,7 +44,8 @@ code for your actions.
 
 ## Macros
 
-Smart contract elements can be declared using these macros:
+Smart contract elements can be declared using
+these [macros](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/index.html#partisia-blockchain-sdk-macros):
 
 - [`#[state]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.state.html) declares
   how the contract represents its state.
@@ -207,7 +208,8 @@ reading: [callback macro documentation](https://partisiablockchain.gitlab.io/lan
 
 ## Traits
 
-The compiler exposes traits that provides serialization methods. These traits are
+The compiler exposes [traits](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/index.html) that
+provides serialization methods. These traits are
 important for the operation of PBC contracts, but should rarely be implemented
 manually; prefer using the built-in derive methods.
 
@@ -218,30 +220,23 @@ manually; prefer using the built-in derive methods.
 - CreateTypeSpec: Serialization
   for [ABI serialization format](../smart-contracts/smart-contract-binary-formats.md#abi-binary-format).
 
-Further
-reading: [`pbc_traits` crate documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_traits/index.html)
-
 ## Data Structures
 
 ### Address
 
-`Address` represents an address on the blockchain; it has a subfield indicating
-the type of the address (account, system contract, public contract or zk contract.)
-
-Further
-reading: [Address struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/address/struct.Address.html)
+[`Address`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/address/struct.Address.html)
+represents an address on the blockchain; it has a subfield indicating
+the type of the address (account, system contract, public contract or zk contract).
 
 ### ContractContext
 
-`ContractContext` is available from every action, and contains some useful
+[`ContractContext`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/index.html#structs)
+is available from every action, and contains some useful
 context information for the current transaction:
 
 - `Address` of the contract itself and the caller; the person or contract that caused the interaction.
 - The current block number, and time since some epoche.
 - Hashes of both the current transaction and the previous transaction.
-
-Further
-reading: [ContractContext struct documentation](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/index.html#structs)
 
 ### Events
 
