@@ -25,7 +25,7 @@ Partisia Blockchain browser can be used with the TestNet and the MainNet:
 
 ## Command-line tools
 
-`cargo partisia-contract` is an umbrella for multiple sub-tools. The tools assists you in
+[`cargo partisia-contract`](https://crates.io/crates/cargo-partisia-contract) is an umbrella for multiple sub-tools. The tools assist you in
 interacting with the blockchain and working with smart contracts. These tools are thoroughly documented when using them
 within `cargo partisia-contract`, enabling you to explore their capabilities inside `cargo partisia-contract`. Below are
 a short description and use case for each of these sub-tools.
