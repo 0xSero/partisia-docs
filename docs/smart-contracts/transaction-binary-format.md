@@ -33,11 +33,13 @@ make your own implementation, for instance if you are targeting another programm
 ```
 
 The Signature includes:
+
 - a recovery id between 0 and 3 used to recover the public key when verifying signature
 - the r value of the ECDSA signature
 - the s value of the ECDSA signature
 
 The innerPart includes:
+
 - the signer's [nonce](../pbc-fundamentals/dictionary.md#nonce)
 - a unix time that the transaction is valid to
 - the amount of [gas](gas/transaction-gas-prices.md) allocated to executing the transaction 
@@ -52,9 +54,10 @@ The innerPart includes:
 <Rpc> := len:0xnn*4 payload:0xnn*len        (len is big-endian)
 ```
 
-The transaction itself contains the address of the smart contract that is the target of the transaction
-and the rpc payload of the transaction.
-See [Smart Contract Binary Formats](smart-contract-binary-formats.md)
+The transaction includes:
+
+- the address of the smart contract that is the target of the transaction
+- the rpc payload of the transaction. See [Smart Contract Binary Formats](smart-contract-binary-formats.md)
 for a way to build the rpc payload.
 
 ## Creating the signature
