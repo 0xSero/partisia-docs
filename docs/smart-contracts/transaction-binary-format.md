@@ -4,7 +4,7 @@ A transaction is an instruction from a user containing information used to chang
 must cryptographically sign transactions they send to to ensure authenticity and non-repudiation.
 
 After constructing a binary signed transaction it can be delivered to any baker node in the network through
-their [REST API](/rest/).
+their [REST API](../rest).
 
 The following is the specification of the binary format of signed transactions.
 
