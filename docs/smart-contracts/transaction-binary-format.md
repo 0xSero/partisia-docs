@@ -1,7 +1,7 @@
 # Transaction Binary Format
 
 A transaction is an instruction from a user containing information used to change the state of the blockchain. Users
-must cryptographically sign transactions they send to to ensure authenticity and non-repudiation.
+must cryptographically sign transactions they send to ensure authenticity and non-repudiation.
 
 After constructing a binary signed transaction it can be delivered to any baker node in the network through
 their [REST API](../rest).
@@ -32,8 +32,16 @@ make your own implementation, for instance if you are targeting another programm
 }
 ```
 
-The innerPart includes the signer's nonce, a unix time that the transaction is valid to,
-the amount of gas allocated to executing the transaction, and the actual content of the transaction.
+The Signature includes:
+- a recovery id between 0 and 3 used to recover the public key when verifying signature
+- the r value of the ECDSA signature
+- the s value of the ECDSA signature
+
+The innerPart includes:
+- the signer's [nonce](../pbc-fundamentals/dictionary.md#nonce)
+- a unix time that the transaction is valid to
+- the amount of [gas](gas/transaction-gas-prices.md) allocated to executing the transaction 
+- the actual content of the transaction.
 
 ```
 <Transaction> := {
@@ -44,7 +52,7 @@ the amount of gas allocated to executing the transaction, and the actual content
 <Rpc> := len:0xnn*4 payload:0xnn*len        (len is big-endian)
 ```
 
-The transaction itself contains the address of the contract that is the target of the transaction
+The transaction itself contains the address of the smart contract that is the target of the transaction
 and the rpc payload of the transaction.
 See [Smart Contract Binary Formats](smart-contract-binary-formats.md)
 for a way to build the rpc payload.
