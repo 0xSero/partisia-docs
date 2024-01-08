@@ -1,11 +1,11 @@
 # Transaction Binary Format
 
-This is the specification of how to create a binary transaction from scratch. To put a transaction on the
-blockchain you have to create the binary payload of a SignedTransaction as described in this section.
+This article is created to help developers build blockchain transactions from the binary format for their own use or to
+translate it into other languages besides the already
+supported [client libraries](smart-contract-tools-overview.md#client).
 
-If you just need to send a transaction to the blockchain, you can make use of
-the [client library](https://gitlab.com/partisiablockchain/core/client/-/blob/main/src/main/java/com/partisiablockchain/client/transaction/BlockchainTransactionClient.java?ref_type=heads)
-that can sign and send a transaction for you.
+To put a transaction on the blockchain you have to create the binary payload according to the specification of
+`SignedTransaction`, using a valid signature.
 
 ```
 <SignedTransaction> := {
