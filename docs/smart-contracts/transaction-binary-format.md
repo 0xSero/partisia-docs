@@ -1,7 +1,13 @@
 # Transaction Binary Format
 
-This article is created to help developers build blockchain transactions from the binary format for their own use or to
-translate it into other languages besides the already
+A transaction is an instruction from a user containing information used to change the state of the blockchain. Users must cryptographically sign transactions they send to to ensure authenticity and non-repudiation.
+
+After constructing a binary signed transaction it can be delivered to any baker node in the network through their [REST API](/rest/).
+
+The following is the specification of the binary format of signed transactions. 
+
+The easiest way of creating a binary signed transaction is by using one of the available [client libraries](smart-contract-tools-overview.md#client). This specification can help you if you want to make your own implementation, for instance if you are targeting another programming language.
+
 supported [client libraries](smart-contract-tools-overview.md#client).
 
 To put a transaction on the blockchain you have to create the binary payload according to the specification of
