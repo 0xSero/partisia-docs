@@ -19,7 +19,7 @@ All computations defined in this document can be computed based on the on-chain 
 
 The on-chain account information is defined in the source code for the blockchain <https://gitlab.com/partisiablockchain/governance/account-plugin>
 
-Below is an example of the the on-chain account information for a given account taken from <https://testnet.partisiablockchain.com/info/account/00c46f56cd02c35543cf41c23cb24909b29539ead4>
+Below is an example of the on-chain account information for a given account taken from <https://testnet.partisiablockchain.com/info/account/00c46f56cd02c35543cf41c23cb24909b29539ead4>
 
 ```json
 {
@@ -67,7 +67,7 @@ Below is an example of the the on-chain account information for a given account 
 }
 ```
 
-The fields of the on-chain account information holds the following. The MPC token model described in the next section will give an overview and detailed computations for how the information can be aggregated meaningfully.
+The fields of the [on-chain account information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/Balance.html) holds the following. The MPC token model described in the next section will give an overview and detailed computations for how the information can be aggregated meaningfully.
 
 - `mpcTokens`: The total amount of MPC tokens that are transferable. This number can be negative if more tokens are in use than the released amount. Example: An account has 100 free tokens and 250 released: mpcTokens = 100. After staking 150: mpcTokens = -50
 - `stakedTokens`: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract in See stakedToContract
