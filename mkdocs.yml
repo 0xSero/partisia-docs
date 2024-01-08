@@ -8,7 +8,6 @@ nav:
       - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
       - pbc-fundamentals/governance-system-smart-contracts-overview.md
-      - pbc-fundamentals/transaction-binary-format.md
       - BYOC:
           - pbc-fundamentals/byoc/introduction-to-byoc.md
           - pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md
@@ -23,6 +22,7 @@ nav:
       - smart-contracts/access-and-use-the-testnet.md
       - smart-contracts/smart-contract-examples.md
       - smart-contracts/programmers-guide-to-smart-contracts.md
+      - smart-contracts/transaction-binary-format.md
       - smart-contracts/smart-contract-binary-formats.md
       - smart-contracts/how-to-create-a-vote-from-a-smart-contract.md
       - smart-contracts/testing-contracts/testing-a-smart-contract.md

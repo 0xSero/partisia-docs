@@ -41,7 +41,7 @@ the amount of gas allocated to executing the transaction, and the actual content
 
 The transaction itself contains the address of the contract that is the target of the transaction
 and the rpc payload of the transaction.
-See [Smart Contract Binary Formats](../smart-contracts/smart-contract-binary-formats.md)
+See [Smart Contract Binary Formats](smart-contract-binary-formats.md)
 for a way to build the rpc payload.
 
 ## Creating the signature
