@@ -10,7 +10,7 @@ Every user on Partisia Blockchain has an account. The account has an address and
 
 ### Address
 
-An addresses on PBC is a unique number that identifies the recipients and senders of transactions. User accounts and smart contracts can be senders and recipients of transactions and hence both have addresses. The address is a hexadecimal number derived from the public key. You use addresses when you deposit or withdraw BYOC. And when you transfer tokens to other accounts. Deployed contracts shows the owners account address and the contract address. In public node information the address refers to the geographical address of the entity (person or company) operating the node.
+An address on PBC is a unique number that identifies the recipients and senders of transactions. User accounts and smart contracts can be senders and recipients of transactions and hence both have addresses. The address is a hexadecimal number derived from the public key. You use an address when you deposit or withdraw BYOC. And when you transfer tokens to other accounts. Deployed contracts shows the owners account address and the contract address. In public node information the address refers to the geographical address of the entity (person or company) operating the node.
 
 ### Baker Node
 
@@ -69,7 +69,7 @@ ensures that the risk managed by the small Oracle in the latest [epoch](dictiona
 
 ### MPC
 
-Secure multiparty computation (for the token see MPC token). The privacy layer of Partisia Blockchain utilizes several zero knowledge protocols. Most notably MPC. MPC allows for calculation on private data, where you can make the result of the calculation public and keep the private data secure at the same time. A simple example of this could be calculation of average salary in a company. You do not want to disclose your own income, but it would be nice to know if you make more or less than the average. Instead of sending your private data to your peers you can send a random bite (share) of the private data out to several peers. They do the same. When doing the calculation no salaries are revealed but the total sum of the numbers is the same. So, you get the correct result even though the calculation is done on the data in a randomised form.
+The privacy layer of Partisia Blockchain utilizes several zero knowledge protocols. Most notably MPC (ecure multiparty computation). MPC allows for calculation on private data, where you can make the result of the calculation public and keep the private data secure at the same time. A simple example of this could be calculation of average salary in a company. You do not want to disclose your own income, but it would be nice to know if you make more or less than the average. Instead of sending your private data to your peers you can send a random bite (share) of the private data out to several peers. They do the same. When doing the calculation no salaries are revealed but the total sum of the numbers is the same. So, you get the correct result even though the calculation is done on the data in a randomised form.
 
 ### MPC Token
 
@@ -183,3 +183,7 @@ A VPS is a Virtual Private server. Just like you can have a virtual machines on 
 ### WASM
 
 Abbreviation for WebAssembly, a standardized binary code format which is used for the smart contracts deployed at PBC.
+
+### ZK Computation
+
+See [MPC](dictionary.md#mpc)

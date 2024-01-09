@@ -30,11 +30,15 @@ interacting with the blockchain and working with smart contracts. These tools ar
 within `cargo partisia-contract`, enabling you to explore their capabilities inside `cargo partisia-contract`. Below are
 a short description and use case for each of these sub-tools.
 
+???+ note 
+    If you want to use any of the command-line tools you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
+
 ### The Compiler `build`
 
 This is a primary part of developings smart contracts. The `build` command
 compiles [rust smart contracts](compile-and-deploy-contracts.md)
-and [ZK Rust smart contracts](zk-smart-contracts/compile-and-deploy-zk-contract.md). It compiles and returns `.abi` file and a `.wasm` for
+and [ZK Rust smart contracts](zk-smart-contracts/compile-and-deploy-zk-contract.md). It compiles and returns `.abi` file
+and a `.wasm` for
 rust
 contracts or `.zkwa` for ZK rust contracts.
 
@@ -72,6 +76,7 @@ the [abi-client](#abi-client).
 
 Example
 command:
+
 ```
 cargo partisia-contract abi show example-contracts/target/wasm32-unknown-unknown/release/auction_contract.abi
 ```

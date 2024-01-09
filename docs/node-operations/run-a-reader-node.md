@@ -1,10 +1,7 @@
 # Run a reader node
 
-This page explains what a reader node is and how to run it on a [VPS](../pbc-fundamentals/dictionary.md#vps).
-
-### What is a reader node
-
-A reader node can read the blockchain state and it does not require
+This page explains what a reader node is and how to run it on a [VPS](../pbc-fundamentals/dictionary.md#vps).   
+A reader node can read the blockchain state, and it does not require
 a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade from reader to a baker node and from there
 to a node running any [node service](start-running-a-node.md).    
 The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp
@@ -33,38 +30,6 @@ For best security practice root should not be default user. Add a non-root user:
 
 ````bash
 sudo adduser userNameHere
-````
-
-### Install Network Time Protocol
-
-To avoid time drift use Network Time Protocol (NTP). First install:
-
-````bash
- sudo apt-get update
-````
-
-````bash
- sudo apt-get install ntp ntpdate
-````
-
-Stop NTP service and point to NTP server:
-
-````bash
-sudo service ntp stop
-````
-
-````bash
-sudo ntpdate pool.ntp.org
-````
-
-Start NTP service and check status:
-
-````bash
-sudo service ntp start
-````
-
-````bash
-sudo systemctl status ntp
 ````
 
 ### Install htop
@@ -218,9 +183,9 @@ The `node-register.sh` script will help you generate a valid node configuration 
 
 To generate the `config.json` for a reader node you need following information:
 
-- The IP and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
+- The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999` (give the public key as hexadecimal or Base64). The location of other known
-  producers should be obtained by reaching out to the community.You can see how to reach the
+  producers should be obtained by reaching out to the community. You can see how to reach the
   community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
 
 
