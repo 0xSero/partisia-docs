@@ -15,7 +15,7 @@ make your own implementation, for instance if you are targeting another programm
 ```
 <SignedTransaction> := {
     signature: Signature
-    innerPart: InnerPart
+    transaction: Transaction
 }
 
 <Signature> := {
@@ -24,17 +24,20 @@ make your own implementation, for instance if you are targeting another programm
     valueS: 0xnn*32                         (big endian)
 }
 
-<InnerPart> := {
+<Transaction> := {
     nonce: 0xnn*8                           (big-endian)
     validToTime: 0xnn*8                     (big-endian)
     gasCost: 0xnn*8                         (big-endian)
-    innerTransaction: Transaction
+    address: 0xnn*21
+    rpc := Rpc
 }
+
+<Rpc> := len:0xnn*4 payload:0xnn*len        (len is big-endian)
 ```
 
 The Signature includes:
 
-- a recovery id between 0 and 3 used to recover the public key when verifying signature
+- a recovery id between 0 and 3 used to recover the public key when verifying the signature
 - the r value of the ECDSA signature
 - the s value of the ECDSA signature
 
@@ -43,30 +46,17 @@ The innerPart includes:
 - the signer's [nonce](../pbc-fundamentals/dictionary.md#nonce)
 - a unix time that the transaction is valid to
 - the amount of [gas](gas/transaction-gas-prices.md) allocated to executing the transaction 
-- the actual content of the transaction.
-
-```
-<Transaction> := {
-    address: 0xnn*21
-    rpc := Rpc
-}
-
-<Rpc> := len:0xnn*4 payload:0xnn*len        (len is big-endian)
-```
-
-The transaction includes:
-
 - the address of the smart contract that is the target of the transaction
 - the rpc payload of the transaction. See [Smart Contract Binary Formats](smart-contract-binary-formats.md)
-for a way to build the rpc payload.
+  for a way to build the rpc payload.
 
 ## Creating the signature
 
-The signature is an ECDSA signature, using secp256k1 as the curve, on a sha256 hash of the innerPart and the chain ID of
+The signature is an ECDSA signature, using secp256k1 as the curve, on a sha256 hash of the transaction and the chain ID of
 the blockchain.
 
 ````
-<ToBeHashed> := innerPart:InnerPart chainId:ChainId
+<ToBeHashed> := transaction:Transaction chainId:ChainId
 
 <ChainId> := len:0xnn*4 utf8:0xnn*len       (len is big-endian)
 ````
