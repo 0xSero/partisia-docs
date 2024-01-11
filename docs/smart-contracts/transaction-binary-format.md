@@ -1,6 +1,6 @@
 # Transaction Binary Format
 
-A transaction is an instruction from a user containing information used to change the state of the blockchain.
+A transaction is an instruction from a user containing information used to change the state of the blockchain. You can learn more about how interactions work on the blockchain [here](smart-contract-interactions-on-the-blockchain.md#simple-interaction-model). 
 
 After constructing a binary signed transaction it can be delivered to any baker node in the network through
 their [REST API](../rest).
