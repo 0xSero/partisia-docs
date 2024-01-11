@@ -41,7 +41,7 @@ The Signature includes:
 - the r value of the ECDSA signature
 - the s value of the ECDSA signature
 
-The innerPart includes:
+The Transaction includes:
 
 - the signer's [nonce](../pbc-fundamentals/dictionary.md#nonce)
 - a unix time that the transaction is valid to
