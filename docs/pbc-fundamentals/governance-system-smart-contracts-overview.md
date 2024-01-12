@@ -93,6 +93,7 @@ secret calculation. You have the ability to deploy your own smart contracts with
 
 ??? info "[WASM Deploy](https://browser.partisiablockchain.com/contracts/0197a0e238e924025bad144aa0c4913e46308f9a4d)"
     Facilitates deployment of public smart contracts. [See contract in browser](https://browser.partisiablockchain.com/contracts/0197a0e238e924025bad144aa0c4913e46308f9a4d)
+    [Public deploy contract documentation](https://partisiablockchain.gitlab.io/governance/pub-deploy/com/partisiablockchain/governance/pubdeploy/PublicDeployContract.html).
 
 ## Foundation
 
