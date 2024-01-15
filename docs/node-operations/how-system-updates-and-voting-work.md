@@ -13,7 +13,7 @@ Votes are decided by a two-thirds-plus-one majority, e.g. for a baker node commi
 
 ## How the default yes-vote works
 
-Nodes vote yes to on-chain updates by default. This is expedient in case of bugs. Votes on controversial changes can be proposed as manual votes. 
+Nodes vote yes to on-chain updates by default. This is expedient in case of bugs. Votes on controversial changes can be proposed as a manual votes. 
 
 ## How to change the config.json in order to cast a no-vote
 
@@ -65,7 +65,7 @@ Example:
         }
     }
 ```
-The result of this change is an automatic no-vote on f38987b9ceed396fbe0a33041e4f5c41ad0d781d2bea641b4b31d31d4501b5e5 and 981dee91405a4f60fcfdfd41e88b04a1e5e9023d4c49449228a9f9207bb4ba39 from your node.
+The result of this change is an automatic no-vote on votes with poll id f38987b9ceed396fbe0a33041e4f5c41ad0d781d2bea641b4b31d31d4501b5e5 and 981dee91405a4f60fcfdfd41e88b04a1e5e9023d4c49449228a9f9207bb4ba39 from your node.
 
 
 ## Updates with manual voting
