@@ -71,7 +71,7 @@ These steps specify what information is needed in the below form, each number co
 8. After the creation of the proposal, we suggest you share your forms details
    with [the community](../../get-support-from-pbc-community.md) to make it easier for
    them to verify your proposal.
-9. When node operators have voted, you need to execute the proposal this action costs ~260.000 gas. 
+9. When node operators have voted, you need to execute the proposal this action costs ~260.000 gas. You can execute the proposal by using the check update interaction on the [system update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/checkUpdate). 
 
 For step 2 and 4 the form below allows using Metamask to send the transactions.
 
