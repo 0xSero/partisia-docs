@@ -6,6 +6,10 @@ signing and producing blocks. By completing the steps below your node will be el
 computations by [ZK smart contracts](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md) and earning revenue
 for the zero knowledge computations performed.
 
+## Set up a reverse proxy
+
+ZK nodes and reader nodes for development need a reverse proxy server.  ZK nodes need it to be able to give and receive secret inputs. For reader nodes it
+
 
 !!! Warning " You must complete these requirements before you can continue"   
     For a reader node only set up reverse proxy - step 3
