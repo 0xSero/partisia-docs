@@ -8,7 +8,15 @@ for the zero knowledge computations performed.
 
 ## Set up a reverse proxy
 
-ZK nodes and reader nodes for development need a reverse proxy server.  ZK nodes need it to be able to give and receive secret inputs. For reader nodes it
+ZK nodes and reader nodes for development need a reverse proxy server.  ZK nodes need it to be able to give and receive secret inputs. Reader nodes need to set rate limits to prevent DDOS (denial-of-service-attacks).
+
+Your node is running a docker image with the pbc-mainnet software. The source of the image and name of the container is defined in the "service:"-field of  `docker-compose.yml`. In this example we will set up a reverse proxy by modifying the `docker-compose.yml`. You add additional services to act as a proxy server for incoming and outgoing traffic.
+
+### Get Domain
+
+### Get SSL certificate
+
+### Modify `docker-compose.yml`
 
 
 !!! Warning " You must complete these requirements before you can continue"   
