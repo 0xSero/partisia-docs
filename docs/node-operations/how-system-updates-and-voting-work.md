@@ -107,7 +107,7 @@ You can leave the override maps in the `config.json`, besides the specific vote 
 
 ## Updates with manual voting
  
-Vote responsibly! Voting on a system update means that you are voting on an irreversible change to on-chain components like system contracts and plugins. Anyone with sufficient tokens can propose a vote. If a person unknown to you propose a change you do not understand, do not vote for it.  
+Vote responsibly! Voting on a system update means that you are voting on an irreversible change to on-chain components like system contracts and plugins. Anyone with sufficient tokens can propose a vote. If you are unable to verify a votes content we recommend you to think twice before voting for it.  
 
 Cast a manual vote:
 
