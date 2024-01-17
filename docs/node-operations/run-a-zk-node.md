@@ -6,6 +6,16 @@ signing and producing blocks. By completing the steps below your node will be el
 computations by [ZK smart contracts](../smart-contracts/zk-smart-contracts/zk-smart-contracts.md) and earning revenue
 for the zero knowledge computations performed.
 
+## Requirements of a ZK node
+
+!!! info "Requirements"   
+For a reader node only set up reverse proxy
+1. 100K MPC tokens staked for the baker node service and ZK node service    
+2. A reverse proxy server redirecting incoming and outgoing traffic. This includes:    
+    - Web domain with a valid SSL certificate for an https endpoint   
+    - A modified `docker--compose.yml` defining a docker service acting as proxy   
+3. A registration of the node and endpoint in the [ZK Registry Contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/)    
+
 ## Set up a reverse proxy
 
 ZK nodes and reader nodes for development need a reverse proxy server.  ZK nodes need it to be able to give and receive secret inputs. Reader nodes need to set rate limits to prevent DDOS (denial-of-service-attacks).
