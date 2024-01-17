@@ -9,13 +9,14 @@ for the zero knowledge computations performed.
 ## Requirements of a ZK node
 
 !!! Warning " You must complete these requirements before you can go to registration"   
-For a reader node only set up reverse proxy - step 3
+
+    For a reader node only set up reverse proxy - step 3
 
     1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
     2. [Run baker node](run-a-baker-node.md)
     3. You have set up a reverse proxy. This includes:
-         - Web domain with a valid SSL certificate for an https endpoint
-         - A modified `docker--compose.yml` defining a docker service acting as proxy  
+        - Web domain with a valid SSL certificate for an https endpoint
+        - A modified `docker--compose.yml` defining a docker service acting as proxy  
     4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
 
 
@@ -31,7 +32,9 @@ Your node is running a docker image with the pbc-mainnet software. The source of
 
 ### Modify `docker-compose.yml`
 
-## Complete the following steps
+## Register your ZK node 
+
+Complete the following steps:
 
 1. [Associate](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/associateTokens) 75 K MPC tokens to the ZK Node Registry contract
 2. [Register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode) as a ZK node (You need to have your https rest endpoint ready)
