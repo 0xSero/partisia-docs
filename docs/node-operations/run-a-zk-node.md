@@ -8,12 +8,22 @@ for the zero knowledge computations performed.
 
 ## Requirements of a ZK node
 
+!!! Warning " You must complete these requirements before you can go to registration"   
+For a reader node only set up reverse proxy - step 3
+
+    1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
+    2. [Run baker node](run-a-baker-node.md)
+    3. You have set up a reverse proxy. This includes:
+         - Web domain with a valid SSL certificate for an https endpoint
+         - A modified `docker--compose.yml` defining a docker service acting as proxy  
+    4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
+
+
 !!! info "Requirements"   
 For a reader node only set up reverse proxy
 1. 100K MPC tokens staked for the baker node service and ZK node service    
 2. A reverse proxy server redirecting incoming and outgoing traffic. This includes:    
-    - Web domain with a valid SSL certificate for an https endpoint   
-    - A modified `docker--compose.yml` defining a docker service acting as proxy   
+    
 3. A registration of the node and endpoint in the [ZK Registry Contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/)    
 
 ## Set up a reverse proxy
@@ -27,15 +37,6 @@ Your node is running a docker image with the pbc-mainnet software. The source of
 ### Get SSL certificate
 
 ### Modify `docker-compose.yml`
-
-
-!!! Warning " You must complete these requirements before you can continue"   
-    For a reader node only set up reverse proxy - step 3
-
-    1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
-    2. [Run baker node](run-a-baker-node.md)
-    3. You have set up a reverse proxy and purchased a domain as described [here](https://drive.google.com/file/d/1WOzM63QsBntSVQMpWhG7oDuEWYJE2Ass/view?usp=sharing)
-    4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
 
 ## Complete the following steps
 
