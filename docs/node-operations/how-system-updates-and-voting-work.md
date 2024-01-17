@@ -103,7 +103,7 @@ Verify that the node is running:
 docker logs -f pbc-mainnet
 ```
 
-You can leave the override maps in the `config.json`, besides the specific vote they do not affect the node. Consider that a long list of overrides might make your `config.json` hard to read.
+You can leave the override maps in the `config.json`, besides the specific vote they do not affect the node. After the vote has passed and the result is on chain you consider removing the override maps. A long list of overrides might make your `config.json` hard to read.
 
 ## Updates with manual voting
  
