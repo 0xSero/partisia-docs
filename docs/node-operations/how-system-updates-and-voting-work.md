@@ -43,7 +43,7 @@ sudo cat /opt/pbc-mainnet/conf/config.json
     }
 ```
 
-Before you make any changes to your `config.json`, you first navigate to the directory of your `docker-compose.yml` and shut down the container running the image for pbc-mainnet:
+Always shut down your node before making changes to the `config.json`. You first navigate to the directory of your `docker-compose.yml` and shut down the container running the image for pbc-mainnet:
 
 ````bash
 cd pbc
