@@ -89,7 +89,7 @@ Example:
 ```
 The result of this change is an automatic no-vote on votes with poll id f38987b9ceed396fbe0a33041e4f5c41ad0d781d2bea641b4b31d31d4501b5e5 and 981dee91405a4f60fcfdfd41e88b04a1e5e9023d4c49449228a9f9207bb4ba39 from your node.
 
-Make sure the JSON you made is valid. You can download a JSON editor or use a free online [validator](https://jsonlint.com/). Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+Make sure the JSON you made is valid. You can download a JSON editor or use a free online [validator](https://jsonlint.com/). Save the file in nano by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 Start the node:
 
