@@ -19,13 +19,6 @@ For a reader node only set up reverse proxy - step 3
     4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
 
 
-!!! info "Requirements"   
-For a reader node only set up reverse proxy
-1. 100K MPC tokens staked for the baker node service and ZK node service    
-2. A reverse proxy server redirecting incoming and outgoing traffic. This includes:    
-    
-3. A registration of the node and endpoint in the [ZK Registry Contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/)    
-
 ## Set up a reverse proxy
 
 ZK nodes and reader nodes for development need a reverse proxy server.  ZK nodes need it to be able to give and receive secret inputs. Reader nodes need to set rate limits to prevent DDOS (denial-of-service-attacks).
