@@ -15,8 +15,8 @@ for the zero knowledge computations performed.
     1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
     2. [Run baker node](run-a-baker-node.md)
     3. You have set up a reverse proxy. This includes:
-        - Web domain with a valid SSL certificate for an https endpoint
-        - A modified `docker--compose.yml` defining a docker service acting as proxy  
+        - Web domain with a valid SSL/TSL certificate for an https endpoint
+        - A modified `docker-compose.yml` defining a docker service acting as proxy  
     4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
 
 
@@ -30,7 +30,15 @@ Your node is running a docker image with the pbc-mainnet software. The source of
 
 ### Get SSL certificate
 
+We show you how to get an SSL certificate.
+
 ### Modify `docker-compose.yml`
+
+The modified docker compose handles to new services in addition to managing the pbc-mainet container: 1) an nginx proxy server, and an automated certificate manager (acme).
+
+### Set autoupdate script to target the new services at an alternate scheduel
+
+
 
 ## Register your ZK node 
 
