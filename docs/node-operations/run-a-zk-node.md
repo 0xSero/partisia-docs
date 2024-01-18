@@ -38,6 +38,7 @@ The modified docker compose handles to new services in addition to managing the 
 
 ### Set autoupdate script to target the new services at an alternate scheduel
 
+Your current autoupdate script is set to call your docker to pull latest services daily. You need to change this.
 
 
 ## Register your ZK node 
