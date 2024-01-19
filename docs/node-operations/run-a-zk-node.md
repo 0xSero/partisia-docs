@@ -66,7 +66,7 @@ method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-ho
 
 ### Modify `docker-compose.yml`
 
-The modified docker compose handles to new services in addition to managing the pbc-mainet container: 1) an nginx proxy
+The modified docker compose handles two new services in addition to managing the pbc-mainet container: 1) an nginx proxy
 server, and an automated certificate manager (acme).
 
 ````yaml
