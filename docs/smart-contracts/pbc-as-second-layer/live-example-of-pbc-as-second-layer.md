@@ -60,7 +60,7 @@
 By following these steps you have now cast a secret vote and counted the result using PBC.
 
 If you encounter any issues while casting your vote or counting the result, you are always welcome to ask for assistance
-in our [community](https://partisiablockchain.com/community).
+in our [community](../../get-support-from-pbc-community.md).
 
 ## Transfer the result securely back to Ethereum
 
