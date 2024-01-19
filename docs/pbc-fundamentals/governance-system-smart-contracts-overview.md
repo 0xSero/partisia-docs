@@ -17,20 +17,29 @@ confirmed block producers, as well as for payment to node operators for the serv
     The Block producer orchestration (BPO) contract holds the information about block producers. In the state you can see
     the current and previous committees. You can see the timestamp showing the last committee change. Invoking the
     contract will change the committee if the current committee is more than a month old. [See contract in browser](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
+    
+    [Block producer orchestration contract documentation](https://partisiablockchain.gitlab.io/governance/bp-orchestration-contract/com/partisiablockchain/governance/bporchestration/BpOrchestrationContract.html)
+
 
 ??? info "[Fee distribution](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9)"
     The Fee distribution contract takes care of the payment for baker node services. Every node makes a list of how many
     signatures they have received from every other node. Roughly, the top ⅔ best performers in each list get a vote. If more
     than ⅓ producers vote for your node, then it will be paid in that [epoch](dictionary.md#epoch). [See contract in browser](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9)
 
+    [Fee distribution contract documentation](https://partisiablockchain.gitlab.io/governance/fee-distribution-contract/com/partisiablockchain/governance/feedistribution/package-summary.html)
+
 ??? info "[System update](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)"
     The system update contract facilitates votes from committee members (confirmed and active block producers) on updates of
     on chain information, such as updates to governance contracts. There are manual and automated votes. Automated votes are
     yes votes by default unless actively changed by the individual node operator. [See contract in browser](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)
 
+    [System update contract documentation](https://partisiablockchain.gitlab.io/governance/voting/com/partisiablockchain/governance/voting/VotingContract.html)
+
 ??? info "[Synaps KYC / KYB contract](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)"
     The KYC contract validates block producer's personal information coming from the KYC provider before they can be
     confirmed as block producers and listed in the BPO contract. [See contract in browser](https://browser.partisiablockchain.com/contracts/014aeb24bb43eb1d62c0cebf2a1318e63e35e53f96)
+
+    [Synaps KYC / KYB contract documentation](https://partisiablockchain.gitlab.io/governance/synaps-kycb-contract/com/partisiablockchain/governance/SynapsKycbContract.html)
 
 ## [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md) - The system of liquidity
 
@@ -42,6 +51,8 @@ transfers, withdrawals, deposits, price monitoring, staking of nodes and the aud
     Administrates and oversees work done by [small oracles](../pbc-fundamentals/dictionary.md#small-oracle). This includes allocation of eligible nodes to serve in the small oracles, the tokens staked on oracle service and voting on all disputes regarding the small oracles' work with BYOC.   
     [See contract in browser](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)    
 
+    [Large oracle contract documentation](https://partisiablockchain.gitlab.io/governance/large-oracle-contract/com/partisiablockchain/governance/LargeOracleContract.html).
+
 ### Small oracles
 
 Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)) or check prices ([Price Oracles](../pbc-fundamentals/dictionary.md#price-oracle)). Each deposit and withdrawal oracle consist of 3 nodes selected by the Large oracle. There is a small oracle contract for each deposit and withdrawal oracle corresponding to the different coins supported on PBC. Price oracles can be supported by a large number of nodes, there is likewise a small oracle contract for each price oracle monitoring a price of a specific BYOC.
@@ -50,6 +61,8 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
     Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [price oracle explanation](../pbc-fundamentals). The contracts responsible for the price oracles are below.    
     [ETH Price Oracle](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d)    
     [BNB Price Oracle](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39)
+
+    [Price oracle contract documentation](https://partisiablockchain.gitlab.io/governance/price-oracle-contract/com/partisiablockchain/governance/priceoracle/PriceOracleContract.html).
 
 
 ??? info "[Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)"
@@ -62,8 +75,14 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
     [BNB Deposit](https://browser.partisiablockchain.com/contracts/047e1c96cd53943d1e0712c48d022fb461140e6b9f)    
     [BNB Withdrawal](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)    
 
+    [Deposit oracle contract documentation](https://partisiablockchain.gitlab.io/governance/byoc-incoming/com/partisiablockchain/governance/byocincoming/ByocIncomingContract.html).
+
+    [Withdrawal oracle contract documentation](https://partisiablockchain.gitlab.io/governance/byoc-outgoing/com/partisiablockchain/governance/byocoutgoing/ByocOutgoingContract.html).
+
 ??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
     Facilitates the deployment of new price, deposit and withdrawal [oracles](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
+    
+    [BP Orchestration contract documentation](https://partisiablockchain.gitlab.io/governance/bp-orchestration-contract/com/partisiablockchain/governance/bporchestration/BpOrchestrationContract.html).
 
 
 ## MPC tokens
@@ -76,6 +95,8 @@ tokens incentives honest and reliable node services. [Read more about MPC tokens
     Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC
     tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account. You can
     learn more about MPC tokens and their properties in the [MPC token model](mpc-token-model-and-account-elements.md). The MPC Token contract uses [the standard of MPC-20](../smart-contracts/integration/mpc-20-token-contract.md). 
+
+    [MPC token contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-token/com/partisiablockchain/governance/mpctoken/package-summary.html).
 
 ## Public smart contracts and Zero Knowledge smart contract
 
