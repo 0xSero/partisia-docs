@@ -26,7 +26,10 @@ ZK nodes and reader nodes for development need a reverse proxy server.  ZK nodes
 
 Your node is running a docker image with the pbc-mainnet software. The source of the image and name of the container is defined in the "service:"-field of  `docker-compose.yml`. In this example we will set up a reverse proxy by modifying the `docker-compose.yml`. You add additional services to act as a proxy server for incoming and outgoing traffic.
 
-### Get Domain
+### Get Domain and create a DNS A-record
+
+Buy a web domain from a reputable source, make sure to choose a domain name that does not match something proprietary. If you want to associate the name with the public blockchain Partisia Blockchain that is okay. But Partisia is an independent privately owned company, providing software and infrastructure and run an infrastructure and reader node on PBC. So, avoid names that give the impression that your node is run by the company Partisia.
+
 
 ### Get SSL certificate
 
@@ -36,7 +39,7 @@ We show you how to get an SSL certificate.
 
 The modified docker compose handles to new services in addition to managing the pbc-mainet container: 1) an nginx proxy server, and an automated certificate manager (acme).
 
-### Set autoupdate script to target the new services at an alternate scheduel
+### Set autoupdate script to target the new services at an alternate schedule
 
 Your current autoupdate script is set to call your docker to pull latest services daily. You need to change this.
 
