@@ -11,10 +11,10 @@
 !!! note
     Before you can test the already deployed example, you need the following setup:
 
-    1. A [testnet](/docs/testnet.md) [PBC account](/docs/accounts.md) [with gas](/docs/byoc.md)
+    1. A testnet [PBC account](../../pbc-fundamentals/create-an-account.md) [with gas](../gas/how-to-get-testnet-gas.md)
     2. A test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used [a faucet from the official docs](https://ethereum.org/en/developers/docs/networks/#goerli)
 
-    We suggest to use [metamask](/docs/accounts.md) for Goerli testnet.
+    We suggest to use [metamask](../../pbc-fundamentals/create-an-account.md) for Goerli testnet.
 
 ## Casting secret votes on the PBC contract
 
