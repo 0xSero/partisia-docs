@@ -34,21 +34,88 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
     gets access to several shares there is a risk that they can guess the original input. For this reason traffic related to
     ZK computations travel through an https endpoint. Baker traffic does not need this because their actions end up on the public ledger.
 
-### Get Domain and create a DNS A-record
+### Get Domain and create a Domain Name Service Address record (DNS A-record)
 
-Buy a web domain from a reputable source, make sure to choose a domain name that does not match something proprietary.
-If you want to associate the name with the public blockchain Partisia Blockchain that is okay. But Partisia is an
-independent privately owned company, providing software and infrastructure and run an infrastructure and reader node on
-PBC. So, avoid names that give the impression that your node is run by the company Partisia.
+Buy a web domain either from your VPS provider or from another reputable
+source ([this article has a list](https://www.forbes.com/advisor/business/software/best-web-hosting-services/)). Make
+sure to choose a domain name that does not match something proprietary. If you want to associate the name with the
+public blockchain Partisia Blockchain that is okay. But Partisia is an independent privately owned company, providing
+software and infrastructure and run an infrastructure and reader node on PBC. So, avoid names that give the impression
+that your node is run by the company Partisia.
 
-### Get SSL certificate
+When you have purchased a domain make an address record (A-record) for a subdomain and point it to your node.
 
-We show you how to get an SSL certificate.
+!!! Example "You have purchased domain "mynode.com" and have VPS host IP 123.123.123.123"
+
+    1. Sign in to your domain controll panel and find DNS reords
+    2. Make an A-record pointing zk.mynode.com to 123.123.123.123
+
+
+### Install necessary software
+
+This example uses nginx for the proxy server and acme-companion handles automated creation and renewal of the SSL
+certificate. Both services are manged by the `docker-compose.yml`.
+
+```BASH
+sudo apt update
+sudo apt install nginx
+```
+
+For installation of `acme.sh` choose your preferred installation
+method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-how-to-install)
 
 ### Modify `docker-compose.yml`
 
 The modified docker compose handles to new services in addition to managing the pbc-mainet container: 1) an nginx proxy
 server, and an automated certificate manager (acme).
+
+````yaml
+version: "2.0"
+services:
+  pbc:
+    image: registry.gitlab.com/partisiablockchain/mainnet:latest
+    container_name: pbc-mainnet
+    user: "1500:1500"
+    restart: always
+    expose:
+    - "8080"
+    ports:
+    - "9888-9897:9888-9897"
+    command: [ "/conf/config.json", "/storage/" ]
+    volumes:
+    - /opt/pbc-mainnet/conf:/conf
+    - /opt/pbc-mainnet/storage:/storage
+    environment:
+    - JAVA_TOOL_OPTIONS="-Xmx8G"
+    - VIRTUAL_HOST=your_sub.domain.com
+    - VIRTUAL_PORT=8080
+    - LETSENCRYPT_HOST=your_sub.domain.com
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy:alpine
+    container_name: pbc-nginx
+    restart: always
+    ports:
+    - "80:80"
+    - "8443:443"
+    volumes:
+    - conf:/etc/nginx/conf.d
+    - vhost:/etc/nginx/vhost.d
+    - html:/usr/share/nginx/html
+    - certs:/etc/nginx/certs:ro
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: pbc-acme
+    restart: always
+    volumes_from:
+    - nginx-proxy
+    volumes:
+    - certs:/etc/nginx/certs:rw
+    - acme:/etc/acme.sh
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+    - DEFAULT_EMAIL=your@email.address
+````
 
 ### Set autoupdate script to target the new services at an alternate schedule
 
