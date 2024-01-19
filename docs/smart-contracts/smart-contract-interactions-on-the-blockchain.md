@@ -12,7 +12,9 @@ the same way as in a database system.
 ## Simple interaction model
 
 Users change the state of Partisia Blockchain by sending a _signed transaction_ to a _smart contract_. The signature
-ensures that the user has authorized the transaction.
+ensures that the user has authorized the transaction. Users
+must cryptographically sign transactions they send to ensure authenticity and non-repudiation.
+
 When the blockchain receives a signed transaction and verified the signature it spawns an _event_ (dotted line), which
 is
 forwarded to the smart contract. The event carries the information about which _action_ to perform to the smart
