@@ -116,6 +116,7 @@ services:
     environment:
     - DEFAULT_EMAIL=your@email.address
 ````
+[Check that your file is valid yml-format](https://www.yamllint.com/)
 
 ### Set autoupdate script to target the new services at an alternate schedule
 
