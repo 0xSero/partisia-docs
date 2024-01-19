@@ -138,4 +138,4 @@ by following system contracts. [Read more about PBC foundation](https://partisia
 ??? info "[Foundation Sale](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)"
     Facilitates the sale of MPC tokens. [See contract in browser](https://browser.partisiablockchain.com/contracts/012635f1c0a9bffd59853c6496e1c26ebda0e2b4da)
 
-    [Foundation sale contract documentation (Same as above)](https://partisiablockchain.gitlab.io/governance/foundation-contract/com/partisiablockchain/governance/foundationcontract/FoundationContract.html)
+    [Foundation sale contract documentation (Same as foundation eco-system)](https://partisiablockchain.gitlab.io/governance/foundation-contract/com/partisiablockchain/governance/foundationcontract/FoundationContract.html)
