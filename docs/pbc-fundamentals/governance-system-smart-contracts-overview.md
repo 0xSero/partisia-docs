@@ -82,7 +82,7 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
 ??? info "[BYOC orchestration](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)"
     Facilitates the deployment of new price, deposit and withdrawal [oracles](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/0458ff0a290e2fe847b23a364925799d1c53c8b36b)
     
-    [BP Orchestration contract documentation](https://partisiablockchain.gitlab.io/governance/bp-orchestration-contract/com/partisiablockchain/governance/bporchestration/BpOrchestrationContract.html).
+    [BP Orchestration contract documentation](https://partisiablockchain.gitlab.io/governance/byoc-orchestrator-contract/com/partisiablockchain/governance/byocorchestrator/ByocOrchestratorContract.html).
 
 
 ## MPC tokens
