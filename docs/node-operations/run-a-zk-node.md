@@ -28,6 +28,12 @@ Your node is running a docker image with the pbc-mainnet software. The source of
 defined in the "service:"-field of  `docker-compose.yml`. In this example we will set up a reverse proxy by modifying
 the `docker-compose.yml`. You add additional services to act as a proxy server for incoming and outgoing traffic.
 
+!!! Info "If input for ZK contracts are safe, why do I need an https endpoint?"
+
+    Inputs given to ZK contracts are preprocessed and cut into randomized parts called secret shares. But if a third party
+    gets access to several shares there is a risk that they can guess the original input. For this reason traffic related to
+    ZK computations travel through an https endpoint. Baker traffic does not need this because their actions end up on the public ledger.
+
 ### Get Domain and create a DNS A-record
 
 Buy a web domain from a reputable source, make sure to choose a domain name that does not match something proprietary.
