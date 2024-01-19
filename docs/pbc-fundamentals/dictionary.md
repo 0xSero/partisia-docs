@@ -32,7 +32,7 @@ Cross-chain bridges connect the Partisia Blockchain with other blockchains, enab
 
 ### BYOC
 
-The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](byoc/introduction-to-byoc.md).
+The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](../pbc-fundamentals/byoc/introduction-to-byoc.md).
 
 ### Committee
 
@@ -44,7 +44,7 @@ The amount of time, that passes before an oracle or committee changes members.
 
 ### ETH
 
-The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](byoc/introduction-to-byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
+The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](../pbc-fundamentals/byoc/introduction-to-byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
 
 ### Event transactions
 
@@ -65,11 +65,11 @@ Gas is a small fraction of BYOC. The cost of transactions on PBC is measured in 
 ### Large Oracle
 
 After each [epoch](dictionary.md#epoch) (When all baker nodes have had their turn as producers) a large Oracle consisting of all Baker nodes or the blockchain as a whole
-ensures that the risk managed by the small Oracle in the latest [epoch](dictionary.md#epoch) is contained. The large oracle sign off on new small oracle (the oracle nodes which have perform services relating to BYOC). Large oracle also signs when the committee change.
+ensures that the risk managed by the small Oracle in the latest [epoch](dictionary.md#epoch) is contained. The large oracle sign off on new small oracle (the oracle nodes which have perform services relating to BYOC). Large oracle also signs when the committee change. The large oracle is synonymous with the current committee, and is responsible for settling disputes related to the actions of the small oracle. The large oracle consists of all the nodes in the current committee. Each node holds a keyshare that allows it to cast a vote on oracle decisions. Votes are decided by a 2/3s majority. The rules governing the large oracle are directed by the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014). Node operators can associate tokens to this contract. The tokens can be used as a stake to be eligible for a job in a specific small oracle.
 
 ### MPC
 
-Secure multiparty computation (for the token see MPC token). The privacy layer of Partisia Blockchain utilizes several zero knowledge protocols. Most notably MPC. MPC allows for calculation on private data, where you can make the result of the calculation public and keep the private data secure at the same time. A simple example of this could be calculation of average salary in a company. You do not want to disclose your own income, but it would be nice to know if you make more or less than the average. Instead of sending your private data to your peers you can send a random bite (share) of the private data out to several peers. They do the same. When doing the calculation no salaries are revealed but the total sum of the numbers is the same. So, you get the correct result even though the calculation is done on the data in a randomised form.
+The privacy layer of Partisia Blockchain utilizes several zero knowledge protocols. Most notably MPC (ecure multiparty computation). MPC allows for calculation on private data, where you can make the result of the calculation public and keep the private data secure at the same time. A simple example of this could be calculation of average salary in a company. You do not want to disclose your own income, but it would be nice to know if you make more or less than the average. Instead of sending your private data to your peers you can send a random bite (share) of the private data out to several peers. They do the same. When doing the calculation no salaries are revealed but the total sum of the numbers is the same. So, you get the correct result even though the calculation is done on the data in a randomised form.
 
 ### MPC Token
 
@@ -85,7 +85,7 @@ A non-fungible-token. Non-fungible means that it is unique unlike other types of
 
 ### Node
 
-Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](../node-operations/what-is-a-node-operator.md)
+Nodes are the computers in the blockchain network. The nodes run the blockchain software and are connected to each other through the internet. Some nodes perform services for the users of the blockchain, foremost they facilitate the transactions that happens on the blockchain. From the transaction costs paid by users, the node operator can make revenue. Read more about the different types of [here](../node-operations/start-running-a-node.md)
 
 ### Node operator
 
@@ -96,7 +96,7 @@ A node operator is a person who runs and maintains a node on Partisia Blockchain
 - ZK Node: A node that performs zero knowledge computations in addition to baker node services.
 - Oracle Node: A node that performs oracle services in addition to ZK and baker services.
 
-See requirements of a node operator and how to run a node [here](../node-operations/what-is-a-node-operator.md).
+See requirements of a node operator and how to run a node [here](../node-operations/start-running-a-node.md).
 
 ### Nonce
 
@@ -118,13 +118,19 @@ Same as [Account](../pbc-fundamentals/dictionary.md#account), see entry above.
 
 The immutable record or ledger, that keeps track of transactions that have already taken place. There is a copy of the ledger on all nodes. Partisia Blockchain has sharding, the ledger records the activities on all shards, they are combined to form the complete ledger.
 
+### Price oracle
+
+The price oracles on PBC help to keep the BYOC price up to date by using data from nodes on Chainlink. This means that the price you get when bridging ETH or other BYOC to and from PBC has been checked for accuracy within the last hour. Each price oracle consist of at least three nodes. Every hour each node in the price oracle performs a price check. The node operator is paid a reward for performing this service. If three nodes in the price oracle agree on the price they report the price.    
+In addition to checking and reporting prices a price oracle node also compares its own checks with the reports of the other price oracles. If it sees a discrepancy in price the price oracle node starts a dispute. The party found to be responsible in a price oracle dispute will have their 5000 MPC slashed. Types of malicious behavior can include reporting incorrect prices or incorrect dispute claims against other oracle nodes.
+
+
 ### Public-key cryptography
 
 Public-key cryptography is a form of cryptography that uses pairs of keys: A public key that may be shared with anyone and a private key that must be kept secret. The public and private keys are generated in mathematically connected pairs. The public key can be used to encrypt a message that can be decrypted by the private key, meaning that anyone can send an encrypted message to any recipient assuming they know their public key. PBC uses elliptic curve cryptography, specifically the curve [secp256k1](https://en.bitcoinwiki.org/wiki/Secp256k1).
 
 ### Reader Node
 
-A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](../node-operations/reader-node-on-vps.md).
+A node that reads the state of the blockchain, but does not produce blocks or any other paid services. It is free to [run a reader node](../node-operations/run-a-reader-node.md).
 
 ### Rest Server
 
@@ -134,9 +140,28 @@ A rest server is a server that gives access to the REST API. An API conforming t
 
 PBC distributes the workload to a number of parallel shards. This allows for scalability of the blockchain. Blocks are produced and finalized parallel on each shard. It is important to note that the shards are not separate parallel blockchains. The PBC blockchain ledger is composed of information on all shards. So contracts deployed on different shards can still interact with each other across shards. The consequence of shards is an extremely fast and efficient blockchain which can be scaled up with more shards if the demand arise. Together with the [fast track consensus protocol](../pbc-fundamentals/consensus.md) the type of sharding used by PBC is a unique feature which resolves the blockchain scalability problem. You can read more about sharding on PBC [here](../pbc-fundamentals/sharding.md).
 
+### Small oracle
+
+There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md)
+bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit), [withdrawal oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md)
+bridging-byoc-by-sending-transactions.md#how-to-make-a-withdrawal) and [price oracles](../pbc-fundamentals/dictionary.md#price-oracle).
+
+
 ### Smart Contracts
 
 A smart contract is a program you run on the blockchain. The conditions of the contract are present across the blockchain. This ensures that actions of the smart contract will happen only once, are trackable and irreversible. In this way a smart contract works independently, without any need for outside authority to facilitate the change in state. Effectively a smart contract can replace the trustee in a binding transaction. This makes smart contracts useful tool for auctions, voting and purchases. In addition to public layer actions on the blockchain, smart contracts can also be used to facilitate ZK computations on the private layer of PBC. Read more [here](../smart-contracts/what-is-a-smart-contract.md)
+
+### Stake/Staking
+
+If you want to be a node operator you are required to have a stake in the network. A stake is basically a deposit strengthening the security and user confidence of the network. The stake means that the node operator has something to lose should they try to cheat or damage the network.
+Staking requires that the node operator buys the required stake of MPC Tokens. Services have a hierarchy of cost and security as well as payment. Therefore, higher paid services require a higher stake. To acquire MPC Tokens go through this [contact page](https://kyc.partisiablockchain.com/). The current stake requirements are:
+
+- Reader Node is free, since it does not perform paid services
+- Baker Node 25,000 MPC Tokens
+- ZK Node 75,000 MPC Tokens
+- Oracle Node 250,000 MPC Tokens
+- Price Oracle Node 5,000 MPC Tokens
+Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
 
 ### Transactions
 
@@ -151,7 +176,14 @@ A transaction is valid when:
 - The nonce in the transaction matches the account nonce in the blockchain state
 - The transaction has not expired
 - The account can cover the cost of the transaction
+### VPS
+
+A VPS is a Virtual Private server. Just like you can have a virtual machines on your PC, it is possible to rent server space for virtual machine from an internet hosting service (IHS). That is called a VPS. You choose a VPS just like you would choose a PC. You decide on an operating system (OS), for running nodes on Partisia Blockchain you choose Linux based OS (In this guide we used Ubuntu). Your VPS is physically capable of running the node if you align it with the [recommended machine specs](../node-operations/start-running-a-node.md#which-node-should-you-run).
 
 ### WASM
 
 Abbreviation for WebAssembly, a standardized binary code format which is used for the smart contracts deployed at PBC.
+
+### ZK Computation
+
+See [MPC](dictionary.md#mpc)
