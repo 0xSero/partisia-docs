@@ -76,7 +76,7 @@ certificate renewal, then we modify the `docker-compose.yml`.
 sudo ufw allow 8443
 ```
 ```BASH
-sudo ufw allow 80 (if you will use ACME)
+sudo ufw allow 80
 ```
 
 ```BASH
@@ -141,9 +141,6 @@ services:
 
 [Check that your file is valid yml-format](https://www.yamllint.com/)
 
-### Set autoupdate script to target the new services at an alternate schedule
-
-Your current autoupdate script is set to call your docker to pull latest services daily. You need to change this.
 
 ## Register your ZK node
 
