@@ -64,6 +64,8 @@ nano config.json
 
 You need to add an override map field to the `config.json`. You put `systemupdate.vote.ID` in the map and point it to "false".
 
+You can find the ID in the `CHANGELOG.md` in latest [merge request to mainnet](https://gitlab.com/partisiablockchain/mainnet/-/merge_requests).
+
 Example:
 ```JSON
     {
