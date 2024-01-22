@@ -64,7 +64,7 @@ sudo apt install nginx
 ```
 
 For installation of `acme.sh` choose your preferred installation
-method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-how-to-install)
+method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-how-to-install). 
 
 ### Modify `docker-compose.yml`
 
