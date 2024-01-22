@@ -77,6 +77,10 @@ cd pbc
 ```
 
 ```BASH
+docker stop pbc-mainnet
+```
+
+```BASH
 nano docker-compose.yml
 ```
 
