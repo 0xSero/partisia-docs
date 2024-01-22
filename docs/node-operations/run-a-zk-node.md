@@ -50,7 +50,6 @@ When you have purchased a domain make an address record (A-record) for a subdoma
     1. Sign in to your domain controll panel and find DNS reords
     2. Make an A-record pointing zk.mynode.com to 123.123.123.123
 
-
 ### Install necessary software
 
 This example uses nginx for the proxy server and acme-companion handles automated creation and renewal of the SSL
@@ -70,7 +69,15 @@ method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-ho
 ### Modify `docker-compose.yml`
 
 The modified docker compose handles two new services in addition to managing the pbc-mainet container: 1) an nginx proxy
-server, and an automated certificate manager (acme).
+server, and 2) an automated certificate manager (acme). We first open the ports used for the proxy server and
+certificate renewal, then we modify the `docker-compose.yml`.
+
+```BASH
+sudo ufw allow 8443
+```
+```BASH
+sudo ufw allow 80 (if you will use ACME)
+```
 
 ```BASH
 cd pbc
@@ -93,44 +100,45 @@ services:
     user: "1500:1500"
     restart: always
     expose:
-    - "8080"
+      - "8080"
     ports:
-    - "9888-9897:9888-9897"
+      - "9888-9897:9888-9897"
     command: [ "/conf/config.json", "/storage/" ]
     volumes:
-    - /opt/pbc-mainnet/conf:/conf
-    - /opt/pbc-mainnet/storage:/storage
+      - /opt/pbc-mainnet/conf:/conf
+      - /opt/pbc-mainnet/storage:/storage
     environment:
-    - JAVA_TOOL_OPTIONS="-Xmx8G"
-    - VIRTUAL_HOST=your_sub.domain.com
-    - VIRTUAL_PORT=8080
-    - LETSENCRYPT_HOST=your_sub.domain.com
+      - JAVA_TOOL_OPTIONS="-Xmx8G"
+      - VIRTUAL_HOST=your_sub.domain.com
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=your_sub.domain.com
   nginx-proxy:
     image: nginxproxy/nginx-proxy:alpine
     container_name: pbc-nginx
     restart: always
     ports:
-    - "80:80"
-    - "8443:443"
+      - "80:80"
+      - "8443:443"
     volumes:
-    - conf:/etc/nginx/conf.d
-    - vhost:/etc/nginx/vhost.d
-    - html:/usr/share/nginx/html
-    - certs:/etc/nginx/certs:ro
-    - /var/run/docker.sock:/tmp/docker.sock:ro
+      - conf:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
   acme-companion:
     image: nginxproxy/acme-companion
     container_name: pbc-acme
     restart: always
     volumes_from:
-    - nginx-proxy
+      - nginx-proxy
     volumes:
-    - certs:/etc/nginx/certs:rw
-    - acme:/etc/acme.sh
-    - /var/run/docker.sock:/var/run/docker.sock:ro
+      - certs:/etc/nginx/certs:rw
+      - acme:/etc/acme.sh
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-    - DEFAULT_EMAIL=your@email.address
+      - DEFAULT_EMAIL=your@email.address
 ````
+
 [Check that your file is valid yml-format](https://www.yamllint.com/)
 
 ### Set autoupdate script to target the new services at an alternate schedule
