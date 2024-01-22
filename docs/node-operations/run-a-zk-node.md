@@ -91,7 +91,7 @@ docker stop pbc-mainnet
 nano docker-compose.yml
 ```
 
-````yaml
+```yaml
 version: "2.0"
 services:
   pbc:
@@ -137,10 +137,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - DEFAULT_EMAIL=your@email.address
-````
+```
 
 [Check that your file is valid yml-format](https://www.yamllint.com/)
 
+Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 ## Register your ZK node
 
