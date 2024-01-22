@@ -84,7 +84,7 @@ cd pbc
 ```
 
 ```BASH
-docker stop pbc-mainnet
+docker stop
 ```
 
 ```BASH
