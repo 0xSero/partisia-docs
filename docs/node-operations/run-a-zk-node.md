@@ -58,6 +58,9 @@ certificate. Both services are manged by the `docker-compose.yml`.
 
 ```BASH
 sudo apt update
+```
+
+```BASH
 sudo apt install nginx
 ```
 
@@ -68,6 +71,14 @@ method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-ho
 
 The modified docker compose handles two new services in addition to managing the pbc-mainet container: 1) an nginx proxy
 server, and an automated certificate manager (acme).
+
+```BASH
+cd pbc
+```
+
+```BASH
+nano docker-compose.yml
+```
 
 ````yaml
 version: "2.0"
