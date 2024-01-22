@@ -172,6 +172,8 @@ If you have made any changes to the template, then [check that your file is stil
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
+
+
 !!! Warning "Make sure your YAML file match the example"
     It won't work if the indentation is off, because YAML is whitespace sensitive.
 

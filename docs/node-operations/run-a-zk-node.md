@@ -139,9 +139,26 @@ services:
       - DEFAULT_EMAIL=your@email.address
 ```
 
-[Check that your file is valid yml-format](https://www.yamllint.com/)
+[Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
-Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+Start the docker-compose services and pull the latest images:
+
+```BASH
+docker-compose pull
+```
+
+```BASH
+docker-compose up -d
+```
+Normally, nginx has new releases monthly, so you do not need to update your proxy server. You can add rules to your auto-update script or update the nginx and acme service manually.
+
+```BASH
+docker-compose pull nameOfService
+```
+
+```BASH
+docker-compose up -d nameOfService
+```
 
 ## Register your ZK node
 
