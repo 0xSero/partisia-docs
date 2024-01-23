@@ -8,7 +8,7 @@ for the zero knowledge computations performed.
 
 ## Requirements of a ZK node
 
-!!! Warning " You must complete these requirements before you can go to registration"
+!!! Warning " You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)"
 
     For a reader node only set up reverse proxy - step 3
 
