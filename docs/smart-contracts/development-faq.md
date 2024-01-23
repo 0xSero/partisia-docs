@@ -13,8 +13,8 @@ Questions for non-ZK contracts:
 - **How does callbacks work?**: A callback is an interaction that expects a reply. For example if contract A sends a
   callback to contract B, it means that contract B must produce a return message, which will be sent back to A. There
   can be multiple levels of callbacks, similar to a call stack, which the blockchain will keep track of.
-- **What is the value of `Context::sender`?**: The `sender` field in `Context` contains the address of the caller. The
-  caller will depend upon the current context, though the following guarentees are made:
+- **What is the value of [`Context::sender`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/struct.ContractContext.html)?**: The `sender` field in `Context` contains the address of the caller. The
+  caller will depend upon the current context, though the following guarantees are made:
     1. `#[init]`: Creator of the contract.
     2. `#[action]`: Sender of the transaction. Some contract address if from
        a contract, user address if from a user.

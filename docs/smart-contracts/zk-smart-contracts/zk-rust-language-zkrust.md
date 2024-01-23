@@ -21,9 +21,10 @@ This secret-sharing support extends from new syntax to types to runtime behaviou
 ### Secret-shared integers
 
 The secret-sharing supported in Zk-Rust is an alternative method of
-representing integers. This representation is used when working with the `Sbi`
+representing integers. This representation is used when working with
+the [`Sbi`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_zk_core/struct.Sbi.html)
 types (`Sbi1`, `Sbi8`, `Sbi16`, etc.,) which stands for "**S**ecret-shared
-**B**inary **I**nteger".  These types are fully fledged integer types,
+**B**inary **I**nteger". These types are fully fledged integer types,
 supporting a variety of infix operations (`+`, `-`, `^`, `|`, etc.) All of
 these operations are performed through secret-sharing, ensuring that the result
 is itself secret-shared:
@@ -122,12 +123,15 @@ Each contract possess a list of secret variables. These variables possess:
   computation outputs, the contract itself. This information is not available for zk-computation.
 
 Contract users can add new variables (called inputs at this point) by invoking
-the contract's `#[zk_on_secret_input]`.  Variables can additionally be created
+the
+contract's [`#[zk_on_secret_input]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.zk_on_secret_input.html).
+Variables can additionally be created
 as the result of running a computation. The public part of the ZK-contract is
 responsible for managing the variables, including opening (revealing the
 output of a computation) and deleting them.
 
-Variable ids can be iterated by calling `pbc_zk::secret_variable_ids(): Iter<i32>`:
+Variable ids can be iterated by
+calling [`pbc_zk::secret_variable_ids(): Iter<i32>`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_zk/fn.secret_variable_ids.html):
 
 ```rust
 use pbc_zk::{Sbi32, secret_variable_ids, load_sbi};
@@ -169,8 +173,11 @@ struct Triangle {
 }
 ```
 
-Types with `#[derive(SecretBinary)]` implements the `SecretBinary` trait,
-allowing them to be loaded using the `load_sbi` function. Note that variables
+Types with `#[derive(SecretBinary)]` implements
+the [`SecretBinary`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_zk/trait.SecretBinary.html) trait,
+allowing them to be loaded using
+the [`load_sbi`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_zk/fn.load_sbi.html) function. Note that
+variables
 does not possess explicit types, and can be loaded as any type of equal or
 fewer bits. For example, let's say variable with id `42` has 64 bits of data.
 This variable can be loaded using any of the following, producing different
