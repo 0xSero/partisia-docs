@@ -8,32 +8,79 @@ dev-community [on our discord](../../get-support-from-pbc-community.md).
 
 ## Rest endpoint examples and libraries
 
-Blockchain nodes, including reader nodes gives access to blocks, transactions, contract state and more through
-REST endpoints. A REST endpoint can be any node which allows for you to access through their endpoint. Most often the
-endpoint is a [reader node](../../node-operations/run-a-reader-node.md) which allows you to read blocks, state and
-transactions and makes it possible for you to send
-transactions. We have created libraries to help you
-create such transactions for the blockchain and help you use the rest endpoints available. Below is a collection
-of commonly used rest endpoints. If you are in need of access to a rest server without running your own reader node, the best way would be
-to ask in the [Discord of the community](../../get-support-from-pbc-community.md). 
+You can get information about blocks, transactions, contract state and more through the REST API.
+The REST API is also be used for sending signed transactions to the blockchain.
 
-In our [rest server source repo](https://gitlab.com/partisiablockchain/core/server), you can find different endpoints
-and what data types they return.
+The REST API is available on any reader node.
 
-If you want to look for specific transactions on a shard, we have an endpoint that helps you get the latest
-transactions. Click the link to see a live example.
+If you need access to a reader node for integration purposes a great solution
+is [running your own](../../node-operations/run-a-reader-node.md).  
+If you don't want to run your own, the best way is to ask in
+the [Discord of the community](../../get-support-from-pbc-community.md).
 
-[`https://reader.partisiablockchain.com/shards/[Shard that you want the lastest transaction from]/blockchain/transaction/latest/10/2018112`](https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112)
+If you just want to test the API or only need occasional access, then a good approach to use the public reader node.
+Notice, that the public reader is rate limited.
 
-If you need to look at a specific transaction on a shard you can use this endpoint for finding the transaction. You can
-click the below link to see a live example.
+The public reader node is available at
 
-[`https://reader.partisiablockchain.com/shards/[Shard that your transaction is on]/blockchain/transaction/[YOUR TRANSACTION HASH]`](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5)
+- https://reader.partisiablockchain.com (mainnet)
+- https://node1.testnet.partisiablockchain.com (testnet)
 
-If you need to get information about a smart contract with the ABI and current state:
-[`https://node1.testnet.partisiablockchain.com/shards/[Shard that your transaction is on]/blockchain/contracts/[YOUR CONTRACT HASH]?requireContractState=true`](https://node1.testnet.partisiablockchain.com/shards/Shard2/blockchain/contracts/0296b935f95dbf30d0921ee23686099027b9759480?requireContractState=true)
+We also publish a number of [libraries](../smart-contract-tools-overview.md#libraries) that help create transaction and
+using the REST API.
 
-To integrate and help you create transactions onto the blockchain we have a big collection
-of [libraries](../smart-contract-tools-overview.md#libraries).
+## REST API endpoints
 
-[The ABI that is used for deserializing fundamental transaction & event structures](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main/client/src/main/resources?ref_type=heads).
+Below is a collection of commonly used rest endpoints.
+
+In our [rest server source repo](https://gitlab.com/partisiablockchain/core/server), you can find all the different
+endpoints and all returned data types.
+
+### Transaction information
+
+https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5
+
+Where
+
+- `Shard1` is the shard
+- `11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5` is the transaction identifier
+
+### List of transactions from point in time
+
+https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112
+
+Where
+
+- `Shard0` is the shard
+- `10`is the number of transactions to return
+- `2018112` is the block number on the shard
+
+### Block Information
+
+https://reader.partisiablockchain.com/shards/Shard0/blockchain/blocks/6132deae77e2f2576e450b82cc681a363e064637443b736f841f2b99256f5926
+
+Where
+
+- `Shard0` is the shard
+- `6132deae77e2f2576e450b82cc681a363e064637443b736f841f2b99256f5926` is the block identifier
+
+### Smart Contract Information
+
+https://reader.partisiablockchain.com/chain/contracts/02c63dc725bfce5abc5b019d14ac84b4aaf8747e9f
+
+Where
+
+- `02c63dc725bfce5abc5b019d14ac84b4aaf8747e9f` is the smart contract address
+
+### Account Information
+
+https://reader.partisiablockchain.com/chain/accounts/00803c974202d4dd8db22bd3833b8d123f89ea199b
+
+Where
+
+- `00803c974202d4dd8db22bd3833b8d123f89ea199b` is the address of the account
+
+### Blockchain global information
+
+https://reader.partisiablockchain.com/chain
+
