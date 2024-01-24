@@ -37,8 +37,8 @@ In our [rest server source repo](https://gitlab.com/partisiablockchain/core/serv
 endpoints and all returned data types.
 
 ### Transaction information
+[https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5)
 
-https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5
 
 Where
 
@@ -47,7 +47,7 @@ Where
 
 ### List of transactions from point in time
 
-https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112
+[https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112](https://reader.partisiablockchain.com/shards/Shard0/blockchain/transaction/latest/10/2018112)
 
 Where
 
@@ -57,7 +57,7 @@ Where
 
 ### Block Information
 
-https://reader.partisiablockchain.com/shards/Shard0/blockchain/blocks/6132deae77e2f2576e450b82cc681a363e064637443b736f841f2b99256f5926
+[https://reader.partisiablockchain.com/shards/Shard0/blockchain/blocks/6132deae77e2f2576e450b82cc681a363e064637443b736f841f2b99256f5926](https://reader.partisiablockchain.com/shards/Shard0/blockchain/blocks/6132deae77e2f2576e450b82cc681a363e064637443b736f841f2b99256f5926)
 
 Where
 
@@ -66,7 +66,7 @@ Where
 
 ### Smart Contract Information
 
-https://reader.partisiablockchain.com/chain/contracts/02c63dc725bfce5abc5b019d14ac84b4aaf8747e9f
+[https://reader.partisiablockchain.com/chain/contracts/02c63dc725bfce5abc5b019d14ac84b4aaf8747e9f](https://reader.partisiablockchain.com/chain/contracts/02c63dc725bfce5abc5b019d14ac84b4aaf8747e9f)
 
 Where
 
@@ -74,7 +74,7 @@ Where
 
 ### Account Information
 
-https://reader.partisiablockchain.com/chain/accounts/00803c974202d4dd8db22bd3833b8d123f89ea199b
+[https://reader.partisiablockchain.com/chain/accounts/00803c974202d4dd8db22bd3833b8d123f89ea199b](https://reader.partisiablockchain.com/chain/accounts/00803c974202d4dd8db22bd3833b8d123f89ea199b)
 
 Where
 
@@ -82,5 +82,5 @@ Where
 
 ### Blockchain global information
 
-https://reader.partisiablockchain.com/chain
+[https://reader.partisiablockchain.com/chain](https://reader.partisiablockchain.com/chain)
 
