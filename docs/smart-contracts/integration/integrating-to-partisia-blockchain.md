@@ -23,8 +23,8 @@ Notice, that the public reader is rate limited.
 
 The public reader node is available at
 
-- https://reader.partisiablockchain.com (mainnet)
-- https://node1.testnet.partisiablockchain.com (testnet)
+- [https://reader.partisiablockchain.com](https://reader.partisiablockchain.com) (mainnet)
+- [https://node1.testnet.partisiablockchain.com](https://node1.testnet.partisiablockchain.com) (testnet)
 
 We also publish a number of [libraries](../smart-contract-tools-overview.md#libraries) that help create transaction and
 using the REST API.
