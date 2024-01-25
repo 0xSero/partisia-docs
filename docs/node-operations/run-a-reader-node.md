@@ -26,7 +26,7 @@ sudo passwd root
 
 ### Add a non-root user
 
-For best security practice root should not be default user. If someone takes over the node, and it is running as root, they can do more damage.
+For best security practice root should not be default user. If someone takes over the node, and it is running as root, they can do more damage. 
 
 Add a non-root user:
 
@@ -100,8 +100,8 @@ The node will run as user:group `1500:1500`
 
 ### Creating the configuration and storage folders
 
-You run the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`. First we need
-to create the `conf` and `storage` folders for the application:
+ Create the `conf` and `storage` folders for the application:
+
 
 ````bash
 sudo mkdir -p /opt/pbc-mainnet/conf
@@ -113,6 +113,13 @@ sudo mkdir -p /opt/pbc-mainnet/storage
 
 ### Setting file permissions
 
+You run the node with a docker-compose service from the folder `/opt/pbc-mainnet` with user:group `1500:1500`.
+
+!!! Warning "Correct restrictions on file permissions are imperative for security"
+
+    If your private keys get compromised others can steal your MBC tokens and BYOC, or sign malicious transactions .   
+    The default non-root user **must** be different from 1500, because you want to protect access to private keys used by node services.
+ 
 Now we need to make sure the user with uid `1500` has the needed access to the files:
 
 ````bash
