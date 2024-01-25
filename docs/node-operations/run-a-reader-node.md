@@ -234,6 +234,8 @@ The config should look like the example below.
     }
     ```
 
+
+
 ### Starting the node
 
 You can now start the node:
