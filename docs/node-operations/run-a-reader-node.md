@@ -113,7 +113,7 @@ sudo mkdir -p /opt/pbc-mainnet/storage
 
 ### Setting file permissions
 
-You run the node with a docker-compose service from the folder `/opt/pbc-mainnet` with user:group `1500:1500`.
+You run the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`.
 
 !!! Warning "Correct restrictions on file permissions are imperative for security"
 
@@ -224,6 +224,17 @@ Start the tool:
 
 We are creating a reader node. Therefore, your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
 
+````bash
+cd /opt/pbc-mainnet/conf
+````
+
+````bash
+sudo ls
+````
+
+````bash
+sudo cat config.json
+````
 The config should look like the example below.
 
 ??? example "Example: Basic reader config"
