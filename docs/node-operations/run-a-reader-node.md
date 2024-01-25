@@ -26,7 +26,9 @@ sudo passwd root
 
 ### Add a non-root user
 
-For best security practice root should not be default user. Add a non-root user:
+For best security practice root should not be default user. There are two good reasons for this
+
+Add a non-root user:
 
 ````bash
 sudo adduser userNameHere
