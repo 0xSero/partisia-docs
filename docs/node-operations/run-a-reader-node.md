@@ -26,7 +26,7 @@ sudo passwd root
 
 ### Add a non-root user
 
-For best security practice root should not be default user. There are two good reasons for this
+For best security practice root should not be default user. If someone takes over the node, and it is running as root, they can do more damage.
 
 Add a non-root user:
 
