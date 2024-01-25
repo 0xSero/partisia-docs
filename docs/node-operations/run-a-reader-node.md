@@ -239,11 +239,16 @@ The config should look like the example below.
 
 ??? example "Example: Basic reader config"
 
-    ```
+```JSON
     {
-        "networkKey": "YOUR NETWORK KEY"  
+        "restPort": 8080,
+        "floodingPort": 9888,
+        "knownPeers": [
+            "YOUR KNOWN PEERS"
+        ],
+        "networkKey": "YOUR NETWORK KEY"
     }
-    ```
+```
 
 
 
