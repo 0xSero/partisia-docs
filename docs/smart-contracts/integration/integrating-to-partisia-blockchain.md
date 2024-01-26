@@ -16,7 +16,7 @@ The REST API is available on any reader node.
 If you need access to a reader node for integration purposes we recommend you to [run your own node](../../node-operations/run-a-reader-node.md).  
 If you don't want to run your own, you can ask for help in the [community Discord](../../get-support-from-pbc-community.md).
 
-If you just want to test the API or only need occasional access, then a good approach to use the public reader node.
+If you just want to test the API or only need occasional access, then a good approach is to use the public reader node.
 Notice, that the public reader is rate limited.
 
 The public reader node is available at
