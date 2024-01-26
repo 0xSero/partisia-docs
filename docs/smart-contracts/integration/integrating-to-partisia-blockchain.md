@@ -13,10 +13,8 @@ The REST API is also be used for sending signed transactions to the blockchain.
 
 The REST API is available on any reader node.
 
-If you need access to a reader node for integration purposes a great solution
-is [running your own](../../node-operations/run-a-reader-node.md).  
-If you don't want to run your own, the best way is to ask in
-the [Discord of the community](../../get-support-from-pbc-community.md).
+If you need access to a reader node for integration purposes we recommend you to [run your own node](../../node-operations/run-a-reader-node.md).  
+If you don't want to run your own, you can ask for help in the [community Discord](../../get-support-from-pbc-community.md).
 
 If you just want to test the API or only need occasional access, then a good approach to use the public reader node.
 Notice, that the public reader is rate limited.
