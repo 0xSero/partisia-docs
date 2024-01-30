@@ -117,7 +117,7 @@ You run the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`.
 
 !!! Warning "Correct restrictions on file permissions are important for securing your private keys"
 
-    If your private keys get compromised others can steal your MBC tokens and BYOC, or sign malicious transactions .   
+    If your private keys get compromised others can steal your MPC tokens and BYOC tokens, or sign malicious transactions .   
     The [default non-root user above](run-a-reader-node.md#add-a-non-root-user) **must** be different from 1500, because you want to protect access to private keys used by node services.
  
 Now we need to make sure the user with uid `1500` has the needed access to the files:
