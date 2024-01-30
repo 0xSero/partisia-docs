@@ -168,7 +168,7 @@ services:
     environment:
     - JAVA_TOOL_OPTIONS="-Xmx8G"
 ````
-If you have made any changes to the template, then [check that your file is still valid yml-format](https://www.yamllint.com/).
+If you have made any changes to the template, then check if your file is still [valid yml-format](https://www.yamllint.com/).
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
