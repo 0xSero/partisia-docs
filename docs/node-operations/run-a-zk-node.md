@@ -137,6 +137,13 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - DEFAULT_EMAIL=your@email.address
+
+volumes:
+  conf:
+  vhost:
+  html:
+  certs:
+  acme:
 ```
 
 [Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
