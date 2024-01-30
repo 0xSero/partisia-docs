@@ -24,14 +24,19 @@ supposed to be public.
 In the following the different parts of a smart contract implementing the voting scenario is
 explained.
 
-If you need help with any of the rust concepts we recommend you visit [Rust intro book for general understanding](https://doc.rust-lang.org/std/index.html) or if you need help understanding Rust standard macros, or other specific keywords we recommend the [Rust Standard Library](https://doc.rust-lang.org/std/index.html) for specifications of these.
+If you need help with any of the rust concepts we recommend you
+visit [Rust intro book for general understanding](https://doc.rust-lang.org/std/index.html) or if you need help
+understanding Rust standard macros, or other specific keywords we recommend
+the [Rust Standard Library](https://doc.rust-lang.org/std/index.html) for specifications of these.
 
-You can see the complete Rust source code of the [voting contract here](https://gitlab.com/partisiablockchain/language/example-contracts/-/blob/main/voting/src/lib.rs)
+You can see the complete Rust source code of
+the [voting contract here](https://gitlab.com/partisiablockchain/language/example-contracts/-/blob/main/voting/src/lib.rs)
 
 ### 1) Importing libraries
 
 First we need to include a few libraries to get access to the functions and types needed for
-programming our smart contract. It is not necessary to understand exactly what the library includes here or what they do in order to create your first smart contract.
+programming our smart contract. It is not necessary to understand exactly what the library includes here or what they do
+in order to create your first smart contract.
 
 ````rust
 #![allow(unused_variables)]
@@ -51,7 +56,8 @@ use pbc_traits::*;
 ### 2) Defining the contract state
 
 When programming a smart contract we have to define the _state_ of the contract. We do this in Rust
-by creating a struct and marking it with ``#[state]``.
+by creating a struct and marking it
+with [`#[state]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.state.html).
 
 For our voting contract the contract state has the following parts:
 
@@ -105,7 +111,8 @@ When deploying a smart contract on the blockchain the state of the contract has 
 properly.
 
 When programming the smart contract in Rust we can define how the initialization takes place by
-creating a function and marking it with `#[init]`
+creating a function and marking it
+with [`#[init]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.init.html)
 
 To initialize our voting contract the user deploying the contract has to supply the proposal id and
 the list of people eligible to vote. Our initialization code checks that the supplied input is
@@ -146,7 +153,9 @@ The only way of changing the state of a smart contract is through the defined ac
 contract actions hereby define the exact conditions and rules for changing the contract state. A
 smart contract can have multiple defined actions.
 
-In Rust, you define a smart contract action by coding a function and marking it with `#[action]`. The
+In Rust, you define a smart contract action by coding a function and marking it
+with [`#[action]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.action.html).
+The
 function receives the existing state and the inputs from the user initiating the action, and it can
 then produce and return a new updated state reflecting the changes.
 
@@ -172,4 +181,6 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
 
 ## Building and testing the voting contract
 
-The process for building and testing the voting contract is the same as any other contract that needs to be deployed, we recommend you follow our general guide [here](../smart-contracts/compile-and-deploy-contracts.md) to get your smart contract onto our testnet.
+The process for building and testing the voting contract is the same as any other contract that needs to be deployed, we
+recommend you follow our general guide [here](../smart-contracts/compile-and-deploy-contracts.md) to get your smart
+contract onto our testnet.

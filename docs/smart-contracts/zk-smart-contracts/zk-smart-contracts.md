@@ -1,17 +1,35 @@
 # ZK smart contracts
 
-One of the main features which set Particia Blockchain(PBC) apart from other blockchains is that PBC supports zero knowledge computations, notably secure multiparty computation (MPC).
+One of the main features which set Particia Blockchain(PBC) apart from other blockchains is that PBC supports zero
+knowledge computations, notably secure multiparty computation (MPC).
 You can utilize PBC's capacity for ZK computations through zero knowledge smart contracts (ZKSC).
 
 ### What is zero knowledge smart contracts
 
-Zero knowledge smart contracts has all the same functionality as public smart contracts (SC), but in addition to that the ZKSC allocate a subset of qualified nodes to do computations on private versions of input data. A ZKSC stipulate some non-public actions in addition to the public actions. This means that a ZKSC has a private state only present on the ZK nodes in addition to a public state on the chain. When a ZK node is allocated to a specific ZKSC the node's associated stakes will be locked to the contract until the ZK work is finished.
-If our ZKSC is an auction like below, the public state will contain the winner's ID and the price of the auctioned item, whereas the private state will contain all the non-winning bids. The calculation in the private state are done on [secret shared data](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a). This means that the nodes allocated for the ZK work in the contract does not have access to the user input, i.e. the ZK nodes do not have access to the values of the non-winning bids.
+Zero knowledge smart contracts has all the same functionality as public smart contracts (SC), but in addition to that
+the ZKSC allocate a subset of qualified nodes to do computations on private versions of input data. A ZKSC stipulate
+some non-public actions in addition to the public actions. This means that a ZKSC has a private state only present on
+the ZK nodes in addition to a public state on the chain. When a ZK node is allocated to a specific ZKSC the node's
+associated stakes will be locked to the contract until the ZK work is finished.
+If our ZKSC is an auction like below, the public state will contain the winner's ID and the price of the auctioned item,
+whereas the private state will contain all the non-winning bids. The calculation in the private state are done
+on [secret shared data](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a).
+This means that the nodes allocated for the ZK work in the contract does not have access to the user input, i.e. the ZK
+nodes do not have access to the values of the non-winning bids.
 
 ### Example of a zero knowledge smart contract on PBC - Vickrey Auction
 
-In this example we will use our contract that creates a [Vickrey Auction (second price auction)](https://en.wikipedia.org/wiki/Vickrey_auction), which is a sealed bid auction where the winner is the person with the highest bid (as in a normal auction), you can read more about this type of contract if you visit our example contract overview [here](../smart-contract-examples.md#zk-second-price-auction).
-The second price auction takes as inputs the bids from the registered participants. The bids are delivered encrypted and secret-shared to the ZK nodes allocated to the contract. When the computation is initiated by the contract owner, the zero knowledge computation nodes reads the collected input and then create a bit vector consisting of prices and the ordering number. The list of bit vectors is now sorted in MPC. The winner is the first entry (the bidder with the highest price-bid), the price is determined by the size of the second-highest bid.
+In this example we will
+use [our contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/zk-second-price-auction?ref_type=head)
+that creates a [Vickrey Auction (second price auction)](https://en.wikipedia.org/wiki/Vickrey_auction), which is a
+sealed bid auction where the winner is the person with the highest bid (as in a normal auction), you can read more about
+this type of contract if you visit our example contract
+overview [here](../smart-contract-examples.md#zk-second-price-auction).
+The second price auction takes as inputs the bids from the registered participants. The bids are delivered encrypted and
+secret-shared to the ZK nodes allocated to the contract. When the computation is initiated by the contract owner, the
+zero knowledge computation nodes reads the collected input and then create a bit vector consisting of prices and the
+ordering number. The list of bit vectors is now sorted in MPC. The winner is the first entry (the bidder with the
+highest price-bid), the price is determined by the size of the second-highest bid.
 
 The contract follows these phases:
 
@@ -19,13 +37,19 @@ The contract follows these phases:
 2. Registration of bidders allowed to participate in the auction.
 3. Receival of secret bids.
 4. Once enough bids have been received, the owner of the contract can initialize computation of the auction result.
-5. The ZK nodes derive the winning bid in a secure manner by executing a Secure Multiparty Computation protocol off-chain.
-6. Once the ZK computation concludes, the winning bid will be published and the winner will be stored in the state, together with their bid.
-7. The ZK nodes sign the result of the auction with a digital signature proving that the nodes in question were responsible for the generating the result of the auction.
+5. The ZK nodes derive the winning bid in a secure manner by executing a Secure Multiparty Computation protocol
+   off-chain.
+6. Once the ZK computation concludes, the winning bid will be published and the winner will be stored in the state,
+   together with their bid.
+7. The ZK nodes sign the result of the auction with a digital signature proving that the nodes in question were
+   responsible for the generating the result of the auction.
 
-Below you can see the Rust implementation of the zero knowledge smart contract for the Vickrey Auction:
+Below you can see the Rust implementation of
+the [zero knowledge smart contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/blob/main/zk-second-price-auction/src/zk_compute.rs?ref_type=heads)
+for the Vickrey Auction:
 
-The function _zk_compute_ performs a ZK computation on the secret shared bids (step 5 above), it returns the index of the highest bidder and amount of second-highest bid.
+The function _zk_compute_ performs a ZK computation on the secret shared bids (step 5 above), it returns the index of
+the highest bidder and amount of second-highest bid.
 
 ```rust
 use crate::zk_lib::{num_secret_variables, sbi32_from, sbi32_input, sbi32_metadata, Sbi32};
@@ -57,11 +81,17 @@ pub fn zk_compute() -> (Sbi32, Sbi32) {
 
 ### Use zero knowledge smart contracts on PBC as a second layer
 
-It is possible to use a zero knowledge smart contracts on PBC as a second layer for other blockchains. If we want to do a secret bid second price auction like above, we need to deploy two smart contracts: one zero knowledge smart contract on PBC and a public smart contract on the layer one chain. The public functionality of the contracts will be very similar. But the contract on PBC will privately calculate the result of the auction using zero knowledge computation.
+It is possible to use a zero knowledge smart contracts on PBC as a second layer for other blockchains. If we want to do
+a secret bid second price auction like above, we need to deploy two smart contracts: one zero knowledge smart contract
+on PBC and a public smart contract on the layer one chain. The public functionality of the contracts will be very
+similar. But the contract on PBC will privately calculate the result of the auction using zero knowledge computation.
 
 ![Diagram1](../second-layer-zksc.png)
 
-The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer one public contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the contract located on the layer one BC. You can read more about this on our page on [pbc as a second layer](../pbc-as-second-layer/partisia-blockchain-as-second-layer.md)
+The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer
+one public contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the
+contract located on the layer one BC. You can read more about this on our page
+on [pbc as a second layer](../pbc-as-second-layer/partisia-blockchain-as-second-layer.md)
 
 ### Full ZKSC code example
 
