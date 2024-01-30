@@ -95,7 +95,12 @@ sudo ufw status
 ## Set up a reader on your VPS
 
 When setting up the node you should use the non-root user you created above.
-The node will run as user:group `1500:1500`
+
+Docker runs the node as  a different user:group `1500:1500`.
+
+!!! Note
+
+    Your Ububntu non-root default user for accessing your server must be different from 1500:1500. That way if the default user is compromised, it does not automatically grant access to private keys.
 
 
 ### Creating the configuration and storage folders
@@ -113,7 +118,7 @@ sudo mkdir -p /opt/pbc-mainnet/storage
 
 ### Setting file permissions
 
-You run the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`.
+Docker runs the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`.
 
 !!! Warning "Correct restrictions on file permissions are important for securing your private keys"
 
