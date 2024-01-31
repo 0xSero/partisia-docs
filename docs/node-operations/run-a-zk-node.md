@@ -12,7 +12,7 @@ for the zero knowledge computations performed.
 
     For a reader node only set up reverse proxy - step 3
 
-    1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
+    1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation), this is including the 25K tokens for the baker service    
     2. [Run baker node](run-a-baker-node.md)
     3. You have set up a reverse proxy. This includes:
         - Web domain with a valid SSL/TSL certificate for an https endpoint
