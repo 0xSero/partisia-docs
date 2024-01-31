@@ -20,7 +20,7 @@ for the zero knowledge computations performed.
 ## Set up a reverse proxy
 
 ZK nodes and reader nodes for development need a reverse proxy server. ZK nodes need it to be able to give and receive
-secret inputs. Reader nodes need to set rate limits to prevent DDOS (denial-of-service-attacks).
+secret inputs. Reader nodes need to set rate limits to prevent denial-of-service-attacks (DDOS).
 
 Your node is running a docker image with the pbc-mainnet software. The source of the image and name of the container is
 defined in the "service:"-field of  `docker-compose.yml`. In this example we will set up a reverse proxy by modifying
