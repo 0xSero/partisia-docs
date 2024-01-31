@@ -35,7 +35,7 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 ### Get Domain and create a Domain Name Service Address record (DNS A-record)
 
 Buy a web domain either from your VPS provider or from another reputable
-source ([this article has a list](https://www.forbes.com/advisor/business/software/best-web-hosting-services/)). Make
+source. Make
 sure to choose a domain name that does not match something proprietary. If you want to associate the name with the
 public blockchain Partisia Blockchain that is okay. But Partisia is an independent privately owned company, providing
 software and infrastructure and run an infrastructure and reader node on PBC. So, avoid names that give the impression
