@@ -169,5 +169,20 @@ Complete the following steps:
 3. Restart your node
 
 
+### Confirm that proxy server, certificate renewal and blockchain image are running
+
+Confirm that all 3 of your docker containers are running. Use the command below, and get a list of running docker containers:
+
+```BASH
+docker ps
+```
+
+You can see the running logs of each service by calling for the logs and specifying container name.
+```BASH
+  docker logs -f [container_id_or_name]
+```
+
+At this point you should have a fully functioning ZK node. If any of the docker-containers are not running, then [go to the node health and maintenance section](node-health-and-maintenance.md)
+
 
 If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.    
