@@ -148,7 +148,7 @@ docker-compose pull
 ```BASH
 docker-compose up -d
 ```
-Normally, nginx has new releases monthly, so you do not need to check for updates for your proxy server daily like you do with pbc software. You can add rules to your auto-update script or update the nginx and acme service manually:
+Normally, nginx has new releases monthly, so you do not need to check for updates for your proxy server daily like you do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually:
 
 ```BASH
 docker-compose pull nameOfService
@@ -167,5 +167,7 @@ Complete the following steps:
 2. [Register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode)
    as a ZK node (You need to have your https rest endpoint ready)
 3. Restart your node
+
+
 
 If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.    
