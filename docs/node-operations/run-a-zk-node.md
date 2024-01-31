@@ -10,8 +10,6 @@ for the zero knowledge computations performed.
 
 !!! Warning " You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)"
 
-    For a reader node only set up reverse proxy - step 3
-
     1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
     2. [Run baker node](run-a-baker-node.md)
     3. You have set up a reverse proxy. This includes:
