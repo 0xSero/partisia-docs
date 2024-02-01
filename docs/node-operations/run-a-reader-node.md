@@ -2,18 +2,51 @@
 
 This page explains what a reader node is and how to run it on a [VPS](../pbc-fundamentals/dictionary.md#vps).   
 A reader node can read the blockchain state, and it does not require
-a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade from reader to a baker node and from there
-to a node running any [node service](start-running-a-node.md).    
+a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade from reader to a baker node and from there to
+a node running any [node service](start-running-a-node.md).    
 The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp
-or a front-end you will often need to run your own reader node. When many parties query the same reader, it creates load on the server and can cause slowdowns. Run
-your own reader to avoid this.
+or a front-end you will often need to run your own reader node. When many parties query the same reader, it creates load
+on the server and can cause slowdowns. Run your own reader to avoid this.
 
-!!! Warning "You must complete this requirement before you can continue"   
-    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
+!!! Warning "You must complete this requirement before you can continue"
+
+    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies
+    the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
-Adding our recommended set of security measures minimizes vulnerabilities in your node. This guide teaches you how to configure the firewall and monitor your hardware.
+Adding our recommended set of security measures minimizes vulnerabilities in your node. This guide teaches you how to
+configure file permissions, the firewall and monitor your hardware.
+
+### Understand how user privileges affect the safety of your node
+
+Nodes on Partisia Blockchain need a Linux based operating system, we use Ubuntu in our guides. When you use Ubuntu you
+are either working as a root user or an ordinary non-root user. A root user can command access to all directories and
+files on the system. A non-root can only access certain commands dependent on what permissions and roles the user have
+been assigned. When you put `sudo` in front of a command it means you are executing it as root, and you will need to
+provide your user's password. You do not want your node to be running as root, and in general you do not want to be
+logged in as root when using the node.   
+
+Therefore, your setup involves two users with different levels of access to files:    
+
+1. **Personal user** without access to
+restricted files, in Ubuntu default user is `1000:1000`
+2. **User 1500:1500** for the docker service with access to config and storage     
+
+You make a non-root **personal user**. The second user is for the node service. You do not need to create this user (it
+is handled by the docker service), but you do need to specify necessary file permissions. Docker is running the node
+service from a container. The node service `pbc` has user `1500:1500`. You grant the `pbc` user `1500:1500`
+access to the config-file and storage necessary to run the node. Do not change the `pbc` user `1500:1500` to `1000:1000`. 
+
+If you want to see that the config has been created you can check with `sudo ls /opt/pbc-mainnet/conf`.
+
+!!! Note "Follow these 3 rules:"
+
+    1. **Personal user** is non-root, the Ubuntu default user is `1000:1000`
+    2. The service `pbc` defined in `docker-compose.yml` has user `1500:1500`
+    3. **root** is used when you set up file permissions and when you manually install software on the server - you should avoid being permanently logged in as root
+
+    If you follow these 3 rules it will make it more difficult for hackers to steal private keys, and destroy or compromise your node.
 
 ### Change root password
 
@@ -24,12 +57,32 @@ password:
 sudo passwd root
 ````
 
-### Add a non-root user
+### Add a non-root personal user
 
-For best security practice root should not be default user. Add a non-root user:
+For best security practice root should not be default user. If someone takes over the node, and it is running as root, they can do more damage. 
+
+Add a non-root user:
 
 ````bash
 sudo adduser userNameHere
+````
+
+Make sure that the non-root user can execute superuser commands:
+
+````bash
+sudo usermod -aG sudo userNameHere
+````
+
+Make sure the user can access system logs:
+
+````bash
+sudo usermod -aG systemd-journal userNameHere
+````
+
+Switch to the new non-root user:
+
+````bash
+su - userNameHere
 ````
 
 ### Install htop
