@@ -406,7 +406,7 @@ updates.
 ## Final step
 
 If you are a developer making an application on PBC, and the application needs to reliably query the state of the
-blockchain, then you need a reader node. We recommend that your reader node is setup
+blockchain, then you need a reader node. We recommend that your reader node is set up
 with [a reverse proxy](run-a-zk-node.md#set-up-a-reverse-proxy) to block unwanted traffic. You can query without the
 reverse proxy being setup, but in general practice we do not recommend this method.
 
