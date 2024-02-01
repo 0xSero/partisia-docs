@@ -24,7 +24,7 @@ Nodes on Partisia Blockchain need a Linux based operating system, we use Ubuntu 
 are either working as a root user or an ordinary non-root user. A root user can command access to all directories and
 files on the system. A non-root can only access certain commands dependent on what permissions and roles the user have
 been assigned. When you put `sudo` in front of a command it means you are executing it as root, and you will need to
-provide your root password. You do not want your server to be running as root, and in general you do not want to be
+provide your user's password. You do not want your node to be running as root, and in general you do not want to be
 logged in as root when using the node.    
 Therefore, your setup involves two users with different levels of access to files:    
 
