@@ -64,6 +64,24 @@ Add a non-root user:
 sudo adduser userNameHere
 ````
 
+Make sure that the non-root user can execute superuser commands:
+
+````bash
+sudo usermod -aG sudo userNameHere
+````
+
+Make sure the user can access system logs:
+
+````bash
+sudo usermod -aG systemd-journal userNameHere
+````
+
+Switch to the new non-root user:
+
+````bash
+su - userNameHere
+````
+
 ### Install htop
 
 Use `htop` to monitor your CPU and memory. Install `htop`:
