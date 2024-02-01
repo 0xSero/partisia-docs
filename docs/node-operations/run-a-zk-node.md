@@ -39,7 +39,7 @@ Buy a web domain either from your VPS provider or from another reputable source.
 does not match something proprietary.
 If you want to associate the domain name with Partisia Blockchain
 that is okay because it is a public network where your node participates e.g. you can call the domain https://pbcnode.zknode.com or similar.    
-Avoid the name partisia as a singular. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
+Avoid the name Partisia as a singular. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
 infrastructure node and a reader node. So, avoid names that give the impression that your node is run by the company
 Partisia.
 
