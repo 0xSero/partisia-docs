@@ -10,8 +10,8 @@ on the server and can cause slowdowns. Run your own reader to avoid this.
 
 !!! Warning "You must complete this requirement before you can continue"
 
-- Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies
-  the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
+    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies
+    the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
