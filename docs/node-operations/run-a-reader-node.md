@@ -30,7 +30,7 @@ logged in as root when using the node.
 Therefore, your setup involves two users with different levels of access to files:    
 
 1. **Personal user** without access to
-restricted files, in Ubuntu default user is 1000:1000
+restricted files, in Ubuntu default user is `1000:1000`
 2. **User 1500:1500** for the docker service with access to config and storage     
 
 You make a non-root **personal user**. The second user is for the node service. You do not need to create this user (it
@@ -42,8 +42,8 @@ If you want to see that the config has been created you can check with `sudo ls 
 
 !!! Note "Follow these 3 rules:"
 
-    1. **Personal user** is non-root, usually `1000:1000`
-    2. The service `pbc` defined in `docker-compose.yml` has **user 1500:1500**
+    1. **Personal user** is non-root, the Ubuntu default user is `1000:1000`
+    2. The service `pbc` defined in `docker-compose.yml` has user `1500:1500`
     3. **root** is used when you set up file permissions and when you manually install software on the server - you should avoid being permanently logged in as root
 
     If you follow these 3 rules it will make it more difficult for hackers to steal private keys, and destroy or compromise your node.
