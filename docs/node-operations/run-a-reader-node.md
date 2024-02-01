@@ -400,8 +400,9 @@ Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 ````
 
 !!! Warning "Warning"
-Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for
-updates.
+
+    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for
+    updates.
 
 ## Final step
 
