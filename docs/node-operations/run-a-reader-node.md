@@ -36,7 +36,7 @@ You make a non-root **personal user**. The second user is for the node service. 
 is handled by the docker service), but you do need to specify necessary file permissions. Docker is running the node
 service from a container. The node service `pbc` has user `1500:1500`. You grant the `pbc` user `1500:1500`
 access to the config-file and storage necessary to run the node. Do not change the `pbc` user `1500:1500` to `1000:1000`
-. If you want to see if the config has been created you can check with `sudo ls /opt/pbc-mainnet/conf`.
+. If you want to see that the config has been created you can check with `sudo ls /opt/pbc-mainnet/conf`.
 
 !!! Warning "Follow these 3 rules:"
 
