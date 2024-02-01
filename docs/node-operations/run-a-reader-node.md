@@ -26,8 +26,12 @@ files on the system. A non-root can only access certain commands dependent on wh
 been assigned. When you put `sudo` in front of a command it means you are executing it as root, and you will need to
 provide your root password. You do not want your server to be running as root, and in general you do not want to be
 logged in as root when using the node.    
-Therefore, your setup involves two users with different levels of access to files: 1) a personal user without access to
-restricted files and 2) another user for the docker service with access to config and storage.    
+Therefore, your setup involves two users with different levels of access to files:    
+
+1. **Personal user** without access to
+restricted files (non-root)   
+2. **user** for the docker service with access to config and storage     
+
 You make a non-root **personal user**. The second user is for the node service. You do not need to create this user (it
 is handled by the docker service), but you do need to specify necessary file permissions. Docker is running the node
 service from a container. The node service `pbc` has user `1500:1500`. You grant the `pbc` user `1500:1500`
