@@ -24,7 +24,7 @@ Nodes on Partisia Blockchain need a Linux based operating system, we use Ubuntu 
 are either working as a root user or an ordinary non-root user. A root user can command access to all directories and
 files on the system. A non-root can only access certain commands dependent on what permissions and roles the user have
 been assigned. When you put `sudo` in front of a command it means you are executing it as root, and you will need to
-provide your root password. You do not want your server to be running as root, and in general you do not want to be
+provide your user's password. You do not want your node to be running as root, and in general you do not want to be
 logged in as root when using the node.    
 Therefore, your setup involves two users with different levels of access to files:    
 
@@ -39,8 +39,8 @@ access to the config-file and storage necessary to run the node.
 
 !!! Warning "Follow these 3 rules:"
 
-    1. **Personal user** is non-root
-    2. The service `pbc` defined in `docker-compose.yml` has **user 1500:1500**, your non-root user must be different from 1500:1500
+    1. **Personal user** is non-root, usually `1000:1000`
+    2. The service `pbc` defined in `docker-compose.yml` has **user 1500:1500**
     3. **root** is used when you set up file permissions and when you manually install software on the server - you should avoid being permanently logged in as root
 
     If you follow these 3 rules it will make it more difficult for hackers to steal private keys, and destroy or compromise your node. Go through this page chronologically and this should happen.
