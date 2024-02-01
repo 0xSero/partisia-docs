@@ -3,7 +3,7 @@
 Baker nodes sign and produce blocks. This page describes how to change your node configuration from reader to baker.
 When you have completed the steps below, you have a node that is signing and producing blocks.
 
-!!! Warning " You must complete these requirements before you can continue"   
+!!! Warning "You must complete these requirements before you can continue"   
     - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with and [run a reader node](run-a-reader-node.md)
     - Complete Synaps  [KYC](complete-synaps-kyb.md#verification-process-for-individuals-kyc) / [KYB](complete-synaps-kyb.md#verification-process-for-businesses-kyb)   
     - [Stake 25 K MPC tokens](https://browser.partisiablockchain.com/node-operation)    

@@ -43,5 +43,5 @@ other services, including multiple oracles on the same node.
 | 275 K                      | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | Baker node service<br />Moving BYOC on and off chain |
 
 !!! note "All nodes require a [VPS](../pbc-fundamentals/dictionary.md#vps) with these specs or better"   
-    - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated JVM), 60 GB SSD, publicly accessible IPv4 with ports 9888-9897 open 
+    - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated JVM), 128 GB SSD, publicly accessible IPv4 with ports 9888-9897 open 
     - Recommended software: Docker, Docker Compose, Ubuntu 20.04, nano or other text editors
