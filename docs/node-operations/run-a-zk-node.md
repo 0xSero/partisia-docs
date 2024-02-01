@@ -8,7 +8,8 @@ for the zero knowledge computations performed.
 
 ## Requirements of a ZK node
 
-!!! Warning " You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)"
+!!! Warning " You must complete these requirements before you can go
+to [registration](run-a-zk-node.md#register-your-zk-node)"
 
     1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
     2. [Run baker node](run-a-baker-node.md)
@@ -19,8 +20,9 @@ for the zero knowledge computations performed.
 
 ## Set up a reverse proxy
 
-ZK nodes and reader nodes for development need a reverse proxy server. ZK nodes need it to be able to give and receive
-secret inputs. Reader nodes need to set rate limits to prevent denial-of-service-attacks (DDOS).
+ZK nodes and [reader nodes for development](run-a-reader-node.md#final-step) need a reverse proxy server. ZK nodes need
+it to be able to give and receive secret inputs. Reader nodes need to set rate limits to prevent
+denial-of-service-attacks (DDOS).
 
 Your node is running a docker image with the pbc-mainnet software. The source of the image and name of the container is
 defined in the "service:"-field of  `docker-compose.yml`. In this example we will set up a reverse proxy by modifying
@@ -34,12 +36,11 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 
 ### Get Domain and create a Domain Name Service Address record (DNS A-record)
 
-Buy a web domain either from your VPS provider or from another reputable
-source. Make
-sure to choose a domain name that does not match something proprietary. If you want to associate the name with the
-public blockchain Partisia Blockchain that is okay. But Partisia is an independent privately owned company, providing
-software and infrastructure and run an infrastructure and reader node on PBC. So, avoid names that give the impression
-that your node is run by the company Partisia.
+Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
+does not match something proprietary. If you want to associate the name with the public blockchain Partisia Blockchain
+that is okay. But Partisia is an independent privately owned company, providing software and infrastructure and run an
+infrastructure and reader node on PBC. So, avoid names that give the impression that your node is run by the company
+Partisia.
 
 When you have purchased a domain make an address record (A-record) for a subdomain and point it to your node.
 
@@ -62,7 +63,7 @@ sudo apt install nginx
 ```
 
 For installation of `acme.sh` choose your preferred installation
-method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-how-to-install). 
+method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-how-to-install).
 
 ### Modify `docker-compose.yml`
 
@@ -73,6 +74,7 @@ certificate renewal, then we modify the `docker-compose.yml`.
 ```BASH
 sudo ufw allow 8443
 ```
+
 ```BASH
 sudo ufw allow 80
 ```
@@ -137,7 +139,8 @@ services:
       - DEFAULT_EMAIL=your@email.address
 ```
 
-[Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+[Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and
+then `ENTER` and then `CTRL+X`.
 
 Start the docker-compose services and pull the latest images:
 
@@ -148,7 +151,9 @@ docker-compose pull
 ```BASH
 docker-compose up -d
 ```
-Normally, nginx has new releases monthly, so you do not need to check for updates for your proxy server daily like you do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually:
+
+Normally, nginx has new releases monthly, so you do not need to check for updates for your proxy server daily like you
+do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually:
 
 ```BASH
 docker-compose pull nameOfService
@@ -168,21 +173,22 @@ Complete the following steps:
    as a ZK node (You need to have your https rest endpoint ready)
 3. Restart your node
 
-
 ### Confirm that proxy server, certificate renewal and blockchain image are running
 
-Confirm that all 3 of your docker containers are running. Use the command below, and get a list of running docker containers:
+Confirm that all 3 of your docker containers are running. Use the command below, and get a list of running docker
+containers:
 
 ```BASH
 docker ps
 ```
 
 You can see the running logs of each service by calling for the logs and specifying container name.
+
 ```BASH
   docker logs -f [container_id_or_name]
 ```
 
-At this point you should have a fully functioning ZK node. If any of the docker-containers are not running, then [go to the node health and maintenance section](node-health-and-maintenance.md)
-
+At this point you should have a fully functioning ZK node. If any of the docker-containers are not running,
+then [go to the node health and maintenance section](node-health-and-maintenance.md)
 
 If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.    
