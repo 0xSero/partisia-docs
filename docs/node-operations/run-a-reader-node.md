@@ -40,7 +40,7 @@ access to the config-file and storage necessary to run the node.
 !!! Warning "Follow these 3 rules:"
 
     1. **Personal user** is non-root
-    2. The service `pbc` defined in `docker-compose.yml` has **user 1500:1500**, your non-root user must be different from 1500:1500
+    2. The service `pbc` defined in `docker-compose.yml` has **user 1500:1500**
     3. **root** is used when you set up file permissions and when you manually install software on the server - you should avoid being permanently logged in as root
 
     If you follow these 3 rules it will make it more difficult for hackers to steal private keys, and destroy or compromise your node. Go through this page chronologically and this should happen.
