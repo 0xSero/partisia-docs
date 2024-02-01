@@ -39,7 +39,8 @@ You grant the user access to the config-file and storage necessary to run the no
 
 ### Change root password
 
-When you get a VPS with Lixux OS you receive a root password from the provider. Change the root password:
+When you get a VPS with Lixux OS you receive a root password from the provider. Change the root
+password:
 
 ````bash
 sudo passwd root
@@ -47,8 +48,7 @@ sudo passwd root
 
 ### Add a non-root user
 
-For best security practice root should not be default user. If someone takes over the node, and it is running as root,
-they can do more damage.
+For best security practice root should not be default user. If someone takes over the node, and it is running as root, they can do more damage. 
 
 Add a non-root user:
 
@@ -66,8 +66,7 @@ sudo apt install htop
 
 ### Secure shell (SSH)
 
-Use SSH when connection to your server. Most VPS hosting sites have an SSH guide specific to their hosting platform, so
-you should follow the specifics of your hosting provider's SSH guide.
+Use SSH when connection to your server. Most VPS hosting sites have an SSH guide specific to their hosting platform, so you should follow the specifics of your hosting provider's SSH guide.
 
 ### Configure your firewall
 
@@ -85,8 +84,7 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ````
 
-Allow specific ports for Secure Shell (SSH) and the ports used by
-the [flooding network](../pbc-fundamentals/dictionary.md#flooding-network):
+Allow specific ports for Secure Shell (SSH) and the ports used by the [flooding network](../pbc-fundamentals/dictionary.md#flooding-network):
 
 ````bash
 sudo ufw allow your-SSH-port-number
@@ -118,13 +116,14 @@ sudo ufw status
 
 ## Set up a reader on your VPS
 
-The `pbc` service runs the node with user 1500:1500. In the following we will create the necessary folders and grant
-access to user 1500:1500. Then we make a `docker-compose.yml` specifying the container running the service. The config
-is generated with an automated toll. Finally, we start the node and check that it runs.
+When setting up the node you should use the non-root user you created above.
+The node will run as user:group `1500:1500`
+
 
 ### Creating the configuration and storage folders
 
-Create the `conf` and `storage` folders for the application:
+You run the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`. First we need
+to create the `conf` and `storage` folders for the application:
 
 ````bash
 sudo mkdir -p /opt/pbc-mainnet/conf
@@ -135,13 +134,6 @@ sudo mkdir -p /opt/pbc-mainnet/storage
 ````
 
 ### Setting file permissions
-
-Docker runs the node from the folder `/opt/pbc-mainnet` with user:group `1500:1500`.
-
-!!! Warning "Correct restrictions on file permissions are important for securing your private keys"
-
-    If your private keys get compromised others can steal your MPC tokens and BYOC tokens, or sign malicious transactions .   
-    The [default non-root user above](run-a-reader-node.md#add-a-non-root-user) **must** be different from 1500, because you want to protect access to private keys used by node services.
 
 Now we need to make sure the user with uid `1500` has the needed access to the files:
 
@@ -159,6 +151,7 @@ sudo chmod 700 /opt/pbc-mainnet/storage
 
 The above commands set conservative permissions on the folders the node is using. `chmod 500` makes the config folder
 readable by the PBC node and root. `chmod 700` makes the storage folder readable and writable for the PBC node and root.
+
 
 ### Pull docker image
 
@@ -189,23 +182,24 @@ services:
     user: "1500:1500"
     restart: always
     expose:
-      - "8080"
+    - "8080"
     ports:
-      - "9888-9897:9888-9897"
+    - "9888-9897:9888-9897"
     command: [ "/conf/config.json", "/storage/" ]
     volumes:
-      - /opt/pbc-mainnet/conf:/conf
-      - /opt/pbc-mainnet/storage:/storage
+    - /opt/pbc-mainnet/conf:/conf
+    - /opt/pbc-mainnet/storage:/storage
     environment:
-      - JAVA_TOOL_OPTIONS="-Xmx8G"
+    - JAVA_TOOL_OPTIONS="-Xmx8G"
 ````
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 !!! Warning "Make sure your YAML file match the example"
-It won't work if the indentation is off, because YAML is whitespace sensitive.
+    It won't work if the indentation is off, because YAML is whitespace sensitive.
 
-Keep an eye on the indentation it won't work if the indentation is off.
+
+Keep an eye on the indentation  it won't work if the indentation is off.
 
 ### The `node-register.sh` script
 
@@ -214,14 +208,12 @@ The `node-register.sh` script will help you generate a valid node configuration 
 To generate the `config.json` for a reader node you need following information:
 
 - The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
-  e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999` (give the public key as
-  hexadecimal or Base64). The location of other known producers should be obtained by reaching out to the community. You
-  can see how to reach the
-  community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding)
-  .
+  e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999` (give the public key as hexadecimal or Base64). The location of other known
+  producers should be obtained by reaching out to the community. You can see how to reach the
+  community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
 
-The newest version of `node-register.sh` is located
-on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
+
+The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
 
 ```shell
 curl https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh --output node-register.sh
@@ -245,35 +237,17 @@ Start the tool:
 ./node-register.sh create-config
 ```
 
-We are creating a reader node. Therefore, your first response needs to be a `no` when creating the config, otherwise the
-node will attempt to (unsuccessfully) produce blocks.
-
-````bash
-cd /opt/pbc-mainnet/conf
-````
-
-````bash
-sudo ls
-````
-
-````bash
-sudo cat config.json
-````
+We are creating a reader node. Therefore, your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
 
 The config should look like the example below.
 
 ??? example "Example: Basic reader config"
 
-```JSON
+    ```
     {
-  "restPort": 8080,
-  "floodingPort": 9888,
-  "knownPeers": [
-    "YOUR KNOWN PEERS"
-  ],
-  "networkKey": "YOUR NETWORK KEY"
-}
-```
+        "networkKey": "YOUR NETWORK KEY"  
+    }
+    ```
 
 ### Starting the node
 
@@ -283,8 +257,8 @@ You can now start the node:
 docker-compose up -d
 ````
 
-If the command is successful it will pull the latest image and start the reader node in the background. To verify that
-the node is running, run:
+If the command is successful it will pull the latest image and start the reader node in the background.
+To verify that the node is running, run:
 
 ````bash
 docker logs -f pbc-mainnet
@@ -305,8 +279,8 @@ number and size of reads and writes is entirely dependent on the traffic on the 
 
 ## Get automatic updates
 
-All nodes independent of type should be set up to update their software automatically. To set up automatic updates you
-will need to install Cron, a time based job scheduler:
+All nodes independent of type should be set up to update their software automatically.
+To set up automatic updates you will need to install Cron, a time based job scheduler:
 
 ````bash
 apt-get install cron
@@ -341,7 +315,6 @@ cd ~/pbc
 /usr/local/bin/docker-compose pull
 /usr/local/bin/docker-compose up -d
 ````
-
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 **2. Make the file executable:**
@@ -350,26 +323,21 @@ Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 chmod +x update_docker.sh
 ````
 
-Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now
-executable.
+Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now executable.
 
 **3. Set update frequency to once a day at a random time:**
 
 ````bash
 crontab -e
 ````
-
-This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to
-edit the cron rule. If you have not already chosen a preference.
+This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to edit the cron rule. If you have not already chosen a preference.
 
 Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
-
 ````bash
 m h * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
 ````
-
-For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23. If
-you are in doubt about what the cron rule means you can use this page:
+For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23.
+If you are in doubt about what the cron rule means you can use this page:
 <https://crontab.guru/> to see the rule expressed in words.
 
 Press `CTRL+X` and then `Y` and then `ENTER`.
@@ -381,29 +349,24 @@ To see if the script is working you can read the update log with the *cat comman
 ````bash
 cat update.log
 ````
-
 You can change the time of the first update if you don't want to wait a day to confirm that it works.
 
 If your version is up-to-date, you should see:
-
 ````
 YOUR_CONTAINER_NAME is up-to-date
 ````
-
 If you are currently updating you should see:
-
 ````
 Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 ````
 
 !!! Warning "Warning"
-Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for
-updates.
+    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for updates.
 
 ## Final step
 
-If you plan on using your reader node for development then you will need
-to [set up reverse proxy using example in ZK node guide](run-a-zk-node.md).
+If you plan on using your reader node for development then you will
+need to [set up reverse proxy using example in ZK node guide](run-a-zk-node.md).
 
-You now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker node.
-A baker node is a required step for all [paid node services](node-payment-rewards-and-risks.md).    
+You now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker
+node. A baker node is a required step for all [paid node services](node-payment-rewards-and-risks.md).    
