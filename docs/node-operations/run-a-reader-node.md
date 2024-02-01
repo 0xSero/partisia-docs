@@ -25,11 +25,12 @@ are either working as a root user or an ordinary non-root user. A root user can 
 files on the system. A non-root can only access certain commands dependent on what permissions and roles the user have
 been assigned. When you put `sudo` in front of a command it means you are executing it as root, and you will need to
 provide your user's password. You do not want your node to be running as root, and in general you do not want to be
-logged in as root when using the node.    
+logged in as root when using the node.   
+
 Therefore, your setup involves two users with different levels of access to files:    
 
 1. **Personal user** without access to
-restricted files, usually 1000:1000
+restricted files, in Ubuntu default user is 1000:1000
 2. **User 1500:1500** for the docker service with access to config and storage     
 
 You make a non-root **personal user**. The second user is for the node service. You do not need to create this user (it
