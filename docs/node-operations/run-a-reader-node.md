@@ -29,13 +29,14 @@ logged in as root when using the node.
 Therefore, your setup involves two users with different levels of access to files:    
 
 1. **Personal user** without access to
-restricted files (non-root)   
+restricted files, usually 1000:1000
 2. **User 1500:1500** for the docker service with access to config and storage     
 
 You make a non-root **personal user**. The second user is for the node service. You do not need to create this user (it
 is handled by the docker service), but you do need to specify necessary file permissions. Docker is running the node
 service from a container. The node service `pbc` has user `1500:1500`. You grant the `pbc` user `1500:1500`
-access to the config-file and storage necessary to run the node.
+access to the config-file and storage necessary to run the node. Do not change the `pbc` user `1500:1500` to `1000:1000`
+. If you want to see if the config has been created you can check with `sudo ls /opt/pbc-mainnet/conf`.
 
 !!! Warning "Follow these 3 rules:"
 
