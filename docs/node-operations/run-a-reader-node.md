@@ -30,7 +30,7 @@ Therefore, your setup involves two users with different levels of access to file
 
 1. **Personal user** without access to
 restricted files (non-root)   
-2. **user** for the docker service with access to config and storage     
+2. **user 1500:1500** for the docker service with access to config and storage     
 
 You make a non-root **personal user**. The second user is for the node service. You do not need to create this user (it
 is handled by the docker service), but you do need to specify necessary file permissions. Docker is running the node
