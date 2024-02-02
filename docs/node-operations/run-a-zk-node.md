@@ -47,7 +47,7 @@ When you have purchased a domain make an address record (A-record) for a subdoma
 
 !!! Example "You have purchased domain "mynode.com" and have VPS host IP 123.123.123.123"
 
-    1. Sign in to your domain controll panel and find DNS reords
+    1. Sign in to your domain control panel and find DNS records
     2. Make an A-record pointing zk.mynode.com to 123.123.123.123
 
 ### Install necessary software
