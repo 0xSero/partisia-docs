@@ -38,7 +38,13 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
 does not match something proprietary.
 If you want to associate the domain name with Partisia Blockchain
-that is okay because it is a public network where your node participates e.g. you can call the domain https://pbcnode.zknode.com or similar.    
+that is okay because it is a public network where your node participates e.g. you can call the domain https://pbcnode.zknode.com or similar.
+
+!!! note
+
+    In this guide we have assumed that you use 8443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this. This demands that the DNS record point to the port 8443 otherwise it will point to 443 as default. 
+    The endpoint you register with the ZK registry contract should also point to 8443, e.g. https://pbcnode.zknode.com:8443.
+
 Avoid the name Partisia as a singular. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
 infrastructure node and a reader node. So, avoid names that give the impression that your node is run by the company
 Partisia.
@@ -50,35 +56,40 @@ When you have purchased a domain make an address record (A-record) for a subdoma
     1. Sign in to your domain controll panel and find DNS reords
     2. Make an A-record pointing zk.mynode.com to 123.123.123.123
 
-### Install necessary software
+### How [nginx](https://hub.docker.com/r/nginxproxy/nginx-proxy) and [acme](https://hub.docker.com/r/nginxproxy/acme-companion) run as services in docker containers 
 
 This example uses nginx for the proxy server and acme-companion handles automated creation and renewal of the SSL
 certificate. Both services are manged by the `docker-compose.yml`.
 
-```BASH
-sudo apt update
-```
-
-```BASH
-sudo apt install nginx
-```
-
-For installation of `acme.sh` choose your preferred installation
-method [here](https://github.com/acmesh-official/acme.sh?tab=readme-ov-file#1-how-to-install).
+Docker Compose automates the process of downloading, building, and running the specified containers, along with their
+dependencies. This is why you don't have manually to install and configure software on your host machine. This
+is one of the key benefits of running a service in a docker container.
 
 ### Modify `docker-compose.yml`
 
 The modified docker compose handles two new services in addition to managing the pbc-mainet container: 1) an nginx proxy
-server, and 2) an automated certificate manager (acme). We first open the ports used for the proxy server and
-certificate renewal, then we modify the `docker-compose.yml`.
+server, and 2) an automated certificate manager (acme). We first open the ports host ports used for the proxy server and
+certificate renewal, then we modify the `docker-compose.yml`.   
+
+Our new docker services will utilize ports that are currently closed by your firewall.
+We allow https traffic through the firewall on port 8443:
 
 ```BASH
 sudo ufw allow 8443
 ```
 
+We allow http traffic through the firewall on port 80:
+
 ```BASH
 sudo ufw allow 80
 ```
+
+http traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service request a
+certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver (
+nginx) placing a token on a specified path using http on port 80.   
+
+   
+We stop docker compose before we make modifications:
 
 ```BASH
 cd pbc
@@ -91,6 +102,8 @@ docker stop
 ```BASH
 nano docker-compose.yml
 ```
+
+Paste the new docker compose. Change each `environment` of the services to fit with your domain:
 
 ```yaml
 version: "2.0"
