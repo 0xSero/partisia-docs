@@ -40,7 +40,7 @@ does not match something proprietary.
 If you want to associate the domain name with Partisia Blockchain
 that is okay because it is a public network where your node participates e.g. you can call the domain https://pbcnode.zknode.com or similar.    
 Avoid the name Partisia as a standalone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
-infrastructure node and a reader node. So, avoid names that give the impression that your node is run by the company
+infrastructure node and a reader node. Avoid names which give the impression that your node is run by the company
 Partisia.
 
 When you have purchased a domain make an address record (A-record) for a subdomain and point it to your node.
