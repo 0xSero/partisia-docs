@@ -153,7 +153,7 @@ docker-compose pull
 docker-compose up -d
 ```
 
-Normally, nginx has new releases monthly, so you do not need to check for updates for your proxy server daily like you
+Normally, nginx has new releases monthly, therefore you do not need to check for updates for your proxy server daily like you
 do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually:
 
 ```BASH
