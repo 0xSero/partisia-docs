@@ -67,8 +67,6 @@ is one of the key benefits of running a service in a docker container.
 
 ### Modify `docker-compose.yml`
 
-![ServicesDC](Reduced_version_ProxyServer.svg)
-
 The modified docker compose handles two new services in addition to managing the pbc-mainet container: 1) an nginx proxy
 server, and 2) an automated certificate manager (acme). We first open the ports host ports used for the proxy server and
 certificate renewal, then we modify the `docker-compose.yml`.   
