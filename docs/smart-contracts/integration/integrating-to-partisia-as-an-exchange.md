@@ -47,7 +47,11 @@ The **receiver** is `0054556c213b1a1d4e081fc2aec67d5f88e05cbca4`
 
 Addresses can be generated using a small piece of Java, as seen below:
 
-![aboutAddresses.png](partisia-as-an-exchange-screenshots/aboutAddresses.png)
+```java
+KeyPair privateKey = new KeyPair(privateKeyBigInt);
+BlockchainPublicKey publicKey = privateKey.getPublic();
+BlockchainAddress address = publicKey.createAddress();
+```
 
 The address on PBC is nothing more than
 
