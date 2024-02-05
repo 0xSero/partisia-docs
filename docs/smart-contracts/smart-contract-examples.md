@@ -15,7 +15,7 @@ and [the NFT standard](https://partisiablockchain.gitlab.io/documentation/smart-
 
 [Visit our DeFi suite of contracts to explore the token contract, liquidity swap, nfts and more](https://gitlab.com/partisiablockchain/language/contracts/defi)
 
-You want to solve problems with smart contracts. The easiest way of getting started coding smart contracts is to learn
+If you want to solve problems with smart contracts. The easiest way of getting started coding smart contracts is to learn
 from concrete examples showing smart contracts solving problems similar to the one you need to solve. The examples
 includes both normal contracts and [zero-knowledge smart contracts](zk-smart-contracts/zk-smart-contracts.md)
 
