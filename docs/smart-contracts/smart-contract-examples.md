@@ -13,7 +13,7 @@ and [the NFT standard](https://partisiablockchain.gitlab.io/documentation/smart-
 
 [Visit our repository of standalone open source examples](https://gitlab.com/partisiablockchain/language/example-contracts)
 
-[Visit our DeFi suite of contracts to explore the token contract, liquidity swap, nfts and more!](https://gitlab.com/partisiablockchain/language/contracts/defi)
+[Visit our DeFi suite of contracts to explore the token contract, liquidity swap, nfts and more](https://gitlab.com/partisiablockchain/language/contracts/defi)
 
 You want to solve problems with smart contracts. The easiest way of getting started coding smart contracts is to learn
 from concrete examples showing smart contracts solving problems similar to the one you need to solve. The examples
