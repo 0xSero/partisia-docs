@@ -7,7 +7,9 @@ the name of the smart contract one-to-one.
 We have two sets of open source examples, one is a general introduction to different world problems and the contracts
 work as standalone solutions. The other
 suite of open sourced contracts are our DeFi examples which solves decentralized finance problems with a blockchain
-solution, these are heavily integrated to [the token standard](https://partisiablockchain.gitlab.io/documentation/smart-contracts/integration/mpc-20-token-contract.html) and [the NFT standard](https://partisiablockchain.gitlab.io/documentation/smart-contracts/integration/mpc-721-nft-contract.html).
+solution, these are heavily integrated
+to [the token standard](https://partisiablockchain.gitlab.io/documentation/smart-contracts/integration/mpc-20-token-contract.html)
+and [the NFT standard](https://partisiablockchain.gitlab.io/documentation/smart-contracts/integration/mpc-721-nft-contract.html).
 
 [Visit our repository of standalone open source examples](https://gitlab.com/partisiablockchain/language/example-contracts)
 
