@@ -71,7 +71,7 @@ The modified docker compose handles two new services in addition to managing the
 server, and 2) _pbc-acme_ running an automated certificate manager. We first open the ports host ports used for the proxy server and
 certificate renewal, then we modify the `docker-compose.yml`.   
 
-![NewDockerCompose](ProxyServer.png)
+![NewDockerCompose](ProxyServer.svg)
 
 Our new docker services will utilize ports that are currently closed by your firewall.
 We allow https traffic through the firewall on port 8443:
