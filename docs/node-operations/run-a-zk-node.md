@@ -42,7 +42,7 @@ that is okay because it is a public network where your node participates e.g. yo
 
 !!! note
 
-    In this guide we have assumed that you use 8443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this. This demands that the DNS record point to the port 8443 otherwise it will point to 443 as default. 
+    In this guide we have assumed that you use 8443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
     The endpoint you register with the ZK registry contract should also point to 8443, e.g. https://pbcnode.zknode.com:8443.
 
 Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
