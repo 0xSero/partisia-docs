@@ -66,16 +66,10 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
 
 
 ??? info "[Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)"
-    Below you see the oracle contracts handling deposits and withdrawals for BYOCs. These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The
-    contract state shows which nodes serve the oracle and a list of the deposits or withdrawals they have completed. [Read more about oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)   
-    [BNB Deposit](https://browser.partisiablockchain.com/contracts/047e1c96cd53943d1e0712c48d022fb461140e6b9f)    
-    [BNB Withdrawal](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)      
-    [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)    
-    [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)    
-    [ETHEREUM_USDT Deposit](https://browser.partisiablockchain.com/contracts/040728ed459dd80c3653c544b63a57ae7a1144fe57)      
-    [ETHEREUM_USDT Withdrawal](https://browser.partisiablockchain.com/contracts/04c73a37ec8db48b86a2d76c978d4117e2282017ec)      
-    [POLYGON_USDC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
-    [POLYGON_USDC](https://browser.partisiablockchain.com/contracts/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)   
+    You see the oracle contracts handling deposits and withdrawals for BYOCs in the [list of bridgeable coins](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet). These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The
+    contract state shows which nodes serve the oracle and a list of the deposits or withdrawals they have completed. 
+
+    [Comprehensive list of deposit and withdrawal oracles on PBC and native chains of BYOC](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) 
 
     [Deposit oracle contract documentation](https://partisiablockchain.gitlab.io/governance/byoc-incoming/com/partisiablockchain/governance/byocincoming/ByocIncomingContract.html).
 
