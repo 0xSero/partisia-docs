@@ -62,7 +62,7 @@ This example uses nginx for the proxy server and acme-companion handles automate
 certificate. Both services are manged by the `docker-compose.yml`.
 
 Docker Compose automates the process of downloading, building, and running the specified containers, along with their
-dependencies. This is why you don't have manually to install and configure software on your host machine. This
+dependencies. This is why you don't have to manually install and configure software on your host machine. This
 is one of the key benefits of running a service in a docker container.
 
 ### Modify `docker-compose.yml`
