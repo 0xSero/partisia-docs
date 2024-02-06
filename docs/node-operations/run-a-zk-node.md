@@ -37,8 +37,7 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 
 Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
 does not match something proprietary.
-If you want to associate the domain name with Partisia Blockchain
-that is okay because it is a public network where your node participates e.g. you can call the domain https://pbcnode.zknode.com or similar.
+It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain https://pbcnode.zknode.com or similar.
 
 !!! note
 
