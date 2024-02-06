@@ -37,12 +37,12 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 
 Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
 does not match something proprietary.
-It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain https://pbcnode.zknode.com or similar.
+It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.
 
-!!! note
+!!! note 
 
     In this guide we have assumed that you use 8443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    The endpoint you register with the ZK registry contract should also point to 8443, e.g. https://pbcnode.zknode.com:8443.
+    The endpoint you register with the ZK registry contract should also point to 8443, e.g. pbcnode.com:8443.
 
 Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
 infrastructure node and a reader node. Avoid names which give the impression that your node is run by the company
@@ -50,10 +50,10 @@ Partisia.
 
 When you have purchased a domain make an address record (A-record) for a subdomain and point it to your node.
 
-!!! Example "You have purchased domain "mynode.com" and have VPS host IP 123.123.123.123"
+!!! Example "You have purchased domain "pbcnode.com" and have VPS host IP 123.123.123.123"
 
     1. Sign in to your domain control panel and find DNS records
-    2. Make an A-record pointing zk.mynode.com to 123.123.123.123
+    2. Make an A-record pointing a subdomain (e.g. zk.pbcnode.com) to 123.123.123.123
 
 ### How [nginx](https://hub.docker.com/r/nginxproxy/nginx-proxy) and [acme](https://hub.docker.com/r/nginxproxy/acme-companion) run as services in docker containers 
 
