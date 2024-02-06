@@ -85,8 +85,8 @@ sudo ufw allow 80
 ```
 
 http traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service request a
-certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver (
-nginx) placing a token on a specified path using http on port 80.   
+certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver
+(nginx) placing a token on a specified path using http on port 80.   
 
    
 We stop docker compose before we make modifications:
