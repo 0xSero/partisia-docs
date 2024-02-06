@@ -31,7 +31,7 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 
     Inputs given to ZK contracts are preprocessed and cut into randomized parts called secret shares. But if a third party
     gets access to several shares there is a risk that they can guess the original input. For this reason traffic related to
-    ZK computations travel through an https endpoint. Baker traffic does not need this because their actions end up on the public ledger.
+    ZK computations travel through an https endpoint. Baker traffic does not need this since their actions end up on the public ledger.
 
 ### Get Domain and create a Domain Name Service Address record (DNS A-record)
 
