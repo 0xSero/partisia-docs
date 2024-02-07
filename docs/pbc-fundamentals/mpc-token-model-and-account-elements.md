@@ -1,6 +1,6 @@
 # $MPC token model and Account Elements
 
-The MPC Token is the native token of the Partisia Blockchain used for staking and bootstrapping the ecosystem via MPC tokens as rewards. All Accounts on the blockchain can own MPC tokens. Staking in the context of MPC tokens means, that a stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services. The staking requirements for different tasks can be read [here](../node-operations/what-is-a-node-operator.md). The stake of a node can be used to pay compensation for misconduct committed with the node.
+The MPC Token is the native token of the Partisia Blockchain used for staking and bootstrapping the ecosystem via MPC tokens as rewards. All Accounts on the blockchain can own MPC tokens. Staking in the context of MPC tokens means, that a stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services. The staking requirements for different tasks can be read [here](../node-operations/start-running-a-node.md). The stake of a node can be used to pay compensation for misconduct committed with the node.
 
 ## Terminology
 
@@ -19,7 +19,7 @@ All computations defined in this document can be computed based on the on-chain 
 
 The on-chain account information is defined in the source code for the blockchain <https://gitlab.com/partisiablockchain/governance/account-plugin>
 
-Below is an example of the the on-chain account information for a given account taken from <https://testnet.partisiablockchain.com/info/account/00c46f56cd02c35543cf41c23cb24909b29539ead4>
+Below is an example of the on-chain account information for a given account taken from <https://testnet.partisiablockchain.com/info/account/00c46f56cd02c35543cf41c23cb24909b29539ead4>
 
 ```json
 {
@@ -67,7 +67,7 @@ Below is an example of the the on-chain account information for a given account 
 }
 ```
 
-The fields of the on-chain account information holds the following. The MPC token model described in the next section will give an overview and detailed computations for how the information can be aggregated meaningfully.
+The fields of the [on-chain account information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/Balance.html) holds the following. The MPC token model described in the next section will give an overview and detailed computations for how the information can be aggregated meaningfully.
 
 - `mpcTokens`: The total amount of MPC tokens that are transferable. This number can be negative if more tokens are in use than the released amount. Example: An account has 100 free tokens and 250 released: mpcTokens = 100. After staking 150: mpcTokens = -50
 - `stakedTokens`: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract in See stakedToContract
@@ -161,8 +161,7 @@ with the following functions, where divisions use integer math (rounding down)
 amountPerBatch(v) = v.tokens / (v.releaseDuration / v.releaseInterval )
 batchesReleased(v) = max( 0,  effectiveProductionTime(v) - v.tokenGenerationEvent ) / v.releaseInterval 
 effectiveProductionTime(v) = 
-    blockProductionTime                                                                                    
-    if p.releaseDuration==62899200000 and p.releaseInterval==7862400000
+    blockProductionTime                                                                                    if p.releaseDuration==62899200000 and p.releaseInterval==7862400000
     max( min( 1684540800000, blockProductionTime), blockProductionTime - (1747699200000 - 1684540800000))  otherwise 
 ```
 
@@ -321,7 +320,7 @@ where
 
 ```
 delegationValue(p) =
-    p.amount if p.delegationType==DELEGATE_STAKES or p.delegationType==RETRACT_DELEGATED_STAKES
+    p.amount if p.delegationType==DELEGATE_STAKES or p.delegationType==RETURN_DELEGATED_STAKES
     0        otherwise
 ```
 
@@ -421,7 +420,7 @@ Computation (from on-chain information)
 | `#PendingRetractedDelegated` | `sum(pendingRetractedDelegatedStakes.value)`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `#InTransit`                 | `#InTransitTransfer + #InTransitDelegated`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `#InTransitTransfer`         | `#InTransitTransfer = sum( transferValue(p)) where p in storedPendingTransfers`<br>`where `<br>`transferValue(p) =`<br>`p.amount if`<br> `p.coinIndex==-1 and`<br>`p.addTokensOrCoinsIfTransferSuccessful==false`<br>`0 otherwise`                                                                                                                                                                                                                                                                                                               |
-| `#InTransitDelegated`        | `#InTransitDelegations  = sum( delegationValue(p)) where p in storedPendingStakeDelegations`<br>`where`<br>`delegationValue(p) =`<br>`p.amount if`<br>`p.delegationType==DELEGATE_STAKES or`<br>`p.delegationType==RETRACT_DELEGATED_STAKES`<br>`0 otherwise`                                                                                                                                                                                                                                                                                    |
+| `#InTransitDelegated`        | `#InTransitDelegations  = sum( delegationValue(p)) where p in storedPendingStakeDelegations`<br>`where`<br>`delegationValue(p) =`<br>`p.amount if`<br>`p.delegationType==DELEGATE_STAKES or`<br>`p.delegationType==RETURN_DELEGATED_STAKES`<br>`0 otherwise`                                                                                                                                                                                                                                                                                    |
 | `#Unused`                    | `#InSchedule + #Transferable`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Running on-chain jobs        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `#DelegatedFromOthers`       | `#AcceptedFromOthers + #PendingFromOthers`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

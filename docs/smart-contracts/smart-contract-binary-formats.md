@@ -7,6 +7,13 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
+- Version **5.4** to **5.5**:
+    * Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x11`.
+    * Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x13`.
+    * `FnKind 0x11` now requires a Shortname.
+    * `FnKind 0x13` now requires a Shortname.
+- Version **5.3** to **5.4**:
+    * Added new `FnKind: 0x18` called `ZkExternalEvent`.
 - Version **5.2** to **5.3**:
     * Added new type `AvlTreeMap`, a map whose content is not serialized to the wasm state format, but instead allows
   for lazy access to its contents.
@@ -328,13 +335,14 @@ $$
 |\ &\hexi{02} \ \Rightarrowx \text{Action}  &\text{(0..}\infty\text{)}\\
 |\ &\hexi{03} \ \Rightarrowx \text{Callback}  &\text{(0..}\infty\text{)}\\
 |\ &\hexi{10} \ \Rightarrowx \text{ZkSecretInput}  &\text{(0..}\infty\text{)}\\
-|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..1)}\\
+|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..}\infty\text{))}\\
 |\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected}  &\text{(0..1)}\\
-|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..1)}\\
+|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..}\infty\text{))}\\
 |\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
 |\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
 |\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\
 |\ &\hexi{17} \ \Rightarrowx \text{ZkSecretInputWithExplicitType} &\text{(0..}\infty\text{)} \\
+|\ &\hexi{18} \ \Rightarrowx \text{ZkExternalEvent} &\text{(0..1} \\
 \end{align*}
 } \\
 $$
@@ -346,24 +354,39 @@ Also note that if a function has the deprecated kind `ZkSecretInput`, the defaul
 secret argument associated with it is of type i32. 
 
 <!-- fix syntax highlighting* -->
+## Section format
+
+A section is an indexed chunk of a binary file of dynamic length, which is defined as follows:
+
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<Section >} \ :=
+\ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
+\end{align*}
+}
+$$
+
+The id of a section is a single, leading byte that identifies the section.
+The section's length then follows and is given as a 32-bit, big-endian,
+unsigned integer. The byte length of the following dynamically sized data
+of the section should match this length.
 
 ## Wasm contract result format
 
-The format used by Wasm contracts to return results is a section-based format defined as following:
+The format used by Wasm contracts to return results is a [section format](#section-format) defined as follows:
 
 $$
 \textcolor{mathcolor}{
 \begin{align*}
 \text{<Result>} \ :=
   \ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
-\text{<Section >} \ :=
-  \ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
 \end{align*}
 }
 $$
 <!-- fix syntax highlighting* -->
 
-Note that section must occur in order of increasing ids. Two ids are
+Note that sections must occur in order of increasing ids. Two ids are
 "well-known" and specially handled by the interpreter:
 
 - `0x01`: Stores event information.
@@ -371,3 +394,47 @@ Note that section must occur in order of increasing ids. Two ids are
 
 Section ids `0x00` to `0x0F` are reserved for "well-known" usage. All others
 are passed through the interpreter without modification.
+
+## ZKWA format
+
+ZK-contracts have their own binary file format  with the extension ".zkwa"
+that contains their compiled WASM code and ZK-circuit byte code. 
+This is a [section format](#section-format) defined as:
+
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<ZKWA>} \ :=
+\ & \text{section}_0\text{: Section} \ \text{section}_1\text{: Section} \\
+\end{align*}
+}
+$$
+<!-- fix syntax highlighting* -->
+
+Note that sections must occur in order of increasing ids. The .zkwa format consists
+of two sections indexed by the following ids:
+
+- `0x02`: The contract's WASM code.
+- `0x03`: The contract's ZK-circuit byte code.
+
+## Partisia Blockchain Contract File
+
+The file extension of Partisia Blockchain Contract Files is written as ".pbc". This is a [section format](#section-format) defined as:
+
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<PbcFile>} \ :=
+\ & \text{PbcHeader:}\bytes{4},\text{The header is always "PBSC" in ASCII}\ \\
+\ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
+\end{align*}
+}
+$$
+<!-- fix syntax highlighting* -->
+
+Note that sections must occur in order of increasing ids. The .pbc format can
+consist of up to three sections indexed by the following ids:
+
+- `0x01`: The contract's [ABI](#abi-binary-format).
+- `0x02`: The contract's WASM code.
+- `0x03`: The contract's ZK-circuit byte code.

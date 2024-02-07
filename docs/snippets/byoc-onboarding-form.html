@@ -271,7 +271,7 @@
 
       const chain = readIntegratedChain();
       const largeOracleContracts = {
-        "Ethereum": "0x81a19EE43bcF9FF57ab2694B3f435e3354894B3A",
+        "Ethereum": "0x3435359Df1D8C126ea1b68BB51E958fdf43F8272",
         "Polygon": "0x3435359Df1D8C126ea1b68BB51E958fdf43F8272",
         "BnbSmartChain": "0x4c4ECb1EFb3BC2a065af1F714B60980a6562C26f",
       };
@@ -296,7 +296,7 @@
       if (isAddress(proxyAddress) && priceInformationSupplied && tokenName !== "") {
         const symbol = (isNativeToken() ? tokenName : chain + "_" + tokenName).toUpperCase();
 
-        let numerator = priceBigInt;
+        let numerator = priceBigInt * BigInt(100000);
         let denominator = (BigInt(10) ** BigInt(decimals + priceDecimals));
         const maxValue = BigInt(2) ** BigInt(63);
         while (numerator > maxValue || denominator > maxValue) {

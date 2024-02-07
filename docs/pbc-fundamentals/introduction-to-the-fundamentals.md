@@ -12,7 +12,7 @@ The blocks are connected cryptographically. The hash of each block is produced a
 
 ![Diagram0](../pbc-fundamentals/blockchain.png)
 
-A blockchain exists on a distributed network of computers called [nodes](../node-operations/what-is-a-node-operator.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](../pbc-fundamentals/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
+A blockchain exists on a distributed network of computers called [nodes](../node-operations/start-running-a-node.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](../pbc-fundamentals/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
 Conversely, a blockchain is a decentralized database. Therefore, data on the blockchain remains secure even if a computer in the network is hacked, short circuits or loose connection to the internet.
 
 ### What happens when I use a blockchain
@@ -40,15 +40,15 @@ For zero knowledge computation to happen simultaneous with the public activities
 
 - [Introduction to the Partisia Blockchain fundamentals](../pbc-fundamentals/introduction-to-the-fundamentals.md)
 - [Create an account on Partisia Blockchain (PBC)](../pbc-fundamentals/create-an-account.md)
-- [BYOC and Gas ](../pbc-fundamentals/byoc.md)
+- [BYOC and Gas ](byoc/introduction-to-byoc.md)
 - [$MPC token model and Account Elements](../pbc-fundamentals/mpc-token-model-and-account-elements.md)
 - [Useful terms and definitions](../pbc-fundamentals/dictionary.md)
 
 ### Find out more
 
-[**What is a node operator?**](../node-operations/what-is-a-node-operator.md)
+[**What is a node operator?**](../node-operations/start-running-a-node.md)
 
-[**How does the economy of PBC work?**](../pbc-fundamentals/byoc.md)
+[**How does the economy of PBC work?**](byoc/introduction-to-byoc.md)
 
 [**What is a smart contract?**](../smart-contracts/what-is-a-smart-contract.md)
 
