@@ -45,8 +45,6 @@ in order to create your first smart contract.
 extern crate pbc_contract_codegen;
 extern crate pbc_contract_common;
 
-use std::collections::BTreeSet;
-
 use pbc_contract_common::address::Address;
 use pbc_contract_common::context::ContractContext;
 use pbc_contract_common::sorted_vec_map::SortedVecMap;
@@ -128,7 +126,7 @@ pub fn initialize(
   mp_addresses: Vec<Address>,
 ) -> VotingContractState {
   assert_ne!(mp_addresses.len(), 0, "Cannot start a poll without parliament members");
-  let mut address_set = BTreeSet::new();
+  let mut address_set = SortedVecSet::new();
   for mp_address in mp_addresses.iter() {
     address_set.insert(*mp_address);
   }
