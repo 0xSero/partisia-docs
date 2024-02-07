@@ -68,7 +68,7 @@ Example:
 pub struct VotingContractState {
     proposal_id: u64,
     mp_addresses: Vec<Address>,
-    votes: BTreeMap<Address, u8>,
+    votes: SortedVecMap<Address, u8>,
     closed: u8,
 }
 ```
@@ -84,7 +84,7 @@ reading: [state macro documentation](https://partisiablockchain.gitlab.io/langua
 
 ### `#[action]`
 
-Declares that the annotated function is an contract action that can be called
+Declares that the annotated function is a contract action that can be called
 from other contracts and dashboard. Must have a signature of the following format:
 
 ```rust
@@ -313,10 +313,7 @@ reading: [CallbackContext struct documentation](https://partisiablockchain.gitla
 
 ## State serialization gas considerations
 
-Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically
-for [CopySerializable](../smart-contracts/smart-contract-binary-formats.md#CopySerializable) `T`) are more efficiently (
-de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for
-_every_ action, even ones that never handle state.
+Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>`, as `Vec<T>` (specifically for [CopySerializable](abiv.md#CopySerializable) `T`) are more efficiently (de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
 
 If quick lookups are required, and the data structure rarely changes, it might be feasible to maintain a sorted `Vec` in
 state, and
