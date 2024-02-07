@@ -313,7 +313,7 @@ reading: [CallbackContext struct documentation](https://partisiablockchain.gitla
 
 ## State serialization gas considerations
 
-`SortedVecMap<T>` and `SortedVecSet<T>` (specifically for [CopySerializable](abiv.md#CopySerializable) `T`) allow for efficiently (de)serializable map and set structures, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
+`SortedVecMap<T>` and `SortedVecSet<T>` (specifically for [CopySerializable](smart-contract-binary-formats.md#CopySerializable) `T`) allow for efficiently (de)serializable map and set structures, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
 
 Ensure
 you [depend upon and link against the `pbc_lib` crate](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_lib/index.html).
