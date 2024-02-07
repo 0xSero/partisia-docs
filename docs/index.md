@@ -1,28 +1,59 @@
-# Documentation for Partisia Blockchain Mainnet
+---
+hide: navigation
+---
 
+<div class="front-page-text-wrapper">
 
-## Start with the basics
+<h1 style="font-weight: bold;">Partisia Blockchain Documentation</h1>
 
- - [Introduction - Learn the blockchain fundamentals](introduction.md)
- - [Create an account on Partisia Blockchain (PBC)](accounts.md)
- - [Useful terms and definitions](dictionary.md)
+<p>Partisia Blockchain is built for trust, transparency, privacy and speed of light finalization. Partisia Blockchain is a pioneering technology that redefines the way we approach privacy and scalability in the world of blockchain.</p>
+<p>What sets Partisia Blockchain apart is its unique combination of advanced cryptographic techniques and distributed computing principles. By leveraging secure multiparty computation (MPC), Partisia Blockchain ensures privacy preservation without sacrificing efficiency or security. This groundbreaking approach allows for confidential transactions, where sensitive data remains encrypted throughout the process, making it ideal for industries like finance, healthcare and many others. Moreover, Partisia Blockchain's scalable architecture enables high transaction throughput, making it suitable for decentralized real-world applications. 
+</p>
+<p>This is our official documentation where we introduce key concepts, fundamental understandings, create new node operators and onboard new external developers into the environment and teach you how to code smart contracts on PBC.</p>
 
-## Become a Node Operator
+</div>
 
-- [Step by step to run a node on PBC](operator-0-introduction.md)
+<div class="front-page-pictures-wrapper">
+    <div class="front-page-hover-wrap">
+        <a href="pbc-fundamentals/introduction-to-the-fundamentals.html">
+            <img src="assets/categories/pbc-fundamentals.svg" alt="PBC Fundamentals" class="front-page-pictures front-page-pictures-top" />
+        </a>
+        <a href="pbc-fundamentals/introduction-to-the-fundamentals.html"> 
+            <img src="assets/categories/pbc-fundamentals-hover.svg" alt="PBC Fundamentals" class="front-page-pictures-hover" />
+        </a>
+    </div>
+    <div class="front-page-hover-wrap">
+        <a href="smart-contracts/introduction-to-smart-contracts.html">
+            <img src="assets/categories/smart-contracts.svg" alt="Smart Contracts" class="front-page-pictures front-page-pictures-top" />
+        </a>
+        <a href="smart-contracts/introduction-to-smart-contracts.html">
+            <img src="assets/categories/smart-contracts-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover" />
+        </a>
+    </div>
+    <div class="front-page-hover-wrap">
+        <a href="node-operations/start-running-a-node.html">
+            <img src="assets/categories/node-operations.svg" alt="Node Operations" class="front-page-pictures front-page-pictures-top" />
+        </a>
+        <a href="node-operations/start-running-a-node.html">
+            <img src="assets/categories/node-operations-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover" />
+        </a>
+    </div>
 
-## Downloadable resources - We provide compiler and smart contract examples
-- [Smart Contract compiler](download-compiler.md)
-- [Public and ZK smart contract examples](combi-innovation.md)
-
-## Smart Contracts   
-- [What is a Smart Contract](contract-development.md)   
-- [Use the PBC testnet for contract development](testnet.md)   
-- [Download compiler for contract development](download-compiler.md)   
-- [Smart contract examples](combi-innovation.md)
-- [Programmer's Guide to PBC smart contract](programmers_guide.md)   
-- [ABI specification](abiv.md)   
-- [Create a Smart Contract for a specific scenario](voting-contract.md)   
-- [Zero Knowledge Contracts](ZKSC.md)
-- [Zero Knowledge Gas Fees](zk-computation-fees.md)
-- [Connect a dApp to the wallet extension (dApp SDK)](https://partisiablockchain.gitlab.io/partisia-wallet-sdk-docs/#/partisia)   
+<br>
+<div class="front-page-hover-wrap">
+    <a href="get-support-from-pbc-community.html">
+        <img src="assets/categories/need-support.svg" alt="Need support?" class="front-page-pictures front-page-pictures-bot" />
+    </a>
+    <a href="get-support-from-pbc-community.html">
+        <img src="assets/categories/need-support-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover front-page-pictures-bot-hover" />
+    </a>
+</div>
+<div class="front-page-hover-wrap">
+    <a href="get-support-from-pbc-community.html">
+        <img src="assets/categories/square-need-support.svg" alt="Need support?" class="front-page-pictures front-page-pictures-square front-page-pictures-top" style="display:none" />
+    </a>
+    <a href="get-support-from-pbc-community.html">
+        <img src="assets/categories/square-need-support-hover.svg" alt="Smart Contracts" class="front-page-pictures-hover front-page-pictures-square-hover front-page-pictures-top"  style="display:none" />
+    </a>
+</div>
+</div>
