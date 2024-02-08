@@ -53,8 +53,8 @@ When you have purchased a domain make an address record (A-record) for a subdoma
 
 !!! Example "You have purchased domain "pbcnode.com" and have VPS host IP 123.123.123.123"
 
-    1. Sign in to your domain control panel and find DNS records
-    2. Make an A-record pointing a subdomain (e.g. zk.pbcnode.com) to 123.123.123.123
+    1. Sign in to your domain control panel and find DNS records   
+    2. Make an A-record pointing a subdomain (e.g. zk.pbcnode.com) to 123.123.123.123   
 
 ### How nginx and acme run as services in docker containers 
 
