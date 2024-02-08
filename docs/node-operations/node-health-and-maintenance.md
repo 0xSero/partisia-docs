@@ -6,7 +6,8 @@ The maintenance page takes you through the following node issues:
 - [Update your node manually](#updating-your-node-manually)   
 - [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)   
 - [How to monitor node performance](#how-to-monitor-node-performance)   
-- [Interpret log messages and debugging problems - See if your node is signing blocks](#logs-and-storage)   
+- [Interpret log messages and debugging problems - See if your node is signing blocks](#logs-and-storage)
+- [For ZK and reader nodes: Sorting logs of nginx proxy and acme](#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 - [Confirm that your BYOC endpoints are working](#confirm-that-your-byoc-endpoints-are-working)   
 - [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)   
 - [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)   
@@ -193,12 +194,41 @@ docker logs --since 1h pbc-mainnet | grep "Signing BlockState"
 This will give you the blocks you have signed the last hour. You might also want to look for blocks you created when you
 were chosen as producer ``| grep "Created Block"``.
 
-### For ZK and reader nodes: Sorting and understanding logs of nginx proxy and acme
+### For ZK and reader nodes: Sorting logs of nginx proxy and acme
 
 The logs of nginx are stored as two categories, access logs and error logs. The access logs shows client request
 received by nginx. Error logs shows not just errors and warnings, but relate to the function of nginx e.g. processes
-started and ended, requests processed or skipped, and shutdowns. Docker logs of nginx display both access and error
-logs.
+started and ended, requests processed or skipped, and shutdowns. Docker logs of nginx display both access logs (white
+text) and error logs (red text). The SSL/TSL certificate renewal done with acme-companion shows up in the nginx logs as
+well because the `pbc-nginx` and `pbc-acme` containers communicates challenge, proof and certificate on container port
+80 ([details in proxy server guide](run-a-zk-node.md#how-nginx-and-acme-run-as-services-in-docker-containers)).
+
+You can use the same commands as for baker logs. Just specify the name of the nginx docker container. Template name in our guide is `pbc-nginx`.
+
+
+Find out if you have downloaded the SSL/TSL certificate (to limit logs to a recent period use `--since 1h` for last hour):
+
+````bash
+docker logs pbc-nginx | grep "Downloading cert."
+````
+When certificate is installed, it will be checked after one hour for renewal. Thereafter, it will be automatically renewed every 60 days.
+
+Check if your SSL/TSL certificate has been renewed:
+
+````bash
+docker logs pbc-nginx | grep "renewal"
+````
+
+Check for the nginx container shutting down and restarting: 
+
+````bash
+docker logs pbc-nginx | grep "starting nginx"
+````
+
+!!! note
+    
+    If restarts of your proxy server happen very frequently not counting th restarts related to your automatic update schedule defined in your auto-update script.
+
 
 ## Confirm that your BYOC endpoints are working
 
