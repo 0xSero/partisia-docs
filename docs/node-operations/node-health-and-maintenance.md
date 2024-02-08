@@ -150,7 +150,7 @@ running an outdated version of our software, a version that does not pull the ne
 errors in the logs. Most of them are not indicative of a problem at your end. They occur when a node in the network has
 not received what it expected you can in most cases see the address or producer index of the nodes related to the error.
 
-### Sorting the logs
+### Sorting Baker node logs
 
 **Latest logs:**
 
@@ -193,7 +193,18 @@ docker logs --since 1h pbc-mainnet | grep "Signing BlockState"
 This will give you the blocks you have signed the last hour. You might also want to look for blocks you created when you
 were chosen as producer ``| grep "Created Block"``.
 
+### For ZK and reader nodes: Sorting and understanding logs of nginx proxy and acme
+
+The logs of nginx are stored as two categories, access logs and error logs. The access logs shows client request
+received by nginx. Error logs shows not just errors and warnings, but relate to the function of nginx e.g. processes
+started and ended, requests processed or skipped, and shutdowns. Docker logs of nginx display both access and error
+logs.
+
 ## Confirm that your BYOC endpoints are working
+
+Having working rest endpoints for BYOC chains is important for each and every block producing node. Having invalid BYOC rest
+endpoints will cause failure for oracle nodes. If two nodes in the same deposit or withdrawal oracle has problems with
+an endpoint it will disrupt the bridge.
 
 Check if your BYOC endpoints for other chains in config.json are working:
 
