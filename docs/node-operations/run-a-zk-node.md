@@ -42,7 +42,7 @@ It is allowed to associate your domain name with Partisia Blockchain since it is
 !!! note 
 
     In this guide we have assumed that you use 8443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    The endpoint you register with the ZK registry contract should also point to 8443, e.g. pbcnode.com:8443.
+    The endpoint you register with the ZK registry contract should also point to 8443, e.g. zk.pbcnode.com:8443.
 
 Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
 infrastructure node and a reader node. Avoid names which give the impression that your node is run by the company
