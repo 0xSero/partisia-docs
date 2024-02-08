@@ -103,7 +103,7 @@ docker stop
 nano docker-compose.yml
 ```
 
-Paste the new docker compose. Change each `environment` of the services to fit with your domain:
+Paste the new docker compose. Change each `environment` of the services to fit with your domain e.g. zk.pbcnode.com:8443:
 
 ```yaml
 version: "2.0"
