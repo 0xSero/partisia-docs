@@ -31,19 +31,19 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 
     Inputs given to ZK contracts are preprocessed and cut into randomized parts called secret shares. But if a third party
     gets access to several shares there is a risk that they can guess the original input. For this reason traffic related to
-    ZK computations travel through an https endpoint. Baker traffic does not need this because their actions end up on the public ledger.
+    ZK computations travel through an https endpoint. Baker traffic does not need this since their actions end up on the public ledger.
 
 ### Get Domain and create a Domain Name Service Address record (DNS A-record)
 
 Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
 does not match something proprietary.
-If you want to associate the domain name with Partisia Blockchain
-that is okay because it is a public network where your node participates e.g. you can call the domain https://pbcnode.zknode.com or similar.
+It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.
 
 !!! note
 
     In this guide we have assumed that you use 8443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    The endpoint you register with the ZK registry contract should also point to 8443, e.g. https://pbcnode.zknode.com:8443.
+    The endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443.
+    If you use standard port 443 it would be zk.pbcnode.com that you put as restendpoint in ZK Node Registry. In conjunction with this choice, you open 443 in the host firewall instead of 8443.
 
 Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
 infrastructure node and a reader node. Avoid names which give the impression that your node is run by the company
@@ -51,18 +51,18 @@ Partisia.
 
 When you have purchased a domain make an address record (A-record) for a subdomain and point it to your node.
 
-!!! Example "You have purchased domain "mynode.com" and have VPS host IP 123.123.123.123"
+!!! Example "You have purchased domain "pbcnode.com" and have VPS host IP 123.123.123.123"
 
     1. Sign in to your domain control panel and find DNS records
-    2. Make an A-record pointing zk.mynode.com to 123.123.123.123
+    2. Make an A-record pointing a subdomain (e.g. zk.pbcnode.com) to 123.123.123.123
 
-### How [nginx](https://hub.docker.com/r/nginxproxy/nginx-proxy) and [acme](https://hub.docker.com/r/nginxproxy/acme-companion) run as services in docker containers 
+### How nginx and acme run as services in docker containers 
 
-This example uses nginx for the proxy server and acme-companion handles automated creation and renewal of the SSL
+This example uses [nginx](https://hub.docker.com/r/nginxproxy/nginx-proxy) for the proxy server and [acme-companion](https://hub.docker.com/r/nginxproxy/acme-companion) handles automated creation and renewal of the SSL
 certificate. Both services are manged by the `docker-compose.yml`.
 
 Docker Compose automates the process of downloading, building, and running the specified containers, along with their
-dependencies. This is why you don't have manually to install and configure software on your host machine. This
+dependencies. This is why you don't have to manually install and configure software on your host machine. This
 is one of the key benefits of running a service in a docker container.
 
 ### Modify `docker-compose.yml`
@@ -86,9 +86,9 @@ We allow http traffic through the firewall on port 80:
 sudo ufw allow 80
 ```
 
-http traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service request a
-certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver (
-nginx) placing a token on a specified path using http on port 80.   
+Http traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service request a
+certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver
+(nginx) placing a token on a specified path using http on port 80.   
 
    
 We stop docker compose before we make modifications:
@@ -105,7 +105,7 @@ docker stop
 nano docker-compose.yml
 ```
 
-Paste the new docker compose. Change each `environment` of the services to fit with your domain:
+Paste the new docker compose. Change each `environment` of the services to fit with your domain e.g. zk.pbcnode.com:8443:
 
 ```yaml
 version: "2.0"
