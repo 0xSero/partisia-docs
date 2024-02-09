@@ -151,6 +151,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - DEFAULT_EMAIL=your@email.address
+
 volumes:
    conf:
    vhost:
