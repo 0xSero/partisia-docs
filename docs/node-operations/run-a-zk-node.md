@@ -66,7 +66,7 @@ certificate renewal, then we modify the `docker-compose.yml`.
 
 Our new docker services will utilize ports that are currently closed by your firewall.
 
-??? note "Using non-standard host port"
+??? note "Using a non-standard HTTPS port"
 
     In this guide we have assumed that you use the standard port 443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
     If you use a non-standard port for https (8443), then the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
@@ -84,7 +84,7 @@ We allow http traffic through the firewall on port 80:
 sudo ufw allow 80
 ```
 
-Http traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service request a
+Http traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service requests a
 certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver
 (nginx) placing a token on a specified path using http on port 80.   
 
