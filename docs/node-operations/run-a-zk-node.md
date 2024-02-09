@@ -174,18 +174,32 @@ docker-compose up -d
 ```
 
 Normally, nginx has new releases monthly, therefore you do not need to check for updates for your proxy server daily like you
-do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually:
+do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually
 
+Update the nginx proxy:
 ```BASH
-docker-compose pull nameOfService
+docker-compose pull nginx-proxy
 ```
 
 ```BASH
-docker-compose up -d nameOfService
+docker-compose up -d nginx-proxy
 ```
-!!! note
 
-    If you used the template above for your `docker-compose.yml` the name of the service running the proxy server is _nginx-proxy_ and the name of the service handling certificate renewal is _acme-companion_.
+Update the acme-companion
+
+```BASH
+docker-compose pull acme-companion
+```
+
+```BASH
+docker-compose up -d acme-companion
+```
+!!! note "If you used different names for your docker services than the `docker-compose.yml` template "
+
+    ```BASH
+    docker-compose up -d acme-companion
+    ```
+     
 
 ## Register your ZK node
 
