@@ -179,6 +179,9 @@ do with pbc software. You can add cron rules to your auto-update script or updat
 docker-compose pull nameOfService
 ```
 
+If you used the template above for your `docker-compose.yml` the name of the service running the proxy server is _
+nginx-proxy_ and the name of the service handling certificate renewal is _acme-companion_.
+
 ```BASH
 docker-compose up -d nameOfService
 ```

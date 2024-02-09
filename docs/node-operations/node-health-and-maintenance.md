@@ -49,6 +49,16 @@ In the following it is assumed you are using `~/pbc` as directory for your `dock
 
 Updating the PBC node is a simple 3-step process:
 
+??? note "If you are running more than one container in your `docker-compose.yml` read this"
+
+    To update a update a specific service in `docker-compose.yml` specify which service you want to update.
+    E.g. update only the service `pbc`:
+    ````bash
+    docker-compose pull pbc
+    docker-compose up -d pbc
+    ````
+
+
 ````bash
 cd ~/pbc
 ````
