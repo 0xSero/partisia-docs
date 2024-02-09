@@ -69,7 +69,7 @@ Our new docker services will utilize ports that are currently closed by your fir
 ??? note "Using non-standard host port"
 
     In this guide we have assumed that you use the standard port 443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    If you use a non-standard port for https (8443) the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
+    If you use a non-standard port for https (8443), then the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
 
 
 We allow https traffic through the firewall on port 443:
