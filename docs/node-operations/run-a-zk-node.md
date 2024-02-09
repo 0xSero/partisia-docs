@@ -190,7 +190,7 @@ docker-compose up -d nameOfService
 Complete the following steps:
 
 1. [Register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode)
-   as a ZK node (You need to have your https rest endpoint ready)   
+   as a ZK node (You need to have your HTTPS REST endpoint ready)   
 2. [Associate](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/associateTokens)
    75 K MPC tokens to the ZK Node Registry contract   
 3. Restart your node
