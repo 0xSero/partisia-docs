@@ -13,7 +13,7 @@ for the zero knowledge computations performed.
     1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
     2. [Run baker node](run-a-baker-node.md)
     3. You have set up a reverse proxy. This includes:
-      - Web domain with a valid SSL/TSL certificate for an https endpoint
+      - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
       - A modified `docker-compose.yml` defining a docker service acting as proxy  
     4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
 
@@ -27,11 +27,11 @@ Your node is running a docker image with the pbc-mainnet software. The source of
 defined in the "service:"-field of  `docker-compose.yml`. In this example we will set up a reverse proxy by modifying
 the `docker-compose.yml`. You add additional services to act as a proxy server for incoming and outgoing traffic.
 
-!!! Info "If input for ZK contracts are safe, why do I need an https endpoint?"
+!!! Info "If input for ZK contracts are safe, why do I need an HTTPS REST endpoint?"
 
     Inputs given to ZK contracts are preprocessed and cut into randomized parts called secret shares. But if a third party
     gets access to several shares there is a risk that they can guess the original input. For this reason traffic related to
-    ZK computations travel through an https endpoint. Baker traffic does not need this since their actions end up on the public ledger.
+    ZK computations travel through an HTTPS endpoint. Baker traffic does not need this since their actions end up on the public ledger.
 
 ### Get Domain and create a Domain Name Service Address record (DNS A-record)
 
@@ -68,25 +68,25 @@ Our new docker services will utilize ports that are currently closed by your fir
 
 ??? note "Using a non-standard HTTPS port"
 
-    In this guide we have assumed that you use the standard port 443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    If you use a non-standard port for https (8443), then the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
+    In this guide we have assumed that you use the standard port 443 as host port for HTTPS traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
+    If you use a non-standard port for HTTPS (8443), then the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
 
 
-We allow https traffic through the firewall on port 443:
+We allow HTTPS traffic through the firewall on port 443:
 
 ```BASH
 sudo ufw allow 443
 ```
 
-We allow http traffic through the firewall on port 80:
+We allow HTTP traffic through the firewall on port 80:
 
 ```BASH
 sudo ufw allow 80
 ```
 
-Http traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service requests a
+HTTP traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service requests a
 certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver
-(nginx) placing a token on a specified path using http on port 80.   
+(nginx) placing a token on a specified path using HTTP on port 80.   
 
    
 We stop docker compose before we make modifications:
