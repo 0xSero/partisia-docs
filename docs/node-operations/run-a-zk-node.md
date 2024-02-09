@@ -37,13 +37,7 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 
 Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
 does not match something proprietary.
-It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.
-
-??? note "Using non-standard host port"
-
-    In this guide we have assumed that you use the standard port 443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    If you use a non-standard port for https (8443) the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
-
+It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.   
 Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
 infrastructure node and a reader node. Avoid names which give the impression that your node is run by the company
 Partisia.
@@ -71,6 +65,13 @@ server, and 2) an automated certificate manager (acme). We first open the ports 
 certificate renewal, then we modify the `docker-compose.yml`.   
 
 Our new docker services will utilize ports that are currently closed by your firewall.
+
+??? note "Using non-standard host port"
+
+    In this guide we have assumed that you use the standard port 443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
+    If you use a non-standard port for https (8443) the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
+
+
 We allow https traffic through the firewall on port 443:
 
 ```BASH
