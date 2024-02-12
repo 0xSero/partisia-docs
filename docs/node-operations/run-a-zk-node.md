@@ -13,7 +13,7 @@ for the zero knowledge computations performed.
     1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
     2. [Run baker node](run-a-baker-node.md)
     3. You have set up a reverse proxy. This includes:
-      - Web domain with a valid SSL/TSL certificate for an https endpoint
+      - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
       - A modified `docker-compose.yml` defining a docker service acting as proxy  
     4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
 
@@ -27,24 +27,17 @@ Your node is running a docker image with the pbc-mainnet software. The source of
 defined in the "service:"-field of  `docker-compose.yml`. In this example we will set up a reverse proxy by modifying
 the `docker-compose.yml`. You add additional services to act as a proxy server for incoming and outgoing traffic.
 
-!!! Info "If input for ZK contracts are safe, why do I need an https endpoint?"
+!!! Info "If input for ZK contracts are safe, why do I need an HTTPS REST endpoint?"
 
     Inputs given to ZK contracts are preprocessed and cut into randomized parts called secret shares. But if a third party
     gets access to several shares there is a risk that they can guess the original input. For this reason traffic related to
-    ZK computations travel through an https endpoint. Baker traffic does not need this since their actions end up on the public ledger.
+    ZK computations travel through an HTTPS endpoint. Baker traffic does not need this since their actions end up on the public ledger.
 
 ### Get Domain and create a Domain Name Service Address record (DNS A-record)
 
 Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
 does not match something proprietary.
-It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.
-
-!!! note
-
-    In this guide we have assumed that you use 8443 as host port for https traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    The endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443.
-    If you use standard port 443 it would be zk.pbcnode.com that you put as restendpoint in ZK Node Registry. In conjunction with this choice, you open 443 in the host firewall instead of 8443.
-
+It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.   
 Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
 infrastructure node and a reader node. Avoid names which give the impression that your node is run by the company
 Partisia.
@@ -53,8 +46,8 @@ When you have purchased a domain make an address record (A-record) for a subdoma
 
 !!! Example "You have purchased domain "pbcnode.com" and have VPS host IP 123.123.123.123"
 
-    1. Sign in to your domain control panel and find DNS records
-    2. Make an A-record pointing a subdomain (e.g. zk.pbcnode.com) to 123.123.123.123
+    1. Sign in to your domain control panel and find DNS records   
+    2. Make an A-record pointing a subdomain (e.g. zk.pbcnode.com) to 123.123.123.123   
 
 ### How nginx and acme run as services in docker containers 
 
@@ -74,21 +67,28 @@ certificate renewal, then we modify the `docker-compose.yml`.
 ![NewDockerCompose](ProxyServer.png)
 
 Our new docker services will utilize ports that are currently closed by your firewall.
-We allow https traffic through the firewall on port 8443:
+
+??? note "Using a non-standard HTTPS port"
+
+    In this guide we have assumed that you use the standard port 443 as host port for HTTPS traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
+    If you use a non-standard port for HTTPS (8443), then the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
+
+
+We allow HTTPS traffic through the firewall on port 443:
 
 ```BASH
-sudo ufw allow 8443
+sudo ufw allow 443
 ```
 
-We allow http traffic through the firewall on port 80:
+We allow HTTP traffic through the firewall on port 80:
 
 ```BASH
 sudo ufw allow 80
 ```
 
-Http traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service request a
+HTTP traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service requests a
 certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver
-(nginx) placing a token on a specified path using http on port 80.   
+(nginx) placing a token on a specified path using HTTP on port 80.   
 
    
 We stop docker compose before we make modifications:
@@ -105,7 +105,7 @@ docker stop
 nano docker-compose.yml
 ```
 
-Paste the new docker compose. Change each `environment` of the services to fit with your domain e.g. zk.pbcnode.com:8443:
+Paste the new docker compose. Change each `environment` of the services to fit with your domain e.g. zk.pbcnode.com:
 
 ```yaml
 version: "2.0"
@@ -134,7 +134,7 @@ services:
     restart: always
     ports:
       - "80:80"
-      - "8443:443"
+      - "443:443"
     volumes:
       - conf:/etc/nginx/conf.d
       - vhost:/etc/nginx/vhost.d
@@ -153,6 +153,13 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - DEFAULT_EMAIL=your@email.address
+
+volumes:
+   conf:
+   vhost:
+   html:
+   certs:
+   acme:
 ```
 
 [Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and
@@ -169,22 +176,41 @@ docker-compose up -d
 ```
 
 Normally, nginx has new releases monthly, therefore you do not need to check for updates for your proxy server daily like you
-do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually:
+do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually
 
+Update the nginx proxy:
 ```BASH
-docker-compose pull nameOfService
+docker-compose pull nginx-proxy
 ```
 
 ```BASH
-docker-compose up -d nameOfService
+docker-compose up -d nginx-proxy
 ```
+
+Update the acme-companion
+
+```BASH
+docker-compose pull acme-companion
+```
+
+```BASH
+docker-compose up -d acme-companion
+```
+!!! note "If you used different names for your docker services than the `docker-compose.yml` template"
+
+    Correct command to use the name of your docker service:
+    ```BASH
+    docker-compose pull nameOfService
+    docker-compose up -d nameOfService
+    ```
+     
 
 ## Register your ZK node
 
 Complete the following steps:
 
 1. [Register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode)
-   as a ZK node (You need to have your https rest endpoint ready)   
+   as a ZK node (You need to have your HTTPS REST endpoint ready)   
 2. [Associate](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/associateTokens)
    75 K MPC tokens to the ZK Node Registry contract   
 3. Restart your node
