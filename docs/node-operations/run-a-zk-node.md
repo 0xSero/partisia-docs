@@ -230,7 +230,7 @@ You can see the running logs of each service by calling for the logs and specify
   docker logs -f [container_id_or_name]
 ```
 
-At this point you should have a fully functioning ZK node. If any of the docker-containers are not running,
-then [go to the node health and maintenance section](node-health-and-maintenance.md)
+At this point you should have a fully functioning ZK node. If any of the docker-containers are not running or shut down unexpectedly,
+then [go to the node health and maintenance section](node-health-and-maintenance.md#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 
 If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.    
