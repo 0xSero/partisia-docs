@@ -15,28 +15,28 @@ and [the NFT standard](https://partisiablockchain.gitlab.io/documentation/smart-
 
 [Visit our DeFi suite of contracts to explore the token contract, liquidity swap, nfts and more](https://gitlab.com/partisiablockchain/language/contracts/defi)
 
-If you want to solve problems with smart contracts. The easiest way of getting started coding smart contracts is to learn
-from concrete examples showing smart contracts solving problems similar to the one you need to solve. The examples
-includes both normal contracts and [zero-knowledge smart contracts](zk-smart-contracts/zk-smart-contracts.md)
+The easiest way to get started coding your own smart contracts is to learn
+from concrete examples of other smart contracts solving problems similar to the one you need to solve. The examples
+includes both public contracts and [zero-knowledge smart contracts](zk-smart-contracts/zk-smart-contracts.md)
 
 ## Examples of combinations that you can use in your contract innovation
 
-Partisia has several successful use cases, pilot projects with private deployments of the same infrastructure supporting
+Partisia has several successful use cases and pilot projects with private deployments of the same infrastructure supporting
 Partisia Blockchain.
 The scope of these applications include internet privacy, user control of data, financial privacy, cybersecurity,
 humanitarian aid and confidential health statistics.
 You can read more about these pilot projects [here](https://partisiablockchain.com/ecosystem).
 
-By combining the functionality of different types of open sourced smart contracts it is possible to create application
+By combining the functionality of different types of open sourced smart contracts it is possible to create applications
 on the public blockchain within the same areas as the successful pilot projects for quick MVPs.
 
 ## MPC examples
 
-Secure multiparty computation [(MPC)](../pbc-fundamentals/dictionary.md#mpc) extent the scope blockchain technology to
-encompass areas that before required some kind of independent third party to handle sensitive data like a trustee.
-With MPC in your smart contracts on PBC you can do arithmetic and statistics. But the original variables of the problem
-being solved are split into randomized parts called secret shares. Inputs are preprocessed so the data handled by the ZK
-nodes cannot recreate the original user data, you can read more about how and why in
+Secure multiparty computation [(MPC)](../pbc-fundamentals/dictionary.md#mpc) extend the scope blockchain technology to
+encompass areas that before required some kind of independent third party, like a trustee, to handle sensitive data.
+With MPC in your smart contracts, on PBC, you can do arithmetic and statistics. But the original variables, of the problem
+being solved, are split into randomized parts called secret shares. Inputs are preprocessed such that the data handled by the ZK
+nodes cannot recreate the original user data. You can read more about how and why in
 the [MPC Techniques series](https://medium.com/partisia-blockchain/pbcacademy/home). See the average salary contract
 above as an example of MPC being used.
 
