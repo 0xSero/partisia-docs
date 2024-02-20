@@ -54,6 +54,7 @@ dead-link-check:
   script:
   - apt update && apt install -y linkchecker
   - linkchecker -t 8 --no-robots --check-extern --ignore-url "https://reader\.partisiablockchain\.com.*" public/index.html
+  - linkchecker -t 8 --no-robots --check-extern --ignore-url "\.\./blockchain/*" public/resource_BlockchainResource.html
   artifacts:
     paths:
     - public
