@@ -193,7 +193,7 @@ the [RPC binary format](https://partisiablockchain.gitlab.io/documentation/smart
 
 In the deployment call, the RPC is serialized using code generated from the ABI of the contract. This can either be
 generated
-with [ABI client](https://partisiablockchain.gitlab.io/documentation/smart-contracts/smart-conract-tools-overview.html#the-abi-codegen-tool-abi-codegen),
+with [ABI client](../smart-contract-tools-overview.md#the-abi-codegen-tool-abi-codegen),
 or using
 the [Maven plugin](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main/maven-plugin?ref_type=heads).
 
