@@ -59,7 +59,7 @@ When you withdraw funds from PBC the BYOCs are first burned on PBC, then when th
 ```
 2. The ETH Withdrawal contract burns n ETH twins minus the fee to pay the oracle nodes
 3. When the ETH Withdrawal oracle confirms the ETH twins have been burned, they generate the signatures necessary for a release from the ETH contract. The signatures are available in the state of [ETH Withdraw](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state)
-4. You retrieve the [nonce](../dictionary.md#nonce), signatures and bitmask from the [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) waits until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
+4. You retrieve the [nonce](https://partisiablockchain.gitlab.io/-/documentation/-/jobs/5230191090/artifacts/public/pbc-fundamentals/dictionary.html#nonce), signatures and bitmask from the [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) waits until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
 5. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce, 
@@ -84,37 +84,19 @@ Besides the wallets, you will need the addresses of the [oracle](../dictionary.m
 
 To use a standardised digital asset on PBC you need to align with the [MPC-20 standard format](../../smart-contracts/integration/mpc-20-token-contract.md).
 
-### Bridging test ETH
+### Bridgeable coins on Mainnet
 
-[ETH_GOERLI Deposit on PBC testnet](https://browser.testnet.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)       
-[ETH_GOERLI Withdrawal on PBC testnet](https://browser.testnet.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)     
-[Small oracle contract on Ethereum testnet](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3)    
-[Large oracle contract on Ethereum testnet](https://goerli.etherscan.io/address/0x5De7b80e5CeB9550ee1BeC3291b15e9B04E8de68)    
+| **Currency**    | **Deposit oracle on PBC**                                                                                                  | **Withdrawal oracle on PBC**                                                                                                  | **Small oracle on native chain**                                                                                                 | **Large oracle on native chain**                                                                                                 | **Decimals** |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|-------------:|
+| BNB             | [BNB Deposit on PBC](https://browser.partisiablockchain.com/contracts/047e1c96cd53943d1e0712c48d022fb461140e6b9f)          | [BNB Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)          | [Small oracle contract on BNB Smart Chain (0x05...9ac1)](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1) | [Large oracle contract on BNB Smart Chain](https://bscscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)               |           18 |
+| ETH             | [ETH Deposit on PBC](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)          | [ETH Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)          | [Small oracle contract on Ethereum (0xf3...8e3c)](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c)       | [Large oracle contract on Ethereum](https://etherscan.io/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)                     |           18 |
+| USDT (Ethereum) | [USDT Deposit on PBC](https://browser.partisiablockchain.com/contracts/040728ed459dd80c3653c544b63a57ae7a1144fe57)         | [USDT Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/04c73a37ec8db48b86a2d76c978d4117e2282017ec)         | [Small oracle contract on Ethereum (0x74...4cA4)](https://etherscan.io/address/0x74C0a1946d10FaF9048E9AC59D1401Bbbfc54cA4)       | [Large oracle contract on Ethereum](https://etherscan.io/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)                     |            6 |
+| MATIC           | [Matic Deposit on PBC](https://browser.partisiablockchain.com/contracts/0411b34e3b8965035fbc12c5ef05e1ed00c6d1261c)        | [Matic Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/04bcac555ce8397e120384fad0e148793a19ed980f)        | [Small oracle contract on Polygon (0xe9...7CC1)](https://polygonscan.com/address/0xe98670C2cBAfB2205BC99eBE33093233F7f07CC1)     | [Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359Df1D8C126ea1b68BB51E958fdf43F8272)                   |           18 |
+| USDC (Polygon)  | [POLYGON_USDC Deposit on PBC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372) | [POLYGON_USDC Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/04adfe4aaacc824657e49a59bdc8f14df87aa8531a) | [Small oracle contract on Polygon (0x4c...c26f)](https://polygonscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)     | [Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)                   |            6 |
 
-### Bridging ETH
+### Bridgeable coins on Testnet and test coin faucet
 
-[ETH Deposit on PBC](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)   
-[ETH Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)   
-[Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c)   
-[Large oracle contract on Ethereum](https://etherscan.io/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
-
-### Bridging USDC
-
-[POLYGON_USDC Deposit on PBC](https:/browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
-[POLYGON_USDC Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)   
-[Small oracle contract on Polygon](https://polygonscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
-[Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
-
-### Bridging BNB Coin
-
-[BNB Deposit on PBC](https://browser.partisiablockchain.com/contracts/047e1c96cd53943d1e0712c48d022fb461140e6b9f)   
-[BNB Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)   
-[Small oracle contract on BNB Smartchain](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea03c6fba29ac1)   
-[Large oracle contract on BNB smartchain](https://bscscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
-
-### Bridging Matic
-
-[Matic Deposit on PBC](https://browser.partisiablockchain.com/contracts/0411b34e3b8965035fbc12c5ef05e1ed00c6d1261c)   
-[Matic Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/04bcac555ce8397e120384fad0e148793a19ed980f)   
-[Small oracle contract on Polygon](https://polygonscan.com/address/0xe98670C2cBAfB2205BC99eBE33093233F7f07CC1)   
-[Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359Df1D8C126ea1b68BB51E958fdf43F8272)   
+| **Testnet Coin**           | **Deposit oracle on PBC**                                                                                                                | **Withdrawal oracle on PBC**                                                                                                                | **Small oracle on native chain**                                                                                                          | **Large oracle on native chain**                                                                                            | **Decimals** |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-------------:|
+| ETH GOERLI                 | [ETH_GOERLI Deposit on PBC testnet](https://browser.testnet.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351) | [ETH_GOERLI Withdrawal on PBC testnet](https://browser.testnet.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146) | [Small oracle contract on Ethereum testnet (0x48...31f3)](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3) | [Large oracle contract on Ethereum testnet](https://goerli.etherscan.io/address/0x5De7b80e5CeB9550ee1BeC3291b15e9B04E8de68) |            18|
+| TEST COIN (not bridgeable) | [TEST_COIN Faucet](https://browser.testnet.partisiablockchain.com/contracts/02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd/feed_me)          | NA                                                                                                                                          | NA                                                                                                                                        | NA                                                                                                                          |             0|
