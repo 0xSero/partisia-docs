@@ -53,7 +53,7 @@ dead-link-check:
   allow_failure: true
   script:
   - apt update && apt install -y linkchecker
-  - linkchecker -t 8 --no-robots --check-extern --ignore-url="https://reader\.partisiablockchain\.com.*" --ignore-url="\.\./blockchain*" public/index.html
+  - linkchecker -t 8 --no-robots --check-extern --ignore-url="https://reader\.partisiablockchain\.com.*" --ignore-url="\.\./blockchain.*" public/index.html
   artifacts:
     paths:
     - public
