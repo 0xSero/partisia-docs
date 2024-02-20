@@ -100,7 +100,7 @@ To use a standardised digital asset on PBC you need to align with the [MPC-20 st
 
 ### Bridging USDC
 
-[POLYGON_USDC Deposit on PBC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
+[POLYGON_USDC Deposit on PBC](https:/browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
 [POLYGON_USDC Withdrawal on PBC](https://browser.partisiablockchain.com/contracts/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)   
 [Small oracle contract on Polygon](https://polygonscan.com/address/0x4c4ecb1efb3bc2a065af1f714b60980a6562c26f)   
 [Large oracle contract on Polygon](https://polygonscan.com/address/0x3435359df1d8c126ea1b68bb51e958fdf43f8272)   
