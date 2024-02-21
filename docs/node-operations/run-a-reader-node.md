@@ -2,16 +2,15 @@
 
 This page explains what a reader node is and how to run it on a [VPS](../pbc-fundamentals/dictionary.md#vps).   
 A reader node can read the blockchain state, and it does not require
-a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade from reader to a baker node and from there to
-a node running any [node service](start-running-a-node.md).    
+a [stake](../pbc-fundamentals/dictionary.md#stakestaking). You can upgrade from reader to a baker node and from there
+to a node running any [node service](start-running-a-node.md).    
 The reader gives you access to information about accounts, contracts and specific blocks. If you are developing a dApp
-or a front-end you will often need to run your own reader node. When many parties query the same reader, it creates load
-on the server and can cause slowdowns. Run your own reader to avoid this.
+or a front-end you will often need to run your own reader node. When many parties query the same reader, it creates load on the server and can cause slowdowns. Run
+your own reader to avoid this.
 
 !!! Warning "You must complete this requirement before you can continue"
 
-    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies
-    the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
+    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
@@ -308,8 +307,8 @@ number and size of reads and writes is entirely dependent on the traffic on the 
 
 ## Get automatic updates
 
-All nodes independent of type should be set up to update their software automatically.
-To set up automatic updates you will need to install Cron, a time based job scheduler:
+All nodes independent of type should be set up to update their software automatically. To set up automatic updates you
+will need to install Cron, a time based job scheduler:
 
 ````bash
 apt-get install cron
@@ -341,9 +340,10 @@ echo "$DATETIME"
 
 cd ~/pbc
 
-/usr/local/bin/docker-compose pull
-/usr/local/bin/docker-compose up -d
+/usr/local/bin/docker-compose pull pbc
+/usr/local/bin/docker-compose up -d pbc
 ````
+
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 **2. Make the file executable:**
@@ -352,21 +352,26 @@ Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 chmod +x update_docker.sh
 ````
 
-Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now executable.
+Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now
+executable.
 
 **3. Set update frequency to once a day at a random time:**
 
 ````bash
 crontab -e
 ````
-This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to edit the cron rule. If you have not already chosen a preference.
+
+This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to
+edit the cron rule. If you have not already chosen a preference.
 
 Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
+
 ````bash
 m h * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
 ````
-For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23.
-If you are in doubt about what the cron rule means you can use this page:
+
+For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23. If
+you are in doubt about what the cron rule means you can use this page:
 <https://crontab.guru/> to see the rule expressed in words.
 
 Press `CTRL+X` and then `Y` and then `ENTER`.
@@ -378,24 +383,32 @@ To see if the script is working you can read the update log with the *cat comman
 ````bash
 cat update.log
 ````
+
 You can change the time of the first update if you don't want to wait a day to confirm that it works.
 
 If your version is up-to-date, you should see:
+
 ````
 YOUR_CONTAINER_NAME is up-to-date
 ````
+
 If you are currently updating you should see:
+
 ````
 Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 ````
 
 !!! Warning "Warning"
-    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for updates.
+
+    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for
+    updates.
 
 ## Final step
 
-If you plan on using your reader node for development then you will
-need to [set up reverse proxy using example in ZK node guide](run-a-zk-node.md).
+If you are a developer making an application on PBC, and the application needs to reliably query the state of the
+blockchain, then you need a reader node. We recommend that your reader node is set up
+with [a reverse proxy](run-a-zk-node.md#set-up-a-reverse-proxy) to block unwanted traffic. You can query without the
+reverse proxy being setup, but in general practice we do not recommend this method.
 
-You now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker
-node. A baker node is a required step for all [paid node services](node-payment-rewards-and-risks.md).    
+You now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker node.
+A baker node is a required step for all [paid node services](node-payment-rewards-and-risks.md).    

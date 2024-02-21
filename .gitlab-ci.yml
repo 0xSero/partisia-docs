@@ -22,7 +22,7 @@ pages:
   dependencies:
   - build-site
   script:
-    - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
+  - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   only:
   - main
   artifacts:
@@ -38,6 +38,21 @@ pages-dev:
   - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   except:
   - main
+  artifacts:
+    paths:
+    - public
+
+dead-link-check:
+  image: registry.gitlab.com/partisia/dockerimages/shellscripting
+  stage: deploy
+  dependencies:
+  - build-site
+  except:
+  - main
+  allow_failure: true
+  script:
+  - apt update && apt install -y linkchecker
+  - linkchecker -t 8 --no-robots --check-extern --ignore-url="https://reader\.partisiablockchain\.com.*" --ignore-url="/builds/partisiablockchain.*" --ignore-url="/documentation/node-operations/what-is-a-node-operator.html" --ignore-url="/documentation/index.html" --ignore-url="https://twitter.com/partisiampc" --ignore-url="/documentation/smart-contracts/introduction-to-smart-contracts.html" public/index.html
   artifacts:
     paths:
     - public
