@@ -8,7 +8,7 @@
    [](technical-differences-between-eth-and-pbc.md)
 </div>
 
-This article explains how Partisia Blockchain (PBC) can function as a second layer. We will dive into a running example and demonstrate how to test the implementation from a layer one testnet to our [PBC testnet](/docs/access-and-use-the-testnet.md). Lastly, we will explain how to develop and recreate our testnet solution to get you started with using PBC as a second layer.
+This article explains how Partisia Blockchain (PBC) can function as a second layer. We will dive into a running example and demonstrate how to test the implementation from a layer one testnet to our [PBC testnet](../access-and-use-the-testnet.md). Lastly, we will explain how to develop and recreate our testnet solution to get you started with using PBC as a second layer.
 
 To use PBC's zero-knowledge contracts as a second layer to handle privacy, secrecy or other great possibilities, the minimum viable design stays the same.
 We need to deploy two smart contracts: one zero-knowledge smart contract on PBC and a public smart contract on the layer one chain. The public functionality of the contracts will be very similar to eachother, the difference is that the contract on PBC can privately calculate the result using zero-knowledge computation. This design can be used on any EVM chain with PBC as second layer.
@@ -25,12 +25,12 @@ To illustrate PBC as a second layer, we will use the model outlined above and de
 2. A PBC zero knowledge smart contract is deployed on layer 2. The smart contract has the following objectives:
    - It ensures that only eligible voters belonging to the allowed list are able to submit their vote.
    - It counts the votes privately and then reveals and signs the result. More on this later.
-3. When the PBC smart contract is deployed, it selects four [MPC nodes](/docs/dictionary.md#mpc) to perform the zero-knowledge calculation.
+3. When the PBC smart contract is deployed, it selects four [MPC nodes](../../pbc-fundamentals/dictionary.md#mpc) to perform the zero-knowledge calculation.
 4. The list of allowed voters from the .sol contract is transferred onto PBC. Typically an off-chain script is used to move the data between chains. Transferring the list of allowed voters lets the PBC smart contract know which votes it can accept and from whom.
 5. Voters submit their votes directly to the PBC smart contract, ensuring confidentiality. The smart contract verifies the sender from the list of allowed voters.
 6. The votes secret input are being monitored by the four MPC nodes and individually they take their secret share out of the transaction and saves it to their local storage.
 
-   The MPC nodes are also known as zero-knowledge nodes. The ZK nodes will handle our computation privately without knowing what the vote is since none of the secret shares makes sense on an individual basis. You can read more about the MPC computation [in our dictionary](/docs/dictionary.md#mpc) or read the [article series that explains the math behind MPC](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a).
+   The MPC nodes are also known as zero-knowledge nodes. The ZK nodes will handle our computation privately without knowing what the vote is since none of the secret shares makes sense on an individual basis. You can read more about the MPC computation [in our dictionary]((../../pbc-fundamentals/dictionary.md#mpc) or read the [article series that explains the math behind MPC](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a).
 
 7. When the smart contract on PBC reaches its deadline the ZK computation for counting the votes can be started by any user.
 8. When the computation is complete, the nodes are asked to reveal the result, which is then signed by the nodes.
