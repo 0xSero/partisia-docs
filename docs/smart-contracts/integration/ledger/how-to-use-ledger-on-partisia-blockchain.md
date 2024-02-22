@@ -1,13 +1,14 @@
 # How to use Ledger on Partisia Blockchain
+
 Install the Partisia Blockchain app on your Ledger device to sign transactions and manage MPC tokens with
 the [Partisia Blockchain Browser](https://browser.partisiablockchain.com/account). The Partisia Blockchain app is
 developed and supported by the [Partisia Blockchain Foundation](https://partisiablockchain.com/).
 
 !!! note "Requirements: What’s needed before starting"
 
-* You've initialized your Ledger hardware wallet.
-* The latest firmware is installed.
-* Ledger Live is ready to use.
+    * You've initialized your Ledger hardware wallet.
+    * The latest firmware is installed.
+    * Ledger Live is ready to use.
 
 ## Install Partisia Blockchain App on Ledger device
 
@@ -44,7 +45,7 @@ the logged in account.
 
 ### How to receive crypto assets using Ledger
 
-To receive crypto assets you need to save the public key of the ledger. This needs to be the receiving end of a transfer
+To receive crypto assets you need to save the public key of the ledger. This needs to be the receiving end of a MPC transfer
 for Ledger to hold assets on the blockchain for you.
 
 1. Log into an account on Partisia Blockchain that has MPC tokens.
@@ -53,12 +54,12 @@ for Ledger to hold assets on the blockchain for you.
    where you
    can [transfer MPC tokens](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881/transfer).
    You need to fill out the receiving [address](../../../pbc-fundamentals/dictionary.md) as your Ledgers public key and the amount of MPC tokens
-   you want to send to that account. Its important that you verify it is the correct address, otherwise you will not receive the tokens on your Ledger.
+   you want to send to that account. Its important that you verify it is the correct receiver address, otherwise you will not receive the tokens on your Ledger.
    ![interact(1)-mpc token transfer.png](interact%281%29-mpc%20token%20transfer.png)
 
 ### How to send crypto assets using Ledger
 
-After connecting with browser you are now ready to start moving assets around using the Ledger.
+After [connecting with browser](#how-to-connect-the-ledger-device-with-partisia-blockchain-browser) you are now ready to start moving assets around using the Ledger.
 
 1. Go to
    the [MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
@@ -74,7 +75,7 @@ After connecting with browser you are now ready to start moving assets around us
 3. Review the MPC transfer on the Ledger device.
    ![interact(3)-review.jpg](interact%283%29-review.jpg)
 
-   The review consists of:
+    The review consists of:
 
     * Are you using the correct chain? Ledger will give both Partisia Blockchain and mainnet as chain reviews which are
       both correct for Partisia Blockchain. The screenshot shows [Testnet](../../access-and-use-the-testnet.md) which is
@@ -88,10 +89,10 @@ After connecting with browser you are now ready to start moving assets around us
     * If you cannot verify the address of the amount you can reject the transaction on the Ledger.
       ![interact(8)-reject.jpg](interact%288%29-reject.jpg)
 
-4. Accepting the amount of gas the transaction costs.
+4. Accept the amount of [gas](../../../pbc-fundamentals/dictionary.md#gas) the transaction costs.
    ![interact(6)-fee.jpg](interact%286%29-fee.jpg)
 
-5. If you want to approve after the review you should choose the Approve action on the device.
+5. If you want to approve after the review you should click on _Approve_ on the device.
    ![interact(7)-approve.jpg](interact%287%29-approve.jpg)
 
 6. After approval, you can see that the Browser finishes the transaction and the transfer is complete.
