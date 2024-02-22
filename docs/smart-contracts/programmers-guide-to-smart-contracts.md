@@ -68,7 +68,7 @@ Example:
 pub struct VotingContractState {
     proposal_id: u64,
     mp_addresses: Vec<Address>,
-    votes: BTreeMap<Address, u8>,
+    votes: SortedVecMap<Address, u8>,
     closed: u8,
 }
 ```
@@ -84,7 +84,7 @@ reading: [state macro documentation](https://partisiablockchain.gitlab.io/langua
 
 ### `#[action]`
 
-Declares that the annotated function is an contract action that can be called
+Declares that the annotated function is a contract action that can be called
 from other contracts and dashboard. Must have a signature of the following format:
 
 ```rust
@@ -313,15 +313,7 @@ reading: [CallbackContext struct documentation](https://partisiablockchain.gitla
 
 ## State serialization gas considerations
 
-Contracts with a lot of state should prefer `Vec<T>` to `BTreeSet<T>` or `BTreeMap<T>`, as `Vec<T>` (specifically
-for [CopySerializable](../smart-contracts/smart-contract-binary-formats.md#CopySerializable) `T`) are more efficiently (
-de)serialized, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for
-_every_ action, even ones that never handle state.
-
-If quick lookups are required, and the data structure rarely changes, it might be feasible to maintain a sorted `Vec` in
-state, and
-use [`[T]::binary_search_by_key`](https://doc.rust-lang.org/std/primitive.slice.html#method.binary_search_by_key) for
-lookups, essentially creating your own map structure.
+`SortedVecMap<T>` and `SortedVecSet<T>` (specifically for [CopySerializable](smart-contract-binary-formats.md#CopySerializable) `T`) allow for efficiently (de)serializable map and set structures, both in terms of gas and computation time. Remember that (de)serialization gas costs must be paid for _every_ action, even ones that never handle state.
 
 Ensure
 you [depend upon and link against the `pbc_lib` crate](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_lib/index.html).
