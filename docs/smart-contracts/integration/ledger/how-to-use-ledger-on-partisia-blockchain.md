@@ -42,12 +42,12 @@ To connect your device with the Browser you need to have gone through all steps 
    Ledger device.
    ![login(5)-logging in.png](login%285%29-logging%20in.png)
 
-In the top right corner of browser you can copy and see the public key of your Ledger. You can also visit
+In the top right corner of browser you can copy and see the [PBC address](../../../pbc-fundamentals/dictionary.md#address) of your Ledger. You can also visit
 the [account page](https://browser.partisiablockchain.com/account) to get more detailed viewing of the accounts balance.
 
 ### How to receive crypto assets using Ledger
 
-To receive crypto assets you need to save the public key of the ledger. This needs to be the receiving end of a MPC transfer
+To receive crypto assets you need to save the address of the ledger. This needs to be the receiving end of a MPC transfer
 for Ledger to hold assets on the blockchain for you.
 
 1. Log into an account on Partisia Blockchain that has MPC tokens.
@@ -55,7 +55,7 @@ for Ledger to hold assets on the blockchain for you.
    the [MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
    where you
    can [transfer MPC tokens](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881/transfer).
-   You need to fill out the receiving [address](../../../pbc-fundamentals/dictionary.md) as your Ledgers public key and the amount of MPC tokens
+   You need to fill out the receiving [address](../../../pbc-fundamentals/dictionary.md) as your Ledgers PBC address and the amount of MPC tokens
    you want to send to that account. Its important that you verify it is the correct receiver address, otherwise you will not receive the tokens on your Ledger.
    ![interact(1)-mpc token transfer.png](interact%281%29-mpc%20token%20transfer.png)
 
