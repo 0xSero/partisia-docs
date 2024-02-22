@@ -367,5 +367,5 @@ uses the [client](#client) and the [abi-client](#abi-client) to send transaction
 
 Example client is available in the following programming languages:
 
-- [Java](https://gitlab.com/secata/pbc/language/example-client)
-- [TypeScript](https://gitlab.com/secata/pbc/language/example-web-client)
+- [Java](https://gitlab.com/partisiablockchain/language/example-client)
+- [TypeScript](https://gitlab.com/partisiablockchain/language/example-web-client)
