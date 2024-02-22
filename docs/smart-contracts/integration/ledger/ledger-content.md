@@ -21,8 +21,20 @@ Setup instructions:
 For a web app: how to connect the Ledger device.
 ## How to connect the Ledger device with Partisia Blockchain Browser?
 To connect your device with the Browser you need to have gone through all steps in the above guide. 
-1. Login on your Ledger device 
-![login(1)-enter-pin.jpg](login%281%29-enter-pin.jpg)
+1. Enter the pin on your Ledger device 
+![login(1)-enter-pin.png](login%281%29-enter-pin.png)
+
+2. Choose Partisia Blockchain in the Choose app setting
+![login(2)-choose-app.png](login%282%29-choose-app.png)
+
+3. App is now ready and we can move over to the PC to visit [the Browser](https://browser.partisiablockchain.com)
+
+4. In the top right corner of the Browser you can click _Sign In_ this gives you a menu where you can click _Sing in using Ledger_
+![login(4)-login menu.png](login%284%29-login%20menu.png)
+
+5. You can now see a quick loading screen coming up where it signs you into your Partisia Blockchain Browser with the Ledger device.
+![login(5)-logging in.png](login%285%29-logging%20in.png)
+
 
 For installable app: how to download and install it, how to connect to it.
 Where to view account balance.
