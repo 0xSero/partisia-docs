@@ -14,12 +14,15 @@ developed and supported by the [Partisia Blockchain Foundation](https://partisia
 3. If asked, allow My Ledger to access your device.
 4. Find Partisia Blockchain in the app catalog.
 5. Click the Install button of the app.
-    * An installation window appears.
-    * Your device will display Processing...
-    * The app installation is confirmed.
+6. Follow the onscreen instructions on the Ledger device. 
+
 
 Setup instructions:
 For a web app: how to connect the Ledger device.
+## How to connect the Ledger device with Partisia Blockchain Browser?
+To connect your device with the Browser you need to have gone through all steps in the above guide. 
+1. Login on your Ledger device 
+![login(1)-enter-pin.jpg](login%281%29-enter-pin.jpg)
 
 For installable app: how to download and install it, how to connect to it.
 Where to view account balance.
