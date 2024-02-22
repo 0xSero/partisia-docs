@@ -40,8 +40,7 @@ To connect your device with the Browser you need to have gone through all steps 
    ![login(5)-logging in.png](login%285%29-logging%20in.png)
 
 In the top right corner of browser you can copy and see the public key of your Ledger. You can also visit
-the [account page](https://browser.partisiablockchain.com/account) to get more detailed viewing of what's accessible on
-the logged in account.
+the [account page](https://browser.partisiablockchain.com/account) to get more detailed viewing of the accounts balance.
 
 ### How to receive crypto assets using Ledger
 
@@ -72,7 +71,7 @@ After [connecting with browser](#how-to-connect-the-ledger-device-with-partisia-
 2. After sending the transaction to transfer MPC tokens, you can see that the Browser waits for approval on the Ledger
    ![interact(2)-waiting for approval.png](interact%282%29-waiting%20for%20approval.png)
 
-3. Review the MPC transfer on the Ledger device.
+3. Review the MPC transfer on the Ledger device by pressing the _right button_ on your Ledger Device and review the different transaction details.
    ![interact(3)-review.jpg](interact%283%29-review.jpg)
 
     The review consists of:
