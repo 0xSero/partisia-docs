@@ -1,6 +1,6 @@
 # How to use Ledger on Partisia Blockchain
 
-Ledger is a hardware wallet that is considered one of the most secure ways to store your digital assets. Ledger uses an offline, or cold storage, method of generating private keys. Ledger is integrated with our block explorer ([Browser])(https://browser.partisiablockchain.com/account).
+Ledger is a hardware wallet that is considered one of the most secure ways to store your digital assets. Ledger uses an offline, or cold storage, method of generating private keys. Ledger is integrated with our block explorer [(Browser)](https://browser.partisiablockchain.com/account).
 
 
 Install the Partisia Blockchain app on your Ledger device to sign transactions and manage MPC tokens with
