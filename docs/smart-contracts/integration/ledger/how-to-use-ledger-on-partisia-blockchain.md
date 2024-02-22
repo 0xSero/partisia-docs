@@ -48,16 +48,13 @@ the [account page](https://browser.partisiablockchain.com/account) to get more d
 ### How to receive crypto assets using Ledger
 
 To receive crypto assets you need to save the address of the ledger. This needs to be the receiving end of a MPC transfer
-for Ledger to hold assets on the blockchain for you.
+for Ledger to get assets on the blockchain.
 
-1. Log into an account on Partisia Blockchain that has MPC tokens.
-2. Go to
-   the [MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
-   where you
-   can [transfer MPC tokens](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881/transfer).
-   You need to fill out the receiving [address](../../../pbc-fundamentals/dictionary.md) as your Ledgers PBC address and the amount of MPC tokens
-   you want to send to that account. Its important that you verify it is the correct receiver address, otherwise you will not receive the tokens on your Ledger.
-   ![interact(1)-mpc token transfer.png](interact%281%29-mpc%20token%20transfer.png)
+1. Connect your ledger account with [Partisia Blockchain Browser](#how-to-connect-the-ledger-device-with-partisia-blockchain-browser).
+2. In [your account](https://browser.partisiablockchain.com/account) find the PBC address of your ledger.
+![browserPBCAddress.png](browserPBCAddress.png)
+3. Share your PBC address to receive crypto assets on your ledger device.
+
 
 ### How to send crypto assets using Ledger
 
