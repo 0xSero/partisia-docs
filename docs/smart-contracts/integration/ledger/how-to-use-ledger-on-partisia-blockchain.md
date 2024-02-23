@@ -76,9 +76,7 @@ After [connecting with browser](#how-to-connect-the-ledger-device-with-partisia-
 
     The review consists of:
 
-    * Are you using the correct chain? Ledger will give both Partisia Blockchain and mainnet as chain reviews which are
-      both correct for Partisia Blockchain. The screenshot shows [Testnet](../../access-and-use-the-testnet.md) which is
-      our developer chain.
+    * Are you using the correct chain? Ledger will in the review write 2 chains, first is: Partisia Blockchain and the second is: mainnet. The screenshot shows [testnet](../../access-and-use-the-testnet.md) which is our developer chain, in your case it will show up as mainnet.
       ![Interact(4)-Chain.png](Interact%284%29-Chain.png)
 
     * Are you using the correct arguments? Its important that you verify the receiving addresses on the device as to
