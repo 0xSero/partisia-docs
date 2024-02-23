@@ -71,7 +71,7 @@ start moving assets around using the Ledger.
    You need to fill out the receiving [address](../../../pbc-fundamentals/dictionary.md) and the amount of MPC tokens
    you want to send.
 
-   Remember the amount of MPC tokens needs to have 4 decimals behind, e.g. if you want to transfer 10 MPC you would
+    Remember the amount of MPC tokens needs to have 4 decimals behind, e.g. if you want to transfer 10 MPC you would
    type: 100000 in the transfer action.
    ![interact(1)-mpc token transfer.png](interact%281%29-mpc%20token%20transfer.png)
 
@@ -82,7 +82,7 @@ start moving assets around using the Ledger.
    different transaction details.
    ![interact(3)-review.jpg](interact%283%29-review.jpg)
 
-   The review consists of:
+    The review consists of:
 
     * Are you using the correct chain? Ledger will in the review write 2 chains, first is: Partisia Blockchain and the
       second is: mainnet. The screenshot shows [testnet](../../access-and-use-the-testnet.md) which is our developer
@@ -131,7 +131,7 @@ how a blind signed transaction looks like.
    You need to fill out the receiving [address](../../../pbc-fundamentals/dictionary.md) and the amount of ETH tokens
    you want to send to another addres on Partisia Blockchain.
 
-   Remember the amount of ETH tokens needs to
+    Remember the amount of ETH tokens needs to
    have [18 decimals](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet)
    behind, e.g. if you want to transfer 10 ETH BYOC Tokens you would type: 10000000000000000000 in the transfer action.
    ![blindsign(1)-transfer-eth.png](blindsign%281%29-transfer-eth.png)
