@@ -198,7 +198,7 @@ docker-compose up -d acme-companion
 ```
 !!! note "If you used different names for your docker services than the `docker-compose.yml` template"
 
-    Correct command to use the name of your docker service:
+    Correct the command by using the name of your docker service:
     ```BASH
     docker-compose pull nameOfService
     docker-compose up -d nameOfService
