@@ -209,8 +209,9 @@ were chosen as producer ``| grep "Created Block"``.
 The logs of nginx are stored as two categories, access logs and error logs. The access logs shows client request
 received by nginx. Error logs shows not just errors and warnings, but relate to the function of nginx e.g. processes
 started and ended, requests processed or skipped, and shutdowns. Docker logs of nginx display both access logs (white
-text) and error logs (red text). The SSL/TSL certificate renewal done with acme-companion shows up in the nginx logs as
-well because the `pbc-nginx` and `pbc-acme` containers communicates challenge, proof and certificate on container port
+text) and error logs (red text). 
+
+The SSL/TSL certificate renewal, done with acme-companion, shows up in the nginx logs because the `pbc-nginx` and `pbc-acme` containers communicates: challenge, proof and certificate on a container with port
 80 ([details in proxy server guide](run-a-zk-node.md#how-nginx-and-acme-run-as-services-in-docker-containers)).
 
 You can use the same commands as for baker logs. Just specify the name of the nginx docker container. Template name in our guide is `pbc-nginx`.
