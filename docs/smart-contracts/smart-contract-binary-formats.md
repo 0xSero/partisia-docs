@@ -194,8 +194,9 @@ $$
 | \ & \text{String} \Rightarrowx \text{false}\\
 | \ & \text{Vec<T>} \Rightarrowx \text{false}\\
 | \ & \text{Option<T>} \Rightarrowx \text{false}\\
-| \ & \text{BTreeMap<K, V>} \Rightarrowx \text{false}\\
-| \ & \text{BTreeSet<T>} \Rightarrowx \text{false}\\
+| \ & \text{SortedVecMap<K, V>} \Rightarrowx \text{false}\\
+| \ & \text{SortedVecSet<K, V>} \Rightarrowx \text{false}\\
+| \ & \text{AvlTreeMap<K, V>} \Rightarrowx \text{false}\\
 | \ & \text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \} \Rightarrowx \text{CopySerializable}(T_1) \wedge \dots \wedge \text{CopySerializable}(T_n) \wedge \text{WellAligned(S)} \\
 | \ & \text{Enum} \ \{ \text{variant}, f_1, f_2, \dots, f_n \} \Rightarrowx \text{false}\\
 \end{align*}
