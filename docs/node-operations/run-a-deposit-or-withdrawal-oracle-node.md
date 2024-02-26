@@ -6,9 +6,10 @@ the service. The transfer of cryptocurrencies to and from PBC is facilitated by 
 consisting of three nodes.
 
 !!! Warning " You must complete these requirements before you can continue"    
+
     - [Run baker node](run-a-baker-node.md) ([is my baker node running?](node-health-and-maintenance.md#is-your-baker-node-working))    
     - [Stake 275 K MPC tokens](https://browser.partisiablockchain.com/node-operation) (this includes the 25 K for running a
-baker) [See if your baker is running correctly](node-health-and-maintenance.md#is-your-baker-node-working)
+    baker) [See if your baker is running correctly](node-health-and-maintenance.md#is-your-baker-node-working)
     - You have working BYOC endpoints in your `config.json` - [see how to confirm this](node-health-and-maintenance.md#confirm-that-your-byoc-endpoints-are-working)
 
 ## How to join a deposit or withdrawal oracle
