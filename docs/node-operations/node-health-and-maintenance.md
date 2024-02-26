@@ -243,9 +243,12 @@ docker logs pbc-nginx | grep "starting nginx"
 
 ## Confirm that your BYOC endpoints are working
 
-Having working rest endpoints for BYOC chains is important for each and every block producing node. Having invalid BYOC rest
-endpoints will cause failure for oracle nodes. If two nodes in the same deposit or withdrawal oracle has problems with
-an endpoint it will disrupt the bridge.
+Nodes must have working BYOC REST endpoints to participate in oracle service. 
+
+!!! Warning "Bad or outdated endpoints cause serious problems"  
+
+    - Can make your price oracle node start a wrongful dispute causing slashing
+    - Two nodes with bad endpoints in a deposit or withdrawal oracle will crash the bridge
 
 Check if your BYOC endpoints for other chains in config.json are working:
 
