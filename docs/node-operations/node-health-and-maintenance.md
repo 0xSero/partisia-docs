@@ -206,14 +206,15 @@ were chosen as producer ``| grep "Created Block"``.
 
 ### For ZK and reader nodes: Sorting logs of nginx proxy and acme
 
-Your _nginx_ reverse proxy and _acme_ certificate renewal are run in docker containers like your baker or reader node
-service. So, you can get the nginx and acme container logs with the same docker commands. When you sort the logs, use relevant keywords,
+Your nginx reverse proxy and acme certificate renewal are run in docker containers (`pbc-nginx` and `pbc-acme`). Same as your baker or reader node
+service (`pbc-mainnet`). So, you can get the nginx and acme container logs with the same docker commands. When you sort the logs, use relevant keywords,
 for example related to your SSL/TSL certificate. 
 
-The docker logs of a node service are stored as one category in the same file and displayed in the same color. But, nginx stores and
-displays logs in two separate categories: access logs (white text) and error logs (red text). The access logs shows
-client request received by nginx. Error logs shows not just errors and warnings, but relate to the function of nginx
-e.g. processes started and ended, requests processed or skipped, and shutdowns.
+The docker logs of a node service are stored as one category in the same file, and displayed in the same color when
+print the container logs with the `docker logs` command. But, nginx stores logs in two separate categories displayed in
+its own color, access logs (white text) and error logs (red text). The access logs shows client request received by
+nginx. Error logs shows messages related to the function of nginx including processes started and ended, requests
+processed or skipped, and shutdowns.
 
 The SSL/TSL certificate renewal, done with acme-companion, shows up in the nginx logs because the `pbc-nginx` and `pbc-acme` containers communicates: challenge, proof and certificate on a container with port
 80 ([details in proxy server guide](run-a-zk-node.md#how-nginx-and-acme-run-as-services-in-docker-containers)).
