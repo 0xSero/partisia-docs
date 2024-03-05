@@ -216,10 +216,13 @@ its own color, access logs (white text) and error logs (red text). The access lo
 nginx. Error logs shows messages related to the function of nginx including processes started and ended, requests
 processed or skipped, and shutdowns.
 
-The SSL/TSL certificate renewal, done with acme-companion, shows up in the nginx logs because the `pbc-nginx` and `pbc-acme` containers communicates: challenge, proof and certificate on a container with port
+The SSL/TSL certificate renewal, done with acme-companion, shows up in the nginx logs because the `pbc-nginx`
+and `pbc-acme` containers communicates: challenge, proof and certificate on a container with port
 80 ([details in proxy server guide](run-a-zk-node.md#how-nginx-and-acme-run-as-services-in-docker-containers)).
 
-Use the same commands as for baker logs. Just specify the name of the nginx docker container. Template name in our guide is `pbc-nginx`.
+!!! info "Use the same commands as for baker logs" 
+
+    You can use the same docker commands, but remember to specify the name you used for the nginx docker container in your `docker-compose.yml`. Container name used in our `docker-compose.yml` template is `pbc-nginx`.
 
 
 Find out if you have downloaded the SSL/TSL certificate (to limit logs to a recent period use `--since 1h` for last hour):
