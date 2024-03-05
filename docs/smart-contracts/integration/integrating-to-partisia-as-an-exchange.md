@@ -53,7 +53,7 @@ BlockchainPublicKey publicKey = privateKey.getPublic();
 BlockchainAddress address = publicKey.createAddress();
 ```
 
-The address on PBC is nothing more than
+The [address](../../pbc-fundamentals/dictionary.md#address) on PBC is nothing more than
 
 $$
 \textcolor{mathcolor}{
