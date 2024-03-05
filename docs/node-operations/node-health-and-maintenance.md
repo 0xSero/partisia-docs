@@ -246,7 +246,7 @@ docker logs pbc-nginx | grep "starting nginx"
 
 !!! note
     
-    If restarts of your proxy server happen very frequently not counting th restarts related to your automatic update schedule defined in your auto-update script.
+    It is a sign of a problem if restarts of your proxy server happen very frequently (not counting the restarts related to your automatic update schedule defined in your auto-update script). Read the log statements leading up to the shutdown and find out what happened.
 
 
 ## Confirm that your BYOC endpoints are working
