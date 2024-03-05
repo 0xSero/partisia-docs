@@ -11,10 +11,10 @@
 !!! note
     Before you can test the already deployed example, you need the following setup:
 
-    1. A [testnet](/docs/testnet.md) [PBC account](/docs/accounts.md) [with gas](/docs/byoc.md)
+    1. A testnet [PBC account](../../pbc-fundamentals/create-an-account.md) [with gas](../gas/how-to-get-testnet-gas.md)
     2. A test ethereum account with gas on the Goerli testnet. To get some gas on Goerli testnet we used [a faucet from the official docs](https://ethereum.org/en/developers/docs/networks/#goerli)
 
-    We suggest to use [metamask](/docs/accounts.md) for Goerli testnet.
+    We suggest to use [metamask](../../pbc-fundamentals/create-an-account.md) for Goerli testnet.
 
 ## Casting secret votes on the PBC contract
 
@@ -60,7 +60,7 @@
 By following these steps you have now cast a secret vote and counted the result using PBC.
 
 If you encounter any issues while casting your vote or counting the result, you are always welcome to ask for assistance
-in our [community](https://partisiablockchain.com/community).
+in our [community](../../get-support-from-pbc-community.md).
 
 ## Transfer the result securely back to Ethereum
 

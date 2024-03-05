@@ -7,6 +7,11 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
+- Version **5.4** to **5.5**:
+    * Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x11`.
+    * Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x13`.
+    * `FnKind 0x11` now requires a Shortname.
+    * `FnKind 0x13` now requires a Shortname.
 - Version **5.3** to **5.4**:
     * Added new `FnKind: 0x18` called `ZkExternalEvent`.
 - Version **5.2** to **5.3**:
@@ -189,8 +194,9 @@ $$
 | \ & \text{String} \Rightarrowx \text{false}\\
 | \ & \text{Vec<T>} \Rightarrowx \text{false}\\
 | \ & \text{Option<T>} \Rightarrowx \text{false}\\
-| \ & \text{BTreeMap<K, V>} \Rightarrowx \text{false}\\
-| \ & \text{BTreeSet<T>} \Rightarrowx \text{false}\\
+| \ & \text{SortedVecMap<K, V>} \Rightarrowx \text{false}\\
+| \ & \text{SortedVecSet<K, V>} \Rightarrowx \text{false}\\
+| \ & \text{AvlTreeMap<K, V>} \Rightarrowx \text{false}\\
 | \ & \text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \} \Rightarrowx \text{CopySerializable}(T_1) \wedge \dots \wedge \text{CopySerializable}(T_n) \wedge \text{WellAligned(S)} \\
 | \ & \text{Enum} \ \{ \text{variant}, f_1, f_2, \dots, f_n \} \Rightarrowx \text{false}\\
 \end{align*}
@@ -332,9 +338,9 @@ $$
 |\ &\hexi{02} \ \Rightarrowx \text{Action}  &\text{(0..}\infty\text{)}\\
 |\ &\hexi{03} \ \Rightarrowx \text{Callback}  &\text{(0..}\infty\text{)}\\
 |\ &\hexi{10} \ \Rightarrowx \text{ZkSecretInput}  &\text{(0..}\infty\text{)}\\
-|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..1)}\\
+|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..}\infty\text{))}\\
 |\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected}  &\text{(0..1)}\\
-|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..1)}\\
+|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..}\infty\text{))}\\
 |\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
 |\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
 |\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\

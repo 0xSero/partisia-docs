@@ -8,12 +8,44 @@ The reader gives you access to information about accounts, contracts and specifi
 or a front-end you will often need to run your own reader node. When many parties query the same reader, it creates load on the server and can cause slowdowns. Run
 your own reader to avoid this.
 
-!!! Warning "You must complete this requirement before you can continue"   
+!!! Warning "You must complete this requirement before you can continue"
+
     - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
-Adding our recommended set of security measures minimizes vulnerabilities in your node. This guide teaches you how to configure the firewall and monitor your hardware.
+Adding our recommended set of security measures minimizes vulnerabilities in your node. This guide teaches you how to
+configure file permissions, the firewall and monitor your hardware.
+
+### Understand how user privileges affect the safety of your node
+
+Nodes on Partisia Blockchain need a Linux based operating system, we use Ubuntu in our guides. When you use Ubuntu you
+are either working as a root user or an ordinary non-root user. A root user can command access to all directories and
+files on the system. A non-root can only access certain commands dependent on what permissions and roles the user have
+been assigned. When you put `sudo` in front of a command it means you are executing it as root, and you will need to
+provide your user's password. You do not want your node to be running as root, and in general you do not want to be
+logged in as root when using the node.   
+
+Therefore, your setup involves two users with different levels of access to files:    
+
+1. **Personal user** without access to
+restricted files, in Ubuntu default user is `1000:1000`
+2. **User 1500:1500** for the docker service with access to config and storage     
+
+You make a non-root **personal user**. The second user is for the node service. You do not need to create this user (it
+is handled by the docker service), but you do need to specify necessary file permissions. Docker is running the node
+service from a container. The node service `pbc` has user `1500:1500`. You grant the `pbc` user `1500:1500`
+access to the config-file and storage necessary to run the node. Do not change the `pbc` user `1500:1500` to `1000:1000`. 
+
+If you want to see that the config has been created you can check with `sudo ls /opt/pbc-mainnet/conf`.
+
+!!! Note "Follow these 3 rules:"
+
+    1. **Personal user** is non-root, the Ubuntu default user is `1000:1000`
+    2. The service `pbc` defined in `docker-compose.yml` has user `1500:1500`
+    3. **root** is used when you set up file permissions and when you manually install software on the server - you should avoid being permanently logged in as root
+
+    If you follow these 3 rules it will make it more difficult for hackers to steal private keys, and destroy or compromise your node.
 
 ### Change root password
 
@@ -24,12 +56,32 @@ password:
 sudo passwd root
 ````
 
-### Add a non-root user
+### Add a non-root personal user
 
-For best security practice root should not be default user. Add a non-root user:
+For best security practice root should not be default user. If someone takes over the node, and it is running as root, they can do more damage. 
+
+Add a non-root user:
 
 ````bash
 sudo adduser userNameHere
+````
+
+Make sure that the non-root user can execute superuser commands:
+
+````bash
+sudo usermod -aG sudo userNameHere
+````
+
+Make sure the user can access system logs:
+
+````bash
+sudo usermod -aG systemd-journal userNameHere
+````
+
+Switch to the new non-root user:
+
+````bash
+su - userNameHere
 ````
 
 ### Install htop
@@ -255,8 +307,8 @@ number and size of reads and writes is entirely dependent on the traffic on the 
 
 ## Get automatic updates
 
-All nodes independent of type should be set up to update their software automatically.
-To set up automatic updates you will need to install Cron, a time based job scheduler:
+All nodes independent of type should be set up to update their software automatically. To set up automatic updates you
+will need to install Cron, a time based job scheduler:
 
 ````bash
 apt-get install cron
@@ -288,9 +340,10 @@ echo "$DATETIME"
 
 cd ~/pbc
 
-/usr/local/bin/docker-compose pull
-/usr/local/bin/docker-compose up -d
+/usr/local/bin/docker-compose pull pbc
+/usr/local/bin/docker-compose up -d pbc
 ````
+
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 **2. Make the file executable:**
@@ -299,21 +352,26 @@ Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 chmod +x update_docker.sh
 ````
 
-Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now executable.
+Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now
+executable.
 
 **3. Set update frequency to once a day at a random time:**
 
 ````bash
 crontab -e
 ````
-This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to edit the cron rule. If you have not already chosen a preference.
+
+This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to
+edit the cron rule. If you have not already chosen a preference.
 
 Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
+
 ````bash
 m h * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
 ````
-For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23.
-If you are in doubt about what the cron rule means you can use this page:
+
+For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23. If
+you are in doubt about what the cron rule means you can use this page:
 <https://crontab.guru/> to see the rule expressed in words.
 
 Press `CTRL+X` and then `Y` and then `ENTER`.
@@ -325,24 +383,32 @@ To see if the script is working you can read the update log with the *cat comman
 ````bash
 cat update.log
 ````
+
 You can change the time of the first update if you don't want to wait a day to confirm that it works.
 
 If your version is up-to-date, you should see:
+
 ````
 YOUR_CONTAINER_NAME is up-to-date
 ````
+
 If you are currently updating you should see:
+
 ````
 Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 ````
 
 !!! Warning "Warning"
-    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for updates.
+
+    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for
+    updates.
 
 ## Final step
 
-If you plan on using your reader node for development then you will
-need to [set up reverse proxy using example in ZK node guide](run-a-zk-node.md).
+If you are a developer making an application on PBC, and the application needs to reliably query the state of the
+blockchain, then you need a reader node. We recommend that your reader node is set up
+with [a reverse proxy](run-a-zk-node.md#set-up-a-reverse-proxy) to block unwanted traffic. You can query without the
+reverse proxy being setup, but in general practice we do not recommend this method.
 
-You now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker
-node. A baker node is a required step for all [paid node services](node-payment-rewards-and-risks.md).    
+You now have a reader node, running on a secured VPS. On the next page you can learn how to upgrade this to baker node.
+A baker node is a required step for all [paid node services](node-payment-rewards-and-risks.md).    

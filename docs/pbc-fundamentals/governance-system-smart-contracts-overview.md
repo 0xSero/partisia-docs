@@ -58,7 +58,7 @@ transfers, withdrawals, deposits, price monitoring, staking of nodes and the aud
 Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)) or check prices ([Price Oracles](../pbc-fundamentals/dictionary.md#price-oracle)). Each deposit and withdrawal oracle consist of 3 nodes selected by the Large oracle. There is a small oracle contract for each deposit and withdrawal oracle corresponding to the different coins supported on PBC. Price oracles can be supported by a large number of nodes, there is likewise a small oracle contract for each price oracle monitoring a price of a specific BYOC.
 
 ??? info "[Price Oracles](../pbc-fundamentals/dictionary.md#price-oracle)"
-    Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [price oracle explanation](../pbc-fundamentals). The contracts responsible for the price oracles are below.    
+    Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [Price oracle explanation](../pbc-fundamentals/dictionary.md#price-oracle). The contracts responsible for the price oracles are below.    
     [ETH Price Oracle](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d)    
     [BNB Price Oracle](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39)
 
@@ -66,14 +66,10 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
 
 
 ??? info "[Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)"
-    Below you see the oracle contracts handling deposits and withdrawals for BYOCs. These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The
-    contract state shows which nodes serve the oracle and a list of the deposits or withdrawals they have completed. [Read more about oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)   
-    [ETH Deposit](https://browser.partisiablockchain.com/contracts/045dbd4c13df987d7fb4450e54bcd94b34a80f2351)    
-    [ETH Withdrawal](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146)    
-    [POLYGON_USDC](https://browser.partisiablockchain.com/contracts/042f2f190765e27f175424783a1a272e2a983ef372)   
-    [POLYGON_USDC](https://browser.partisiablockchain.com/contracts/04adfe4aaacc824657e49a59bdc8f14df87aa8531a)    
-    [BNB Deposit](https://browser.partisiablockchain.com/contracts/047e1c96cd53943d1e0712c48d022fb461140e6b9f)    
-    [BNB Withdrawal](https://browser.partisiablockchain.com/contracts/044bd689e5fe2995d679e946a2046f69f022be7c10)    
+    You see the oracle contracts handling deposits and withdrawals for BYOCs in the [list of bridgeable coins](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet). These contracts have a transfer limit controlling when the nodes providing the service will be rotated. The
+    contract state shows which nodes serve the oracle and a list of the deposits or withdrawals they have completed. 
+
+    [Comprehensive list of deposit and withdrawal oracles on PBC and native chains of BYOC](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) 
 
     [Deposit oracle contract documentation](https://partisiablockchain.gitlab.io/governance/byoc-incoming/com/partisiablockchain/governance/byocincoming/ByocIncomingContract.html).
 
