@@ -40,9 +40,9 @@ To prevent such a scenario it is *crucial* to ensure that decentralized database
 
 ## What is a consensus mechanism
 
-A consensus mechanism is a protocol that ensures, that all nodes that participate in the protocol, execute all transactions in the same order. That is, a consensus mechanism provides a *total order of input transactions*. 
+A consensus mechanism is a protocol that ensures, that all nodes that participate in the protocol, execute all transactions in the same order. That is, a consensus mechanism provides a *total order of input transactions* agreed upon by all nodes participating in the protocol. 
 
-Here, we will not go into the technical definition of what it means that transactions are totally ordered but instead refer the interested reader to [Details of the FastTrack protocol](#details-of-the-fasttrack-protocol), where a precise characterization of this is given. 
+Here, we will not go into the technical definition of what it means that transactions are totally ordered but instead refer the interested reader to [Details of the FastTrack protocol](#details-of-the-fasttrack-protocol), where a more detailed characterization of this is provided. 
 
 
 ## FastTrack: The consensus mechanism of PBC
@@ -58,3 +58,5 @@ If the proposer fails to produce valid blocks, either by losing network connecti
 Only Baker nodes run the ledger with the FastTrack plugin enabled and they communicate with the other Baker nodes for their specific shard. Since a separate consensus protocol runs for each available shard, cross-shard communication requires the propagation of the PoF from one shard to another. This effectively means that an event spawned on shard $A$ at block time $t_A = i$ is only executed when $i$ is finalized, which is at block time $t_A = i + 1$.
 
 ### Details of the FastTrack protocol
+
+Tba. 
