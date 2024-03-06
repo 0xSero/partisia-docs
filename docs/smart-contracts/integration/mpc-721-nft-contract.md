@@ -90,4 +90,4 @@ The token will have the following full URI ```ipfs://bafybeigdyrzt5sfp7udm7hu76u
 
 [https://eips.ethereum.org/EIPS/eip-721](https://eips.ethereum.org/EIPS/eip-721)
 
-[https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/nft](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/nft)
+[https://gitlab.com/partisiablockchain/language/contracts/defi/-/tree/main/nft?ref_type=heads](https://gitlab.com/partisiablockchain/language/contracts/defi/-/tree/main/nft?ref_type=heads)
