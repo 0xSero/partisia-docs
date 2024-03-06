@@ -32,15 +32,15 @@ Swiftly after (before the transaction $T_{AB}$ reaches $N_2$), she could then bu
 |---------|---------|
 | Alice   | 0  \$   |
 | Bob     | 0 \$    |
-| Charlie | 50 \$    |
-
+| Charlie | 50 \$   |
 
 That is, the databases are in an inconsistent state and the non-overdraft policy of the system was not enforced as the protocol allowed Alice to *double-spend* her savings.
 
-To prevent such scenario it is *crucial* ensure that decentralized databases are consistent by ensuring that *all transactions are executed in the same order* at all nodes holding a copy of the database.
+To prevent such scenario it is *crucial* ensure that decentralized databases are consistent by ensuring that *all transactions are executed in the same order* at all nodes holding a copy of the database, and this is the reason a consensus mechanism is needed. 
 
 ## What is a consensus mechanism
-A consensus mechanism is a protocol that ensures that all nodes that participate in the mechanism executes all transactions in the same order. That is, it provides a *total order on input transactions*. 
+
+A consensus mechanism is a protocol that ensures, that all nodes that participate in the protocol, executes all transactions in the same order. That is, a consensus mechanism provides a *total order on input transactions*. 
 
 Here, we will not go into the technical definition of what it means that that transactions are totally ordered but instead refer the interested reader to [Details of the FastTrack protocol](#details-of-the-fasttrack-protocol), where a precise characterization of this is given. 
 
@@ -48,14 +48,14 @@ Here, we will not go into the technical definition of what it means that that tr
 ## FastTrack: The consensus mechanism of PBC
 Partisia Blockchain uses a tailor-made consensus mechanism called *FastTrack*. 
 
-The FastTrack consensus protocol is an optimistic protocol with built-in failure recovery. When running optimistically a single block producer (proposer) continuously produces new blocks whilst the rest of the committee verify the validity of said blocks. After a fixed number of blocks have been proposed by a single producer a new proposer is chosen by the rules of the protocol. As long as the proposer is honest and produces what are by the committee deemed as valid blocks, transactions can be executed eagerly allowing for a high transaction throughput.
+The FastTrack consensus protocol is an optimistic protocol with built-in failure recovery. When running optimistically a single block producer (proposer) continuously produces new blocks whilst the rest of the committee verify the validity of said blocks and signs off on this. 
+Consensus is achieved using Proof-of-Justification (PoJ) and Proof-of-Finalization (PoF). Let $n$ be the number of committee members in the current committee. A PoJ is then a list of at least $\lfloor n\cdot \frac{2}{3}\rfloor + 1$ or more signatures confirming the validity of a 
+block. This PoJ then becomes PoF for the previous block. When a PoJ exists for a block, we refer to it as being *justified*, and when a PoF exists for a block we refer to it as being *final*.
 
-If the proposer fails to produce valid blocks, either by losing network connectivity or malicious intent, the protocol enters what is called the *Shutdown state*. In this state the entire committee votes on which block is the newest. Once the committee has agreed on a block the next block proposer is chosen. To distinquish connectivity loss and a slow day on the chain, an empty heartbeat block is produced every 30 seconds if no transactions are received.
+After a fixed number of blocks have been proposed by a single producer a new proposer is chosen by the rules of the protocol. As long as the proposer is honest and produces sufficiently many valid blocks that becomes justified (which also ensures that new blocks are consistently being finalized), the committee is satisfied with this flow. 
+If the proposer fails to produce valid blocks, either by losing network connectivity or malicious intent, the protocol enters what is called the *Shutdown state*. In this state the entire committee votes on which block is the newest. Once the committee has agreed on a block the next block proposer is chosen. To distinquish connectivity loss/malicious intent from a calm day with not many transactions input to the chain, an empty heartbeat block is produced every 30 seconds if no transactions are received, which ensures that honest proposers with good connectivity produces sufficiently many blocks.
 
-Consensus is achieved using Proof-of-Justification (PoJ) and Proof-of-Finalization (PoF). Let $n$ be the number of committee members in the current committee. A PoJ is then a list of at least $\lfloor n\cdot \frac{2}{3}\rfloor + 1$ or more signatures confirming the validity of a block. This PoJ then becomes PoF for the previous block. Since the validity of the current block depends on the state of the previous, the previous block is considered final. 
-
-Only Baker nodes run the ledger with a FastTrack plugin enabled and they communicate with the other Baker nodes for their specific shard. Since a separate consensus protocol runs for each available shard, cross-shard communication requires the propagation of the PoF from one shard to another. This effectively means that an event spawned on shard $A$ at block time $t_A = i$ is only valid when $i$ is finalized, which is at $t_A = i + 1$.
-
+Only Baker nodes run the ledger with the FastTrack plugin enabled and they communicate with the other Baker nodes for their specific shard. Since a separate consensus protocol runs for each available shard, cross-shard communication requires the propagation of the PoF from one shard to another. This effectively means that an event spawned on shard $A$ at block time $t_A = i$ is only valid when $i$ is finalized, which is at $t_A = i + 1$.
 
 ### Properties of the FastTrack protocol
 
