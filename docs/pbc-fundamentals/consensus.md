@@ -1,8 +1,7 @@
 # Consensus
+Consensus plays a central role in blockchains, and is required for them to function correctly. This is true for any blockchain in general, and of course for Partisia Blockchain in particular. 
 
-Below we give a brief introduction to the consensus mechanism used by [PBC](./dictionary.md#pbc).
-
-However, before discussing the concrete consensus mechanism, let us first provide some intuition for why a consensus mechanism is needed and the functionality such mechanism provides. 
+Below we motivate the need for consensus and provide an outline for how the consensus protocol of Partisia Blockchain works.
 
 ## Why a consensus mechanism is needed
 
