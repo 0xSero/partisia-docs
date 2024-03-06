@@ -1,10 +1,12 @@
 # Consensus
 
-Below we a brief introduction to the consensus mechanism used by [PBC](../pbc-fundamentals/dictionary.md#pbc).
+Below we give a brief introduction to the consensus mechanism used by [PBC](../pbc-fundamentals/dictionary.md#pbc).
 
-However, before discussing the concrete consensus mechanism, let us first provide some intuition for why a consensus mechanism is needed. 
+However, before discussing the concrete consensus mechanism, let us first provide some intuition for why a consensus mechanism is needed and the functionality such mechanism provides. 
 
 ## Why a consensus mechanism is needed
+
+## What is a consensus mechanism
 
 ## FastTrack: The consensus mechanism of PBC
 Partisia Blockchain uses a tailor-made consensus mechanism called *FastTrack*. 
