@@ -9,7 +9,7 @@ consisting of three nodes.
 
     - [Run baker node](run-a-baker-node.md) ([is my baker node running?](node-health-and-maintenance.md#is-your-baker-node-working))    
     - [Stake 275 K MPC tokens](https://browser.partisiablockchain.com/node-operation) (this includes the 25 K for running a
-    baker) [See if your baker is running correctly](node-health-and-maintenance.md#is-your-baker-node-working)
+    baker)
     - You have working BYOC endpoints in your `config.json` - [see how to confirm this](node-health-and-maintenance.md#confirm-that-your-byoc-endpoints-are-working)
 
 ## How to join a deposit or withdrawal oracle
@@ -36,7 +36,7 @@ It is possible to leave the oracle before the deposit or withdrawal limit has be
 3 new nodes will be selected to form the oracle. The tokens associated with a specific oracle will get pending status
 when a node leaves an oracle. However, the leaver can be chosen for the new oracle if they have enough tokens. For that
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
-oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic ([List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridging-test-eth)).
+oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic ([List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet)).
 
 ### How to find out which price oracle your node serves
 
@@ -53,7 +53,7 @@ If you know which price oracle your node is serving, you should skip ahead to Re
 
 ### Request new oracle   
 
-- Invoke the contract action _requestNewOracle_ [List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridging-test-eth) (you must be logged in to perform this action)   
+- Invoke the contract action _requestNewOracle_ [List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) (you must be logged in to perform this action)   
  
 
 !!! note "Note"
