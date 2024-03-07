@@ -207,8 +207,7 @@ were chosen as producer ``| grep "Created Block"``.
 ### For ZK and reader nodes: Sorting logs of nginx proxy and acme
 
 Your nginx reverse proxy and acme certificate renewal are run in docker containers (`pbc-nginx` and `pbc-acme`). Same way you run your baker or reader node
-service in the container `pbc-mainnet`. So, you can get the nginx and acme container logs with the same docker commands. When you sort the logs, use relevant keywords,
-for example related to your SSL/TSL certificate. 
+service in the container `pbc-mainnet`. You can use the same docker commands to get the nginx and acme container logs. When sorting the logs, its recommended to use relevant keywords: E.g. keywords related to your SSL/TSL certificate. 
 
 The docker logs of a node service are stored as one category in the same file, and displayed in the same color when you
 print the container logs with the `docker logs` command. But, nginx stores logs in two separate categories displayed in
