@@ -210,10 +210,10 @@ Your nginx reverse proxy and acme certificate renewal are run in docker containe
 service in the container `pbc-mainnet`. You can use the same docker commands to get the nginx and acme container logs. When sorting the logs, its recommended to use relevant keywords: E.g. keywords related to your SSL/TSL certificate. 
 
 The docker logs of a node service are stored as one category in the same file, and displayed in the same color when you
-print the container logs with the `docker logs` command. But, nginx stores logs in two separate categories displayed in
+print the container logs with the `docker logs` command. Whereas nginx stores logs in two separate categories displayed in
 its own color, access logs (white text) and error logs (red text). The access logs shows client request received by
 nginx. Error logs shows messages related to the function of nginx including processes started and ended, requests
-processed or skipped, and shutdowns.
+processed or skipped and shutdowns.
 
 The SSL/TSL certificate renewal, done with acme-companion, shows up in the nginx logs because the `pbc-nginx`
 and `pbc-acme` containers communicates: challenge, proof and certificate on a container with port
