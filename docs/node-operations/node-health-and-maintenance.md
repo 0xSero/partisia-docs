@@ -6,7 +6,8 @@ The maintenance page takes you through the following node issues:
 - [Update your node manually](#updating-your-node-manually)   
 - [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)   
 - [How to monitor node performance](#how-to-monitor-node-performance)   
-- [Interpret log messages and debugging problems - See if your node is signing blocks](#logs-and-storage)   
+- [Interpret log messages and debugging problems - See if your node is signing blocks](#logs-and-storage)
+- [For ZK and reader nodes: Sorting logs of nginx proxy and acme](#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 - [Confirm that your BYOC endpoints are working](#confirm-that-your-byoc-endpoints-are-working)   
 - [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)   
 - [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)   
@@ -138,9 +139,11 @@ number and size of reads and writes is entirely dependent on the traffic on the 
 
 ### Common log messages
 
-**Signing BlockState** - All is well.   
+**Signing BlockState** - All is well. 
+  
 **Not signing as shutdown is active** - You may assume all is well. Shutdown happens when chosen producer fails to
 produce a block, a reset block is made, and then a new node is chosen for the role of producer.   
+
 **Not signing** - This is not a good sign, you are not signing blocks. First, check if you are on the list
 of [current committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators), if you are not, and you have already sent the
 Register Transaction, then you should search for your PBC account address in the state
@@ -152,15 +155,17 @@ have given. If you cannot find your address in the BPOC at all you need to resen
 you are on the list of committee members and still get persistent “Not signing” then you almost certainly have some
 problem in your config.json Probably you have a wrong or no key in one of the fields: networkKey, accountKey or
 finalizationKey, or you forgot to add the host IP address.   
+
 **Got a message with wrong protocol identifier** - This message comes every time a shutdown has occurred (in other words
 whenever a producer has not produced the block he is supposed to). So, on its own that message does not indicate a
 problem. But, if the log just repeats and don't change to a new message saying Executing Block… it could suggest you are
 running an outdated version of our software, a version that does not pull the newest docker image automatically.   
+
 **WebApplicationException. Status=404** - You may assume all is well. You may encounter different types of not found
 errors in the logs. Most of them are not indicative of a problem at your end. They occur when a node in the network has
 not received what it expected you can in most cases see the address or producer index of the nodes related to the error.
 
-### Sorting the logs
+### Sorting Baker node logs
 
 **Latest logs:**
 
@@ -203,7 +208,58 @@ docker logs --since 1h pbc-mainnet | grep "Signing BlockState"
 This will give you the blocks you have signed the last hour. You might also want to look for blocks you created when you
 were chosen as producer ``| grep "Created Block"``.
 
+### For ZK and reader nodes: Sorting logs of nginx proxy and acme
+
+Your nginx reverse proxy and acme certificate renewal are run in docker containers (`pbc-nginx` and `pbc-acme`). Same way you run your baker or reader node
+service in the container `pbc-mainnet`. You can use the same docker commands to get the nginx and acme container logs. When sorting the logs, its recommended to use relevant keywords: E.g. keywords related to your SSL/TSL certificate. 
+
+The docker logs of a node service are stored as one category in the same file, and displayed in the same color when you
+print the container logs with the `docker logs` command. Whereas nginx stores logs in two separate categories displayed in
+its own color, access logs (white text) and error logs (red text). The access logs shows client request received by
+nginx. Error logs shows messages related to the function of nginx including processes started and ended, requests
+processed or skipped and shutdowns.
+
+The SSL/TSL certificate renewal, done with acme-companion, shows up in the nginx logs because the `pbc-nginx`
+and `pbc-acme` containers communicates: challenge, proof and certificate on a container with port
+80 ([details in proxy server guide](run-a-zk-node.md#how-nginx-and-acme-run-as-services-in-docker-containers)).
+
+!!! info "Use the same commands as for baker logs" 
+
+    You can use the same docker commands, but remember to specify the name you used for the nginx docker container in your `docker-compose.yml`. Container name used in our `docker-compose.yml` template is `pbc-nginx`.
+
+
+Find out if you have downloaded the SSL/TSL certificate (to limit logs to a recent period use `--since 1h` for last hour):
+
+````bash
+docker logs pbc-nginx | grep "Downloading cert."
+````
+When certificate is installed, it will be checked after one hour for renewal. Thereafter, it will be automatically renewed every 60 days.
+
+Check if your SSL/TSL certificate has been renewed:
+
+````bash
+docker logs pbc-nginx | grep "renewal"
+````
+
+Check for the nginx container shutting down and restarting: 
+
+````bash
+docker logs pbc-nginx | grep "starting nginx"
+````
+
+!!! note
+    
+    It is a sign of a problem if restarts of your proxy server happen very frequently (not counting the restarts related to your automatic update schedule defined in your auto-update script). Read the log statements leading up to the shutdown and find out what happened.
+
+
 ## Confirm that your BYOC endpoints are working
+
+Nodes must have working BYOC REST endpoints to participate in oracle service. 
+
+!!! Warning "Bad or outdated endpoints cause serious problems"  
+
+    - Can make your price oracle node start a wrongful dispute causing slashing
+    - Two nodes with bad endpoints in a deposit or withdrawal oracle will crash the bridge
 
 Check if your BYOC endpoints for other chains in config.json are working:
 
