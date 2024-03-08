@@ -27,10 +27,11 @@ developed and supported by the [Partisia Blockchain Foundation](https://partisia
 To connect your device with the Browser you need to have gone through all steps in the above guide.
 
 1. Enter the pin on your Ledger device
-   ![login(1)-enter-pin.png](login%281%29-enter-pin.png)
+    ![login(1)-enter-pin.png](login%281%29-enter-pin.png)
 
 2. Choose Partisia Blockchain in the Choose app setting
-   ![login(2)-choose-app.png](login%282%29-choose-app.png)
+
+    ![login(2)-choose-app.png](login%282%29-choose-app.png)
 
 3. App is now ready on the Ledger and Ledger can now login using [the Browser](https://browser.partisiablockchain.com)
 
@@ -160,3 +161,5 @@ how a blind signed transaction looks like.
 If you need help in any of the above explained steps, you should go to
 the [community Discord](../../../get-support-from-pbc-community.md) where you are able to create support tickets and get
 help from the Partisia Blockchain community. 
+
+If you want to integrate Ledger with your dApp we urge you to reach out in the dev-chat on [Discord](../../../get-support-from-pbc-community.md). 
