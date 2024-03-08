@@ -1,7 +1,6 @@
 # How to use Ledger on Partisia Blockchain
 
-Ledger is a hardware wallet that is considered one of the mos
-t secure ways to store your digital assets. Ledger uses an offline, or cold storage, method of generating private keys.
+Ledger is a hardware wallet that is considered one of the most secure ways to store your digital assets. Ledger uses an offline, or cold storage, method of generating private keys.
 Ledger is integrated with our block explorer [(Browser)](https://browser.partisiablockchain.com/account).
 
 Install the Partisia Blockchain app on your Ledger device to sign transactions and manage MPC tokens with
@@ -84,9 +83,7 @@ start moving assets around using the Ledger.
 
     The review consists of:
 
-    * Are you using the correct chain? Ledger will in the review write 2 chains, first is: Partisia Blockchain and the
-      second is: mainnet. The screenshot shows [testnet](../../access-and-use-the-testnet.md) which is our developer
-      chain, in your case it will show up as mainnet.
+    * Are you using the correct chain? Ledger will show which chain you are using: "Partisia Blockchain mainnet" or "Partisia Blockchain testnet".
       ![Interact(4)-Chain.png](Interact%284%29-Chain.png)
 
     * Are you using the correct arguments? Its important that you verify the receiving addresses on the device as to
@@ -99,7 +96,7 @@ start moving assets around using the Ledger.
 4. Accept the amount of [gas](../../../pbc-fundamentals/dictionary.md#gas) the transaction costs.
    ![interact(6)-fee.jpg](interact%286%29-fee.jpg)
 
-5. If you want to approve after the review you should click on _Approve_ on the device.
+5. If you want to approve after the review you should click on _Approve_ on the device. Alternatively you should click _Reject_.
    ![interact(7)-approve.jpg](interact%287%29-approve.jpg)
 
 6. After approval, you can see that the Browser finishes the transaction and the transfer is complete.
