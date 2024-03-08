@@ -32,7 +32,7 @@ To connect your device with the Browser you need to have gone through all steps 
 2. Choose Partisia Blockchain in the Choose app setting
    ![login(2)-choose-app.png](login%282%29-choose-app.png)
 
-3. App is now ready on the Ledger and we can now login using [the Browser](https://browser.partisiablockchain.com)
+3. App is now ready on the Ledger and Ledger can now login using [the Browser](https://browser.partisiablockchain.com)
 
 4. In the top right corner of the Browser you can click _Sign In_ this gives you a menu where you can click _Sign in
    using Ledger_
@@ -117,7 +117,7 @@ transfer to another address on PBC with a blind signed transaction.
 3. To enable blind signing click on the right button for enabling blind signing on the Ledger device.
    ![enabling-blindsigning(3)-enabled.jpg.png](enabling-blindsigning%283%29-enabled.jpg.png)
 
-This setting update changes how we sign transactions on Partisia Blockchain with the Ledger. The following steps shows
+This setting update changes how Ledger signs transactions on Partisia Blockchain. The following steps shows
 how a blind signed transaction looks like.
 
 1. After signing
@@ -139,7 +139,7 @@ how a blind signed transaction looks like.
 3. We now need to review the transaction on the Ledger
    ![blindsign(2)-transaction.png](blindsign%282%29-transaction.png)
 
-4. We get a warning on the device since we are using blind signing and therefore need to trust the content of the RPC
+4. Ledger gives a warning on the device because of the blind signing. Ledger asks if you trust the content of the RPC
    sent on chain.
    ![blindsign(3)-warning.png](blindsign%283%29-warning.png)
 
@@ -151,7 +151,7 @@ how a blind signed transaction looks like.
 6. We need to accept the fee payment
    ![blindsign(5)-fee.png](blindsign%285%29-fee.png)
 
-7. If you want to approve after the review you should click on _Approve_ on the device.
+7. If you want to approve after the review you should click on _Approve_ on the device. Alternatively you should click _Reject_.
    ![interact(7)-approve.jpg](interact%287%29-approve.jpg)
 
 8. After approval, you can see that the Browser finishes the transaction and the transfer is complete.
