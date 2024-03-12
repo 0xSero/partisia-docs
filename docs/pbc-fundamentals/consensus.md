@@ -56,6 +56,4 @@ If the proposer fails to produce valid blocks, either by losing network connecti
 
 Only Baker nodes run the ledger with the FastTrack plugin enabled and they communicate with the other Baker nodes for their specific shard. Since a separate consensus protocol runs for each available shard, cross-shard communication requires the propagation of the PoF from one shard to another. This effectively means that an event spawned on shard $A$ at block time $t_A = i$ is only executed when $i$ is finalized, which is at block time $t_A = i + 1$.
 
-### Details of the FastTrack protocol
-
-Tba. 
+[A full technical description of the FastTrack protocol is available here](https://drive.google.com/file/d/1nxAMs95F3Y6LhibOjHiDVRgAN2Z51iLn/view).
