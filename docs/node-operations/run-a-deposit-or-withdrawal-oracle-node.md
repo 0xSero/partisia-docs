@@ -34,7 +34,7 @@ possible to serve in more than one small oracle if enough tokens are available.
 
 It is possible to leave the oracle before the deposit or withdrawal limit has been met by requesting a new oracle. If a node chooses to leave, then
 3 new nodes will be selected to form the oracle. The tokens of the 3 nodes associated with a specific oracle will get pending status for 28 days
-when a member node requests a new oracle. However, the leaver can be chosen for the new oracle if they have enough tokens. For that
+when a member node requests a new oracle. When your node leaves an oracle rotation, it can be chosen for the new oracle if they have enough available tokens. For that
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
 oracle. Currently, there are deposit and withdrawal oracles for these [bridgeable coins on mainnet](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet)).
 
