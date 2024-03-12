@@ -63,3 +63,26 @@ It is possible to start a dispute against a node operator that has done a servic
 audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible
 for the node's alleged malicious behaviour tokens staked on the service may be slashed. Filing an illegitimate dispute claim against another node can also be
 considered malicious behaviour and result in slashing.
+
+### What staking means
+
+Staked MPC tokens are used as collateral for a node performing a paid service. The stake guaranties that users of the blockchain can trust transfer of value on-chain and off-chain and the integrity of calculations.
+Valuable transactions are audited after epochs of value and time, to ensure that users have time to make dispute claims and to catch attempts of malicious behavior.
+For this reason there are  pending times for tokens to change state from being associated, locked or staked.
+
+### How long does it take to retrieve stakes from a node service
+
+**Token state - staked**
+- staked - unstaked: 7 days pending, then you can invoke check pending
+
+**Baker service**
+- Confirmed BP - deregister: if you are not in current committee, you will get the tokens immediately when deregistering. But If you are in committee, you can disassociate the tokens when committee change by itself, or trigger committee change after 28 days
+
+**Oracle service**
+- locked to oracle - unlock: 28 days pending, from end of epoch or from the request for new oracle, then you can disassociate the tokens from the large oracle contract afterwards
+
+**ZK service**
+- locked to ZK computation - unlock: 14 days grace period, from time calculation is finished, after that you can disassociate the tokens from ZK registry contract
+
+
+If a node is using delegated stakes, the delegator has to reach out the node operator using the tokens, if they wish to retrieve them.
