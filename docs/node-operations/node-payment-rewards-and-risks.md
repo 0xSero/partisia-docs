@@ -66,7 +66,7 @@ considered malicious behaviour and result in slashing.
 
 ### What staking means
 
-Staked MPC tokens are used as collateral for a node performing a paid service. The stake guaranties that users of the blockchain can trust transfer of value on-chain and off-chain and the integrity of calculations.
+Staked MPC tokens are used as collateral for a node performing a paid service. The stake guaranties that users of the blockchain can trust transfers of value on-chain and off-chain and the integrity of calculations.
 Valuable transactions are audited after epochs of value and time, to ensure that users have time to make dispute claims and to catch attempts of malicious behavior.
 For this reason there are  pending times for tokens to change state from being associated, locked or staked.
 
