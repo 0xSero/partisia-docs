@@ -38,7 +38,7 @@ when a member node requests a new oracle. However, the leaver can be chosen for 
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
 oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic ([List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet)).
 
-### How to find out which price oracle your node serves
+### How to find out which oracle your node serves
 
 If you know which price oracle your node is serving, you should skip ahead to Request new oracle
 
