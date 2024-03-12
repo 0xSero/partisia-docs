@@ -67,22 +67,17 @@ considered malicious behaviour and result in slashing.
 ### What staking means
 
 Staked MPC tokens are used as collateral for a node performing a paid service. The stake guaranties that users of the blockchain can trust transfers of value on-chain and off-chain and the integrity of calculations.
-Valuable transactions are audited after epochs of value and time, to ensure that users have time to make dispute claims and to catch attempts of malicious behavior.
+Valuable transactions are audited after epochs of value or time ([see specific periods](node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service)), this ensures that users have time to make dispute claims and to catch attempts of malicious behavior.
 For this reason there are  pending times for tokens to change state from being associated, locked or staked.
 
 ### How long does it take to retrieve stakes from a node service
 
-**Token state - staked**
-- staked - unstaked: 7 days pending, then you can invoke check pending
-
-**Baker service**
-- Confirmed BP - deregister: if you are not in current committee, you will get the tokens immediately when deregistering. But If you are in committee, you can disassociate the tokens when committee change by itself, or trigger committee change after 28 days
-
-**Oracle service**
-- locked to oracle - unlock: 28 days pending, from end of epoch or from the request for new oracle, then you can disassociate the tokens from the large oracle contract afterwards
-
-**ZK service**
-- locked to ZK computation - unlock: 14 days grace period, from time calculation is finished, after that you can disassociate the tokens from ZK registry contract
+| **Token state**                                                                                                        | **Days in Pending**                                                                                                                                                                                                                               | **Required action**               |
+|------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| stakedTokens                                                                                                           | 7                                                                                                                                                                                                                                                 | [Unstake](https://browser.partisiablockchain.com/node-operation)                           |
+| stakedToContract ([BPO](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91))  | 28 maximum (if you are not in current committee, you will get the tokens immediately when invoking _Remove bp_. But If you are in committee, you can disassociate the tokens when committee change by itself, or trigger committee change after 28 days) | [Remove bp](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)                                  |
+| stakedToContract ([LO](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014))   | 28  (from end of epoch or from the request for new oracle, then you can disassociate the tokens from the large oracle contract afterwards. If node is not allocated to a deposit or withdrawal oracle you can disassociate immediately)           | [Request new oracle](run-a-deposit-or-withdrawal-oracle-node#request-new-oracle) + [Disassociate](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract) |
+| stakedToContract ([ZKNR](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65)) | 14  (grace period, from time  a specific calculation is finished, after that you can disassociate the tokens from ZK registry contract. If node is not allocated to a calculation you can disassociate immediately)                               |                                   |
 
 !!! Note
 
