@@ -36,7 +36,7 @@ It is possible to leave the oracle before the deposit or withdrawal limit has be
 3 new nodes will be selected to form the oracle. The tokens of the 3 nodes associated with a specific oracle will get pending status for 28 days
 when a member node requests a new oracle. However, the leaver can be chosen for the new oracle if they have enough tokens. For that
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
-oracle. Currently, there are deposit and withdrawal oracles for ETH, BNB, USDC and Matic ([List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet)).
+oracle. Currently, there are deposit and withdrawal oracles for these [bridgeable coins on mainnet](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet)).
 
 ### How to find out which oracle your node serves
 
