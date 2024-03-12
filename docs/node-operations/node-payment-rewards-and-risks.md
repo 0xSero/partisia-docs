@@ -84,5 +84,6 @@ For this reason there are  pending times for tokens to change state from being a
 **ZK service**
 - locked to ZK computation - unlock: 14 days grace period, from time calculation is finished, after that you can disassociate the tokens from ZK registry contract
 
+!!! Note
 
-If a node is using delegated stakes, the delegator has to reach out the node operator using the tokens, if they wish to retrieve them.
+    If a node is using delegated stakes, the delegator has to reach out the node operator using the tokens, if they wish to retrieve them.
