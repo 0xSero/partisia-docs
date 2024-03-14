@@ -41,7 +41,7 @@ To prevent such a scenario it must be ensured that the decentralized database is
 
 A consensus mechanism is a protocol that ensures, that all nodes that participate in the protocol, execute all transactions in the same order. That is, a consensus mechanism provides a *total order of input transactions* agreed upon by all nodes participating in the protocol. 
 
-Here, we will not go into the technical definition of what it means that transactions are totally ordered but instead refer the interested reader to [Details of the FastTrack protocol](#details-of-the-fasttrack-protocol), where a more detailed characterization of this is provided. 
+Here, we will not go into the technical definition of what it means that transactions are totally ordered but instead refer the interested reader to [technical description of the FastTrack protocol](https://drive.google.com/file/d/1nxAMs95F3Y6LhibOjHiDVRgAN2Z51iLn/view), where a  detailed characterization of this is given. 
 
 
 ## FastTrack: The consensus mechanism of PBC
