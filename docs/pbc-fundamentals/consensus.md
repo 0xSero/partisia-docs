@@ -35,7 +35,7 @@ Swiftly after (before the transaction $T_{AB}$ reaches $N_2$), she could then bu
 
 That is, the databases are in an inconsistent state and the non-overdraft policy of the system was not enforced as the protocol allowed Alice to *double-spend* her savings.
 
-To prevent such a scenario it is *crucial* to ensure that decentralized databases are consistent by ensuring that *all transactions are executed in the same order* at all nodes holding a copy of the database, and this is the reason a consensus mechanism is needed. 
+To prevent such a scenario it must be ensured that the decentralized database is consistent i.e., it must be ensured that *all transactions are executed in the same order* at all nodes holding a copy of the database. This is exactly what a consensus mechanism ensures. 
 
 ## What is a consensus mechanism
 
