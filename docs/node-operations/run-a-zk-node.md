@@ -13,8 +13,10 @@ for the zero knowledge computations performed.
     1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
     2. [Run baker node](run-a-baker-node.md)
     3. You have set up a reverse proxy. This includes:
-      - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
-      - A modified `docker-compose.yml` defining a docker service acting as proxy  
+
+        - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
+        - A modified `docker-compose.yml` defining a docker service acting as proxy
+
     4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
 
 ## Set up a reverse proxy
@@ -198,7 +200,7 @@ docker-compose up -d acme-companion
 ```
 !!! note "If you used different names for your docker services than the `docker-compose.yml` template"
 
-    Correct command to use the name of your docker service:
+    Correct the command by using the name of your docker service:
     ```BASH
     docker-compose pull nameOfService
     docker-compose up -d nameOfService
@@ -230,7 +232,7 @@ You can see the running logs of each service by calling for the logs and specify
   docker logs -f [container_id_or_name]
 ```
 
-At this point you should have a fully functioning ZK node. If any of the docker-containers are not running,
-then [go to the node health and maintenance section](node-health-and-maintenance.md)
+At this point you should have a fully functioning ZK node. If any of the docker-containers are not running or shut down unexpectedly,
+then [go to the node health and maintenance section](node-health-and-maintenance.md#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 
 If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.    

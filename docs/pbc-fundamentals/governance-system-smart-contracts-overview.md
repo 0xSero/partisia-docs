@@ -31,7 +31,7 @@ confirmed block producers, as well as for payment to node operators for the serv
 ??? info "[System update](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)"
     The system update contract facilitates votes from committee members (confirmed and active block producers) on updates of
     on chain information, such as updates to governance contracts. There are manual and automated votes. Automated votes are
-    yes votes by default unless actively changed by the individual node operator. [See contract in browser](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)
+    yes votes by default unless actively changed by the individual node operator. [Learn how to change the automated vote from yes to no for a specific vote](../node-operations/how-system-updates-and-voting-work.md). [See contract in browser](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620)
 
     [System update contract documentation](https://partisiablockchain.gitlab.io/governance/voting/com/partisiablockchain/governance/voting/VotingContract.html)
 
