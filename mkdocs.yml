@@ -7,6 +7,7 @@ nav:
       - pbc-fundamentals/introduction-to-the-fundamentals.md
       - pbc-fundamentals/create-an-account.md
       - pbc-fundamentals/mpc-token-model-and-account-elements.md
+      - pbc-fundamentals/consensus.md
       - pbc-fundamentals/governance-system-smart-contracts-overview.md
       - BYOC:
           - pbc-fundamentals/byoc/introduction-to-byoc.md
