@@ -1,5 +1,5 @@
 # Consensus
-Consensus plays a central role in blockchains, and is required for them to function correctly. This is true for any blockchain in general, and of course for Partisia Blockchain in particular. 
+Consensus plays a central role in blockchains and is required for them to function correctly. 
 
 Below we motivate the need for consensus and provide an outline for how the consensus protocol of Partisia Blockchain works.
 
