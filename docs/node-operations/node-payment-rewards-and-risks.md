@@ -76,9 +76,11 @@ If a node is using delegated stakes, the delegator has to reach out to the node 
 retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes.
 
 For in depth explanation of all states of MPC tokens in the accounts
-see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md). Remember tokens need to unstaked to
-be transferable. If tokens are associated to a contract, and you wish to transfer the tokens, you should sum the
-pending time from disassociation and unstaking.
+see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md). 
+
+MPC tokens need to unstaked to
+be transferable. If tokens are associated to a contract, and you want to transfer the tokens, you should sum the
+pending time from disassociation and unstaking. Below table can help you understand the pending times for disassociation and unstaking of tokens.
 
 | **Token state**                                                                                                        | **Days in Pending** | **Explanation**                                                                                                                                                                                                                                         | **Required action**                                                                                                                                                                                                           |
 |------------------------------------------------------------------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
