@@ -77,7 +77,7 @@ retrieve them. Same locking mechanisms and pending times apply to tokens that co
 
 For in depth explanation of all states of MPC tokens in the accounts
 see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md). Remember tokens need to unstaked to
-be transferable. So, if tokens are associated to a contract, and you wish to transfer the tokens, you should sum the
+be transferable. If tokens are associated to a contract, and you wish to transfer the tokens, you should sum the
 pending time from disassociation and unstaking.
 
 | **Token state**                                                                                                        | **Days in Pending** | **Explanation**                                                                                                                                                                                                                                         | **Required action**                                                                                                                                                                                                           |
