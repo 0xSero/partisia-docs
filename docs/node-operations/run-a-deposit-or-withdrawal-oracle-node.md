@@ -16,11 +16,16 @@ consisting of three nodes.
 
 To be eligible for serving a deposit or withdrawal oracle the node account must associate 250,000 MPC tokens to
 the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle)
-contract. Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in
-the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected. After serving a term the
+contract. 
+
+Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in
+the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected. 
+
+After serving a term the
 tokens associated to the large oracle contract will be locked in a pending status for 28 days. This
-allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in the
-same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract. It is also
+allows for accountability in case of a dispute on the oracle that the node participated in. Nodes can serve repeatedly in the
+same oracle, if they have enough tokens (excluding the
+pending tokens) associated to the large oracle contract. It is also
 possible to serve in more than one small oracle if enough tokens are available.
 
 1. Find
