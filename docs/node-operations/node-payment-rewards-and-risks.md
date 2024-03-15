@@ -77,7 +77,7 @@ an [epoch](../pbc-fundamentals/dictionary.md#epoch). Within the epoch the tokens
 be _disassociated_.   
 The epoch is done when the criteria of the task have been fulfilled. Different tasks have different criteria of
 completion: minimum time limit, a specific amount of value transferred, when calculations have been completed or when
-something has been signed by a majority of nodes in a group. In some cases it is possible request that your node is
+something has been signed by a majority of nodes in a group. For nodes in small oracles it is possible to request that your node is
 replaced by another node in the service you are performing to end the epoch prematurely, you do this when if you wish to
 retrieve your stake faster or your node has crashed and is not able to perform its job.
 
