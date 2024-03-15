@@ -72,7 +72,7 @@ For this reason there are  pending times for tokens to change state from being a
 
 ### How long does it take to retrieve stakes from a node service
 
-If a node is using delegated stakes, the delegator has to reach out the node operator using the tokens, if they wish to
+If a node is using delegated stakes, the delegator has to reach out to the node operator using the tokens, if they wish to
 retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes.
 
 For in depth explanation of all states of MPC tokens in the accounts
