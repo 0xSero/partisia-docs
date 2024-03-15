@@ -44,5 +44,10 @@ To leave the price oracle, invoke the action _Deregister_ at the price oracle co
 
 **Deregister:**   
 
+The state of a price oracle contract has something called a `challengePeriod`. You cannot deregister in the challenge period lasting one hour from the starting time `startedAt`. The starting time is given as a [unix timestamp](https://www.unixtimestamp.com/).
+
 1. Go to the contract of the price oracle your node serves
-2. Invoke the contract action _Deregister_ (you must be logged in)
+2. Check the timestamp
+3. Invoke the contract action _Deregister_ at exactly one hour after the time stamp (be sure to be logged in and hit the time exactly)
+
+The time window available to deregister can be very short. If you are planning to deregister from all node services, you should deregister in the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp) first.
