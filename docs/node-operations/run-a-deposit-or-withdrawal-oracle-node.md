@@ -19,7 +19,8 @@ the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle)
 contract. 
 
 Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in
-the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected. After serving a term the
+the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected.   
+After serving a term the
 tokens associated to the specific deposit or withdrawal oracle contract will be locked in a pending status for [28 days](node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service). This
 allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in the
 same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract. It is also
