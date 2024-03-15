@@ -19,7 +19,7 @@ the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle)
 contract. 
 
 Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in the oracle
-until the deposit or withdrawal limit is reached ending an [epoch](../pbc-fundamentals/dictionary.md#epoch). Then three
+until the deposit or withdrawal limit is reached, ending current [epoch](../pbc-fundamentals/dictionary.md#epoch). Then three
 new nodes are selected. The specific limit of deposit or withdrawal is visible in the state of the contract, as well as
 how much value has been transferred in the given epoch. After serving a term the tokens associated to the specific
 deposit or withdrawal oracle contract will be locked in a pending status
