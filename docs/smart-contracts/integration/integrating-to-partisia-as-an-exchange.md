@@ -136,6 +136,8 @@ We see that our sender account has 9996790 MPC tokens in their account.
 
 Let us say we wish to transfer 4 MPC tokens from the sender account to the receiver account.
 
+We are going to be following the flow described [here](https://docs.cloud.coinbase.com/rosetta/docs/flow-of-operations#construction-api)
+
 ### Preprocessing
 
 The first step is to call
