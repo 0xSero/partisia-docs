@@ -10,7 +10,7 @@ https://node_hostname.tld/rosetta
 ```
 
 E.g., the query PBC’s network information, one can make a call
-to [/network/list](https://www.rosetta-api.org/docs/NetworkApi.html#networklist) which is available at
+to [/network/list](https://docs.cloud.coinbase.com/rosetta/reference/networklist) which is available at
 
 ```
 https://node_hostname.tld/rosetta/network/list
@@ -26,7 +26,7 @@ https://node1.testnet.partisiablockchain.com/rosetta/
 
 All Rosetta endpoints require information about the network that is being queried, so the first step is to figure out
 what constitutes a valid network identifier. The list of valid network identifiers can be found by querying the
-[/network/list](https://www.rosetta-api.org/docs/NetworkApi.html#networklist) endpoint. See the below image.
+[/network/list](https://docs.cloud.coinbase.com/rosetta/reference/networklist) endpoint. See the below image.
 
 ![networks.png](partisia-as-an-exchange-screenshots/networks.png)
 
@@ -106,7 +106,7 @@ Shard2.
 ### Balances
 
 We can of course also query the current balance of an account. This is done through
-the [/account/balance](https://www.rosetta-api.org/docs/AccountApi.html#accountbalance) endpoint.
+the [/account/balance](https://docs.cloud.coinbase.com/rosetta/reference/accountbalance) endpoint.
 
 Here we will use the following query data.
 
@@ -136,13 +136,12 @@ We see that our sender account has 9996790 MPC tokens in their account.
 
 Let us say we wish to transfer 4 MPC tokens from the sender account to the receiver account.
 
-We are going to be following the flow
-described [here](https://www.rosetta-api.org/docs/construction_api_introduction.html).
+We are going to be following the flow described [here](https://docs.cloud.coinbase.com/rosetta/docs/flow-of-operations#construction-api)
 
 ### Preprocessing
 
 The first step is to call
-the [/construction/preprocess](https://www.rosetta-api.org/docs/ConstructionApi.html#constructionpreprocess) endpoint
+the [/construction/preprocess](https://docs.cloud.coinbase.com/rosetta/reference/constructionpreprocess) endpoint
 with the “operations” that we wish to perform. There are
 only two operations permitted: `ADD` and `DEDUCT`, and a transfer has one of each (the sender gets an amount of tokens
 DEDUCT’ed, and the receiver gets the same amount of tokens ADD’ed.)
@@ -200,17 +199,17 @@ The request will contain the below information
 
 We have also included a memo in the form of the message “This is a memo” that for some will be useful to track the
 transfer. The response will be a set of options that we need to pass onto
-the [/construction/metadata](https://www.rosetta-api.org/docs/ConstructionApi.html#constructionmetadata) endpoint. The
+the [/construction/metadata](https://docs.cloud.coinbase.com/rosetta/reference/constructionmetadata) endpoint. The
 metadata endpoint will tell us the current nonce of the account, as well as for how long the transaction should remain
 valid. Both these values are required when later forming the actual transaction.
 
 The return value from
-calling [/construction/preprocess](https://www.rosetta-api.org/docs/ConstructionApi.html#constructionpreprocess) with
+calling [/construction/preprocess](https://docs.cloud.coinbase.com/rosetta/reference/constructionpreprocess) with
 the above payload is
 
 ![preprocessing.png](partisia-as-an-exchange-screenshots/preprocessing.png)
 
-Sending this to [/construction/metadata](https://www.rosetta-api.org/docs/ConstructionApi.html#constructionmetadata) (
+Sending this to [/construction/metadata](https://docs.cloud.coinbase.com/rosetta/reference/constructionmetadata) (
 remembering to include the network identifier) will return:
 
 ![preprocessing2.png](partisia-as-an-exchange-screenshots/preprocessing2.png)
@@ -218,7 +217,7 @@ remembering to include the network identifier) will return:
 ### Creating the unsigned transaction
 
 Using the same operations as above and the metadata, we can now ask Rosetta to construct an unsigned transaction for us
-by calling the /[construction/payloads](https://www.rosetta-api.org/docs/ConstructionApi.html#constructionpayloads)
+by calling the /[construction/payloads](https://docs.cloud.coinbase.com/rosetta/reference/constructionpayloads)
 endpoint. The input to this endpoint is basically the operations from above, and
 the metadata object and has been left out here (but it can of course be found in the typescript example that we
 include).
@@ -233,13 +232,12 @@ who should sign.
 
 Concretely, we see that the address `00e93705fee5c86b30a940fd42398893972a1339ff` (i.e., our sender) is supposed to sign
 the hash
-
 c9aaa...
 
 ### Creating the signed transaction
 
 Signing the above unsigned transaction hash is done somewhere else. The result is going to be a “signing_payload” object
-as described here. Concretely, the data we will send to the /[construction/combine](https://www.rosetta-api.org/docs/ConstructionApi.html#constructioncombine) endpoint will look something like:
+as described here. Concretely, the data we will send to the /[construction/combine](https://docs.cloud.coinbase.com/rosetta/reference/constructioncombine) endpoint will look something like:
 
 ```json
 {
@@ -274,7 +272,7 @@ The response we get back is a signed transaction:
 ### Executing the transfer
 
 At this point, we can ask a Rosetta endpoint to submit our transfer, so it gets executed. This is done through the
-[/construction/submit](https://www.rosetta-api.org/docs/ConstructionApi.html#constructionsubmit) endpoint
+[/construction/submit](https://docs.cloud.coinbase.com/rosetta/reference/constructionsubmit) endpoint
 
 The request data is simply the network identifier for the sender’s account, and the signed transaction we got above.
 
@@ -335,7 +333,7 @@ ones which contain the operations telling us how many tokens were transferred.
 
 We will start at the top, and look backwards until we find the block with our transaction in it. Finding the head of the
 current chain (of some shard) can be done simply by querying
-the [/block](https://www.rosetta-api.org/docs/BlockApi.html) endpoint with our network identifier.
+the [/block](https://docs.cloud.coinbase.com/rosetta/reference/block) endpoint with our network identifier.
 
 A response might look something like this:
 
@@ -348,7 +346,7 @@ show up under “other_transactions”.
 ## Looking up transactions
 
 When we have found the block with our transaction in it, we can use
-the [/block/transaction](https://www.rosetta-api.org/docs/BlockApi.html#blocktransaction) endpoint to find out
+the [/block/transaction](https://docs.cloud.coinbase.com/rosetta/reference/blocktransaction) endpoint to find out
 information about our transaction. In particular the operations contained within it.
 
 This endpoint requires both a transaction identifier (i.e., a hash) and a block identifier which is a hash (the block
@@ -393,7 +391,7 @@ We can combine the observations from the previous two sections into a strategy f
 transfers.
 
 Let TX be the hash of the signed transaction. This is the hash returned
-by [/construction/submit](https://www.rosetta-api.org/docs/ConstructionApi.html#constructionsubmit). We submitted this
+by [/construction/submit](https://docs.cloud.coinbase.com/rosetta/reference/constructionsubmit). We submitted this
 transaction on Shard1, so that is where we will start. The “algorithm” for finding our operations will use two functions
 _“FindBlock”_ and _“SearchTransactions”_.
 
@@ -401,7 +399,7 @@ _FindBlock(shard, block, TX)_
 
 1. Create a request object for /block with the _shard_ (a network identifier object)
 2. If _block_ (a block identifier object) is not null, we will include this as well
-3. Call [/block](https://www.rosetta-api.org/docs/BlockApi.html#block)
+3. Call [/block](https://docs.cloud.coinbase.com/rosetta/reference/block)
 4. For each transaction _T_ in “other_transactions” in the response, if _T=TX_ call _SearchTransactions(shard, block,
    T)_
 5. Otherwise, call _FindBlock(shard, B, TX)_ where _B_ is the “parent_block_identifier” in the response
@@ -409,7 +407,7 @@ _FindBlock(shard, block, TX)_
 _SearchTransactions(shard, block, T)_
 
 1. Create a request object with shard, T and block
-2. Call [/block/transaction](https://www.rosetta-api.org/docs/BlockApi.html#blocktransaction)
+2. Call [/block/transaction](https://docs.cloud.coinbase.com/rosetta/reference/blocktransaction)
 3. If “operations” is not empty, then we’re done. Output the operations
 4. Otherwise, for each transaction X in “related_transactions”
 5. If X has a network identifier S, call FindBlock(S, null, X)
@@ -428,7 +426,7 @@ When the above search terminates, it is because we get a response of the followi
 ![transactionSearchResult.png](partisia-as-an-exchange-screenshots/transactionSearchResult.png)
 
 This is a transaction (as returned
-by [/block/transaction](https://www.rosetta-api.org/docs/BlockApi.html#blocktransaction)) which contains one of the two
+by [/block/transaction](https://docs.cloud.coinbase.com/rosetta/reference/blocktransaction)) which contains one of the two
 operations of a transfer—here,
 the operation responsible for deducting the transfer amount from the sender.
 
