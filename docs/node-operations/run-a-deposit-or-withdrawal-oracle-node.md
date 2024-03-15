@@ -18,7 +18,7 @@ To be eligible for serving a deposit or withdrawal oracle the node account must 
 the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle)
 contract. Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in
 the oracle until the deposit or withdrawal limit is reached. Then three new nodes are selected. After serving a term the
-tokens associated to the large oracle contract will be locked in a pending status for 28 days. This
+tokens associated to the large oracle contract will be locked in a pending status for 14 days. This
 allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in the
 same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract. It is also
 possible to serve in more than one small oracle if enough tokens are available.
@@ -33,7 +33,7 @@ possible to serve in more than one small oracle if enough tokens are available.
 ## How to leave a deposit or withdrawal oracle
 
 It is possible to leave the oracle before the deposit or withdrawal limit has been met by requesting a new oracle. If a node chooses to leave, then
-3 new nodes will be selected to form the oracle. The tokens of the 3 nodes associated with a specific oracle will get pending status for 28 days
+3 new nodes will be selected to form the oracle. The tokens of the 3 nodes associated with a specific oracle will get pending status for 14 days
 when a member node requests a new oracle. When your node leaves an oracle rotation, it can be chosen for the new oracle if they have enough available tokens. For that
 reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
 oracle. Currently, there are deposit and withdrawal oracles for these [bridgeable coins on mainnet](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet)).
@@ -58,6 +58,6 @@ If you know which price oracle your node is serving, you should skip ahead to Re
 
 !!! note "Note"
     You can only invoke this action if you are serving in the oracle and
-    28 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix
+    14 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix
     timestamp in the field named `"oracleTimestamp"`
     
