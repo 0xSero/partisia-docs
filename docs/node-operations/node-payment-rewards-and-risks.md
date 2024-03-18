@@ -35,19 +35,59 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
     Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch.        
 
 
-### Conditions for running a service
+### Conditions for running a node service
 
 Node services are handled by specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md). To sign up for
 services a node operator associates a stake of token to the contract administrating the service
-([see amount to stake for specific services](start-running-a-node.md)). Stakes work as an incentive against malicious
-behaviour.
+([see amount to stake for specific services](start-running-a-node.md)). Before you can associate the stake to a specific service, you change the state of your MPC tokens to [_staked_](https://browser.partisiablockchain.com/node-operation).
 
-All nodes running a paid service must first register as block producers in
-the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
+All nodes running a paid service must first register as [baker node]((run-a-baker-node.md))
 . This makes the node eligible to perform baker services. While a service is being performed the tokens are locked to
 the contract. A node operator can resign from a service, and release the tokens staked on the service. A delay of
 release ensures sufficient time for making dispute claim. Upgraded services require stake of tokens in addition to what
 is already staked on baker service, but they also have a bigger earning potential.
+
+Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid
+service like running a block producing node. Collateral means the stake of a node can be used to
+pay compensation for misconduct committed with the node.
+
+For all services on PBC there is a basic safety principle: $ValueOfStake \gt ValueOfService$
+
+As an example, a small oracle of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
+theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is equivalent to the ETH value of stake (750K MPC). In current
+practice the ceiling is locked substantially below that, at less than 2/3s of theoretical maximum.
+
+Services have tasks that require a minimum of time. We call that time
+an [epoch](../pbc-fundamentals/dictionary.md#epoch). Within the epoch the tokens are _locked_ to the service and cannot
+be _disassociated_.
+
+Different tasks have different criteria of
+completion. [See criteria of task that determine the length of different epochs](../pbc-fundamentals/dictionary.md#epoch).
+
+There are pending times for MPC tokens to change state from being associated, locked or staked. Specific times in table below.
+
+### How long does it take to retrieve stakes from a node service
+
+If a node is using delegated stakes, the delegator has to reach out to the node operator using the tokens to ask for release, if they wish
+to retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes. Delegated
+MPC tokens not being associated to a contract or locked to a service can be retrieved without any pending period.
+
+For in depth explanation of all states of MPC tokens in the accounts
+see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md).
+
+MPC tokens need to unstaked  and free from vesting schedule to
+be transferable. You can always calculate how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$
+
+If tokens are associated to a contract, and you want to transfer the tokens, you should sum the
+pending time from disassociation and unstaking. Below table can help you understand the pending times for disassociation and unstaking of tokens.
+
+| **Token state**                                                                                                        | **Days in Pending** | **Explanation**                                                                                                                                                                                                                                         | **Required action**                                                                                                                                                                                                           |
+|------------------------------------------------------------------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| stakedTokens                                                                                                           | 7                   | Staked in this context means tokens that can be used for a node service, i.e. MPC tokens you are allowed associate to a contract administrating specific node service                                                                                                                    | [Unstake + Check pending unstakes](https://browser.partisiablockchain.com/node-operation)                                                                                                                                     |
+| stakedToContract ([Block Producer Orchestration ](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91))  | 28                  | If your node is not in current committee, you will get the tokens disassociated from the contract immediately when invoking _Remove bp_. If you are in the committee, you can choose to disassociate the tokens when the committee changes by itself, or you can manually trigger a committee change when the committee is atleast 28 days old             | [Remove bp](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)                                                                                                             |
+| stakedToContract ([Large Oracle](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014))   | 28                  | Pending time starts from the end of an epoch or if a [Request of a new oracle](run-a-deposit-or-withdrawal-oracle-node#request-new-oracle) is successfully sent. When either action happends, you can unlock old pending tokens, and  disassociate the tokens from the large oracle contract afterwards. If node is not allocated to a deposit or withdrawal oracle you can disassociate immediately | [Unlock old Pending Tokens](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/unlockOldPendingTokens) + [Disassociate](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract) |
+| stakedToContract ([ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65)) | 14                  | If node is not allocated to a [ZK calculation](../pbc-fundamentals/dictionary.md#mpc) (see in state of [ZKNR](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state)) or finished within last 14 days, then you can [disassociate from ZKNR](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens) immediately. Pending time is measured from the moment a specific [ZK calculation](../pbc-fundamentals/dictionary.md#mpc) is finished, after that you can disassociate the tokens from [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65))                                          | [Disassociate tokens](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens)                                                                                         |
+| stakedToContract (Any price oracle)                                                                                    | 0-1                 | You have to deregister outside a challenge period. If you do that disassociation is immediate.                                                                                                                                                          | [Step by step to Deregister](run-a-price-oracle-node.md#how-to-deregister-as-a-price-oracle)                                                                                                                                       |
 
 ### Dispute claims and malicious behaviour
 
@@ -64,54 +104,4 @@ audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). I
 for the node's alleged malicious behaviour tokens staked on the service may be slashed. Filing an illegitimate dispute claim against another node can also be
 considered malicious behaviour and result in slashing.
 
-### What staking means
- 
-Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid
-service like running a block producing node. Collateral means the stake of a node can be used to
-pay compensation for misconduct committed with the node. 
-
-For all services on PBC there is a basic safety principle: $ValueOfStake \gt ValueOfService$
-
-E.g. an oracle of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
-theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is equivalent to the ETH value of stake (750K MPC). In current
-practice the ceiling is locked substantially below that, at less than 2/3s of theoretical maximum.
-
-When you want to run a service on the blockchain, you first change the state of your MPC tokens to _staked_
-in [node operator section of the browser](https://browser.partisiablockchain.com/node-operation).
-Then you can _associate_ the tokens to the contract administrating that service you want your node to perform.
-If you [run a baker node](run-a-baker-node.md), you associate 25K MPC to the block producer orchestration
-contract ([BPO](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)). 
-
-Services have tasks that require a minimum of time. We call that time
-an [epoch](../pbc-fundamentals/dictionary.md#epoch). Within the epoch the tokens are _locked_ to the service and cannot
-be _disassociated_.
-
-Different tasks have different criteria of
-completion. [See criteria of task that determine the length of different epochs](../pbc-fundamentals/dictionary.md#epoch).
-
-There are pending times for MPC tokens to change state from being associated, locked or staked. Specific times in table below. 
-
-
-### How long does it take to retrieve stakes from a node service
-
-If a node is using delegated stakes, the delegator has to reach out to the node operator using the tokens to ask for release, if they wish
-to retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes. Delegated
-MPC tokens not being associated to a contract or locked to a service can be retrieved without any pending period.
-
-For in depth explanation of all states of MPC tokens in the accounts
-see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md). 
-
-MPC tokens need to unstaked  and free from vesting schedule to
-be transferable. You can always calculate how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$   
-
-If tokens are associated to a contract, and you want to transfer the tokens, you should sum the
-pending time from disassociation and unstaking. Below table can help you understand the pending times for disassociation and unstaking of tokens.
-
-| **Token state**                                                                                                        | **Days in Pending** | **Explanation**                                                                                                                                                                                                                                         | **Required action**                                                                                                                                                                                                           |
-|------------------------------------------------------------------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| stakedTokens                                                                                                           | 7                   | Staked in this context means tokens that can be used for a node service, i.e. MPC tokens you are allowed associate to a contract administrating specific node service                                                                                                                    | [Unstake + Check pending unstakes](https://browser.partisiablockchain.com/node-operation)                                                                                                                                     |
-| stakedToContract ([Block Producer Orchestration ](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91))  | 28                  | If your node is not in current committee, you will get the tokens disassociated from the contract immediately when invoking _Remove bp_. If you are in the committee, you can choose to disassociate the tokens when the committee changes by itself, or you can manually trigger a committee change when the committee is atleast 28 days old             | [Remove bp](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)                                                                                                             |
-| stakedToContract ([Large Oracle](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014))   | 28                  | Pending time starts from the end of an epoch or if a [Request of a new oracle](run-a-deposit-or-withdrawal-oracle-node#request-new-oracle) is successfully sent. When either action happends, you can unlock old pending tokens, and  disassociate the tokens from the large oracle contract afterwards. If node is not allocated to a deposit or withdrawal oracle you can disassociate immediately | [Unlock old Pending Tokens](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/unlockOldPendingTokens) + [Disassociate](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract) |
-| stakedToContract ([ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65)) | 14                  | If node is not allocated to a [ZK calculation](../pbc-fundamentals/dictionary.md#mpc) (see in state of [ZKNR](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state)) or finished within last 14 days, then you can [disassociate from ZKNR](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens) immediately. Pending time is measured from the moment a specific [ZK calculation](../pbc-fundamentals/dictionary.md#mpc) is finished, after that you can disassociate the tokens from [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65))                                          | [Disassociate tokens](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens)                                                                                         |
-| stakedToContract (Any price oracle)                                                                                    | 0-1                 | You have to deregister outside a challenge period. If you do that disassociation is immediate.                                                                                                                                                          | [Step by step to Deregister](run-a-price-oracle-node.md#how-to-deregister-as-a-price-oracle)                                                                                                                                       |
 
