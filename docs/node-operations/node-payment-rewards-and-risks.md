@@ -79,7 +79,7 @@ practice the ceiling is locked substantially below that, at less than 2/3s of th
 When you want to run a service on the blockchain, you first change the state of your MPC tokens to _staked_
 in [node operator section of the browser](https://browser.partisiablockchain.com/node-operation).
 Then you can _associate_ the tokens to the contract administrating that service you want your node to perform.
-If you run a block producing node, you associate 25K MPC to the block producer orchestration
+If you [run a baker node](run-a-baker-node.md), you associate 25K MPC to the block producer orchestration
 contract ([BPO](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)). 
 
 Services have tasks that require a minimum of time. We call that time
