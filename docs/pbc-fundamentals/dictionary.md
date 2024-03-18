@@ -41,8 +41,7 @@ Confirmed and active block producers. New members are accepted into the committe
 ### Epoch
 
 Services have tasks that require a minimum of amount of time. We call that time
-an epoch. A specific epoch relates to a specific contract. Different contracts administrate services which vary in value, difficulty and workload, consequently epochs vary greatly in length both between contracts and within the same contract.
-
+an epoch.   
 The epoch is done when the criteria of the task have been fulfilled. Different tasks have different criteria of
 completion.
 
