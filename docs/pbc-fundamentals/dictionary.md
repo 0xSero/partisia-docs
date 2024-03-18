@@ -40,18 +40,18 @@ Confirmed and active block producers. New members are accepted into the committe
 
 ### Epoch
 
-Some services have tasks that require a minimum of time. We call that time
+Services have tasks that require a minimum of amount of time. We call that time
 an epoch. A specific epoch relates to a specific contract. Different contracts administrate services which vary in value, difficulty and workload, consequently epochs vary greatly in length both between contracts and within the same contract.
 
 The epoch is done when the criteria of the task have been fulfilled. Different tasks have different criteria of
 completion.
 
-- Committee epoch in BPO contract: 5% new members or minimum time of 28 days have passed
-- Small oracle: a specific amount of value transferred or minimum time of 28 days have passed 
-- ZK contract: when the calculations specified in the contract have been completed
-- Fee distribution: when all baker nodes in committee has attempted to produced 100 blocks 
+- Committee epoch in [BPO contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91): 5% new members or minimum time of 28 days have passed
+- [Small oracle](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet): a specific amount of value transferred or minimum time of 28 days have passed 
+- ZK contract: when the calculations specified in the contract have been completed (you can see if your ZK node is allocated to a ZK calculation by checking the state of the [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65))
+- [Fee distribution](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9): when all baker nodes in committee has attempted to produced 100 blocks 
 
-Within the epoch of any node service the tokens are _locked_ to the service and cannot
+Within the epoch of any node service the staked MPC tokens of the node performing the service are _locked_ to the service and cannot
 be _disassociated_. You can end oracle and committee epochs prematurely if enough time has passed.
 
 ### ETH
