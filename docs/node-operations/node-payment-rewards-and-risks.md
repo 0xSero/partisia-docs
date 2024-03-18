@@ -96,7 +96,7 @@ MPC tokens not being associated to a contract or locked to a service can be retr
 For in depth explanation of all states of MPC tokens in the accounts
 see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md). 
 
-MPC tokens need to unstaked  and free to
+MPC tokens need to unstaked  and free from vesting schedule to
 be transferable. You can always calculate how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$   
 
 If tokens are associated to a contract, and you want to transfer the tokens, you should sum the
