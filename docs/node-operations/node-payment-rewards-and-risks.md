@@ -41,7 +41,7 @@ Node services are handled by specific [system contracts](../pbc-fundamentals/gov
 services a node operator associates a stake of token to the contract administrating the service
 ([see amount to stake for specific services](start-running-a-node.md)). Before you can associate the stake to a specific service, you change the state of your MPC tokens to [_staked_](https://browser.partisiablockchain.com/node-operation).
 
-All nodes running a paid service must first register as [baker node]((run-a-baker-node.md))
+All nodes running a paid service must first register as [baker node](run-a-baker-node.md)
 . This makes the node eligible to perform baker services. While a service is being performed the tokens are locked to
 the contract. A node operator can resign from a service, and release the tokens staked on the service. A delay of
 release ensures sufficient time for making dispute claim. Upgraded services require stake of tokens in addition to what
