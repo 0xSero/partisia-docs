@@ -40,7 +40,19 @@ Confirmed and active block producers. New members are accepted into the committe
 
 ### Epoch
 
-The amount of time, that passes before an oracle or committee changes members.
+Some services have tasks that require a minimum of time. We call that time
+an epoch. A specific epoch relates to a specific contract. Different contracts administrate services which vary in value, difficulty and workload, consequently epochs vary greatly in length both between contracts and within the same contract.
+
+The epoch is done when the criteria of the task have been fulfilled. Different tasks have different criteria of
+completion.
+
+- Committee epoch in BPO contract: 5% new members or minimum time of 28 days have passed
+- Small oracle: a specific amount of value transferred or minimum time of 28 days have passed 
+- ZK contract: when the calculations specified in the contract have been completed
+- Fee distribution: when all baker nodes in committee has attempted to produced 100 blocks 
+
+Within the epoch of any node service the tokens are _locked_ to the service and cannot
+be _disassociated_. You can end oracle and committee epochs prematurely if enough time has passed.
 
 ### ETH
 
