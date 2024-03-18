@@ -65,27 +65,31 @@ for the node's alleged malicious behaviour tokens staked on the service may be s
 considered malicious behaviour and result in slashing.
 
 ### What staking means
+ 
+Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid
+service like running a block producing node. Collateral means the stake of a node can be used to
+pay compensation for misconduct committed with the node. 
+
+For all services on PBC there is a basic safety principle: $ValueOfStake \gt ValueOfService$
+
+E.g. an oracle of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
+theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is equivalent to the ETH value of stake (750K MPC). In current
+practice the ceiling is locked substantially below that, at less than 2/3s of theoretical maximum.
 
 When you want to run a service on the blockchain, you first change the state of your MPC tokens to _staked_
-in [node operator section of the browser](https://browser.partisiablockchain.com/node-operation).  
-Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid service like running a block producing node (baker
-service). When you stake tokens on performing a service, you _associate_ the tokens to the contract administrating that
-service. If you run a block producing node, then you associate 25K MPC to the block producer orchestration
-contract ([BPO](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)). Some
-services have tasks that require a minimum of time. We call that time
-an [epoch](../pbc-fundamentals/dictionary.md#epoch). Within the epoch the tokens are _locked_ to the service and cannot
-be _disassociated_.   
-The epoch is done when the criteria of the task have been fulfilled. Different tasks have different criteria of
-completion: minimum time limit, a specific amount of value transferred, when calculations have been completed or when
-something has been signed by a majority of nodes in a group. For nodes in small oracles it is possible to request that your node is
-replaced by another node in the service you are performing to end the epoch prematurely, you do this when if you wish to
-retrieve your stake faster or your node has crashed and is not able to perform its job.
+in [node operator section of the browser](https://browser.partisiablockchain.com/node-operation).
+Then you can _associate_ the tokens to the contract administrating that service you want your node to perform.
+If you run a block producing node, you associate 25K MPC to the block producer orchestration
+contract ([BPO](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)). 
 
-The stake of a node operator guaranties that users of the blockchain can trust transfers of value on-chain and off-chain and the integrity
-of calculations. Valuable transactions are audited after epochs of value or
-time ([see specific periods](node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service))
-, this ensures that users have time to make dispute claims and to catch attempts of malicious behavior. For this reason
-there are pending times for MPC tokens to change state from being associated, locked or staked.
+Services have tasks that require a minimum of time. We call that time
+an [epoch](../pbc-fundamentals/dictionary.md#epoch). Within the epoch the tokens are _locked_ to the service and cannot
+be _disassociated_.
+
+Different tasks have different criteria of
+completion. [See criteria of task that determine the length of different epochs](../pbc-fundamentals/dictionary.md#epoch).
+
+There are pending times for MPC tokens to change state from being associated, locked or staked. Specific times in table below.
 
 ### How long does it take to retrieve stakes from a node service
 
