@@ -19,7 +19,7 @@ We recommend using the testnet the [browser](https://browser.testnet.partisiablo
 You can create an account with gas by calling the following command.
 
 ````shell
-cargo partisia-contract cli account create
+cargo partisia-contract account create
 ````
 
 The command create a new account, and print the account address and the private key for the account.
@@ -28,7 +28,7 @@ The account will also be filled with gas.
 To get gas on an account already created, run the following command.
 
 ````shell
-cargo partisia-contract cli account mintgas <account-address>
+cargo partisia-contract account mintgas <account-address>
 ````
 
 To get even more gas you can do the following: 

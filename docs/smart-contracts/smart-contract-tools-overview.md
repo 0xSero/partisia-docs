@@ -25,9 +25,9 @@ Partisia Blockchain browser can be used with the TestNet and the MainNet:
 
 ## Command-line tools
 
-[`cargo partisia-contract`](https://crates.io/crates/cargo-partisia-contract) is an umbrella for multiple sub-tools. The tools assist you in
+[`cargo pbc`](https://crates.io/crates/cargo-partisia-contract) is an umbrella for multiple sub-tools. The tools assist you in
 interacting with the blockchain and working with smart contracts. These tools are thoroughly documented when using them
-within `cargo partisia-contract`, enabling you to explore their capabilities inside `cargo partisia-contract`. Below are
+within `cargo pbc`, enabling you to explore their capabilities inside `cargo pbc`. Below are
 a short description and use case for each of these sub-tools.
 
 ???+ note 
@@ -42,9 +42,15 @@ and a `.wasm` for
 rust
 contracts or `.zkwa` for ZK rust contracts.
 
-### The Command-line Interface `cli`
+### Blockchain interaction
 
-cli is a command-line interface for you to interact with the blockchain.
+With the `cargo pbc` for you to interact with the blockchain. 
+There are 3 main commands:
+
+- `transaction`
+- `account`
+- `contract`
+
 It can help you specifically with:
 
 - Sending transactions to smart contracts
@@ -54,11 +60,11 @@ It can help you specifically with:
 To start using the CLI you can try minting some test_coin with the following command:
 
 ```
-cargo partisia-contract cli tx action 02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd feed_me [PublicAddressYouWantMintToGoTo] --gas 60000 --privatekey=PathToPrivatekeyFile
+cargo partisia-contract transaction action 02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd feed_me [PublicAddressYouWantMintToGoTo] --gas 60000 --privatekey=PathToPrivatekeyFile
 ```
 
-If you want to try an action yourself you can type: `cargo partisia-contract cli tx action` and the CLI will help you
-from there.
+If you want to try an action yourself you can type: `cargo partisia-contract transaction action` and the help messages
+will help you from there.
 
 Want to explore more possibilities within the CLI? You can go visit
 the [cli-execution-reference-tests to see example usage
