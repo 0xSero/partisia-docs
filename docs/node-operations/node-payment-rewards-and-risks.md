@@ -35,7 +35,7 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
     Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch.        
 
 
-### Staking on Partisia Blockchain
+### How staking of MPC tokens work
 
 Node services are handled by specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md). To sign up for
 services a node operator associates a stake of token to the contract administrating the service
