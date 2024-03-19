@@ -63,7 +63,7 @@ be _disassociated_.
 Different tasks have different criteria of
 completion. [See criteria of task that determine the length of different epochs](../pbc-fundamentals/dictionary.md#epoch).
 
-There are pending times for MPC tokens to change state from being associated, locked or staked. Specific times in table below.
+There are pending times for MPC tokens to change state from being associated, locked or staked.
 
 ### How long does it take to retrieve stakes from a node service
 
