@@ -19,7 +19,7 @@ We recommend using the testnet the [browser](https://browser.testnet.partisiablo
 You can create an account with gas by calling the following command.
 
 ````shell
-cargo partisia-contract account create
+cargo pbc account create
 ````
 
 The command create a new account, and print the account address and the private key for the account.

@@ -35,7 +35,7 @@ Installer choose *Desktop development with C++*.
     * Build Tools
     * C++ AddressSanitizer
 
-### 2) Installing the cargo `partisia-contract` command
+### 2) Installing the cargo `partisia-contract`/`pbc` command
 
 The [partisia-contract tool](https://crates.io/crates/cargo-partisia-contract) is a small application that helps you
 compile a contract.
@@ -44,9 +44,9 @@ To compile it and install it using cargo run:
 ```bash
 cargo install cargo-partisia-contract
 ```
-
-Test that it worked by executing: `cargo partisia-contract --version`. This should print the version of the tool. If you
-want to learn more about the partisia contract tool you
+The `cargo partisia-contract` and `cargo pbc` are the same command, the `cargo pbc` is just an alias. 
+Test that it worked by executing: `cargo partisia-contract --version` and `cargo pbc --version`. 
+This should print the version of the tool. If you want to learn more about the partisia contract tool you
 can [visit our tooling page](smart-contract-tools-overview.md#command-line-tools).
 
 ### 3) Download Example Contracts
