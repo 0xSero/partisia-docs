@@ -35,7 +35,7 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
     Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch.        
 
 
-### Staking is the condition for running a node service
+### Staking on Partisia Blockchain
 
 Node services are handled by specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md). To sign up for
 services a node operator associates a stake of token to the contract administrating the service
@@ -50,7 +50,6 @@ is already staked on baker service, but they also have a bigger earning potentia
 Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid
 service like running a block producing node. Collateral means the stake of a node can be used to
 pay compensation for misconduct committed with the node.
-
 For all services on PBC there is a basic safety principle: $ValueOfStake \gt ValueOfService$
 
 As an example, a small oracle of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
