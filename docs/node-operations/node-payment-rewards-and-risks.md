@@ -48,7 +48,7 @@ release ensures sufficient time for making dispute claim. Upgraded services requ
 is already staked on baker service, but they also have a bigger earning potential.
 
 Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid
-service like running a block producing node. Collateral means the stake of a node can be used to
+service. Collateral means the stake of a node can be used to
 pay compensation for misconduct committed with the node.
 For all services on PBC there is a basic safety principle: $ValueOfStake \gt ValueOfService$
 
