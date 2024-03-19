@@ -18,16 +18,6 @@ To be eligible for serving a deposit or withdrawal oracle the node account must 
 the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle)
 contract. 
 
-Deposit and withdrawal oracles are selected at random from the pool of eligible nodes. Chosen nodes serve in the oracle
-until the deposit or withdrawal limit is reached, ending current [epoch](../pbc-fundamentals/dictionary.md#epoch). Then three
-new nodes are selected. The specific limit of deposit or withdrawal is visible in the state of the contract, as well as
-how much value has been transferred in the given epoch. After serving a term the tokens associated to the specific
-deposit or withdrawal oracle contract will be locked in a pending status
-for [28 days](node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service). This
-allows for accountability in case of a dispute on the oracle that was just replaced. Nodes can serve repeatedly in the
-same oracle, if they have enough tokens (excluding the ones pending) associated to the large oracle contract. It is also
-possible to serve in more than one small oracle if enough tokens are available.
-
 1. Find
    the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
    with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
