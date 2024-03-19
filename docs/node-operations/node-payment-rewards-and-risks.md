@@ -75,7 +75,7 @@ For in depth explanation of all states of MPC tokens in the accounts
 see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md).
 
 MPC tokens need to unstaked  and free from vesting schedule to
-be transferable. You can always calculate how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$
+be [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). You can always calculate how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$
 
 If tokens are associated to a contract, and you want to transfer the tokens, you should sum the
 pending time from disassociation and unstaking. Below table can help you understand the pending times for disassociation and unstaking of tokens.
