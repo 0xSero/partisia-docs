@@ -67,14 +67,10 @@ There are pending times for MPC tokens to change state from being associated, lo
 
 ### How long does it take to retrieve stakes from a node service
 
-If a node is using delegated stakes, the delegator has to reach out to the node operator using the tokens to ask for release, if they wish
-to retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes. Delegated
-MPC tokens that are not associated to a contract or locked to a service can be retrieved without any pending period.
-
 For in depth explanation of all states of MPC tokens in the accounts
 see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md).
 
-MPC tokens need to unstaked  and free from vesting schedule to
+MPC tokens need to be unstaked  and free from vesting schedule to
 be [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). You can always calculate how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$
 
 If tokens are associated to a contract, and you want to transfer the tokens, you should sum the
@@ -87,6 +83,10 @@ pending time from disassociation and unstaking. Below table can help you underst
 | stakedToContract ([Large Oracle](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014))   | 28                  | Pending time starts from the end of an epoch or if a [Request of a new oracle](run-a-deposit-or-withdrawal-oracle-node#request-new-oracle) is successfully sent. When either action happends, you can unlock old pending tokens, and  disassociate the tokens from the large oracle contract afterwards. If node is not allocated to a deposit or withdrawal oracle you can disassociate immediately | [Unlock old Pending Tokens](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/unlockOldPendingTokens) + [Disassociate](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract) |
 | stakedToContract ([ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65)) | 14                  | If node is not allocated to a [ZK calculation](../pbc-fundamentals/dictionary.md#mpc) (see in state of [ZKNR](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state)) or finished within last 14 days, then you can [disassociate from ZKNR](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens) immediately. Pending time is measured from the moment a specific [ZK calculation](../pbc-fundamentals/dictionary.md#mpc) is finished, after that you can disassociate the tokens from [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65))                                          | [Disassociate tokens](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens)                                                                                         |
 | stakedToContract (Any price oracle)                                                                                    | 0-1                 | You have to deregister outside a challenge period. If you do that disassociation is immediate.                                                                                                                                                          | [Step by step to Deregister](run-a-price-oracle-node.md#how-to-deregister-as-a-price-oracle)                                                                                                                                       |
+
+If a node is using delegated stakes, the delegator has to reach out to the node operator using the tokens to ask for release, if they wish
+to retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes. Delegated
+MPC tokens that are not associated to a contract or locked to a service can be retrieved without any pending period.
 
 ### Dispute claims and malicious behaviour
 
