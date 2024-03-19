@@ -12,11 +12,9 @@ consisting of three nodes.
     baker)
     - You have working BYOC endpoints in your `config.json` - [see how to confirm this](node-health-and-maintenance.md#confirm-that-your-byoc-endpoints-are-working)
 
-## How to join a deposit or withdrawal oracle
 
-To be eligible for serving a deposit or withdrawal oracle the node account must associate 250,000 MPC tokens to
-the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle)
-contract. 
+
+## How to join a deposit or withdrawal oracle
 
 1. Find
    the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
@@ -25,13 +23,21 @@ contract.
 3. Invoke the contract action _AssociateTokenstoContract_ with a minimum amount of 250K MPC token
 4. Submit transaction
 
+Deposit and withdrawal oracles are randomly selected form nodes 250K unused MPC tokens associated to the [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation)
+contract. When the deposit or withdrawal limit has been met, 3 new nodes will be selected. The tokens of the 3 nodes
+associated with a specific oracle will get pending status for 28 days. Your node can serve more than one oracle and be
+reselected to same oracle if you have enough tokens associated to
+the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
+.
+
 ## How to leave a deposit or withdrawal oracle
 
-It is possible to leave the oracle before the deposit or withdrawal limit has been met by requesting a new oracle. If a node chooses to leave, then
-3 new nodes will be selected to form the oracle. The tokens of the 3 nodes associated with a specific oracle will get pending status for 28 days
-when a member node requests a new oracle. When your node leaves an oracle rotation, it can be chosen for the new oracle if they have enough available tokens. For that
-reason it is advised to first disassociate unused tokens from the large oracle contract before attempting to leave an
-oracle. Currently, there are deposit and withdrawal oracles for these [bridgeable coins on mainnet](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet)).
+If you cannot wait for the deposit or withdrawal limit has been met, or if your node has to be shut down for
+maintenance. You can request a new oracle. This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the
+oracle. 3 new nodes will be selected. The tokens of the 3 nodes associated with a specific oracle will get pending
+status for 28 days. If you have enough tokens available the node can be reselected for the same oracle. Avoid that by
+[disassociating](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
+unused tokens in the large oracle contract.
 
 ### How to find out which oracle your node serves
 
