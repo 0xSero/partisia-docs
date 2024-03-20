@@ -32,7 +32,7 @@ the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f
 
 ## How to leave a deposit or withdrawal oracle
 
-If you cannot wait for the deposit or withdrawal limit has been met, or if your node has to be shut down for
+If you cannot wait for the deposit or withdrawal rotation, or if your node has to be shut down for
 maintenance. You can request a new oracle. This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the
 oracle. 3 new nodes will be selected. The tokens of the 3 nodes associated with a specific oracle will get pending
 status for 28 days. If you have enough tokens available the node can be reselected for the same oracle. Avoid that by
