@@ -39,7 +39,7 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
 
 Node services are handled by specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md). To sign up for
 services a node operator associates a stake of token to the contract administrating the service
-([see amount to stake for specific services](start-running-a-node.md)). Before you can associate the stake to a specific service, you change the state of your MPC tokens to [_staked_](https://browser.partisiablockchain.com/node-operation).
+([see amount to stake for specific services](start-running-a-node.md)). Before you can associate the stake to a specific service, you need to change the state of your MPC tokens to [_staked_](https://browser.partisiablockchain.com/node-operation).
 
 All nodes running a paid service must first register as [a baker node](run-a-baker-node.md)
 . This makes the node eligible to perform baker services. While a service is being performed the tokens are locked to
