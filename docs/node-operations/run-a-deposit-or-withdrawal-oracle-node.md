@@ -25,7 +25,7 @@ consisting of three nodes.
 
 Deposit and withdrawal oracles are randomly selected form nodes 250K unused MPC tokens associated to the [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation)
 contract. When the deposit or withdrawal limit has been met, 3 new nodes will be selected. The tokens of the 3 nodes
-associated with a specific oracle will get pending status for 28 days. Your node can serve more than one oracle and be
+associated with a specific oracle will get pending status for 28 days. Your node can serve in more than one oracle and be
 reselected to same oracle if you have enough tokens associated to
 the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
 .
