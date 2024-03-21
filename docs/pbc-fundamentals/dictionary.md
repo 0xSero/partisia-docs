@@ -40,9 +40,9 @@ Confirmed and active block producers. New members are accepted into the committe
 
 ### Epoch
 
-An Epoch is the time it takes for a contract to complete one cycle of work defined by specific criteria. The epoch is
-done when the criteria are fulfilled, then the next epoch starts. For small oracles and for the committee you can request to
-end the epoch prematurely if 28 days have passed, even if other criteria have not been met.
+An Epoch is the time it takes for a contract to complete one cycle of work defined by specific criteria, then the next
+epoch starts. For small oracles and for the committee you can request to end the epoch prematurely if 28 days have
+passed, even if other criteria have not been met.
 
 **Minimum criteria of the epochs in important system contracts:**
 
