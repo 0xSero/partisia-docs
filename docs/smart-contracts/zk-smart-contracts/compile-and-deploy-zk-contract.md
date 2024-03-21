@@ -9,7 +9,7 @@ The zk-contracts consist of two main parts. The contract itself as well as a zer
 To compile a zero-knowledge contract run:
 
 ```bash
-cargo partisia-contract build --release
+cargo pbc build --release
 ```
 
 Note that this is the same command as for [public contracts](../compile-and-deploy-contracts.md). The tool
