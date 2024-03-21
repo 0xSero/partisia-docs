@@ -44,9 +44,9 @@ To compile it and install it using cargo run:
 ```bash
 cargo install cargo-partisia-contract
 ```
-The `cargo partisia-contract` and `cargo pbc` are the same command, the `cargo pbc` is just an alias. 
-Test that it worked by executing: `cargo partisia-contract --version` and `cargo pbc --version`. 
-This should print the version of the tool. If you want to learn more about the partisia contract tool you
+The `cargo partisia-contract` and `cargo pbc` are interchangeable commands, the `cargo pbc` is just an alias. 
+To verify the tool you can locally execute: `cargo partisia-contract --version` and `cargo pbc --version`. 
+This command prints the version of the tool. If you want to learn more about the partisia contract tool you
 can [visit our tooling page](smart-contract-tools-overview.md#command-line-tools).
 
 ### 3) Download Example Contracts

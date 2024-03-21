@@ -44,7 +44,7 @@ contracts or `.zkwa` for ZK rust contracts.
 
 ### Blockchain interaction
 
-With the `cargo pbc` for you to interact with the blockchain. 
+To interact with the blockchain you can use the command line tool: `cargo pbc`.
 There are 3 main commands:
 
 - `transaction`
