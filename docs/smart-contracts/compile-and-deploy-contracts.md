@@ -18,7 +18,7 @@ The following will compile it and generate an ABI for it:
 
 ```bash
 cd example-contracts/petition
-cargo partisia-contract build --release
+cargo pbc build --release
 ```
 
 Now you will find a .wasm-file and a .abi-file in:
