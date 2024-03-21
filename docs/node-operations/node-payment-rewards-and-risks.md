@@ -63,18 +63,18 @@ be _disassociated_.
 Different tasks have different criteria of
 completion. [See criteria of task that determine the length of different epochs](../pbc-fundamentals/dictionary.md#epoch).
 
-There are pending times for MPC tokens to change state from being associated, locked or staked.
+There are pending times for MPC tokens to change state from being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs), [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked).
 
 ### How long does it take to retrieve stakes from a node service
-
-For in depth explanation of all states of MPC tokens in the accounts
-see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md).
 
 MPC tokens need to be unstaked  and free from vesting schedule to
 be [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). You can always calculate how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$
 
 If tokens are associated to a contract, and you want to transfer the tokens, you should sum the
 pending time from disassociation and unstaking. Below table can help you understand the pending times for disassociation and unstaking of tokens.
+
+For in depth explanation of all states of MPC tokens in the accounts
+see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md).
 
 | **Token state**                                                                                                        | **Days in Pending** | **Explanation**                                                                                                                                                                                                                                         | **Required action**                                                                                                                                                                                                           |
 |------------------------------------------------------------------------------------------------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
