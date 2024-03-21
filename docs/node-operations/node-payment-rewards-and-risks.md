@@ -67,11 +67,13 @@ There are pending times for MPC tokens to change state from being [associated](.
 
 ### How long does it take to retrieve stakes from a node service
 
-MPC tokens need to be unstaked  and free from vesting schedule to
-be [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). You can always calculate how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$
+MPC tokens need to be unstaked and free from vesting schedule to
+be [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). You can always calculate
+how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{free} - MPC_{staked}$
 
-If tokens are associated to a contract, and you want to transfer the tokens, you should sum the
-pending time from disassociation and unstaking. Below table can help you understand the pending times for disassociation and unstaking of tokens.
+When tokens are associated to a contract and you want to disassociate the tokens there is some pending time from both
+dissassociation and unstaking. To understand the pending time you sum the two values: dissassociation and unstaking. The
+below table can help you understand the pending time.
 
 For in depth explanation of all states of MPC tokens in the accounts
 see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.md).
