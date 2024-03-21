@@ -23,7 +23,7 @@ consisting of three nodes.
 3. Invoke the contract action _AssociateTokenstoContract_ with a minimum amount of 250K MPC token
 4. Submit transaction
 
-Deposit and withdrawal oracles are randomly selected form nodes 250K unused MPC tokens associated to the [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation)
+Deposit and withdrawal oracles are randomly selected from nodes with 250K unused and staked MPC tokens associated to the [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation)
 contract. When the deposit or withdrawal limit has been met, 3 new nodes will be selected. The tokens of the 3 nodes
 associated with a specific oracle will get pending status for 28 days. Your node can serve in more than one oracle and be
 reselected to same oracle if you have enough tokens associated to
