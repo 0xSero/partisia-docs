@@ -8,9 +8,9 @@
     originatingTransaction: Hash                         
     inner: InnerEvent
     shardRoute: ShardRoute
-    committeeId: 0xnn*8                                     (big-endian)
-    governanceVersion: 0xnn*8                               (big-endian)
-    height: 0xnn                            
+    committeeId: Long
+    governanceVersion: Long
+    height: Byte                            
     returnEnvelope: Option<ReturnEnvelope>                   
 }
 
@@ -21,7 +21,7 @@
 
 <InnerTransaction> := {
     from: Address
-    cost: 0xnn*8                                             (big-endian)
+    cost: Long
     transaction: Transaction
 }
 
@@ -45,7 +45,7 @@
     address: Address
     callbackIdentifier: Hash
     from: Address
-    cost: 0xnn*8                                            (big-endian)
+    cost: Long
     callbackRpc: DynamicBytes
 }
 
@@ -91,7 +91,7 @@
                   
 <LocalPluginStateUpdate> := {
     context: Address
-    rpc: Rpc
+    rpc: DynamicBytes
 }                 
                   
                
@@ -163,31 +163,26 @@
 
 <ShardRoute> := {
     targetShard: Option<String>
-    nonce: 0xnn*8                                           (big-endian)
+    nonce: Long
 }
 
+<ReturnEnvelope> := Address
 
 <Hash> := 0xnn*32                                            (big-endian)
-
+<Long> := 0xnn*8                                             (big endian)
+<Byte> := 0xnn
+<Boolean> := b:0xnn                                          (false if b==0, true otherwise)
+<String> := len:0xnn*4 uft8:0xnn*len                         (len is big-endian)
+<DynamicBytes> := len:0xnn*4 payload:0xnn*len                (len is big-endian)
+<Option<T>> := 0x00 => None
+            |  b:0xnn t:T => Some(t)                         (b != 0)
+<List<T>> := len:0xnn*4 elems:T*len                          (len is big-endian)
 <Address> := addrtype:AddressType identifier:0xnn*20         (identifier is big-endian)
-
 <AddressType> := 0x00 => ACCOUNT
               |  0x01 => CONTRACT_SYSTEM
               |  0x02 => CONTRACT_PUBLIC
               |  0x03 => CONTRACT_ZK
               |  0x04 => CONTRACT_GOV
-
-<ReturnEnvelope> := Address
-
-<Boolean> := b:0xnn
-
-<String> := len:0xnn*4 uft8:0xnn*len                         (len is big-endian)
-
-<DynamicBytes> := len:0xnn*4 payload:0xnn*len                (len is big-endian)
-
-<Option<T> := Boolean arg:T
-
-<List<T>> := len:0xnn*4 args:T*len                           (len is big-endian)
 ```
 
 The originShard is an `Option<String>`, the originating shard.
