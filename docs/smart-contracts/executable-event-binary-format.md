@@ -1,26 +1,22 @@
 ```
 <ExecutableEvent> := {
-    originShard: b:0xnn len:0xnn*4 utf8:0xnn*len (Option<String>) (length rpc ?)
+    originShard: Option<String>          
     transaction: EventTransaction
 }
 
 <EventTransaction> := {
-    originatingTransaction: 0xnn*32 (Hash)           
-    inner: variant:0xnn (Enum)?? (InnerEvent(type)
+    originatingTransaction: Hash                         
+    inner: Enum<4, InnerTransaction, CallbackToContract, InnerSystemEvent, SyncEvent>
     shardRoute: ShardRoute
-    committeeId: 0xnn*8                     (big-endian)
-    governanceVersion: 0xnn*8               (big-endian)
-    height: 0xnn (unsigned byte)
-    returnEnvelope: b:0xnn 0xnn*21 (Option<ReturnEnvelope(Blockchainaddress)>)
-}
-
-<InnerEvent> := {
-    type: variant:0xnn (Enum)?? 
+    committeeId: 0xnn*8                                     (big-endian)
+    governanceVersion: 0xnn*8                               (big-endian)
+    height: 0xnn                            
+    returnEnvelope: Option<Address>                    (addr is big-endian)
 }
 
 <ShardRoute> := {
-    targetShard: b:0xnn len:0xnn*4 utf8:0xnn*len (Option<String>)
-    nonce: 0xnn*8
+    targetShard: Option<String>
+    nonce: 0xnn*8                                           (big-endian)
 }
 ```
 
