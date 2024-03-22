@@ -31,7 +31,7 @@ Becoming a price oracle require a stake of 5000 MPC associated to the large orac
 
 To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered.
 
-### Find out which price oracle your node serves (If you know already skip ahead to deregistration)   
+### Find out which price oracle your node serves (If you know already skip ahead to [deregistration](#deregister-from-a-price-oracle))   
 
 1. Open the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)   
 2. Open the map `stakedTokens`   
