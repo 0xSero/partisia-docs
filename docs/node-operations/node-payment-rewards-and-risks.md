@@ -37,9 +37,16 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
 
 ### How staking of MPC tokens work
 
-Node services are handled by specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md). To sign up for
-services a node operator associates a stake of token to the contract administrating the service
-([see amount to stake for specific services](start-running-a-node.md)). Before you can associate the stake to a specific service, you need to change the state of your MPC tokens to [_staked_](https://browser.partisiablockchain.com/node-operation).
+A stake
+works as a deposit strengthening the security and user confidence of the network.
+Nodes performing paid services require a [stake](../pbc-fundamentals/dictionary.md#stakestaking) of MPC tokens. The stake means that the node operator
+has something to lose should they try to cheat or damage the network. Higher stake services earn higher revenue. For
+paid services it is required that the node's owner completes [Synaps KYC/KYB](complete-synaps-kyb.md).    
+[See amount to stake for specific services](start-running-a-node.md).
+
+Before you can associate the stake to a specific service, you need to change the state of your MPC tokens to [_
+staked_](https://browser.partisiablockchain.com/node-operation). Node services are handled by
+specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md).
 
 All nodes running a paid service must first register as [a baker node](run-a-baker-node.md). This makes the node
 eligible to perform baker services. While a service is being performed the tokens are locked to the contract. A node
