@@ -51,7 +51,11 @@ You cannot deregister in the `challengePeriod` lasting one hour from the startin
 3. Invoke the contract action _Deregister_ at exactly one hour after the time stamp (be sure to be logged in and hit the time exactly)
 
 If your node has already reported a price in the current round your invocation of _Deregister_ will result in an error
-saying `Cannot derigister an oracle node that has notified a price update on an ongoing round`
+saying 
+
+`Cannot derigister an oracle node that has notified a price update on an ongoing round`
+
+
 The time window available to deregister can be very short, because you are responsible for any price you have reported,
 and then you have a short time from the finalized price to the next price your node report. If you fail in your attempt
 to deregister you can note the start time of the challenge period you have entered, and wait an hour to try again. Try
