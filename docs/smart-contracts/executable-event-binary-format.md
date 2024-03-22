@@ -36,16 +36,6 @@
     rpc: DynamicBytes                        
 }
 
-
-<Hash> := 0xnn*32                                            (big-endian)
-<Address> := 0xnn*21                                         (big-endian)
-<ReturnEnvelope> := Address
-<Boolean> := b:0xnn
-<String> := len:0xnn*4 uft8:0xnn*len                         (len is big-endian)
-<Option> := Boolean arg:ArgumentRpc
-<DynamicBytes> := len:0xnn*4 payload:0xnn*len                   (len is big-endian)
-<List> := TODO
-
 <InteractWithContractTransaction> := {
     contractId: Address
     payload: DynamicBytes
@@ -56,25 +46,25 @@
     callbackIdentifier: Hash
     from: Address
     cost: 0xnn*8                                            (big-endian)
-    callbackRpc: LargeByteArray TODO
+    callbackRpc: DynamicBytes
 }
 
 <InnerSystemEvent> := {
     systemEventType: SystemEventType
 }
 
-<SystemEventType> := 0x00 CreateAccountEvent
-                  |  0x01 CheckExistenceEvent
-                  |  0x02 SetFeatureEvent
-                  |  0x03 UpdateLocalPluginStateEvent
-                  |  0x04 UpdateGlobalPluginStateEvent
-                  |  0x05 UpdatePluginEvent
-                  |  0x06 CallbackEvent
-                  |  0x07 CreateShardEvent
-                  |  0x08 RemoveShardEvent
-                  |  0x09 UpdateContextFreePluginState
-                  |  0x0A UpgradeSystemContractEvent
-                  |  0x0B RemoveContract
+<SystemEventType> := 0x00 => CreateAccountEvent
+                  |  0x01 => CheckExistenceEvent
+                  |  0x02 => SetFeatureEvent
+                  |  0x03 => UpdateLocalPluginStateEvent
+                  |  0x04 => UpdateGlobalPluginStateEvent
+                  |  0x05 => UpdatePluginEvent
+                  |  0x06 => CallbackEvent
+                  |  0x07 => CreateShardEvent
+                  |  0x08 => RemoveShardEvent
+                  |  0x09 => UpdateContextFreePluginState
+                  |  0x0A => UpgradeSystemContractEvent
+                  |  0x0B => RemoveContract
 
 <CreateAccountEvent> := {
     toCreate: Address
@@ -94,10 +84,10 @@
     update: LocalPluginStateUpdate
 }
 
-<ChainPluginType> := 0x00 ACCOUNT
-                  |  0x01 CONSENSUS
-                  |  0x02 ROUTING
-                  |  0x03 SHARED_OBJECT_STORE
+<ChainPluginType> := 0x00 => ACCOUNT
+                  |  0x01 => CONSENSUS
+                  |  0x02 => ROUTING
+                  |  0x03 => SHARED_OBJECT_STORE
                   
 <LocalPluginStateUpdate> := {
     context: Address
@@ -175,6 +165,29 @@
     targetShard: Option<String>
     nonce: 0xnn*8                                           (big-endian)
 }
+
+
+<Hash> := 0xnn*32                                            (big-endian)
+
+<Address> := addrtype:AddressType identifier:0xnn*20         (identifier is big-endian)
+
+<AddressType> := 0x00 => ACCOUNT
+              |  0x01 => CONTRACT_SYSTEM
+              |  0x02 => CONTRACT_PUBLIC
+              |  0x03 => CONTRACT_ZK
+              |  0x04 => CONTRACT_GOV
+
+<ReturnEnvelope> := Address
+
+<Boolean> := b:0xnn
+
+<String> := len:0xnn*4 uft8:0xnn*len                         (len is big-endian)
+
+<DynamicBytes> := len:0xnn*4 payload:0xnn*len                (len is big-endian)
+
+<Option<T> := Boolean arg:T
+
+<List<T>> := len:0xnn*4 args:T*len                           (len is big-endian)
 ```
 
 The originShard is an `Option<String>`, the originating shard.
