@@ -51,7 +51,7 @@ passed, even if other criteria have not been met.
 - ZK contract: when the calculations specified in the contract have been completed (you can see if your ZK node is allocated to a ZK calculation by checking the state of the [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65))
 - [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks 
 
-Within the epoch of any node service the staked MPC tokens of the node performing the service are _locked_ to the service and cannot
+Within the [epoch of any node service](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) the staked MPC tokens of the node performing the service are _locked_ to the service and cannot
 be _disassociated_. You can end oracle and committee epochs prematurely if enough time has passed.
 
 ### ETH
