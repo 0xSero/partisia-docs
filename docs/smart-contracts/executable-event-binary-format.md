@@ -30,23 +30,25 @@
 
 <CreateContractTransaction> := {
     address: Address
-    binderJar: len:0xnn*4 payload:0xnn*len                   (len is big-endian)
-    contractJar: len:0xnn*4 payload:0xnn*len                 (len is big-endian)
-    abi: len:0xnn*4 payload:0xnn*len                         (len is big-endian)
-    rpc: Rpc                        
+    binderJar: DynamicBytes                   
+    contractJar: DynamicBytes                 
+    abi: DynamicBytes                       
+    rpc: DynamicBytes                        
 }
 
-<Rpc> := len:0xnn*4 payload:0xnn*len                         (len is big-endian)
+
 <Hash> := 0xnn*32                                            (big-endian)
 <Address> := 0xnn*21                                         (big-endian)
 <ReturnEnvelope> := Address
 <Boolean> := b:0xnn
-<String> := TODO
-<Option> ?? TODO
+<String> := len:0xnn*4 uft8:0xnn*len                         (len is big-endian)
+<Option> := Boolean arg:ArgumentRpc
+<DynamicBytes> := len:0xnn*4 payload:0xnn*len                   (len is big-endian)
+<List> := TODO
 
 <InteractWithContractTransaction> := {
     contractId: Address
-    payload: len:0xnn*4 payload:0xnn*len                    (len is big-endian)
+    payload: DynamicBytes
 }
 
 <CallbackToContract> := {
@@ -110,20 +112,20 @@
 }
 
 <GlobalPluginStateUpdate> := {
-    rpc: Rpc
+    rpc: DynamicBytes
 }      
 
 <UpdatePluginEvent> := {
     type: ChainPluginType
-    jar: Option<Jar> TODO
-    invocation: TODO (dynamic bytes)
+    jar: Option<DynamicBytes>
+    invocation: DynamicBytes
 }
 
 <CallbackEvent> := {
     returnEnvelope: ReturnEnvelope
     completedTransaction: Hash
     success: Boolean
-    returnValue: dynamic bytes TODO
+    returnValue: DynamicBytes
 }
 
 <CreateShardEvent> := {
@@ -136,15 +138,15 @@
 
 <UpdateContextFreePluginState> := {
     type: ChainPluginType
-    rpc: Rpc
+    rpc: DynamicBytes
 }
 
 <UpgradeSystemContractEvent> := {
     contractAddress: Address
-    binderJar: TODO
-    contractJar: TODO
-    abi: TODO
-    rpc: Rpc
+    binderJar: DynamicBytes
+    contractJar: DynamicBytes
+    abi: DynamicBytes
+    rpc: DynamicBytes
 }
 
 <RemoveContract> := {
@@ -154,7 +156,7 @@
 <SyncEvent> := {
     accounts: List<AccountTransfer>
     contracts: List<ContractTransfer>
-    stateStorage: List<bytearray> TODO
+    stateStorage: List<DynamicBytes>
 }
 
 <AccountTransfer> := {
@@ -168,8 +170,6 @@
     ContractStateHash: Hash
     pluginStateHash: Hash
 }
-
-
 
 <ShardRoute> := {
     targetShard: Option<String>
