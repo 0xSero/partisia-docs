@@ -58,9 +58,7 @@ practice the value that can be transferred is 50 ETH for withdrawal oracles and 
 
 Services have tasks that require a minimum of time. We call that time
 an [epoch](../pbc-fundamentals/dictionary.md#epoch). Within the epoch the tokens are _locked_ to the service and cannot
-be _disassociated_.
-
-Different services have different criteria of
+be _disassociated_. Services have different criteria of
 completion. [See criteria of task that determine the length of different epochs](../pbc-fundamentals/dictionary.md#epoch).
 
 There are pending times for MPC tokens to change state from being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs), [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked).
