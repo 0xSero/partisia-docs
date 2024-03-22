@@ -48,7 +48,7 @@ passed, even if other criteria have not been met.
 
 - Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members or minimum time of 28 days have passed
 - [Small oracle](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet): a specific amount of value transferred or minimum time of 28 days have passed 
-- ZK contract: when the calculations specified in the contract have been completed (you can see if your ZK node is allocated to a ZK calculation by checking the state of the [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65))
+- ZK contract: when the calculations specified in the contract have been completed   
 - [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks 
 
 Within the [epoch of any node service](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) the staked MPC tokens of the node performing the service are _locked_ to the service and cannot
