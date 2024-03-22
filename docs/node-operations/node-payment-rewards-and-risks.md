@@ -97,6 +97,15 @@ If a node is using delegated stakes, the delegator has to reach out to the node 
 to retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes. Delegated
 MPC tokens that are not associated to a contract or locked to a service can be retrieved without any pending period.
 
+Rules:
+
+- If delegated to the account of a node operator, but not associated to be usable by a contract for a job, owner can retrieve with no issues
+- If delegated to an account of a node operator, and associated with a job but not being used, owner cannot retrieve without the node operator disassociating the token from the job
+- If delegated to the account of a node operator, associated with a job and being used, owner cannot retrieve until the job finish, pending period is over node operator disassociating the token from the job
+- When tokens are retrieved from delegation by the owner they will not be transferable even if passed vesting schedule until unstaked by the owner
+- Only tokens controlled by your account can be fully unstaked, meaning change state back from staked 7 days pending minimum
+
+
 ### Dispute claims and malicious behaviour
 
 Malicious node behaviour can result in slashing of staked tokens (slashed tokens get burned). The purpose of slashing is to prevent malicious activity.
