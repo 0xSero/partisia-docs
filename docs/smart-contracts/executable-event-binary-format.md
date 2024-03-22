@@ -10,14 +10,14 @@
     shardRoute: ShardRoute
     committeeId: Long
     governanceVersion: Long
-    height: Byte                            
+    height: Byte (unsigned)                           
     returnEnvelope: Option<ReturnEnvelope>                   
 }
 
-<InnerEvent> := 0x00 InnerTransaction
-             |  0x01 CallbackToContract
-             |  0x02 InnerSystemEvent
-             |  0x03 SyncEvent
+<InnerEvent> := 0x00 => InnerTransaction
+             |  0x01 => CallbackToContract
+             |  0x02 => InnerSystemEvent
+             |  0x03 => SyncEvent
 
 <InnerTransaction> := {
     from: Address
@@ -25,8 +25,8 @@
     transaction: Transaction
 }
 
-<Transaction> := 0x00 CreateContractTransaction
-              |  0x01 InteractWithContractTransaction
+<Transaction> := 0x00 => CreateContractTransaction
+              |  0x01 => InteractWithContractTransaction
 
 <CreateContractTransaction> := {
     address: Address
@@ -84,10 +84,10 @@
     update: LocalPluginStateUpdate
 }
 
-<ChainPluginType> := 0x00 => ACCOUNT
-                  |  0x01 => CONSENSUS
-                  |  0x02 => ROUTING
-                  |  0x03 => SHARED_OBJECT_STORE
+<ChainPluginType> := 0x00 => Account
+                  |  0x01 => Consensus
+                  |  0x02 => Routing
+                  |  0x03 => SharedObjectStore
                   
 <LocalPluginStateUpdate> := {
     context: Address
@@ -95,7 +95,6 @@
 }                 
                   
                
-
 <UpdateGlobalPluginStateEvent> := {
     type: ChainPluginType
     update: GlobalPluginStateUpdate
@@ -178,11 +177,11 @@
             |  b:0xnn t:T => Some(t)                         (b != 0)
 <List<T>> := len:0xnn*4 elems:T*len                          (len is big-endian)
 <Address> := addrtype:AddressType identifier:0xnn*20         (identifier is big-endian)
-<AddressType> := 0x00 => ACCOUNT
-              |  0x01 => CONTRACT_SYSTEM
-              |  0x02 => CONTRACT_PUBLIC
-              |  0x03 => CONTRACT_ZK
-              |  0x04 => CONTRACT_GOV
+<AddressType> := 0x00 => Account
+              |  0x01 => System
+              |  0x02 => Public
+              |  0x03 => Zk
+              |  0x04 => Gov
 ```
 
 The originShard is an `Option<String>`, the originating shard.
