@@ -26,7 +26,7 @@ consisting of three nodes.
 Deposit and withdrawal oracles are randomly selected from nodes with 250K staked MPC tokens associated to the [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation)
 contract. If your tokens are already locked to a deposit or withdrawal oracle, you will not be selected to a new oracle until the [epoch](../pbc-fundamentals/dictionary.md#epoch) ends and the [pending period](node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) is over.  
 When the deposit or withdrawal limit has been met, 3 new nodes will be selected. The tokens of the 3 nodes
-associated with a specific oracle will get pending status for 28 days. Your node can serve in more than one oracle and be
+associated with a specific oracle will get pending status for 14 days. Your node can serve in more than one oracle and be
 reselected to same oracle if you have enough tokens associated to
 the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
 .
@@ -34,9 +34,9 @@ the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f
 ## How to leave a deposit or withdrawal oracle
 
 If you cannot wait for the deposit or withdrawal rotation, or if your node has to be shut down for
-maintenance. You can request a new oracle if the oracle is at least 28 days old. This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the
+maintenance. You can request a new oracle if the oracle is at least 14 days old. This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the
 oracle. 3 new nodes will be selected. The tokens of the 3 nodes associated with a specific oracle will get pending
-status for 28 days. If you have enough tokens available the node can be reselected for the same oracle. Avoid that by
+status for 14 days. If you have enough tokens available the node can be reselected for the same oracle. Avoid that by
 [disassociating](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
 unused tokens in the large oracle contract.
 
@@ -60,6 +60,6 @@ If you know which price oracle your node is serving, you should skip ahead to Re
 
 !!! note "Note"
     You can only invoke this action if you are serving in the oracle and
-    28 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix
+    14 days have passed since the oracle was last changed, confirm this in the contract state by checking the unix
     timestamp in the field named `"oracleTimestamp"`
     

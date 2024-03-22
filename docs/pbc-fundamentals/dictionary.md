@@ -40,13 +40,13 @@ Confirmed and active block producers. New members are accepted into the committe
 
 ### Epoch
 
-An Epoch is the time it takes for a contract to complete one cycle of work defined by the system contract, when one epoch ends another one starts. For small oracles and for the committee you can request to end the epoch prematurely if 28 days have
+An Epoch is the time it takes for a contract to complete one cycle of work defined by the system contract, when one epoch ends another one starts. For small oracles and for the committee you can request to end the epoch prematurely if 14 days have
 passed, even if other criteria have not been met.
 
 **Minimum criteria of the epochs in important system contracts:**
 
 - Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members or minimum time of 28 days have passed
-- [Small oracle](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet): a total deposit of 25 ETH or withdrawal of 50 ETH or 28 days have passed and new oracle is requested    
+- [Small oracle](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet): a total deposit of 25 ETH or withdrawal of 50 ETH or 14 days have passed and new oracle is requested    
 - ZK contract: when the calculations specified in the contract have been completed   
 - [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks 
 
