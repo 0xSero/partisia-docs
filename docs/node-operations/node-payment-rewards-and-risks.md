@@ -65,7 +65,7 @@ completion. [See criteria of task that determine the length of different epochs]
 
 There are pending times for MPC tokens to change state from being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs), [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked).
 
-### How long does it take to retrieve stakes from a node service
+#### How long does it take to retrieve stakes from a node service
 
 MPC tokens need to be unstaked and free from vesting schedule to
 be [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). You can always calculate
