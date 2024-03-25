@@ -257,7 +257,7 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 <<a id="dynamic-bytes"><b>DynamicBytes</b></a>> := len:0xnn*4 payload:0xnn*len                (len is big-endian)
 
 <<a id="option"><b>Option</b></a><<b>T</b>>> := 0x00 => None
-            |  b:0xnn t:<b>T</b> => Some(t)                         (b != 0)
+            | b:0xnn t:<b>T</b> => Some(t)                         (b != 0)
 
 <<a id="list"><b>List</b></a><<b>T</b>>> := len:0xnn*4 elems:<b>T</b>*len                          (len is big-endian)
 
@@ -265,12 +265,9 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 </div>
 </div>
 
-
-<a href=""></a>
-[ExecutableEvent](#executable-event)
 # Executable Event Binary Format 
 ```
-<<a name="ExecutableEvent">ExecutableEvent</a>>:= {
+<ExecutableEvent>:= {
     originShard: Option<String>          
     transaction: EventTransaction
 }
