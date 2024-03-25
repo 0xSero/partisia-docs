@@ -63,7 +63,7 @@ the blockchain.
 The chain id is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
 `Partisia Blockchain` and the chain id for the testnet is `Partisia Blockchain Testnet`.
 
-<div style="justify-content: center;display: flex; margin: 25px;">
+<div style="justify-content: center;display: flex">
 <div>
 <pre>
 
