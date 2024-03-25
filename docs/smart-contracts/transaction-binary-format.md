@@ -63,8 +63,8 @@ the blockchain.
 The chain id is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
 `Partisia Blockchain` and the chain id for the testnet is `Partisia Blockchain Testnet`.
 
-<div style="justify-content: center;display: flex">
-<div>
+<div style="justify-content: center">
+<div style="text-align: left;" markdown="1">
 <pre>
 
 <<a id="executable-event"><b><a href="#executable-event">ExecutableEvent</a></b></a>> := { 
@@ -80,7 +80,7 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     governanceVersion: <a href="#long">Long</a>
     height: <a href="#byte">Byte</a> (unsigned)                           
     returnEnvelope: <a href="#option">Option</a><<a href="#return-envelope">ReturnEnvelope</a>>                   
-}
+  }
 
 <<a id="inner-event"><b><a href="#inner-event">InnerEvent</a></b></a>> := 0x00 => <a href="#inner-transaction">InnerTransaction</a>
             |  0x01 => <a href="#callback-to-contract">CallbackToContract</a>
@@ -91,7 +91,7 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     from: <a href="#address">Address</a>
     cost: <a href="#long">Long</a>
     transaction: <a href="#transaction">Transaction</a>
-}
+  }
 
 <<a id="transaction"><b><a href="#transaction">Transaction</a></b></a>> := 0x00 => <a href="#create-contract-transaction">CreateContractTransaction</a>
              |  0x01 => <a href="#interact-with-contract-transaction">InteractWithContractTransaction</a>
@@ -102,7 +102,7 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     contractJar: <a href="#dynamic-bytes">DynamicBytes</a>                 
     abi: <a href="#dynamic-bytes">DynamicBytes</a>                       
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>                        
-}
+  }
 
 <<a id="interact-with-contract-transaction"><b><a href="#interact-with-contract-transaction">InteractWithContractTransaction</a></b></a>> := {
     contractId: <a href="#address">Address</a>
@@ -115,11 +115,11 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     from: <a href="#address">Address</a>
     cost: <a href="#long">Long</a>
     callbackRpc: <a href="#dynamic-bytes">DynamicBytes</a>
-}
+  }
 
 <<a id="inner-system-event"><b><a href="#inner-system-event">InnerSystemEvent</a></b></a>> := {
     systemEventType: <a href="#system-event-type">SystemEventType</a>
-}
+  }
 
 <<a id="system-event-type"><b><a href="#system-event-type">SystemEventType</a></b></a>> := 0x00 => <a href="#create-account-event">CreateAccountEvent</a>
                   |  0x01 => <a href="#check-existence-event">CheckExistenceEvent</a>
@@ -136,22 +136,22 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 
 <<a id="create-account-event"><b><a href="#create-account-event">CreateAccountEvent</a></b></a>> := {
     toCreate: <a href="#address">Address</a>
-}
+  }
 
 
 <<a id="check-existence-event"><b><a href="#check-existence-event">CheckExistenceEvent</a></b></a>> := {
     contractOrAccountAddress: <a href="#address">Address</a>
-}
+  }
 
 <<a id="set-feature-event"><b><a href="#set-feature-event">SetFeatureEvent</a></b></a>> := {
     key: <a href="#string">String</a>
     value: <a href="#option">Option</a><<a href="#string">String</a>>
-}
+  }
 
 <<a id="update-local-plugin-state-event"><b><a href="#update-local-plugin-state-event">UpdateLocalPluginStateEvent</a></b></a>> := {
     type: <a href="#chain-plugin-type">ChainPluginType</a>
     update: <a href="#local-plugin-state-update">LocalPluginStateUpdate</a>
-}
+  }
 
 <<a id="chain-plugin-type"><b><a href="#chain-plugin-type">ChainPluginType</a></b></a>> := 0x00 => <b>Account</b>
                  |  0x01 => <b>Consensus</b>
@@ -161,43 +161,43 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 <<a id="local-plugin-state-update"><b><a href="#local-plugin-state-update">LocalPluginStateUpdate</a></b></a>> := {
     context: <a href="#address">Address</a>
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>
-}
+  }
 
 
 <<a id="update-global-plugin-state-event"><b><a href="#update-global-plugin-state-event">UpdateGlobalPluginStateEvent</a></b></a>> := {
     type: <a href="#chain-plugin-type">ChainPluginType</a>
     update: <a href="#global-plugin-state-update">GlobalPluginStateUpdate</a>
-}
+  }
 
 <<a id="global-plugin-state-update"><b><a href="#global-plugin-state-update">GlobalPluginStateUpdate</a></b></a>> := {
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>
-}
+  }
 
 <<a id="update-plugin-event"><b><a href="#update-plugin-event">UpdatePluginEvent</a></b></a>> := {
     type: <a href="#chain-plugin-type">ChainPluginType</a>
     jar: <a href="#option">Option</a><<a href="#dynamic-bytes">DynamicBytes</a>>
     invocation: <a href="#dynamic-bytes">DynamicBytes</a>
-}
+  }
 
 <<a id="callback-event"><b><a href="#callback-event">CallbackEvent</a></b></a>> := {
     returnEnvelope: <a href="#return-envelope">ReturnEnvelope</a>
     completedTransaction: <a href="#hash">Hash</a>
     success: <a href="#boolean">Boolean</a>
     returnValue: <a href="#dynamic-bytes">DynamicBytes</a>
-}
+  }
 
 <<a id="create-shard-event"><b><a href="#create-shard-event">CreateShardEvent</a></b></a>> := {
     shardId: <a href="#string">String</a>
-}
+  }
 
 <<a id="remove-shard-event"><b><a href="#remove-shard-event">RemoveShardEvent</a></b></a>> := {
     shardId: <a href="#string">String</a>
-}
+  }
 
 <<a id="update-context-free-plugin-state"><b><a href="#update-context-free-plugin-state">UpdateContextFreePluginState</a></b></a>> := {
     type: <a href="#chain-plugin-type">ChainPluginType</a>
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>
-}
+  }
 
 <<a id="upgrade-system-contract-event"><b><a href="#upgrade-system-contract-event">UpgradeSystemContractEvent</a></b></a>> := {
     contractAddress: <a href="#address">Address</a>
@@ -205,34 +205,34 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     contractJar: <a href="#dynamic-bytes">DynamicBytes</a>
     abi: <a href="#dynamic-bytes">DynamicBytes</a>
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>
-}
+  }
 
 <<a id="remove-contract"><b><a href="#remove-contract">RemoveContract</a></b></a>> := {
     contractAddress: <a href="#address">Address</a>
-}
+  }
 
 <<a id="sync-event"><b><a href="#sync-event">SyncEvent</a></b></a>> := {
     accounts: <a href="#list">List</a><<a href="#account-transfer">AccountTransfer</a>>
     contracts: <a href="#list">List</a><<a href="#contract-transfer">ContractTransfer</a>>
     stateStorage: <a href="#list">List</a><<a href="#dynamic-bytes">DynamicBytes</a>>
-}
+  }
 
 <<a id="account-transfer"><b><a href="#account-transfer">AccountTransfer</a></b></a>> := {
     address: <a href="#address">Address</a>
     accountStateHash: <a href="#hash">Hash</a>
     pluginStateHash: <a href="#hash">Hash</a>
-}
+  }
 
 <<a id="contract-transfer"><b><a href="#contract-transfer">ContractTransfer</a></b></a>> := {
     address: <a href="#address">Address</a>
     ContractStateHash: <a href="#hash">Hash</a>
     pluginStateHash: <a href="#hash">Hash</a>
-}
+  }
 
 <<a id="shard-route"><b><a href="#shard-route">ShardRoute</a></b></a>> := {
     targetShard: <a href="#option">Option</a><<a href="#string">String</a>>
     nonce: <a href="#long">Long</a>
-}
+  }
 
 <<a id="address"><b><a href="#address">Address</a></b></a>> := addressType: <a href="#address-type">AddressType</a> identifier: 0xnn*20         (identifier is big-endian)
 
