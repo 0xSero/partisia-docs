@@ -63,10 +63,214 @@ the blockchain.
 The chain id is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
 `Partisia Blockchain` and the chain id for the testnet is `Partisia Blockchain Testnet`.
 
+<div style="justify-content: center;display: flex; margin: 25px;">
+<div>
+<pre>
 
+<<a id="executable-event"><b>ExecutableEvent</b></a>> := { 
+    originShard: <a href="#option">Option</a><<a href="#string">String</a>>          
+    transaction: <a href="#event-transaction">EventTransaction</a>
+  }
+
+<<a id="event-transaction"><b>EventTransaction</b></a>> := {
+    originatingTransaction: <a href="#hash">Hash</a>                         
+    inner: <a href="#inner-event">InnerEvent</a>
+    shardRoute: <a href="#shard-route">ShardRoute</a>
+    committeeId: <a href="#long">Long</a>
+    governanceVersion: <a href="#long">Long</a>
+    height: <a href="#byte">Byte</a> (unsigned)                           
+    returnEnvelope: <a href="#option">Option</a><<a href="#return-envelope">ReturnEnvelope</a>>                   
+}
+
+<<a id="inner-event"><b>InnerEvent</b></a>> := 0x00 => <a href="#inner-transaction">InnerTransaction</a>
+            |  0x01 => <a href="#callback-to-contract">CallbackToContract</a>
+            |  0x02 => <a href="#inner-system-event">InnerSystemEvent</a>
+            |  0x03 => <a href="#sync-event">SyncEvent</a>
+
+<<a id="inner-transaction"><b>InnerTransaction</b></a>> := {
+    from: <a href="#address">Address</a>
+    cost: <a href="#long">Long</a>
+    transaction: <a href="#transaction">Transaction</a>
+}
+
+<<a id="transaction"><b>Transaction</b></a>> := 0x00 => <a href="#create-contract-transaction">CreateContractTransaction</a>
+             |  0x01 => <a href="#interact-with-contract-transaction">InteractWithContractTransaction</a>
+
+<<a id="create-contract-transaction"><b>CreateContractTransaction</b></a>> := {
+    address: <a href="#address">Address</a>
+    binderJar: <a href="#dynamic-bytes">DynamicBytes</a>                   
+    contractJar: <a href="#dynamic-bytes">DynamicBytes</a>                 
+    abi: <a href="#dynamic-bytes">DynamicBytes</a>                       
+    rpc: <a href="#dynamic-bytes">DynamicBytes</a>                        
+}
+
+<<a id="interact-with-contract-transaction"><b>InteractWithContractTransaction</b></a>> := {
+    contractId: <a href="#address">Address</a>
+    payload: <a href="#dynamic-bytes">DynamicBytes</a>
+}
+
+<<a id="callback-to-contract"><b>CallbackToContract</b></a>> := {
+    address: <a href="#address">Address</a>
+    callbackIdentifier: <a href="#hash">Hash</a>
+    from: <a href="#address">Address</a>
+    cost: <a href="#long">Long</a>
+    callbackRpc: <a href="#dynamic-bytes">DynamicBytes</a>
+}
+
+<<a id="inner-system-event"><b>InnerSystemEvent</b></a>> := {
+    systemEventType: <a href="#system-event-type">SystemEventType</a>
+}
+
+<<a id="system-event-type"><b>SystemEventType</b></a>> := 0x00 => <a href="#create-account-event">CreateAccountEvent</a>
+                  |  0x01 => <a href="#check-existence-event">CheckExistenceEvent</a>
+                  |  0x02 => <a href="#set-feature-event">SetFeatureEvent</a>
+                  |  0x03 => <a href="#update-local-plugin-state-event">UpdateLocalPluginStateEvent</a>
+                  |  0x04 => <a href="#update-global-plugin-state-event">UpdateGlobalPluginStateEvent</a>
+                  |  0x05 => <a href="#update-plugin-event">UpdatePluginEvent</a>
+                  |  0x06 => <a href="#callback-event">CallbackEvent</a>
+                  |  0x07 => <a href="#create-shard-event">CreateShardEvent</a>
+                  |  0x08 => <a href="#remove-shard-event">RemoveShardEvent</a>
+                  |  0x09 => <a href="#update-context-free-plugin-state">UpdateContextFreePluginState</a>
+                  |  0x0A => <a href="#upgrade-system-contract-event">UpgradeSystemContractEvent</a>
+                  |  0x0B => <a href="#remove-contract">RemoveContract</a>
+
+<<a id="create-account-event"><b>CreateAccountEvent</b></a>> := {
+    toCreate: <a href="#address">Address</a>
+}
+
+
+<<a id="check-existence-event"><b>CheckExistenceEvent</b></a>> := {
+    contractOrAccountAddress: <a href="#address">Address</a>
+}
+
+<<a id="set-feature-event"><b>SetFeatureEvent</b></a>> := {
+    key: <a href="#string">String</a>
+    value: <a href="#option">Option</a><<a href="#string">String</a>>
+}
+
+<<a id="update-local-plugin-state-event"><b>UpdateLocalPluginStateEvent</b></a>> := {
+    type: <a href="#chain-plugin-type">ChainPluginType</a>
+    update: <a href="#local-plugin-state-update">LocalPluginStateUpdate</a>
+}
+
+<<a id="chain-plugin-type"><b>ChainPluginType</b></a>> := 0x00 => <b>Account</b>
+                 |  0x01 => <b>Consensus</b>
+                 |  0x02 => <b>Routing</b>
+                 |  0x03 => <b>SharedObjectStore</b>
+
+<<a id="local-plugin-state-update"><b>LocalPluginStateUpdate</b></a>> := {
+    context: <a href="#address">Address</a>
+    rpc: <a href="#dynamic-bytes">DynamicBytes</a>
+}
+
+
+<<a id="update-global-plugin-state-event"><b>UpdateGlobalPluginStateEvent</b></a>> := {
+    type: <a href="#chain-plugin-type">ChainPluginType</a>
+    update: <a href="#global-plugin-state-update">GlobalPluginStateUpdate</a>
+}
+
+<<a id="global-plugin-state-update"><b>GlobalPluginStateUpdate</b></a>> := {
+    rpc: <a href="#dynamic-bytes">DynamicBytes</a>
+}
+
+<<a id="update-plugin-event"><b>UpdatePluginEvent</b></a>> := {
+    type: <a href="#chain-plugin-type">ChainPluginType</a>
+    jar: <a href="#option">Option</a><<a href="#dynamic-bytes">DynamicBytes</a>>
+    invocation: <a href="#dynamic-bytes">DynamicBytes</a>
+}
+
+<<a id="callback-event"><b>CallbackEvent</b></a>> := {
+    returnEnvelope: <a href="#return-envelope">ReturnEnvelope</a>
+    completedTransaction: <a href="#hash">Hash</a>
+    success: <a href="#boolean">Boolean</a>
+    returnValue: <a href="#dynamic-bytes">DynamicBytes</a>
+}
+
+<<a id="create-shard-event"><b>CreateShardEvent</b></a>> := {
+    shardId: <a href="#string">String</a>
+}
+
+<<a id="remove-shard-event"><b>RemoveShardEvent</b></a>> := {
+    shardId: <a href="#string">String</a>
+}
+
+<<a id="update-context-free-plugin-state"><b>UpdateContextFreePluginState</b></a>> := {
+    type: <a href="#chain-plugin-type">ChainPluginType</a>
+    rpc: <a href="#dynamic-bytes">DynamicBytes</a>
+}
+
+<<a id="upgrade-system-contract-event"><b>UpgradeSystemContractEvent</b></a>> := {
+    contractAddress: <a href="#address">Address</a>
+    binderJar: <a href="#dynamic-bytes">DynamicBytes</a>
+    contractJar: <a href="#dynamic-bytes">DynamicBytes</a>
+    abi: <a href="#dynamic-bytes">DynamicBytes</a>
+    rpc: <a href="#dynamic-bytes">DynamicBytes</a>
+}
+
+<<a id="remove-contract"><b>RemoveContract</b></a>> := {
+    contractAddress: <a href="#address">Address</a>
+}
+
+<<a id="sync-event"><b>SyncEvent</b></a>> := {
+    accounts: <a href="#list">List</a><<a href="#account-transfer">AccountTransfer</a>>
+    contracts: <a href="#list">List</a><<a href="#contract-transfer">ContractTransfer</a>>
+    stateStorage: <a href="#list">List</a><<a href="#dynamic-bytes">DynamicBytes</a>>
+}
+
+<<a id="account-transfer"><b>AccountTransfer</b></a>> := {
+    address: <a href="#address">Address</a>
+    accountStateHash: <a href="#hash">Hash</a>
+    pluginStateHash: <a href="#hash">Hash</a>
+}
+
+<<a id="contract-transfer"><b>ContractTransfer</b></a>> := {
+    address: <a href="#address">Address</a>
+    ContractStateHash: <a href="#hash">Hash</a>
+    pluginStateHash: <a href="#hash">Hash</a>
+}
+
+<<a id="shard-route"><b>ShardRoute</b></a>> := {
+    targetShard: <a href="#option">Option</a><<a href="#string">String</a>>
+    nonce: <a href="#long">Long</a>
+}
+
+<<a id="address"><b>Address</b></a>> := addressType: <a href="#address-type">AddressType</a> identifier: 0xnn*20         (identifier is big-endian)
+
+<<a id="address-type"><b>AddressType</b></a>> := 0x00 => <b>Account</b>
+              |  0x01 => <b>System</b>
+              |  0x02 => <b>Public</b>
+              |  0x03 => <b>Zk</b>
+              |  0x04 => <b>Gov</b>
+
+<<a id="return-envelope"><b>ReturnEnvelope</b></a>> := <a href="#address">Address</a>
+
+<<a id="hash"><b>Hash</b></a>> := 0xnn*32                                            (big-endian)
+
+<<a id="long"><b>Long</b></a>> := 0xnn*8                                             (big endian)
+
+<<a id="byte"><b>Byte</b></a>> := 0xnn
+
+<<a id="boolean"><b>Boolean</b></a>> := b:0xnn                                          (false if b==0, true otherwise)
+
+<<a id="string"><b>String</b></a>> := len:0xnn*4 uft8:0xnn*len                         (len is big-endian)
+
+<<a id="dynamic-bytes"><b>DynamicBytes</b></a>> := len:0xnn*4 payload:0xnn*len                (len is big-endian)
+
+<<a id="option"><b>Option</b></a><<b>T</b>>> := 0x00 => None
+            |  b:0xnn t:<b>T</b> => Some(t)                         (b != 0)
+
+<<a id="list"><b>List</b></a><<b>T</b>>> := len:0xnn*4 elems:<b>T</b>*len                          (len is big-endian)
+
+</pre>
+</div>
+</div>
+
+
+<a href=""></a>
+[ExecutableEvent](#executable-event)
 # Executable Event Binary Format 
 ```
-<ExecutableEvent> := {
+<<a name="ExecutableEvent">ExecutableEvent</a>>:= {
     originShard: Option<String>          
     transaction: EventTransaction
 }
