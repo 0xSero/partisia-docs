@@ -94,10 +94,10 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     returnEnvelope: <a href="#option">Option</a><<a href="#return-envelope">ReturnEnvelope</a>>                   
   }
 
-<<a id="inner-event"><b><a href="#inner-event">InnerEvent</a></b></a>> := 0x00 => <a href="#inner-transaction">InnerTransaction</a>
-            |  0x01 => <a href="#callback-to-contract">CallbackToContract</a>
-            |  0x02 => <a href="#inner-system-event">InnerSystemEvent</a>
-            |  0x03 => <a href="#sync-event">SyncEvent</a>
+<<a id="inner-event"><b><a href="#inner-event">InnerEvent</a></b></a>> := 0x00 <a href="#inner-transaction">InnerTransaction</a>
+            |  0x01 <a href="#callback-to-contract">CallbackToContract</a>
+            |  0x02 <a href="#inner-system-event">InnerSystemEvent</a>
+            |  0x03 <a href="#sync-event">SyncEvent</a>
 
 <<a id="inner-transaction"><b><a href="#inner-transaction">InnerTransaction</a></b></a>> := {
     from: <a href="#address">Address</a>
@@ -133,18 +133,18 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     systemEventType: <a href="#system-event-type">SystemEventType</a>
   }
 
-<<a id="system-event-type"><b><a href="#system-event-type">SystemEventType</a></b></a>> := 0x00 => <a href="#create-account-event">CreateAccountEvent</a>
-                  |  0x01 => <a href="#check-existence-event">CheckExistenceEvent</a>
-                  |  0x02 => <a href="#set-feature-event">SetFeatureEvent</a>
-                  |  0x03 => <a href="#update-local-plugin-state-event">UpdateLocalPluginStateEvent</a>
-                  |  0x04 => <a href="#update-global-plugin-state-event">UpdateGlobalPluginStateEvent</a>
-                  |  0x05 => <a href="#update-plugin-event">UpdatePluginEvent</a>
-                  |  0x06 => <a href="#callback-event">CallbackEvent</a>
-                  |  0x07 => <a href="#create-shard-event">CreateShardEvent</a>
-                  |  0x08 => <a href="#remove-shard-event">RemoveShardEvent</a>
-                  |  0x09 => <a href="#update-context-free-plugin-state">UpdateContextFreePluginState</a>
-                  |  0x0A => <a href="#upgrade-system-contract-event">UpgradeSystemContractEvent</a>
-                  |  0x0B => <a href="#remove-contract">RemoveContract</a>
+<<a id="system-event-type"><b><a href="#system-event-type">SystemEventType</a></b></a>> := 0x00 <a href="#create-account-event">CreateAccountEvent</a>
+                  |  0x01 <a href="#check-existence-event">CheckExistenceEvent</a>
+                  |  0x02 <a href="#set-feature-event">SetFeatureEvent</a>
+                  |  0x03 <a href="#update-local-plugin-state-event">UpdateLocalPluginStateEvent</a>
+                  |  0x04 <a href="#update-global-plugin-state-event">UpdateGlobalPluginStateEvent</a>
+                  |  0x05 <a href="#update-plugin-event">UpdatePluginEvent</a>
+                  |  0x06 <a href="#callback-event">CallbackEvent</a>
+                  |  0x07 <a href="#create-shard-event">CreateShardEvent</a>
+                  |  0x08 <a href="#remove-shard-event">RemoveShardEvent</a>
+                  |  0x09 <a href="#update-context-free-plugin-state">UpdateContextFreePluginState</a>
+                  |  0x0A <a href="#upgrade-system-contract-event">UpgradeSystemContractEvent</a>
+                  |  0x0B <a href="#remove-contract">RemoveContract</a>
 
 <<a id="create-account-event"><b><a href="#create-account-event">CreateAccountEvent</a></b></a>> := {
     toCreate: <a href="#address">Address</a>
@@ -246,7 +246,7 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     nonce: <a href="#long">Long</a>
   }
 
-<<a id="address"><b><a href="#address">Address</a></b></a>> := addressType: <a href="#address-type">AddressType</a> identifier: 0xnn*20         (identifier is big-endian)
+<<a id="address"><b><a href="#address">Address</a></b></a>> := addressType: <a href="#address-type">AddressType</a> identifier: 0xnn*20  (identifier is big-endian)
 
 <<a id="address-type"><b><a href="#address-type">AddressType</a></b></a>> := 0x00 => <b>Account</b>
               |  0x01 => <b>System</b>
@@ -256,17 +256,17 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 
 <<a id="return-envelope"><b><a href="#return-envelope">ReturnEnvelope</a></b></a>> := <a href="#address">Address</a>
 
-<<a id="hash"><b><a href="#hash">Hash</a></b></a>> := 0xnn*32                                            (big-endian)
+<<a id="hash"><b><a href="#hash">Hash</a></b></a>> := 0xnn*32                    (big-endian)
 
-<<a id="long"><b><a href="#long">Long</a></b></a>> := 0xnn*8                                             (big endian)
+<<a id="long"><b><a href="#long">Long</a></b></a>> := 0xnn*8                    (big endian)
 
 <<a id="byte"><b><a href="#byte">Byte</a></b></a>> := 0xnn
 
-<<a id="boolean"><b><a href="#boolean">Boolean</a></b></a>> := b:0xnn                                          (false if b==0, true otherwise)
+<<a id="boolean"><b><a href="#boolean">Boolean</a></b></a>> := b:0xnn                    (false if b==0, true otherwise)
 
-<<a id="string"><b><a href="#string">String</a></b></a>> := len:0xnn*4 uft8:0xnn*len                         (len is big-endian)
+<<a id="string"><b><a href="#string">String</a></b></a>> := len:0xnn*4 uft8:0xnn*len                    (len is big-endian)
 
-<<a id="dynamic-bytes"><b><a href="#dynamic-bytes">DynamicBytes</a></b></a>> := len:0xnn*4 payload:0xnn*len                (len is big-endian)
+<<a id="dynamic-bytes"><b><a href="#dynamic-bytes">DynamicBytes</a></b></a>> := len:0xnn*4 payload:0xnn*len       (len is big-endian)
 
 <<a id="option"><b>Option</b></a><<b>T</b>>> := 0x00 => None
             | b:0xnn t:<b>T</b> => Some(t)                         (b != 0)
