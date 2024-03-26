@@ -95,9 +95,9 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
   }
 
 <a id="inner-event"><b><a href="#inner-event">InnerEvent</a></b></a> := 0x00 <a href="#inner-transaction">InnerTransaction</a>
-            |  0x01 <a href="#callback-to-contract">CallbackToContract</a>
-            |  0x02 <a href="#inner-system-event">InnerSystemEvent</a>
-            |  0x03 <a href="#sync-event">SyncEvent</a>
+           |  0x01 <a href="#callback-to-contract">CallbackToContract</a>
+           |  0x02 <a href="#inner-system-event">InnerSystemEvent</a>
+           |  0x03 <a href="#sync-event">SyncEvent</a>
 
 <a id="inner-transaction"><b><a href="#inner-transaction">InnerTransaction</a></b></a> := {
     from: <a href="#address">Address</a>
