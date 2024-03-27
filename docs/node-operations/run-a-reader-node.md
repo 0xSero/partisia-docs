@@ -282,7 +282,7 @@ The config should look like the example below.
 You can now start the node:
 
 ````bash
-docker-compose up -d
+docker compose up -d
 ````
 
 If the command is successful it will pull the latest image and start the reader node in the background.
@@ -340,8 +340,8 @@ echo "$DATETIME"
 
 cd ~/pbc
 
-/usr/local/bin/docker-compose pull pbc
-/usr/local/bin/docker-compose up -d pbc
+/usr/local/bin/docker compose pull pbc
+/usr/local/bin/docker compose up -d pbc
 ````
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
