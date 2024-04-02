@@ -53,7 +53,7 @@ You cannot deregister in the `challengePeriod` lasting one hour from the startin
 If your node has already reported a price in the current round your invocation of _Deregister_ will result in an error
 saying 
 
-`Cannot derigister an oracle node that has notified a price update on an ongoing round`
+```Cannot deregister an oracle node that has notified a price update on an ongoing round```
 
 
 The time window available to deregister can be very short, because you are responsible for any price you have reported,
