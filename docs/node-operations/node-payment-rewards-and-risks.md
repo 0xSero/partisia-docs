@@ -67,7 +67,7 @@ an [epoch](../pbc-fundamentals/dictionary.md#epoch). Within the epoch the tokens
 be _disassociated_. Services have different criteria of
 completion. [See criteria of task that determine the length of different epochs](../pbc-fundamentals/dictionary.md#epoch).
 
-There are pending times for MPC tokens to change state from being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs), [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked).
+There are pending times for MPC tokens to change state from being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs), [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked). Changing state from _staked_ to _unstaked_ always takes 7 days plus the [specific pending time for disassociation or unlocking](#how-long-does-it-take-to-retrieve-stakes-from-a-node-service).
 
 #### How long does it take to retrieve stakes from a node service
 
