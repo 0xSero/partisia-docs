@@ -59,7 +59,7 @@ saying
 The time window available to deregister can be very short, because you are responsible for any price you have reported,
 and then you have a short time from the finalized price to the next price your node report. If you fail in your attempt
 to deregister you can note the start time of the challenge period you have entered, and wait an hour to try again. Try
-to hit the tx as close as possible to the passing on the one-hour-mark.
+to hit the tx as close as possible to the passing of the one-hour-mark.
 
 If you are planning to deregister from all node services, you should deregister in
 the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)
