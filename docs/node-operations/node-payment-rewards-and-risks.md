@@ -44,8 +44,7 @@ has something to lose should they try to cheat or damage the network. Higher sta
 paid services it is required that the node's owner completes [Synaps KYC/KYB](complete-synaps-kyb.md).    
 [See amount to stake for specific services](start-running-a-node.md).
 
-Before you can associate the stake to a specific service, you need to change the state of your MPC tokens to [_
-staked_](https://browser.partisiablockchain.com/node-operation). Node services are handled by
+Before you can associate the stake to a specific service, you need to change the state of your MPC tokens to [*staked*](https://browser.partisiablockchain.com/node-operation). Node services are handled by
 specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md).
 
 All nodes running a paid service must first register as [a baker node](run-a-baker-node.md). This makes the node
