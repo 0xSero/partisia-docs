@@ -797,3 +797,73 @@ form.generator-form:focus-within {
         font-size: 137.5%;
     }
 }
+
+
+
+.rule {
+
+}
+
+.rule {
+    font-family: "Lucida Sans Typewriter"!important;
+    font-weight: bold;
+}
+
+.byte-format .non-terminal {
+    font-family: "Courier New";
+}
+
+.byte-format .terminal {
+    font-family: "Courier New";
+}
+
+.byte-format .field {
+    font-family: "Courier New";
+}
+
+.byte-format .explanation {
+    font-family: "Courier New";
+}
+
+div.test-style p,div.test-style span, div.test-style a{
+    font-family: var(--md-code-font-family);
+}
+
+.test-style h4 {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.test-style p {
+    margin: 0;
+}
+
+.test-style p span.bytes {
+    font-weight: bold;
+    color: #25282d;
+}
+
+.test-style p span.bytes .sep {
+    color: #3a3a3a;
+    display: inline-block;
+    font-weight: normal;
+    /*margin-left: 1px;*/
+    /*margin-right: 1px;*/
+    font-size: 0.7rem;
+}
+
+.test-style h4 a {
+    display: inline;
+}
+
+.test-style h4 + p {
+    display: inline;
+}
+
+.test-style .fields + p {
+    margin-left: 16px;
+}
+
+.test-style span.endian {
+    float: right;
+}

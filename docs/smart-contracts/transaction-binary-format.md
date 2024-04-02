@@ -11,6 +11,44 @@ The easiest way of creating a binary signed transaction is by using one of the
 available [client libraries](smart-contract-tools-overview.md#client). This specification can help you if you want to
 make your own implementation, for instance if you are targeting another programming language.
 
+## New
+
+<div class="test-style" markdown>
+
+#### [SignedTransaction](#signedtransaction) 
+
+:: = {
+
+  <div class="fields"/>
+  
+  signature: [Signature](#signature) <br>
+  transaction: [Transaction](#transaction)
+
+}
+
+
+#### [Signature](#signature)
+
+::= {
+
+<div class="fields"/>
+
+recoveryId: <span class="bytes">0<span class="sep">x</span>nn</span>  <br>
+valueR: <span class="bytes">0<span class="sep">x</span>nn\*32</span>                         <span class="endian">(big endian)</span><br>
+valueS: <span class="bytes">0<span class="sep">x</span>nn\*32</span>                         <span class="endian">(big endian)</span><br>
+
+}
+
+</div>
+
+
+<a id="signed-transaction"><b><a href="#signed-transaction">SignedTransaction</a></b></a> ::= {
+    signature: <a href="#signature">Signature</a>
+    transaction: <a href="#transaction-outer">Transaction</a>
+}
+
+
+
 <div style="justify-content: center">
 <div style="text-align: left">
 <pre>
@@ -76,12 +114,14 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 ## Executable Event Binary Format
 
 <div style="justify-content: center; display: inline-block">
-<div style="text-align: left;">
-<pre>
+<a class="rule">ExecutableEvent</a>
+<a><rule>ExecutableEvent</rule></a>
 
-<a id="executable-event"><b><a href="#executable-event">ExecutableEvent</a></b></a> ::= { 
-    originShard: <a href="#option">Option</a><<a href="#string">String</a>>          
-    transaction: <a href="#event-transaction">EventTransaction</a>
+<div style="text-align: left">
+<pre>
+<a id="executable-event"><a class="rule" href="#executable-event">ExecutableEvent</a></a> ::= { 
+    <bdi style="font-family: 'Courier New'">originShard</bdi>: <a style="font-family: 'Lucida Sans Typewriter'" href="#option">Option</a><<a style="font-family: 'Lucida Sans Typewriter'" href="#string">String</a>>          
+    <bdi style="font-family: 'Courier New'">transaction</bdi>: <a style="font-family: 'Lucida Sans Typewriter'" href="#event-transaction">EventTransaction</a>
   }
 
 <a id="event-transaction"><b><a href="#event-transaction">EventTransaction</a></b></a> ::= {
@@ -105,8 +145,8 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     transaction: <a href="#transaction">Transaction</a>
   }
 
-<a id="transaction"><b><a href="#transaction">Transaction</a></b></a> ::= 0x00 => <a href="#create-contract-transaction">CreateContractTransaction</a>
-             |  0x01 => <a href="#interact-with-contract-transaction">InteractWithContractTransaction</a>
+<a id="transaction"><b><a style="font-family: 'Lucida Sans Typewriter'" href="#transaction">Transaction</a></b></a> ::= <b><bdi style="font-family: 'Courier New'; font="bold">0x00</bdi></b> => <a style="font-family: 'Lucida Sans Typewriter'" href="#create-contract-transaction">CreateContractTransaction</a>
+             |  <b><bdi style="font-family: 'Courier New'">0x01</bdi></b> => <a style="font-family: 'Lucida Sans Typewriter'" href="#interact-with-contract-transaction">InteractWithContractTransaction</a>
 
 <a id="create-contract-transaction"><b><a href="#create-contract-transaction">CreateContractTransaction</a></b></a> ::= {
     address: <a href="#address">Address</a>
@@ -248,11 +288,11 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 
 <a id="address"><b><a href="#address">Address</a></b></a> ::= addressType: <a href="#address-type">AddressType</a> identifier: 0xnn*20  (identifier is big-endian)
 
-<a id="address-type"><b><a href="#address-type">AddressType</a></b></a> ::= 0x00 => <b>Account</b>
-              |  0x01 => <b>System</b>
-              |  0x02 => <b>Public</b>
-              |  0x03 => <b>Zk</b>
-              |  0x04 => <b>Gov</b>
+<a id="address-type"><b><a style="font-family: 'Lucida Sans Typewriter'" href="#address-type">AddressType</a></b></a> ::= <b><bdi style="font-family: 'Courier New'">0x00</bdi></b> => <bdi style="font-family: 'Courier New'">Account</bdi>
+             |  <b><bdi style="font-family: 'Courier New'">0x01</bdi></b> => <bdi style="font-family: 'Courier New'">System</bdi>
+             |  <b><bdi style="font-family: 'Courier New'">0x02</bdi></b> => <bdi style="font-family: 'Courier New'">Public</bdi>
+             |  <b><bdi style="font-family: 'Courier New'">0x03</bdi></b> => <bdi style="font-family: 'Courier New'">Zk</bdi>
+             |  <b><bdi style="font-family: 'Courier New'">0x04</bdi></b> => <bdi style="font-family: 'Courier New'">Gov</bdi>
 
 <a id="return-envelope"><b><a href="#return-envelope">ReturnEnvelope</a></b></a> ::= <a href="#address">Address</a>
 
