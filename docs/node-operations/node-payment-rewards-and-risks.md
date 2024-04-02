@@ -120,5 +120,3 @@ It is possible to start a dispute against a node operator that has done a servic
 audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible
 for the node's alleged malicious behaviour tokens staked on the service may be slashed. Filing an illegitimate dispute claim against another node can also be
 considered malicious behaviour and result in slashing.
-
-
