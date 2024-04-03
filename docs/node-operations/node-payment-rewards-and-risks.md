@@ -51,7 +51,7 @@ operator can resign from a service, and release the tokens staked on the service
 time for making dispute claim. Upgraded services require stake of tokens in addition to what
 is already staked on baker service, but they also have a bigger earning potential.
 
-An example of how the stake works as collateral is the [small oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet). They of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
+An example of how the stakes works as collateral is the [small oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet). They of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
 theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is equivalent to the ETH value of stake (750K MPC). In current
 practice the value that can be transferred is 50 ETH for withdrawal oracles and 25 ETH for deposit oracles.
 
