@@ -36,11 +36,11 @@ other services, including multiple oracles on the same node.
 
 | **Required total MPC token balance** | **Available Node service** | **Service consist of**                                                      |
 |--------------------------------------|------------------------------|-----------------------------------------------------------------------------|
-| 0                                    | [Reader node](run-a-reader-node.md)                  | Reading the blockchain state: Free                                          |
-| 25K                                  | [Baker node](run-a-baker-node.md)                   | Reader node service: Free<br />Signing and producing blocks: 25K stake      |
-| 30K                                  | [Price oracle](run-a-price-oracle-node.md)                 | Baker node service: 25K stake<br />Price monitoring: 5K stake               |
-| 100K                                 | [ZK node](run-a-zk-node.md)                      | Baker node service: 25K stake<br />ZK computations: 75K stake               |
-| 275K                                 | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | Baker node service: 25K stake<br />Moving BYOC on and off chain: 250K stake |
+| 0                                    | [Reader node](run-a-reader-node.md)                  | Free: Reading the blockchain state                                          |
+| 25K                                  | [Baker node](run-a-baker-node.md)                   | Free: Reader node service<br />25K stake: Signing and producing blocks      |
+| 30K                                  | [Price oracle](run-a-price-oracle-node.md)                 | 25K stake: Baker node service<br />5K stake: Price monitoring               |
+| 100K                                 | [ZK node](run-a-zk-node.md)                      | 25K stake: Baker node service<br />75K stake: ZK computations               |
+| 275K                                 | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | 25K stake: Baker node service<br />250K stake: Moving BYOC on and off chain |
 
 !!! note "All nodes require a [VPS](../pbc-fundamentals/dictionary.md#vps) with these specs or better"   
     - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated JVM), 128 GB SSD, publicly accessible IPv4 with ports 9888-9897 open 
