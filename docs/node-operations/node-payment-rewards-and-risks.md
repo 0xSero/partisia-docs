@@ -1,6 +1,6 @@
 # Node payment, rewards and risk
 
-Here you can read about paid services nodes can perform as well as rewards, and risks of disputes.
+Here you can read about [paid services nodes can perform](start-running-a-node.md#which-node-should-you-run) as well as rewards, and risks of disputes.
 
 ### How different node services earn fees and rewards
 
