@@ -13,9 +13,9 @@ make your own implementation, for instance if you are targeting another programm
 
 ## New
 
-<div class="test-style" markdown>
+<div class="binary-format" markdown>
 
-#### [SignedTransaction](#signedtransaction) 
+##### [SignedTransaction](#signedtransaction) 
 
 :: = {
 
@@ -27,7 +27,7 @@ make your own implementation, for instance if you are targeting another programm
 }
 
 
-#### [Signature](#signature)
+##### [Signature](#signature)
 
 ::= {
 

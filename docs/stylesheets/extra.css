@@ -46,6 +46,12 @@
     --md-footer-fg-color--lighter: rgb(10, 0, 40);
     --md-footer-bg-color: #0A0028;
     --md-footer-bg-color--dark: #000000;
+
+    --binary-format-header-font-size: 0.700rem;
+    --binary-format-default-font-size: 0.675rem;
+    --binary-format-fg-color-hex: rgb(37, 40, 45);
+    --binary-format-fg-color-hex-separator: rgb(58, 58, 58);
+    --binary-format-fields-indent: 16px;
 }
 
 body {
@@ -77,11 +83,13 @@ h4 {
     font-family: "DM Sans";
     color: #000000 !important;
 }
+
 th, td {
     border-right: 1px solid var(--md-typeset-table-color);
 }
+
 table {
-    border-right: 0px!important;
+    border-right: 0px !important;
 }
 
 .md-typeset {
@@ -474,11 +482,12 @@ div.embed-video-wrapper {
 }
 
 @media (max-width: 1201px) {
-    .footer-menu-center{
+    .footer-menu-center {
         margin-left: 0%;
         margin-top: 4%;
     }
-    .footer-menu-right{
+
+    .footer-menu-right {
         margin-top: 4%;
     }
 }
@@ -798,72 +807,47 @@ form.generator-form:focus-within {
     }
 }
 
-
-
-.rule {
-
-}
-
-.rule {
-    font-family: "Lucida Sans Typewriter"!important;
-    font-weight: bold;
-}
-
-.byte-format .non-terminal {
-    font-family: "Courier New";
-}
-
-.byte-format .terminal {
-    font-family: "Courier New";
-}
-
-.byte-format .field {
-    font-family: "Courier New";
-}
-
-.byte-format .explanation {
-    font-family: "Courier New";
-}
-
-div.test-style p,div.test-style span, div.test-style a{
+div.binary-format p, div.binary-format span, div.binary-format a {
     font-family: var(--md-code-font-family);
+    font-size: var(--binary-format-default-font-size);
 }
 
-.test-style h4 {
+
+.binary-format h5 {
     display: inline-block;
     margin-bottom: 0;
+    text-transform: none;
+    font-size: var(--binary-format-header-font-size);
 }
 
-.test-style p {
+.binary-format p {
     margin: 0;
 }
 
-.test-style p span.bytes {
+.binary-format p span.bytes {
     font-weight: bold;
     color: #25282d;
 }
 
-.test-style p span.bytes .sep {
-    color: #3a3a3a;
+.binary-format p span.bytes .sep {
+    color: var(--binary-format-fg-color-hex-separator);
     display: inline-block;
     font-weight: normal;
-    /*margin-left: 1px;*/
-    /*margin-right: 1px;*/
-    font-size: 0.7rem;
+    font-size: var(--binary-format-default-font-size);
 }
 
-.test-style h4 a {
+.binary-format h5 a {
     display: inline;
 }
 
-.test-style h4 + p {
+.binary-format h5 + p {
     display: inline;
 }
 
-.test-style .fields + p {
-    margin-left: 16px;
+.binary-format .fields + p {
+    margin-left: var(--binary-format-fields-indent);
 }
 
-.test-style span.endian {
+.binary-format span.endian {
     float: right;
 }
