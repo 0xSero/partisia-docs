@@ -27,9 +27,15 @@ schedule. [See how rewards are calculated and distributed](https://gitlab.com/pa
 
 ### How are baker fees calculated
 
-Fees for baker service are paid out by the [Fee distribution contract](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9). In the state of the contract you can see a list from each node, showing how many signatures on blocks they have seen from each of the other nodes. When every node has produced 100 blocks, the epoch is over and earned fees are distributed equally among the nodes receiving a vote from 2/3s of the nodes.
-A peer node will count how often your node's signature has appeared on a block it has seen. It creates a sorted list of the performers. It cast a vote for each node in the top 2/3s.   
-Everyone that has received a vote from 2/3s of the committee gets paid an equal share of the fees of the epoch. So, if there are 100 nodes in the current committee then your node needs a vote from 66 other nodes each epoch to get paid.
+Fees for baker service are paid out by
+the [Fee distribution contract](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9)
+. In the state of the contract you can see a list from each node, showing how many signatures on blocks they have seen
+from each of the other nodes. When every node has produced 100 blocks, the epoch is over and earned fees are distributed
+equally among the nodes receiving a vote from 2/3s of the nodes. A peer node will count how often your node's signature
+has appeared on a block it has seen. It creates a sorted list of the performers. It cast a vote for each node in the top
+2/3s.   
+Everyone that has received a vote from 2/3s of the committee gets paid an equal share of the fees of the epoch. So, if
+there are 100 nodes in the current committee then your node needs a vote from 66 other nodes each epoch to get paid.
 
 !!! Note "Note"
     Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch.        
@@ -37,30 +43,30 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
 
 ### How staking of MPC tokens work
 
-Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid
-service. Collateral means the stake of a node can be used to
-pay compensation for misconduct committed with the node.
-For all services on PBC there is a basic safety principle: $ValueOfStake \gt ValueOfService$
+Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a
+node [performing a paid service](start-running-a-node.md#which-node-should-you-run). Collateral means the stake of a
+node can be used to pay compensation for misconduct committed with the node. For all services on PBC there is a basic
+safety principle: $ValueOfStake \gt ValueOfService$
 
-Before you can associate the stake to a specific service, you need to change the state of your MPC tokens to [*staked*](https://browser.partisiablockchain.com/node-operation). Node services are handled by
-specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md).
+[Small oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet)
+consisting of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
+theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is equivalent to
+the ETH value of the stake (750K MPC). In current practice the value that can be transferred is 50 ETH for withdrawal
+oracles and 25 ETH for deposit oracles.
 
-All nodes running a paid service must first register as [a baker node](run-a-baker-node.md). This makes the node
-eligible to perform baker services. While a service is being performed the tokens are locked to the contract. A node
-operator can resign from a service, and release the tokens staked on the service. A delay of release ensures sufficient
-time for making dispute claim. Upgraded services require stake of tokens in addition to what
-is already staked on baker service, but they also have a bigger earning potential.
+When tokens are allocated to a service, the tokens are always locked to
+the [system contract](../pbc-fundamentals/governance-system-smart-contracts-overview.md) administrating the service for
+one [epoch](../pbc-fundamentals/dictionary.md#epoch). The [epoch](../pbc-fundamentals/dictionary.md#epoch) is time it
+takes to complete the requirements of one round of service.
 
-An example of how the stakes works as collateral is the [small oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet). They of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
-theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is equivalent to the ETH value of stake (750K MPC). In current
-practice the value that can be transferred is 50 ETH for withdrawal oracles and 25 ETH for deposit oracles.
-
-Services have tasks that require a minimum of time. We call that time
-an [epoch](../pbc-fundamentals/dictionary.md#epoch). Within the epoch the tokens are _locked_ to the service and cannot
-be _disassociated_. Services have different criteria of
-completion. [See criteria of task that determine the length of different epochs](../pbc-fundamentals/dictionary.md#epoch).
-
-There are pending times for MPC tokens to change state from being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs), [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked). Changing state from _staked_ to _unstaked_ always takes 7 days plus the [specific pending time for disassociation or unlocking](#how-long-does-it-take-to-retrieve-stakes-from-a-node-service).
+A node operator can resign from a service, and release the tokens staked on the service. A delay of release ensures
+sufficient time for making dispute claim. For this reason there are pending times for MPC tokens to change state from
+being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
+, [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
+or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked). Changing state from _staked_ to _
+unstaked_ always takes 7 days plus
+the [specific pending time for disassociation or unlocking](#how-long-does-it-take-to-retrieve-stakes-from-a-node-service)
+.
 
 #### How long does it take to retrieve stakes from a node service
 
