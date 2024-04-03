@@ -29,7 +29,7 @@ make your own implementation, for instance if you are targeting another programm
 
 ##### [Signature](#signature)
 
-::= {
+:: = {
 
 <div class="fields"/>
 
@@ -41,35 +41,33 @@ valueS: <span class="bytes">0<span class="sep">x</span>nn\*32</span>            
 
 </div>
 
-
-<a id="signed-transaction"><b><a href="#signed-transaction">SignedTransaction</a></b></a> ::= {
-    signature: <a href="#signature">Signature</a>
-    transaction: <a href="#transaction-outer">Transaction</a>
-}
-
-
-
-<div style="justify-content: center">
-<div style="text-align: left">
-<pre>
-
-<a id="signed-transaction"><b><a href="#signed-transaction">SignedTransaction</a></b></a> ::= {
-    signature: <a href="#signature">Signature</a>
-    transaction: <a href="#transaction-outer">Transaction</a>
-  }
-
-<a id="signature"><b><a href="#signature">Signature</a></b></a> ::= {
-    recoveryId: 0xnn
-    valueR: 0xnn*32                         (big endian)
-    valueS: 0xnn*32                         (big endian)
-  }
-</pre></div></div>
-
 The [Signature](#signature) includes:
 
 - a recovery id between 0 and 3 used to recover the public key when verifying the signature
 - the r value of the ECDSA signature
 - the s value of the ECDSA signature
+
+<div class="binary-format" markdown>
+
+##### [Transaction](#transaction-outer)
+
+:: = {
+
+<div class="fields"/>
+
+nonce: <span class="bytes">0<span class="sep">x</span>nn\*8</span>                          <span class="endian">(big endian)</span><br>
+validToTime: <span class="bytes">0<span class="sep">x</span>nn\*8</span>                    <span class="endian">(big endian)</span><br>
+gasCost: <span class="bytes">0<span class="sep">x</span>nn\*8</span>                        <span class="endian">(big endian)</span><br>
+address: <a href="#address">Address</a>
+rpc: [Rpc](#rpc)
+
+}
+
+##### [Rpc](rpc)
+
+::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span>   payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len         <span class="endian">(len is big endian)</span><br>
+
+</div>
 
 <div style="justify-content: center">
 <div style="text-align: left">
