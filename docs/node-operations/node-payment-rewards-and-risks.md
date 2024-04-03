@@ -98,7 +98,7 @@ MPC tokens that are not associated to a contract or locked to a service can be r
 
 Rules:
 
-- If delegated to the account of a node operator, but not associated to be usable by a contract for a job, token owner can retrieve with no issues
+- If delegated to the account of a node operator, but not associated to a contract, token owner can retrieve with no issues
 - If delegated to an account of a node operator, and associated with a job but not being used, token owner cannot retrieve without the node operator disassociating the token from the job
 - If delegated to the account of a node operator, associated with a job and being used, token owner cannot retrieve until the job completes, pending period is over node operator disassociating the token from the job
 - When tokens are retrieved from delegation by the owner they will not be transferable even if passed vesting schedule until unstaked by the token owner
