@@ -50,7 +50,7 @@ safety principle: $ValueOfStake \gt ValueOfService$
 
 3 nodes working together
 in a [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) each
-stake of 250K MPC. From the safety principle it follows that they can transfer less value than their total stake on the
+stake 250K MPC. From the safety principle it follows that they can transfer less value than their total stake on the
 service. The theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is
 equivalent to the ETH value of the stake (750K MPC). In current practice the value that can be transferred is 50 ETH for
 withdrawal oracles and 25 ETH for deposit oracles.
@@ -64,7 +64,7 @@ A node operator can resign from a service, and release the tokens staked on the 
 sufficient time for the service to complete and for the possibility of dispute claims. For this reason there are pending times for MPC tokens to change state from
 being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
 , [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
-or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked). Changing state from _staked_ to _
+or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked). [Changing state](https://browser.partisiablockchain.com/node-operation) from _staked_ to _
 unstaked_ always takes 7 days plus
 the [specific pending time for disassociation or unlocking](#how-long-does-it-take-to-retrieve-stakes-from-a-node-service)
 .
