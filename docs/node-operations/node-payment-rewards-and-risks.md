@@ -61,7 +61,7 @@ one [epoch](../pbc-fundamentals/dictionary.md#epoch). The [epoch](../pbc-fundame
 takes to complete the requirements of one round of service.
 
 A node operator can resign from a service, and release the tokens staked on the service. A delay of release ensures
-sufficient time for making dispute claim. For this reason there are pending times for MPC tokens to change state from
+sufficient time for the service to complete and for the possibility of dispute claims. For this reason there are pending times for MPC tokens to change state from
 being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
 , [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
 or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked). Changing state from _staked_ to _
