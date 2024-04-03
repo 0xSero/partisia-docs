@@ -37,12 +37,10 @@ Everyone that has received a vote from 2/3s of the committee gets paid an equal 
 
 ### How staking of MPC tokens work
 
-A stake
-works as a deposit strengthening the security and user confidence of the network.
-Nodes performing paid services require a [stake](../pbc-fundamentals/dictionary.md#stakestaking) of MPC tokens. The stake means that the node operator
-has something to lose should they try to cheat or damage the network. Higher stake services earn higher revenue. For
-paid services it is required that the node's owner completes [Synaps KYC/KYB](complete-synaps-kyb.md).    
-[See amount to stake for specific services](start-running-a-node.md).
+Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid
+service. Collateral means the stake of a node can be used to
+pay compensation for misconduct committed with the node.
+For all services on PBC there is a basic safety principle: $ValueOfStake \gt ValueOfService$
 
 Before you can associate the stake to a specific service, you need to change the state of your MPC tokens to [*staked*](https://browser.partisiablockchain.com/node-operation). Node services are handled by
 specific [system contracts](../pbc-fundamentals/governance-system-smart-contracts-overview.md).
@@ -53,12 +51,7 @@ operator can resign from a service, and release the tokens staked on the service
 time for making dispute claim. Upgraded services require stake of tokens in addition to what
 is already staked on baker service, but they also have a bigger earning potential.
 
-Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a node performing a paid
-service. Collateral means the stake of a node can be used to
-pay compensation for misconduct committed with the node.
-For all services on PBC there is a basic safety principle: $ValueOfStake \gt ValueOfService$
-
-As an example, the [small oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) consisting of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
+An example of how the stake works as collateral is the [small oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet). They of 3 nodes with a stake of 250K MPC can transfer less value than their total stake on the service. The
 theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is equivalent to the ETH value of stake (750K MPC). In current
 practice the value that can be transferred is 50 ETH for withdrawal oracles and 25 ETH for deposit oracles.
 
