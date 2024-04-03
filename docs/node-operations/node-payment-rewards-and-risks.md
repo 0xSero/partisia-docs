@@ -22,7 +22,7 @@ in [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). That gas covers the
 nodes.
 
 In addition to the fees paid for service nodes receive rewards in the form of MPC tokens. Rewards are distributed according to node performance
-measured through block production as well as tokens staked and their vesting
+measured by block production as well as tokens staked and their vesting
 schedule. [See how rewards are calculated and distributed](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads)
 
 ### How are baker fees calculated
