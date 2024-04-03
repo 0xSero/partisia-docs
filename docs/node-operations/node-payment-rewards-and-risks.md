@@ -23,7 +23,7 @@ nodes.
 
 In addition to the fees paid for service nodes receive rewards in the form of MPC tokens. Rewards are distributed according to node performance
 measured by block production as well as tokens staked and their vesting
-schedule. [See how rewards are calculated and distributed](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads)
+schedule. [See how rewards are calculated and distributed](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main/mainnet?ref_type=heads#computing-rewards)
 
 ### How are baker fees calculated
 
