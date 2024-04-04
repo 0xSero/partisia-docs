@@ -17,7 +17,7 @@ make your own implementation, for instance if you are targeting another programm
 
 ##### [SignedTransaction](#signedtransaction) 
 
-:: = {
+::= {
 
   <div class="fields"/>
   
@@ -29,7 +29,7 @@ make your own implementation, for instance if you are targeting another programm
 
 ##### [Signature](#signature)
 
-:: = {
+::= {
 
 <div class="fields"/>
 
@@ -49,40 +49,30 @@ The [Signature](#signature) includes:
 
 <div class="binary-format" markdown>
 
-##### [Transaction](#transaction-outer)
+##### [Transaction](#transaction)
 
-:: = {
+::= {
 
 <div class="fields"/>
 
 nonce: <span class="bytes">0<span class="sep">x</span>nn\*8</span>                          <span class="endian">(big endian)</span><br>
 validToTime: <span class="bytes">0<span class="sep">x</span>nn\*8</span>                    <span class="endian">(big endian)</span><br>
 gasCost: <span class="bytes">0<span class="sep">x</span>nn\*8</span>                        <span class="endian">(big endian)</span><br>
-address: <a href="#address">Address</a>
+address: [Address](#)
 rpc: [Rpc](#rpc)
 
 }
 
-##### [Rpc](rpc)
+</div>
 
-::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span>   payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len         <span class="endian">(len is big endian)</span><br>
+<div class="binary-format" markdown>
+
+##### [Rpc](#rpc)
+
+::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len <span class="endian">(len is big endian)</span>
 
 </div>
 
-<div style="justify-content: center">
-<div style="text-align: left">
-<pre>
-
-<a id="transaction-outer"><b><a href="#transaction-outer">Transaction</a></b></a> ::= {
-    nonce: 0xnn*8                           (big-endian)
-    validToTime: 0xnn*8                     (big-endian)
-    gasCost: 0xnn*8                         (big-endian)
-    address: <a href="#address">Address</a>
-    rpc: <a href="#rpc">Rpc</a>
-  }
-
-<a id="rpc"><b><a href="#rpc">Rpc</a></b></a> ::= len:0xnn*4 payload:0xnn*len        (len is big-endian)
-</pre></div></div>
 
 The [Transaction](#transaction-outer) includes:
 
@@ -98,55 +88,160 @@ The [Transaction](#transaction-outer) includes:
 The signature is an ECDSA signature, using secp256k1 as the curve, on a sha256 hash of the transaction and the chain ID of
 the blockchain.
 
-<div style="justify-content: center">
-<div style="text-align: left">
-<pre>
-<a id="to-be-hashed"><b><a href="#to-be-hashed">ToBeHashed</a></b></a> ::= transaction: <a href="#transaction-outer">Transaction</a> chainId: <a href="#chain-id">ChainId</a>
+<div class="binary-format" markdown>
 
-<a id="chain-id"><b><a href="#chain-id">ChainId</a></b></a> ::= len:0xnn*4 utf8:0xnn*len       (len is big-endian)
-</pre></div></div>
+##### [ToBeHashed](#ToBeHashed)
+
+::= transaction:[Transaction](#transaction) chainId: [ChainId](#chainid-) 
+
+</div>
+
+<div class="binary-format" markdown>
+
+##### [ChainId](#chainid-) 
+
+::=  len: <span class="bytes">0<span class="sep">x</span>nn\*4</span>  utf8: <span class="bytes">0<span class="sep">x</span>nn\*</span>len  <span class="endian">(len is big endian)</span><br>
+
+</div>
 
 The chain id is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
 `Partisia Blockchain` and the chain id for the testnet is `Partisia Blockchain Testnet`.
 
+
 ## Executable Event Binary Format
 
-<div style="justify-content: center; display: inline-block">
-<a class="rule">ExecutableEvent</a>
-<a><rule>ExecutableEvent</rule></a>
 
-<div style="text-align: left">
-<pre>
-<a id="executable-event"><a class="rule" href="#executable-event">ExecutableEvent</a></a> ::= { 
-    <bdi style="font-family: 'Courier New'">originShard</bdi>: <a style="font-family: 'Lucida Sans Typewriter'" href="#option">Option</a><<a style="font-family: 'Lucida Sans Typewriter'" href="#string">String</a>>          
-    <bdi style="font-family: 'Courier New'">transaction</bdi>: <a style="font-family: 'Lucida Sans Typewriter'" href="#event-transaction">EventTransaction</a>
-  }
+<div class="binary-format" markdown>
 
-<a id="event-transaction"><b><a href="#event-transaction">EventTransaction</a></b></a> ::= {
-    originatingTransaction: <a href="#hash">Hash</a>                         
-    inner: <a href="#inner-event">InnerEvent</a>
-    shardRoute: <a href="#shard-route">ShardRoute</a>
-    committeeId: <a href="#long">Long</a>
-    governanceVersion: <a href="#long">Long</a>
-    height: <a href="#byte">Byte</a> (unsigned)                           
-    returnEnvelope: <a href="#option">Option</a><<a href="#return-envelope">ReturnEnvelope</a>>                   
-  }
 
-<a id="inner-event"><b><a href="#inner-event">InnerEvent</a></b></a> ::= 0x00 <a href="#inner-transaction">InnerTransaction</a>
-           |  0x01 <a href="#callback-to-contract">CallbackToContract</a>
-           |  0x02 <a href="#inner-system-event">InnerSystemEvent</a>
-           |  0x03 <a href="#sync-event">SyncEvent</a>
+##### [ExecutableEvent](#executableevent-) 
 
-<a id="inner-transaction"><b><a href="#inner-transaction">InnerTransaction</a></b></a> ::= {
-    from: <a href="#address">Address</a>
-    cost: <a href="#long">Long</a>
-    transaction: <a href="#transaction">Transaction</a>
-  }
+::= {
 
-<a id="transaction"><b><a style="font-family: 'Lucida Sans Typewriter'" href="#transaction">Transaction</a></b></a> ::= <b><bdi style="font-family: 'Courier New'; font="bold">0x00</bdi></b> => <a style="font-family: 'Lucida Sans Typewriter'" href="#create-contract-transaction">CreateContractTransaction</a>
-             |  <b><bdi style="font-family: 'Courier New'">0x01</bdi></b> => <a style="font-family: 'Lucida Sans Typewriter'" href="#interact-with-contract-transaction">InteractWithContractTransaction</a>
+<div class="fields"/>
 
-<a id="create-contract-transaction"><b><a href="#create-contract-transaction">CreateContractTransaction</a></b></a> ::= {
+originShard: [Option](#Option)<[String](#string)>    
+transaction: [EventTransaction]()
+
+}
+
+
+##### [Address](#address-) 
+
+::= addressType: [AddressType](#addresstype-) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span> <span class="endian">(identifier is big-endian)</span><br> 
+
+</div>
+
+<div class="binary-format" markdown>
+
+##### [AddressType](#addresstype-) 
+
+::= 0x00 => **Account**
+|  0x01 => **System**
+|  0x02 => **Public**
+|  0x03 => **Zk**
+|  0x04 => **Gov**
+
+</div>
+
+<div class="binary-format" markdown>
+
+##### [ReturnEnvelope](#returnenvelope-) 
+
+::= [Address](#address-) <br>
+
+
+##### [Hash](#hash-) 
+
+::= <span class="bytes">0<span class="sep">x</span>nn\*32</span>   <span class="endian">(big-endian)</span><br>
+
+
+##### [Long](#long)
+
+::= <span class="bytes">0<span class="sep">x</span>nn\*8</span>   <span class="endian">(big-endian)</span><br>
+
+
+##### [Byte](#byte-) 
+
+::= <span class="bytes">0<span class="sep">x</span>nn</span><br>
+
+##### [Boolean](#boolean)
+
+::= b: <span class="bytes">0<span class="sep">x</span>nn</span>  <span class="endian">(false if b==0, true otherwise)</span><br>
+
+##### [String](#string-) 
+
+::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn\*</span>len             <span class="endian">(len is big endian)</span><br>
+
+
+##### [DynamicBytes](#dynamic-bytes-) 
+
+::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len        <span class="endian">(len is big endian)</span><br>
+
+
+##### [Option<T\>]()  
+
+::= 0x00 => None
+| b: 0xnn t:<b>T</b> => Some(t)                      <span class="endian">(b != 0)</span><br>   
+
+##### [List]() 
+
+::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len     <span class="endian">(len is big endian)</span><br>
+
+</div>
+
+
+<div class="binary-format" markdown>
+
+##### [EventTransaction](#eventtransaction-) 
+
+::= {
+
+  <div class="fields"/>
+  
+  originatingTransaction: [Hash](#hash-)                      
+  inner: [InnerEvent](#innerevent-) 
+  shardRoute: [ShardRoute](#shardroute--)
+  committeeId:[Long](#long)  
+  governanceVersion: [Long](#long)  
+  height: [Byte](#byte-) <span class="endian">(unsigned)</span>                       
+  returnEnvelope: [Option](#option--t-)<[ReturnEnvelope](#returnenvelope-)\>
+
+}
+
+</div>
+
+<div class="binary-format" markdown>
+
+##### [InnerEvent](#inner-event-) 
+
+::= 0x00 [InnerTransaction]()
+  |  0x01 [CallbackToContract]()
+  |  0x02 [InnerSystemEvent]()
+  |  0x03 [SyncEvent]()
+
+</div>
+
+<div class="binary-format" markdown>
+
+##### [InnerTransaction](#inner-transaction-) 
+
+::= {
+
+<div class="fields"/>
+
+from: [Address]()
+cost: [Long]()
+transaction: [Transaction]()
+
+}
+
+##### [Transaction]() 
+
+::= 0x00 => CreateContractTransaction 
+|  0x01 => InteractWithContractTransaction
+
+##### [CreateContractTransaction](#create-contract-transaction-) ::= {
     address: <a href="#address">Address</a>
     binderJar: <a href="#dynamic-bytes">DynamicBytes</a>                   
     contractJar: <a href="#dynamic-bytes">DynamicBytes</a>                 
@@ -154,12 +249,12 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>                        
   }
 
-<a id="interact-with-contract-transaction"><b><a href="#interact-with-contract-transaction">InteractWithContractTransaction</a></b></a> ::= {
+##### [InteractWithContractTransaction](#interact-with-contract-transaction-) ::= {
     contractId: <a href="#address">Address</a>
     payload: <a href="#dynamic-bytes">DynamicBytes</a>
 }
 
-<a id="callback-to-contract"><b><a href="#callback-to-contract">CallbackToContract</a></b></a> ::= {
+##### [CallbackToContract](#callback-to-contract-) ::= {
     address: <a href="#address">Address</a>
     callbackIdentifier: <a href="#hash">Hash</a>
     from: <a href="#address">Address</a>
@@ -167,11 +262,11 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     callbackRpc: <a href="#dynamic-bytes">DynamicBytes</a>
   }
 
-<a id="inner-system-event"><b><a href="#inner-system-event">InnerSystemEvent</a></b></a> ::= {
+##### [InnerSystemEvent](#inner-system-event-) ::= {
     systemEventType: <a href="#system-event-type">SystemEventType</a>
   }
 
-<a id="system-event-type"><b><a href="#system-event-type">SystemEventType</a></b></a> ::= 0x00 <a href="#create-account-event">CreateAccountEvent</a>
+##### [SystemEventType](#system-event-type-) ::= 0x00 <a href="#create-account-event">CreateAccountEvent</a>
                   |  0x01 <a href="#check-existence-event">CheckExistenceEvent</a>
                   |  0x02 <a href="#set-feature-event">SetFeatureEvent</a>
                   |  0x03 <a href="#update-local-plugin-state-event">UpdateLocalPluginStateEvent</a>
@@ -184,72 +279,72 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
                   |  0x0A <a href="#upgrade-system-contract-event">UpgradeSystemContractEvent</a>
                   |  0x0B <a href="#remove-contract">RemoveContract</a>
 
-<a id="create-account-event"><b><a href="#create-account-event">CreateAccountEvent</a></b></a> ::= {
+##### [CreateAccountEvent](#create-account-event-) ::= {
     toCreate: <a href="#address">Address</a>
   }
 
 
-<a id="check-existence-event"><b><a href="#check-existence-event">CheckExistenceEvent</a></b></a> ::= {
+##### [CheckExistenceEvent](#check-existence-event-) ::= {
     contractOrAccountAddress: <a href="#address">Address</a>
   }
 
-<a id="set-feature-event"><b><a href="#set-feature-event">SetFeatureEvent</a></b></a> ::= {
+##### [SetFeatureEvent](#set-feature-event-) ::= {
     key: <a href="#string">String</a>
     value: <a href="#option">Option</a><<a href="#string">String</a>>
   }
 
-<a id="update-local-plugin-state-event"><b><a href="#update-local-plugin-state-event">UpdateLocalPluginStateEvent</a></b></a> ::= {
+##### [UpdateLocalPluginStateEvent](#update-local-plugin-state-event-) ::= {
     type: <a href="#chain-plugin-type">ChainPluginType</a>
     update: <a href="#local-plugin-state-update">LocalPluginStateUpdate</a>
   }
 
-<a id="chain-plugin-type"><b><a href="#chain-plugin-type">ChainPluginType</a></b></a> ::= 0x00 => <b>Account</b>
+##### [ChainPluginType](#chain-plugin-type-) ::= 0x00 => <b>Account</b>
                  |  0x01 => <b>Consensus</b>
                  |  0x02 => <b>Routing</b>
                  |  0x03 => <b>SharedObjectStore</b>
 
-<a id="local-plugin-state-update"><b><a href="#local-plugin-state-update">LocalPluginStateUpdate</a></b></a> ::= {
+##### [LocalPluginStateUpdate](#local-plugin-state-update-) ::= {
     context: <a href="#address">Address</a>
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>
   }
 
 
-<a id="update-global-plugin-state-event"><b><a href="#update-global-plugin-state-event">UpdateGlobalPluginStateEvent</a></b></a> ::= {
+##### [UpdateGlobalPluginStateEvent](#update-global-plugin-state-event-) ::= {
     type: <a href="#chain-plugin-type">ChainPluginType</a>
     update: <a href="#global-plugin-state-update">GlobalPluginStateUpdate</a>
   }
 
-<a id="global-plugin-state-update"><b><a href="#global-plugin-state-update">GlobalPluginStateUpdate</a></b></a> ::= {
+##### [GlobalPluginStateUpdate](#global-plugin-state-update-) ::= {
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>
   }
 
-<a id="update-plugin-event"><b><a href="#update-plugin-event">UpdatePluginEvent</a></b></a> ::= {
+##### [UpdatePluginEvent](#update-plugin-event-) ::= {
     type: <a href="#chain-plugin-type">ChainPluginType</a>
     jar: <a href="#option">Option</a><<a href="#dynamic-bytes">DynamicBytes</a>>
     invocation: <a href="#dynamic-bytes">DynamicBytes</a>
   }
 
-<a id="callback-event"><b><a href="#callback-event">CallbackEvent</a></b></a> ::= {
+##### [CallbackEvent](#callback-event-) ::= {
     returnEnvelope: <a href="#return-envelope">ReturnEnvelope</a>
     completedTransaction: <a href="#hash">Hash</a>
     success: <a href="#boolean">Boolean</a>
     returnValue: <a href="#dynamic-bytes">DynamicBytes</a>
   }
 
-<a id="create-shard-event"><b><a href="#create-shard-event">CreateShardEvent</a></b></a> ::= {
+##### [CreateShardEvent](#create-shard-event-) ::= {
     shardId: <a href="#string">String</a>
   }
 
-<a id="remove-shard-event"><b><a href="#remove-shard-event">RemoveShardEvent</a></b></a> ::= {
+##### [RemoveShardEvent](#remove-shard-event-) ::= {
     shardId: <a href="#string">String</a>
   }
 
-<a id="update-context-free-plugin-state"><b><a href="#update-context-free-plugin-state">UpdateContextFreePluginState</a></b></a> ::= {
+##### [UpdateContextFreePluginState](#update-context-free-plugin-state-) ::= {
     type: <a href="#chain-plugin-type">ChainPluginType</a>
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>
   }
 
-<a id="upgrade-system-contract-event"><b><a href="#upgrade-system-contract-event">UpgradeSystemContractEvent</a></b></a> ::= {
+##### [UpgradeSystemContractEvent](#upgrade-system-contract-event-) ::= {
     contractAddress: <a href="#address">Address</a>
     binderJar: <a href="#dynamic-bytes">DynamicBytes</a>
     contractJar: <a href="#dynamic-bytes">DynamicBytes</a>
@@ -257,63 +352,35 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
     rpc: <a href="#dynamic-bytes">DynamicBytes</a>
   }
 
-<a id="remove-contract"><b><a href="#remove-contract">RemoveContract</a></b></a> ::= {
+##### [RemoveContract](#remove-contract-) ::= {
     contractAddress: <a href="#address">Address</a>
   }
 
-<a id="sync-event"><b><a href="#sync-event">SyncEvent</a></b></a> ::= {
+##### [SyncEvent](#sync-event-) ::= {
     accounts: <a href="#list">List</a><<a href="#account-transfer">AccountTransfer</a>>
     contracts: <a href="#list">List</a><<a href="#contract-transfer">ContractTransfer</a>>
     stateStorage: <a href="#list">List</a><<a href="#dynamic-bytes">DynamicBytes</a>>
   }
 
-<a id="account-transfer"><b><a href="#account-transfer">AccountTransfer</a></b></a> ::= {
+##### [AccountTransfer](#account-transfer-) ::= {
     address: <a href="#address">Address</a>
     accountStateHash: <a href="#hash">Hash</a>
     pluginStateHash: <a href="#hash">Hash</a>
   }
 
-<a id="contract-transfer"><b><a href="#contract-transfer">ContractTransfer</a></b></a> ::= {
+##### [ContractTransfer](#contract-transfer-) ::= {
     address: <a href="#address">Address</a>
     ContractStateHash: <a href="#hash">Hash</a>
     pluginStateHash: <a href="#hash">Hash</a>
   }
 
-<a id="shard-route"><b><a href="#shard-route">ShardRoute</a></b></a> ::= {
+##### [ShardRoute](#shard-route-) ::= {
     targetShard: <a href="#option">Option</a><<a href="#string">String</a>>
     nonce: <a href="#long">Long</a>
   }
 
-<a id="address"><b><a href="#address">Address</a></b></a> ::= addressType: <a href="#address-type">AddressType</a> identifier: 0xnn*20  (identifier is big-endian)
-
-<a id="address-type"><b><a style="font-family: 'Lucida Sans Typewriter'" href="#address-type">AddressType</a></b></a> ::= <b><bdi style="font-family: 'Courier New'">0x00</bdi></b> => <bdi style="font-family: 'Courier New'">Account</bdi>
-             |  <b><bdi style="font-family: 'Courier New'">0x01</bdi></b> => <bdi style="font-family: 'Courier New'">System</bdi>
-             |  <b><bdi style="font-family: 'Courier New'">0x02</bdi></b> => <bdi style="font-family: 'Courier New'">Public</bdi>
-             |  <b><bdi style="font-family: 'Courier New'">0x03</bdi></b> => <bdi style="font-family: 'Courier New'">Zk</bdi>
-             |  <b><bdi style="font-family: 'Courier New'">0x04</bdi></b> => <bdi style="font-family: 'Courier New'">Gov</bdi>
-
-<a id="return-envelope"><b><a href="#return-envelope">ReturnEnvelope</a></b></a> ::= <a href="#address">Address</a>
-
-<a id="hash"><b><a href="#hash">Hash</a></b></a> ::= 0xnn*32                    (big-endian)
-
-<a id="long"><b><a href="#long">Long</a></b></a> ::= 0xnn*8                    (big endian)
-
-<a id="byte"><b><a href="#byte">Byte</a></b></a> ::= 0xnn
-
-<a id="boolean"><b><a href="#boolean">Boolean</a></b></a> ::= b:0xnn                    (false if b==0, true otherwise)
-
-<a id="string"><b><a href="#string">String</a></b></a> ::= len:0xnn*4 uft8:0xnn*len                    (len is big-endian)
-
-<a id="dynamic-bytes"><b><a href="#dynamic-bytes">DynamicBytes</a></b></a> ::= len:0xnn*4 payload:0xnn*len       (len is big-endian)
-
-<<a id="option"><b>Option</b></a><<b>T</b>>> ::= 0x00 => None
-            | b:0xnn t:<b>T</b> => Some(t)                         (b != 0)
-
-<<a id="list"><b>List</b></a><<b>T</b>>> ::= len:0xnn*4 elems:<b>T</b>*len                          (len is big-endian)
-
-</pre>
 </div>
-</div>
+
 
 The originShard is an [Option](#option)<[String](#string)>, the originating shard.
 

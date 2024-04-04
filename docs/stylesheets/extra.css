@@ -52,6 +52,7 @@
     --binary-format-fg-color-hex: rgb(37, 40, 45);
     --binary-format-fg-color-hex-separator: rgb(58, 58, 58);
     --binary-format-fields-indent: 16px;
+    --binary-format-header-margin: 1.25em
 }
 
 body {
@@ -848,6 +849,12 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     margin-left: var(--binary-format-fields-indent);
 }
 
+.binary-format h5 + p span.endian {
+    float: right;
+    margin-top: var(--binary-format-header-margin);
+}
+
 .binary-format span.endian {
     float: right;
+    display: inline-block;
 }
