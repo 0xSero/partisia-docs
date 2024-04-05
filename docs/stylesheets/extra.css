@@ -858,3 +858,8 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     float: right;
     display: inline-block;
 }
+
+.binary-format span.left-align-spacer {
+    display: inline-block;
+    min-width: 200px;
+}

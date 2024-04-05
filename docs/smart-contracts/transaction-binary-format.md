@@ -15,7 +15,8 @@ make your own implementation, for instance if you are targeting another programm
 
 <div class="binary-format" markdown>
 
-##### [SignedTransaction](#signedtransaction) 
+
+##### [SignedTransaction](#signedtransaction-) 
 
 ::= {
 
@@ -58,7 +59,7 @@ The [Signature](#signature) includes:
 nonce: <span class="bytes">0<span class="sep">x</span>nn\*8</span> <span class="endian">(big endian)</span>  
 validToTime: <span class="bytes">0<span class="sep">x</span>nn\*8</span> <span class="endian">(big endian)</span>  
 gasCost: <span class="bytes">0<span class="sep">x</span>nn\*8</span> <span class="endian">(big endian)</span>  
-address: [Address](#)  
+address: [Address](#address-)  
 rpc: [Rpc](#rpc)
 
 }
@@ -120,72 +121,11 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 
 <div class="fields"/>
 
-originShard: [Option](#Option)<[String](#string)>  
-transaction: [EventTransaction]()
+originShard: [Option](#option--t-)<[String](#string-)>  
+transaction: [EventTransaction](#eventtransaction-)
 
 }
 
-
-##### [Address](#address-) 
-
-::= addressType: [AddressType](#addresstype-) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span> <span class="endian">(identifier is big-endian)</span><br> 
-
-</div>
-
-<div class="binary-format" markdown>
-
-##### [AddressType](#addresstype-) 
-
-::= 0x00 => **Account**  
-|  0x01 => **System**  
-|  0x02 => **Public**  
-|  0x03 => **Zk**  
-|  0x04 => **Gov**
-
-</div>
-
-<div class="binary-format" markdown>
-
-##### [ReturnEnvelope](#returnenvelope-) 
-
-::= [Address](#address-)<br>
-
-
-##### [Hash](#hash-) 
-
-::= <span class="bytes">0<span class="sep">x</span>nn\*32</span> <span class="endian">(big-endian)</span><br>
-
-
-##### [Long](#long)
-
-::= <span class="bytes">0<span class="sep">x</span>nn\*8</span><span class="endian">(big-endian)</span><br>
-
-
-##### [Byte](#byte-) 
-
-::= <span class="bytes">0<span class="sep">x</span>nn</span><br>
-
-##### [Boolean](#boolean)
-
-::= b: <span class="bytes">0<span class="sep">x</span>nn</span>  <span class="endian">(false if b==0, true otherwise)</span><br>
-
-##### [String](#string-) 
-
-::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn\*</span>len             <span class="endian">(len is big endian)</span><br>
-
-
-##### [DynamicBytes](#dynamic-bytes-) 
-
-::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len        <span class="endian">(len is big endian)</span><br>
-
-
-##### [Option<T\>]()  
-
-::= 0x00 => None
-| b: 0xnn t:<b>T</b> => Some(t) <span class="endian">(b != 0)</span><br>
-
-##### [List<T/>]()
-::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len <span class="endian">(len is big endian)</span><br>
 
 </div>
 
@@ -213,16 +153,16 @@ transaction: [EventTransaction]()
 
 ##### [InnerEvent](#inner-event-) 
 
-::= 0x00 [InnerTransaction]()  
-  |  0x01 [CallbackToContract]()  
-  |  0x02 [InnerSystemEvent]()  
-  |  0x03 [SyncEvent]()
+::= 0x00 [InnerTransaction](#innertransaction-)  
+  |  0x01 [CallbackToContract](#callbacktocontract-)  
+  |  0x02 [InnerSystemEvent](#innersystemevent-)  
+  |  0x03 [SyncEvent](#syncevent-)
 
 </div>
 
 <div class="binary-format" markdown>
 
-##### [InnerTransaction](#inner-transaction-) 
+##### [InnerTransaction](#innertransaction-) 
 
 ::= {
 
@@ -230,7 +170,7 @@ transaction: [EventTransaction]()
 
 from: [Address]()  
 cost: [Long]()  
-transaction: [Transaction]() 
+transaction: [Transaction](#transaction-) 
 
 }
 </div>
@@ -239,26 +179,26 @@ transaction: [Transaction]()
 
 <div class="binary-format" markdown>
 
-##### [Transaction]() 
+##### [Transaction](#transaction-) 
 
-::= 0x00 => [CreateContractTransaction]()  
-|  0x01 => [InteractWithContractTransaction]() 
+::= 0x00 => [CreateContractTransaction](#createcontracttransaction-)  
+|  0x01 => [InteractWithContractTransaction](#interactwithcontracttransaction-) 
 
 </div>
 
 <div class="binary-format" markdown>
 
-##### [CreateContractTransaction](#create-contract-transaction-) 
+##### [CreateContractTransaction](#createcontracttransaction-) 
 
 ::= {
 
 <div class="fields"/>
 
-address: [Address]()  
-binderJar: [DynamicBytes]()  
-contractJar: [DynamicBytes]()  
-abi: [DynamicBytes]()  
-rpc: [DynamicBytes]()
+address: [Address](#address)  
+binderJar: [DynamicBytes](#dynamicbytes)  
+contractJar: [DynamicBytes](#dynamicbytes)
+abi: [DynamicBytes](#dynamicbytes)  
+rpc: [DynamicBytes](#dynamicbytes)
 
 }
 
@@ -272,8 +212,8 @@ rpc: [DynamicBytes]()
 
 <div class="fields"/>
 
-contractId: [Address]()  
-payload: [DynamicBytes]() 
+contractId: [Address](#address)  
+payload: [DynamicBytes](#dynamicbytes) 
 
 }
 
@@ -281,7 +221,7 @@ payload: [DynamicBytes]()
 
 <div class="binary-format" markdown>
 
-##### [CallbackToContract](#callback-to-contract-) 
+##### [CallbackToContract](#callbacktocontract-) 
 
 ::= {
 
@@ -621,6 +561,72 @@ nonce: [Long]()
 }
 
 </div>
+
+<div class="binary-format" markdown>
+
+##### [Address](#address-)
+
+::= addressType: [AddressType](#addresstype-) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span> <span class="endian">(identifier is big-endian)</span><br>
+
+</div>
+
+<div class="binary-format" markdown>
+
+##### [AddressType](#addresstype-)
+
+::= 0x00 => **Account**  
+|  0x01 => **System**  
+|  0x02 => **Public**  
+|  0x03 => **Zk**  
+|  0x04 => **Gov**
+
+</div>
+
+<div class="binary-format" markdown>
+
+##### [ReturnEnvelope](#returnenvelope-)
+
+::= [Address](#address-)<br>
+
+
+##### [Hash](#hash-)
+
+::= <span class="bytes">0<span class="sep">x</span>nn\*32</span> <span class="endian">(big-endian)</span><br>
+
+
+##### [Long](#long)
+
+::= <span class="bytes">0<span class="sep">x</span>nn\*8</span><span class="endian">(big-endian)</span><br>
+
+
+##### [Byte](#byte-)
+
+::= <span class="bytes">0<span class="sep">x</span>nn</span><br>
+
+##### [Boolean](#boolean)
+
+::= b: <span class="bytes">0<span class="sep">x</span>nn</span>  <span class="endian">(false if b==0, true otherwise)</span><br>
+
+##### [String](#string-)
+
+::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn\*</span>len             <span class="endian">(len is big endian)</span><br>
+
+
+##### [DynamicBytes](#dynamic-bytes-)
+
+::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len        <span class="endian">(len is big endian)</span><br>
+
+
+##### [Option<T\>]()
+
+::= 0x00 => None
+| b: 0xnn t:<b>T</b> => Some(t) <span class="endian">(b != 0)</span><br>
+
+##### [List<T/>]()
+::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len <span class="endian">(len is big endian)</span><br>
+
+</div>
+
 
 
 The originShard is an [Option](#option)<[String](#string)>, the originating shard.
