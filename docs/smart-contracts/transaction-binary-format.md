@@ -154,9 +154,9 @@ transaction: [EventTransaction](#eventtransaction)
 ##### [InnerEvent](#inner-event-) 
 
 ::= 0x00 [InnerTransaction](#innertransaction)  
-  |  0x01 [CallbackToContract](#callbacktocontract)  
-  |  0x02 [InnerSystemEvent](#innersystemevent)  
-  |  0x03 [SyncEvent](#syncevent)
+<span class="left-align-spacer-alt"/>|  0x01 [CallbackToContract](#callbacktocontract)  
+<span class="left-align-spacer-alt"/>|  0x02 [InnerSystemEvent](#innersystemevent)  
+<span class="left-align-spacer-alt"/>|  0x03 [SyncEvent](#syncevent)
 
 </div>
 
@@ -335,9 +335,9 @@ update: [LocalPluginStateUpdate](#localpluginstateupdate)
 ##### [ChainPluginType](#chain-plugin-type-) 
 
 ::= 0x00 => <b>Account</b>  
-                 |  0x01 => <b>Consensus</b>  
-                 |  0x02 => <b>Routing</b>  
-                 |  0x03 => <b>SharedObjectStore</b>
+<span class="left-align-spacer"/> |  0x01 => <b>Consensus</b>  
+<span class="left-align-spacer"/> |  0x02 => <b>Routing</b>  
+<span class="left-align-spacer"/> |  0x03 => <b>SharedObjectStore</b>
 
 
 </div>
@@ -575,10 +575,10 @@ nonce: [Long](#long)
 ##### [AddressType](#addresstype-)
 
 ::= 0x00 => **Account**  
-|  0x01 => **System**  
-|  0x02 => **Public**  
-|  0x03 => **Zk**  
-|  0x04 => **Gov**
+<span class="left-align-spacer-alt"/>   |  0x01 => **System**  
+<span class="left-align-spacer-alt"/>   |  0x02 => **Public**  
+<span class="left-align-spacer-alt"/>   |  0x03 => **Zk**  
+<span class="left-align-spacer-alt"/>   |  0x04 => **Gov**
 
 </div>
 
@@ -620,7 +620,7 @@ nonce: [Long](#long)
 ##### [Option<T\>](#option--t-)
 
 ::= 0x00 => None
-| b: 0xnn t:<b>T</b> => Some(t) <span class="endian">(b != 0)</span><br>
+<span class="left-align-spacer"/> | b: 0xnn t:<b>T</b> => Some(t) <span class="endian">(b != 0)</span><br>
 
 ##### [List<T\>](#list--t-)
 ::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len <span class="endian">(len is big endian)</span><br>

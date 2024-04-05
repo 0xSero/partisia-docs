@@ -863,3 +863,8 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     display: inline-block;
     margin-left: 150px;
 }
+
+.binary-format span.left-align-spacer-alt {
+    display: inline-block;
+    margin-left: 112px;
+}
