@@ -148,22 +148,22 @@ transaction: [EventTransaction]()
 
 ##### [ReturnEnvelope](#returnenvelope-) 
 
-::= [Address](#address-)
+::= [Address](#address-)<br>
 
 
 ##### [Hash](#hash-) 
 
-::= <span class="bytes">0<span class="sep">x</span>nn\*32</span> <span class="endian">(big-endian)</span>  
+::= <span class="bytes">0<span class="sep">x</span>nn\*32</span> <span class="endian">(big-endian)</span><br>
 
 
 ##### [Long](#long)
 
-::= <span class="bytes">0<span class="sep">x</span>nn\*8</span><span class="endian">(big-endian)</span>  
+::= <span class="bytes">0<span class="sep">x</span>nn\*8</span><span class="endian">(big-endian)</span><br>
 
 
 ##### [Byte](#byte-) 
 
-::= <span class="bytes">0<span class="sep">x</span>nn</span>  
+::= <span class="bytes">0<span class="sep">x</span>nn</span><br>
 
 ##### [Boolean](#boolean)
 
