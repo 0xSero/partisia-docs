@@ -16,7 +16,8 @@ make your own implementation, for instance if you are targeting another programm
 <div class="binary-format" markdown>
 
 
-##### [SignedTransaction](#signed-transaction-) 
+##### [SignedTransaction](#signedtransaction)
+
 
 ::= {
 
@@ -75,7 +76,7 @@ rpc: [Rpc](#rpc)
 </div>
 
 
-The [Transaction](#transaction-outer) includes:
+The [Transaction](#transactionouter) includes:
 
 - the signer's [nonce](../pbc-fundamentals/dictionary.md#nonce)
 - a unix time that the transaction is valid to
@@ -91,7 +92,8 @@ the blockchain.
 
 <div class="binary-format" markdown>
 
-##### [ToBeHashed](#to-be-hashed-)
+##### [ToBeHashed](#tobehashed)
+
 
 ::= transaction:[Transaction](#transaction) chainId: [ChainId](#chainid) 
 
@@ -99,7 +101,8 @@ the blockchain.
 
 <div class="binary-format" markdown>
 
-##### [ChainId](#chain-id-) 
+##### [ChainId](#chainid)
+
 
 ::=  len: <span class="bytes">0<span class="sep">x</span>nn\*4</span>  utf8: <span class="bytes">0<span class="sep">x</span>nn\*</span>len  <span class="endian">(len is big endian)</span><br>
 
@@ -115,13 +118,14 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 <div class="binary-format" markdown>
 
 
-##### [ExecutableEvent](#executable-event-) 
+##### [ExecutableEvent](#executableevent)
+
 
 ::= {
 
 <div class="fields"/>
 
-originShard: [Option](#option--t)<[String](#string)>  
+originShard: [Option](#optiont)<[String](#string)>  
 transaction: [EventTransaction](#eventtransaction)
 
 }
@@ -131,7 +135,8 @@ transaction: [EventTransaction](#eventtransaction)
 
 <div class="binary-format" markdown>
 
-##### [EventTransaction](#event-transaction-) 
+##### [EventTransaction](#eventtransaction)
+
 
 ::= {
 
@@ -140,10 +145,10 @@ transaction: [EventTransaction](#eventtransaction)
   originatingTransaction: [Hash](#hash)  
   inner: [InnerEvent](#innerevent)  
   shardRoute: [ShardRoute](#shardroute)  
-  committeeId:[Long](#long)  
+  committeeId: [Long](#long)  
   governanceVersion: [Long](#long)  
   height: [Byte](#byte) <span class="endian">(unsigned)</span>  
-  returnEnvelope: [Option](#option)<[ReturnEnvelope](#returnenvelope)>
+  returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
 
 }
 
@@ -151,7 +156,8 @@ transaction: [EventTransaction](#eventtransaction)
 
 <div class="binary-format" markdown>
 
-##### [InnerEvent](#inner-event-) 
+##### [InnerEvent](#innerevent)
+
 
 ::= 0x00 [InnerTransaction](#innertransaction)  
 <span class="left-align-spacer-alt"/>|  0x01 [CallbackToContract](#callbacktocontract)  
@@ -162,7 +168,8 @@ transaction: [EventTransaction](#eventtransaction)
 
 <div class="binary-format" markdown>
 
-##### [InnerTransaction](#inner-transaction-) 
+##### [InnerTransaction](#innertransaction)
+
 
 ::= {
 
@@ -179,16 +186,18 @@ transaction: [Transaction](#transaction)
 
 <div class="binary-format" markdown>
 
-##### [Transaction](#transaction-) 
+##### [Transaction](#transaction)
+
 
 ::= 0x00 => [CreateContractTransaction](#createcontracttransaction)  
-|  0x01 => [InteractWithContractTransaction](#interactwithcontracttransaction) 
+<span class="left-align-spacer-alt"/> |  0x01 => [InteractWithContractTransaction](#interactwithcontracttransaction) 
 
 </div>
 
 <div class="binary-format" markdown>
 
-##### [CreateContractTransaction](#create-contract-transaction-) 
+##### [CreateContractTransaction](#createcontracttransaction)
+
 
 ::= {
 
@@ -206,7 +215,8 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 <div class="binary-format" markdown>
 
-##### [InteractWithContractTransaction](#interact-with-contract-transaction-) 
+##### [InteractWithContractTransaction](#interactwithcontracttransaction)
+
 
 ::= {
 
@@ -221,7 +231,8 @@ payload: [DynamicBytes](#dynamicbytes)
 
 <div class="binary-format" markdown>
 
-##### [CallbackToContract](#callback-to-contract-) 
+##### [CallbackToContract](#callbacktocontract)
+
 
 ::= {
 
@@ -240,7 +251,8 @@ callbackRpc: [DynamicBytes](#dynamicbytes)
 <div class="binary-format" markdown>
 
 
-##### [InnerSystemEvent](#inner-system-event-) 
+##### [InnerSystemEvent](#innersystemevent)
+
 
 ::= {
 
@@ -255,7 +267,8 @@ systemEventType: [SystemEventType](#systemeventtype)
 
 <div class="binary-format" markdown>
 
-##### [SystemEventType](#system-event-type-) 
+##### [SystemEventType](#systemeventtype)
+
 
 ::=  0x00 [CreateAccountEvent](#createaccountevent)  
 <span class="left-align-spacer"/> |  0x01 [CheckExistenceEvent](#checkexistenceevent)  
@@ -273,7 +286,8 @@ systemEventType: [SystemEventType](#systemeventtype)
 
 <div class="binary-format" markdown>
 
-##### [CreateAccountEvent](#create-account-event-)
+##### [CreateAccountEvent](#createaccountevent)
+
 
 ::= {
 
@@ -287,7 +301,8 @@ toCreate: [Address](#address)
 
 <div class="binary-format" markdown>
 
-##### [CheckExistenceEvent](#check-existence-event-) 
+##### [CheckExistenceEvent](#checkexistenceevent)
+
 
 ::= {
 
@@ -302,14 +317,15 @@ contractOrAccountAddress: [Address](#address)
 <div class="binary-format" markdown>
 
 
-##### [SetFeatureEvent](#set-feature-event-) 
+##### [SetFeatureEvent](#setfeatureevent)
+
 
 ::= {
 
 <div class="fields"/>
 
-key: [String](#string)
-value: [Option](#option)<[String](#string)>
+key: [String](#string)  
+value: [Option](#optiont)<[String](#string)>
 
 }
 
@@ -317,7 +333,8 @@ value: [Option](#option)<[String](#string)>
 
 <div class="binary-format" markdown>
 
-##### [UpdateLocalPluginStateEvent](#update-local-plugin-state-event-) 
+##### [UpdateLocalPluginStateEvent](#updatelocalpluginstateevent)
+
 
 ::= {
 
@@ -332,7 +349,8 @@ update: [LocalPluginStateUpdate](#localpluginstateupdate)
 
 <div class="binary-format" markdown>
 
-##### [ChainPluginType](#chain-plugin-type-) 
+##### [ChainPluginType](#chain-plugin-type)
+
 
 ::= 0x00 => <b>Account</b>  
 <span class="left-align-spacer"/> |  0x01 => <b>Consensus</b>  
@@ -344,7 +362,8 @@ update: [LocalPluginStateUpdate](#localpluginstateupdate)
 
 <div class="binary-format" markdown>
 
-##### [LocalPluginStateUpdate](#local-plugin-state-update-) 
+##### [LocalPluginStateUpdate](#localpluginstateupdate)
+
 
 ::= {
 
@@ -360,7 +379,8 @@ rpc: [DynamicBytes](#dynamicbytes)
 <div class="binary-format" markdown>
 
 
-##### [UpdateGlobalPluginStateEvent](#update-global-plugin-state-event-) 
+##### [UpdateGlobalPluginStateEvent](#updateglobalpluginstateevent)
+
 
 ::= {
 
@@ -375,13 +395,14 @@ update: [GlobalPluginStateUpdate](#globalpluginstateupdate)
 
 <div class="binary-format" markdown>
 
-##### [GlobalPluginStateUpdate](#global-plugin-state-update-) 
+##### [GlobalPluginStateUpdate](#globalpluginstateupdate)
+
 
 ::= {
 
 <div class="fields"/>
 
-rpc: [DynamicBytes](#dynamic-bytes-)
+rpc: [DynamicBytes](#dynamicbytes)
 
 }
 
@@ -389,14 +410,16 @@ rpc: [DynamicBytes](#dynamic-bytes-)
 
 <div class="binary-format" markdown>
 
-##### [UpdatePluginEvent](#update-plugin-event-) 
+##### [UpdatePluginEvent](#updatepluginevent)
+
 
 ::= {
 
 <div class="fields"/>
 
 type: [ChainPluginType](#chainplugintype)  
-jar: [Option](#option-)<[DynamicBytes](#dynamicbytes)>  
+jar: [Option](#optiont)
+<[DynamicBytes](#dynamicbytes)>  
 invocation: [DynamicBytes](#dynamicbytes)
 
 }
@@ -405,7 +428,8 @@ invocation: [DynamicBytes](#dynamicbytes)
 
 <div class="binary-format" markdown>
 
-##### [CallbackEvent](#callback-event-) 
+##### [CallbackEvent](#callbackevent)
+
 
 ::= {
 
@@ -413,7 +437,7 @@ invocation: [DynamicBytes](#dynamicbytes)
 
 returnEnvelope: [ReturnEnvelope](#returnenvelope)  
 completedTransaction: [Hash](#hash)  
-success: [Boolean](#boolean) 
+success: [Boolean](#boolean)  
 returnValue: [DynamicBytes](#dynamicbytes)
 
 }
@@ -422,7 +446,8 @@ returnValue: [DynamicBytes](#dynamicbytes)
 
 <div class="binary-format" markdown>
 
-##### [CreateShardEvent](#create-shard-event-) 
+##### [CreateShardEvent](#createshardevent)
+
 
 ::= {
 
@@ -436,7 +461,8 @@ shardId: [String](#string)
 
 <div class="binary-format" markdown>
 
-##### [RemoveShardEvent](#remove-shard-event-) 
+##### [RemoveShardEvent](#removeshardevent)
+
 
 ::= {
 
@@ -450,7 +476,8 @@ shardId: [String](#string)
 
 <div class="binary-format" markdown>
 
-##### [UpdateContextFreePluginState](#update-context-free-plugin-state-) 
+##### [UpdateContextFreePluginState](#updatecontextfreepluginstate)
+
 
 ::= {
 
@@ -465,7 +492,8 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 <div class="binary-format" markdown>
 
-##### [UpgradeSystemContractEvent](#upgrade-system-contract-event-) 
+##### [UpgradeSystemContractEvent](#upgradesystemcontractevent)
+
 
 ::= {
 
@@ -484,7 +512,8 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 <div class="binary-format" markdown>
 
-##### [RemoveContract](#remove-contract-) 
+##### [RemoveContract](#removecontract)
+
 
 ::= {
 
@@ -499,15 +528,16 @@ contractAddress: [Address](#address)
 
 <div class="binary-format" markdown>
 
-##### [SyncEvent](#sync-event-) 
+##### [SyncEvent](#syncevent)
+
 
 ::= {
 
 <div class="fields"/>
 
-accounts: [List](#list-)<[AccountTransfer](#accounttransfer)>  
-contracts: [List](#list-)<[ContractTransfer](#contracttransfer)>>  
-stateStorage: [List](#list-)<[DynamicBytes](#dynamicbytes)>
+accounts: [List](#listt)<[AccountTransfer](#accounttransfer)>  
+contracts: [List](#listt)<[ContractTransfer](#contracttransfer)>>  
+stateStorage: [List](#listt)<[DynamicBytes](#dynamicbytes)>
 
 }
 
@@ -516,7 +546,8 @@ stateStorage: [List](#list-)<[DynamicBytes](#dynamicbytes)>
 
 <div class="binary-format" markdown>
 
-##### [AccountTransfer](#account-transfer-) 
+##### [AccountTransfer](#accounttransfer)
+
 
 ::= {
 
@@ -532,7 +563,8 @@ pluginStateHash: [Hash](#hash)
 
 <div class="binary-format" markdown>
 
-##### [ContractTransfer](#contract-transfer-) 
+##### [ContractTransfer](#contracttransfer)
+
 
 ::= {
 
@@ -549,13 +581,14 @@ pluginStateHash: [Hash](#hash)
 
 <div class="binary-format" markdown>
 
-##### [ShardRoute](#shard-route-) 
+##### [ShardRoute](#shardroute)
+
 
 ::= {
 
 <div class="fields"/>
 
-targetShard: [Option](#option)<[String](#string)>  
+targetShard: [Option](#optiont)<[String](#string)>  
 nonce: [Long](#long)  
 
 }
@@ -564,7 +597,7 @@ nonce: [Long](#long)
 
 <div class="binary-format" markdown>
 
-##### [Address](#address-)
+##### [Address](#address)
 
 ::= addressType: [AddressType](#addresstype) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span> <span class="endian">(identifier is big-endian)</span><br>
 
@@ -572,7 +605,8 @@ nonce: [Long](#long)
 
 <div class="binary-format" markdown>
 
-##### [AddressType](#addresstype-)
+##### [AddressType](#addresstype)
+
 
 ::= 0x00 => **Account**  
 <span class="left-align-spacer-alt"/>   |  0x01 => **System**  
@@ -584,12 +618,13 @@ nonce: [Long](#long)
 
 <div class="binary-format" markdown>
 
-##### [ReturnEnvelope](#returnenvelope-)
+##### [ReturnEnvelope](#returnenvelope)
+
 
 ::= [Address](#address)<br>
 
 
-##### [Hash](#hash-)
+##### [Hash](#hash)
 
 ::= <span class="bytes">0<span class="sep">x</span>nn\*32</span> <span class="endian">(big-endian)</span><br>
 
@@ -599,7 +634,7 @@ nonce: [Long](#long)
 ::= <span class="bytes">0<span class="sep">x</span>nn\*8</span><span class="endian">(big-endian)</span><br>
 
 
-##### [Byte](#byte-)
+##### [Byte](#byte)
 
 ::= <span class="bytes">0<span class="sep">x</span>nn</span><br>
 
@@ -607,29 +642,29 @@ nonce: [Long](#long)
 
 ::= b: <span class="bytes">0<span class="sep">x</span>nn</span>  <span class="endian">(false if b==0, true otherwise)</span><br>
 
-##### [String](#string-)
+##### [String](#string)
 
 ::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn\*</span>len             <span class="endian">(len is big endian)</span><br>
 
 
-##### [DynamicBytes](#dynamic-bytes-)
+##### [DynamicBytes](#dynamicbytes)
 
 ::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len        <span class="endian">(len is big endian)</span><br>
 
 
-##### [Option<T\>](#option--t-)
+##### [Option<T\>](#optiont)
 
-::= 0x00 => None
-<span class="left-align-spacer"/> | b: 0xnn t:<b>T</b> => Some(t) <span class="endian">(b != 0)</span><br>
+::= 0x00 => None  
+<span class="left-align-spacer-alt"/>| b: 0xnn t:<b>T</b> => Some(t) <span class="endian">(b != 0)</span><br>
 
-##### [List<T\>](#list--t-)
+##### [List<T\>](#listt)
 ::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len <span class="endian">(len is big endian)</span><br>
 
 </div>
 
 
 
-The originShard is an [Option](#option)<[String](#string)>, the originating shard.
+The originShard is an [Option](#optiont)<[String](#string)>, the originating shard.
 
 The EventTransaction includes:
 
