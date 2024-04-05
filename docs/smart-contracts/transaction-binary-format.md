@@ -240,13 +240,13 @@ callbackRpc: [DynamicBytes]()
 <div class="binary-format" markdown>
 
 
-##### [InnerSystemEvent](#inner-system-event-) 
+##### [InnerSystemEvent](#innersystemevent-) 
 
 ::= {
 
 <div class="fields"/>
 
-systemEventType: [SystemEventType]()
+systemEventType: [SystemEventType](#systemeventtype-)
 
 }
 
@@ -255,20 +255,20 @@ systemEventType: [SystemEventType]()
 
 <div class="binary-format" markdown>
 
-##### [SystemEventType](#system-event-type-) 
+##### [SystemEventType](#systemeventtype-) 
 
-::= 0x00 [CreateAccountEvent]()  
-                  |  0x01 [CheckExistenceEvent]()  
-                  |  0x02 [SetFeatureEvent]()  
-                  |  0x03 [UpdateLocalPluginStateEvent]()  
-                  |  0x04 [UpdateGlobalPluginStateEvent]()  
-                  |  0x05 [UpdatePluginEvent]()  
-                  |  0x06 [CallbackEvent]()  
-                  |  0x07 [CreateShardEvent]()  
-                  |  0x08 [RemoveShardEvent]()  
-                  |  0x09 [UpdateContextFreePluginState]()  
-                  |  0x0A [UpgradeSystemContractEvent]()  
-                  |  0x0B [RemoveContract]()
+::=  0x00 [CreateAccountEvent](#createaccountevent)  
+<span class="left-align-spacer"/> |  0x01 [CheckExistenceEvent](#checkexistenceevent-)  
+<span class="left-align-spacer"/> |  0x02 [SetFeatureEvent](#setfeatureevent-)  
+<span class="left-align-spacer"/> |  0x03 [UpdateLocalPluginStateEvent](#updatelocalpluginstateevent-)  
+<span class="left-align-spacer"/> |  0x04 [UpdateGlobalPluginStateEvent](#updateglobalpluginstateevent-)  
+<span class="left-align-spacer"/> |  0x05 [UpdatePluginEvent](#updatepluginevent-)  
+<span class="left-align-spacer"/> |  0x06 [CallbackEvent](#callbackevent-)  
+<span class="left-align-spacer"/> |  0x07 [CreateShardEvent](#createshardevent-)  
+<span class="left-align-spacer"/> |  0x08 [RemoveShardEvent](#removeshardevent-)  
+<span class="left-align-spacer"/> |  0x09 [UpdateContextFreePluginState](#updatecontextfreepluginstate-)  
+<span class="left-align-spacer"/> |  0x0A [UpgradeSystemContractEvent](#upgradesystemcontractevent-)  
+<span class="left-align-spacer"/> |  0x0B [RemoveContract](#removecontract-)
 </div>
 
 <div class="binary-format" markdown>

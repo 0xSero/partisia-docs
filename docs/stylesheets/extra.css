@@ -861,5 +861,5 @@ div.binary-format p, div.binary-format span, div.binary-format a {
 
 .binary-format span.left-align-spacer {
     display: inline-block;
-    min-width: 200px;
+    margin-left: 150px;
 }
