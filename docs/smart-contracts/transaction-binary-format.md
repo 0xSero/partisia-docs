@@ -349,7 +349,7 @@ update: [LocalPluginStateUpdate](#localpluginstateupdate)
 
 <div class="binary-format" markdown>
 
-##### [ChainPluginType](#chain-plugin-type)
+##### [ChainPluginType](#chainplugintype)
 
 
 ::= 0x00 => <b>Account</b>  
@@ -536,7 +536,7 @@ contractAddress: [Address](#address)
 <div class="fields"/>
 
 accounts: [List](#listt)<[AccountTransfer](#accounttransfer)>  
-contracts: [List](#listt)<[ContractTransfer](#contracttransfer)>>  
+contracts: [List](#listt)<[ContractTransfer](#contracttransfer)>  
 stateStorage: [List](#listt)<[DynamicBytes](#dynamicbytes)>
 
 }
