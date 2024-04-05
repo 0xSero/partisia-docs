@@ -181,7 +181,7 @@ transaction: [EventTransaction]()
 
 ##### [Option<T\>]()  
 
-::= 0x00 => None  
+::= 0x00 => None
 | b: 0xnn t:<b>T</b> => Some(t) <span class="endian">(b != 0)</span><br>
 
 ##### [List<T/>]()
@@ -203,7 +203,7 @@ transaction: [EventTransaction]()
   committeeId:[Long](#long)  
   governanceVersion: [Long](#long)  
   height: [Byte](#byte-) <span class="endian">(unsigned)</span>  
-  returnEnvelope: [Option](#option--t-)<[ReturnEnvelope](#returnenvelope-)\>
+  returnEnvelope: [Option](#option--t-)<[ReturnEnvelope](#returnenvelope-)>
 
 }
 
