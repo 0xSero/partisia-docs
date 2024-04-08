@@ -62,8 +62,7 @@ contract to which they are allocated. The contract owner can choose the required
 
 When tokens are allocated to a node service, the tokens are always locked to
 the [system contract](../pbc-fundamentals/governance-system-smart-contracts-overview.md) administrating the service for
-one [epoch](../pbc-fundamentals/dictionary.md#epoch). The [epoch](../pbc-fundamentals/dictionary.md#epoch) is time it
-takes to complete the requirements of one round of service.
+one [epoch](../pbc-fundamentals/dictionary.md#epoch). See how the length of an epoch is determined [here](../pbc-fundamentals/dictionary.md#epoch).
 
 A node operator can resign from a service, and release the tokens staked on the service. A delay of release ensures
 sufficient time for the service to complete and for the possibility of dispute claims. For this reason there are pending times for MPC tokens to change state from
