@@ -70,7 +70,7 @@ sufficient time for the service to complete and for the possibility of dispute c
 being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
 , [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
 or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked). [Changing state](https://browser.partisiablockchain.com/node-operation) from _staked_ to _unstaked_ always takes 7 days plus
-the [specific pending time for disassociation or unlocking](#how-long-does-it-take-to-retrieve-stakes-from-a-node-service)
+the [pending time for disassociation or unlocking](#how-long-does-it-take-to-retrieve-stakes-from-a-node-service)
 .
 
 #### How long does it take to retrieve stakes from a node service
