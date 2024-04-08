@@ -46,12 +46,17 @@ there are 100 nodes in the current committee then your node needs a vote from 66
 Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a
 node [performing a paid service](start-running-a-node.md#which-node-should-you-run). Collateral means the stake of a
 node can be used to pay compensation for misconduct committed with the node. For all services on PBC there is a basic
-safety principle: $ValueOfStake \gt ValueOfService$
+safety principle: $ValueOfStake \gt ValueOfService$. 
+This can be understood by looking at how the principle is applied for nodes performing oracle service or ZK service.
 
-From the safety principle it follows that a [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) can transfer less value than the total stake on the
-service (750K MPC). The theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is
-equivalent to the ETH value of the total stake of the three oracle nodes. In current practice the value that can be transferred is 50 ETH for
+Three [oracle nodes](../pbc-fundamentals/dictionary.md#oracle-node) performing oracle service together constitutes one [small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet). A small oracle can transfer less value than the total stake on the
+service (750K MPC). The theoretical maximum value of [BYOC](../pbc-fundamentals/dictionary.md#byoc) being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is
+equivalent to the ETH value of the total stake (collateral) of the three oracle nodes. In current practice the value that can be transferred is 50 ETH for
 withdrawal oracles and 25 ETH for deposit oracles.
+
+Four [ZK nodes](../pbc-fundamentals/dictionary.md) performing ZK service together have an equal share in the total stake
+on the service, just like oracle nodes stake equally to the oracle service. ZK nodes stake the amount defined in the ZK
+contract to which they are allocated. The contract owner can choose the required stake to participate in the ZK job.
 
 When tokens are allocated to a node service, the tokens are always locked to
 the [system contract](../pbc-fundamentals/governance-system-smart-contracts-overview.md) administrating the service for
