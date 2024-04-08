@@ -57,7 +57,7 @@ equivalent to the ETH value of the total stake (collateral) of the three oracle 
 that can be transferred is 50 ETH for withdrawal oracles and 25 ETH for deposit oracles.
 
 Four [ZK nodes](../pbc-fundamentals/dictionary.md) performing ZK service together have an equal share in the total stake
-on the service, just like oracle nodes stake equally to the oracle service. ZK nodes stake the amount defined in the ZK
+on the service, just like oracle nodes. A ZK node stakes 1/4 of the amount defined in the ZK
 contract to which they are allocated. The contract owner defines the total required stake to participate in the ZK job.
 
 When tokens are allocated to a node service, the tokens are always locked to
