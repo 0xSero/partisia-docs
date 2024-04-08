@@ -79,7 +79,7 @@ be [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#tr
 how many MPC tokens you can transfer with the formula: $MPC_{transferable} = MPC_{released} - MPC_{staked}$
 
 When a node operator wants to retrieve his stake from a node service, he disassociates and unstakes the tokens currently associated to the contract administrating the node service.
-The node operator should be aware of the total pending time for removing tokens from a node service. The total pending time is the sum of pending time of the two actions: disassociate and unstake.
+The node operator should be aware of the total pending time for removing tokens from a node service. The total pending time is the sum of pending time of the two actions: _disassociate_ and _unstake_.
 The table below explains the pending time for retrieving tokens from the contracts governing the different node services.
 
 For in depth explanation of all states of MPC tokens in the accounts
