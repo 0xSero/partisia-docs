@@ -50,7 +50,7 @@ safety principle: $ValueOfStake \gt ValueOfService$
 
 From the safety principle it follows that a [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) can transfer less value than the total stake on the
 service (750K MPC). The theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is
-equivalent to the ETH value of the summed stake of the 3 oracle nodes, $3\cdot 250$K. In current practice the value that can be transferred is 50 ETH for
+equivalent to the ETH value of the summed stake of the 3 oracle nodes, $3\cdot 250$ K MPC. In current practice the value that can be transferred is 50 ETH for
 withdrawal oracles and 25 ETH for deposit oracles.
 
 When tokens are allocated to a node service, the tokens are always locked to
