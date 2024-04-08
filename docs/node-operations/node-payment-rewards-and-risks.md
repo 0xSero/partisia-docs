@@ -48,9 +48,10 @@ node [performing a paid service](start-running-a-node.md#which-node-should-you-r
 node can be used to pay compensation for misconduct committed with the node. For all services on PBC there is a basic
 safety principle: $ValueOfStake \gt ValueOfService$
 
-3 nodes working together
-in a [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) each
-stake 250K MPC. From the safety principle it follows that they can transfer less value than their total stake on the
+A [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) each
+stake 250K MPC.
+
+From the safety principle it follows that a [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) can transfer less value than their total stake on the
 service. The theoretical maximum value of BYOC being bridged per [epoch](../pbc-fundamentals/dictionary.md#epoch) is
 equivalent to the ETH value of the stake (750K MPC). In current practice the value that can be transferred is 50 ETH for
 withdrawal oracles and 25 ETH for deposit oracles.
