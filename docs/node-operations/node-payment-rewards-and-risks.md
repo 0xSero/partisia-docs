@@ -57,8 +57,8 @@ equivalent to the ETH value of the total stake (collateral) of the three oracle 
 that can be transferred is 50 ETH for withdrawal oracles and 25 ETH for deposit oracles.
 
 Four [ZK nodes](../pbc-fundamentals/dictionary.md) performing ZK service together have an equal share in the total stake
-on the service, just like oracle nodes stake equally to the oracle service. ZK nodes stake the amount defined in the ZK
-contract to which they are allocated. The contract owner can choose the required stake to participate in the ZK job.
+on the service, just like oracle nodes. A ZK node stakes 1/4 of the amount defined in the ZK
+contract to which they are allocated. The contract owner defines the total required stake to participate in the ZK job.
 
 When tokens are allocated to a node service, the tokens are always locked to
 the [system contract](../pbc-fundamentals/governance-system-smart-contracts-overview.md) administrating the service for
@@ -69,7 +69,7 @@ sufficient time for the service to complete and for the possibility of dispute c
 being [associated](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
 , [locked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs)
 or [staked](../pbc-fundamentals/mpc-token-model-and-account-elements.md#staked). [Changing state](https://browser.partisiablockchain.com/node-operation) from _staked_ to _unstaked_ always takes 7 days plus
-the [specific pending time for disassociation or unlocking](#how-long-does-it-take-to-retrieve-stakes-from-a-node-service)
+the [pending time for disassociation or unlocking](#how-long-does-it-take-to-retrieve-stakes-from-a-node-service)
 .
 
 #### How long does it take to retrieve stakes from a node service
