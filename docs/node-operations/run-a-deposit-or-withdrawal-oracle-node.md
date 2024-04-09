@@ -30,6 +30,15 @@ reselected to same oracle if you have enough tokens associated.
 
 ## How to leave a deposit or withdrawal oracle
 
+Oracle nodes have a stake of MPC tokens associated to
+the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
+. If
+you [disassociate](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
+the tokens from the large oracle contract, your node can no longer be allocated to serve in deposit or withdrawal
+oracles.
+
+If the node is currently [serving](#how-to-find-out-which-small-oracle-your-node-serves) in a deposit or withdrawal oracle. You can disassociate the tokens after the oracle rotates. This happens when the deposit of 25 ETH or withdrawal limit of 50 ETH has been met.
+
 If you cannot wait for the deposit or withdrawal rotation, or if your node has to be shut down for
 maintenance. You can request a new oracle if the oracle is at least 14 days old. This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the
 oracle. 3 new nodes will be selected. The tokens of the 3 nodes associated with a specific oracle will get pending
@@ -37,9 +46,9 @@ status for 14 days. If you have enough tokens available the node can be reselect
 [disassociating](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
 unused tokens in the large oracle contract.
 
-### How to find out which oracle your node serves
+### How to find out which small oracle your node serves
 
-If you know which price oracle your node is serving, you should skip ahead to Request new oracle
+If you know which oracle your node is serving, you should skip ahead to Request new oracle
 
 1. Open the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
 2. Open the map `stakedTokens`
