@@ -26,7 +26,7 @@ commands in order.
 Compile the contracts:
 
 ```bash
-cargo partisia-contract build --release
+cargo pbc build --release
 ```
 
 Go into the test dir, compile the tests and run them.
