@@ -22,11 +22,9 @@ Becoming a price oracle require a stake of 5000 MPC associated to the large orac
 2. Sign in (upper right corner)
 3. Invoke the contract action [AssociateTokenstoContract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract) with a minimum amount of 5000 MPC tokens
 4. Go to
-   the [ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d/register)
-   or [BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39/register)
-   and invoke the action _Register_
-
-
+   [ETH Price Oracle contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d/register), 
+   [BNB Price Oracle contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39/register) or 
+   [MATIC Price Oracle contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33/register) and invoke the action _Register_
 
 ## How to deregister as a price oracle
 
