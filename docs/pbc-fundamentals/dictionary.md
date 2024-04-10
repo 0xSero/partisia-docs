@@ -45,8 +45,8 @@ passed, even if other criteria have not been met.
 
 **Minimum criteria of the epochs in important system contracts:**
 
-- Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members or minimum time of 28 days have passed
-- [Small oracle](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and new oracle is requested    
+- Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members. Alternatively, minimum time of 28 days have passed and [trigger new committee](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/triggerNewCommittee) has been invoked
+- [Small oracle](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and [request new oracle](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle) has been invoked    
 - ZK contract: when the calculations specified in the contract have been completed, or the lifetime paid for by the contract owner runs out   
 - [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks 
 
