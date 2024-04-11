@@ -15,9 +15,10 @@ You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-
 
 ### How to delegate MPC tokens
 
+Before you delegate tokens you should visit the [Staking Marketplace](https://discord.com/channels/819902335567265792/1075334307821920337)  where you can find node operators interested in receiving delegated stakes.
 !!! warning 
 
-    Delegation is a long term commitment. When your tokens are delegated to a node operator the tokens can be locked to node services. [See restrictions on tokens and rules of [retrieval](../node-operations/node-payment-rewards-and-risks.md)
+    Delegation is a long term commitment. When your tokens are delegated to a node operator the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
 
 1. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)   
 2. Sign in   
@@ -25,4 +26,4 @@ You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-
 4. Click _Delegate_   
 5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
-You can find node operators interested in receiving delegated stakes by visiting the [Staking Marketplace](https://discord.com/channels/819902335567265792/1075334307821920337)
+Your tokens will now be in the state of _pending acceptance_. The node operator has 14 days to accept or reject the offered delegation. If the node operator takes no action, the tokens will return your account.
