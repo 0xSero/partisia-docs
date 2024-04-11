@@ -68,7 +68,7 @@ nav:
       - node-operations/complete-synaps-kyb.md
       - node-operations/node-health-and-maintenance.md
       - node-operations/node-payment-rewards-and-risks.md
-      - node-operations/delegated-staking.md
+      - node-operations/delegated-node-staking.md
       - node-operations/how-system-updates-and-voting-work.md
   - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
   - get-support-from-pbc-community.md
