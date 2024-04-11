@@ -38,7 +38,7 @@ Your tokens will now be in the state of _pending acceptance_. The node operator 
 4. Click _Retract_
 5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
-If the tokens are currently being used for a node service:
+**If the tokens are currently being used for a node service:**
 
 1. Contact the node operator and ask him to disassociate the tokens from node service   
 2. Wait for [pending time to be over](../node-operations/node-payment-rewards-and-risks.md)
