@@ -11,7 +11,7 @@ node operator using the tokens, if you want him to release the tokens from node 
 
 ### How rewards and fees work for delegated tokens
 
-You get rewards for delegating tokens to node operators. The rewards are calculated as a factor multiplied with the number of rewardable tokens delegated. $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated $
+You get rewards for delegating tokens to node operators. The rewards are calculated as a factor multiplied with the number of rewardable tokens delegated. $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
 
 ### How to delegate MPC tokens
 
