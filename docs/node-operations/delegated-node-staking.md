@@ -38,7 +38,9 @@ Your tokens will now be in the state of _pending acceptance_. The node operator 
 4. Click _Retract_
 5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
-Your tokens should now be retrieved to your account and full control. If this does not happen, the tokens are in use by a node service. Then you need to do the following:
+Your tokens should now be retrieved to your account and full control. If this does not happen, the tokens are in use by a node service. Then go [here](#how-to-retrieve-delegated-mpc-tokens-locked-to-a-node-service)
+
+### How to retrieve delegated MPC tokens locked to a node service
 
 1. Contact the node operator and ask him to disassociate the tokens from node service   
 2. Wait for [pending time to be over](../node-operations/node-payment-rewards-and-risks.md)
