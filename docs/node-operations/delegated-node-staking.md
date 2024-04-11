@@ -13,7 +13,7 @@ node operator using the tokens, if you want him to release the tokens from node 
 
 You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards are calculated as a factor multiplied with the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
 
-The calculation method for rewards, and the history of payouts are available [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
+The calculation method for rewards, and the history of payouts [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
 
 ### How to delegate MPC tokens
 
