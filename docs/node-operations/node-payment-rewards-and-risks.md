@@ -47,7 +47,7 @@ Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as col
 node [performing a paid service](start-running-a-node.md#which-node-should-you-run). Collateral means the stake of a
 node can be used to pay compensation for misconduct committed with the node. For all services on PBC there is a basic
 safety principle: $ValueOfStake \gt ValueOfService$. 
-This can be understood by looking at how the principle is applied for nodes performing oracle service or ZK service.
+The safety principle can be showcased through the application of it in the oracle service and the ZK service, explained below:
 
 Three [oracle nodes](../pbc-fundamentals/dictionary.md#oracle-node) performing oracle service together constitutes
 one [small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet). A
