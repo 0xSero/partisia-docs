@@ -9,16 +9,18 @@ a [node service](../node-operations/start-running-a-node.md#which-node-should-yo
 when they are no longer used for a node service. It is your own responsibility as a delegator to communicate with the
 node operator using the tokens, if you want him to release the tokens from node service allowing you to retrieve them.
 
-### How rewards and fees work for delegated tokens
+### How rewards work for delegated tokens
 
-You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards are calculated as a factor multiplied with the number of rewardable tokens delegated. $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
+You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards are calculated as a factor multiplied with the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
+
+The rewards calculation rewards paid out
 
 ### How to delegate MPC tokens
 
 Before you delegate tokens you should visit the [Staking Marketplace](https://discord.com/channels/819902335567265792/1075334307821920337)  where you can find node operators interested in receiving delegated stakes.
 !!! warning 
 
-    Delegation is a long term commitment. When your tokens are delegated to a node operator the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
+    Delegation is a long term commitment. When your tokens are delegated to a node operator, the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
 
 1. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)   
 2. Sign in   
