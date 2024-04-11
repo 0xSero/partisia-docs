@@ -7,10 +7,11 @@ Price oracles monitor and report prices of the [BYOC](../pbc-fundamentals/byoc/i
 more about the price oracles [here](../pbc-fundamentals/dictionary.md#price-oracle)). Any node with
 sufficient tokens associated to the large oracle contract can register as a price oracle.
 
-!!! Warning " You must complete these requirements before you can continue"    
-1. [Run a baker node](run-a-baker-node.md)
-2. [Stake 5 K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total staking balance of
-30K for both price oracle and baker node.
+!!! Warning " You must complete these requirements before you can continue"
+
+    1. [Run a baker node](run-a-baker-node.md)
+    2. [Stake 5 K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total staking balance of
+    30K for both price oracle and baker node.
 
 ## Register as a price oracle
 
