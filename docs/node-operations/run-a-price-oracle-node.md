@@ -41,7 +41,7 @@ To leave the price oracle, invoke the action _Deregister_ at the price oracle co
 - [Deregister BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39/deregister)    
 - [Deregister MATIC Price Oracle contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33/deregister)   
 
-### Find out which price oracle your node serves (If you know already skip ahead to [deregistration](#deregister-from-a-price-oracle))   
+### Verify which price oracle your node serves (If known, skip to [deregistration](#deregister-from-a-price-oracle))   
 
 1. Open
    the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
