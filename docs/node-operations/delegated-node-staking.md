@@ -13,7 +13,7 @@ node operator using the tokens, if you want him to release the tokens from node 
 
 You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards are calculated as a factor multiplied with the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
 
-The rewards calculation rewards paid out
+The calculation method for rewards, and the history of payouts are available [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
 
 ### How to delegate MPC tokens
 
@@ -29,3 +29,13 @@ Before you delegate tokens you should visit the [Staking Marketplace](https://di
 5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
 Your tokens will now be in the state of _pending acceptance_. The node operator has 14 days to accept or reject the offered delegation. If the node operator takes no action, the tokens will return your account.
+
+### How to retrieve delegated MPC tokens
+
+1. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)
+2. Sign in
+3. Unfold the collapsed delegation table in the bottom of the page
+4. Click _Retract_
+5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
+
+If the tokens are being used for a node service [check restrictions and pending times](../node-operations/node-payment-rewards-and-risks.md)
