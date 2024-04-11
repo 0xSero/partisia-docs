@@ -43,7 +43,7 @@ Your tokens should now be retrieved to your account and full control. If this do
 ### How to retrieve delegated MPC tokens locked to a node service
 
 1. Contact the node operator and ask him to disassociate the tokens from node service   
-2. Wait for [pending time to be over](../node-operations/node-payment-rewards-and-risks.md)
+2. Wait for [pending time](../node-operations/node-payment-rewards-and-risks.md) to be over
 3. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)
 4. Sign in
 5. Unfold the collapsed delegation table in the bottom of the page
