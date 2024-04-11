@@ -1,7 +1,7 @@
-# Delegated Staking
+# Delegated staking
 
-Delegation of MPC token is way to stake tokens and earn rewards without running
-a [node](../pbc-fundamentals/dictionary.md#node).
+Delegation of MPC token to a node operator is way to stake tokens and earn rewards without running
+a [node](../pbc-fundamentals/dictionary.md#node) yourself.
 
 Delegated staking means that you delegate MPC tokens to an account of a node operator. If the node operator accepts the
 delegated tokens he has custodianship over the tokens. That means that the node operator can associate the tokens to
