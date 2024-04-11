@@ -40,8 +40,9 @@ Confirmed and active block producers. New members are accepted into the committe
 
 ### Epoch
 
-An Epoch is the time it takes for a contract to complete one cycle of work defined by the system contract, when one epoch ends another one starts. For small oracles and for the committee you can [request to end the epoch prematurely](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) if enough time have past.
-passed, even if other criteria have not been met.
+An Epoch is the time it takes for a contract to complete one cycle of work defined by the system contract, when one epoch ends another one starts. Within the [epoch of any node service](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) the staked MPC tokens of the node performing the service are _locked_ to the service and cannot
+be _disassociated_. For small oracles and for the committee you can [request to end the epoch prematurely](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) if enough time have
+passed.
 
 **Minimum criteria of the epochs in important system contracts:**
 
@@ -49,9 +50,6 @@ passed, even if other criteria have not been met.
 - [Small oracle](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and [request new oracle](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle) has been invoked    
 - ZK contract: when the calculations specified in the contract have been completed, or the lifetime paid for by the contract owner runs out   
 - [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks 
-
-Within the [epoch of any node service](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) the staked MPC tokens of the node performing the service are _locked_ to the service and cannot
-be _disassociated_. You can end oracle and committee epochs prematurely if enough time has passed.
 
 ### ETH
 
