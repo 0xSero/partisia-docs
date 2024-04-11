@@ -26,7 +26,7 @@ contract. If your tokens are already locked to a deposit or withdrawal oracle, y
 When the deposit or withdrawal limit has been met, 3 new nodes will be selected. The tokens of the 3 nodes
 associated with a specific oracle will get pending status for 14 days. Your node can at any time serve in one oracle for each 250K tokens associated to [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)  and be
 reselected to same oracle if you have enough tokens associated.
-.
+
 
 ## How to leave a deposit or withdrawal oracle
 
