@@ -17,7 +17,7 @@ You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-
 
 !!! warning 
 
-    Delegation is a long term commitment. When your tokens are delegated to a node operator the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operation/node-payment-rewards-and-risks.md)
+    Delegation is a long term commitment. When your tokens are delegated to a node operator the tokens can be locked to node services. [See restrictions on tokens and rules of [retrieval](../node-operations/node-payment-rewards-and-risks.md)
 
 1. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)   
 2. Sign in   
