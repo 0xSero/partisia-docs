@@ -44,8 +44,8 @@ there are 100 nodes in the current committee then your node needs a vote from 66
 ### How staking of MPC tokens work
 
 Staked [MPC tokens](../pbc-fundamentals/dictionary.md#mpc-token) are used as collateral for a
-node [performing a paid service](start-running-a-node.md#which-node-should-you-run). Collateral means the stake of a
-node can be used to pay compensation for misconduct committed with the node. For all services on PBC there is a basic
+node [performing a paid service](start-running-a-node.md#which-node-should-you-run). Collateral is the stake of a
+node, which will be used to pay compensation for misconduct committed with the node. For all services on PBC there is a basic
 safety principle: $ValueOfStake \gt ValueOfService$. 
 The safety principle can be showcased through the application of it in the oracle service and the ZK service, explained below:
 
