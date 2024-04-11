@@ -35,7 +35,7 @@ equally among the nodes receiving a vote from 2/3s of the nodes. A peer node wil
 has appeared on a block it has seen. It creates a sorted list of the performers. It cast a vote for each node in the top
 2/3s.   
 Everyone that has received a vote from 2/3s of the committee gets paid an equal share of the fees of the epoch. So, if
-there are 100 nodes in the current committee then your node needs a vote from 66 other nodes each epoch to get paid.
+there are 100 nodes in the [current committee](../pbc-fundamentals/dictionary.md#committee) then your node needs a vote from 66 other nodes each epoch to get paid.
 
 !!! Note "Note"
     Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch.        
