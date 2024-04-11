@@ -35,7 +35,7 @@ at one of the price oracles:
 
 ## How to deregister as a price oracle
 
-To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered. [Deregister from ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d/deregister) or [Deregister BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39/deregister)
+To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered. [Deregister from ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d/deregister) or [Deregister BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39/deregister) or [Deregister MATIC Price Oracle contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33/deregister)
  
 ### Find out which price oracle your node serves (If you know already skip ahead to [deregistration](#deregister-from-a-price-oracle))   
 
