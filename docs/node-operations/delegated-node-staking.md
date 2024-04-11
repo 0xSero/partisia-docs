@@ -7,7 +7,7 @@ Delegated staking means that you delegate MPC tokens to an account of a node ope
 delegated tokens he has custodianship over the tokens. That means that the node operator can associate the tokens to
 a [node service](../node-operations/start-running-a-node.md#which-node-should-you-run). Tokens can only be retrieved,
 when they are no longer used for a node service. It is your own responsibility as a delegator to communicate with the
-node operator using the tokens, if you want him to release the tokens from node service allowing you to retrieve them.
+node operator using the tokens. Contact the node operator if you want him to release the tokens from node service.  
 
 ### How rewards work for delegated tokens
 
@@ -38,4 +38,13 @@ Your tokens will now be in the state of _pending acceptance_. The node operator 
 4. Click _Retract_
 5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
-If the tokens are currently being used for a node service, beware of [restrictions and pending times](../node-operations/node-payment-rewards-and-risks.md)
+If the tokens are currently being used for a node service:
+
+1. Contact the node operator and ask him to disassociate the tokens from node service   
+2. Wait for [pending time to be over](../node-operations/node-payment-rewards-and-risks.md)
+3. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)
+4. Sign in
+5. Unfold the collapsed delegation table in the bottom of the page
+6. Click _Retract_
+7. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
+
