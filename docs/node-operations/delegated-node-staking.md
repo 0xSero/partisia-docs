@@ -15,5 +15,14 @@ You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-
 
 ### How to delegate MPC tokens
 
+!!! warning 
 
+    Delegation is a long term commitment. When your tokens are delegated to a node operator the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operation/node-payment-rewards-and-risks.md)
 
+1. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)   
+2. Sign in   
+3. Unfold the collapsed delegation table in the bottom of the page
+4. Click _Delegate_   
+5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
+
+You can find node operators interested in receiving delegated stakes by visiting the [Staking Marketplace](https://discord.com/channels/819902335567265792/1075334307821920337)
