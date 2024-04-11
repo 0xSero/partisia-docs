@@ -48,7 +48,7 @@ unused tokens in the large oracle contract. You should only take this measure, i
 
 ### How to find out which small oracle your node serves
 
-If you know which oracle your node is serving, you should skip ahead to Request new oracle
+If you know which oracle your node is serving, you should skip ahead to [request new oracle](#request-new-oracle)
 
 1. Open the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
 2. Open the map `stakedTokens`
