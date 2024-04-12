@@ -25,7 +25,7 @@ schedule. [See how rewards are calculated and distributed](https://gitlab.com/pa
 
 !!! Note "Note"
 
-    Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch. 
+    Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch.    
     It is important for the node operator to keep up to date to keep earning fees.
 
 Fees for baker service are paid out by
