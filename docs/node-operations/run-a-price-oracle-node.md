@@ -36,11 +36,12 @@ at one of the price oracles:
 
 ## Steps to deregister as a price oracle
 
-The time window available to deregister can be very short, because you are responsible
-for any price you have reported, and then you have a short time from the finalized price to the next price your node
-report.
+To begin deregisterering a node from a price oracle, the first step is to verify which price oracle it serves. If known,
+skip to [deregistration](#deregister-from-a-price-oracle). It is important to identify the time window, where you can
+deregister. The time window available to deregister can be very short, because the node is responsible for the prices it
+has reported. You have a short time from the finalized price to the next price your node report.
 
-### Verify which price oracle your node serves (If known, skip to [deregistration](#deregister-from-a-price-oracle))   
+### Verify which price oracle your node serves 
 
 1. Open
    the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
