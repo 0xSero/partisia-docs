@@ -9,7 +9,7 @@ Node operators get paid for running four [types of services](../node-operations/
 - Baker services - signing and producing
   blocks (pays out fees for baker services depending on performance measured by peers)
 - ZK services - preprocessing data, executing ZK
-  computations ([See the fees paid for different ZK operations](https://partisiablockchain.gitlab.io/documentation/smart-contracts/gas/zk-computation-gas-fees.html))
+  computations ([See the fees paid for different ZK operations](../smart-contracts/gas/zk-computation-gas-fees.md))
 - Oracle services - services related to BYOC, signing transfers and signing a reported price (deposit and withdrawal
   oracle nodes receive 0.1% of transferred value, 
 - Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories   
