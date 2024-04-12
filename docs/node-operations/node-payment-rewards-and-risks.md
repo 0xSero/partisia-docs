@@ -29,11 +29,11 @@ Fees for baker service are paid out by
 the [Fee distribution contract](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9?tab=state).
 In the state of the contract you can see a collapsed map placed to the right of the field called _epochs_:
 
-1. Click the map right of _epochs_ 
-2. Unfold the maps and structs that succeed until you reach _metrics_  
+1. Click the map right of `epochs` 
+2. Unfold the successive maps and structs until you reach `metrics`  
 
-The map called _metrics_ holds node operator addresses. Next to the address of each node in the network you find a list
-called _signatureFrequencies_. The _signatureFrequencies_ tells you how many signatures on blocks the node has seen so
+The map called `metrics` holds node operator addresses. Next to the address of each node in the network you find a list
+called `signatureFrequencies`. The `signatureFrequencies` tells you how many signatures on blocks the node has seen so
 far from each of the other nodes in the network in the current [epoch](../pbc-fundamentals/dictionary.md#epoch). When
 every node has produced 100 blocks, the [epoch](../pbc-fundamentals/dictionary.md#epoch) is over and earned fees are
 distributed equally among the nodes receiving a vote from 2/3s of the nodes. A peer node will count how often your
