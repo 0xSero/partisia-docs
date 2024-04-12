@@ -36,8 +36,9 @@ at one of the price oracles:
 
 ## Steps to deregister as a price oracle
 
-To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered. The time window available to deregister can be very short, because you are responsible for any price you have reported,
-and then you have a short time from the finalized price to the next price your node report.   
+The time window available to deregister can be very short, because you are responsible
+for any price you have reported, and then you have a short time from the finalized price to the next price your node
+report.
 
 ### Verify which price oracle your node serves (If known, skip to [deregistration](#deregister-from-a-price-oracle))   
 
