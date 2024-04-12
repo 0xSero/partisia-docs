@@ -37,7 +37,9 @@ at one of the price oracles:
 ## Steps to deregister as a price oracle
 
 To begin deregisterering a node from a price oracle, the first step is to verify which price oracle it serves. If known,
-skip to [deregistration](#deregister-from-a-price-oracle). It is important to identify the time window, where you can
+skip to [deregistration](#deregister-from-a-price-oracle).
+
+It is important to identify the time window, where you can
 deregister. The time window available to deregister can be very short, because the node is responsible for the prices it
 has reported. You have a short time from the finalized price to the next price your node report.
 
