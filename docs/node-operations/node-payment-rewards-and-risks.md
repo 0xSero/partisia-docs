@@ -4,7 +4,7 @@ Here you can read about [paid services nodes can perform](start-running-a-node.m
 
 ### How different node services earn fees and rewards
 
-Node operators get paid for running 3 types of services:
+Node operators get paid for running four [types of services](../node-operations/start-running-a-node.md#which-node-should-you-run):
 
 - Baker services - signing and producing
   blocks (pays out fees for baker services depending on performance measured by peers)
@@ -12,11 +12,7 @@ Node operators get paid for running 3 types of services:
   computations ([See the fees paid for different ZK operations](https://partisiablockchain.gitlab.io/documentation/smart-contracts/gas/zk-computation-gas-fees.html))
 - Oracle services - services related to BYOC, signing transfers and signing a reported price (deposit and withdrawal
   oracle nodes receive 0.1% of transferred value, 
-- Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories 
-
-!!! note   
-    ZK and oracle nodes are upgrades services. Higher paying services depend on first registering for baker services and
-    then committing additional stake and registering for the new service.
+- Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories   
 
 A node service earns rewards when a user commits a transaction on the blockchain and pays a gas cost
 in [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). The gas spent covers the fee of the service performed by the nodes, this designs ensures that node operators gets paid in BYOC tokens and not MPC tokens.
