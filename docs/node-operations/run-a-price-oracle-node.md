@@ -58,12 +58,15 @@ To leave the price oracle, invoke the action _Deregister_ at the price oracle co
 
 ### Deregister from a price oracle   
 
+To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered.
+
 You cannot deregister in the `challengePeriod` lasting one hour from the starting time `startedAt`. The starting time is given as a [unix timestamp](https://www.unixtimestamp.com/).
 
 1. Go to the contract of the price oracle your node serves   
-2. Check the timestamp   
-3. Sign in to the browser   
-4. Invoke the contract action _Deregister_ at exactly one hour after the time stamp   
+2. 
+3. Check the timestamp   
+4. Sign in to the browser   
+5. Invoke the contract action _Deregister_ at exactly one hour after the time stamp   
 
 If your node has already reported a price in the current round your invocation of _Deregister_ will result in an error
 saying 
