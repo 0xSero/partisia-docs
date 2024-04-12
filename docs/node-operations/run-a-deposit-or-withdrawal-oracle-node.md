@@ -44,7 +44,7 @@ maintenance. You can request a new oracle if the oracle is at least 14 days old.
 oracle and three new nodes will be selected. The tokens of the three nodes associated with a specific oracle will get pending
 status for 14 days. If you have enough tokens available the node can be reselected for the same oracle. You can prevent that by
 [disassociating](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
-unused tokens in the large oracle contract. You should only take this measure, if you want your node to leave all oracle service.
+unused tokens in the large oracle contract. You should only take this measure, if you want your node to leave all oracle services.
 
 ### How to find out which small oracle your node serves
 
