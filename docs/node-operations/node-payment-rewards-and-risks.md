@@ -29,14 +29,21 @@ schedule. [See how rewards are calculated and distributed](https://gitlab.com/pa
 
 Fees for baker service are paid out by
 the [Fee distribution contract](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9?tab=state).
-In the state of the contract you can see a list from each node, showing how many signatures on blocks they have seen
-from each of the other nodes. When every node has produced 100 blocks,
-the [epoch](../pbc-fundamentals/dictionary.md#epoch) is over and earned fees are distributed
-equally among the nodes receiving a vote from 2/3s of the nodes. A peer node will count how often your node's signature
-has appeared on a block it has seen. It creates a sorted list of the performers. It cast a vote for each node in the top
-2/3s.   
-Everyone that has received a vote from 2/3s of the committee gets paid an equal share of the fees of the epoch. If
-there are 100 nodes in the [current committee](../pbc-fundamentals/dictionary.md#committee) then your node needs a vote from 66 other nodes each epoch to get paid.
+In the state of the contract you can see a collapsed map placed to the right of the field called _epochs_:
+
+1. Click the map right of _epochs_ 
+2. Unfold the maps and structs that succeed until you reach _metrics_  
+
+The map called _metrics_ holds node operator addresses. Next to the address of each node in the network you find a list
+called _signatureFrequencies_. The _signatureFrequencies_ tells you how many signatures on blocks the node has seen so
+far from each of the other nodes in the network in the current [epoch](../pbc-fundamentals/dictionary.md#epoch). When
+every node has produced 100 blocks, the [epoch](../pbc-fundamentals/dictionary.md#epoch) is over and earned fees are
+distributed equally among the nodes receiving a vote from 2/3s of the nodes. A peer node will count how often your
+node's signature has appeared on a block it has seen. It creates a sorted list of the performers. It cast a vote for
+each node in the top 2/3s.   
+Everyone that has received a vote from 2/3s of the committee gets paid an equal share of the fees of the epoch. If there
+are 100 nodes in the [current committee](../pbc-fundamentals/dictionary.md#committee) then your node needs a vote from
+66 other nodes each epoch to get paid.
 
 !!! Note "Note"
     Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch.        
