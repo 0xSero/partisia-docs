@@ -103,7 +103,7 @@ see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.m
 
 If a node is using delegated stakes, the delegator has to reach out to the node operator using the tokens to ask for release, if they wish
 to retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes. Delegated
-MPC tokens that are not associated to a contract or locked to a service can be retrieved without any pending period.
+MPC tokens, that are not associated to a contract or locked to a service, can be retrieved without any pending period.
 
 Rules:
 
