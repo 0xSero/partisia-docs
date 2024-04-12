@@ -36,11 +36,8 @@ at one of the price oracles:
 
 ## Steps to deregister as a price oracle
 
-To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered. 
-
-- [Deregister from ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d/deregister)   
-- [Deregister BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39/deregister)    
-- [Deregister MATIC Price Oracle contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33/deregister)   
+To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered. The time window available to deregister can be very short, because you are responsible for any price you have reported,
+and then you have a short time from the finalized price to the next price your node report.   
 
 ### Verify which price oracle your node serves (If known, skip to [deregistration](#deregister-from-a-price-oracle))   
 
@@ -62,22 +59,21 @@ To leave the price oracle, invoke the action _Deregister_ at the price oracle co
 
 You cannot deregister in the `challengePeriod` lasting one hour from the starting time `startedAt`. The starting time is given as a [unix timestamp](https://www.unixtimestamp.com/).
 
-1. Go to the contract of the price oracle your node serves   
-2. 
-3. Check the timestamp   
-4. Sign in to the browser   
-5. Invoke the contract action _Deregister_ at exactly one hour after the time stamp   
+1. Go to the contract of the price oracle your node serves:
+    - [Deregister from ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d?tab=state)
+    - [Deregister BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39?tab=state)
+    - [Deregister MATIC Price Oracle contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33?tab=state)
+2. Check the timestamp of the `challengePeriod` called `startedAt`  
+3. Sign in to the browser   
+4. Invoke the contract action _Deregister_ at exactly one hour after the time stamp   
 
 If your node has already reported a price in the current round your invocation of _Deregister_ will result in an error
 saying 
 
 ```Cannot deregister an oracle node that has notified a price update on an ongoing round```
 
-
-The time window available to deregister can be very short, because you are responsible for any price you have reported,
-and then you have a short time from the finalized price to the next price your node report. If you fail in your attempt
-to deregister you can note the start time of the challenge period you have entered, and wait an hour to try again. Try
-to send the contract interaction as close as possible to the passing of the one-hour-mark.
+This message means your attempt to deregister failed. Note the start time of the challenge period you have entered, and
+wait an hour to try again. Send the contract interaction as close as possible to the passing of the one-hour-mark.
 
 If you are planning to deregister from all node services, you should deregister in
 the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)
