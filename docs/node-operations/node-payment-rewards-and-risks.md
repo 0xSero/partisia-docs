@@ -23,8 +23,7 @@ schedule. [See how rewards are calculated and distributed](https://gitlab.com/pa
 
 ### How are baker fees calculated
 
-Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch.    
-It is important for the node operator to keep up to date to keep earning fees.
+Baker service fees depends on both the performance of the individual node and the level of activity on-chain, meaning the number and size of transactions committed in each epoch. It is important for the node operator to keep up to date to keep earning fees.
 
 Fees for baker service are paid out by
 the [Fee distribution contract](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9?tab=state).
