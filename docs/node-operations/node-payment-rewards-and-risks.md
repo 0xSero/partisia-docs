@@ -17,9 +17,8 @@ Node operators get paid for running 3 types of services:
     ZK and oracle nodes are upgrades services. Higher paying services depend on first registering for baker services and
     then committing additional stake and registering for the new service.
 
-When a user commits a transaction on the blockchain he pays a gas cost
-in [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). That gas covers the fee for the service performed by the
-nodes.
+A node service earns rewards when a user commits a transaction on the blockchain and pays a gas cost
+in [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). The gas spent covers the fee of the service performed by the nodes, this designs ensures that node operators gets paid in BYOC tokens and not MPC tokens.
 
 In addition to the fees paid for service nodes receive rewards in the form of MPC tokens. Rewards are distributed according to node performance
 measured by block production as well as tokens staked and their vesting
