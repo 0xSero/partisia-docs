@@ -41,7 +41,7 @@ skip to [deregistration](#deregister-from-a-price-oracle).
 
 It is important to identify the time window, where you can
 deregister. The time window available to deregister can be very short, because the node is responsible for the prices it
-has reported. You have a short time from the finalized price to the next price your node report.
+has reported. You have a short time from the finalized price to the next price your node reports.
 
 ### Verify which price oracle your node serves 
 
