@@ -72,7 +72,7 @@ saying
 
 ```Cannot deregister an oracle node that has notified a price update on an ongoing round```
 
-This message means your attempt to deregister failed. Note the start time of the challenge period you have entered, and
+This error means your attempt to deregister failed. Note the start time of the challenge period you have entered, and
 wait an hour to try again. Send the contract interaction as close as possible to the passing of the one-hour-mark.
 
 If you are planning to deregister from all node services, you should deregister in
