@@ -34,7 +34,7 @@ at one of the price oracles:
 
 
 
-## How to deregister as a price oracle
+## Steps to deregister as a price oracle
 
 To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered. 
 
