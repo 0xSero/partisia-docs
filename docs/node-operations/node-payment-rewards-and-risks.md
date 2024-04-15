@@ -4,14 +4,14 @@ Here you can read about [paid services nodes can perform](start-running-a-node.m
 
 ### How different node services earn fees and rewards
 
-Node operators get paid for running four [types of services](../node-operations/start-running-a-node.md#which-node-should-you-run):
+Node operators get paid fees for running four [types of services](../node-operations/start-running-a-node.md#which-node-should-you-run):
 
 - Baker services - signing and producing
-  blocks (pays out fees for baker services depending on performance measured by peers)
+  blocks. Baker fees depend on performance measured by peers
 - ZK services - preprocessing data, executing ZK
-  computations ([See the fees paid for different ZK operations](../smart-contracts/gas/zk-computation-gas-fees.md))
-- Oracle services - services related to BYOC, signing transfers and signing a reported price (deposit and withdrawal
-  oracle nodes receive 0.1% of transferred value, 
+  computations [See the fees paid for different ZK operations](../smart-contracts/gas/zk-computation-gas-fees.md)
+- Oracle services - services related to BYOC, signing transfers and signing a reported price. Deposit and withdrawal
+  oracle nodes receive 0.1% of transferred value 
 - Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories   
 
 A node service earns rewards when a user commits a transaction on the blockchain and pays a gas cost
