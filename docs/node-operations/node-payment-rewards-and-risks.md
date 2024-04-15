@@ -27,7 +27,7 @@ Baker service fees depend on both the performance of the individual node and the
 
 Fees for baker service are paid out by
 the [Fee distribution contract](https://browser.partisiablockchain.com/contracts/04fe17d1009372c8ed3ac5b790b32e349359c2c7e9?tab=state).
-In the state of the contract you can see a collapsed map placed to the right of the field called _epochs_:
+In the state of the contract you can see a collapsed map placed to the right of the field called `epochs`:
 
 1. Click the map right of `epochs` 
 2. Unfold the successive maps and structs until you reach `metrics`  
