@@ -16,7 +16,7 @@ more about the price oracles [here](../pbc-fundamentals/dictionary.md#price-orac
 
 ## Register as a price oracle
 
-Becoming a price oracle require a stake of 5000 MPC associated to the large oracle contract and a _Register_ transaction
+Becoming a price oracle requires a stake of 5000 MPC associated to the large oracle contract and a _Register_ transaction
 at one of the price oracles:
 
 1. Find
