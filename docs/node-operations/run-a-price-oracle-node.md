@@ -37,7 +37,7 @@ at one of the price oracles:
 
 ## Steps to deregister as a price oracle
 
-To begin deregisterering a node from a price oracle, the first step is to verify which price oracle it serves. If known,
+The first step to deregister is to verify which price oracle the node serves. If known,
 skip to [deregistration](#deregister-from-a-price-oracle).
 
 It is important to identify the time window, where you can
