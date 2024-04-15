@@ -4,11 +4,9 @@ Baker nodes sign and produce blocks. This page describes how to change your node
 When you have completed the steps below, you have a node that is signing and producing blocks.
 
 !!! Warning "You must complete these requirements before you can continue"   
-    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with and [run a reader node](run-a-reader-node.md)
-    - Complete Synaps  [KYC](complete-synaps-kyb.md#verification-process-for-individuals-kyc) / [KYB](complete-synaps-kyb.md#verification-process-for-businesses-kyb)   
-    - [Stake 25 K MPC tokens](https://browser.partisiablockchain.com/node-operation)    
-
-
+    1. Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with and [run a reader node](run-a-reader-node.md)
+    2. Complete Synaps  [KYC](complete-synaps-kyb.md#verification-process-for-individuals-kyc) / [KYB](complete-synaps-kyb.md#verification-process-for-businesses-kyb)   
+    3. [Stake 25K MPC tokens](https://browser.partisiablockchain.com/node-operation)    
 
 ### Stop your reader node
 
@@ -21,7 +19,7 @@ cd ~/pbc
 Stop the node container:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### Change `config.json` to support block production
@@ -86,7 +84,7 @@ Your file should have similar contents to the one in the example below.
 ## Start your block producing node
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 This pulls the latest image and starts the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running:
