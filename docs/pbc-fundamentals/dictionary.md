@@ -40,7 +40,7 @@ Confirmed and active block producers. New members are accepted into the committe
 
 ### Epoch
 
-An Epoch is the time it takes for a system contract to complete one cycle of work defined by the system contract, when one epoch ends another one starts. Within the [epoch of any node service](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) the staked MPC tokens of the node performing the service are _locked_ to the service and cannot
+An Epoch is the time it takes for a system contract to complete one cycle of work defined by the system contract. When one epoch ends another one starts. Within the [epoch of any node service](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) the staked MPC tokens of the node performing the service are _locked_ to the service and cannot
 be _disassociated_. For [small oracles ](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) and for the [committee](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state) you can [request to end the epoch prematurely](../node-operations/node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) if enough time have
 passed.
 
