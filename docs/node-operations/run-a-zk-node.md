@@ -166,14 +166,14 @@ volumes:
 [Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and
 then `ENTER` and then `CTRL+X`.
 
-Start the docker-compose services and pull the latest images:
+Start the Docker Compose services and pull the latest images:
 
 ```BASH
-docker-compose pull
+docker compose pull
 ```
 
 ```BASH
-docker-compose up -d
+docker compose up -d
 ```
 
 Normally, nginx has new releases monthly, therefore you do not need to check for updates for your proxy server daily like you
@@ -181,28 +181,28 @@ do with pbc software. You can add cron rules to your auto-update script or updat
 
 Update the nginx proxy:
 ```BASH
-docker-compose pull nginx-proxy
+docker compose pull nginx-proxy
 ```
 
 ```BASH
-docker-compose up -d nginx-proxy
+docker compose up -d nginx-proxy
 ```
 
 Update the acme-companion
 
 ```BASH
-docker-compose pull acme-companion
+docker compose pull acme-companion
 ```
 
 ```BASH
-docker-compose up -d acme-companion
+docker compose up -d acme-companion
 ```
 !!! note "If you used different names for your docker services than the `docker-compose.yml` template"
 
     Correct the command by using the name of your docker service:
     ```BASH
-    docker-compose pull nameOfService
-    docker-compose up -d nameOfService
+    docker compose pull nameOfService
+    docker compose up -d nameOfService
     ```
      
 
