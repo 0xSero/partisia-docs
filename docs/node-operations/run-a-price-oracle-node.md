@@ -72,8 +72,8 @@ You cannot deregister in the `challengePeriod` lasting one hour from the startin
 3. Sign in to the browser   
 4. Invoke the contract action _Deregister_ at exactly one hour after the time stamp   
 
-If your node has already reported a price in the current round your invocation of _Deregister_ will result in an error
-saying 
+If your node has already reported a price in the current round, your invocation of _Deregister_ will result in an error
+saying: 
 
 ```Cannot deregister an oracle node that has notified a price update on an ongoing round```
 
