@@ -10,7 +10,7 @@ Node operators get paid fees for running four [types of services](../node-operat
   blocks. Baker fees depend on performance measured by peers
 - ZK services - preprocessing data, executing ZK
   computations. [See the fees paid for different ZK operations](../smart-contracts/gas/zk-computation-gas-fees.md)
-- Oracle services - services related to BYOC, signing transfers and signing a reported price. Deposit and withdrawal
+- Oracle services - services related to BYOC, signing transfers. Deposit and withdrawal
   oracle nodes receive 0.1% of transferred value 
 - Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories   
 
