@@ -19,7 +19,7 @@ cd ~/pbc
 Stop the node container:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### Change `config.json` to support block production
@@ -84,7 +84,7 @@ Your file should have similar contents to the one in the example below.
 ## Start your block producing node
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 This pulls the latest image and starts the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running:

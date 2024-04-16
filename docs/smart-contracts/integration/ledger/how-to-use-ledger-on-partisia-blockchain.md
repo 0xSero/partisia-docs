@@ -65,14 +65,11 @@ After [connecting with browser](#how-to-connect-the-ledger-device-with-partisia-
 start moving assets around using the Ledger.
 
 1. Go to
-   the [MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
+   the [Your account](https://browser.testnet.partisiablockchain.com/account)
    where you
-   can [transfer MPC tokens](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881/transfer).
+   can press the transfer button to send MPC tokens.
    You need to fill out the receiving [address](../../../pbc-fundamentals/dictionary.md) and the amount of MPC tokens
    you want to send.
-
-    Remember the amount of MPC tokens needs to have 4 decimals behind, e.g. if you want to transfer 10 MPC you would
-   type: 100000 in the transfer action.
    ![interact(1)-mpc token transfer.png](interact%281%29-mpc%20token%20transfer.png)
 
 2. After sending the transaction to transfer MPC tokens, you can see that the Browser waits for approval on the Ledger
