@@ -31,8 +31,7 @@ reselected to same oracle if you have enough tokens associated.
 ## How to leave a deposit or withdrawal oracle
 
 Oracle nodes have a stake of MPC tokens associated to
-the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014)
-. If
+the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014). If
 you [disassociate](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
 the tokens from the large oracle contract, your node can no longer be allocated to serve in deposit or withdrawal
 oracles.
