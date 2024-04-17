@@ -55,7 +55,7 @@
     --binary-format-fg-color-hex: rgb(37, 40, 45);
     --binary-format-fg-color-hex-separator: rgb(58, 58, 58);
     --binary-format-fields-indent: 16px;
-    --binary-format-header-margin: 1.25em
+    --binary-format-header-margin: 1em
 }
 
 body {
@@ -855,15 +855,10 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     margin-left: var(--binary-format-fields-indent);
 }
 
-.binary-format h5 + p span.endian {
+/*.binary-format span.endian {
     float: right;
-    margin-top: var(--binary-format-header-margin);
-}
+}*/
 
-.binary-format span.endian {
-    float: right;
-    display: inline-block;
-}
 
 .binary-format span.left-align-spacer {
     display: inline-block;
@@ -873,4 +868,21 @@ div.binary-format p, div.binary-format span, div.binary-format a {
 .binary-format span.left-align-spacer-alt {
     display: inline-block;
     margin-left: 112px;
+}
+
+div.type-with-comment {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    width:100%;
+    column-gap: 5px;
+}
+
+.type-with-comment p {
+    margin-top: var(--binary-format-header-margin);
+}
+
+.type-with-comment p.endian {
+    display:flex;
+    margin-left: auto;
 }

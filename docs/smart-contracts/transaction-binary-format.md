@@ -143,6 +143,9 @@ transaction: [EventTransaction](#eventtransaction)
 
 </div>
 
+The originShard is an [Option](#optiont)<[String](#string)>, the originating shard.
+
+
 <div class="binary-format" markdown>
 
 ##### [EventTransaction](#eventtransaction)
@@ -163,6 +166,16 @@ transaction: [EventTransaction](#eventtransaction)
 }
 
 </div>
+
+The [EventTransaction](#eventtransaction) includes:
+
+- The originating transaction: the [SignedTransaction](#signedtransaction) initiating the tree of events that this event is a part of.
+- The actual [InnerEvent](#innerevent), i.e. the event type. 
+- The [ShardRoute](#shardroute)   this event is going to and nonce for this event
+- The committee id for the block producing this event
+- The version of governance when this event was produced
+- Current call height in the event stack
+- Callback ([ReturnEnvelope](#returnenvelope)) if any
 
 #### Event Types
 
@@ -248,7 +261,7 @@ payload: [DynamicBytes](#dynamicbytes)
 
 </div>
 
-#### Callback to Contract
+### Callback to Contract
 
 A transaction sent to a contract for callbacks.
 
@@ -272,7 +285,7 @@ callbackRpc: [DynamicBytes](#dynamicbytes)
 
 </div>
 
-#### Inner System Event
+### Inner System Event
 
 Event for manipulating the system state of the blockchain.
 
@@ -556,7 +569,7 @@ contractAddress: [Address](#address)
 <div class="binary-format" markdown>
 
 
-#### Sync Event
+### Sync Event
 Event with any information that should be moved from one shard to another when changing the shard configuration.
 
 ##### [SyncEvent](#syncevent)
@@ -660,7 +673,7 @@ nonce: [Long](#long)
 
 ##### [Hash](#hash)
 
-::= <span class="bytes">0<span class="sep">x</span>nn\*32</span> <span class="endian">(big-endian)</span><br>
+::= <span class="bytes">0<span class="sep">x</span>nn\*32</span><span class="endian">(big-endian)</span><br>
 
 
 ##### [Long](#long)
@@ -672,19 +685,24 @@ nonce: [Long](#long)
 
 ::= <span class="bytes">0<span class="sep">x</span>nn</span><br>
 
+<div class="type-with-comment" markdown>
 ##### [Boolean](#boolean)
+<p>::= b: <span class="bytes">0<span class="sep">x</span>nn</span></p>
+<p class="endian"><span class="endian">(false if b==0, true otherwise)</span></p>
+</div>
 
-::= b: <span class="bytes">0<span class="sep">x</span>nn</span>  <span class="endian">(false if b==0, true otherwise)</span><br>
 
+<div class="type-with-comment" markdown>
 ##### [String](#string)
+<p> ::= len:<span class="bytes">0<span class="sep">x</span>nn*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn*</span>len</p> 
+<p class="endian"><span class="endian">(len is big endian)</span></p>
+</div>
 
-::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn\*</span>len             <span class="endian">(len is big endian)</span><br>
-
-
+<div class="type-with-comment" markdown>
 ##### [DynamicBytes](#dynamicbytes)
-
-::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len        <span class="endian">(len is big endian)</span><br>
-
+<p> ::= len:<span class="bytes">0<span class="sep">x</span>nn*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn*</span>len </p>
+<p class="endian"> <span class="endian">(len is big endian)</span></p>
+</div>
 
 ##### [Option<T\>](#optiont)
 
@@ -698,14 +716,3 @@ nonce: [Long](#long)
 
 
 
-The originShard is an [Option](#optiont)<[String](#string)>, the originating shard.
-
-The EventTransaction includes:
-
-- The originating transaction: the [SignedTransaction](#signedtransaction) initiating the tree of events that this event is a part of.
-- The actual inner transaction
-- The shard this event is going to and nonce for this event
-- The committee id for the block producing this event
-- The version of governance when this event was produced
-- Current call height in the event stack
-- Callback (address) if any
