@@ -9,9 +9,8 @@ for the zero knowledge computations performed.
 ## Requirements of a ZK node
 
 !!! Warning "You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)"
-
-    1. [Stake 100 K MPC tokens](https://browser.partisiablockchain.com/node-operation) including the 25 K for baker service    
-    2. [Run baker node](run-a-baker-node.md)
+    1. [Run baker node](run-a-baker-node.md)
+    2. [Stake 75K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total staking balance of 100K for both ZK and baker node.
     3. You have set up a reverse proxy. This includes:
 
         - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
@@ -167,14 +166,14 @@ volumes:
 [Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and
 then `ENTER` and then `CTRL+X`.
 
-Start the docker-compose services and pull the latest images:
+Start the Docker Compose services and pull the latest images:
 
 ```BASH
-docker-compose pull
+docker compose pull
 ```
 
 ```BASH
-docker-compose up -d
+docker compose up -d
 ```
 
 Normally, nginx has new releases monthly, therefore you do not need to check for updates for your proxy server daily like you
@@ -182,28 +181,28 @@ do with pbc software. You can add cron rules to your auto-update script or updat
 
 Update the nginx proxy:
 ```BASH
-docker-compose pull nginx-proxy
+docker compose pull nginx-proxy
 ```
 
 ```BASH
-docker-compose up -d nginx-proxy
+docker compose up -d nginx-proxy
 ```
 
 Update the acme-companion
 
 ```BASH
-docker-compose pull acme-companion
+docker compose pull acme-companion
 ```
 
 ```BASH
-docker-compose up -d acme-companion
+docker compose up -d acme-companion
 ```
 !!! note "If you used different names for your docker services than the `docker-compose.yml` template"
 
     Correct the command by using the name of your docker service:
     ```BASH
-    docker-compose pull nameOfService
-    docker-compose up -d nameOfService
+    docker compose pull nameOfService
+    docker compose up -d nameOfService
     ```
      
 
