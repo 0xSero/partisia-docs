@@ -47,8 +47,11 @@
     --md-footer-bg-color: #0A0028;
     --md-footer-bg-color--dark: #000000;
 
-    --binary-format-header-font-size: 0.700rem;
-    --binary-format-default-font-size: 0.675rem;
+    --binary-format-font-family: 'Latin Modern Mono', 'Courier New', 'Courier', monospace;
+
+    --binary-format-header-font-size: 0.80rem;
+    --binary-format-default-font-size: 0.80rem;
+    --binary-format-separator-font-size: 0.70rem;
     --binary-format-fg-color-hex: rgb(37, 40, 45);
     --binary-format-fg-color-hex-separator: rgb(58, 58, 58);
     --binary-format-fields-indent: 16px;
@@ -809,7 +812,7 @@ form.generator-form:focus-within {
 }
 
 div.binary-format p, div.binary-format span, div.binary-format a {
-    font-family: var(--md-code-font-family);
+    font-family: var(--binary-format-font-family);
     font-size: var(--binary-format-default-font-size);
 }
 
@@ -818,7 +821,6 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     display: inline-block;
     margin-bottom: 0;
     text-transform: none;
-    font-size: var(--binary-format-header-font-size);
 }
 
 .binary-format p {
@@ -826,7 +828,7 @@ div.binary-format p, div.binary-format span, div.binary-format a {
 }
 
 .binary-format p span.bytes {
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #25282d;
 }
 
@@ -834,10 +836,14 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     color: var(--binary-format-fg-color-hex-separator);
     display: inline-block;
     font-weight: normal;
-    font-size: var(--binary-format-default-font-size);
+    font-family: var(--md-code-font-family);
+    font-size: var(--binary-format-separator-font-size);
 }
 
 .binary-format h5 a {
+    font-size: var(--binary-format-header-font-size);
+    font-weight: normal;
+    text-shadow: 0 0 0.1px var(--md-typeset-a-color);
     display: inline;
 }
 
