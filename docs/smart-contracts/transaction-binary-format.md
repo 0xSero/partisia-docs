@@ -164,6 +164,9 @@ transaction: [EventTransaction](#eventtransaction)
 
 </div>
 
+#### Event Types
+
+The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is divided into four types of events: [InnerTransaction](#innertransaction), [CallbackToContract](#callbacktocontract), [InnerSystemEvent](#innersystemevent) and [SyncEvent](#syncevent).
 
 <div class="binary-format" markdown>
 
@@ -177,9 +180,10 @@ transaction: [EventTransaction](#eventtransaction)
 
 </div>
 
-The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is divided into four types of events.
 
-### Inner Transaction
+#### Inner Transaction
+
+An event that is a transaction. It also carries an associated sender and an associated cost.
 
 <div class="binary-format" markdown>
 
@@ -244,6 +248,11 @@ payload: [DynamicBytes](#dynamicbytes)
 
 </div>
 
+#### Callback to Contract
+
+A transaction sent to a contract for callbacks.
+
+
 <div class="binary-format" markdown>
 
 ##### [CallbackToContract](#callbacktocontract)
@@ -262,6 +271,10 @@ callbackRpc: [DynamicBytes](#dynamicbytes)
 }
 
 </div>
+
+#### Inner System Event
+
+Event for manipulating the system state of the blockchain.
 
 <div class="binary-format" markdown>
 
@@ -542,6 +555,10 @@ contractAddress: [Address](#address)
 
 <div class="binary-format" markdown>
 
+
+#### Sync Event
+Event with any information that should be moved from one shard to another when changing the shard configuration.
+
 ##### [SyncEvent](#syncevent)
 
 
@@ -608,6 +625,9 @@ nonce: [Long](#long)
 }
 
 </div>
+
+
+### Common Types
 
 <div class="binary-format" markdown>
 
