@@ -30,8 +30,9 @@ interacting with the blockchain and working with smart contracts. These tools ar
 within `cargo pbc`, enabling you to explore their capabilities inside `cargo pbc`. Below are
 a short description and use case for each of these sub-tools.
 
-???+ note 
-    If you want to use any of the command-line tools you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
+!!! warning "Pre requisite to use any cargo PBC commands"
+    If you want to use any of the command-line tools or below commands you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
+
 
 ### The Compiler `build`
 
