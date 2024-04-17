@@ -836,7 +836,7 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     color: var(--binary-format-fg-color-hex-separator);
     display: inline-block;
     font-weight: normal;
-    font-family: var(--md-code-font-family);
+    font-family: var(--binary-format-font-family);
     font-size: var(--binary-format-separator-font-size);
 }
 
@@ -870,6 +870,24 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     margin-left: 112px;
 }
 
+div.type-with-comment-spaced {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    width:100%;
+    column-gap: 5px;
+    padding-left: 112px;
+}
+
+div.field-with-comment {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    width:100%;
+    column-gap: 5px;
+    padding-left: var(--binary-format-fields-indent);
+}
+
 div.type-with-comment {
     display: flex;
     flex-direction: row;
@@ -882,7 +900,11 @@ div.type-with-comment {
     margin-top: var(--binary-format-header-margin);
 }
 
-.type-with-comment p.endian {
+
+
+.type-with-comment p.endian, .type-with-comment-spaced p.endian, div.field-with-comment p.endian {
     display:flex;
     margin-left: auto;
 }
+
+

@@ -44,8 +44,14 @@ make your own implementation, for instance if you are targeting another programm
 <div class="fields"/>
 
 recoveryId: <span class="bytes">0<span class="sep">x</span>nn</span>  
-valueR: <span class="bytes">0<span class="sep">x</span>nn\*32</span> <span class="endian">(big endian)</span>  
-valueS: <span class="bytes">0<span class="sep">x</span>nn\*32</span> <span class="endian">(big endian)</span>  
+<div class="field-with-comment" markdown>
+<p markdown>valueR: <span class="bytes">0<span class="sep">x</span>nn\*32</span></p>
+<p class="endian"><span class="endian">(big endian)</span> </p>
+</div>
+<div class="field-with-comment" markdown>
+<p markdown>valueS: <span class="bytes">0<span class="sep">x</span>nn\*32</span></p>
+<p class="endian"><span class="endian">(big endian)</span> </p>
+</div>  
 
 }
 
@@ -63,25 +69,42 @@ The [Signature](#signature) includes:
 
 ::= {
 
+<div class="field-with-comment" markdown>
+<p markdown> nonce: <span class="bytes">0<span class="sep">x</span>nn\*8</span> </p>
+<p class="endian"><span class="endian">(big endian)</span> </p>
+</div>
+<div class="field-with-comment" markdown>
+<p markdown>validToTime: <span class="bytes">0<span class="sep">x</span>nn\*8</span></p>
+<p class="endian"><span class="endian">(big endian)</span> </p>
+</div>
+<div class="field-with-comment" markdown>
+<p markdown>gasCost: <span class="bytes">0<span class="sep">x</span>nn\*8</span> </p>
+<p class="endian"><span class="endian">(big endian)</span> </p>
+</div>
 <div class="fields"/>
-
-nonce: <span class="bytes">0<span class="sep">x</span>nn\*8</span> <span class="endian">(big endian)</span>  
-validToTime: <span class="bytes">0<span class="sep">x</span>nn\*8</span> <span class="endian">(big endian)</span>  
-gasCost: <span class="bytes">0<span class="sep">x</span>nn\*8</span> <span class="endian">(big endian)</span>  
 address: [Address](#address)  
 rpc: [Rpc](#rpc)
 
 }
 
+
+<div class="type-with-comment" markdown>
+##### [List<T\>](#listt)
+<p markdown>::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len </p>
+<p class="endian"> <span class="endian">(len is big endian)</span> </p>
+</div>
+
 </div>
 
 <div class="binary-format" markdown>
-
+<div class="type-with-comment" markdown>
 ##### [Rpc](#rpc)
-
-::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len <span class="endian">(len is big endian)</span>
+<p markdown>::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len </p>
+<p class="endian"><span class="endian">(len is big endian)</span></p>
+</div>
 
 </div>
+
 
 
 The [Transaction](#transactionouter) includes:
@@ -108,11 +131,11 @@ the blockchain.
 </div>
 
 <div class="binary-format" markdown>
-
+<div class="type-with-comment" markdown>
 ##### [ChainId](#chainid)
-
-
-::=  len: <span class="bytes">0<span class="sep">x</span>nn\*4</span>  utf8: <span class="bytes">0<span class="sep">x</span>nn\*</span>len  <span class="endian">(len is big endian)</span><br>
+<p markdown>::=  len: <span class="bytes">0<span class="sep">x</span>nn\*4</span>  utf8: <span class="bytes">0<span class="sep">x</span>nn\*</span>len</p>
+<p class="endian"><span class="endian">(len is big endian)</span></p>
+</div>
 
 </div>
 
@@ -160,7 +183,11 @@ The originShard is an [Option](#optiont)<[String](#string)>, the originating sha
   shardRoute: [ShardRoute](#shardroute)  
   committeeId: [Long](#long)  
   governanceVersion: [Long](#long)  
-  height: [Byte](#byte) <span class="endian">(unsigned)</span>  
+  <div class="field-with-comment" markdown>
+  <p markdown>height: [Byte](#byte)</p>
+  <p class="endian"><span class="endian">(unsigned)</span></p>
+  </div>
+  <div class="fields"/>
   returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
 
 }
@@ -643,14 +670,12 @@ nonce: [Long](#long)
 ### Common Types
 
 <div class="binary-format" markdown>
-
+<div class="type-with-comment" markdown>
 ##### [Address](#address)
-
-::= addressType: [AddressType](#addresstype) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span> <span class="endian">(identifier is big-endian)</span><br>
-
+<p markdown> ::= addressType: [AddressType](#addresstype) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span></p>
+<p class="endian"> <span class="endian">(identifier is big-endian)</span></p>
 </div>
 
-<div class="binary-format" markdown>
 
 ##### [AddressType](#addresstype)
 
@@ -670,16 +695,17 @@ nonce: [Long](#long)
 
 ::= [Address](#address)<br>
 
-
+<div class="type-with-comment" markdown>
 ##### [Hash](#hash)
+<p> ::= <span class="bytes">0<span class="sep">x</span>nn*32</span></p>
+<p class="endian"> <span class="endian">(big-endian)</span></p>
+</div>
 
-::= <span class="bytes">0<span class="sep">x</span>nn\*32</span><span class="endian">(big-endian)</span><br>
-
-
+<div class="type-with-comment" markdown>
 ##### [Long](#long)
-
-::= <span class="bytes">0<span class="sep">x</span>nn\*8</span><span class="endian">(big-endian)</span><br>
-
+<p> ::= <span class="bytes">0<span class="sep">x</span>nn*8</span></p>
+<p class="endian"> <span class="endian">(big-endian)</span></p>
+</div>
 
 ##### [Byte](#byte)
 
@@ -707,10 +733,16 @@ nonce: [Long](#long)
 ##### [Option<T\>](#optiont)
 
 ::= 0x00 => None  
-<span class="left-align-spacer-alt"/>| b: 0xnn t:<b>T</b> => Some(t) <span class="endian">(b != 0)</span><br>
+<div class="type-with-comment-spaced" id="left-align-spacer-alt" markdown>
+<p markdown >| b: 0xnn t:<b>T</b> => Some(t) </p>
+<p class="endian"> <span class="endian">(b != 0)</span></p>
+</div>
 
+<div class="type-with-comment" markdown>
 ##### [List<T\>](#listt)
-::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len <span class="endian">(len is big endian)</span><br>
+<p markdown>::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len </p>
+<p class="endian"> <span class="endian">(len is big endian)</span> </p>
+</div>
 
 </div>
 
