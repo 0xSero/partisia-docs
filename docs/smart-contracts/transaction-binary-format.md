@@ -1,9 +1,18 @@
 # Transaction Binary Format
 
-A transaction is an instruction from a user containing information used to change the state of the blockchain. You can learn more about how interactions work on the blockchain [here](smart-contract-interactions-on-the-blockchain.md#simple-interaction-model). 
+This is the specification for transactions, which includes signed transactions from users and executable events which is spawned by the blockchain.
+
+A signed transaction is an instruction from a user containing information used to change the state of the blockchain.
+An executable event is spawned by the blockchain, when it receives a signed transaction and verifies the signature.
+The executable event contains the information about which action to perform to a smart contract.
+
+You can learn more about how interactions work on the blockchain [here](smart-contract-interactions-on-the-blockchain.md#simple-interaction-model).
 
 After constructing a binary signed transaction it can be delivered to any baker node in the network through
 their [REST API](../rest).
+
+## Signed Transaction
+
 
 The following is the specification of the binary format of signed transactions.
 
@@ -11,7 +20,6 @@ The easiest way of creating a binary signed transaction is by using one of the
 available [client libraries](smart-contract-tools-overview.md#client). This specification can help you if you want to
 make your own implementation, for instance if you are targeting another programming language.
 
-## New
 
 <div class="binary-format" markdown>
 
@@ -85,7 +93,7 @@ The [Transaction](#transactionouter) includes:
 - the rpc payload of the transaction. See [Smart Contract Binary Formats](smart-contract-binary-formats.md)
   for a way to build the rpc payload.
 
-## Creating the signature
+### Creating the signature
 
 The signature is an ECDSA signature, using secp256k1 as the curve, on a sha256 hash of the transaction and the chain ID of
 the blockchain.
@@ -95,7 +103,7 @@ the blockchain.
 ##### [ToBeHashed](#tobehashed)
 
 
-::= transaction:[Transaction](#transaction) chainId: [ChainId](#chainid) 
+::= transaction: [Transaction](#transaction) chainId: [ChainId](#chainid) 
 
 </div>
 
@@ -113,6 +121,8 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 
 
 ## Executable Event Binary Format
+
+The following is the specification of the binary format of executable events.
 
 
 <div class="binary-format" markdown>
@@ -154,6 +164,7 @@ transaction: [EventTransaction](#eventtransaction)
 
 </div>
 
+
 <div class="binary-format" markdown>
 
 ##### [InnerEvent](#innerevent)
@@ -165,6 +176,10 @@ transaction: [EventTransaction](#eventtransaction)
 <span class="left-align-spacer-alt"/>|  0x03 [SyncEvent](#syncevent)
 
 </div>
+
+The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is divided into four types of events.
+
+### Inner Transaction
 
 <div class="binary-format" markdown>
 
@@ -418,8 +433,7 @@ rpc: [DynamicBytes](#dynamicbytes)
 <div class="fields"/>
 
 type: [ChainPluginType](#chainplugintype)  
-jar: [Option](#optiont)
-<[DynamicBytes](#dynamicbytes)>  
+jar: [Option](#optiont)<[DynamicBytes](#dynamicbytes)>  
 invocation: [DynamicBytes](#dynamicbytes)
 
 }
