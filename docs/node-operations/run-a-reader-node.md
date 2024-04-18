@@ -9,8 +9,7 @@ or a front-end you will often need to run your own reader node. When many partie
 your own reader to avoid this.
 
 !!! Warning "You must complete this requirement before you can continue"
-
-    - Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
+    1. Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
@@ -282,7 +281,7 @@ The config should look like the example below.
 You can now start the node:
 
 ````bash
-docker-compose up -d
+docker compose up -d
 ````
 
 If the command is successful it will pull the latest image and start the reader node in the background.
@@ -340,8 +339,8 @@ echo "$DATETIME"
 
 cd ~/pbc
 
-/usr/local/bin/docker-compose pull pbc
-/usr/local/bin/docker-compose up -d pbc
+/usr/local/bin/docker compose pull pbc
+/usr/local/bin/docker compose up -d pbc
 ````
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.

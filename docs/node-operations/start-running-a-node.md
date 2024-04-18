@@ -34,14 +34,14 @@ configure and register your node for higher paying services.
 If you have completed the reader and baker part of the guide you can do (given sufficient tokens) any combination of the
 other services, including multiple oracles on the same node.   
 
-| **Required MPC token balance** | **Available Node service** | **Service consist of**                            |
-|----------------------------|------------------------------|---------------------------------------------------|
-| 0                          | [Reader node](run-a-reader-node.md)                  | Reading the blockchain state                      |
-| 25 K                       | [Baker node](run-a-baker-node.md)                   | Reader node service<br />Signing and producing blocks                      |
-| 30 K                       | [Price oracle](run-a-price-oracle-node.md)                 | Baker node service<br />Price monitoring             |
-| 100 K                      | [ZK node](run-a-zk-node.md)                      | Baker node service<br />ZK computations              |
-| 275 K                      | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | Baker node service<br />Moving BYOC on and off chain |
+| **Required total MPC token balance** | **Available Node service** | **Service consist of**                                                      |
+|--------------------------------------|------------------------------|-----------------------------------------------------------------------------|
+| 0                                    | [Reader node](run-a-reader-node.md)                  | Free: Reading the blockchain state                                          |
+| 25K                                  | [Baker node](run-a-baker-node.md)                   | Free: Reader node service<br />25K stake: Signing and producing blocks      |
+| 30K                                  | [Price oracle](run-a-price-oracle-node.md)                 | 25K stake: Baker node service<br />5K stake: Price monitoring               |
+| 100K                                 | [ZK node](run-a-zk-node.md)                      | 25K stake: Baker node service<br />75K stake: ZK computations               |
+| 275K                                 | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | 25K stake: Baker node service<br />250K stake: Moving BYOC on and off chain |
 
 !!! note "All nodes require a [VPS](../pbc-fundamentals/dictionary.md#vps) with these specs or better"   
     - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated JVM), 128 GB SSD, publicly accessible IPv4 with ports 9888-9897 open 
-    - Recommended software: Docker, Docker Compose, Ubuntu 20.04, nano or other text editors
+    - Recommended software: Docker, Docker Compose V2, Ubuntu 20.04, nano or other text editors

@@ -96,7 +96,7 @@ Make sure the JSON you made is valid. You can download a JSON editor or use a fr
 Start the node:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Verify that the node is running:

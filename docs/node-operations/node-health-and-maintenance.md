@@ -55,8 +55,8 @@ Updating the PBC node is a simple 3-step process:
     To update a update a specific service in `docker-compose.yml` specify which service you want to update.
     E.g. update only the service `pbc`:
     ````bash
-    docker-compose pull pbc
-    docker-compose up -d pbc
+    docker compose pull pbc
+    docker compose up -d pbc
     ````
 
 
@@ -65,11 +65,11 @@ cd ~/pbc
 ````
 
 ````bash
-docker-compose pull
+docker compose pull
 ````
 
 ````bash
-docker-compose up -d
+docker compose up -d
 ````
 
 First you change the directory to where you put your `docker-compose.yml`. You then pull the newest image and start it
