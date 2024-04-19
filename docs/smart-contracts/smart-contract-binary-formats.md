@@ -614,6 +614,19 @@ $$
 </div>
 </div>
 
+<div class="binary-format" markdown>
+##### [FileAbi](#fileabi) 
+::= {
+<div class="field-with-comment" markdown>
+<p markdown> Header: 0xnn </p>
+<p class="endian"><span class="endian">(The header is always "PBCABI" in ASCII)</span> </p>
+</div>  
+<div class="fields"/>
+VersionBinder: 0xnn\*3 <br>
+VersionClient: 0xnn\*3 <br>
+Contract: [ContractAbi](#contractabi)
+</div>  
+}
 
 
 <div class="binary-format" markdown>
@@ -628,6 +641,17 @@ $$
 </div>
 </div>
 </div>
+
+
+<div class="binary-format" markdown>
+##### [ContractAbi](#contractabi) 
+::= {
+<div class="fields"/>
+NamedTypes: [List](#list)&lt;[NamedTypeSpec](#namedtypespec)&gt; <br>
+Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt;<br>
+StateType: [TypeSpec](#typespec)<br>
+</div>  
+}
 
 
 
@@ -655,6 +679,15 @@ $$
 </div>
 </div>
 
+<div class="binary-format" markdown>
+##### [StructTypeSpec](#structtypespec) 
+::= {
+<div class="fields"/>
+Name: [Identifier](#identifier) <br>
+Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;</div>
+}
+</div>  
+
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -667,6 +700,17 @@ $$
 </div>
 </div>
 </div>
+
+<div class="binary-format" markdown>
+##### [EnumTypeSpec](#enumtypespec)
+::= {
+<div class="fields"/>
+Name: [Identifier](#identifier) <br>
+Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
+</div>  
+}
+
+
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -700,6 +744,23 @@ $$
 
 
 <div class="binary-format" markdown>
+##### [FieldAbi](#fieldabi)
+::= {
+<div class="fields"/>
+Kind: [FnKind](#fnkind) <br>
+Name: [Identifier](#identifier) <br>
+Shortname: LEB128 <br>
+Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt;
+<div class="field-with-comment" markdown>
+<p markdown>SecretArgument: [ArgumentAbi](#argumentabi)</p>
+<p class="endian"><span class="endian">(Only present if Kind is 0x17)</span> </p>
+</div>  
+</div>
+}
+
+
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [FieldAbi](#fieldabi)
 ::= {
@@ -711,6 +772,14 @@ $$
 </div>
 </div>
 
+<div class="binary-format" markdown>
+##### [FieldAbi](#fieldabi)
+::= {
+<div class="fields"/>
+Name: [Identifier](#identifier) <br>
+Type: [TypeSpec](#typespec)
+</div>
+}
 
 
 <div class="binary-format" markdown>
@@ -725,7 +794,15 @@ $$
 </div>
 </div>
 
-
+<div class="binary-format" markdown>
+##### [ArgumentAbi](#argumentabi)
+::= {
+<div class="fields"/>
+Name: [Identifier](#identifier) <br>
+Type: [TypeSpec](#typespec)
+</div>
+}
+  
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
