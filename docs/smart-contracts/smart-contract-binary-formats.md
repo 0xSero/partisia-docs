@@ -89,7 +89,7 @@ $$
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [ShortName](#shortname)
-<p markdown> ::= pre:0xnn last:0xnn => Action </p>
+<p markdown> ::= pre:0xnn last:0xnn => action </p>
 <p class="endian"> <span class="endian">(where pre is 0-4 bytes that are &ge;0x80 and last &lt;0x80)</span></p>
 </div>
 </div>
@@ -262,19 +262,19 @@ $$
 </div>
 <div class="type-with-comment-spaced" markdown>
 <p markdown >| 0xnn*2 => u16/i16 </p>
-<p class="endian"> <span class="endian">(big endian, i16 is two's complement)</span></p>
+<p class="endian"> <span class="endian">(little endian, i16 is two's complement)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
 <p markdown >| 0xnn*4 => u32/i32 </p>
-<p class="endian"> <span class="endian">(big endian, i32 is two's complement)</span></p>
+<p class="endian"> <span class="endian">(little endian, i32 is two's complement)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
 <p markdown >| 0xnn*8 => u64/i64 </p>
-<p class="endian"> <span class="endian">(big endian, i64 is two's complement)</span></p>
+<p class="endian"> <span class="endian">(little endian, i64 is two's complement)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
 <p markdown >| 0xnn*16 => u128/i128 </p>
-<p class="endian"> <span class="endian">(big endian, i128 is two's complement)</span></p>
+<p class="endian"> <span class="endian">(little endian, i128 is two's complement)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
 <p markdown >| 0xnn*32 => u256 </p>
@@ -361,7 +361,7 @@ saving gas cost.
 ### CopySerializable Binary Format
 
 A state type is said to be CopySerializable, if it's serialization is
-identical to it's in-memory representation, and thus require minimal
+identical to its in-memory representation, and thus requires minimal
 serialization overhead. PBC have efficient handling for types that
 are CopySerializable. Internal pointers are the main reason that types are not
 CopySerializable.
@@ -622,7 +622,7 @@ Only arrays of lengths between (including) 0 and 127 are supported. The high bit
 
 #### ABI File binary format
 
-All `Identifier` names must be [valid Java identifiers](https://docs.oracle.com/javase/specs/jls/se20/html/jls-3.html#jls-3.8); other strings are reserved for future extensions.
+All [Identifier](#identifier) names must be [valid Java identifiers](https://docs.oracle.com/javase/specs/jls/se20/html/jls-3.html#jls-3.8); other strings are reserved for future extensions.
 
 $$
 \textcolor{mathcolor}{
@@ -818,67 +818,67 @@ $$
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [FnKind](#fnkind)
-<p markdown > ::= 0x01 => **Init**  </p>
+<p markdown > ::= 0x01 => <b>Init</b> </p>
 <p class="endian"><span class="endian">(Num allowed: 1)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x02 => **Action** </p>
+<p markdown >| 0x02 => <b>Action</b></p>
 <p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x03 => **Callback** </p>
+<p markdown >| 0x03 => <b>Callback</b></p>
 <p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x10 => **ZkSecretInput**  </p>
+<p markdown >| 0x10 => <b>ZkSecretInput</b> </p>
 <p class="endian"><span class="endian">(0..&infin;)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x11 => **ZkVarInputted** </p>
+<p markdown >| 0x11 => <b>ZkVarInputted</b></p>
 <p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x12 => **ZkVarRejected** </p>
+<p markdown >| 0x12 => <b>ZkVarRejected</b></p>
 <p class="endian" markdown><span class="endian">(0..1)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x13 => **ZkComputeComplete**  </p>
+<p markdown >| 0x13 => <b>ZkComputeComplete</b> </p>
 <p class="endian"><span class="endian">(0..&infin;)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x14 => **ZkVarOpened** </p>
+<p markdown >| 0x14 => <b>ZkVarOpened</b></p>
 <p class="endian" markdown><span class="endian">(0..1)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x15 => **ZkUserVarOpened** </p>
+<p markdown >| 0x15 => <b>ZkUserVarOpened</b></p>
 <p class="endian" markdown><span class="endian">(0..1)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x16 => **ZkAttestationComplete**  </p>
+<p markdown >| 0x16 => <b>ZkAttestationComplete</b> </p>
 <p class="endian"><span class="endian">(0..1)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x17 => **ZkSecretInputWithExplicitType** </p>
+<p markdown >| 0x17 => <b>ZkSecretInputWithExplicitType</b></p>
 <p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x18 => **ZkExternalEvent** </p>
+<p markdown >| 0x18 => <b>ZkExternalEvent</b></p>
 <p class="endian" markdown><span class="endian">(0..1)</span></p>
 </div>
 </div>
 
 
 
-Note that a `ContractAbi` is only valid if the `Hooks` list contains a specific
-number of hooks of each type, as specified in `FnKind`.
+Note that a [ContractAbi](#contractabi) is only valid if the `Hooks` list contains a specific
+number of hooks of each type, as specified in [FnKind](#fnkind).
 
-Also note that if a function has the deprecated kind `ZkSecretInput`, the default 
-secret argument associated with it is of type i32. 
+Also note that if a function has the deprecated kind <b>ZkSecretInput</b>, the default 
+secret argument associated with it is of type `i32`. 
 
 <!-- fix syntax highlighting* -->
 ## Section format
 
-A section is an indexed chunk of a binary file of dynamic length, which is defined as follows:
+A [Section](#section) is an indexed chunk of a binary file of dynamic length, which is defined as follows:
 
 $$
 \textcolor{mathcolor}{
