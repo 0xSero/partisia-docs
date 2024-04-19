@@ -111,8 +111,8 @@ $$
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-
-<p markdown > [ArgumentRpc](#argumentrpc) ::= 0xnn => u8/i8 </p>
+##### [ArgumentRpc](#argumentrpc) 
+<p markdown > ::= 0xnn => u8/i8 </p>
 <p class="endian"> <span class="endian">(i8 is two's complement)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
@@ -241,8 +241,8 @@ $$
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-
-<p markdown > [State](#state) ::= 0xnn => u8/i8 </p>
+##### [State](#state)
+<p markdown >  ::= 0xnn => u8/i8 </p>
 <p class="endian"> <span class="endian">(i8 is two's complement)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
@@ -343,7 +343,7 @@ saving gas cost.
 
 <!-- fix syntax highlighting* -->
 
-### CopySerializable
+### CopySerializable Binary Format
 
 A state type is said to be CopySerializable, if it's serialization is
 identical to it's in-memory representation, and thus require minimal
@@ -371,6 +371,55 @@ $$
 \end{align*}
 }
 $$
+
+
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [CopySerializable](#copyserializable)
+<p markdown >  ::= 0XXX => true </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| iXXX => true </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [Boolean](#boolean) => true </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [Address](#address) => true </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [u8;n] => true </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [String](#string) => false </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [Vec](#vec)&lt;T&gt; => false </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [Option](#option)&lt;T&gt; => false </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [SortedVecMap](#sortedvecmap)&lt;K,V&gt; => false </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [SortedVecSet](#sortedvecset)&lt;K,V&gt; => false </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [AvlTreeMap](#avltreemap)&lt;K,V&gt; => false </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [Struct](#struct) S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>} =>
+[CopySerializable](#copyserializable)(<i>T<sub>1</sub></i>) &wedge; ... &wedge; [CopySerializable](#copyserializable)(<i>T<sub>n</sub></i>) &wedge; WellAligned(S) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [Enum](#enum){variant, <i>f<sub>1</sub></i>, <i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} => false </p>
+</div>
+</div>
+
+
+
 
 The WellAligned constraint on Struct CopySerializable is to guarentee that
 struct layouts are identical to serialization.  \(\text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \}\) is WellAligned if following points hold:
@@ -442,6 +491,114 @@ $$
 \end{align*}
 }
 $$
+
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [TypeSpec](#typespec) 
+<p markdown > ::= [SimpleTypeSpec](#simpletypespec)  </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [CompositeTypeSpec](#compositetypespec) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| [NamedTypeRef](#namedtyperef) </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [NamedTypeRef](#namedtyperef) 
+<p markdown > ::= 0x00 Index: 0xnn => NamedTypes(Index)  </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [SimpleTypeSpec](#simpletypespec)
+<p markdown > ::= 0x01 => u8  </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x02 => u16 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x03 => u32 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x04 => u64 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x05 => u128 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x18 => u256 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x06 => i8 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x07 => i16 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x08 => i32 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x09 => i64 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x0a => i128 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x0b => [String](#string) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x0c => [Boolean](#boolean) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x0d => [Address](#address) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x13 => [Hash](#hash) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x14 => [PublicKey](#publickey) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x15 => [Signature](#signature) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x16 => [BlsPublicKey](#blspublickey) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x17 => [BlsSignature](#blssignature) </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [CompositeTypeSpec](#compositetypespec) 
+<p markdown > ::= 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt;  </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x11 L:0xnn => [u8;L] </p>
+<p class="endian"><span class="endian">(0x00 &le; L &le; 0x7F)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x12 T:[TypeSpec](#typespec) => [Option](#option)&lt;T&gt; </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
+</div>
+</div>
+
+
+
 
 **NOTE:** `Map` and `Set` cannot be used as RPC arguments since it's not possible for a
 caller to check equality and sort order of the elements without running the code.
