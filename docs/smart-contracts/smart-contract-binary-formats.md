@@ -594,27 +594,6 @@ $$
 $$
 
 <div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [FileAbi](#fileabi) 
-::= {
-<div class="column-align" markdown>
-<p markdown > Header: 0xnn </p>
-<p markdown class="spaced"> VersionBinder: 0xnn*3 </p>
-<p markdown class="spaced"> VersionClient: 0xnn*3 </p>
-<p markdown class="spaced"> Contract: [ContractAbi](#contractabi) </p>
-<p markdown class="spaced"> } </p>
-</div>
-<div class="comment-align" markdown>
-<p class="endian"><span class="endian">(The header is always "PBCABI" in ASCII)</span></p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-</div>
-</div>
-</div>
-
-<div class="binary-format" markdown>
 ##### [FileAbi](#fileabi) 
 ::= {
 <div class="field-with-comment" markdown>
@@ -628,19 +607,6 @@ Contract: [ContractAbi](#contractabi)
 </div>  
 }
 
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [ContractAbi](#contractabi) 
-::= {
-<div class="column-align" markdown>
-<p markdown > NamedTypes: [List](#list)&lt;[NamedTypeSpec](#namedtypespec)&gt; </p>
-<p markdown class="spaced"> Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt; </p>
-<p markdown class="spaced"> StateType: [TypeSpec](#typespec) </p>
-<p markdown class="spaced"> } </p>
-</div>
-</div>
-</div>
 
 
 <div class="binary-format" markdown>
@@ -668,18 +634,6 @@ StateType: [TypeSpec](#typespec)<br>
 
 
 <div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [StructTypeSpec](#structtypespec) 
-::= {
-<div class="column-align" markdown>
-<p markdown > Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt; </p>
-<p markdown class="spaced"> } </p>
-</div>
-</div>
-</div>
-
-<div class="binary-format" markdown>
 ##### [StructTypeSpec](#structtypespec) 
 ::= {
 <div class="fields"/>
@@ -688,18 +642,6 @@ Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;</div>
 }
 </div>  
 
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [EnumTypeSpec](#enumtypespec)
-::= {
-<div class="column-align" markdown>
-<p markdown > Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt; </p>
-<p markdown class="spaced"> } </p>
-</div>
-</div>
-</div>
 
 <div class="binary-format" markdown>
 ##### [EnumTypeSpec](#enumtypespec)
@@ -719,32 +661,9 @@ Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
 </div>
 </div>
 
+
 <div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
 ##### [FnAbi](#fnabi)
-::= {
-<div class="column-align" markdown>
-<p markdown > Kind: [FnKind](#fnkind) </p>
-<p markdown class="spaced"> Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Shortname: LEB128 </p>
-<p markdown class="spaced"> Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt; </p>
-<p markdown class="spaced"> SecretArgument: [ArgumentAbi](#argumentabi) </p>
-<p markdown class="spaced"> } </p>
-</div>
-<div class="comment-align" markdown>
-<p markdown >&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p class="spaced"><span class="endian">(Only present if Kind is 0x17)</span></p>
-<p markdown class="spaced">&nbsp;</p>
-</div>
-</div>
-</div>
-
-
-<div class="binary-format" markdown>
-##### [FieldAbi](#fieldabi)
 ::= {
 <div class="fields"/>
 Kind: [FnKind](#fnkind) <br>
@@ -758,20 +677,6 @@ Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt;
 </div>
 }
 
-
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [FieldAbi](#fieldabi)
-::= {
-<div class="column-align" markdown>
-<p markdown > Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Type: [TypeSpec](#typespec) </p>
-<p markdown class="spaced"> } </p>
-</div>
-</div>
-</div>
-
 <div class="binary-format" markdown>
 ##### [FieldAbi](#fieldabi)
 ::= {
@@ -780,19 +685,6 @@ Name: [Identifier](#identifier) <br>
 Type: [TypeSpec](#typespec)
 </div>
 }
-
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [ArgumentAbi](#argumentabi)
-::= {
-<div class="column-align" markdown>
-<p markdown > Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Type: [TypeSpec](#typespec) </p>
-<p markdown class="spaced"> } </p>
-</div>
-</div>
-</div>
 
 <div class="binary-format" markdown>
 ##### [ArgumentAbi](#argumentabi)
