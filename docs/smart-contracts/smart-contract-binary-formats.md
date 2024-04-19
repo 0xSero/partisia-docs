@@ -601,10 +601,12 @@ $$
 <p markdown > Header: 0xnn </p>
 <p markdown class="spaced"> VersionBinder: 0xnn*3 </p>
 <p markdown class="spaced"> VersionClient: 0xnn*3 </p>
-<p markdown class="spaced"> Contract: [ContractAbi](#contractabi) } </p>
+<p markdown class="spaced"> Contract: [ContractAbi](#contractabi) </p>
+<p markdown class="spaced"> } </p>
 </div>
 <div class="comment-align" markdown>
 <p class="endian"><span class="endian">(The header is always "PBCABI" in ASCII)</span></p>
+<p markdown class="spaced">&nbsp;</p>
 <p markdown class="spaced">&nbsp;</p>
 <p markdown class="spaced">&nbsp;</p>
 <p markdown class="spaced">&nbsp;</p>
@@ -621,7 +623,8 @@ $$
 <div class="column-align" markdown>
 <p markdown > NamedTypes: [List](#list)&lt;[NamedTypeSpec](#namedtypespec)&gt; </p>
 <p markdown class="spaced"> Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt; </p>
-<p markdown class="spaced"> StateType: [TypeSpec](#typespec) } </p>
+<p markdown class="spaced"> StateType: [TypeSpec](#typespec) </p>
+<p markdown class="spaced"> } </p>
 </div>
 </div>
 </div>
@@ -646,7 +649,8 @@ $$
 ::= {
 <div class="column-align" markdown>
 <p markdown > Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt; } </p>
+<p markdown class="spaced"> Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt; </p>
+<p markdown class="spaced"> } </p>
 </div>
 </div>
 </div>
@@ -658,7 +662,8 @@ $$
 ::= {
 <div class="column-align" markdown>
 <p markdown > Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt; } </p>
+<p markdown class="spaced"> Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt; </p>
+<p markdown class="spaced"> } </p>
 </div>
 </div>
 </div>
@@ -679,7 +684,8 @@ $$
 <p markdown class="spaced"> Name: [Identifier](#identifier) </p>
 <p markdown class="spaced"> Shortname: LEB128 </p>
 <p markdown class="spaced"> Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt; </p>
-<p markdown class="spaced"> SecretArgument: [ArgumentAbi](#argumentabi) } </p>
+<p markdown class="spaced"> SecretArgument: [ArgumentAbi](#argumentabi) </p>
+<p markdown class="spaced"> } </p>
 </div>
 <div class="comment-align" markdown>
 <p markdown >&nbsp;</p>
@@ -687,6 +693,7 @@ $$
 <p markdown class="spaced">&nbsp;</p>
 <p markdown class="spaced">&nbsp;</p>
 <p class="spaced"><span class="endian">(Only present if Kind is 0x17)</span></p>
+<p markdown class="spaced">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -698,7 +705,8 @@ $$
 ::= {
 <div class="column-align" markdown>
 <p markdown > Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Type: [TypeSpec](#typespec) } </p>
+<p markdown class="spaced"> Type: [TypeSpec](#typespec) </p>
+<p markdown class="spaced"> } </p>
 </div>
 </div>
 </div>
@@ -711,7 +719,8 @@ $$
 ::= {
 <div class="column-align" markdown>
 <p markdown > Name: [Identifier](#identifier) </p>
-<p markdown class="spaced"> Type: [TypeSpec](#typespec) } </p>
+<p markdown class="spaced"> Type: [TypeSpec](#typespec) </p>
+<p markdown class="spaced"> } </p>
 </div>
 </div>
 </div>
