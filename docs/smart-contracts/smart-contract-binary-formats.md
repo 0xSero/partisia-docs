@@ -67,6 +67,13 @@ $$
 }
 $$
 
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [PayloadRpc](#payloadrpc)
+<p markdown>::= action:[Shortname](#shortname) arguments:[ArgumentsRpc](#argumentsrpc) => action(arguments) </p>
+</div>
+</div>
+
 The short name of an action is an u32 integer identifier that uniquely identifies the action within the smart contract.
 The short name is encoded as [unsigned LEB128 format](https://en.wikipedia.org/wiki/LEB128#Unsigned_LEB128), which means that short names have variable lengths.
 It is easy to determine how many bytes a LEB128 encoded number contains by examining bit 7 of each byte.
@@ -78,6 +85,14 @@ $$
 \end{align*}
 }
 $$
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [ShortName](#shortname)
+<p markdown> ::= pre:0xnn last:0xnn => Action </p>
+<p class="endian"> <span class="endian">(where pre is 0-4 bytes that are &ge;0x80 and last &lt;0x80)</span></p>
+</div>
+</div>
 
 The argument binary format depends on the type of the argument. The argument types for each action is defined by the contract, and can be read from the ABI format.
 
@@ -135,7 +150,7 @@ $$
 <p markdown >| 0xnn*32 => u256 </p>
 </div>
 <div class="type-with-comment-spaced" markdown>
-<p markdown >| b:0xnn => bool </p>
+<p markdown >| b:0xnn => [Boolean](#boolean) </p>
 <p class="endian"> <span class="endian">(false if b==0, true otherwise)</span></p>
 </div>
 <div class="type-with-comment-spaced" markdown>
