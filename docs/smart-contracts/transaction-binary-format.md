@@ -1,10 +1,9 @@
 # Transaction Binary Format
 
-This is the specification for transactions, which includes signed transactions from users and executable events which is spawned by the blockchain.
+This is the specification for transactions, which includes signed transactions from users and executable events which is spawned by the blockchain. 
 
 A signed transaction is an instruction from a user containing information used to change the state of the blockchain.
-An executable event is spawned by the blockchain, when it receives a signed transaction and verifies the signature.
-The executable event contains the information about which action to perform to a smart contract.
+An executable event is spawned by the blockchain, when it receives a signed transaction. The executable event contains the information about which action to perform to a smart contract.
 
 You can learn more about how interactions work on the blockchain [here](smart-contract-interactions-on-the-blockchain.md#simple-interaction-model).
 
@@ -223,7 +222,9 @@ The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is div
 
 #### Inner Transaction
 
-An event that is a transaction. It also carries an associated sender and an associated cost.
+A transaction is sent by the user or the contract, meaning that it represents the actions the user can activate. 
+Transactions can either deploy contracts or interact with them.
+Each transaction also carries an associated sender and an associated cost.
 
 <div class="binary-format" markdown>
 
@@ -289,8 +290,7 @@ payload: [DynamicBytes](#dynamicbytes)
 </div>
 
 ### Callback to Contract
-
-A transaction sent to a contract for callbacks.
+Callback transactions call the callback methods in contracts.
 
 
 <div class="binary-format" markdown>
@@ -314,7 +314,7 @@ callbackRpc: [DynamicBytes](#dynamicbytes)
 
 ### Inner System Event
 
-Event for manipulating the system state of the blockchain.
+System events can manipulate the system state of the blockchain. These are primarily sent by system/governance contracts.
 
 <div class="binary-format" markdown>
 
@@ -597,7 +597,13 @@ contractAddress: [Address](#address)
 
 
 ### Sync Event
-Event with any information that should be moved from one shard to another when changing the shard configuration.
+
+</div>
+
+A sync event is used for moving information from one shard to another when changin the shard configuration. 
+That is, when adding or removing shards or when changing routing logic.
+
+<div class="binary-format" markdown>
 
 ##### [SyncEvent](#syncevent)
 
