@@ -676,6 +676,184 @@ $$
 } \\
 $$
 
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [FileAbi](#fileabi) 
+<p markdown > ::= { Header: 0xnn </p>
+<p class="endian"><span class="endian">(The header is always "PBCABI" in ASCII)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > VersionBinder: 0xnn*3 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > VersionClient: 0xnn*3 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Contract: [ContractAbi](#contractabi) } </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [ContractAbi](#contractabi) 
+<p markdown > ::= { NamedTypes: [List](#list)&lt;[NamedTypeSpec](#namedtypespec)&gt; </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt; </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > StateType: [TypeSpec](#typespec) } </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [NamedTypeSpec](#namedtypespec) 
+<p markdown > ::= 0x01 [StructTypeSpec](#structtypespec)  </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x02 [EnumTypeSpec](#enumtypespec) </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [StructTypeSpec](#structtypespec) 
+<p markdown > ::= { Name: [Identifier](#identifier) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt; } </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [EnumTypeSpec](#enumtypespec)
+<p markdown > ::= { Name: [Identifier](#identifier) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt; } </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [EnumVariant](#enumvariant)
+<p markdown > ::= { Discriminant: 0xnn, def: [NamedTypeRef](#namedtyperef) } </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [FnAbi](#fnabi) 
+<p markdown > ::= { Kind: [FnKind](#fnkind) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Name: [Identifier](#identifier) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Shortname: LEB128 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt; </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > SecretArgument: [ArgumentAbi](#argumentabi) } </p>
+<p class="endian"><span class="endian">(Only present if Kind is 0x17)</span></p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [FieldAbi](#fieldabi) 
+<p markdown > ::= { Name: [Identifier](#identifier) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Type: [TypeSpec](#typespec) } </p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [ArgumentAbi](#argumentabi) 
+<p markdown > ::= { Name: [Identifier](#identifier) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown > Type: [TypeSpec](#typespec) } </p>
+</div>
+</div>
+
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [Identifier](#identifier)
+<p markdown > ::= len:0xnn\*4 utf8:0xnn\*len </p>
+<p class="endian"><span class="endian">(utf8 must be Rust identifier, len is big endian)</span></p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [LEB128](#leb128)
+<p markdown > ::= A LEB128 encoded unsigned 32 bit integer </p>
+<p class="endian"><span class="endian">(1-5 bytes)</span></p>
+</div>
+</div>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [SimpleTypeSpec](#simpletypespec)
+<p markdown > ::= 0x01 => **Init**  </p>
+<p class="endian"><span class="endian">(Num allowed: 1)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x02 => **Action** </p>
+<p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x03 => **Callback** </p>
+<p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x10 => **ZkSecretInput**  </p>
+<p class="endian"><span class="endian">(0..&infin;)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x11 => **ZkVarInputted** </p>
+<p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x12 => **ZkVarRejected** </p>
+<p class="endian" markdown><span class="endian">(0..1)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x13 => **ZkComputeComplete**  </p>
+<p class="endian"><span class="endian">(0..&infin;)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x14 => **ZkVarOpened** </p>
+<p class="endian" markdown><span class="endian">(0..1)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x15 => **ZkUserVarOpened** </p>
+<p class="endian" markdown><span class="endian">(0..1)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x16 => **ZkAttestationComplete**  </p>
+<p class="endian"><span class="endian">(0..1)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x17 => **ZkSecretInputWithExplicitType** </p>
+<p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0x18 => **ZkExternalEvent** </p>
+<p class="endian" markdown><span class="endian">(0..1)</span></p>
+</div>
+</div>
+
+
+
 Note that a `ContractAbi` is only valid if the `Hooks` list contains a specific
 number of hooks of each type, as specified in `FnKind`.
 
