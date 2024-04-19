@@ -86,13 +86,6 @@ rpc: [Rpc](#rpc)
 
 }
 
-
-<div class="type-with-comment" markdown>
-##### [List<T\>](#listt)
-<p markdown>::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len </p>
-<p class="endian"> <span class="endian">(len is big endian)</span> </p>
-</div>
-
 </div>
 
 <div class="binary-format" markdown>

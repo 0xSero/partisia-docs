@@ -802,7 +802,7 @@ $$
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-##### [SimpleTypeSpec](#simpletypespec)
+##### [FnKind](#fnkind)
 <p markdown > ::= 0x01 => **Init**  </p>
 <p class="endian"><span class="endian">(Num allowed: 1)</span></p>
 </div>
@@ -874,6 +874,14 @@ $$
 }
 $$
 
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [Section](#section)
+<p markdown > ::= id:0xnn len:0xnn\*4 data:0xnn\*len </p>
+<p class="endian"><span class="endian">(len is big endian)</span></p>
+</div>
+</div>
+
 The id of a section is a single, leading byte that identifies the section.
 The section's length then follows and is given as a 32-bit, big-endian,
 unsigned integer. The byte length of the following dynamically sized data
@@ -891,6 +899,15 @@ $$
 \end{align*}
 }
 $$
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [Result](#result)
+<p markdown > ::= section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
+</div>
+</div>
+
+
 <!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. Two ids are
@@ -916,6 +933,14 @@ $$
 \end{align*}
 }
 $$
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [ZKWA](#result)
+<p markdown > ::= section<sub>0</sub>:[Section](#section) section<sub>1</sub>:[Section](#section) </p>
+</div>
+</div>
+
 <!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. The .zkwa format consists
@@ -937,6 +962,15 @@ $$
 \end{align*}
 }
 $$
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [PbcFile](#pbcfile)
+<p markdown > ::= PbcHeader: 0xnn\*4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
+<p class="endian"><span class="endian">(The header is always "PBSC" in ASCII)</span></p>
+</div>
+</div>
+
 <!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. The .pbc format can
