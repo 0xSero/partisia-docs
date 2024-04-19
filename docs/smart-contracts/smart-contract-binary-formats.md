@@ -108,6 +108,80 @@ $$
 }
 $$
 
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+
+<p markdown > [ArgumentRpc](#argumentrpc) ::= 0xnn => u8/i8 </p>
+<p class="endian"> <span class="endian">(i8 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*2 => u16/i16 </p>
+<p class="endian"> <span class="endian">(big endian, i16 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*4 => u32/i32 </p>
+<p class="endian"> <span class="endian">(big endian, i32 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*8 => u64/i64 </p>
+<p class="endian"> <span class="endian">(big endian, i64 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*16 => u128/i128 </p>
+<p class="endian"> <span class="endian">(big endian, i128 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*32 => u256 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| b:0xnn => bool </p>
+<p class="endian"> <span class="endian">(false if b==0, true otherwise)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*21 => [Address](#address) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*32 => [Hash](#hash) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*33 => [PublicKey](#publickey) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*65 => [Signature](#signature) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*95 => [BlsPublicKey](#blspublickey) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*48 => [BlsSignature](#blssignature) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
+<p class="endian"> <span class="endian">(containing the len u8 values)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => [String](#string) </p>
+<p class="endian"> <span class="endian">(with len UTF-8 encoded bytes)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc)*len => [Vec](#vec)&lt;&gt; </p>
+<p class="endian"> <span class="endian">(containing the len elements)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| b:0xnn arg:[ArgumentRpc](#argumentrpc) => [Option](#option)&lt;&gt; </p>
+<p class="endian"> <span class="endian">(None if b==0, Some(arg) otherwise)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+</div>
+</div>
+
+
+
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
 For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a big endian 32-bit unsigned integer.
@@ -119,6 +193,16 @@ $$
 \end{align*}
 }
 $$
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [LengthRpc](#lengthrpc)
+<p markdown>::= 0xnn*4 => u32 </p>
+<p class="endian"><span class="endian">(big endian)</span></p>
+</div>
+</div>
+
+
 
 <!-- fix syntax highlighting* -->
 
@@ -154,6 +238,82 @@ $$
 }
 $$
 
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+
+<p markdown > [State](#state) ::= 0xnn => u8/i8 </p>
+<p class="endian"> <span class="endian">(i8 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*2 => u16/i16 </p>
+<p class="endian"> <span class="endian">(big endian, i16 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*4 => u32/i32 </p>
+<p class="endian"> <span class="endian">(big endian, i32 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*8 => u64/i64 </p>
+<p class="endian"> <span class="endian">(big endian, i64 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*16 => u128/i128 </p>
+<p class="endian"> <span class="endian">(big endian, i128 is two's complement)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*32 => u256 </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| b:0xnn => bool </p>
+<p class="endian"> <span class="endian">(false if b==0, true otherwise)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*21 => [Address](#address) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*32 => [Hash](#hash) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*33 => [PublicKey](#publickey) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*65 => [Signature](#signature) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*95 => [BlsPublicKey](#blspublickey) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*48 => [BlsSignature](#blssignature) </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
+<p class="endian"> <span class="endian">(containing the len u8 values)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| len:[LengthState](#lengthstate) utf8:0xnn*len => [String](#string) </p>
+<p class="endian"> <span class="endian">(with len UTF-8 encoded bytes)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| len:[LengthState](#lengthstate) elems:[State](#state)*len => [Vec](#vec)&lt;&gt; </p>
+<p class="endian"> <span class="endian">(containing the len elements)</span></p>
+</div>
+<div class="type-with-comment-spaced"  markdown>
+<p markdown >| b:0xnn arg:[State](#state) => [Option](#option)&lt;&gt; </p>
+<p class="endian"> <span class="endian">(None if b==0, Some(arg) otherwise)</span></p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+</div>
+<div class="type-with-comment-spaced" markdown>
+<p markdown >| 0xnn*4 => [AvlTree](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+</div>
+</div>
+
+
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
 For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a little endian 32-bit unsigned integer.
@@ -165,6 +325,15 @@ $$
 \end{align*}
 }
 $$
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [LengthState](#lengthstate)
+<p markdown>::= 0xnn*4 => u32 </p>
+<p class="endian"><span class="endian">(little endian)</span></p>
+</div>
+</div>
+
 
 **Note:** An AvlTreeMap is only stored in wasm state as an integer. The actual content of the AvlTreeMap is stored
 outside the wasm code. The content of the AvlTreeMap is accessed using external calls to the java code. 
