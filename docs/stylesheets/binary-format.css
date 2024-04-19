@@ -63,7 +63,7 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     margin-left: var(--binary-format-spacer-alt);
 }
 
-div.type-with-comment, div.field-with-comment, div.type-with-comment-spaced {
+div.type-with-comment, div.field-with-comment, div.type-with-comment-spaced, div.type-with-comment-spaced-alt {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -74,16 +74,40 @@ div.field-with-comment {
     padding-left: var(--binary-format-fields-indent);
 }
 
+
 div.type-with-comment-spaced {
-    padding-left: var(--binary-format-spacer-alt);
+    padding-left: var(--binary-format-spacer);
 }
 
+div.type-with-comment-spaced-alt {
+    padding-left: var(--binary-format-spacer-alt);
+}
 
 .type-with-comment p {
     margin-top: var(--binary-format-header-margin);
 }
 
-.type-with-comment p.endian, .type-with-comment-spaced p.endian, div.field-with-comment p.endian {
+p.endian {
     display:flex;
     margin-left: auto;
+}
+
+div.column-align {
+    display: flex;
+    flex-direction: column;
+}
+
+div.comment-align {
+    display: flex;
+    flex-direction: column;
+    display:flex;
+    margin-left: auto;
+}
+
+div.comment-align p.spaced, div.column-align p.spaced, div.column-align p.spaced-or {
+    margin-top: 0;
+}
+
+p.spaced-or {
+    margin-left: -1em;
 }
