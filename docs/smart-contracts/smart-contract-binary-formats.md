@@ -127,71 +127,49 @@ $$
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [ArgumentRpc](#argumentrpc) 
-<p markdown > ::= 0xnn => u8/i8 </p>
-<p class="endian"> <span class="endian">(i8 is two's complement)</span></p>
+::= 
+<div class="column-align" markdown>
+<p markdown > 0xnn => u8/i8 </p>
+<p markdown  class="spaced-or" >| 0xnn*2 => u16/i16 </p>
+<p markdown  class="spaced-or" >| 0xnn*4 => u32/i32 </p>
+<p markdown  class="spaced-or" >| 0xnn*8 => u64/i64 </p>
+<p markdown  class="spaced-or" >| 0xnn*16 => u128/i128 </p>
+<p markdown  class="spaced-or" >| 0xnn*32 => u256 </p>
+<p markdown  class="spaced-or" >| b:0xnn => [Boolean](#boolean) </p>
+<p markdown  class="spaced-or" >| 0xnn*21 => [Address](#address) </p>
+<p markdown  class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
+<p markdown  class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
+<p markdown  class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
+<p markdown  class="spaced-or" >| 0xnn*95 => [BlsPublicKey](#blspublickey) </p>
+<p markdown  class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
+<p markdown  class="spaced-or" >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
+<p markdown  class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => [String](#string) </p>
+<p markdown  class="spaced-or" >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc)*len => [Vec](#vec)&lt;&gt; </p>
+<p markdown  class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc) => [Option](#option)&lt;&gt; </p>
+<p markdown  class="spaced-or" >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+<p markdown  class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
 </div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*2 => u16/i16 </p>
-<p class="endian"> <span class="endian">(big endian, i16 is two's complement)</span></p>
+<div class="comment-align" markdown>
+<p class="endian"><span class="endian">(i8 is two's complement)</span></p>
+<p markdown class="spaced">(big endian, i16 is two's complement)</p>
+<p markdown class="spaced">(big endian, i32 is two's complement)</p>
+<p markdown class="spaced">(big endian, i64 is two's complement)</p>
+<p markdown class="spaced">(big endian, i128 is two's complement)</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">(false if b==0, true otherwise)</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">(containing the len u8 values)</p>
+<p markdown class="spaced">(with len UTF-8 encoded bytes)</p>
+<p markdown class="spaced">(containing the len elements)</p>
+<p markdown class="spaced">(None if b==0, Some(arg) otherwise)</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
 </div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*4 => u32/i32 </p>
-<p class="endian"> <span class="endian">(big endian, i32 is two's complement)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*8 => u64/i64 </p>
-<p class="endian"> <span class="endian">(big endian, i64 is two's complement)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*16 => u128/i128 </p>
-<p class="endian"> <span class="endian">(big endian, i128 is two's complement)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*32 => u256 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| b:0xnn => [Boolean](#boolean) </p>
-<p class="endian"> <span class="endian">(false if b==0, true otherwise)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*21 => [Address](#address) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*32 => [Hash](#hash) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*33 => [PublicKey](#publickey) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*65 => [Signature](#signature) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*95 => [BlsPublicKey](#blspublickey) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*48 => [BlsSignature](#blssignature) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
-<p class="endian"> <span class="endian">(containing the len u8 values)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => [String](#string) </p>
-<p class="endian"> <span class="endian">(with len UTF-8 encoded bytes)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc)*len => [Vec](#vec)&lt;&gt; </p>
-<p class="endian"> <span class="endian">(containing the len elements)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| b:0xnn arg:[ArgumentRpc](#argumentrpc) => [Option](#option)&lt;&gt; </p>
-<p class="endian"> <span class="endian">(None if b==0, Some(arg) otherwise)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
 </div>
 </div>
 
@@ -257,77 +235,53 @@ $$
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [State](#state)
-<p markdown >  ::= 0xnn => u8/i8 </p>
-<p class="endian"> <span class="endian">(i8 is two's complement)</span></p>
+::= 
+<div class="column-align" markdown>
+<p markdown >  0xnn => u8/i8 </p>
+<p markdown class="spaced-or" >| 0xnn*2 => u16/i16 </p>
+<p markdown class="spaced-or" >| 0xnn*4 => u32/i32 </p>
+<p markdown class="spaced-or" >| 0xnn*8 => u64/i64 </p>
+<p markdown class="spaced-or" >| 0xnn*16 => u128/i128 </p>
+<p markdown class="spaced-or" >| 0xnn*32 => u256 </p>
+<p markdown class="spaced-or" >| b:0xnn => bool </p>
+<p markdown class="spaced-or" >| 0xnn*21 => [Address](#address) </p>
+<p markdown class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
+<p markdown class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
+<p markdown class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
+<p markdown class="spaced-or" >| 0xnn*95 => [BlsPublicKey](#blspublickey) </p>
+<p markdown class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
+<p markdown class="spaced-or" >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
+<p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn*len => [String](#string) </p>
+<p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)*len => [Vec](#vec)&lt;&gt; </p>
+<p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#option)&lt;&gt; </p>
+<p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+<p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+<p markdown class="spaced-or" >| 0xnn*4 => [AvlTree](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
 </div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*2 => u16/i16 </p>
-<p class="endian"> <span class="endian">(little endian, i16 is two's complement)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*4 => u32/i32 </p>
-<p class="endian"> <span class="endian">(little endian, i32 is two's complement)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*8 => u64/i64 </p>
-<p class="endian"> <span class="endian">(little endian, i64 is two's complement)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*16 => u128/i128 </p>
-<p class="endian"> <span class="endian">(little endian, i128 is two's complement)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*32 => u256 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| b:0xnn => bool </p>
-<p class="endian"> <span class="endian">(false if b==0, true otherwise)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*21 => [Address](#address) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*32 => [Hash](#hash) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*33 => [PublicKey](#publickey) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*65 => [Signature](#signature) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*95 => [BlsPublicKey](#blspublickey) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*48 => [BlsSignature](#blssignature) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
-<p class="endian"> <span class="endian">(containing the len u8 values)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| len:[LengthState](#lengthstate) utf8:0xnn*len => [String](#string) </p>
-<p class="endian"> <span class="endian">(with len UTF-8 encoded bytes)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| len:[LengthState](#lengthstate) elems:[State](#state)*len => [Vec](#vec)&lt;&gt; </p>
-<p class="endian"> <span class="endian">(containing the len elements)</span></p>
-</div>
-<div class="type-with-comment-spaced"  markdown>
-<p markdown >| b:0xnn arg:[State](#state) => [Option](#option)&lt;&gt; </p>
-<p class="endian"> <span class="endian">(None if b==0, Some(arg) otherwise)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0xnn*4 => [AvlTree](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+<div class="comment-align" markdown>
+<p class="endian"><span class="endian">(i8 is two's complement)</span></p>
+<p markdown class="spaced">(little endian, i16 is two's complement)</p>
+<p markdown class="spaced">(little endian, i32 is two's complement)</p>
+<p markdown class="spaced">(little endian, i64 is two's complement)</p>
+<p markdown class="spaced">(little endian, i128 is two's complement)</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">(false if b==0, true otherwise)</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">(containing the len u8 values)</p>
+<p markdown class="spaced">(with len UTF-8 encoded bytes)</p>
+<p markdown class="spaced">(containing the len elements)</p>
+<p markdown class="spaced">(None if b==0, Some(arg) otherwise)</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
 </div>
 </div>
-
+</div>
 
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
@@ -387,51 +341,29 @@ $$
 }
 $$
 
-
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [CopySerializable](#copyserializable)
-<p markdown >  ::= 0XXX => true </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| iXXX => true </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [Boolean](#boolean) => true </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [Address](#address) => true </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [u8;n] => true </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [String](#string) => false </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [Vec](#vec)&lt;T&gt; => false </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [Option](#option)&lt;T&gt; => false </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [SortedVecMap](#sortedvecmap)&lt;K,V&gt; => false </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [SortedVecSet](#sortedvecset)&lt;K,V&gt; => false </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [AvlTreeMap](#avltreemap)&lt;K,V&gt; => false </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [Struct](#struct) S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>} =>
+::= 
+<div class="column-align" markdown>
+<p markdown  >  0XXX => true </p>
+<p markdown class="spaced-or" >| iXXX => true </p>
+<p markdown class="spaced-or" >| [Boolean](#boolean) => true </p>
+<p markdown class="spaced-or" >| [Address](#address) => true </p>
+<p markdown class="spaced-or" >| [u8;n] => true </p>
+<p markdown class="spaced-or" >| [String](#string) => false </p>
+<p markdown class="spaced-or" >| [Vec](#vec)&lt;T&gt; => false </p>
+<p markdown class="spaced-or" >| [Option](#option)&lt;T&gt; => false </p>
+<p markdown class="spaced-or" >| [SortedVecMap](#sortedvecmap)&lt;K,V&gt; => false </p>
+<p markdown class="spaced-or" >| [SortedVecSet](#sortedvecset)&lt;K,V&gt; => false </p>
+<p markdown class="spaced-or" >| [AvlTreeMap](#avltreemap)&lt;K,V&gt; => false </p>
+<p markdown class="spaced-or" >| [Struct](#struct) S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>} =>
 [CopySerializable](#copyserializable)(<i>T<sub>1</sub></i>) &wedge; ... &wedge; [CopySerializable](#copyserializable)(<i>T<sub>n</sub></i>) &wedge; WellAligned(S) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [Enum](#enum){variant, <i>f<sub>1</sub></i>, <i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} => false </p>
+<p markdown class="spaced-or" >| [Enum](#enum){variant, <i>f<sub>1</sub></i>, <i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} => false </p>
 </div>
 </div>
+</div>
+
 
 
 
@@ -511,15 +443,16 @@ $$
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [TypeSpec](#typespec) 
-<p markdown > ::= [SimpleTypeSpec](#simpletypespec)  </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [CompositeTypeSpec](#compositetypespec) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| [NamedTypeRef](#namedtyperef) </p>
+::= 
+<div class="column-align" markdown>
+<p markdown > [SimpleTypeSpec](#simpletypespec)  </p>
+<p markdown class="spaced-or">| [CompositeTypeSpec](#compositetypespec) </p>
+<p markdown class="spaced-or">| [NamedTypeRef](#namedtyperef) </p>
 </div>
 </div>
+</div>
+
+
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -528,90 +461,59 @@ $$
 </div>
 </div>
 
+
+
+
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [SimpleTypeSpec](#simpletypespec)
-<p markdown > ::= 0x01 => u8  </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x02 => u16 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x03 => u32 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x04 => u64 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x05 => u128 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x18 => u256 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x06 => i8 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x07 => i16 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x08 => i32 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x09 => i64 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x0a => i128 </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x0b => [String](#string) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x0c => [Boolean](#boolean) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x0d => [Address](#address) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x13 => [Hash](#hash) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x14 => [PublicKey](#publickey) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x15 => [Signature](#signature) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x16 => [BlsPublicKey](#blspublickey) </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x17 => [BlsSignature](#blssignature) </p>
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x01 => u8  </p>
+<p markdown class="spaced-or">| 0x02 => u16 </p>
+<p markdown class="spaced-or">| 0x03 => u32 </p>
+<p markdown class="spaced-or">| 0x04 => u64 </p>
+<p markdown class="spaced-or">| 0x05 => u128 </p>
+<p markdown class="spaced-or">| 0x18 => u256 </p>
+<p markdown class="spaced-or">| 0x06 => i8 </p>
+<p markdown class="spaced-or">| 0x07 => i16 </p>
+<p markdown class="spaced-or">| 0x08 => i32 </p>
+<p markdown class="spaced-or">| 0x09 => i64 </p>
+<p markdown class="spaced-or">| 0x0a => i128 </p>
+<p markdown class="spaced-or">| 0x0b => [String](#string)  </p>
+<p markdown class="spaced-or">| 0x0c => [Boolean](#boolean)  </p>
+<p markdown class="spaced-or">| 0x0d => [Address](#address) </p>
+<p markdown class="spaced-or">| 0x13 => [Hash](#hash) </p>
+<p markdown class="spaced-or">| 0x14 => [PublicKey](#publickey) </p>
+<p markdown class="spaced-or">| 0x15 => [Signature](#signature) </p>
+<p markdown class="spaced-or">| 0x16 => [BlsPublicKey](#blspublickey) </p>
+<p markdown class="spaced-or">| 0x17 => [BlsSignature](#blssignature) </p>
 </div>
 </div>
+
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [CompositeTypeSpec](#compositetypespec) 
-<p markdown > ::= 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt;  </p>
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt; </p>
+<p markdown class="spaced-or"> | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
+<p markdown class="spaced-or"> | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
+<p markdown class="spaced-or"> | 0x11 L:0xnn => [u8;L] </p>
+<p markdown class="spaced-or"> | 0x12 T:[TypeSpec](#typespec) => [Option](#option)&lt;T&gt; </p>
+<p markdown class="spaced-or"> | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
 </div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x11 L:0xnn => [u8;L] </p>
-<p class="endian"><span class="endian">(0x00 &le; L &le; 0x7F)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x12 T:[TypeSpec](#typespec) => [Option](#option)&lt;T&gt; </p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
+<div class="comment-align" markdown>
+<p class="endian"><span class="endian">&nbsp;</span></p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">(0x00 &le; L &le; 0x7F)</p>
+<p markdown class="spaced">&nbsp;</p>
+<p markdown class="spaced">&nbsp;</p>
 </div>
 </div>
-
+</div>
 
 
 
@@ -832,58 +734,42 @@ $$
 </div>
 </div>
 
+
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [FnKind](#fnkind)
-<p markdown > ::= 0x01 => <b>Init</b> </p>
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x01 => <b>Init</b> </p>
+<p markdown class="spaced-or"> | 0x02 => <b>Action</b> </p>
+<p markdown class="spaced-or"> | 0x02 => <b>Action</b> </p>
+<p markdown class="spaced-or"> | 0x03 => <b>Callback</b> </p>
+<p markdown class="spaced-or"> | 0x10 => <b>ZkSecretInput</b> </p>
+<p markdown class="spaced-or"> | 0x11 => <b>ZkVarInputted</b> </p>
+<p markdown class="spaced-or"> | 0x12 => <b>ZkVarRejected</b> </p>
+<p markdown class="spaced-or"> | 0x13 => <b>ZkComputeComplete</b> </p>
+<p markdown class="spaced-or"> | 0x14 => <b>ZkVarOpened</b> </p>
+<p markdown class="spaced-or"> | 0x15 => <b>ZkUserVarOpened</b> </p>
+<p markdown class="spaced-or"> | 0x16 => <b>ZkAttestationComplete</b> </p>
+<p markdown class="spaced-or"> | 0x17 => <b>ZkSecretInputWithExplicitType</b> </p>
+<p markdown class="spaced-or"> | 0x18 => <b>ZkExternalEvent</b> </p>
+</div>
+<div class="comment-align" markdown>
 <p class="endian"><span class="endian">(Num allowed: 1)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x02 => <b>Action</b></p>
-<p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x03 => <b>Callback</b></p>
-<p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x10 => <b>ZkSecretInput</b> </p>
-<p class="endian"><span class="endian">(0..&infin;)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x11 => <b>ZkVarInputted</b></p>
-<p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x12 => <b>ZkVarRejected</b></p>
-<p class="endian" markdown><span class="endian">(0..1)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x13 => <b>ZkComputeComplete</b> </p>
-<p class="endian"><span class="endian">(0..&infin;)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x14 => <b>ZkVarOpened</b></p>
-<p class="endian" markdown><span class="endian">(0..1)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x15 => <b>ZkUserVarOpened</b></p>
-<p class="endian" markdown><span class="endian">(0..1)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x16 => <b>ZkAttestationComplete</b> </p>
-<p class="endian"><span class="endian">(0..1)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x17 => <b>ZkSecretInputWithExplicitType</b></p>
-<p class="endian" markdown><span class="endian">(0..&infin;)</span></p>
-</div>
-<div class="type-with-comment-spaced" markdown>
-<p markdown >| 0x18 => <b>ZkExternalEvent</b></p>
-<p class="endian" markdown><span class="endian">(0..1)</span></p>
+<p markdown class="spaced">(0..&infin;)</p>
+<p markdown class="spaced">(0..&infin;)</p>
+<p markdown class="spaced">(0..&infin;)</p>
+<p markdown class="spaced">(0..&infin;)</p>
+<p markdown class="spaced">(0..1)</p>
+<p markdown class="spaced">(0..&infin;)</p>
+<p markdown class="spaced">(0..1)</p>
+<p markdown class="spaced">(0..1)</p>
+<p markdown class="spaced">(0..1)</p>
+<p markdown class="spaced">(0..&infin;)</p>
+<p markdown class="spaced">(0..1)</p>
 </div>
 </div>
-
+</div>
 
 
 Note that a [ContractAbi](#contractabi) is only valid if the `Hooks` list contains a specific

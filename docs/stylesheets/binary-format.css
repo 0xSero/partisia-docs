@@ -87,7 +87,7 @@ div.type-with-comment-spaced-alt {
     margin-top: var(--binary-format-header-margin);
 }
 
-p.endian {
+p.endian, div.comment-align p.spaced {
     display:flex;
     margin-left: auto;
 }
