@@ -457,7 +457,7 @@ $$
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [NamedTypeRef](#namedtyperef) 
-<p markdown > ::= 0x00 Index: 0xnn => NamedTypes(Index)  </p>
+<p markdown > ::= 0x00 Index:0xnn => NamedTypes(Index)  </p>
 </div>
 </div>
 
@@ -513,7 +513,7 @@ $$
 <p markdown class="spaced">&nbsp;</p>
 </div>
 </div>
-</div>
+</div>  <br>
 
 
 
@@ -715,7 +715,7 @@ Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [EnumVariant](#enumvariant)
-<p markdown > ::= { Discriminant: 0xnn def: [NamedTypeRef](#namedtyperef) } </p>
+<p markdown > ::= { Discriminant: 0xnn def:[NamedTypeRef](#namedtyperef) } </p>
 </div>
 </div>
 
