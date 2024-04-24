@@ -89,7 +89,7 @@ The argument binary format depends on the type of the argument. The argument typ
 <p markdown  class="spaced-or" >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
 <p markdown  class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => [String](#string) </p>
 <p markdown  class="spaced-or" >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc)*len => [Vec](#vec)&lt;&gt; </p>
-<p markdown  class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc) => [Option](#option)&lt;&gt; </p>
+<p markdown  class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc) => [Option](#optiont)&lt;&gt; </p>
 <p markdown  class="spaced-or" >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
 <p markdown  class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
 </div>
@@ -156,10 +156,10 @@ complement. Note that lengths are also stored as little-endian.
 <p markdown class="spaced-or" >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
 <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn*len => [String](#string) </p>
 <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)*len => [Vec](#vec)&lt;&gt; </p>
-<p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#option)&lt;&gt; </p>
+<p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#optiont)&lt;&gt; </p>
 <p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
 <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-<p markdown class="spaced-or" >| 0xnn*4 => [AvlTree](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+<p markdown class="spaced-or" >| 0xnn*4 => [AvlTree](#avltree){<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
 </div>
 <div class="comment-align" markdown>
 <p class="endian"><span class="endian">(i8 is two's complement)</span></p>
@@ -221,18 +221,18 @@ CopySerializable.
 <div class="column-align" markdown>
 <p markdown  >  0XXX => true </p>
 <p markdown class="spaced-or" >| iXXX => true </p>
-<p markdown class="spaced-or" >| [Boolean](#boolean) => true </p>
-<p markdown class="spaced-or" >| [Address](#address) => true </p>
+<p markdown class="spaced-or" >| Boolean  => true </p>
+<p markdown class="spaced-or" >| Address  => true </p>
 <p markdown class="spaced-or" >| [u8;n] => true </p>
-<p markdown class="spaced-or" >| [String](#string) => false </p>
-<p markdown class="spaced-or" >| [Vec](#vec)&lt;T&gt; => false </p>
-<p markdown class="spaced-or" >| [Option](#option)&lt;T&gt; => false </p>
-<p markdown class="spaced-or" >| [SortedVecMap](#sortedvecmap)&lt;K,V&gt; => false </p>
-<p markdown class="spaced-or" >| [SortedVecSet](#sortedvecset)&lt;K,V&gt; => false </p>
-<p markdown class="spaced-or" >| [AvlTreeMap](#avltreemap)&lt;K,V&gt; => false </p>
-<p markdown class="spaced-or" >| [Struct](#struct) S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>} =>
+<p markdown class="spaced-or" >| String => false </p>
+<p markdown class="spaced-or" >| Vec&lt;T&gt; => false </p>
+<p markdown class="spaced-or" >| Option &lt;T&gt; => false </p>
+<p markdown class="spaced-or" >| SortedVecMap&lt;K,V&gt; => false </p>
+<p markdown class="spaced-or" >| SortedVecSet&lt;K,V&gt; => false </p>
+<p markdown class="spaced-or" >| AvlTreeMap&lt;K,V&gt; => false </p>
+<p markdown class="spaced-or" >| Struct S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>} =>
 [CopySerializable](#copyserializable)(<i>T<sub>1</sub></i>) &wedge; ... &wedge; [CopySerializable](#copyserializable)(<i>T<sub>n</sub></i>) &wedge; WellAligned(S) </p>
-<p markdown class="spaced-or" >| [Enum](#enum){variant, <i>f<sub>1</sub></i>, <i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} => false </p>
+<p markdown class="spaced-or" >| Enum{variant, <i>f<sub>1</sub></i>, <i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} => false </p>
 </div>
 </div>
 </div>
@@ -326,7 +326,7 @@ These structs are not CopySerializable:
 <p markdown class="spaced-or"> | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
 <p markdown class="spaced-or"> | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
 <p markdown class="spaced-or"> | 0x11 L:0xnn => [u8;L] </p>
-<p markdown class="spaced-or"> | 0x12 T:[TypeSpec](#typespec) => [Option](#option)&lt;T&gt; </p>
+<p markdown class="spaced-or"> | 0x12 T:[TypeSpec](#typespec) => [Option](#optiont)&lt;T&gt; </p>
 <p markdown class="spaced-or"> | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
 </div>
 <div class="comment-align" markdown>
@@ -512,6 +512,133 @@ number of hooks of each type, as specified in [FnKind](#fnkind).
 
 Also note that if a function has the deprecated kind <b>ZkSecretInput</b>, the default 
 secret argument associated with it is of type `i32`. 
+
+### Common Types
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [Address](#address)
+<p markdown> ::= addressType: [AddressType](#addresstype) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span></p>
+<p class="endian"> <span class="endian">(identifier is big-endian)</span></p>
+</div>
+
+
+<div class="type-with-comment" markdown>
+##### [AddressType](#addresstype)
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x00 => <b>Account</b> </p>
+<p markdown class="spaced-or">| 0x01 => <b>System</b></p>
+<p markdown class="spaced-or">| 0x02 => <b>Public</b> </p>  
+<p markdown class="spaced-or">| 0x03 => <b>Zk</b> </p>
+<p markdown class="spaced-or">| 0x04 => <b>Gov</b> </p>
+</div>
+</div>
+
+<div class="type-with-comment" markdown>
+##### [Hash](#hash)
+<p> ::= <span class="bytes">0<span class="sep">x</span>nn*32</span></p>
+<p class="endian"> <span class="endian">(big-endian)</span></p>
+</div>
+
+
+<div class="type-with-comment" markdown>
+##### [Boolean](#boolean)
+<p>::= b: <span class="bytes">0<span class="sep">x</span>nn</span></p>
+<p class="endian"><span class="endian">(false if b==0, true otherwise)</span></p>
+</div>
+
+
+<div class="type-with-comment" markdown>
+##### [String](#string)
+<p> ::= len:<span class="bytes">0<span class="sep">x</span>nn*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn*</span>len</p> 
+<p class="endian"><span class="endian">(len is big endian)</span></p>
+</div>
+
+
+<div class="binary-format" markdown>
+##### [PublicKey](#publickey)
+::= {  
+<div class="fields"/>
+ecPoint: 0xnn*33 (point on an elliptic curve)
+</div>
+}
+
+
+<div class="binary-format" markdown>
+##### [Signature](#signature)
+::= {  
+<div class="fields"/>
+recoveryId: id:0xnn*32 (0 <= id <= 3) <br>
+valueR: r:BigInteger (r >= 0) <br>
+valueS: s:BigInteger TODO (s >= 0)
+</div>
+}
+
+<div class="binary-format" markdown>
+##### [BlsPublicKey](#blspublickey)
+::= {  
+<div class="fields"/>
+publicKeyValue:  0xnn*96 (point on an elliptic curve)
+</div>
+}
+
+<div class="binary-format" markdown>
+##### [BlsSignature](#blspublickey)
+::= {  
+<div class="fields"/>
+signatureBytes:  0xnn*48 (point on an elliptic curve)
+</div>
+}
+
+
+
+<div class="binary-format" markdown>
+##### [AvlTreeMap](#avltreemap)
+::= {  
+<div class="fields"/>
+signatureBytes:  0xnn*48 (point on an elliptic curve)
+</div>
+}
+
+
+
+
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [Option<T\>](#optiont)
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x00 => None </p>
+<p markdown  class="spaced-or" >| b:0xnn t:<b>T</b> => Some(t) </p>
+</div>
+<div class="comment-align" markdown>
+<p class="endian"><span class="endian">&nbsp;</span></p>
+<p markdown class="spaced">(b != 0)</p>
+</div>
+</div>
+</div>
+
+
+<div class="type-with-comment" markdown>
+##### [List<T\>](#listt)
+<p markdown>::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len </p>
+<p class="endian"> <span class="endian">(len is big endian)</span> </p>
+</div>
+
+TODO 
+##### [Array<T\>](#arrayt)
+
+##### [Vec<T\>](#vect)
+
+##### [Struct<T\>](#structt)
+
+
+</div>
+
+
+
 
 ## Section format
 

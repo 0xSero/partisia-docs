@@ -520,8 +520,6 @@ nonce: [Long](#long)
 </div>
 </div>
 
-
-
 <div class="binary-format" markdown>
 ##### [ReturnEnvelope](#returnenvelope)
 ::= [Address](#address)<br>
