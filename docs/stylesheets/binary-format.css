@@ -84,6 +84,11 @@ div.type-with-comment-spaced-alt {
 }
 
 
+div.type-with-comment h5 > a {
+    display: flex;
+    width: max-content;
+}
+
 div.column-align {
     display: flex;
     flex-direction: column;
@@ -93,7 +98,6 @@ div.column-align {
 div.comment-align {
     display: flex;
     flex-direction: column;
-    display:flex;
     margin-left: auto;
 }
 

@@ -68,55 +68,82 @@ It is easy to determine how many bytes a LEB128 encoded number contains by exami
 
 The argument binary format depends on the type of the argument. The argument types for each action is defined by the contract, and can be read from the ABI format.
 
+
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [ArgumentRpc](#argumentrpc) 
 ::= 
 <div class="column-align" markdown>
-<p markdown > 0xnn => u8/i8 </p>
-<p markdown  class="spaced-or" >| 0xnn*2 => u16/i16 </p>
-<p markdown  class="spaced-or" >| 0xnn*4 => u32/i32 </p>
-<p markdown  class="spaced-or" >| 0xnn*8 => u64/i64 </p>
-<p markdown  class="spaced-or" >| 0xnn*16 => u128/i128 </p>
-<p markdown  class="spaced-or" >| 0xnn*32 => u256 </p>
-<p markdown  class="spaced-or" >| b:0xnn => [Boolean](#boolean) </p>
-<p markdown  class="spaced-or" >| 0xnn*21 => [Address](#address) </p>
-<p markdown  class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
-<p markdown  class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
-<p markdown  class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
-<p markdown  class="spaced-or" >| 0xnn*96 => [BlsPublicKey](#blspublickey) </p>
-<p markdown  class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
-<p markdown  class="spaced-or" >| 0xnn*len => [Array](#array)[u8;len] </p>
-<p markdown  class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => [String](#string) </p>
-<p markdown  class="spaced-or" >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc)*len => [Vec](#vec)&lt;&gt; </p>
-<p markdown  class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc) => [Option](#optiont)&lt;&gt; </p>
-<p markdown  class="spaced-or" >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-<p markdown  class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc) ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+  <div class="field-and-comment-row">
+    <p >  0xnn => u8/i8 </p>
+    <p class="comment-top" >(i8 is two's complement)</p>
+  </div>
+  <div class="field-and-comment-row">
+    <p class="spaced-or" >| 0xnn*2 => u16/i16 </p>
+    <p class="comment">(big endian, i16 is two's complement)</p>
+  </div>
+  <div class="field-and-comment-row">
+      <p class="spaced-or" >| 0xnn*4 => u32/i32 </p>
+      <p class="comment">(big endian, i32 is two's complement)</p>
+  </div>  
+  <div class="field-and-comment-row">
+      <p class="spaced-or" >| 0xnn*8 => u64/i64 </p>
+      <p class="comment">(big endian, i64 is two's complement)</p>
+  </div>  
+  <div class="field-and-comment-row">
+      <p class="spaced-or" >| 0xnn*16 => u128/i128 </p>
+      <p class="comment">(big endian, i128 is two's complement)</p>
+  </div>  
+  <div class="field-and-comment-row">
+      <p class="spaced-or" >| 0xnn*32 => u256 </p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| b:0xnn => [Boolean](#boolean) </p>
+      <p class="comment">(false if b==0, true otherwise)</p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| 0xnn*21 => [Address](#address) </p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| 0xnn*96 => [BlsPublicKey](#blspublickey) </p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| 0xnn*len => [Array](#array)[u8;len] </p>
+      <p class="comment">(containing the len u8 values)</p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => [String](#string) </p>
+      <p class="comment">(with len UTF-8 encoded bytes)</p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc) *len => [Vec](#vec)&lt;&gt; </p>
+      <p class="comment">(containing the len elements)</p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc)  => [Option](#optiont)&lt;&gt; </p>
+      <p class="comment">(None if b==0, Some(arg) otherwise)</p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc)  ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc)  => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+  </div>  
+  <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc)  ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc)  => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+  </div>
 </div>
-<div class="comment-align" markdown>
-<p class="endian"><span class="endian">(i8 is two's complement)</span></p>
-<p markdown class="spaced">(big endian, i16 is two's complement)</p>
-<p markdown class="spaced">(big endian, i32 is two's complement)</p>
-<p markdown class="spaced">(big endian, i64 is two's complement)</p>
-<p markdown class="spaced">(big endian, i128 is two's complement)</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">(containing the len u8 values)</p>
-<p markdown class="spaced">(with len UTF-8 encoded bytes)</p>
-<p markdown class="spaced">(containing the len elements)</p>
-<p markdown class="spaced">(None if b==0, Some(arg) otherwise)</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
 </div>
 </div>
-</div>
-
 
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
@@ -217,58 +244,6 @@ complement. Note that lengths are also stored as little-endian.
 </div>
 </div>
 
-
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [State](#state)
-::= 
-<div class="column-align" markdown>
-<p markdown >  0xnn => u8/i8 </p>
-<p markdown class="spaced-or" >| 0xnn*2 => u16/i16 </p>
-<p markdown class="spaced-or" >| 0xnn*4 => u32/i32 </p>
-<p markdown class="spaced-or" >| 0xnn*8 => u64/i64 </p>
-<p markdown class="spaced-or" >| 0xnn*16 => u128/i128 </p>
-<p markdown class="spaced-or" >| 0xnn*32 => u256 </p>
-<p markdown class="spaced-or" >| b:0xnn => [Boolean](#boolean) </p>
-<p markdown class="spaced-or" >| 0xnn*21 => [Address](#address) </p>
-<p markdown class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
-<p markdown class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
-<p markdown class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
-<p markdown class="spaced-or" >| 0xnn*96 => [BlsPublicKey](#blspublickey) </p>
-<p markdown class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
-<p markdown class="spaced-or" >| 0xnn*len => [Array](#array)[u8;len] </p>
-<p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn*len => [String](#string) </p>
-<p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)*len => [Vec](#vec)&lt;&gt; </p>
-<p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#optiont)&lt;&gt; </p>
-<p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-<p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-<p markdown class="spaced-or" >| 0xnn*4 => [AvlTree](#avltree){<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-</div>
-<div class="comment-align" markdown>
-<p class="endian"><span class="endian">(i8 is two's complement)</span></p>
-<p markdown class="spaced">(little endian, i16 is two's complement)</p>
-<p markdown class="spaced">(little endian, i32 is two's complement)</p>
-<p markdown class="spaced">(little endian, i64 is two's complement)</p>
-<p markdown class="spaced">(little endian, i128 is two's complement)</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">(false if b==0, true otherwise)</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">(containing the len u8 values)</p>
-<p markdown class="spaced">(with len UTF-8 encoded bytes)</p>
-<p markdown class="spaced">(containing the len elements)</p>
-<p markdown class="spaced">(None if b==0, Some(arg) otherwise)</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-</div>
-</div>
-</div>
 
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
@@ -423,7 +398,33 @@ These structs are not CopySerializable:
 </div>
 </div>
 
-
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [CompositeTypeSpec](#compositetypespec) 
+::= 
+<div class="column-align" markdown >
+  <div class="field-and-comment-row" markdown>
+    <p markdown > 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt; </p>
+  </div>
+  <div class="field-and-comment-row" markdown>
+    <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
+  </div>
+  <div class="field-and-comment-row" markdown>
+    <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
+  </div>
+  <div class="field-and-comment-row" >
+    <p class="spaced-or" > | 0x11 L:0xnn => [u8;L] </p>
+    <p class="comment">(0x00 &le; L &le; 0x7F)</p>
+  </div>
+  <div class="field-and-comment-row" markdown>
+    <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => [Option](#optiont)&lt;T&gt; </p>
+  </div>
+  <div class="field-and-comment-row" markdown>
+    <p class="spaced-or" markdown > | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
+  </div>
+</div>
+</div>
+</div>
 
 **NOTE:** `Map` and `Set` cannot be used as RPC arguments since it's not possible for a
 caller to check equality and sort order of the elements without running the code.
