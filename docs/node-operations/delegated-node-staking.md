@@ -23,7 +23,7 @@ Before you delegate tokens you should visit the [Staking Marketplace](https://di
 
     Delegation is a long term commitment. When your tokens are delegated to a node operator, the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
 
-1. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)   
+1. Go to [the node operation menu](https://browser.partisiablockchain.com/node-operation)   
 2. Sign in   
 3. Unfold the collapsed delegation table in the bottom of the page
 4. Click _Delegate_   
@@ -33,7 +33,7 @@ Your tokens will now be in the state of _pending acceptance_. The node operator 
 
 ### How to retrieve delegated MPC tokens
 
-1. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)
+1. Go to [the node operation menu](https://browser.partisiablockchain.com/node-operation)
 2. Sign in
 3. Unfold the collapsed delegation table in the bottom of the page
 4. Click _Retract_
@@ -45,7 +45,7 @@ Your tokens should now be retrieved to your account and full control. If this do
 
 1. Contact the node operator and ask him to disassociate the tokens from node service   
 2. Wait for [pending time](../node-operations/node-payment-rewards-and-risks.md) to be over
-3. Go to [the node operation menu](https://browser.testnet.partisiablockchain.com/node-operation)
+3. Go to [the node operation menu](https://browser.partisiablockchain.com/node-operation)
 4. Sign in
 5. Unfold the collapsed delegation table in the bottom of the page
 6. Click _Retract_
