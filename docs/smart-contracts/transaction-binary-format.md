@@ -22,26 +22,17 @@ make your own implementation, for instance if you are targeting another programm
 
 <div class="binary-format" markdown>
 
-
 ##### [SignedTransaction](#signedtransaction)
-
-
 ::= {
-
-  <div class="fields"/>
-  
-  signature: [Signature](#signature)  
-  transaction: [Transaction](#transaction)
+<div class="fields"/>
+signature: [Signature](#signature)  
+transaction: [Transaction](#transaction)
 
 }
 
-
 ##### [Signature](#signature)
-
 ::= {
-
 <div class="fields"/>
-
 recoveryId: <span class="bytes">0<span class="sep">x</span>nn</span>  
 <div class="field-with-comment" markdown>
 <p markdown>valueR: <span class="bytes">0<span class="sep">x</span>nn\*32</span></p>
@@ -53,7 +44,6 @@ recoveryId: <span class="bytes">0<span class="sep">x</span>nn</span>
 </div>  
 
 }
-
 </div>
 
 The [Signature](#signature) includes:
@@ -63,11 +53,8 @@ The [Signature](#signature) includes:
 - the s value of the ECDSA signature
 
 <div class="binary-format" markdown>
-
 ##### [Transaction](#transaction)
-
 ::= {
-
 <div class="field-with-comment" markdown>
 <p markdown> nonce: <span class="bytes">0<span class="sep">x</span>nn\*8</span> </p>
 <p class="endian"><span class="endian">(big endian)</span> </p>
@@ -101,7 +88,6 @@ rpc: [Rpc](#rpc)
 <p markdown>::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len </p>
 <p class="endian"><span class="endian">(len is big endian)</span></p>
 </div>
-
 </div>
 
 
@@ -121,21 +107,15 @@ The signature is an ECDSA signature, using secp256k1 as the curve, on a sha256 h
 the blockchain.
 
 <div class="binary-format" markdown>
-
 ##### [ToBeHashed](#tobehashed)
-
-
-::= transaction: [Transaction](#transaction) chainId: [ChainId](#chainid) 
-
+::= transaction: [Transaction](#transaction) chainId: [ChainId](#chainid)
 </div>
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [ChainId](#chainid)
 <p markdown>::=  len: <span class="bytes">0<span class="sep">x</span>nn\*4</span>  utf8: <span class="bytes">0<span class="sep">x</span>nn\*</span>len</p>
 <p class="endian"><span class="endian">(len is big endian)</span></p>
 </div>
-
 </div>
 
 The chain id is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
@@ -148,49 +128,35 @@ The following is the specification of the binary format of executable events.
 
 
 <div class="binary-format" markdown>
-
-
 ##### [ExecutableEvent](#executableevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 originShard: [Option](#optiont)<[String](#string)>  
 transaction: [EventTransaction](#eventtransaction)
 
 }
-
-
 </div>
 
 The originShard is an [Option](#optiont)<[String](#string)>, the originating shard.
 
 
 <div class="binary-format" markdown>
-
 ##### [EventTransaction](#eventtransaction)
-
-
 ::= {
-
-  <div class="fields"/>
-  
-  originatingTransaction: [Hash](#hash)  
-  inner: [InnerEvent](#innerevent)  
-  shardRoute: [ShardRoute](#shardroute)  
-  committeeId: [Long](#long)  
-  governanceVersion: [Long](#long)  
-  <div class="field-with-comment" markdown>
-  <p markdown>height: [Byte](#byte)</p>
-  <p class="endian"><span class="endian">(unsigned)</span></p>
-  </div>
-  <div class="fields"/>
-  returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
+<div class="fields"/>
+originatingTransaction: [Hash](#hash)  
+inner: [InnerEvent](#innerevent)  
+shardRoute: [ShardRoute](#shardroute)  
+committeeId: [Long](#long)  
+governanceVersion: [Long](#long)  
+<div class="field-with-comment" markdown>
+<p markdown>height: [Byte](#byte)</p>
+<p class="endian"><span class="endian">(unsigned)</span></p>
+</div>
+<div class="fields"/>
+returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
 
 }
-
 </div>
 
 The [EventTransaction](#eventtransaction) includes:
@@ -208,16 +174,18 @@ The [EventTransaction](#eventtransaction) includes:
 The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is divided into four types of events: [InnerTransaction](#innertransaction), [CallbackToContract](#callbacktocontract), [InnerSystemEvent](#innersystemevent) and [SyncEvent](#syncevent).
 
 <div class="binary-format" markdown>
-
+<div class="type-with-comment" markdown>
 ##### [InnerEvent](#innerevent)
-
-
-::= 0x00 [InnerTransaction](#innertransaction)  
-<span class="left-align-spacer-alt"/>|  0x01 [CallbackToContract](#callbacktocontract)  
-<span class="left-align-spacer-alt"/>|  0x02 [InnerSystemEvent](#innersystemevent)  
-<span class="left-align-spacer-alt"/>|  0x03 [SyncEvent](#syncevent)
-
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x00 [InnerTransaction](#innertransaction)  </p>
+<p markdown class="spaced-or">| 0x01 [CallbackToContract](#callbacktocontract) </p>
+<p markdown class="spaced-or">| 0x02 [InnerSystemEvent](#innersystemevent) </p>
+<p markdown class="spaced-or">| 0x03 [SyncEvent](#syncevent) </p>
 </div>
+</div>
+</div>
+
 
 
 #### Inner Transaction
@@ -227,14 +195,9 @@ Transactions can either deploy contracts or interact with them.
 Each transaction also carries an associated sender and an associated cost.
 
 <div class="binary-format" markdown>
-
 ##### [InnerTransaction](#innertransaction)
-
-
 ::= {
-
 <div class="fields"/>
-
 from: [Address](#address)  
 cost: [Long](#long)  
 transaction: [Transaction](#transaction) 
@@ -243,26 +206,23 @@ transaction: [Transaction](#transaction)
 </div>
 
 
-
 <div class="binary-format" markdown>
-
+<div class="type-with-comment" markdown>
 ##### [Transaction](#transaction)
-
-
-::= 0x00 => [CreateContractTransaction](#createcontracttransaction)  
-<span class="left-align-spacer-alt"/> |  0x01 => [InteractWithContractTransaction](#interactwithcontracttransaction) 
-
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x00 => [CreateContractTransaction](#createcontracttransaction)  </p>
+<p markdown class="spaced-or">| 0x01 => [InteractWithContractTransaction](#interactwithcontracttransaction) </p>
+</div>
+</div>
 </div>
 
+
+
 <div class="binary-format" markdown>
-
 ##### [CreateContractTransaction](#createcontracttransaction)
-
-
 ::= {
-
 <div class="fields"/>
-
 address: [Address](#address)  
 binderJar: [DynamicBytes](#dynamicbytes)  
 contractJar: [DynamicBytes](#dynamicbytes)  
@@ -270,23 +230,16 @@ abi: [DynamicBytes](#dynamicbytes)
 rpc: [DynamicBytes](#dynamicbytes)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [InteractWithContractTransaction](#interactwithcontracttransaction)
-
-
 ::= {
-
 <div class="fields"/>
-
 contractId: [Address](#address)  
-payload: [DynamicBytes](#dynamicbytes) 
+payload: [DynamicBytes](#dynamicbytes)
 
 }
-
 </div>
 
 ### Callback to Contract
@@ -294,14 +247,9 @@ Callback transactions call the callback methods in contracts.
 
 
 <div class="binary-format" markdown>
-
 ##### [CallbackToContract](#callbacktocontract)
-
-
 ::= {
-
 <div class="fields"/>
-
 address: [Address](#address)  
 callbackIdentifier: [Hash](#hash)  
 from: [Address](#address)  
@@ -309,7 +257,6 @@ cost: [Long](#long)
 callbackRpc: [DynamicBytes](#dynamicbytes)
 
 }
-
 </div>
 
 ### Inner System Event
@@ -320,156 +267,114 @@ System events can manipulate the system state of the blockchain. These are prima
 
 
 ##### [InnerSystemEvent](#innersystemevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 systemEventType: [SystemEventType](#systemeventtype)
 
 }
-
 </div>
 
 
 <div class="binary-format" markdown>
-
+<div class="type-with-comment" markdown>
 ##### [SystemEventType](#systemeventtype)
-
-
-::=  0x00 [CreateAccountEvent](#createaccountevent)  
-<span class="left-align-spacer"/> |  0x01 [CheckExistenceEvent](#checkexistenceevent)  
-<span class="left-align-spacer"/> |  0x02 [SetFeatureEvent](#setfeatureevent)  
-<span class="left-align-spacer"/> |  0x03 [UpdateLocalPluginStateEvent](#updatelocalpluginstateevent)  
-<span class="left-align-spacer"/> |  0x04 [UpdateGlobalPluginStateEvent](#updateglobalpluginstateevent)  
-<span class="left-align-spacer"/> |  0x05 [UpdatePluginEvent](#updatepluginevent)  
-<span class="left-align-spacer"/> |  0x06 [CallbackEvent](#callbackevent)  
-<span class="left-align-spacer"/> |  0x07 [CreateShardEvent](#createshardevent)  
-<span class="left-align-spacer"/> |  0x08 [RemoveShardEvent](#removeshardevent)  
-<span class="left-align-spacer"/> |  0x09 [UpdateContextFreePluginState](#updatecontextfreepluginstate)  
-<span class="left-align-spacer"/> |  0x0A [UpgradeSystemContractEvent](#upgradesystemcontractevent)  
-<span class="left-align-spacer"/> |  0x0B [RemoveContract](#removecontract)
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x00 [CreateAccountEvent](#createaccountevent) </p>
+<p markdown class="spaced-or">| 0x01 [CheckExistenceEvent](#checkexistenceevent) </p>
+<p markdown class="spaced-or">|  0x02 [SetFeatureEvent](#setfeatureevent)  
+<p markdown class="spaced-or">|  0x03 [UpdateLocalPluginStateEvent](#updatelocalpluginstateevent)  
+<p markdown class="spaced-or">|  0x04 [UpdateGlobalPluginStateEvent](#updateglobalpluginstateevent)  
+<p markdown class="spaced-or">|  0x05 [UpdatePluginEvent](#updatepluginevent)  
+<p markdown class="spaced-or">|  0x06 [CallbackEvent](#callbackevent)  
+<p markdown class="spaced-or">|  0x07 [CreateShardEvent](#createshardevent)  
+<p markdown class="spaced-or">|  0x08 [RemoveShardEvent](#removeshardevent)  
+<p markdown class="spaced-or">|  0x09 [UpdateContextFreePluginState](#updatecontextfreepluginstate)  
+<p markdown class="spaced-or">|  0x0A [UpgradeSystemContractEvent](#upgradesystemcontractevent)  
+<p markdown class="spaced-or">|  0x0B [RemoveContract](#removecontract)
+</div>
+</div>
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [CreateAccountEvent](#createaccountevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 toCreate: [Address](#address)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [CheckExistenceEvent](#checkexistenceevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 contractOrAccountAddress: [Address](#address)
 
 }
-
 </div>
-
 <div class="binary-format" markdown>
 
 
 ##### [SetFeatureEvent](#setfeatureevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 key: [String](#string)  
 value: [Option](#optiont)<[String](#string)>
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [UpdateLocalPluginStateEvent](#updatelocalpluginstateevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 type: [ChainPluginType](#chainplugintype)  
 update: [LocalPluginStateUpdate](#localpluginstateupdate)
 
 }
-
 </div>
 
-<div class="binary-format" markdown>
 
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
 ##### [ChainPluginType](#chainplugintype)
-
-
-::= 0x00 => <b>Account</b>  
-<span class="left-align-spacer"/> |  0x01 => <b>Consensus</b>  
-<span class="left-align-spacer"/> |  0x02 => <b>Routing</b>  
-<span class="left-align-spacer"/> |  0x03 => <b>SharedObjectStore</b>
-
-
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x00 => <b>Account</b> </p>
+<p markdown class="spaced-or">| 0x01 => <b>Consensus</b> </p>
+<p markdown class="spaced-or">| 0x02 => <b>Routing</b>  
+<p markdown class="spaced-or">| 0x03 => <b>SharedObjectStore</b>
+</div>
+</div>
 </div>
 
+
+
 <div class="binary-format" markdown>
-
 ##### [LocalPluginStateUpdate](#localpluginstateupdate)
-
-
 ::= {
-
 <div class="fields"/>
-
 context: [Address](#address)  
 rpc: [DynamicBytes](#dynamicbytes)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
-
 ##### [UpdateGlobalPluginStateEvent](#updateglobalpluginstateevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 type: [ChainPluginType](#chainplugintype)  
 update: [GlobalPluginStateUpdate](#globalpluginstateupdate)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [GlobalPluginStateUpdate](#globalpluginstateupdate)
-
-
 ::= {
-
 <div class="fields"/>
-
 rpc: [DynamicBytes](#dynamicbytes)
 
 }
@@ -477,95 +382,60 @@ rpc: [DynamicBytes](#dynamicbytes)
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [UpdatePluginEvent](#updatepluginevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 type: [ChainPluginType](#chainplugintype)  
 jar: [Option](#optiont)<[DynamicBytes](#dynamicbytes)>  
 invocation: [DynamicBytes](#dynamicbytes)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [CallbackEvent](#callbackevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 returnEnvelope: [ReturnEnvelope](#returnenvelope)  
 completedTransaction: [Hash](#hash)  
 success: [Boolean](#boolean)  
 returnValue: [DynamicBytes](#dynamicbytes)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [CreateShardEvent](#createshardevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 shardId: [String](#string)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [RemoveShardEvent](#removeshardevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 shardId: [String](#string)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [UpdateContextFreePluginState](#updatecontextfreepluginstate)
-
-
 ::= {
-
 <div class="fields"/>
-
 type: [ChainPluginType](#chainplugintype)  
 rpc: [DynamicBytes](#dynamicbytes)
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [UpgradeSystemContractEvent](#upgradesystemcontractevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 contractAddress: [Address](#address)  
 binderJar: [DynamicBytes](#dynamicbytes)  
 contractJar: [DynamicBytes](#dynamicbytes)  
@@ -573,103 +443,65 @@ abi: [DynamicBytes](#dynamicbytes)
 rpc: [DynamicBytes](#dynamicbytes)
 
 }
-
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [RemoveContract](#removecontract)
-
-
 ::= {
-
 <div class="fields"/>
-
 contractAddress: [Address](#address)
 
 }
-
-
 </div>
 
 <div class="binary-format" markdown>
-
-
 ### Sync Event
-
 </div>
 
 A sync event is used for moving information from one shard to another when changin the shard configuration. 
 That is, when adding or removing shards or when changing routing logic.
 
 <div class="binary-format" markdown>
-
 ##### [SyncEvent](#syncevent)
-
-
 ::= {
-
 <div class="fields"/>
-
 accounts: [List](#listt)<[AccountTransfer](#accounttransfer)>  
 contracts: [List](#listt)<[ContractTransfer](#contracttransfer)>  
 stateStorage: [List](#listt)<[DynamicBytes](#dynamicbytes)>
 
 }
-
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [AccountTransfer](#accounttransfer)
-
-
 ::= {
-
 <div class="fields"/>
-
 address: [Address](#address)  
 accountStateHash: [Hash](#hash)  
 pluginStateHash: [Hash](#hash)  
 
 }
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [ContractTransfer](#contracttransfer)
-
-
 ::= {
-
 <div class="fields"/>
-
 address: [Address](#address)  
 ContractStateHash: [Hash](#hash)  
 pluginStateHash: [Hash](#hash)
 
 }
-
-
 </div>
 
 <div class="binary-format" markdown>
-
 ##### [ShardRoute](#shardroute)
-
-
 ::= {
-
 <div class="fields"/>
-
 targetShard: [Option](#optiont)<[String](#string)>  
 nonce: [Long](#long)  
 
 }
-
 </div>
 
 
@@ -683,24 +515,23 @@ nonce: [Long](#long)
 </div>
 
 
+<div class="type-with-comment" markdown>
 ##### [AddressType](#addresstype)
-
-
-::= 0x00 => **Account**  
-<span class="left-align-spacer-alt"/>   |  0x01 => **System**  
-<span class="left-align-spacer-alt"/>   |  0x02 => **Public**  
-<span class="left-align-spacer-alt"/>   |  0x03 => **Zk**  
-<span class="left-align-spacer-alt"/>   |  0x04 => **Gov**
-
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x00 => <b>Account</b> </p>
+<p markdown class="spaced-or">| 0x01 => <b>System</b></p>
+<p markdown class="spaced-or">| 0x02 => <b>Public</b> </p>  
+<p markdown class="spaced-or">| 0x03 => <b>Zk</b> </p>
+<p markdown class="spaced-or">| 0x04 => <b>Gov</b> </p>
+</div>
 </div>
 
+
+
 <div class="binary-format" markdown>
-
 ##### [ReturnEnvelope](#returnenvelope)
-
-
 ::= [Address](#address)<br>
-
 <div class="type-with-comment" markdown>
 ##### [Hash](#hash)
 <p> ::= <span class="bytes">0<span class="sep">x</span>nn*32</span></p>
@@ -736,13 +567,22 @@ nonce: [Long](#long)
 <p class="endian"> <span class="endian">(len is big endian)</span></p>
 </div>
 
-##### [Option<T\>](#optiont)
 
-::= 0x00 => None  
-<div class="type-with-comment-spaced" id="left-align-spacer-alt" markdown>
-<p markdown >| b: 0xnn t:<b>T</b> => Some(t) </p>
-<p class="endian"> <span class="endian">(b != 0)</span></p>
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [Option<T\>](#optiont)
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x00 => None </p>
+<p markdown  class="spaced-or" >| b:0xnn t:<b>T</b> => Some(t) </p>
 </div>
+<div class="comment-align" markdown>
+<p class="endian"><span class="endian">&nbsp;</span></p>
+<p markdown class="spaced">(b != 0)</p>
+</div>
+</div>
+</div>
+
 
 <div class="type-with-comment" markdown>
 ##### [List<T\>](#listt)
