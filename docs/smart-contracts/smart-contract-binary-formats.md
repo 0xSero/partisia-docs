@@ -50,7 +50,7 @@ The RPC payload contains the short name identifying the action being called foll
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [PayloadRpc](#payloadrpc)
-<p markdown>::= action:[Shortname](#shortname) arguments:[ArgumentsRpc](#argumentsrpc) => action(arguments) </p>
+<p markdown>::= action:[Shortname](#shortname) arguments:[ArgumentsRpc](#argumentsrpc)* => action(arguments) </p>
 </div>
 </div>
 
@@ -61,7 +61,7 @@ It is easy to determine how many bytes a LEB128 encoded number contains by exami
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [ShortName](#shortname)
-<p markdown> ::= pre:0xnn last:0xnn => action </p>
+<p markdown> ::= pre:0xnn* last:0xnn => action </p>
 <p class="endian"> <span class="endian">(where pre is 0-4 bytes that are &ge;0x80 and last &lt;0x80)</span></p>
 </div>
 </div>
@@ -84,9 +84,9 @@ The argument binary format depends on the type of the argument. The argument typ
 <p markdown  class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
 <p markdown  class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
 <p markdown  class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
-<p markdown  class="spaced-or" >| 0xnn*95 => [BlsPublicKey](#blspublickey) </p>
+<p markdown  class="spaced-or" >| 0xnn*96 => [BlsPublicKey](#blspublickey) </p>
 <p markdown  class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
-<p markdown  class="spaced-or" >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
+<p markdown  class="spaced-or" >| 0xnn*len => [Array](#array)[u8;len] </p>
 <p markdown  class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => [String](#string) </p>
 <p markdown  class="spaced-or" >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc)*len => [Vec](#vec)&lt;&gt; </p>
 <p markdown  class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc) => [Option](#optiont)&lt;&gt; </p>
@@ -100,7 +100,7 @@ The argument binary format depends on the type of the argument. The argument typ
 <p markdown class="spaced">(big endian, i64 is two's complement)</p>
 <p markdown class="spaced">(big endian, i128 is two's complement)</p>
 <p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">(false if b==0, true otherwise)</p>
+<p markdown class="spaced">&nbsp;</p>
 <p markdown class="spaced">&nbsp;</p>
 <p markdown class="spaced">&nbsp;</p>
 <p markdown class="spaced">&nbsp;</p>
@@ -151,9 +151,9 @@ complement. Note that lengths are also stored as little-endian.
 <p markdown class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
 <p markdown class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
 <p markdown class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
-<p markdown class="spaced-or" >| 0xnn*95 => [BlsPublicKey](#blspublickey) </p>
+<p markdown class="spaced-or" >| 0xnn*96 => [BlsPublicKey](#blspublickey) </p>
 <p markdown class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
-<p markdown class="spaced-or" >| 0xnn*len => [Array](#array)&lt;u8;len&gt; </p>
+<p markdown class="spaced-or" >| 0xnn*len => [Array](#array)[u8;len] </p>
 <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn*len => [String](#string) </p>
 <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)*len => [Vec](#vec)&lt;&gt; </p>
 <p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#optiont)&lt;&gt; </p>
@@ -226,7 +226,7 @@ CopySerializable.
 <p markdown class="spaced-or" >| [u8;n] => true </p>
 <p markdown class="spaced-or" >| String => false </p>
 <p markdown class="spaced-or" >| Vec&lt;T&gt; => false </p>
-<p markdown class="spaced-or" >| Option &lt;T&gt; => false </p>
+<p markdown class="spaced-or" >| Option&lt;T&gt; => false </p>
 <p markdown class="spaced-or" >| SortedVecMap&lt;K,V&gt; => false </p>
 <p markdown class="spaced-or" >| SortedVecSet&lt;K,V&gt; => false </p>
 <p markdown class="spaced-or" >| AvlTreeMap&lt;K,V&gt; => false </p>
@@ -238,13 +238,12 @@ CopySerializable.
 </div>
 
 
-The WellAligned constraint on Struct CopySerializable is to guarentee that
-struct layouts are identical to serialization. <div class="binary-format" style="display: inline" markdown><p style="display: inline" >Struct S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>}</p></div>  is WellAligned if following points hold:
+The WellAligned constraint on Struct CopySerializable is to guarentee that struct layouts are identical to serialization.<div class="binary-format" style="display: inline" markdown><p style="display: inline" >Struct S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>}</p></div>  is WellAligned if following points hold:
 
 1. Annotated with `#[repr(C)]`. Read the [Rust Specification](https://doc.rust-lang.org/reference/type-layout.html#reprc-structs)
    for details on this representation.
 2. No padding: <div class="binary-format" style="display: inline" markdown><p  style="display: inline" >size_of(<i>S</i>) = size_of(<i>T<sub>1</sub></i>) + ... + size_of(<i>T<sub>n</sub></i>).</p></div>
-3. No wasted bytes when stored in array: <div class="binary-format" style="display: inline"<p  style="display: inline" > markdown>size_of(<i>S</i>) mod align_of(<i>T<sub>n</sub></i>) = 0.</p></div>
+3. No wasted bytes when stored in array: <div class="binary-format" style="display: inline"><p  style="display: inline" markdown>size_of(<i>S</i>) mod align_of(<i>T<sub>n</sub></i>) = 0.</p></div>
 
 It may be desirable to manually add "padding" fields structs in order to
 achieve CopySerializable. While this will use extra unneeded bytes for the
@@ -356,7 +355,7 @@ All [Identifier](#identifier) names must be [valid Java identifiers](https://doc
 ##### [FileAbi](#fileabi) 
 ::= {
 <div class="field-with-comment" markdown>
-<p markdown> Header: 0xnn </p>
+<p markdown> Header: 0xnn*6 </p>
 <p class="endian"><span class="endian">(The header is always "PBCABI" in ASCII)</span> </p>
 </div>  
 <div class="fields"/>
@@ -374,8 +373,9 @@ Contract: [ContractAbi](#contractabi)
 NamedTypes: [List](#list)&lt;[NamedTypeSpec](#namedtypespec)&gt; <br>
 Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt;<br>
 StateType: [TypeSpec](#typespec)<br>
-</div>  
+
 }
+</div>  
 
 
 <div class="binary-format" markdown>
@@ -407,14 +407,14 @@ Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;
 <div class="fields"/>
 Name: [Identifier](#identifier) <br>
 Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
-</div>  
-}
 
+}
+</div>  
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [EnumVariant](#enumvariant)
-<p markdown > ::= { Discriminant: 0xnn def:[NamedTypeRef](#namedtyperef) } </p>
+<p markdown > ::= discriminant:0xnn def:[NamedTypeRef](#namedtyperef) </p>
 </div>
 </div>
 
@@ -431,8 +431,9 @@ Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt;
 <p markdown>SecretArgument: [ArgumentAbi](#argumentabi)</p>
 <p class="endian"><span class="endian">(Only present if Kind is 0x17)</span> </p>
 </div>  
-</div>
+
 }
+</div>
 
 <div class="binary-format" markdown>
 ##### [FieldAbi](#fieldabi)
@@ -440,8 +441,9 @@ Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt;
 <div class="fields"/>
 Name: [Identifier](#identifier) <br>
 Type: [TypeSpec](#typespec)
-</div>
+
 }
+</div>
 
 <div class="binary-format" markdown>
 ##### [ArgumentAbi](#argumentabi)
@@ -449,8 +451,9 @@ Type: [TypeSpec](#typespec)
 <div class="fields"/>
 Name: [Identifier](#identifier) <br>
 Type: [TypeSpec](#typespec)
-</div>
+
 }
+</div>  
   
 
 <div class="binary-format" markdown>
@@ -518,7 +521,7 @@ secret argument associated with it is of type `i32`.
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Address](#address)
-<p markdown> ::= addressType: [AddressType](#addresstype) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span></p>
+<p markdown> ::= addressType:[AddressType](#addresstype) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span></p>
 <p class="endian"> <span class="endian">(identifier is big-endian)</span></p>
 </div>
 
@@ -556,15 +559,14 @@ secret argument associated with it is of type `i32`.
 </div>
 
 
+
 <div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
 ##### [PublicKey](#publickey)
-::= {  
-<div class="field-with-comment" markdown>
-<p markdown>ecPoint: 0xnn*33</p>
+<p markdown> ::= ecPoint: 0xnn*33</p>
 <p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
 </div>
 </div>
-}
 
 
 <div class="binary-format" markdown>
@@ -593,15 +595,15 @@ secret argument associated with it is of type `i32`.
 ##### [BigInteger](#biginteger)
 
 
+
 <div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
 ##### [BlsPublicKey](#blspublickey)
-::= {
-<div class="field-with-comment" markdown>
-<p markdown>publicKeyValue:  0xnn*96</p>
+<p markdown> ::= publicKeyValue:  0xnn*96</p>
 <p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
-</div>  
-}
 </div>
+</div>
+
 
 <div class="binary-format" markdown>
 ##### [BlsSignature](#blspublickey)
