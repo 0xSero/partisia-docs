@@ -23,17 +23,25 @@ Before you delegate tokens you should visit the [Staking Marketplace](https://di
 
     Delegation is a long term commitment. When your tokens are delegated to a node operator, the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
 
-1. Go to [the node operation menu](https://browser.partisiablockchain.com/node-operation)   
+1. Go to [the assets menu](https://browser.partisiablockchain.com/assets)   
 2. Sign in   
 3. Unfold the collapsed delegation table in the bottom of the page
 4. Click _Delegate_   
 5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
-Your tokens will now be in the state of _pending acceptance_. The node operator has 14 days to accept or reject the offered delegation. If the node operator takes no action, the tokens will return your account.
-
-### How to retrieve delegated MPC tokens
+### How to accept delegated tokens
 
 1. Go to [the node operation menu](https://browser.partisiablockchain.com/node-operation)
+2. Sign in
+3. Under the section **Delegated from others**, unfold the collapsed delegation table in the bottom of the page
+4. Click _Delegate_
+5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
+
+Your tokens will now be in the state of _pending acceptance_. The node operator has 14 days to accept or reject the offered delegation. If the node operator takes no action, the tokens will return your account.
+
+### How to retract delegated MPC tokens
+
+1. Go to [the assets menu](https://browser.partisiablockchain.com/assets)
 2. Sign in
 3. Unfold the collapsed delegation table in the bottom of the page
 4. Click _Retract_
@@ -47,7 +55,7 @@ Your tokens should now be retrieved to your account and full control. If this do
 2. Wait for [pending time](../node-operations/node-payment-rewards-and-risks.md) to be over
 3. Go to [the node operation menu](https://browser.partisiablockchain.com/node-operation)
 4. Sign in
-5. Unfold the collapsed delegation table in the bottom of the page
-6. Click _Retract_
+5. In the bottom you will see a table showing the
+6. To the right of the amount, click the round icon
 7. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
