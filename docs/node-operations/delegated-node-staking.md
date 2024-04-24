@@ -1,6 +1,6 @@
 # Delegated staking
 
-Delegation of MPC token to a node operator is way to stake tokens and earn [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) without running
+Delegation of MPC token to a node operator is a way to stake tokens and earn [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) without running
 a [node](../pbc-fundamentals/dictionary.md#node) yourself.
 
 Delegated staking means that you delegate MPC tokens to an account of a node operator. If the node operator accepts the
