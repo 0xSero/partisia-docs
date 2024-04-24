@@ -87,6 +87,7 @@ div.type-with-comment-spaced-alt {
 div.column-align {
     display: flex;
     flex-direction: column;
+    width: 100%
 }
 
 div.comment-align {
@@ -96,12 +97,19 @@ div.comment-align {
     margin-left: auto;
 }
 
+div.field-and-comment-row {
+    display: flex;
+    flex-direction: row;
+}
 
-p.endian, div.comment-align p.spaced {
+
+p.comment-top, p.comment {
     display:flex;
     margin-left: auto;
 }
-div.comment-align p.spaced, div.column-align p.spaced, div.column-align p.spaced-or {
+
+
+div.comment-align p.spaced, div.column-align p.spaced, div.column-align p.spaced-or, div.field-and-comment-row p.spaced-or, div.field-and-comment-row p.comment {
     margin-top: 0;
 }
 
