@@ -146,7 +146,7 @@ complement. Note that lengths are also stored as little-endian.
 <p markdown class="spaced-or" >| 0xnn*8 => u64/i64 </p>
 <p markdown class="spaced-or" >| 0xnn*16 => u128/i128 </p>
 <p markdown class="spaced-or" >| 0xnn*32 => u256 </p>
-<p markdown class="spaced-or" >| b:0xnn => bool </p>
+<p markdown class="spaced-or" >| b:0xnn => [Boolean](#boolean) </p>
 <p markdown class="spaced-or" >| 0xnn*21 => [Address](#address) </p>
 <p markdown class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
 <p markdown class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
@@ -627,12 +627,6 @@ signatureBytes:  0xnn*48 (point on an elliptic curve)
 <p class="endian"> <span class="endian">(len is big endian)</span> </p>
 </div>
 
-TODO 
-##### [Array<T\>](#arrayt)
-
-##### [Vec<T\>](#vect)
-
-##### [Struct<T\>](#structt)
 
 
 </div>
