@@ -112,7 +112,7 @@ the transaction and verify that this matches exactly the payload generated in th
 ## Configuration parameters
 
 The bytecode for the contracts on the EVM chain should be fetched
-from [Gitlab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth/-/packages/8687576).
+from [Gitlab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth/-/packages/24646551).
 
 For all the files the value in 'bytecode' should be used.
 
