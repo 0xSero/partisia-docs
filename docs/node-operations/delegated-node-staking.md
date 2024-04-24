@@ -9,7 +9,7 @@ a [node service](../node-operations/start-running-a-node.md#which-node-should-yo
 when they are no longer used for a node service. It is your own responsibility as a delegator to communicate with the
 node operator using the tokens. Contact the node operator if you want him to release the tokens from node service.  
 
-### How rewards work for delegated tokens
+### Rewards for delegated tokens
 
 You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards depend on the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
 
