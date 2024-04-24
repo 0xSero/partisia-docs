@@ -559,8 +559,10 @@ secret argument associated with it is of type `i32`.
 <div class="binary-format" markdown>
 ##### [PublicKey](#publickey)
 ::= {  
-<div class="fields"/>
-ecPoint: 0xnn*33 (point on an elliptic curve)
+<div class="field-with-comment" markdown>
+<p markdown>ecPoint: 0xnn*33</p>
+<p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
+</div>
 </div>
 }
 
@@ -569,39 +571,47 @@ ecPoint: 0xnn*33 (point on an elliptic curve)
 ##### [Signature](#signature)
 ::= {  
 <div class="fields"/>
-recoveryId: id:0xnn*32 (0 <= id <= 3) <br>
-valueR: r:BigInteger (r >= 0) <br>
-valueS: s:BigInteger TODO (s >= 0)
+<div class="field-with-comment" markdown>
+<p markdown>recoveryId: id:0xnn*32</p>
+<p class="endian"><span class="endian"> (0 <= id <= 3)</span> </p>
+</div>  
+<div class="field-with-comment" markdown>
+<p markdown>valueR: r:[BigInteger](#biginteger)</p>
+<p class="endian"><span class="endian">(r >= 0)</span> </p>
+</div>  
+<div class="field-with-comment" markdown>
+<p markdown>valueS: s:[BigInteger](#biginteger)</p>
+<p class="endian"><span class="endian">(s >= 0)</span> </p>
+</div>  
 </div>
 }
+
+
+
+
+
+##### [BigInteger](#biginteger)
+
 
 <div class="binary-format" markdown>
 ##### [BlsPublicKey](#blspublickey)
-::= {  
-<div class="fields"/>
-publicKeyValue:  0xnn*96 (point on an elliptic curve)
-</div>
+::= {
+<div class="field-with-comment" markdown>
+<p markdown>publicKeyValue:  0xnn*96</p>
+<p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
+</div>  
 }
+</div>
 
 <div class="binary-format" markdown>
 ##### [BlsSignature](#blspublickey)
-::= {  
-<div class="fields"/>
-signatureBytes:  0xnn*48 (point on an elliptic curve)
+::= {
+<div class="field-with-comment" markdown>
+<p markdown>signatureBytes:  0xnn*48</p>
+<p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
+</div>  
 </div>
 }
-
-
-
-<div class="binary-format" markdown>
-##### [AvlTreeMap](#avltreemap)
-::= {  
-<div class="fields"/>
-signatureBytes:  0xnn*48 (point on an elliptic curve)
-</div>
-}
-
-
 
 
 
