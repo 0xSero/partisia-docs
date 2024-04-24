@@ -5,9 +5,9 @@ a [node](../pbc-fundamentals/dictionary.md#node) yourself.
 
 Delegated staking means that you delegate MPC tokens to an account of a node operator. If the node operator accepts the
 delegated tokens he has custodianship over the tokens. That means that the node operator can associate the tokens to
-a [node service](../node-operations/start-running-a-node.md#which-node-should-you-run). Tokens can only be retrieved,
-when they are no longer used for a node service. It is your own responsibility as a delegator to communicate with the
-node operator using the tokens. Contact the node operator if you want him to release the tokens from node service.  
+a [node service](../node-operations/start-running-a-node.md#which-node-should-you-run). You can only retrieve your token again,
+when they are released and no longer used for a node service. It is your responsibility as a delegator to communicate with the
+node operator using the tokens, if you want him to release the tokens from node service.  
 
 ### Rewards for delegated tokens
 
