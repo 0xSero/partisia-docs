@@ -24,10 +24,9 @@ Before you delegate tokens you should visit the [Staking Marketplace](https://di
     Delegation is a long term commitment. When your tokens are delegated to a node operator, the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
 
 1. Go to [the assets menu](https://browser.partisiablockchain.com/assets)   
-2. Sign in   
-3. Unfold the collapsed delegation table in the bottom of the page
-4. Click _Delegate_   
-5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
+2. Sign in
+3. Click _Delegate_   
+4. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
 ### How to accept delegated tokens
 
