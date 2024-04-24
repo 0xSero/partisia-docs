@@ -18,7 +18,8 @@ The calculation method for rewards, and the history of quarterly payouts can bee
 ### How to delegate MPC tokens
 
 Before you delegate tokens you should visit the [Staking Marketplace](https://discord.com/channels/819902335567265792/1075334307821920337)  where you can find node operators interested in receiving delegated stakes.
-!!! warning 
+
+!!! info 
 
     Delegation is a long term commitment. When your tokens are delegated to a node operator, the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
 
