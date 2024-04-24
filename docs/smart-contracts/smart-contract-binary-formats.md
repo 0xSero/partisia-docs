@@ -46,26 +46,6 @@ The _ABI Format_ holds exactly the meta-data needed for finding types of the arg
 
 The RPC payload contains the short name identifying the action being called followed by each of the arguments for the action.
 
-<!-- Define mathjax macros -->
-
-$$
-\definecolor{mathcolor}{RGB}{33,33,33}
-\definecolor{mathgray}{RGB}{100,100,100}
-\newcommand{\Rightarrowx}{{\color{mathgray} \  \Rightarrow \ \ }}
-\newcommand{\hexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor}\mathtt{#1}}}
-\newcommand{\nnhexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor} #1}}
-\newcommand{\repeat}[2]{#1\text{*}#2}
-\newcommand{\byte}{\nnhexi{nn}}
-\newcommand{\bytes}[1]{\repeat{\byte{}}{\text{#1}}}
-$$
-
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<PayloadRpc>} \ := \ & \text{action:}\text{ShortName}\ \text{arguments:}\text{ArgumentRpc}\text{*}  \Rightarrowx \text{action(arguments)}  \\
-\end{align*}
-}
-$$
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -78,14 +58,6 @@ The short name of an action is an u32 integer identifier that uniquely identifie
 The short name is encoded as [unsigned LEB128 format](https://en.wikipedia.org/wiki/LEB128#Unsigned_LEB128), which means that short names have variable lengths.
 It is easy to determine how many bytes a LEB128 encoded number contains by examining bit 7 of each byte.
 
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<ShortName>} \ := \ & \text{pre:}\nnhexi{nn}\text{*}\ \text{last:}\nnhexi{nn}\ \Rightarrowx \text{Action}  &\text{(where pre is 0-4 bytes that are &ge;0x80 and last&lt;0x80)} \\
-\end{align*}
-}
-$$
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [ShortName](#shortname)
@@ -95,34 +67,6 @@ $$
 </div>
 
 The argument binary format depends on the type of the argument. The argument types for each action is defined by the contract, and can be read from the ABI format.
-
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<ArgumentRpc>} \ :=
-  \ & \byte{} \ \Rightarrowx \text{u8/i8} & \text{(i8 is twos complement)} \\
-| \ & \bytes{2} \ \Rightarrowx \text{u16/i16} & \text{(big endian, i16 is two's complement)} \\
-| \ & \bytes{4} \ \Rightarrowx \text{u32/i32} & \text{(big endian, i32 is two's complement)} \\
-| \ & \bytes{8} \ \Rightarrowx \text{u64/i64} & \text{(big endian, i64 is two's complement)} \\
-| \ & \bytes{16} \ \Rightarrowx \text{u128/i128} & \text{(big endian, i128 is two's complement)} \\
-| \ & \bytes{32} \ \Rightarrowx \text{u256} \\
-| \ & \text{b:}\byte{} \ \Rightarrowx \text{bool} & \text{(false if b==0, true otherwise)} \\
-| \ & \bytes{21} \ \Rightarrowx \text{Address} \\
-| \ & \bytes{32} \ \Rightarrowx \text{Hash} \\
-| \ & \bytes{33} \ \Rightarrowx \text{PublicKey} \\
-| \ & \bytes{65} \ \Rightarrowx \text{Signature} \\
-| \ & \bytes{96} \ \Rightarrowx \text{BlsPublicKey} \\
-| \ & \bytes{48} \ \Rightarrowx \text{BlsSignature} \\
-| \ & \bytes{len} \ \Rightarrowx \text{Array }\text{[u8;len]} & \text{(containing the len u8 values)} \\
-| \ & \text{len:}\text{LengthRpc} \ \text{utf8:}\bytes{len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
-| \ & \text{len:}\text{LengthRpc} \ \text{elems:}\repeat{\text{ArgumentRpc}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
-| \ & \text{b:}\byte{} \ \text{arg:}\text{ArgumentRpc} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
-| \ & f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
-| \ & \text{variant:} \byte{} \ f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Enum}\ \{ \text{variant}, f_1, f_2, \dots, f_n \} & \\
-\end{align*}
-}
-$$
-
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -174,18 +118,9 @@ $$
 </div>
 
 
-
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
 For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a big endian 32-bit unsigned integer.
-
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<LengthRpc>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  \text{(big endian)} \\
-\end{align*}
-}
-$$
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -195,42 +130,10 @@ $$
 </div>
 </div>
 
-
-
-<!-- fix syntax highlighting* -->
-
 ## State Binary Format
 
 Integers are stored as little-endian. Signed integers are stored as two's
 complement. Note that lengths are also stored as little-endian.
-
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<State>} \ := \ & \nnhexi{nn} \ \Rightarrowx \text{u8/i8} & \text{(i8 is twos complement)} \\
-| \ & \bytes{2} \ \Rightarrowx \text{u16/i16} & \text{(little endian, i16 is two's complement)} \\
-| \ & \bytes{4} \ \Rightarrowx \text{u32/i32} & \text{(little endian, i32 is two's complement)} \\
-| \ & \bytes{8} \ \Rightarrowx \text{u64/i64} & \text{(little endian, i64 is two's complement)} \\
-| \ & \bytes{16} \ \Rightarrowx \text{u128/i128} & \text{(little endian, i128 is two's complement)} \\
-| \ & \bytes{32} \ \Rightarrowx \text{u256} \\
-| \ & \text{b:}\byte{} \ \Rightarrowx \text{bool} & \text{(false if b==0, true otherwise)} \\
-| \ & \bytes{21} \ \Rightarrowx \text{Address} \\
-| \ & \bytes{32} \ \Rightarrowx \text{Hash} \\
-| \ & \bytes{33} \ \Rightarrowx \text{PublicKey} \\
-| \ & \bytes{65} \ \Rightarrowx \text{Signature} \\
-| \ & \bytes{96} \ \Rightarrowx \text{BlsPublicKey} \\
-| \ & \bytes{48} \ \Rightarrowx \text{BlsSignature} \\
-| \ & \bytes{len} \ \Rightarrowx \text{Array }\text{[u8;len]} & \text{(containing the len u8 values)} \\
-| \ & \text{len:}\text{LengthState} \ \text{utf8:}\bytes{len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
-| \ & \text{len:}\text{LengthState} \ \text{elems:}\repeat{\text{State}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
-| \ & \text{b:}\byte{} \ \text{arg:}\text{State} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
-| \ & f_1 \text{:State} \dots f_n \text{:State} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
-| \ & \text{variant:} \byte{} \ f_1 \text{:State} \dots f_n \text{:State} \Rightarrowx \text{Enum}\ \{ \text{variant}, f_1, f_2, \dots, f_n \} & \\
-| \ & \bytes{4} \ \Rightarrowx \text{AvlTreeMap} \\
-\end{align*}
-}
-$$
-
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -287,14 +190,6 @@ Only arrays of lengths between (including) 0 and 127 are supported. The high bit
 
 For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a little endian 32-bit unsigned integer.
 
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<LengthState>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  &\text{(little endian)} \\
-\end{align*}
-}
-$$
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [LengthState](#lengthstate)
@@ -310,8 +205,6 @@ The integer stored is the tree id of the AvlTreeMap and is used as a pointer to 
 This is done to avoid having to serialize and deserialize the entire content of the Map for every invocation
 saving gas cost.
 
-<!-- fix syntax highlighting* -->
-
 ### CopySerializable Binary Format
 
 A state type is said to be CopySerializable, if it's serialization is
@@ -320,26 +213,6 @@ serialization overhead. PBC have efficient handling for types that
 are CopySerializable. Internal pointers are the main reason that types are not
 CopySerializable.
 
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<CopySerializable>} \ :=
-  \ & \text{uXXX} \Rightarrowx \text{true}\\
-| \ & \text{iXXX} \Rightarrowx \text{true}\\
-| \ & \text{bool} \Rightarrowx \text{true}\\
-| \ & \text{Address} \Rightarrowx \text{true}\\
-| \ & \text{[u8;N]} \Rightarrowx \text{true}\\
-| \ & \text{String} \Rightarrowx \text{false}\\
-| \ & \text{Vec<T>} \Rightarrowx \text{false}\\
-| \ & \text{Option<T>} \Rightarrowx \text{false}\\
-| \ & \text{SortedVecMap<K, V>} \Rightarrowx \text{false}\\
-| \ & \text{SortedVecSet<K, V>} \Rightarrowx \text{false}\\
-| \ & \text{AvlTreeMap<K, V>} \Rightarrowx \text{false}\\
-| \ & \text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \} \Rightarrowx \text{CopySerializable}(T_1) \wedge \dots \wedge \text{CopySerializable}(T_n) \wedge \text{WellAligned(S)} \\
-| \ & \text{Enum} \ \{ \text{variant}, f_1, f_2, \dots, f_n \} \Rightarrowx \text{false}\\
-\end{align*}
-}
-$$
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -365,16 +238,13 @@ $$
 </div>
 
 
-
-
-
 The WellAligned constraint on Struct CopySerializable is to guarentee that
-struct layouts are identical to serialization.  \(\text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \}\) is WellAligned if following points hold:
+struct layouts are identical to serialization. <div class="binary-format" style="display: inline" markdown><p style="display: inline" >Struct S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>}</p></div>  is WellAligned if following points hold:
 
 1. Annotated with `#[repr(C)]`. Read the [Rust Specification](https://doc.rust-lang.org/reference/type-layout.html#reprc-structs)
    for details on this representation.
-2. No padding: \(\text{size_of}(S) = \text{size_of}(T_1) + ... + \text{size_of}(T_n)\)
-3. No wasted bytes when stored in array: \(\text{size_of}(S) \mod \text{align_of}(T_n) = 0\)
+2. No padding: <div class="binary-format" style="display: inline" markdown><p  style="display: inline" >size_of(<i>S</i>) = size_of(<i>T<sub>1</sub></i>) + ... + size_of(<i>T<sub>n</sub></i>).</p></div>
+3. No wasted bytes when stored in array: <div class="binary-format" style="display: inline"<p  style="display: inline" > markdown>size_of(<i>S</i>) mod align_of(<i>T<sub>n</sub></i>) = 0.</p></div>
 
 It may be desirable to manually add "padding" fields structs in order to
 achieve CopySerializable. While this will use extra unneeded bytes for the
@@ -399,47 +269,6 @@ These structs are not CopySerializable:
 
 ### Type Specifier binary format
 
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<TypeSpec>} \ := \ &\text{SimpleTypeSpec} \\
-| \ &\text{CompositeTypeSpec} \\
-| \ &\text{NamedTypeRef} \\
-\\
-\text{<NamedTypeRef>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx NamedTypes(\text{Index}) \\
-\\
-\text{<SimpleTypeSpec>} \ := \ &\hexi{01} \ \Rightarrowx \text{u8} \\
-| \ &\hexi{02} \ \Rightarrowx \text{u16} \\
-| \ &\hexi{03} \ \Rightarrowx \text{u32} \\
-| \ &\hexi{04} \ \Rightarrowx \text{u64} \\
-| \ &\hexi{05} \ \Rightarrowx \text{u128} \\
-| \ &\hexi{18} \ \Rightarrowx \text{u256} \\
-| \ &\hexi{06} \ \Rightarrowx \text{i8} \\
-| \ &\hexi{07} \ \Rightarrowx \text{i16} \\
-| \ &\hexi{08} \ \Rightarrowx \text{i32} \\
-| \ &\hexi{09} \ \Rightarrowx \text{i64} \\
-| \ &\hexi{0a} \ \Rightarrowx \text{i128} \\
-| \ &\hexi{0b} \ \Rightarrowx \text{String} \\
-| \ &\hexi{0c} \ \Rightarrowx \text{bool} \\
-| \ &\hexi{0d} \ \Rightarrowx \text{Address} \\
-| \ &\hexi{13} \ \Rightarrowx \text{Hash} \\
-| \ &\hexi{14} \ \Rightarrowx \text{PublicKey} \\
-| \ &\hexi{15} \ \Rightarrowx \text{Signature} \\
-| \ &\hexi{16} \ \Rightarrowx \text{BlsPublicKey} \\
-| \ &\hexi{17} \ \Rightarrowx \text{BlsSignature} \\
-\\
-\text{<CompositeTypeSpec>} \ := \ &\hexi{0e} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Vec<}\text{T>} \\
-| \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{Map <}\text{K}, \text{V>} \\
-| \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Set<}\text{T>} \\
-| \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]}  (\hexi{00} \leq L \leq \hexi{7F}) \\
-| \ &\hexi{12} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Option<}\text{T>} \\
-| \ &\hexi{19} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{AvlTreeMap <}\text{K}, \text{V>} \\
-\\
-\end{align*}
-}
-$$
-
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [TypeSpec](#typespec) 
@@ -452,16 +281,12 @@ $$
 </div>
 </div>
 
-
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [NamedTypeRef](#namedtyperef) 
 <p markdown > ::= 0x00 Index:0xnn => NamedTypes(Index)  </p>
 </div>
 </div>
-
-
 
 
 <div class="binary-format" markdown>
@@ -490,7 +315,7 @@ $$
 <p markdown class="spaced-or">| 0x17 => [BlsSignature](#blssignature) </p>
 </div>
 </div>
-
+</div>
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -513,7 +338,7 @@ $$
 <p markdown class="spaced">&nbsp;</p>
 </div>
 </div>
-</div>  <br>
+</div>
 
 
 
@@ -526,72 +351,6 @@ Only arrays of lengths between (including) 0 and 127 are supported. The high bit
 
 All [Identifier](#identifier) names must be [valid Java identifiers](https://docs.oracle.com/javase/specs/jls/se20/html/jls-3.html#jls-3.8); other strings are reserved for future extensions.
 
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<FileAbi>} \ := \ \{ \
-&\text{Header: } \bytes{6},\text{The header is always "PBCABI" in ASCII}\\
-&\text{VersionBinder: } \bytes{3} \ \\
-&\text{VersionClient: } \bytes{3} \ \\
-&\text{Contract: ContractAbi} \ \} \\
-\\
-\text{<ContractAbi>} \ := \ \{ \
-&\text{NamedTypes: List<NamedTypeSpec>}, \\
-&\text{Hooks: List<FnAbi>}, \\
-&\text{StateType: TypeSpec} \ \} \\
-\\
-\text{<NamedTypeSpec>} \ := \
-&\hexi{01} \ \text{StructTypeSpec}\\
-|\ & \hexi{02} \ \text{EnumTypeSpec} \\
-\\
-\text{<StructTypeSpec>} \ := \ \{ \
-&\text{Name: Identifier}, \\
-&\text{Fields: List<FieldAbi>} \ \} \\
-\\
-\text{<EnumTypeSpec>} \ := \ \{ \
-&\text{Name: Identifier}, \\
-&\text{Variants: List<EnumVariant>} \ \} \\
-\\
-\text{<EnumVariant>} \ := \ \{ \
-&\text{Discriminant: } \nnhexi{nn} \ \text{def: NamedTypeRef} \ \} \\
-\\
-\text{<FnAbi>} \ := \ \{ \
-&\text{Kind: FnKind}, \\
-&\text{Name: Identifier}, \\
-&\text{Shortname: LEB128}, \\
-&\text{Arguments: List<ArgumentAbi>}  \\
-&\text{SecretArgument: ArgumentAbi} \ \} &\text{Only present if Kind is } \hexi{17} \\
-\\
-\text{<FieldAbi>} \ := \ \{ \
-&\text{Name: Identifier}, \\
-&\text{Type: TypeSpec} \ \} \\
-\\
-\text{<ArgumentAbi>} \ := \ \{ \
-&\text{Name: Identifier}, \\
-&\text{Type: TypeSpec} \ \} \\
-\\
-\text{<Identifier>} \ := \ \phantom{\{} \
-&\text{len:}\bytes{4} \ \text{utf8:}\bytes{len}  \text{ utf8 must be Rust identifier, len is big endian} \\
-\\
-\text{<LEB128>} \ := \ \phantom{\{} \
-&\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).} \\
-\\
-\text{<FnKind>} \ := \ \
-&\hexi{01} \ \Rightarrowx \text{Init} &\text{(Num allowed: 1)} \\
-|\ &\hexi{02} \ \Rightarrowx \text{Action}  &\text{(0..}\infty\text{)}\\
-|\ &\hexi{03} \ \Rightarrowx \text{Callback}  &\text{(0..}\infty\text{)}\\
-|\ &\hexi{10} \ \Rightarrowx \text{ZkSecretInput}  &\text{(0..}\infty\text{)}\\
-|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..}\infty\text{))}\\
-|\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected}  &\text{(0..1)}\\
-|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..}\infty\text{))}\\
-|\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
-|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
-|\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\
-|\ &\hexi{17} \ \Rightarrowx \text{ZkSecretInputWithExplicitType} &\text{(0..}\infty\text{)} \\
-|\ &\hexi{18} \ \Rightarrowx \text{ZkExternalEvent} &\text{(0..1} \\
-\end{align*}
-} \\
-$$
 
 <div class="binary-format" markdown>
 ##### [FileAbi](#fileabi) 
@@ -608,7 +367,6 @@ Contract: [ContractAbi](#contractabi)
 }
 
 
-
 <div class="binary-format" markdown>
 ##### [ContractAbi](#contractabi) 
 ::= {
@@ -618,7 +376,6 @@ Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt;<br>
 StateType: [TypeSpec](#typespec)<br>
 </div>  
 }
-
 
 
 <div class="binary-format" markdown>
@@ -638,7 +395,8 @@ StateType: [TypeSpec](#typespec)<br>
 ::= {
 <div class="fields"/>
 Name: [Identifier](#identifier) <br>
-Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;</div>
+Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;
+
 }
 </div>  
 
@@ -651,7 +409,6 @@ Name: [Identifier](#identifier) <br>
 Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
 </div>  
 }
-
 
 
 <div class="binary-format" markdown>
@@ -756,19 +513,9 @@ number of hooks of each type, as specified in [FnKind](#fnkind).
 Also note that if a function has the deprecated kind <b>ZkSecretInput</b>, the default 
 secret argument associated with it is of type `i32`. 
 
-<!-- fix syntax highlighting* -->
 ## Section format
 
 A [Section](#section) is an indexed chunk of a binary file of dynamic length, which is defined as follows:
-
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<Section >} \ :=
-\ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
-\end{align*}
-}
-$$
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -786,15 +533,6 @@ of the section should match this length.
 ## Wasm contract result format
 
 The format used by Wasm contracts to return results is a [section format](#section-format) defined as follows:
-
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<Result>} \ :=
-  \ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
-\end{align*}
-}
-$$
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -821,15 +559,6 @@ ZK-contracts have their own binary file format  with the extension ".zkwa"
 that contains their compiled WASM code and ZK-circuit byte code. 
 This is a [section format](#section-format) defined as:
 
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<ZKWA>} \ :=
-\ & \text{section}_0\text{: Section} \ \text{section}_1\text{: Section} \\
-\end{align*}
-}
-$$
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [ZKWA](#result)
@@ -849,16 +578,6 @@ of two sections indexed by the following ids:
 
 The file extension of Partisia Blockchain Contract Files is written as ".pbc". This is a [section format](#section-format) defined as:
 
-$$
-\textcolor{mathcolor}{
-\begin{align*}
-\text{<PbcFile>} \ :=
-\ & \text{PbcHeader:}\bytes{4},\text{The header is always "PBSC" in ASCII}\ \\
-\ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
-\end{align*}
-}
-$$
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [PbcFile](#pbcfile)
@@ -866,8 +585,6 @@ $$
 <p class="endian"><span class="endian">(The header is always "PBSC" in ASCII)</span></p>
 </div>
 </div>
-
-<!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. The .pbc format can
 consist of up to three sections indexed by the following ids:
