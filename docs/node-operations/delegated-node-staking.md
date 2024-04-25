@@ -9,12 +9,6 @@ a [node service](../node-operations/start-running-a-node.md#which-node-should-yo
 when they are released and no longer used for a node service. It is your responsibility as a delegator to communicate with the
 node operator using the tokens, if you want him to release the tokens from node service.  
 
-### Rewards for delegated tokens
-
-You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards depend on the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
-
-The calculation method for rewards, and the history of quarterly payouts can bee seen [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
-
 ### How to delegate MPC tokens
 
 Before you delegate tokens you should visit the [Staking Marketplace](https://discord.com/channels/819902335567265792/1075334307821920337)  where you can find node operators interested in receiving delegated stakes.
@@ -22,6 +16,8 @@ Before you delegate tokens you should visit the [Staking Marketplace](https://di
 !!! info 
 
     Delegation is a long term commitment. When your tokens are delegated to a node operator, the tokens can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
+
+Delegation is handled from the menus called **Your assets** and **Node operation** in the browser left sidebar. The menus are only visible when you are signed in.
 
 1. Go to [the assets menu](https://browser.partisiablockchain.com/assets)   
 2. Sign in
@@ -58,3 +54,8 @@ Your tokens should now be retrieved to your account and full control. If this do
 6. To the right of the amount, click the round icon
 7. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
+### Rewards for delegated tokens
+
+You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards depend on the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
+
+The calculation method for rewards, and the history of quarterly payouts can bee seen [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
