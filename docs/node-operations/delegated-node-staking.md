@@ -69,7 +69,7 @@ performance of the node you delegate to, and the amount rewardable tokens delega
     **Variables:**
 
     - **T** is total allocated rewards for the period. In this scenario 1,000,000 MPC tokens   
-    - **r(d)** is your delegated rewardable tokens. You delegate all your 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated = \frac{10,000}{20,000}} 20,000$   
+    - **r(d)** is your delegated rewardable tokens. You delegate all your 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated = \frac{10,000}{20,000} 20,000$   
     - **p** is the node performance. In this  period node performance was 90%   
     - **S(RP)** is sum of rewardable tokens adjusted for performance, in this scenario we imagine 100 nodes with average 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC token    
 
