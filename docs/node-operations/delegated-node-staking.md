@@ -67,7 +67,7 @@ Total reward for the period is 7,500 MPC tokens
 
 - A is total allocated rewards for the period. In this scenario 1,000,000 MPC tokens
 - B is your delegated rewardable tokens (see explanation above). You delegate 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rwardable
-- C is the node performance. In this  period node performance was was 90%
+- C is the node performance. In this  period node performance was 90%
 - D is sum of rewardable tokens adjusted for performance, in this scenario we imagine 100 nodes with average 12000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC token   
 
     
