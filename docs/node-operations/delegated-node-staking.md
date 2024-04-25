@@ -67,8 +67,9 @@ You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-
     - B: Node operator has 5K MPC tokens already, 2/5s are released (2000)
     - C: Max rewards possible in the period is 1000 MPC tokens
     - D: Node performance in the period was 90%
-    - E: Sum of rewardable tokens used by the node is 10000 + 2000 = 12000
-    $RewardForDelegation = C \frac{A \cdot D}{E \cdot D} = 1000 \frac{10000 \cdot 90\%}{12000 \cdot 90\%} \approx 833$
+    - E: Sum of rewardable tokens used by the node is 10000 + 2000 = 12000   
+    $RewardForDelegation = C \frac{A \cdot D}{E \cdot D} = 1000 \frac{10000 \cdot 90\%}{12000 \cdot 90\%} \approx 833$   
+    Total reward for the period is 833 MPC tokens
     
 
 
