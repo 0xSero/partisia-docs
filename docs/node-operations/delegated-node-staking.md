@@ -61,11 +61,14 @@ Your tokens should now be retrieved to your account and full control. If this do
 
 You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards depend on the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
 
-!!! Example "Example calculation"
-- You delegate 20K MPC tokens to a node operator, half of your tokens are released
-- Node operator has 5K MPC tokens already, 2/5s are released
-- Max rewards possible in the period is 1K MPC tokens
-- Node performance in the period was 94%
+!!! Example "Example of rewards calculation for delegated stakes"
+
+    - A: You delegate 20K MPC tokens to a node operator, half of your tokens are released (10000)
+    - B: Node operator has 5K MPC tokens already, 2/5s are released (2000)
+    - C: Max rewards possible in the period is 1000 MPC tokens
+    - D: Node performance in the period was 90%
+    - E: Sum of rewardable tokens used by the node is 10000 + 2000 = 12000
+    $RewardForDelegation = C \frac{A \cdot D}{E \cdot D} = 1000 \frac{10000 \cdot 90\%}{12000 \cdot 90\%} \approx 833$
     
 
 
