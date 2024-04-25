@@ -59,17 +59,17 @@ Your tokens should now be retrieved to your account and full control. If this do
 
 ### Rewards for delegated tokens
 
-You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards depend on the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
+You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards depend on the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-different-node-services-earn-fees-and-rewards) performance of the node you delegate to and the amount rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
 
-!!! Example "Example of rewards calculation for delegated stakes"
 
-    - A is your rewardable tokens: You delegate 20K MPC tokens to a node operator, half of your tokens are released (10000)
-    - B is the rewardables of the node operator:: Node operator has 5K MPC tokens already, 2/5s are released (2000)
-    - C is maximum rewards possible in the period: 1000 MPC tokens
-    - D is the node performance: in this  period it was 90%
-    - E is the sum of rewardable tokens used by the node: 10000 + 2000 = 12000   
-    $RewardForDelegation = C \frac{A \cdot D}{E \cdot D} = 1000 \frac{10000 \cdot 90\%}{12000 \cdot 90\%} \approx 833$   
-    Total reward for the period is 833 MPC tokens
+$RewardForDelegation = A \frac{B \cdot C}{D} = 1,000,000 \frac{10000 \cdot 90\%}{1,200,000} = 7,500$   
+Total reward for the period is 7,500 MPC tokens
+
+- A is total allocated rewards for the period. In this scenario 1,000,000 MPC tokens
+- B is your delegated rewardable tokens (see explanation above). You delegate 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rwardable
+- C is the node performance. In this  period node performance was was 90%
+- D is sum of rewardable tokens adjusted for performance, in this scenario we imagine 100 nodes with average 12000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC token   
+
     
 
 
