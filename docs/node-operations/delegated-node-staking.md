@@ -45,7 +45,7 @@ Your tokens will now be in the state of _pending acceptance_. The node operator 
 4. Click _Retract_
 5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
-Your tokens should now be retrieved to your account and full control. If this does not happen, the tokens are in use by a node service. Then go [here](#how-to-retrieve-delegated-mpc-tokens-locked-to-a-node-service)
+Your tokens should now be retrieved to your account and full control. If this does not happen, the tokens are in use by a node service. Then go [here](#how-to-retract-delegated-mpc-tokens-locked-to-a-node-service)
 
 ### How to retract delegated MPC tokens locked to a node service
 
@@ -60,5 +60,13 @@ Your tokens should now be retrieved to your account and full control. If this do
 ### Rewards for delegated tokens
 
 You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) for delegating tokens to node operators. The rewards depend on the number of rewardable tokens delegated: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
+
+!!! Example "Example calculation"
+- You delegate 20K MPC tokens to a node operator, half of your tokens are released
+- Node operator has 5K MPC tokens already, 2/5s are released
+- Max rewards possible in the period is 1K MPC tokens
+- Node performance in the period was 94%
+    
+
 
 The calculation method for rewards, and the history of quarterly payouts can bee seen [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
