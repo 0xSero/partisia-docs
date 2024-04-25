@@ -64,16 +64,17 @@ delegating tokens to node operators. The rewards depend on
 the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-different-node-services-earn-fees-and-rewards)
 performance of the node you delegate to and the amount rewardable tokens delegated.
 
-$RewardForDelegation = A \frac{B \cdot C}{D} = 1,000,000 \frac{10000 \cdot 90\%}{1,200,000} = 7,500$   
-Total reward for the period is 7,500 MPC tokens
+!!! Eaxmple "Calculation example"
 
-The node operator take a 2% cut of the delegator rewards. The delegator ends up with 7,350 of the 7,500.
+    - A is total allocated rewards for the period. In this scenario 1,000,000 MPC tokens
+    - B is your delegated rewardable tokens. You delegate 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
+    - C is the node performance. In this  period node performance was 90%
+    - D is sum of rewardable tokens adjusted for performance, in this scenario we imagine 100 nodes with average 12000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC token   
 
-- A is total allocated rewards for the period. In this scenario 1,000,000 MPC tokens
-- B is your delegated rewardable tokens. You delegate 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated$
-- C is the node performance. In this  period node performance was 90%
-- D is sum of rewardable tokens adjusted for performance, in this scenario we imagine 100 nodes with average 12000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC token   
+    $RewardForDelegation = A \frac{B \cdot C}{D} = 1,000,000 \frac{10000 \cdot 90\%}{1,200,000} = 7,500$   
+    Your reward for the delegated stakes in the given  period is 7,500 MPC tokens.
+    The node operator take a 2% cut of the delegator rewards. You get 7,350 of the 7,500.
 
-This calculation is simplified by omitting the calculation of the number **D**. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate **D**. 
+    This calculation is simplified by omitting the calculation of the number **D**. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate **D**. 
 
 The calculation method for rewards, and the history of quarterly payouts can bee seen [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
