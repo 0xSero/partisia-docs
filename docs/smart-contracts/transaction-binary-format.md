@@ -1,9 +1,6 @@
 # Transaction Binary Format
 
-This is the specification for transactions, which includes signed transactions from users and executable events which is spawned by the blockchain. 
-
-A signed transaction is an instruction from a user containing information used to change the state of the blockchain.
-An executable event is spawned by the blockchain, when it receives a signed transaction. The executable event contains the information about which action to perform to a smart contract.
+This is the specification for transactions, which includes signed transactions from users and executable events which are spawned by the blockchain. 
 
 You can learn more about how interactions work on the blockchain [here](smart-contract-interactions-on-the-blockchain.md#simple-interaction-model).
 
@@ -12,6 +9,7 @@ their [REST API](../rest).
 
 ## Signed Transaction
 
+A signed transaction is an instruction from a user containing information used to change the state of the blockchain.
 
 The following is the specification of the binary format of signed transactions.
 
@@ -72,14 +70,6 @@ address: [Address](#address)
 rpc: [Rpc](#rpc)
 
 }
-
-
-<div class="type-with-comment" markdown>
-##### [List<T\>](#listt)
-<p markdown>::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len </p>
-<p class="endian"> <span class="endian">(len is big endian)</span> </p>
-</div>
-
 </div>
 
 <div class="binary-format" markdown>
@@ -124,6 +114,8 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 
 ## Executable Event Binary Format
 
+An executable event is spawned by the blockchain, and not by a user. It is created from other events or when it receives a signed transaction. The executable event contains the information about which action to perform to a smart contract.
+
 The following is the specification of the binary format of executable events.
 
 
@@ -162,12 +154,12 @@ returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
 The [EventTransaction](#eventtransaction) includes:
 
 - The originating transaction: the [SignedTransaction](#signedtransaction) initiating the tree of events that this event is a part of.
-- The actual [InnerEvent](#innerevent), i.e. the event type. 
-- The [ShardRoute](#shardroute)   this event is going to and nonce for this event
-- The committee id for the block producing this event
-- The version of governance when this event was produced
-- Current call height in the event stack
-- Callback ([ReturnEnvelope](#returnenvelope)) if any
+- The event type, [InnerEvent](#innerevent).
+- The [ShardRoute](#shardroute) describes which shard the event should be executed on.
+- The id of the committee that produced the block where the event was spawned.
+- The governance version when this event was produced.
+- The height of the event tree, increased for each event spawned after a SignedTransaction.
+- If there is a Callback registered to the event, the result of the event is returned in a [ReturnEnvelope](#returnenvelope).
 
 #### Event Types
 
@@ -458,7 +450,7 @@ contractAddress: [Address](#address)
 ### Sync Event
 </div>
 
-A sync event is used for moving information from one shard to another when changin the shard configuration. 
+A sync event is used for moving information from one shard to another when changing the shard configuration. 
 That is, when adding or removing shards or when changing routing logic.
 
 <div class="binary-format" markdown>
