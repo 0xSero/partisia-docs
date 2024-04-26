@@ -74,7 +74,7 @@ The [Signature](#signature) includes:
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Rpc](#rpc)
-<p>::= len:0xnn\*4 payload:0xnn\*len</p>
+<p>::= len:0xnn*4 payload:0xnn*len</p>
 <p class="endian">(len is big-endian)</p>
 </div>
 </div>
@@ -160,7 +160,7 @@ The transaction, [EventTransaction](#eventtransaction), includes:
 - If there is a callback registered to the event, the result of the event is returned in a [ReturnEnvelope](#returnenvelope).  
 
 
-### Event Types
+#### Event Types
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [InnerEvent](#innerevent)
@@ -176,7 +176,7 @@ The transaction, [EventTransaction](#eventtransaction), includes:
 
 The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is divided into four types of events: [InnerTransaction](#innertransaction), [CallbackToContract](#callbacktocontract), [InnerSystemEvent](#innersystemevent) and [SyncEvent](#syncevent).
 
-#### Inner Transaction
+### Inner Transaction
 
 A transaction is sent by the user or the contract, meaning that it represents the actions the user can activate. 
 Transactions can either deploy contracts or interact with them.
@@ -193,6 +193,8 @@ transaction: [Transaction](#transaction)
 }
 </div>
 
+The [InnerTransaction](#innertransaction) contains an associated sender and an associated cost, as well as the transaction.
+
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -205,6 +207,7 @@ transaction: [Transaction](#transaction)
 </div>
 </div>
 
+A [Transaction](#transaction) is either a [CreateContractTransaction](#createcontracttransaction) used to deploy contracts, or an [InteractWithContractTransaction](#interactwithcontracttransaction) used to interact with contracts.
 
 
 <div class="binary-format" markdown>
@@ -220,6 +223,10 @@ rpc: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
+A [CreateContractTransaction](#createcontracttransaction) contains the [Address](#address) where the contract should be deployed, and the binding jar, the contract jar, the contract ABI and the RPC of the create invocation.
+
+
+
 <div class="binary-format" markdown>
 ##### [InteractWithContractTransaction](#interactwithcontracttransaction)
 ::= {
@@ -230,7 +237,9 @@ payload: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
-#### Callback to Contract
+An [InteractWithContractTransaction](#interactwithcontracttransaction) contains the [Address](#address) of the contract to interact with, as well as a payload (RPC) defining the interaction.
+
+### Callback to Contract
 Callback transactions call the callback methods in contracts.
 
 
@@ -247,7 +256,9 @@ callbackRpc: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
-#### Inner System Event
+A [CallbackToContract](#callbacktocontract) contains the [Address](#address) of the contract to target, as well as information about the callback: The event transactions that has been awaited and is completed, the sender, the allocated cost for the callback event, and the callback RPC.
+
+### Inner System Event
 
 System events can manipulate the system state of the blockchain. These are primarily sent by system/governance contracts.
 
@@ -259,7 +270,7 @@ systemEventType: [SystemEventType](#systemeventtype)
 
 }
 </div>
-
+An [InnerSystemEvent](#innersystemevent) has a [SystemEventType](#systemeventtype).
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -282,6 +293,8 @@ systemEventType: [SystemEventType](#systemeventtype)
 </div>
 </div>
 
+#### Create Account Event
+
 <div class="binary-format" markdown>
 ##### [CreateAccountEvent](#createaccountevent)
 ::= {
@@ -291,6 +304,10 @@ toCreate: [Address](#address)
 }
 </div>
 
+A [CreateAccountEvent](#createaccountevent) contains the address of the account to create.
+
+#### Check Existence Event
+
 <div class="binary-format" markdown>
 ##### [CheckExistenceEvent](#checkexistenceevent)
 ::= {
@@ -299,9 +316,12 @@ contractOrAccountAddress: [Address](#address)
 
 }
 </div>
+
+A [CheckExistenceEvent](#checkexistenceevent) is an event for checking the existence of a contract or account address.
+
+#### Set Feature Event
+
 <div class="binary-format" markdown>
-
-
 ##### [SetFeatureEvent](#setfeatureevent)
 ::= {
 <div class="fields"/>
@@ -310,6 +330,11 @@ value: [Option](#optiont)<[String](#string)>
 
 }
 </div>
+
+A [SetFeatureEvent](#setfeatureevent) is an event for setting a feature in the state. The key indicates the feature to set, and the value is the value to set on the feature.
+
+
+#### Update Local Plugin State Event
 
 <div class="binary-format" markdown>
 ##### [UpdateLocalPluginStateEvent](#updatelocalpluginstateevent)
@@ -320,6 +345,8 @@ update: [LocalPluginStateUpdate](#localpluginstateupdate)
 
 }
 </div>
+
+A [UpdateLocalPluginStateEvent](#updatelocalpluginstateevent) updates the local state of the plugin, and its fields are a plugin type [ChainPluginType](#chainplugintype) and a plugin state [LocalPluginStateUpdate](#localpluginstateupdate).
 
 
 <div class="binary-format" markdown>
@@ -335,7 +362,12 @@ update: [LocalPluginStateUpdate](#localpluginstateupdate)
 </div>
 </div>
 
+A [ChainPluginType](#chainplugintype) can have the following types:
 
+- The **Account** plugin controls additional information about account and fees. 
+- The **Consensus** plugin validates block proposals and finalizes correct blocks.
+- The **Routing plugin** selects the right shard for any transaction.
+- The **SharedObjectStore** plugin stores binary objects across all shards.
 
 <div class="binary-format" markdown>
 ##### [LocalPluginStateUpdate](#localpluginstateupdate)
@@ -347,6 +379,11 @@ rpc: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
+A [LocalPluginStateUpdate](#localpluginstateupdate) contains the [Address](#address) of the contract where the state should be updated, as well as RPC with the update.
+
+
+#### Update Global Plugin State Event
+
 <div class="binary-format" markdown>
 ##### [UpdateGlobalPluginStateEvent](#updateglobalpluginstateevent)
 ::= {
@@ -357,6 +394,8 @@ update: [GlobalPluginStateUpdate](#globalpluginstateupdate)
 }
 </div>
 
+A [UpdateGlobalPluginStateEvent](#updateglobalpluginstateevent) contains a chain plugin type [ChainPluginType](#chainplugintype) and a state update [GlobalPluginStateUpdate](#globalpluginstateupdate).
+
 <div class="binary-format" markdown>
 ##### [GlobalPluginStateUpdate](#globalpluginstateupdate)
 ::= {
@@ -364,8 +403,11 @@ update: [GlobalPluginStateUpdate](#globalpluginstateupdate)
 rpc: [DynamicBytes](#dynamicbytes)
 
 }
-
 </div>
+
+The [GlobalPluginStateUpdate](#globalpluginstateupdate) contains the RPC of the update to execute globally.
+
+#### Update Plugin Event
 
 <div class="binary-format" markdown>
 ##### [UpdatePluginEvent](#updatepluginevent)
@@ -373,10 +415,14 @@ rpc: [DynamicBytes](#dynamicbytes)
 <div class="fields"/>
 type: [ChainPluginType](#chainplugintype)  
 jar: [Option](#optiont)<[DynamicBytes](#dynamicbytes)>  
-invocation: [DynamicBytes](#dynamicbytes)
+rpc: [DynamicBytes](#dynamicbytes)
 
 }
 </div>
+
+An [UpdatePluginEvent](#updatepluginevent) constructs a new event for updating an active plugin. It takes the type of the chain plugin to update, the jar to use as plugin, and RPC of global state migration.
+
+#### Callback Event
 
 <div class="binary-format" markdown>
 ##### [CallbackEvent](#callbackevent)
@@ -390,6 +436,16 @@ returnValue: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
+A [CallbackEvent](#callbackevent) is the callback sent when a transaction has been executed. It contains the following fields:
+
+- A [ReturnEnvelope](#returnenvelope) with the destination for the callback.
+- A [Hash](#hash) of the transaction which has been executed.
+- A [Boolean](#boolean) indicating whether the transaction was successful.
+- The return value of the callback event.
+
+
+#### Create Shard Event
+
 <div class="binary-format" markdown>
 ##### [CreateShardEvent](#createshardevent)
 ::= {
@@ -398,6 +454,10 @@ shardId: [String](#string)
 
 }
 </div>
+
+A [CreateShardEvent](#createshardevent) is an event for creating a shard. The shardId is the id of the shard to create.
+
+#### Remove Shard Event
 
 <div class="binary-format" markdown>
 ##### [RemoveShardEvent](#removeshardevent)
@@ -408,6 +468,11 @@ shardId: [String](#string)
 }
 </div>
 
+A [RemoveShardEvent](#removeshardevent) is an event for removing a shard. The shardId is the id of the shard to remove.
+
+
+#### Update Context Free Plugin State
+
 <div class="binary-format" markdown>
 ##### [UpdateContextFreePluginState](#updatecontextfreepluginstate)
 ::= {
@@ -417,6 +482,11 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 }
 </div>
+
+An [UpdateContextFreePluginState](#updatecontextfreepluginstate) updates the local state of a plugin without context on a named shard. Its fields are the type of plugin to update, i.e. [ChainPluginType](#chainplugintype), and the local state migration RPC.
+
+
+#### Upgrade System Contract Event
 
 <div class="binary-format" markdown>
 ##### [UpgradeSystemContractEvent](#upgradesystemcontractevent)
@@ -431,6 +501,11 @@ rpc: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
+An [UpgradeSystemContractEvent](#upgradesystemcontractevent) upgrades a contract. It contains the contract address, the binder jar, the contract jar, the contract ABI, and the upgrade RPC.
+
+
+#### Remove Contract
+
 <div class="binary-format" markdown>
 ##### [RemoveContract](#removecontract)
 ::= {
@@ -440,9 +515,10 @@ contractAddress: [Address](#address)
 }
 </div>
 
-<div class="binary-format" markdown>
+The [RemoveContract](#removecontract) event removes an existing contract from the state. The contract to remove is specified by the [Address](#address) of the contract.
+
 ### Sync Event
-</div>
+
 
 A sync event is used for moving information from one shard to another when changing the shard configuration. 
 That is, when adding or removing shards or when changing routing logic.
@@ -491,7 +567,7 @@ nonce: [Long](#long)
 </div>
 
 
-### Common Types
+## Common Types
 
 
 #### Address Types
@@ -578,7 +654,7 @@ A [Hash](#hash) is encoded as 32 bytes in big-endian order.
 
 <br>
 
-#### Lists
+#### List
 
 A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 bytes, big-endian order), and the len elements are encoded according to their type **T**.
 
@@ -592,7 +668,7 @@ A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 byt
 
 <br>
 
-#### Longs
+#### Long Type
 
 A [Long](#long) is encoded as 8 bytes in big-endian order.
 
