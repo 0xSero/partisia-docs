@@ -80,19 +80,19 @@ The argument binary format depends on the type of the argument. The argument typ
   </div>
   <div class="field-and-comment-row">
     <p class="spaced-or" >| 0xnn*2 => u16/i16 </p>
-    <p class="comment">(big endian, i16 is two's complement)</p>
+    <p class="comment">(big-endian, i16 is two's complement)</p>
   </div>
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*4 => u32/i32 </p>
-      <p class="comment">(big endian, i32 is two's complement)</p>
+      <p class="comment">(big-endian, i32 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*8 => u64/i64 </p>
-      <p class="comment">(big endian, i64 is two's complement)</p>
+      <p class="comment">(big-endian, i64 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*16 => u128/i128 </p>
-      <p class="comment">(big endian, i128 is two's complement)</p>
+      <p class="comment">(big-endian, i128 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*32 => u256 </p>
@@ -147,13 +147,13 @@ The argument binary format depends on the type of the argument. The argument typ
 
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
-For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a big endian 32-bit unsigned integer.
+For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a big-endian 32-bit unsigned integer.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [LengthRpc](#lengthrpc)
 <p markdown>::= 0xnn*4 => u32 </p>
-<p class="endian"><span class="endian">(big endian)</span></p>
+<p class="endian"><span class="endian">(big-endian)</span></p>
 </div>
 </div>
 
@@ -176,19 +176,19 @@ complement. Note that lengths are also stored as little-endian.
   </div>
   <div class="field-and-comment-row">
     <p class="spaced-or" >| 0xnn*2 => u16/i16 </p>
-    <p class="comment">(little endian, i16 is two's complement)</p>
+    <p class="comment">(little-endian, i16 is two's complement)</p>
   </div>
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*4 => u32/i32 </p>
-      <p class="comment">(little endian, i32 is two's complement)</p>
+      <p class="comment">(little-endian, i32 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*8 => u64/i64 </p>
-      <p class="comment">(little endian, i64 is two's complement)</p>
+      <p class="comment">(little-endian, i64 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*16 => u128/i128 </p>
-      <p class="comment">(little endian, i128 is two's complement)</p>
+      <p class="comment">(little-endian, i128 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*32 => u256 </p>
@@ -247,13 +247,13 @@ complement. Note that lengths are also stored as little-endian.
 
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
-For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a little endian 32-bit unsigned integer.
+For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a little-endian 32-bit unsigned integer.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [LengthState](#lengthstate)
 <p markdown>::= 0xnn*4 => u32 </p>
-<p class="endian"><span class="endian">(little endian)</span></p>
+<p class="endian"><span class="endian">(little-endian)</span></p>
 </div>
 </div>
 
@@ -379,49 +379,16 @@ These structs are not CopySerializable:
 <div class="type-with-comment" markdown>
 ##### [CompositeTypeSpec](#compositetypespec) 
 ::= 
-<div class="column-align" markdown>
-<p markdown > 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt; </p>
-<p markdown class="spaced-or"> | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
-<p markdown class="spaced-or"> | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
-<p markdown class="spaced-or"> | 0x11 L:0xnn => [u8;L] </p>
-<p markdown class="spaced-or"> | 0x12 T:[TypeSpec](#typespec) => [Option](#optiont)&lt;T&gt; </p>
-<p markdown class="spaced-or"> | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
-</div>
-<div class="comment-align" markdown>
-<p class="endian"><span class="endian">&nbsp;</span></p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">(0x00 &le; L &le; 0x7F)</p>
-<p markdown class="spaced">&nbsp;</p>
-<p markdown class="spaced">&nbsp;</p>
-</div>
-</div>
-</div>
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [CompositeTypeSpec](#compositetypespec) 
-::= 
 <div class="column-align" markdown >
-  <div class="field-and-comment-row" markdown>
-    <p markdown > 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt; </p>
-  </div>
-  <div class="field-and-comment-row" markdown>
-    <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
-  </div>
-  <div class="field-and-comment-row" markdown>
-    <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
-  </div>
+  <p markdown > 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt; </p>
+  <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
+  <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
   <div class="field-and-comment-row" >
     <p class="spaced-or" > | 0x11 L:0xnn => [u8;L] </p>
     <p class="comment">(0x00 &le; L &le; 0x7F)</p>
   </div>
-  <div class="field-and-comment-row" markdown>
-    <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => [Option](#optiont)&lt;T&gt; </p>
-  </div>
-  <div class="field-and-comment-row" markdown>
-    <p class="spaced-or" markdown > | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
-  </div>
+  <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => [Option](#optiont)&lt;T&gt; </p>
+  <p class="spaced-or" markdown > | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
 </div>
 </div>
 </div>
@@ -545,7 +512,7 @@ Type: [TypeSpec](#typespec)
 <div class="type-with-comment" markdown>
 ##### [Identifier](#identifier)
 <p markdown > ::= len:0xnn\*4 utf8:0xnn\*len </p>
-<p class="endian"><span class="endian">(utf8 must be Rust identifier, len is big endian)</span></p>
+<p class="endian"><span class="endian">(utf8 must be Rust identifier, len is big-endian)</span></p>
 </div>
 </div>
 
@@ -562,34 +529,55 @@ Type: [TypeSpec](#typespec)
 <div class="type-with-comment" markdown>
 ##### [FnKind](#fnkind)
 ::= 
-<div class="column-align" markdown>
-<p markdown > 0x01 => <b>Init</b> </p>
-<p markdown class="spaced-or"> | 0x02 => <b>Action</b> </p>
-<p markdown class="spaced-or"> | 0x02 => <b>Action</b> </p>
-<p markdown class="spaced-or"> | 0x03 => <b>Callback</b> </p>
-<p markdown class="spaced-or"> | 0x10 => <b>ZkSecretInput</b> </p>
-<p markdown class="spaced-or"> | 0x11 => <b>ZkVarInputted</b> </p>
-<p markdown class="spaced-or"> | 0x12 => <b>ZkVarRejected</b> </p>
-<p markdown class="spaced-or"> | 0x13 => <b>ZkComputeComplete</b> </p>
-<p markdown class="spaced-or"> | 0x14 => <b>ZkVarOpened</b> </p>
-<p markdown class="spaced-or"> | 0x15 => <b>ZkUserVarOpened</b> </p>
-<p markdown class="spaced-or"> | 0x16 => <b>ZkAttestationComplete</b> </p>
-<p markdown class="spaced-or"> | 0x17 => <b>ZkSecretInputWithExplicitType</b> </p>
-<p markdown class="spaced-or"> | 0x18 => <b>ZkExternalEvent</b> </p>
-</div>
-<div class="comment-align" markdown>
-<p class="endian"><span class="endian">(Num allowed: 1)</span></p>
-<p markdown class="spaced">(0..&infin;)</p>
-<p markdown class="spaced">(0..&infin;)</p>
-<p markdown class="spaced">(0..&infin;)</p>
-<p markdown class="spaced">(0..&infin;)</p>
-<p markdown class="spaced">(0..1)</p>
-<p markdown class="spaced">(0..&infin;)</p>
-<p markdown class="spaced">(0..1)</p>
-<p markdown class="spaced">(0..1)</p>
-<p markdown class="spaced">(0..1)</p>
-<p markdown class="spaced">(0..&infin;)</p>
-<p markdown class="spaced">(0..1)</p>
+<div class="column-align" markdown >
+  <div class="field-and-comment-row" >
+    <p > 0x01 => <b>Init</b> </p>
+    <p class="endian">(Num allowed: 1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x02 => <b>Action</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x03 => <b>Callback</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x10 => <b>ZkSecretInput</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x11 => <b>ZkVarInputted</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x12 => <b>ZkVarRejected</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x13 => <b>ZkComputeComplete</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x14 => <b>ZkVarOpened</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x15 => <b>ZkUserVarOpened</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x16 => <b>ZkAttestationComplete</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x17 => <b>ZkSecretInputWithExplicitType</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x18 => <b>ZkExternalEvent</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
 </div>
 </div>
 </div>
@@ -640,7 +628,7 @@ secret argument associated with it is of type `i32`.
 <div class="type-with-comment" markdown>
 ##### [String](#string)
 <p> ::= len:<span class="bytes">0<span class="sep">x</span>nn*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn*</span>len</p> 
-<p class="endian"><span class="endian">(len is big endian)</span></p>
+<p class="endian"><span class="endian">(len is big-endian)</span></p>
 </div>
 
 
@@ -706,13 +694,12 @@ secret argument associated with it is of type `i32`.
 <div class="type-with-comment" markdown>
 ##### [Option<T\>](#optiont)
 ::= 
-<div class="column-align" markdown>
-<p markdown > 0x00 => None </p>
-<p markdown  class="spaced-or" >| b:0xnn t:<b>T</b> => Some(t) </p>
-</div>
-<div class="comment-align" markdown>
-<p class="endian"><span class="endian">&nbsp;</span></p>
-<p markdown class="spaced">(b != 0)</p>
+<div class="column-align" markdown >
+  0x00 => None
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | b:0xnn t:<b>T</b> => Some(t) </p>
+  <p markdown class="comment">(b != 0)</p>
+  </div>
 </div>
 </div>
 </div>
@@ -721,7 +708,7 @@ secret argument associated with it is of type `i32`.
 <div class="type-with-comment" markdown>
 ##### [List<T\>](#listt)
 <p markdown>::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len </p>
-<p class="endian"> <span class="endian">(len is big endian)</span> </p>
+<p class="endian"> <span class="endian">(len is big-endian)</span> </p>
 </div>
 
 
@@ -739,7 +726,7 @@ A [Section](#section) is an indexed chunk of a binary file of dynamic length, wh
 <div class="type-with-comment" markdown>
 ##### [Section](#section)
 <p markdown > ::= id:0xnn len:0xnn\*4 data:0xnn\*len </p>
-<p class="endian"><span class="endian">(len is big endian)</span></p>
+<p class="endian"><span class="endian">(len is big-endian)</span></p>
 </div>
 </div>
 

@@ -8,8 +8,6 @@
     --binary-format-fg-color-hex-separator: rgb(58, 58, 58);
     --binary-format-fields-indent: 2em;
     --binary-format-header-margin: 1em;
-    --binary-format-spacer: 150px;
-    --binary-format-spacer-alt: 112px
 }
 
 div.binary-format p, div.binary-format span, div.binary-format a {
@@ -65,14 +63,6 @@ div.field-with-comment {
 }
 
 
-div.type-with-comment-spaced {
-    padding-left: var(--binary-format-spacer);
-}
-
-div.type-with-comment-spaced-alt {
-    padding-left: var(--binary-format-spacer-alt);
-}
-
 
 .type-with-comment p {
     margin-top: var(--binary-format-header-margin);
@@ -84,15 +74,10 @@ div.type-with-comment-spaced-alt {
 }
 
 
-div.type-with-comment h5 > a {
-    display: flex;
-    width: max-content;
-}
-
 div.column-align {
     display: flex;
     flex-direction: column;
-    width: 100%
+    width: 100%;
 }
 
 div.comment-align {
@@ -119,4 +104,16 @@ div.comment-align p.spaced, div.column-align p.spaced, div.column-align p.spaced
 
 p.spaced-or {
     margin-left: -1em;
+}
+
+
+p.endian, div.comment-align p.spaced {
+    display:flex;
+    margin-left: auto;
+}
+
+
+div.type-with-comment h5 > a {
+    display: flex;
+    width: max-content;
 }
