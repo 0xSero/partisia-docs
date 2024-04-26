@@ -66,19 +66,10 @@ The [Signature](#signature) includes:
 </div>
   <div class="fields"/>
   address: [Address](#address)  
-  rpc: [Rpc](#rpc)
+  rpc: [DynamicBytes](#dynamicbytes)
   
   }
 </div>
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [Rpc](#rpc)
-<p>::= len:0xnn*4 payload:0xnn*len</p>
-<p class="endian">(len is big-endian)</p>
-</div>
-</div>
-
 
 
 The [Transaction](#transactionouter) includes:
@@ -158,6 +149,18 @@ The transaction, [EventTransaction](#eventtransaction), includes:
 - The governance version when this event was produced.
 - The height of the event tree, which is increased for each event spawned after a signed transaction.
 - If there is a callback registered to the event, the result of the event is returned in a [ReturnEnvelope](#returnenvelope).  
+
+<div class="binary-format" markdown>
+##### [ShardRoute](#shardroute)
+::= {
+<div class="fields"/>
+targetShard: [Option](#optiont)<[String](#string)>  
+nonce: [Long](#long)  
+
+}
+</div>
+
+A [ShardRoute](#shardroute), the unique routing to a shard, contains the id of a target shard and a nonce.
 
 
 #### Event Types
@@ -534,6 +537,8 @@ stateStorage: [List](#listt)<[DynamicBytes](#dynamicbytes)>
 }
 </div>
 
+The [SyncEvent](#syncevent) contains a lists of account transfer objects, contract transfer objects and serialized data of stored states.
+
 <div class="binary-format" markdown>
 ##### [AccountTransfer](#accounttransfer)
 ::= {
@@ -544,6 +549,8 @@ pluginStateHash: [Hash](#hash)
 
 }
 </div>
+
+An [AccountTransfer](#accounttransfer) consists of an account [Address](#address), a [Hash](#hash) of the account state and a [Hash](#hash) of the plugin state.
 
 <div class="binary-format" markdown>
 ##### [ContractTransfer](#contracttransfer)
@@ -556,15 +563,9 @@ pluginStateHash: [Hash](#hash)
 }
 </div>
 
-<div class="binary-format" markdown>
-##### [ShardRoute](#shardroute)
-::= {
-<div class="fields"/>
-targetShard: [Option](#optiont)<[String](#string)>  
-nonce: [Long](#long)  
+An [ContractTransfer](#contracttransfer) consists of a contract [Address](#address), a [Hash](#hash) of the contract state and a [Hash](#hash) of the plugin state.
 
-}
-</div>
+
 
 
 ## Common Types
