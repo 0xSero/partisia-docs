@@ -32,11 +32,11 @@ transaction: [Transaction](#transaction)
 <div class="fields"/>
 recoveryId: 0xnn
 <div class="field-with-comment" markdown>
-<p markdown>valueR: 0xnn*32</p>
+valueR: 0xnn*32
 <p class="endian">(big-endian)</p>
 </div>
 <div class="field-with-comment" markdown>
-<p markdown>valueS: 0xnn*32</p>
+valueS: 0xnn*32
 <p class="endian">(big-endian)</p>
 </div>  
 
@@ -52,29 +52,29 @@ The [Signature](#signature) includes:
 <div class="binary-format" markdown>
 ##### [Transaction](#transaction)
 ::= {
-<div class="field-with-comment" markdown>
-<p markdown> nonce: 0xnn*8</p>
+<div class="field-with-comment">
+  <p>nonce: 0xnn*8</p>
+  <p class="endian">(big-endian)</p>
+</div>
+<div class="field-with-comment">
+<p >validToTime: 0xnn*8</p>
 <p class="endian">(big-endian)</p>
 </div>
 <div class="field-with-comment" markdown>
-<p markdown>validToTime: 0xnn*8</p>
+<p>gasCost:  0xnn*8</p>
 <p class="endian">(big-endian)</p>
 </div>
-<div class="field-with-comment" markdown>
-<p markdown>gasCost:  0xnn*8</p>
-<p class="endian">(big-endian)</p>
-</div>
-<div class="fields"/>
-address: [Address](#address)  
-rpc: [Rpc](#rpc)
-
-}
+  <div class="fields"/>
+  address: [Address](#address)  
+  rpc: [Rpc](#rpc)
+  
+  }
 </div>
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Rpc](#rpc)
-<p markdown>::= len:0xnn\*4 payload:0xnn\*len</p>
+<p>::= len:0xnn\*4 payload:0xnn\*len</p>
 <p class="endian">(len is big-endian)</p>
 </div>
 </div>
@@ -252,8 +252,6 @@ callbackRpc: [DynamicBytes](#dynamicbytes)
 System events can manipulate the system state of the blockchain. These are primarily sent by system/governance contracts.
 
 <div class="binary-format" markdown>
-
-
 ##### [InnerSystemEvent](#innersystemevent)
 ::= {
 <div class="fields"/>
@@ -329,10 +327,10 @@ update: [LocalPluginStateUpdate](#localpluginstateupdate)
 ##### [ChainPluginType](#chainplugintype)
 ::= 
 <div class="column-align" markdown>
-<p markdown > 0x00 => <b>Account</b> </p>
-<p markdown class="spaced-or">| 0x01 => <b>Consensus</b> </p>
-<p markdown class="spaced-or">| 0x02 => <b>Routing</b>  
-<p markdown class="spaced-or">| 0x03 => <b>SharedObjectStore</b>
+<p> 0x00 => <b>Account</b> </p>
+<p class="spaced-or">| 0x01 => <b>Consensus</b> </p>
+<p class="spaced-or">| 0x02 => <b>Routing</b>  
+<p class="spaced-or">| 0x03 => <b>SharedObjectStore</b>
 </div>
 </div>
 </div>
@@ -495,94 +493,168 @@ nonce: [Long](#long)
 
 ### Common Types
 
+
+#### Address Types
+An [Address](#address) is encoded as 21 bytes. The first byte is the [AddressType](#addresstype), and the remaining 20 bytes are the address identifier.
+
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Address](#address)
 <p markdown> ::= addressType:[AddressType](#addresstype) identifier:0xnn*20</p>
 <p class="endian">(identifier is big-endian)</p>
 </div>
+</div>
 
+<br>
 
+An [AddressType](#addresstype) can either be an account address, a system address, public address, zk address or a government address.
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [AddressType](#addresstype)
 ::= 
 <div class="column-align" markdown>
-<p markdown > 0x00 => <b>Account</b> </p>
-<p markdown class="spaced-or">| 0x01 => <b>System</b></p>
-<p markdown class="spaced-or">| 0x02 => <b>Public</b> </p>  
-<p markdown class="spaced-or">| 0x03 => <b>Zk</b> </p>
-<p markdown class="spaced-or">| 0x04 => <b>Gov</b> </p>
+<p> 0x00 => <b>Account</b> </p>
+<p class="spaced-or">| 0x01 => <b>System</b></p>
+<p class="spaced-or">| 0x02 => <b>Public</b> </p>  
+<p class="spaced-or">| 0x03 => <b>Zk</b> </p>
+<p class="spaced-or">| 0x04 => <b>Gov</b> </p>
+</div>
 </div>
 </div>
 
+<br>
 
+#### Booleans
+
+A [Boolean](#boolean) is encoded as a single byte, which is either 0 (false) or non-0 (true).
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Boolean](#boolean)
 <p>::= b:0xnn</p>
 <p class="endian">(false if b==0, true otherwise)</p>
 </div>
+</div>
 
+<br>
+
+#### Bytes 
+
+A [Byte](#byte) is encoded as a byte corresponding to its value.
+<div class="binary-format" markdown>
 ##### [Byte](#byte)
 
 ::= 0xnn  <br>
+</div>
 
+<br>
+
+#### Dynamic Bytes
+
+[DynamicBytes](#dynamicbytes) are encoded as a length, len, of 4 bytes, and a payload of len bytes. Both len and payload are encoded in big-endian order.
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [DynamicBytes](#dynamicbytes)
 <p> ::= len:0xnn*4 payload:0xnn*len </p>
 <p class="endian">(big-endian)</p>
 </div>
+</div>
 
+<br>
+
+#### Hash Types
+
+A [Hash](#hash) is encoded as 32 bytes in big-endian order.
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Hash](#hash)
 <p> ::= 0xnn*32</p>
 <p class="endian">(big-endian)</p>
 </div>
-
-<div class="type-with-comment" markdown>
-##### [List<T\>](#listt)
-<p markdown>::= len:0xnn*4 elems:<b>T</b>\*len</p>
-<p class="endian">(len is big-endian)</p>
 </div>
 
+<br>
 
+#### Lists
+
+A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 bytes, big-endian order), and the len elements are encoded according to their type **T**.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [List<T\>](#listt)
+<p>::= len:0xnn*4 elems:<b>T</b>*len</p>
+<p class="endian">(len is big-endian)</p>
+</div>
+</div>
+
+<br>
+
+#### Longs
+
+A [Long](#long) is encoded as 8 bytes in big-endian order.
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Long](#long)
 <p> ::= 0xnn*8</p>
 <p class="endian">(big-endian)</p>
 </div>
+</div>
+
+<br>
+
+#### Option Types
+
+An [Option<T\>](#optiont) is encoded as either one 0-byte if **T** is None, or as a non-zero byte and the encoding of **T** according to its type.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Option<T\>](#optiont)
 ::= 
 <div class="column-align" markdown>
-<p markdown> 0x00 => None </p>
-<p markdown class="spaced-or" >| b:0xnn t:<b>T</b> => Some(t) </p>
+<p> 0x00 => None </p>
+<p class="spaced-or">| b:0xnn t:<b>T</b> => Some(t) </p>
 </div>
 <div class="comment-align" markdown>
 <p class="endian">&nbsp;</p>
-<p markdown class="spaced">(b != 0)</p>
+<p class="spaced">(b != 0)</p>
 </div>
 </div>
 </div>
 
+<br>
+
+#### Return Envelopes
+
+
+A [ReturnEnvelope](#returnenvelope) is encoded as an [Address](#address).
+
+<div class="binary-format" markdown>
 ##### [ReturnEnvelope](#returnenvelope)
 ::= [Address](#address)<br>
+</div>
 
+<br>
+
+#### Strings
+
+
+A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of len bytes. Both are encoded in big-endian order.
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [String](#string)
 <p> ::= len:0xnn*4 uft8:0xnn*len</p> 
 <p class="endian">(big-endian)</p>
 </div>
-
-
-
-
-
-
-
-
 </div>
+
+
+
+
 
 
 
