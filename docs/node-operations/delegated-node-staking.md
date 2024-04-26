@@ -66,12 +66,14 @@ performance of the node you delegate to, and the amount rewardable tokens delega
 
 !!! Eaxmple "Calculation example"
 
+    Imagine a group of token holders indexed $i=0...n$
+
     **Variables:**
 
     - **T** is total allocated rewards for the period. In this scenario 1,000,000 MPC tokens   
-    - **r(d)** is your rewardable delegated tokens. You delegate all your 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated = \frac{10,000}{20,000} 20,000 = 10,000$   
+    - **r_{i}** is rewardable delegated tokens of token holder _i_. delegate all your 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated = \frac{10,000}{20,000} 20,000 = 10,000$   
     - **p** is the node performance. In this  period node performance was 90%   
-    - **S(RP)** is sum of rewardable tokens adjusted for performance, in this scenario we imagine 100 nodes with average 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC token    
+    - $\sum_{i=0}^{n}r_{i} \cdot p_{i}$ is sum of rewardable tokens adjusted for performance, in this scenario we imagine 100 nodes with average 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC token    
 
     **Calculation:**  
 
@@ -79,6 +81,6 @@ performance of the node you delegate to, and the amount rewardable tokens delega
     Your reward for the delegated stakes in the given  period is 7,500 MPC tokens.
     The node operator take a 2% cut of the delegator rewards. You get 7,350 of the 7,500.
 
-    This calculation is simplified by omitting the calculation of the number **D**. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate **D**. 
+    This calculation is simplified by omitting the calculation of the number **S(RP)**. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate **D**. 
 
 The calculation method for rewards, and the history of quarterly payouts can bee seen [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
