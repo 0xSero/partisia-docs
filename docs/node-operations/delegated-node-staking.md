@@ -82,6 +82,6 @@ performance of the node you delegate to, and the amount rewardable tokens delega
     Your reward for the delegated stakes in the given  period is 7,500 MPC tokens.
     The node operator take a 2% cut of the delegator rewards. You get 7,350 of the 7,500.
 
-    This calculation is simplified by omitting the calculation of the number $\sum_{i=0}^{n}r_{i} \cdot p_{i}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{n}r_{i} \cdot p_{i}$. 
+    This calculation is simplified by omitting the calculation of the sum $\sum_{i=0}^{n}r_{i} \cdot p_{i}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{n}r_{i} \cdot p_{i}$. 
 
 The calculation method for rewards, and the history of quarterly payouts can bee seen [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards)
