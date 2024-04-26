@@ -144,10 +144,11 @@ The transaction, [EventTransaction](#eventtransaction), includes:
 - The originating transaction: the [SignedTransaction](#signedtransaction) initiating the tree of events that this event is a part of.
 - The event type, [InnerEvent](#innerevent).
 - The [ShardRoute](#shardroute) describes which shard the event should be executed on.
-- The id of the committee that produced the block where the event was spawned.
-- The governance version when this event was produced.
+- The id of the committee that produced the block where the event was spawned. The committee id is used to find the correct committee for validating a finalization proof sent from one shard to another. The committee id of an event must be larger than the latest committee id.
+- The governance version when this event was produced. The governance version is incremented when the global state is changes, e.g. when updating a plugin. The governance version of the event must be up-to-date with the local governance version.
 - The height of the event tree, which is increased for each event spawned after a signed transaction.
-- If there is a callback registered to the event, the result of the event is returned in a [ReturnEnvelope](#returnenvelope).  
+- If there is a callback registered to the event, the result of the event is returned in a [ReturnEnvelope](#returnenvelope).
+
 
 <div class="binary-format" markdown>
 ##### [ShardRoute](#shardroute)
