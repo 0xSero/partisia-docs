@@ -8,8 +8,6 @@
     --binary-format-fg-color-hex-separator: rgb(58, 58, 58);
     --binary-format-fields-indent: 2em;
     --binary-format-header-margin: 1em;
-    --binary-format-spacer: 150px;
-    --binary-format-spacer-alt: 112px
 }
 
 div.binary-format p, div.binary-format span, div.binary-format a {
