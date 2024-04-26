@@ -1,15 +1,14 @@
 # Transaction Binary Format
 
-This is the specification for transactions, which includes signed transactions from users and executable events which are spawned by the blockchain. 
+This is the specification for transactions, which includes signed transactions from users and executable events, which are spawned by the blockchain. 
 
 You can learn more about how interactions work on the blockchain [here](smart-contract-interactions-on-the-blockchain.md#simple-interaction-model).
-
-After constructing a binary signed transaction it can be delivered to any baker node in the network through
-their [REST API](../rest).
 
 ## Signed Transaction
 
 A signed transaction is an instruction from a user containing information used to change the state of the blockchain.
+After constructing a binary signed transaction it can be delivered to any baker node in the network through
+their [REST API](../rest).
 
 The following is the specification of the binary format of signed transactions.
 
@@ -31,14 +30,14 @@ transaction: [Transaction](#transaction)
 ##### [Signature](#signature)
 ::= {
 <div class="fields"/>
-recoveryId: <span class="bytes">0<span class="sep">x</span>nn</span>  
+recoveryId: 0xnn
 <div class="field-with-comment" markdown>
-<p markdown>valueR: <span class="bytes">0<span class="sep">x</span>nn\*32</span></p>
-<p class="endian"><span class="endian">(big endian)</span> </p>
+<p markdown>valueR: 0xnn*32</p>
+<p class="endian">(big-endian)</p>
 </div>
 <div class="field-with-comment" markdown>
-<p markdown>valueS: <span class="bytes">0<span class="sep">x</span>nn\*32</span></p>
-<p class="endian"><span class="endian">(big endian)</span> </p>
+<p markdown>valueS: 0xnn*32</p>
+<p class="endian">(big-endian)</p>
 </div>  
 
 }
@@ -46,24 +45,24 @@ recoveryId: <span class="bytes">0<span class="sep">x</span>nn</span>
 
 The [Signature](#signature) includes:
 
-- a recovery id between 0 and 3 used to recover the public key when verifying the signature
-- the r value of the ECDSA signature
-- the s value of the ECDSA signature
+- A recovery id between 0 and 3 used to recover the public key when verifying the signature
+- The r value of the ECDSA signature
+- The s value of the ECDSA signature
 
 <div class="binary-format" markdown>
 ##### [Transaction](#transaction)
 ::= {
 <div class="field-with-comment" markdown>
-<p markdown> nonce: <span class="bytes">0<span class="sep">x</span>nn\*8</span> </p>
-<p class="endian"><span class="endian">(big endian)</span> </p>
+<p markdown> nonce: 0xnn*8</p>
+<p class="endian">(big-endian)</p>
 </div>
 <div class="field-with-comment" markdown>
-<p markdown>validToTime: <span class="bytes">0<span class="sep">x</span>nn\*8</span></p>
-<p class="endian"><span class="endian">(big endian)</span> </p>
+<p markdown>validToTime: 0xnn*8</p>
+<p class="endian">(big-endian)</p>
 </div>
 <div class="field-with-comment" markdown>
-<p markdown>gasCost: <span class="bytes">0<span class="sep">x</span>nn\*8</span> </p>
-<p class="endian"><span class="endian">(big endian)</span> </p>
+<p markdown>gasCost:  0xnn*8</p>
+<p class="endian">(big-endian)</p>
 </div>
 <div class="fields"/>
 address: [Address](#address)  
@@ -75,8 +74,8 @@ rpc: [Rpc](#rpc)
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Rpc](#rpc)
-<p markdown>::= len:<span class="bytes">0<span class="sep">x</span>nn\*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn\*</span>len </p>
-<p class="endian"><span class="endian">(len is big endian)</span></p>
+<p markdown>::= len:0xnn\*4 payload:0xnn\*len</p>
+<p class="endian">(len is big-endian)</p>
 </div>
 </div>
 
@@ -84,11 +83,11 @@ rpc: [Rpc](#rpc)
 
 The [Transaction](#transactionouter) includes:
 
-- the signer's [nonce](../pbc-fundamentals/dictionary.md#nonce)
-- a unix time that the transaction is valid to
-- the amount of [gas](gas/transaction-gas-prices.md) allocated to executing the transaction
-- the address of the smart contract that is the target of the transaction
-- the rpc payload of the transaction. See [Smart Contract Binary Formats](smart-contract-binary-formats.md)
+- The signer's [nonce](../pbc-fundamentals/dictionary.md#nonce)
+- A unix time that the transaction is valid to
+- The amount of [gas](gas/transaction-gas-prices.md) allocated to executing the transaction
+- The address of the smart contract that is the target of the transaction
+- The rpc payload of the transaction. See [Smart Contract Binary Formats](smart-contract-binary-formats.md)
   for a way to build the rpc payload.
 
 ### Creating the signature
@@ -100,12 +99,11 @@ the blockchain.
 ##### [ToBeHashed](#tobehashed)
 ::= transaction:[Transaction](#transaction) chainId:[ChainId](#chainid)
 </div>
+
 <div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
 ##### [ChainId](#chainid)
-<p markdown>::=  len:<span class="bytes">0<span class="sep">x</span>nn\*4</span>  utf8:<span class="bytes">0<span class="sep">x</span>nn\*</span>len</p>
-<p class="endian"><span class="endian">(len is big endian)</span></p>
-</div>
+
+::= [String](#string)
 </div>
 
 The chain id is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
@@ -114,7 +112,7 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 
 ## Executable Event Binary Format
 
-An executable event is spawned by the blockchain, and not by a user. It is created from other events or when it receives a signed transaction. The executable event contains the information about which action to perform to a smart contract.
+An executable event is spawned by the blockchain, and not by a user. It can be created from other events or when the blockchain receives a signed transaction. The executable event contains the information about which action to perform to a smart contract.
 
 The following is the specification of the binary format of executable events.
 
@@ -129,7 +127,7 @@ transaction: [EventTransaction](#eventtransaction)
 }
 </div>
 
-The originShard is an [Option](#optiont)<[String](#string)>, the originating shard.
+The originShard is an [Option](#optiont)<[String](#string)>, the originating shard of the event.
 
 
 <div class="binary-format" markdown>
@@ -143,7 +141,7 @@ committeeId: [Long](#long)
 governanceVersion: [Long](#long)  
 <div class="field-with-comment" markdown>
 <p markdown>height: [Byte](#byte)</p>
-<p class="endian"><span class="endian">(unsigned)</span></p>
+<p class="endian">(unsigned)</p>
 </div>
 <div class="fields"/>
 returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
@@ -151,20 +149,18 @@ returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
 }
 </div>
 
-The [EventTransaction](#eventtransaction) includes:
+The transaction, [EventTransaction](#eventtransaction), includes:
 
 - The originating transaction: the [SignedTransaction](#signedtransaction) initiating the tree of events that this event is a part of.
 - The event type, [InnerEvent](#innerevent).
 - The [ShardRoute](#shardroute) describes which shard the event should be executed on.
 - The id of the committee that produced the block where the event was spawned.
 - The governance version when this event was produced.
-- The height of the event tree, increased for each event spawned after a SignedTransaction.
-- If there is a Callback registered to the event, the result of the event is returned in a [ReturnEnvelope](#returnenvelope).
+- The height of the event tree, which is increased for each event spawned after a signed transaction.
+- If there is a callback registered to the event, the result of the event is returned in a [ReturnEnvelope](#returnenvelope).  
 
-#### Event Types
 
-The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is divided into four types of events: [InnerTransaction](#innertransaction), [CallbackToContract](#callbacktocontract), [InnerSystemEvent](#innersystemevent) and [SyncEvent](#syncevent).
-
+### Event Types
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [InnerEvent](#innerevent)
@@ -178,7 +174,7 @@ The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is div
 </div>
 </div>
 
-
+The [InnerEvent](#innerevent) of an [EventTransaction](#eventtransaction) is divided into four types of events: [InnerTransaction](#innertransaction), [CallbackToContract](#callbacktocontract), [InnerSystemEvent](#innersystemevent) and [SyncEvent](#syncevent).
 
 #### Inner Transaction
 
@@ -234,7 +230,7 @@ payload: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
-### Callback to Contract
+#### Callback to Contract
 Callback transactions call the callback methods in contracts.
 
 
@@ -251,7 +247,7 @@ callbackRpc: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
-### Inner System Event
+#### Inner System Event
 
 System events can manipulate the system state of the blockchain. These are primarily sent by system/governance contracts.
 
@@ -502,8 +498,8 @@ nonce: [Long](#long)
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Address](#address)
-<p markdown> ::= addressType: [AddressType](#addresstype) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span></p>
-<p class="endian"> <span class="endian">(identifier is big-endian)</span></p>
+<p markdown> ::= addressType:[AddressType](#addresstype) identifier:0xnn*20</p>
+<p class="endian">(identifier is big-endian)</p>
 </div>
 
 
@@ -520,67 +516,71 @@ nonce: [Long](#long)
 </div>
 
 
-
-<div class="binary-format" markdown>
-##### [ReturnEnvelope](#returnenvelope)
-::= [Address](#address)<br>
 <div class="type-with-comment" markdown>
-##### [Hash](#hash)
-<p> ::= <span class="bytes">0<span class="sep">x</span>nn*32</span></p>
-<p class="endian"> <span class="endian">(big-endian)</span></p>
-</div>
-
-<div class="type-with-comment" markdown>
-##### [Long](#long)
-<p> ::= <span class="bytes">0<span class="sep">x</span>nn*8</span></p>
-<p class="endian"> <span class="endian">(big-endian)</span></p>
+##### [Boolean](#boolean)
+<p>::= b:0xnn</p>
+<p class="endian">(false if b==0, true otherwise)</p>
 </div>
 
 ##### [Byte](#byte)
 
-::= <span class="bytes">0<span class="sep">x</span>nn</span><br>
-
-<div class="type-with-comment" markdown>
-##### [Boolean](#boolean)
-<p>::= b: <span class="bytes">0<span class="sep">x</span>nn</span></p>
-<p class="endian"><span class="endian">(false if b==0, true otherwise)</span></p>
-</div>
-
-
-<div class="type-with-comment" markdown>
-##### [String](#string)
-<p> ::= len:<span class="bytes">0<span class="sep">x</span>nn*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn*</span>len</p> 
-<p class="endian"><span class="endian">(len is big endian)</span></p>
-</div>
+::= 0xnn  <br>
 
 <div class="type-with-comment" markdown>
 ##### [DynamicBytes](#dynamicbytes)
-<p> ::= len:<span class="bytes">0<span class="sep">x</span>nn*4</span> payload:<span class="bytes">0<span class="sep">x</span>nn*</span>len </p>
-<p class="endian"> <span class="endian">(len is big endian)</span></p>
+<p> ::= len:0xnn*4 payload:0xnn*len </p>
+<p class="endian">(big-endian)</p>
 </div>
 
+<div class="type-with-comment" markdown>
+##### [Hash](#hash)
+<p> ::= 0xnn*32</p>
+<p class="endian">(big-endian)</p>
+</div>
+
+<div class="type-with-comment" markdown>
+##### [List<T\>](#listt)
+<p markdown>::= len:0xnn*4 elems:<b>T</b>\*len</p>
+<p class="endian">(len is big-endian)</p>
+</div>
+
+
+<div class="type-with-comment" markdown>
+##### [Long](#long)
+<p> ::= 0xnn*8</p>
+<p class="endian">(big-endian)</p>
+</div>
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Option<T\>](#optiont)
 ::= 
 <div class="column-align" markdown>
-<p markdown > 0x00 => None </p>
-<p markdown  class="spaced-or" >| b:0xnn t:<b>T</b> => Some(t) </p>
+<p markdown> 0x00 => None </p>
+<p markdown class="spaced-or" >| b:0xnn t:<b>T</b> => Some(t) </p>
 </div>
 <div class="comment-align" markdown>
-<p class="endian"><span class="endian">&nbsp;</span></p>
+<p class="endian">&nbsp;</p>
 <p markdown class="spaced">(b != 0)</p>
 </div>
 </div>
 </div>
 
+##### [ReturnEnvelope](#returnenvelope)
+::= [Address](#address)<br>
 
 <div class="type-with-comment" markdown>
-##### [List<T\>](#listt)
-<p markdown>::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len </p>
-<p class="endian"> <span class="endian">(len is big endian)</span> </p>
+##### [String](#string)
+<p> ::= len:0xnn*4 uft8:0xnn*len</p> 
+<p class="endian">(big-endian)</p>
 </div>
+
+
+
+
+
+
+
 
 </div>
 
