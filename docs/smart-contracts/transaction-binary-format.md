@@ -98,12 +98,12 @@ the blockchain.
 
 <div class="binary-format" markdown>
 ##### [ToBeHashed](#tobehashed)
-::= transaction: [Transaction](#transaction) chainId: [ChainId](#chainid)
+::= transaction:[Transaction](#transaction) chainId:[ChainId](#chainid)
 </div>
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [ChainId](#chainid)
-<p markdown>::=  len: <span class="bytes">0<span class="sep">x</span>nn\*4</span>  utf8: <span class="bytes">0<span class="sep">x</span>nn\*</span>len</p>
+<p markdown>::=  len:<span class="bytes">0<span class="sep">x</span>nn\*4</span>  utf8:<span class="bytes">0<span class="sep">x</span>nn\*</span>len</p>
 <p class="endian"><span class="endian">(len is big endian)</span></p>
 </div>
 </div>
