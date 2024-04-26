@@ -79,8 +79,8 @@ performance of the node you delegate to, and the amount rewardable tokens delega
     **Calculation:**  
 
     $RewardForDelegation = T \frac{r_{4} \cdot p_{4}}{\sum_{i=0}^{n}r_{i} \cdot p_{i}} = 1,000,000 \frac{10000 \cdot 90\%}{1,200,000} = 7,500$   
-    Your reward for the delegated stakes in the given  period is 7,500 MPC tokens.
-    The node operator take a 2% cut of the delegator rewards. You get 7,350 of the 7,500.
+    Your reward for the delegated stakes in the given  period is 7,500 MPC tokens.   
+    The node operator take a 2% cut of the delegator rewards. Token holder 4 would get 7,350 of the 7,500.
 
     This calculation is simplified by omitting the calculation of the sum $\sum_{i=0}^{n}r_{i} \cdot p_{i}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{n}r_{i} \cdot p_{i}$. 
 
