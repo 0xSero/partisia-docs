@@ -19,7 +19,7 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     text-transform: none;
 }
 
-.binary-format p {
+.binary-format p,.binary-format h5 {
     margin: 0;
 }
 
@@ -49,9 +49,6 @@ div.field-with-comment {
     padding-left: var(--binary-format-fields-indent);
 }
 
-.type-with-comment p:first-of-type, .type-with-comment p.top-comment {
-    margin-top: var(--binary-format-header-margin);
-}
 
 
 div.column-align, div.comment-align {
@@ -66,7 +63,7 @@ p.spaced-or {
 }
 
 
-p.comment, div.comment-align, div.comment-align p.spaced, p.top-comment {
+p.comment, div.comment-align, div.comment-align p.spaced {
     display:flex;
     margin-left: auto;
 }

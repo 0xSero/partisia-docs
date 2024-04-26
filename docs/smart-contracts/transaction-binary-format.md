@@ -27,6 +27,8 @@ transaction: [Transaction](#transaction)
 
 }
 
+<br />
+
 ##### [Signature](#signature)
 ::= {
 <div class="fields"/>
@@ -48,6 +50,7 @@ The [Signature](#signature) includes:
 - A recovery id between 0 and 3 used to recover the public key when verifying the signature
 - The r value of the ECDSA signature
 - The s value of the ECDSA signature
+
 
 <div class="binary-format" markdown>
 ##### [Transaction](#transaction)
@@ -158,7 +161,6 @@ nonce: [Long](#long)
 
 A [ShardRoute](#shardroute), the unique routing to a shard, contains the id of a target shard and a nonce.
 
-<br />
 
 #### Event Types
 <div class="binary-format" markdown>
@@ -196,6 +198,7 @@ transaction: [Transaction](#transaction)
 The [InnerTransaction](#innertransaction) contains an associated sender and an associated cost, as well as the transaction.
 
 
+
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Transaction](#transaction)
@@ -209,6 +212,7 @@ The [InnerTransaction](#innertransaction) contains an associated sender and an a
 
 A [Transaction](#transaction) is either a [CreateContractTransaction](#createcontracttransaction) used to deploy contracts, or an [InteractWithContractTransaction](#interactwithcontracttransaction) used to interact with contracts.
 
+#### Create Contract Transaction
 
 <div class="binary-format" markdown>
 ##### [CreateContractTransaction](#createcontracttransaction)
@@ -226,6 +230,7 @@ rpc: [DynamicBytes](#dynamicbytes)
 A [CreateContractTransaction](#createcontracttransaction) contains the [Address](#address) where the contract should be deployed, and the binding jar, the contract jar, the contract ABI and the RPC of the create invocation.
 
 
+#### Interact with Contract Transaction
 
 <div class="binary-format" markdown>
 ##### [InteractWithContractTransaction](#interactwithcontracttransaction)
@@ -293,7 +298,6 @@ An [InnerSystemEvent](#innersystemevent) has a [SystemEventType](#systemeventtyp
 </div>
 </div>
 
-<br />
 
 #### Create Account Event
 
@@ -308,7 +312,6 @@ toCreate: [Address](#address)
 
 A [CreateAccountEvent](#createaccountevent) contains the address of the account to create.
 
-<br />
 
 #### Check Existence Event
 
@@ -323,7 +326,6 @@ contractOrAccountAddress: [Address](#address)
 
 A [CheckExistenceEvent](#checkexistenceevent) is an event for checking the existence of a contract or account address.
 
-<br />
 
 #### Set Feature Event
 
@@ -339,7 +341,6 @@ value: [Option](#optiont)<[String](#string)>
 
 A [SetFeatureEvent](#setfeatureevent) is an event for setting a feature in the state. The key indicates the feature to set, and the value is the value to set on the feature.
 
-<br />
 
 #### Update Local Plugin State Event
 
@@ -388,7 +389,6 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 A [LocalPluginStateUpdate](#localpluginstateupdate) contains the [Address](#address) of the contract where the state should be updated, as well as RPC with the update.
 
-<br />
 
 #### Update Global Plugin State Event
 
@@ -415,7 +415,6 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 The [GlobalPluginStateUpdate](#globalpluginstateupdate) contains the RPC of the update to execute globally.
 
-<br />
 
 #### Update Plugin Event
 
@@ -432,7 +431,6 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 An [UpdatePluginEvent](#updatepluginevent) constructs a new event for updating an active plugin. It takes the type of the chain plugin to update, the jar to use as plugin, and RPC of global state migration.
 
-<br />
 
 #### Callback Event
 
@@ -455,7 +453,6 @@ A [CallbackEvent](#callbackevent) is the callback sent when a transaction has be
 - A [Boolean](#boolean) indicating whether the transaction was successful.
 - The return value of the callback event.
 
-<br />
 
 #### Create Shard Event
 
@@ -470,7 +467,6 @@ shardId: [String](#string)
 
 A [CreateShardEvent](#createshardevent) is an event for creating a shard. The shardId is the id of the shard to create.
 
-<br />
 
 #### Remove Shard Event
 
@@ -485,7 +481,6 @@ shardId: [String](#string)
 
 A [RemoveShardEvent](#removeshardevent) is an event for removing a shard. The shardId is the id of the shard to remove.
 
-<br />
 
 #### Update Context Free Plugin State
 
@@ -501,7 +496,6 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 An [UpdateContextFreePluginState](#updatecontextfreepluginstate) updates the local state of a plugin without context on a named shard. Its fields are the type of plugin to update, i.e. [ChainPluginType](#chainplugintype), and the local state migration RPC.
 
-<br />
 
 #### Upgrade System Contract Event
 
@@ -520,7 +514,6 @@ rpc: [DynamicBytes](#dynamicbytes)
 
 An [UpgradeSystemContractEvent](#upgradesystemcontractevent) upgrades a contract. It contains the contract address, the binder jar, the contract jar, the contract ABI, and the upgrade RPC.
 
-<br />
 
 #### Remove Contract
 
@@ -535,7 +528,6 @@ contractAddress: [Address](#address)
 
 The [RemoveContract](#removecontract) event removes an existing contract from the state. The contract to remove is specified by the [Address](#address) of the contract.
 
-<br>
 
 ### Sync Event
 
@@ -585,18 +577,17 @@ An [ContractTransfer](#contracttransfer) consists of a contract [Address](#addre
 ## Common Types
 
 
-#### Address Types
+#### Address Type
 An [Address](#address) is encoded as 21 bytes. The first byte is the [AddressType](#addresstype), and the remaining 20 bytes are the address identifier.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Address](#address)
 <p markdown> ::= addressType:[AddressType](#addresstype) identifier:0xnn*20</p>
-<p class="top-comment">(identifier is big-endian)</p>
+<p class="comment">(identifier is big-endian)</p>
 </div>
 </div>
 
-<br>
 
 An [AddressType](#addresstype) can either be an account address, a system address, public address, zk address or a government address.
 
@@ -614,9 +605,8 @@ An [AddressType](#addresstype) can either be an account address, a system addres
 </div>
 </div>
 
-<br>
 
-#### Booleans
+#### Boolean Type
 
 A [Boolean](#boolean) is encoded as a single byte, which is either 0 (false) or non-0 (true).
 
@@ -624,13 +614,12 @@ A [Boolean](#boolean) is encoded as a single byte, which is either 0 (false) or 
 <div class="type-with-comment" markdown>
 ##### [Boolean](#boolean)
 <p>::= b:0xnn</p>
-<p class="top-comment">(false if b==0, true otherwise)</p>
+<p class="comment">(false if b==0, true otherwise)</p>
 </div>
 </div>
 
-<br>
 
-#### Bytes 
+#### Byte Type
 
 A [Byte](#byte) is encoded as a byte corresponding to its value.
 <div class="binary-format" markdown>
@@ -638,8 +627,6 @@ A [Byte](#byte) is encoded as a byte corresponding to its value.
 
 ::= 0xnn  <br>
 </div>
-
-<br>
 
 #### Dynamic Bytes
 
@@ -649,13 +636,12 @@ A [Byte](#byte) is encoded as a byte corresponding to its value.
 <div class="type-with-comment" markdown>
 ##### [DynamicBytes](#dynamicbytes)
 <p> ::= len:0xnn*4 payload:0xnn*len </p>
-<p class="top-comment">(big-endian)</p>
+<p class="comment">(big-endian)</p>
 </div>
 </div>
 
-<br>
 
-#### Hash Types
+#### Hash Type
 
 A [Hash](#hash) is encoded as 32 bytes in big-endian order.
 
@@ -663,13 +649,12 @@ A [Hash](#hash) is encoded as 32 bytes in big-endian order.
 <div class="type-with-comment" markdown>
 ##### [Hash](#hash)
 <p> ::= 0xnn*32</p>
-<p class="top-comment">(big-endian)</p>
+<p class="comment">(big-endian)</p>
 </div>
 </div>
 
-<br>
 
-#### List
+#### List Type
 
 A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 bytes, big-endian order), and the len elements are encoded according to their type **T**.
 
@@ -677,11 +662,11 @@ A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 byt
 <div class="type-with-comment" markdown>
 ##### [List<T\>](#listt)
 <p>::= len:0xnn*4 elems:<b>T</b>*len</p>
-<p class="top-comment">(len is big-endian)</p>
+<p class="comment">(len is big-endian)</p>
 </div>
 </div>
 
-<br>
+
 
 #### Long Type
 
@@ -691,13 +676,13 @@ A [Long](#long) is encoded as 8 bytes in big-endian order.
 <div class="type-with-comment" markdown>
 ##### [Long](#long)
 <p> ::= 0xnn*8</p>
-<p class="top-comment">(big-endian)</p>
+<p class="comment">(big-endian)</p>
 </div>
 </div>
 
-<br>
 
-#### Option Types
+
+#### Option Type
 
 An [Option<T\>](#optiont) is encoded as either one 0-byte if **T** is None, or as a non-zero byte and the encoding of **T** according to its type.
 
@@ -716,9 +701,9 @@ An [Option<T\>](#optiont) is encoded as either one 0-byte if **T** is None, or a
 </div>
 </div>
 
-<br>
 
-#### Return Envelopes
+
+#### Return Envelope
 
 
 A [ReturnEnvelope](#returnenvelope) is encoded as an [Address](#address).
@@ -728,9 +713,9 @@ A [ReturnEnvelope](#returnenvelope) is encoded as an [Address](#address).
 ::= [Address](#address)<br>
 </div>
 
-<br>
 
-#### Strings
+
+#### String Type
 
 
 A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of len bytes. Both are encoded in big-endian order.
@@ -739,7 +724,7 @@ A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of le
 <div class="type-with-comment" markdown>
 ##### [String](#string)
 <p> ::= len:0xnn*4 uft8:0xnn*len</p> 
-<p class="top-comment">(big-endian)</p>
+<p class="comment">(big-endian)</p>
 </div>
 </div>
 
