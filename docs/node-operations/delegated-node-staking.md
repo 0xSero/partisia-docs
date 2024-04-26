@@ -66,18 +66,19 @@ performance of the node you delegate to, and the amount rewardable tokens delega
 
 !!! Eaxmple "Calculation example"
 
-    Imagine a group of token holders indexed $i=0...n$
+    Imagine a group of token holders indexed $i=0...n$ 
+    We want to calculate the rewards of tokenholder with index 4.  
 
     **Variables:**
 
     - **T** is total allocated rewards for the period. In this scenario 1,000,000 MPC tokens   
-    - **r_{i}** is rewardable delegated tokens of token holder _i_. delegate all your 20,000 MPC tokens to a node operator, half of your tokens are released, meaning 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated = \frac{10,000}{20,000} 20,000 = 10,000$   
+    - **r_{i}** is rewardable delegated tokens of token holder _i_. Token holder 4 delegate all his 20,000 MPC tokens to a node operator, half the tokens are released, meaning 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated = \frac{10,000}{20,000} 20,000 = 10,000$   
     - **p** is the node performance. In this  period node performance was 90%   
     - $\sum_{i=0}^{n}r_{i} \cdot p_{i}$ is sum of rewardable tokens adjusted for performance, in this scenario we imagine 100 nodes with average 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC token    
 
     **Calculation:**  
 
-    $RewardForDelegation = T \frac{r(d) \cdot p}{S(RP)} = 1,000,000 \frac{10000 \cdot 90\%}{1,200,000} = 7,500$   
+    $RewardForDelegation = T \frac{r(d) \cdot p}{\sum_{i=0}^{n}r_{i} \cdot p_{i}} = 1,000,000 \frac{10000 \cdot 90\%}{1,200,000} = 7,500$   
     Your reward for the delegated stakes in the given  period is 7,500 MPC tokens.
     The node operator take a 2% cut of the delegator rewards. You get 7,350 of the 7,500.
 
