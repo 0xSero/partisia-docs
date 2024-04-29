@@ -133,8 +133,11 @@ theme:
   features:
     - navigation.indexes
 
+
 extra:
   generator: true
+  analytics:
+    provider: custom
   homepage: https://www.partisiablockchain.com/
   social:
     - icon: fontawesome/brands/twitter
