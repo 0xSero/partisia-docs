@@ -46,9 +46,6 @@
     --md-footer-fg-color--lighter: rgb(10, 0, 40);
     --md-footer-bg-color: #0A0028;
     --md-footer-bg-color--dark: #000000;
-
-
-
 }
 
 body {
@@ -63,7 +60,6 @@ a:hover {
     text-decoration: underline;
     color: var(--md-primary-fg-color);
 }
-
 
 p,
 li,
@@ -97,7 +93,6 @@ table {
     letter-spacing: 0em !important;
     font-weight: bold;
 }
-
 
 .md-typeset h2 {
     font-weight: bold;
@@ -133,7 +128,6 @@ table {
     align-items: center;
     margin-left: 9%;
 }
-
 
 .logo-text {
     font-size: 17px;
@@ -737,7 +731,6 @@ label {
     border: 1px solid var(--md-typeset-a-color);
 }
 
-
 @-moz-document url-prefix() {
     .dot-navigation p a em {
         display: inline-block;
@@ -765,7 +758,6 @@ label {
 .dot-navigation__item--active {
     background-color: var(--md-typeset-a-color);
 }
-
 
 form.generator-form {
     margin-top: 5px;
@@ -803,6 +795,3 @@ form.generator-form:focus-within {
         font-size: 137.5%;
     }
 }
-
-
-

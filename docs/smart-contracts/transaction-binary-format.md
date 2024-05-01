@@ -728,10 +728,3 @@ A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of le
 <p class="comment">(big-endian)</p>
 </div>
 </div>
-
-
-
-
-
-
-

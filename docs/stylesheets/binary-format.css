@@ -12,7 +12,6 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     font-size: var(--binary-format-default-font-size);
 }
 
-
 .binary-format h5 {
     display: inline-block;
     margin-bottom: 0;
@@ -49,25 +48,19 @@ div.field-with-comment {
     padding-left: var(--binary-format-fields-indent);
 }
 
-
-
 div.column-align, div.comment-align {
     display: flex;
     flex-direction: column;
 }
 
-
-
 p.spaced-or {
     margin-left: -1em;
 }
-
 
 p.comment, div.comment-align, div.comment-align p.spaced {
     display:flex;
     margin-left: auto;
 }
-
 
 div.type-with-comment h5 > a {
     width: max-content;
