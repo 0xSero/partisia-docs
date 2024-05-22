@@ -226,7 +226,7 @@ complement. Note that lengths are also stored as little-endian.
       <p class="comment">(containing the len elements)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#option--t)&lt;&gt; </p>
+      <p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#optiont)&lt;&gt; </p>
       <p class="comment">(None if b==0, Some(arg) otherwise)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
