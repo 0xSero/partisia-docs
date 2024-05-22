@@ -50,7 +50,7 @@ The RPC payload contains the short name identifying the action being called foll
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [PayloadRpc](#payloadrpc)
-<p markdown>::= action:[Shortname](#shortname) arguments:[ArgumentsRpc](#argumentsrpc)* => action(arguments) </p>
+<p markdown>::= action:[Shortname](#shortname) arguments:[ArgumentRpc](#argumentrpc)* => action(arguments) </p>
 </div>
 </div>
 
@@ -62,7 +62,7 @@ It is easy to determine how many bytes a LEB128 encoded number contains by exami
 <div class="type-with-comment" markdown>
 ##### [ShortName](#shortname)
 <p markdown> ::= pre:0xnn* last:0xnn => action </p>
-<p class="endian"> <span class="endian">(where pre is 0-4 bytes that are &ge;0x80 and last &lt;0x80)</span></p>
+<p class="comment"> (where pre is 0-4 bytes that are &ge;0x80 and last &lt;0x80)</span></p>
 </div>
 </div>
 
@@ -98,48 +98,51 @@ The argument binary format depends on the type of the argument. The argument typ
       <p class="spaced-or" >| 0xnn*32 => u256 </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn => [Boolean](#boolean) </p>
+      <p markdown class="spaced-or" >| b:0xnn => Boolean </p>
       <p class="comment">(false if b==0, true otherwise)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*21 => [Address](#address) </p>
+      <p markdown class="spaced-or" >| 0xnn*21 => Address </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
+      <p markdown class="spaced-or" >| 0xnn*32 => Hash </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
+      <p markdown class="spaced-or" >| 0xnn*33 => PublicKey </p>
+      <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
       <p markdown class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*96 => [BlsPublicKey](#blspublickey) </p>
+      <p markdown class="spaced-or" >| 0xnn*96 => BlsPublicKey </p>
+      <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
+      <p markdown class="spaced-or" >| 0xnn*48 => BlsSignature </p>
+      <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*len => [Array](#array)[u8;len] </p>
+      <p markdown class="spaced-or" >| 0xnn*len => Array[u8;len] </p>
       <p class="comment">(containing the len u8 values)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => [String](#string) </p>
+      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => string </p>
       <p class="comment">(with len UTF-8 encoded bytes)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc) *len => [Vec](#vec)&lt;&gt; </p>
+      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc) *len => Vec&lt;&gt; </p>
       <p class="comment">(containing the len elements)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc)  => [Option](#optiont)&lt;&gt; </p>
+      <p markdown class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc)  => Option&lt;&gt; </p>
       <p class="comment">(None if b==0, Some(arg) otherwise)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc)  ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc)  => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+      <p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc)  ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc)  => Struct S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc)  ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc)  => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+      <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc)  ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc)  => Enum{variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
   </div>
 </div>
 </div>
@@ -153,7 +156,7 @@ For arguments with variable lengths, such as Vecs or Strings the number of eleme
 <div class="type-with-comment" markdown>
 ##### [LengthRpc](#lengthrpc)
 <p markdown>::= 0xnn*4 => u32 </p>
-<p class="endian"><span class="endian">(big-endian)</span></p>
+<p class="comment">(big-endian)</p>
 </div>
 </div>
 
@@ -191,52 +194,55 @@ complement. Note that lengths are also stored as little-endian.
   <div class="field-and-comment-row">
       <p class="spaced-or" >| 0xnn*32 => u256 </p>
   </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn => [Boolean](#boolean) </p>
+   <div class="field-and-comment-row" markdown> 
+      <p markdown class="spaced-or" >| b:0xnn => Boolean </p>
       <p class="comment">(false if b==0, true otherwise)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*21 => [Address](#address) </p>
+      <p markdown class="spaced-or" >| 0xnn*21 => Address </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*32 => [Hash](#hash) </p>
+      <p markdown class="spaced-or" >| 0xnn*32 => Hash </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*33 => [PublicKey](#publickey) </p>
+      <p markdown class="spaced-or" >| 0xnn*33 => PublicKey </p>
+      <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
       <p markdown class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*96 => [BlsPublicKey](#blspublickey) </p>
+      <p markdown class="spaced-or" >| 0xnn*96 => BlsPublicKey </p>
+      <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*48 => [BlsSignature](#blssignature) </p>
+      <p markdown class="spaced-or" >| 0xnn*48 => BlsSignature </p>
+      <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*len => [Array](#array)[u8;len] </p>
+      <p markdown class="spaced-or" >| 0xnn*len => Array[u8;len] </p>
       <p class="comment">(containing the len u8 values)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn*len => [String](#string) </p>
+      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn*len => String </p>
       <p class="comment">(with len UTF-8 encoded bytes)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)*len => [Vec](#vec)&lt;&gt; </p>
+      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)*len => Vec&lt;&gt; </p>
       <p class="comment">(containing the len elements)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#optiont)&lt;&gt; </p>
+      <p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => Option&lt;&gt; </p>
       <p class="comment">(None if b==0, Some(arg) otherwise)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Struct](#struct) S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+      <p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => Struct S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => [Enum](#enum){variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+      <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => Enum{variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*4 => [AvlTree](#avltree){<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+      <p markdown class="spaced-or" >| 0xnn*4 => AvlTree{<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
   </div>
 </div>
 </div>
@@ -251,7 +257,7 @@ For arguments with variable lengths, such as Vecs or Strings the number of eleme
 <div class="type-with-comment" markdown>
 ##### [LengthState](#lengthstate)
 <p markdown>::= 0xnn*4 => u32 </p>
-<p class="endian"><span class="endian">(little-endian)</span></p>
+<p class="comment">(little-endian)</p>
 </div>
 </div>
 
@@ -261,6 +267,8 @@ outside the wasm code. The content of the AvlTreeMap is accessed using external 
 The integer stored is the tree id of the AvlTreeMap and is used as a pointer to find the correct AvlTreeMap.
 This is done to avoid having to serialize and deserialize the entire content of the Map for every invocation
 saving gas cost.
+
+
 
 ### CopySerializable Binary Format
 
@@ -321,323 +329,32 @@ These structs are not CopySerializable:
 - `Struct E5 { f1: u16, f2: u8 }` due to alignment not dividing size.
 - `Struct E6 { f1: Vec<u8> }` due to non-CopySerializable subfield.
 
-## ABI Binary Format
-
-### Type Specifier binary format
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [TypeSpec](#typespec) 
-::= 
-<div class="column-align" markdown>
-<p markdown > [SimpleTypeSpec](#simpletypespec)  </p>
-<p markdown class="spaced-or">| [CompositeTypeSpec](#compositetypespec) </p>
-<p markdown class="spaced-or">| [NamedTypeRef](#namedtyperef) </p>
-</div>
-</div>
-</div>
-
-<br />
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [NamedTypeRef](#namedtyperef) 
-<p markdown > ::= 0x00 Index:0xnn => NamedTypes(Index)  </p>
-</div>
-</div>
-
-<br />
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [SimpleTypeSpec](#simpletypespec)
-::= 
-<div class="column-align" markdown>
-<p markdown > 0x01 => u8  </p>
-<p markdown class="spaced-or">| 0x02 => u16 </p>
-<p markdown class="spaced-or">| 0x03 => u32 </p>
-<p markdown class="spaced-or">| 0x04 => u64 </p>
-<p markdown class="spaced-or">| 0x05 => u128 </p>
-<p markdown class="spaced-or">| 0x18 => u256 </p>
-<p markdown class="spaced-or">| 0x06 => i8 </p>
-<p markdown class="spaced-or">| 0x07 => i16 </p>
-<p markdown class="spaced-or">| 0x08 => i32 </p>
-<p markdown class="spaced-or">| 0x09 => i64 </p>
-<p markdown class="spaced-or">| 0x0a => i128 </p>
-<p markdown class="spaced-or">| 0x0b => [String](#string)  </p>
-<p markdown class="spaced-or">| 0x0c => [Boolean](#boolean)  </p>
-<p markdown class="spaced-or">| 0x0d => [Address](#address) </p>
-<p markdown class="spaced-or">| 0x13 => [Hash](#hash) </p>
-<p markdown class="spaced-or">| 0x14 => [PublicKey](#publickey) </p>
-<p markdown class="spaced-or">| 0x15 => [Signature](#signature) </p>
-<p markdown class="spaced-or">| 0x16 => [BlsPublicKey](#blspublickey) </p>
-<p markdown class="spaced-or">| 0x17 => [BlsSignature](#blssignature) </p>
-</div>
-</div>
-</div>
-
-<br />
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [CompositeTypeSpec](#compositetypespec) 
-::= 
-<div class="column-align" markdown >
-  <p markdown > 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt; </p>
-  <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
-  <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
-  <div class="field-and-comment-row" >
-    <p class="spaced-or" > | 0x11 L:0xnn => [u8;L] </p>
-    <p class="comment">(0x00 &le; L &le; 0x7F)</p>
-  </div>
-  <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => [Option](#optiont)&lt;T&gt; </p>
-  <p class="spaced-or" markdown > | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
-</div>
-</div>
-</div>
-
-**NOTE:** `Map` and `Set` cannot be used as RPC arguments since it's not possible for a
-caller to check equality and sort order of the elements without running the code.
-
-Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
-
-#### ABI File binary format
-
-All [Identifier](#identifier) names must be [valid Java identifiers](https://docs.oracle.com/javase/specs/jls/se20/html/jls-3.html#jls-3.8); other strings are reserved for future extensions.
-
-
-<div class="binary-format" markdown>
-##### [FileAbi](#fileabi) 
-::= {
-<div class="field-with-comment" markdown>
-<p markdown> Header: 0xnn*6 </p>
-<p class="endian"><span class="endian">(The header is always "PBCABI" in ASCII)</span> </p>
-</div>  
-<div class="fields"/>
-VersionBinder: 0xnn\*3 <br>
-VersionClient: 0xnn\*3 <br>
-Contract: [ContractAbi](#contractabi)
-
-}
-</div>
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-##### [ContractAbi](#contractabi) 
-::= {
-<div class="fields"/>
-NamedTypes: [List](#list)&lt;[NamedTypeSpec](#namedtypespec)&gt; <br>
-Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt;<br>
-StateType: [TypeSpec](#typespec)<br>
-
-}
-</div>  
-
-<p style="margin:0;">&nbsp;</p>
-
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [NamedTypeSpec](#namedtypespec) 
-::= 
-<div class="column-align" markdown>
-<p markdown > 0x01 [StructTypeSpec](#structtypespec) </p>
-<p markdown class="spaced-or"> | 0x02 [EnumTypeSpec](#enumtypespec) </p>
-</div>
-</div>
-</div>
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-##### [StructTypeSpec](#structtypespec) 
-::= {
-<div class="fields"/>
-Name: [Identifier](#identifier) <br>
-Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;
-
-}
-</div>  
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-##### [EnumTypeSpec](#enumtypespec)
-::= {
-<div class="fields"/>
-Name: [Identifier](#identifier) <br>
-Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
-
-}
-</div>  
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [EnumVariant](#enumvariant)
-<p markdown > ::= discriminant:0xnn def:[NamedTypeRef](#namedtyperef) </p>
-</div>
-</div>
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-##### [FnAbi](#fnabi)
-::= {
-<div class="fields"/>
-Kind: [FnKind](#fnkind) <br>
-Name: [Identifier](#identifier) <br>
-Shortname: LEB128 <br>
-Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt;
-<div class="field-with-comment" markdown>
-<p markdown>SecretArgument: [ArgumentAbi](#argumentabi)</p>
-<p class="endian"><span class="endian">(Only present if Kind is 0x17)</span> </p>
-</div>  
-
-}
-</div>
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-##### [FieldAbi](#fieldabi)
-::= {
-<div class="fields"/>
-Name: [Identifier](#identifier) <br>
-Type: [TypeSpec](#typespec)
-
-}
-</div>
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-##### [ArgumentAbi](#argumentabi)
-::= {
-<div class="fields"/>
-Name: [Identifier](#identifier) <br>
-Type: [TypeSpec](#typespec)
-
-}
-</div>  
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [Identifier](#identifier)
-<p markdown > ::= len:0xnn\*4 utf8:0xnn\*len </p>
-<p class="endian"><span class="endian">(utf8 must be Rust identifier, len is big-endian)</span></p>
-</div>
-</div>
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [LEB128](#leb128)
-<p markdown > ::= A LEB128 encoded unsigned 32 bit integer </p>
-<p class="endian"><span class="endian">(1-5 bytes)</span></p>
-</div>
-</div>
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [FnKind](#fnkind)
-::= 
-<div class="column-align" markdown >
-  <div class="field-and-comment-row" >
-    <p > 0x01 => <b>Init</b> </p>
-    <p class="endian">(Num allowed: 1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x02 => <b>Action</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x03 => <b>Callback</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x10 => <b>ZkSecretInput</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x11 => <b>ZkVarInputted</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x12 => <b>ZkVarRejected</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x13 => <b>ZkComputeComplete</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x14 => <b>ZkVarOpened</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x15 => <b>ZkUserVarOpened</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x16 => <b>ZkAttestationComplete</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x17 => <b>ZkSecretInputWithExplicitType</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x18 => <b>ZkExternalEvent</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-</div>
-</div>
-</div>
-
-
-Note that a [ContractAbi](#contractabi) is only valid if the `Hooks` list contains a specific
-number of hooks of each type, as specified in [FnKind](#fnkind).
-
-Also note that if a function has the deprecated kind <b>ZkSecretInput</b>, the default 
-secret argument associated with it is of type `i32`. 
-
 ## Common Types
 
-#### Address
-An [Address](#address) is encoded as 21 bytes. The first byte is the [AddressType](#addresstype), and the remaining 20 bytes are the address identifier.
+#### BlsPublicKey
+
+A [BlsPublicKey](#blspublickey) is encoded as a public key value of 96 bytes, representing a point on an elliptic curve.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-##### [Address](#address)
-<p markdown> ::= addressType:[AddressType](#addresstype) identifier:0xnn*20</p>
-<p class="comment">(identifier is big-endian)</p>
+##### [BlsPublicKey](#blspublickey)
+<p markdown> ::= publicKeyValue:0xnn*96</p>
+<p class="comment">(point on an elliptic curve)</p>
 </div>
 </div>
 
-An [AddressType](#addresstype) can either be an account address, a system address, public address, zk address or a government address.
+#### BlsSignature
+
+A [BlsSignature](#blspublickey) is encoded as 48 bytes, representing a point on an elliptic curve.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-##### [AddressType](#addresstype)
+##### [BlsSignature](#blspublickey)
 ::= 
-<div class="column-align" markdown>
-<p> 0x00 => <b>Account</b> </p>
-<p class="spaced-or">| 0x01 => <b>System</b></p>
-<p class="spaced-or">| 0x02 => <b>Public</b> </p>  
-<p class="spaced-or">| 0x03 => <b>Zk</b> </p>
-<p class="spaced-or">| 0x04 => <b>Gov</b> </p>
+<p markdown>signatureBytes:0xnn*48</p>
+<p class="comment">(point on an elliptic curve) </p>
 </div>
 </div>
-</div>
-
 
 #### Boolean
 
@@ -695,18 +412,6 @@ An [Option<T\>](#optiont) is encoded as either one 0-byte if **T** is None, or a
 </div>
 </div>
 
-#### String
-
-A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of len bytes. Both are encoded in big-endian order.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [String](#string)
-<p> ::= len:0xnn*4 uft8:0xnn*len</p> 
-<p class="comment">(big-endian)</p>
-</div>
-</div>
-
 #### Public Key
 
 A [PublicKey](#publickey) is a point on an elliptic curved encoded as 33 bytes.
@@ -721,7 +426,7 @@ A [PublicKey](#publickey) is a point on an elliptic curved encoded as 33 bytes.
 
 #### Signature
 
-A [Signature](#signature) is encoded as a recovery id (4 bytes) and two non-negative [BigIntegers](#biginteger), representing the R and S values of the signature. 
+A [Signature](#signature) is encoded as a recovery id (4 bytes) and two non-negative [BigIntegers](#biginteger), representing the R and S values of the signature.
 
 <div class="binary-format" markdown>
 ##### [Signature](#signature)
@@ -743,44 +448,313 @@ A [Signature](#signature) is encoded as a recovery id (4 bytes) and two non-nega
 }
 </div>
 
+#### String
 
-#### BigInteger
-
-A [BigInteger](#biginteger) is encoded as 4 bytes representing its signum (-1 for negative, 0 for zero, or 1 for positive), and a list of integers (4 bytes) representing its magnitude, each in big-endian order. 
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [BigInteger](#biginteger)
-<p markdown> ::= signum:0xnn\*4  mag:[List](#list)&lt;0xnn\*4&gt;</p>
-<p class="comment">(big-endian) </p>
-</div>
-</div>
-
-#### BlsPublicKey
-
-A [BlsPublicKey](#blspublickey) is encoded as a public key value of 96 bytes, representing a point on an elliptic curve.
+A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of len bytes. Both are encoded in big-endian order.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-##### [BlsPublicKey](#blspublickey)
-<p markdown> ::= publicKeyValue:0xnn*96</p>
-<p class="comment">(point on an elliptic curve)</p>
+##### [String](#string)
+<p> ::= len:0xnn*4 uft8:0xnn*len</p> 
+<p class="comment">(big-endian)</p>
 </div>
 </div>
 
-#### BlsSignature
 
-A [BlsSignature](#blspublickey) is encoded as 48 bytes, representing a point on an elliptic curve.
+## ABI Binary Format
+
+### Type Specifier binary format
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-##### [BlsSignature](#blspublickey)
+##### [TypeSpec](#typespec) 
 ::= 
-<p markdown>signatureBytes:0xnn*48</p>
-<p class="comment">(point on an elliptic curve) </p>
+<div class="column-align" markdown>
+<p markdown > [SimpleTypeSpec](#simpletypespec)  </p>
+<p markdown class="spaced-or">| [CompositeTypeSpec](#compositetypespec) </p>
+<p markdown class="spaced-or">| [NamedTypeRef](#namedtyperef) </p>
+</div>
 </div>
 </div>
 
+[TypeSpec](#typespec) is an interface for the possible types of the contract. Subtypes implement this interface to mark them as valid TypeSpec types as specified by the abi grammar.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [NamedTypeRef](#namedtyperef) 
+<p markdown > ::= 0x00 Index:0xnn => NamedTypes(Index)  </p>
+</div>
+</div>
+
+The [NamedTypeRef](#namedtyperef) is a reference to locate a named type specification in the list of named types. 
+The index denotes the position in the list in which the specification is stored in.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [SimpleTypeSpec](#simpletypespec)
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x01 => u8  </p>
+<p markdown class="spaced-or">| 0x02 => u16 </p>
+<p markdown class="spaced-or">| 0x03 => u32 </p>
+<p markdown class="spaced-or">| 0x04 => u64 </p>
+<p markdown class="spaced-or">| 0x05 => u128 </p>
+<p markdown class="spaced-or">| 0x18 => u256 </p>
+<p markdown class="spaced-or">| 0x06 => i8 </p>
+<p markdown class="spaced-or">| 0x07 => i16 </p>
+<p markdown class="spaced-or">| 0x08 => i32 </p>
+<p markdown class="spaced-or">| 0x09 => i64 </p>
+<p markdown class="spaced-or">| 0x0a => i128 </p>
+<p markdown class="spaced-or">| 0x0b => [String](#string)  </p>
+<p markdown class="spaced-or">| 0x0c => [Boolean](#boolean)  </p>
+<p markdown class="spaced-or">| 0x0d => [Address](#address) </p>
+<p markdown class="spaced-or">| 0x13 => [Hash](#hash) </p>
+<p markdown class="spaced-or">| 0x14 => [PublicKey](#publickey) </p>
+<p markdown class="spaced-or">| 0x15 => [Signature](#signature) </p>
+<p markdown class="spaced-or">| 0x16 => [BlsPublicKey](#blspublickey) </p>
+<p markdown class="spaced-or">| 0x17 => [BlsSignature](#blssignature) </p>
+</div>
+</div>
+</div>
+
+The [SimpleTypeSpec](#simpletypespec) represents the possible simple types in the contract.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [CompositeTypeSpec](#compositetypespec) 
+::= 
+<div class="column-align" markdown >
+  <p markdown > 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt; </p>
+  <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
+  <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
+  <div class="field-and-comment-row" >
+    <p class="spaced-or" > | 0x11 L:0xnn => [u8;L] </p>
+    <p class="comment">(0x00 &le; L &le; 0x7F)</p>
+  </div>
+  <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => [Option](#optiont)&lt;T&gt; </p>
+  <p class="spaced-or" markdown > | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
+</div>
+</div>
+</div>
+
+The [CompositeTypeSpec](#compositetypespec) represents the possible composite types in the contract, such as vecs, sets and maps.
+
+
+**NOTE:** `Map` and `Set` cannot be used as RPC arguments since it's not possible for a
+caller to check equality and sort order of the elements without running the code.
+
+Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
+
+### ABI File binary format
+
+
+<div class="binary-format" markdown>
+##### [FileAbi](#fileabi) 
+::= {
+<div class="field-with-comment" markdown>
+<p markdown> Header: 0xnn*6 </p>
+<p class="comment">(The header is always "PBCABI" in ASCII)</span> </p>
+</div>  
+<div class="fields"/>
+VersionBinder: 0xnn\*3 <br>
+VersionClient: 0xnn\*3 <br>
+Contract: [ContractAbi](#contractabi)
+
+}
+</div>
+
+The [FileAbi](#fileabi) holds all information concerning the contract, as well as metadata about versioning and headers.
+
+<div class="binary-format" markdown>
+##### [ContractAbi](#contractabi) 
+::= {
+<div class="fields"/>
+NamedTypes: [List](#list)&lt;[NamedTypeSpec](#namedtypespec)&gt; <br>
+Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt;<br>
+StateType: [TypeSpec](#typespec)<br>
+
+}
+</div>  
+
+The [ContractAbi](#contractabi) represents a contract. A contract is defined by the length of the shortnames 
+(Null if using LEB128), a list of structs, the init function, a list of invocable functions and the type of the state.
+
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [NamedTypeSpec](#namedtypespec) 
+::= 
+<div class="column-align" markdown>
+<p markdown > 0x01 [StructTypeSpec](#structtypespec) </p>
+<p markdown class="spaced-or"> | 0x02 [EnumTypeSpec](#enumtypespec) </p>
+</div>
+</div>
+</div>
+
+The [NamedTypeSpec](#namedtypespec) is an interface for the possible named types of the contract. 
+
+<div class="binary-format" markdown>
+##### [StructTypeSpec](#structtypespec) 
+::= {
+<div class="fields"/>
+Name: [Identifier](#identifier) <br>
+Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;
+
+}
+</div>  
+
+The [StructTypeSpec](#structtypespec)  is a representation of a struct, specified by a name and a list of fields. 
+Each field is responsible for storing its own type.
+
+<div class="binary-format" markdown>
+##### [EnumTypeSpec](#enumtypespec)
+::= {
+<div class="fields"/>
+Name: [Identifier](#identifier) <br>
+Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
+
+}
+</div>  
+
+The [EnumTypeSpec](#enumtypespec) represents an enum specified by a name and a list of [EnumVariants](#enumvariant).
+Each variant should be a reference to a struct defining the name and fields of the variant.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [EnumVariant](#enumvariant)
+<p markdown > ::= discriminant:0xnn def:[NamedTypeRef](#namedtyperef) </p>
+</div>
+</div>
+
+Each [EnumVariant](#enumvariant) is specified by a discriminant and a reference to a struct defining the name and fields of the variant.
+
+<div class="binary-format" markdown>
+##### [FnAbi](#fnabi)
+::= {
+<div class="fields"/>
+Kind: [FnKind](#fnkind) <br>
+Name: [Identifier](#identifier) <br>
+Shortname: [LEB128](#leb128) <br>
+Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt;
+<div class="field-with-comment" markdown>
+<p markdown>SecretArgument: [ArgumentAbi](#argumentabi)</p>
+<p class="comment">(Only present if Kind is 0x17) </p>
+</div>  
+
+}
+</div>
+
+The [FnKind](#fnkind) represents a function with a name, a shortname representation used for invocations and a list of arguments.
+
+<div class="binary-format" markdown>
+##### [FieldAbi](#fieldabi)
+::= {
+<div class="fields"/>
+Name: [Identifier](#identifier) <br>
+Type: [TypeSpec](#typespec)
+
+}
+</div>
+
+The [FieldAbi](#fieldabi) represents a field for a struct, specified by a name and a type.
+
+<div class="binary-format" markdown>
+##### [ArgumentAbi](#argumentabi)
+::= {
+<div class="fields"/>
+Name: [Identifier](#identifier) <br>
+Type: [TypeSpec](#typespec)
+
+}
+</div>  
+
+The [ArgumentAbi](#argumentabi) represents an argument. The argument is defined using a name and a type of the argument.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [Identifier](#identifier)
+<p markdown > ::= len:0xnn\*4 utf8:0xnn\*len </p>
+<p class="comment">(utf8 must be Rust identifier, len is big-endian)</p>
+</div>
+</div>
+
+All [Identifier](#identifier) names must be [valid Java identifiers](https://docs.oracle.com/javase/specs/jls/se20/html/jls-3.html#jls-3.8); other strings are reserved for future extensions.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [LEB128](#leb128)
+<p markdown > ::= A LEB128 encoded unsigned 32 bit integer </p>
+<p class="comment">(1-5 bytes)</p>
+</div>
+</div>
+
+<p style="margin:0;">&nbsp;</p>
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [FnKind](#fnkind)
+::= 
+<div class="column-align" markdown >
+  <div class="field-and-comment-row" >
+    <p > 0x01 => <b>Init</b> </p>
+    <p class="comment">(Num allowed: 1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x02 => <b>Action</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x03 => <b>Callback</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x10 => <b>ZkSecretInput</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x11 => <b>ZkVarInputted</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x12 => <b>ZkVarRejected</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x13 => <b>ZkComputeComplete</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x14 => <b>ZkVarOpened</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x15 => <b>ZkUserVarOpened</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x16 => <b>ZkAttestationComplete</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x17 => <b>ZkSecretInputWithExplicitType</b> </p>
+  <p markdown class="comment">(0..&infin;)</p>
+  </div>
+  <div class="field-and-comment-row" >
+  <p markdown class="spaced-or"> | 0x18 => <b>ZkExternalEvent</b> </p>
+  <p markdown class="comment">(0..1)</p>
+  </div>
+</div>
+</div>
+</div>
+
+The [FnKind](#fnkind) represents all valid types of functions.  
+
+
+Note that a [ContractAbi](#contractabi) is only valid if the `Hooks` list contains a specific
+number of hooks of each type, as specified in [FnKind](#fnkind).
+
+Also note that if a function has the deprecated kind <b>ZkSecretInput</b>, the default 
+secret argument associated with it is of type `i32`. 
 
 
 ## Section format

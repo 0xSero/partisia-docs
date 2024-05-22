@@ -129,7 +129,7 @@ inner: [InnerEvent](#innerevent)
 shardRoute: [ShardRoute](#shardroute)  
 committeeId: [Long](#long)  
 governanceVersion: [Long](#long)  
-height: [Byte](#byte)
+height: [Byte](#byte)  
 returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
 
 }
