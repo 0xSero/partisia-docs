@@ -620,7 +620,7 @@ secret argument associated with it is of type `i32`.
 
 <div class="type-with-comment" markdown>
 ##### [Boolean](#boolean)
-<p>::= b: <span class="bytes">0<span class="sep">x</span>nn</span></p>
+<p>::= b:<span class="bytes">0<span class="sep">x</span>nn</span></p>
 <p class="endian"><span class="endian">(false if b==0, true otherwise)</span></p>
 </div>
 
@@ -636,7 +636,7 @@ secret argument associated with it is of type `i32`.
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [PublicKey](#publickey)
-<p markdown> ::= ecPoint: 0xnn*33</p>
+<p markdown> ::= ecPoint:0xnn*33</p>
 <p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
 </div>
 </div>
@@ -647,7 +647,7 @@ secret argument associated with it is of type `i32`.
 ::= {  
 <div class="fields"/>
 <div class="field-with-comment" markdown>
-<p markdown>recoveryId: id:0xnn*32</p>
+<p markdown>recoveryId: id:0xnn*4</p>
 <p class="endian"><span class="endian"> (0 <= id <= 3)</span> </p>
 </div>  
 <div class="field-with-comment" markdown>
@@ -663,16 +663,20 @@ secret argument associated with it is of type `i32`.
 
 
 
-
-
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
 ##### [BigInteger](#biginteger)
+<p markdown> ::= signum:0xnn\*4  mag:[List](#list)&lt;0xnn\*4&gt;</p>
+<p class="endian"><span class="endian">(big-endian)</span> </p>
+</div>
+</div>
 
 
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [BlsPublicKey](#blspublickey)
-<p markdown> ::= publicKeyValue:  0xnn*96</p>
+<p markdown> ::= publicKeyValue:0xnn*96</p>
 <p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
 </div>
 </div>
@@ -682,7 +686,7 @@ secret argument associated with it is of type `i32`.
 ##### [BlsSignature](#blspublickey)
 ::= {
 <div class="field-with-comment" markdown>
-<p markdown>signatureBytes:  0xnn*48</p>
+<p markdown>signatureBytes:0xnn*48</p>
 <p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
 </div>  
 </div>
