@@ -51,7 +51,6 @@ The [Signature](#signature) includes:
 - The r value of the ECDSA signature
 - The s value of the ECDSA signature
 
-
 <div class="binary-format" markdown>
 ##### [Transaction](#transaction)
 ::= {
@@ -73,7 +72,6 @@ The [Signature](#signature) includes:
   
   }
 </div>
-
 
 The [Transaction](#transactionouter) includes:
 
@@ -100,7 +98,7 @@ the blockchain.
 ::= [String](#string)
 </div>
 
-The chain id is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
+The `chain id` is a unique identifier for the blockchain. For example, the chain id for Partisia Blockchain mainnet is
 `Partisia Blockchain` and the chain id for the testnet is `Partisia Blockchain Testnet`.
 
 
@@ -109,7 +107,6 @@ The chain id is a unique identifier for the blockchain. For example, the chain i
 An executable event is spawned by the blockchain, and not by a user. It can be created from other events or when the blockchain receives a signed transaction. The executable event contains the information about which action to perform to a smart contract.
 
 The following is the specification of the binary format of executable events.
-
 
 <div class="binary-format" markdown>
 ##### [ExecutableEvent](#executableevent)
@@ -122,7 +119,6 @@ transaction: [EventTransaction](#eventtransaction)
 </div>
 
 The originShard is an [Option](#optiont)<[String](#string)>, the originating shard of the event.
-
 
 <div class="binary-format" markdown>
 ##### [EventTransaction](#eventtransaction)
@@ -144,11 +140,10 @@ The transaction, [EventTransaction](#eventtransaction), includes:
 - The originating transaction: the [SignedTransaction](#signedtransaction) initiating the tree of events that this event is a part of.
 - The event type, [InnerEvent](#innerevent).
 - The [ShardRoute](#shardroute) describes which shard the event should be executed on.
-- The id of the committee that produced the block where the event was spawned. The committee id is used to find the correct committee for validating a finalization proof sent from one shard to another. The committee id of an event must be larger than the latest committee id.
-- The governance version when this event was produced. The governance version is incremented when the global state is changes, e.g. when updating a plugin. The governance version of the event must be up-to-date with the local governance version.
+- The id of the [committee](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/dictionary.html#committee) that produced the block where the event was spawned. The committee id is used to find the correct committee for validating a finalization proof sent from one shard to another. The committee id of an event must be larger than the latest committee id.
+- The [governance](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/governance-system-smart-contracts-overview.html) version when this event was produced. The governance version is incremented when the global state is changes, e.g. when updating a plugin. The governance version of the event must be up-to-date with the local governance version.
 - The height of the event tree, which is increased for each event spawned after a signed transaction.
 - If there is a callback registered to the event, the result of the event is returned in a [ReturnEnvelope](#returnenvelope).
-
 
 <div class="binary-format" markdown>
 ##### [ShardRoute](#shardroute)
@@ -161,7 +156,6 @@ nonce: [Long](#long)
 </div>
 
 A [ShardRoute](#shardroute), the unique routing to a shard, contains the id of a target shard and a nonce.
-
 
 #### Event Types
 <div class="binary-format" markdown>
@@ -198,8 +192,6 @@ transaction: [Transaction](#transaction)
 
 The [InnerTransaction](#innertransaction) contains an associated sender and an associated cost, as well as the transaction.
 
-
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Transaction](#transaction)
@@ -228,8 +220,7 @@ rpc: [DynamicBytes](#dynamicbytes)
 }
 </div>
 
-A [CreateContractTransaction](#createcontracttransaction) contains the [Address](#address) where the contract should be deployed, and the binding jar, the contract jar, the contract ABI and the RPC of the create invocation.
-
+A [CreateContractTransaction](#createcontracttransaction) contains the [Address](#address) where the contract should be deployed, and the binding jar, the contract jar, the contract ABI and the RPC of the create-invocation.
 
 #### Interact with Contract Transaction
 
@@ -298,7 +289,6 @@ An [InnerSystemEvent](#innersystemevent) has a [SystemEventType](#systemeventtyp
 </div>
 </div>
 </div>
-
 
 #### Create Account Event
 
@@ -577,7 +567,6 @@ An [ContractTransfer](#contracttransfer) consists of a contract [Address](#addre
 
 ## Common Types
 
-
 #### Address Type
 An [Address](#address) is encoded as 21 bytes. The first byte is the [AddressType](#addresstype), and the remaining 20 bytes are the address identifier.
 
@@ -588,7 +577,6 @@ An [Address](#address) is encoded as 21 bytes. The first byte is the [AddressTyp
 <p class="comment">(identifier is big-endian)</p>
 </div>
 </div>
-
 
 An [AddressType](#addresstype) can either be an account address, a system address, public address, zk address or a government address.
 
@@ -629,6 +617,7 @@ A [Byte](#byte) is encoded as a byte corresponding to its value.
 ::= 0xnn  <br>
 </div>
 
+
 #### Dynamic Bytes
 
 [DynamicBytes](#dynamicbytes) are encoded as a length, len, of 4 bytes, and a payload of len bytes. Both len and payload are encoded in big-endian order.
@@ -668,7 +657,6 @@ A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 byt
 </div>
 
 
-
 #### Long Type
 
 A [Long](#long) is encoded as 8 bytes in big-endian order.
@@ -680,7 +668,6 @@ A [Long](#long) is encoded as 8 bytes in big-endian order.
 <p class="comment">(big-endian)</p>
 </div>
 </div>
-
 
 
 #### Option Type
@@ -702,10 +689,7 @@ An [Option<T\>](#optiont) is encoded as either one 0-byte if **T** is None, or a
 </div>
 </div>
 
-
-
 #### Return Envelope
-
 
 A [ReturnEnvelope](#returnenvelope) is encoded as an [Address](#address).
 
@@ -714,10 +698,7 @@ A [ReturnEnvelope](#returnenvelope) is encoded as an [Address](#address).
 ::= [Address](#address)<br>
 </div>
 
-
-
 #### String Type
-
 
 A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of len bytes. Both are encoded in big-endian order.
 
