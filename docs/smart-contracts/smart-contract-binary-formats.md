@@ -163,8 +163,6 @@ Integers are stored as little-endian. Signed integers are stored as two's
 complement. Note that lengths are also stored as little-endian.
 
 
-
-
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [State](#state)
@@ -228,7 +226,7 @@ complement. Note that lengths are also stored as little-endian.
       <p class="comment">(containing the len elements)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#optiont)&lt;&gt; </p>
+      <p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => [Option](#option--t)&lt;&gt; </p>
       <p class="comment">(None if b==0, Some(arg) otherwise)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
@@ -790,7 +788,7 @@ The file extension of Partisia Blockchain Contract Files is written as ".pbc". T
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [PbcFile](#pbcfile)
-<p markdown > ::= PbcHeader: 0xnn\*4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
+<p markdown>::= PbcHeader: 0xnn\*4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
 <p class="endian"><span class="endian">(The header is always "PBSC" in ASCII)</span></p>
 </div>
 </div>
