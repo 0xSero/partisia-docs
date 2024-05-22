@@ -397,7 +397,7 @@ The [SimpleTypeSpec](#simpletypespec) represents the possible simple types in th
   <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => Map&lt;V,K&gt; </p>
   <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => Set&lt;T&gt; </p>
   <div class="field-and-comment-row" >
-    <p class="spaced-or" > | 0x11 L:0xnn => [u8;L] </p>
+    <p class="spaced-or" > | 0x11 L:0xnn => Array[u8;L] </p>
     <p class="comment">(0x00 &le; L &le; 0x7F)</p>
   </div>
   <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => Option&lt;T&gt; </p>
@@ -694,7 +694,7 @@ The file extension of Partisia Blockchain Contract Files is written as ".pbc". T
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [PbcFile](#pbcfile)
-<p markdown>::= PbcHeader: 0xnn\*4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
+<p markdown>::= PbcHeader:0xnn\*4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
 <p class="comment">(The header is always "PBSC" in ASCII)</p>
 </div>
 </div>
