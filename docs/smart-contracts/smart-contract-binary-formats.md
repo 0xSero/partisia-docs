@@ -112,7 +112,7 @@ The argument binary format depends on the type of the argument. The argument typ
       <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
+      <p markdown class="spaced-or" >| 0xnn*65 => Signature </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
       <p markdown class="spaced-or" >| 0xnn*96 => BlsPublicKey </p>
@@ -209,7 +209,7 @@ complement. Note that lengths are also stored as little-endian.
       <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*65 => [Signature](#signature) </p>
+      <p markdown class="spaced-or" >| 0xnn*65 => Signature </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
       <p markdown class="spaced-or" >| 0xnn*96 => BlsPublicKey </p>
@@ -329,137 +329,6 @@ These structs are not CopySerializable:
 - `Struct E5 { f1: u16, f2: u8 }` due to alignment not dividing size.
 - `Struct E6 { f1: Vec<u8> }` due to non-CopySerializable subfield.
 
-## Common Types
-
-#### BlsPublicKey
-
-A [BlsPublicKey](#blspublickey) is encoded as a public key value of 96 bytes, representing a point on an elliptic curve.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [BlsPublicKey](#blspublickey)
-<p markdown> ::= publicKeyValue:0xnn*96</p>
-<p class="comment">(point on an elliptic curve)</p>
-</div>
-</div>
-
-#### BlsSignature
-
-A [BlsSignature](#blspublickey) is encoded as 48 bytes, representing a point on an elliptic curve.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [BlsSignature](#blspublickey)
-::= 
-<p markdown>signatureBytes:0xnn*48</p>
-<p class="comment">(point on an elliptic curve) </p>
-</div>
-</div>
-
-#### Boolean
-
-A [Boolean](#boolean) is encoded as a single byte, which is either 0 (false) or non-0 (true).
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [Boolean](#boolean)
-<p>::= b:0xnn</p>
-<p class="comment">(false if b==0, true otherwise)</p>
-</div>
-</div>
-
-#### Hash
-
-A [Hash](#hash) is encoded as 32 bytes in big-endian order.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [Hash](#hash)
-<p> ::= 0xnn*32</p>
-<p class="comment">(big-endian)</p>
-</div>
-</div>
-
-
-#### List Type
-
-A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 bytes, big-endian order), and the len elements are encoded according to their type **T**.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [List<T\>](#listt)
-<p>::= len:0xnn*4 elems:<b>T</b>*len</p>
-<p class="comment">(len is big-endian)</p>
-</div>
-</div>
-
-
-#### Option Type
-
-An [Option<T\>](#optiont) is encoded as either one 0-byte if **T** is None, or as a non-zero byte and the encoding of **T** according to its type.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [Option<T\>](#optiont)
-::= 
-<div class="column-align" markdown >
-  <p markdown > 0x00 => None </p>
-  <div class="field-and-comment-row" >
-    <p class="spaced-or" markdown > | b:0xnn t:<b>T</b> => Some(t) </p>
-    <p class="comment">(b != 0)</p>
-  </div>
-</div>
-</div>
-</div>
-
-#### Public Key
-
-A [PublicKey](#publickey) is a point on an elliptic curved encoded as 33 bytes.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [PublicKey](#publickey)
-<p markdown> ::= ecPoint:0xnn*33</p>
-<p class="comment">(point on an elliptic curve)</p>
-</div>
-</div>
-
-#### Signature
-
-A [Signature](#signature) is encoded as a recovery id (4 bytes) and two non-negative [BigIntegers](#biginteger), representing the R and S values of the signature.
-
-<div class="binary-format" markdown>
-##### [Signature](#signature)
-::= {  
-<div class="fields"/>
-<div class="field-with-comment" markdown>
-<p markdown>recoveryId: 0xnn*4</p>
-<p class="comment">(0 <= id <= 3)</p>
-</div>  
-<div class="field-with-comment" markdown>
-<p markdown>valueR: [BigInteger](#biginteger)</p>
-<p class="comment">(r >= 0)</p>
-</div>  
-<div class="field-with-comment" markdown>
-<p markdown>valueS: [BigInteger](#biginteger)</p>
-<p class="comment">(s >= 0)</p>
-</div>  
-
-}
-</div>
-
-#### String
-
-A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of len bytes. Both are encoded in big-endian order.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [String](#string)
-<p> ::= len:0xnn*4 uft8:0xnn*len</p> 
-<p class="comment">(big-endian)</p>
-</div>
-</div>
-
 
 ## ABI Binary Format
 
@@ -505,14 +374,14 @@ The index denotes the position in the list in which the specification is stored 
 <p markdown class="spaced-or">| 0x08 => i32 </p>
 <p markdown class="spaced-or">| 0x09 => i64 </p>
 <p markdown class="spaced-or">| 0x0a => i128 </p>
-<p markdown class="spaced-or">| 0x0b => [String](#string)  </p>
-<p markdown class="spaced-or">| 0x0c => [Boolean](#boolean)  </p>
-<p markdown class="spaced-or">| 0x0d => [Address](#address) </p>
-<p markdown class="spaced-or">| 0x13 => [Hash](#hash) </p>
-<p markdown class="spaced-or">| 0x14 => [PublicKey](#publickey) </p>
-<p markdown class="spaced-or">| 0x15 => [Signature](#signature) </p>
-<p markdown class="spaced-or">| 0x16 => [BlsPublicKey](#blspublickey) </p>
-<p markdown class="spaced-or">| 0x17 => [BlsSignature](#blssignature) </p>
+<p markdown class="spaced-or">| 0x0b => String  </p>
+<p markdown class="spaced-or">| 0x0c => Boolean </p>
+<p markdown class="spaced-or">| 0x0d => Address </p>
+<p markdown class="spaced-or">| 0x13 => Hash </p>
+<p markdown class="spaced-or">| 0x14 => PublicKey </p>
+<p markdown class="spaced-or">| 0x15 => Signature </p>
+<p markdown class="spaced-or">| 0x16 => BlsPublicKey </p>
+<p markdown class="spaced-or">| 0x17 => BlsSignature </p>
 </div>
 </div>
 </div>
@@ -524,15 +393,15 @@ The [SimpleTypeSpec](#simpletypespec) represents the possible simple types in th
 ##### [CompositeTypeSpec](#compositetypespec) 
 ::= 
 <div class="column-align" markdown >
-  <p markdown > 0x0e T:[TypeSpec](#typespec) => [Vec](#vec)&lt;T&gt; </p>
-  <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [Map](#map)&lt;V,K&gt; </p>
-  <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => [Set](#set)&lt;T&gt; </p>
+  <p markdown > 0x0e T:[TypeSpec](#typespec) => Vec&lt;T&gt; </p>
+  <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => Map&lt;V,K&gt; </p>
+  <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => Set&lt;T&gt; </p>
   <div class="field-and-comment-row" >
     <p class="spaced-or" > | 0x11 L:0xnn => [u8;L] </p>
     <p class="comment">(0x00 &le; L &le; 0x7F)</p>
   </div>
-  <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => [Option](#optiont)&lt;T&gt; </p>
-  <p class="spaced-or" markdown > | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => [AvlTreeMap](#avltreemap)&lt;V,K&gt; </p>
+  <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => Option&lt;T&gt; </p>
+  <p class="spaced-or" markdown > | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => AvlTreeMap&lt;V,K&gt; </p>
 </div>
 </div>
 </div>
@@ -569,8 +438,8 @@ The [FileAbi](#fileabi) holds all information concerning the contract, as well a
 ##### [ContractAbi](#contractabi) 
 ::= {
 <div class="fields"/>
-NamedTypes: [List](#list)&lt;[NamedTypeSpec](#namedtypespec)&gt; <br>
-Hooks: [List](#list)&lt;[FnAbi](#fnabi)&gt;<br>
+NamedTypes: List&lt;[NamedTypeSpec](#namedtypespec)&gt; <br>
+Hooks: List&lt;[FnAbi](#fnabi)&gt;<br>
 StateType: [TypeSpec](#typespec)<br>
 
 }
@@ -598,7 +467,7 @@ The [NamedTypeSpec](#namedtypespec) is an interface for the possible named types
 ::= {
 <div class="fields"/>
 Name: [Identifier](#identifier) <br>
-Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;
+Fields: List&lt;[FieldAbi](#fieldabi)&gt;
 
 }
 </div>  
@@ -611,7 +480,7 @@ Each field is responsible for storing its own type.
 ::= {
 <div class="fields"/>
 Name: [Identifier](#identifier) <br>
-Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
+Variants: List&lt;[EnumVariant](#enumvariant)&gt;
 
 }
 </div>  
@@ -635,7 +504,7 @@ Each [EnumVariant](#enumvariant) is specified by a discriminant and a reference 
 Kind: [FnKind](#fnkind) <br>
 Name: [Identifier](#identifier) <br>
 Shortname: [LEB128](#leb128) <br>
-Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt;
+Arguments: List&lt;[ArgumentAbi](#argumentabi)&gt;
 <div class="field-with-comment" markdown>
 <p markdown>SecretArgument: [ArgumentAbi](#argumentabi)</p>
 <p class="comment">(Only present if Kind is 0x17) </p>
