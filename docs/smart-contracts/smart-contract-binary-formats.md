@@ -337,6 +337,8 @@ These structs are not CopySerializable:
 </div>
 </div>
 
+<br />
+
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [NamedTypeRef](#namedtyperef) 
@@ -344,6 +346,7 @@ These structs are not CopySerializable:
 </div>
 </div>
 
+<br />
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -372,6 +375,8 @@ These structs are not CopySerializable:
 </div>
 </div>
 </div>
+
+<br />
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -412,9 +417,11 @@ All [Identifier](#identifier) names must be [valid Java identifiers](https://doc
 VersionBinder: 0xnn\*3 <br>
 VersionClient: 0xnn\*3 <br>
 Contract: [ContractAbi](#contractabi)
-</div>  
-}
 
+}
+</div>
+
+<p style="margin:0;">&nbsp;</p>
 
 <div class="binary-format" markdown>
 ##### [ContractAbi](#contractabi) 
@@ -426,6 +433,8 @@ StateType: [TypeSpec](#typespec)<br>
 
 }
 </div>  
+
+<p style="margin:0;">&nbsp;</p>
 
 
 <div class="binary-format" markdown>
@@ -439,6 +448,7 @@ StateType: [TypeSpec](#typespec)<br>
 </div>
 </div>
 
+<p style="margin:0;">&nbsp;</p>
 
 <div class="binary-format" markdown>
 ##### [StructTypeSpec](#structtypespec) 
@@ -450,6 +460,7 @@ Fields: [List](#list)&lt;[FieldAbi](#fieldabi)&gt;
 }
 </div>  
 
+<p style="margin:0;">&nbsp;</p>
 
 <div class="binary-format" markdown>
 ##### [EnumTypeSpec](#enumtypespec)
@@ -461,6 +472,8 @@ Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
 }
 </div>  
 
+<p style="margin:0;">&nbsp;</p>
+
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [EnumVariant](#enumvariant)
@@ -468,6 +481,7 @@ Variants: [List](#list)&lt;[EnumVariant](#enumvariant)&gt;
 </div>
 </div>
 
+<p style="margin:0;">&nbsp;</p>
 
 <div class="binary-format" markdown>
 ##### [FnAbi](#fnabi)
@@ -485,6 +499,8 @@ Arguments: [List](#list)&lt;[ArgumentAbi](#argumentabi)&gt;
 }
 </div>
 
+<p style="margin:0;">&nbsp;</p>
+
 <div class="binary-format" markdown>
 ##### [FieldAbi](#fieldabi)
 ::= {
@@ -495,6 +511,8 @@ Type: [TypeSpec](#typespec)
 }
 </div>
 
+<p style="margin:0;">&nbsp;</p>
+
 <div class="binary-format" markdown>
 ##### [ArgumentAbi](#argumentabi)
 ::= {
@@ -504,7 +522,8 @@ Type: [TypeSpec](#typespec)
 
 }
 </div>  
-  
+
+<p style="margin:0;">&nbsp;</p>
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -514,6 +533,8 @@ Type: [TypeSpec](#typespec)
 </div>
 </div>
 
+<p style="margin:0;">&nbsp;</p>
+
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [LEB128](#leb128)
@@ -522,6 +543,7 @@ Type: [TypeSpec](#typespec)
 </div>
 </div>
 
+<p style="margin:0;">&nbsp;</p>
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
@@ -587,136 +609,177 @@ number of hooks of each type, as specified in [FnKind](#fnkind).
 Also note that if a function has the deprecated kind <b>ZkSecretInput</b>, the default 
 secret argument associated with it is of type `i32`. 
 
-### Common Types
+## Common Types
+
+#### Address
+An [Address](#address) is encoded as 21 bytes. The first byte is the [AddressType](#addresstype), and the remaining 20 bytes are the address identifier.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Address](#address)
-<p markdown> ::= addressType:[AddressType](#addresstype) identifier: <span class="bytes">0<span class="sep">x</span>nn\*20</span></p>
-<p class="endian"> <span class="endian">(identifier is big-endian)</span></p>
+<p markdown> ::= addressType:[AddressType](#addresstype) identifier:0xnn*20</p>
+<p class="comment">(identifier is big-endian)</p>
+</div>
 </div>
 
+An [AddressType](#addresstype) can either be an account address, a system address, public address, zk address or a government address.
 
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [AddressType](#addresstype)
 ::= 
 <div class="column-align" markdown>
-<p markdown > 0x00 => <b>Account</b> </p>
-<p markdown class="spaced-or">| 0x01 => <b>System</b></p>
-<p markdown class="spaced-or">| 0x02 => <b>Public</b> </p>  
-<p markdown class="spaced-or">| 0x03 => <b>Zk</b> </p>
-<p markdown class="spaced-or">| 0x04 => <b>Gov</b> </p>
+<p> 0x00 => <b>Account</b> </p>
+<p class="spaced-or">| 0x01 => <b>System</b></p>
+<p class="spaced-or">| 0x02 => <b>Public</b> </p>  
+<p class="spaced-or">| 0x03 => <b>Zk</b> </p>
+<p class="spaced-or">| 0x04 => <b>Gov</b> </p>
 </div>
 </div>
-
-<div class="type-with-comment" markdown>
-##### [Hash](#hash)
-<p> ::= <span class="bytes">0<span class="sep">x</span>nn*32</span></p>
-<p class="endian"> <span class="endian">(big-endian)</span></p>
 </div>
 
 
+#### Boolean
+
+A [Boolean](#boolean) is encoded as a single byte, which is either 0 (false) or non-0 (true).
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Boolean](#boolean)
-<p>::= b:<span class="bytes">0<span class="sep">x</span>nn</span></p>
-<p class="endian"><span class="endian">(false if b==0, true otherwise)</span></p>
+<p>::= b:0xnn</p>
+<p class="comment">(false if b==0, true otherwise)</p>
+</div>
 </div>
 
+#### Hash
 
-<div class="type-with-comment" markdown>
-##### [String](#string)
-<p> ::= len:<span class="bytes">0<span class="sep">x</span>nn*4</span> uft8:<span class="bytes">0<span class="sep">x</span>nn*</span>len</p> 
-<p class="endian"><span class="endian">(len is big-endian)</span></p>
-</div>
-
-
+A [Hash](#hash) is encoded as 32 bytes in big-endian order.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-##### [PublicKey](#publickey)
-<p markdown> ::= ecPoint:0xnn*33</p>
-<p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
+##### [Hash](#hash)
+<p> ::= 0xnn*32</p>
+<p class="comment">(big-endian)</p>
 </div>
 </div>
 
 
-<div class="binary-format" markdown>
-##### [Signature](#signature)
-::= {  
-<div class="fields"/>
-<div class="field-with-comment" markdown>
-<p markdown>recoveryId: id:0xnn*4</p>
-<p class="endian"><span class="endian"> (0 <= id <= 3)</span> </p>
-</div>  
-<div class="field-with-comment" markdown>
-<p markdown>valueR: r:[BigInteger](#biginteger)</p>
-<p class="endian"><span class="endian">(r >= 0)</span> </p>
-</div>  
-<div class="field-with-comment" markdown>
-<p markdown>valueS: s:[BigInteger](#biginteger)</p>
-<p class="endian"><span class="endian">(s >= 0)</span> </p>
-</div>  
-</div>
-}
+#### List Type
 
-
+A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 bytes, big-endian order), and the len elements are encoded according to their type **T**.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-##### [BigInteger](#biginteger)
-<p markdown> ::= signum:0xnn\*4  mag:[List](#list)&lt;0xnn\*4&gt;</p>
-<p class="endian"><span class="endian">(big-endian)</span> </p>
+##### [List<T\>](#listt)
+<p>::= len:0xnn*4 elems:<b>T</b>*len</p>
+<p class="comment">(len is big-endian)</p>
 </div>
 </div>
 
 
+#### Option Type
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [BlsPublicKey](#blspublickey)
-<p markdown> ::= publicKeyValue:0xnn*96</p>
-<p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
-</div>
-</div>
-
-
-<div class="binary-format" markdown>
-##### [BlsSignature](#blspublickey)
-::= {
-<div class="field-with-comment" markdown>
-<p markdown>signatureBytes:0xnn*48</p>
-<p class="endian"><span class="endian">(point on an elliptic curve)</span> </p>
-</div>  
-</div>
-}
-
-
+An [Option<T\>](#optiont) is encoded as either one 0-byte if **T** is None, or as a non-zero byte and the encoding of **T** according to its type.
 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Option<T\>](#optiont)
 ::= 
 <div class="column-align" markdown >
-  0x00 => None
+  <p markdown > 0x00 => None </p>
   <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | b:0xnn t:<b>T</b> => Some(t) </p>
-  <p markdown class="comment">(b != 0)</p>
+    <p class="spaced-or" markdown > | b:0xnn t:<b>T</b> => Some(t) </p>
+    <p class="comment">(b != 0)</p>
   </div>
 </div>
 </div>
 </div>
 
+#### String
 
+A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of len bytes. Both are encoded in big-endian order.
+
+<div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
-##### [List<T\>](#listt)
-<p markdown>::= len: <span class="bytes">0<span class="sep">x</span>nn\*4</span> elems: <b>T</b>\*len </p>
-<p class="endian"> <span class="endian">(len is big-endian)</span> </p>
+##### [String](#string)
+<p> ::= len:0xnn*4 uft8:0xnn*len</p> 
+<p class="comment">(big-endian)</p>
+</div>
+</div>
+
+#### Public Key
+
+A [PublicKey](#publickey) is a point on an elliptic curved encoded as 33 bytes.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [PublicKey](#publickey)
+<p markdown> ::= ecPoint:0xnn*33</p>
+<p class="comment">(point on an elliptic curve)</p>
+</div>
+</div>
+
+#### Signature
+
+A [Signature](#signature) is encoded as a recovery id (4 bytes) and two non-negative [BigIntegers](#biginteger), representing the R and S values of the signature. 
+
+<div class="binary-format" markdown>
+##### [Signature](#signature)
+::= {  
+<div class="fields"/>
+<div class="field-with-comment" markdown>
+<p markdown>recoveryId: 0xnn*4</p>
+<p class="comment">(0 <= id <= 3)</p>
+</div>  
+<div class="field-with-comment" markdown>
+<p markdown>valueR: [BigInteger](#biginteger)</p>
+<p class="comment">(r >= 0)</p>
+</div>  
+<div class="field-with-comment" markdown>
+<p markdown>valueS: [BigInteger](#biginteger)</p>
+<p class="comment">(s >= 0)</p>
+</div>  
+
+}
 </div>
 
 
+#### BigInteger
 
+A [BigInteger](#biginteger) is encoded as 4 bytes representing its signum (-1 for negative, 0 for zero, or 1 for positive), and a list of integers (4 bytes) representing its magnitude, each in big-endian order. 
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [BigInteger](#biginteger)
+<p markdown> ::= signum:0xnn\*4  mag:[List](#list)&lt;0xnn\*4&gt;</p>
+<p class="comment">(big-endian) </p>
+</div>
 </div>
 
+#### BlsPublicKey
+
+A [BlsPublicKey](#blspublickey) is encoded as a public key value of 96 bytes, representing a point on an elliptic curve.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [BlsPublicKey](#blspublickey)
+<p markdown> ::= publicKeyValue:0xnn*96</p>
+<p class="comment">(point on an elliptic curve)</p>
+</div>
+</div>
+
+#### BlsSignature
+
+A [BlsSignature](#blspublickey) is encoded as 48 bytes, representing a point on an elliptic curve.
+
+<div class="binary-format" markdown>
+<div class="type-with-comment" markdown>
+##### [BlsSignature](#blspublickey)
+::= 
+<p markdown>signatureBytes:0xnn*48</p>
+<p class="comment">(point on an elliptic curve) </p>
+</div>
+</div>
 
 
 
@@ -728,7 +791,7 @@ A [Section](#section) is an indexed chunk of a binary file of dynamic length, wh
 <div class="type-with-comment" markdown>
 ##### [Section](#section)
 <p markdown > ::= id:0xnn len:0xnn\*4 data:0xnn\*len </p>
-<p class="endian"><span class="endian">(len is big-endian)</span></p>
+<p class="comment">(len is big-endian)</p>
 </div>
 </div>
 
@@ -789,7 +852,7 @@ The file extension of Partisia Blockchain Contract Files is written as ".pbc". T
 <div class="type-with-comment" markdown>
 ##### [PbcFile](#pbcfile)
 <p markdown>::= PbcHeader: 0xnn\*4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
-<p class="endian"><span class="endian">(The header is always "PBSC" in ASCII)</span></p>
+<p class="comment">(The header is always "PBSC" in ASCII)</p>
 </div>
 </div>
 

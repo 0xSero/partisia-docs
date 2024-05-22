@@ -3,11 +3,8 @@
     --binary-format-header-font-size: 0.80rem;
     --binary-format-default-font-size: 0.80rem;
     --binary-format-separator-font-size: 0.70rem;
-    --binary-format-bytes-color: #25282d;
-    --binary-format-fg-color-hex: rgb(37, 40, 45);
-    --binary-format-fg-color-hex-separator: rgb(58, 58, 58);
     --binary-format-fields-indent: 2em;
-    --binary-format-header-margin: 1em;
+    --binary-format-header-margin: 0.95em;
 }
 
 div.binary-format p, div.binary-format span, div.binary-format a {
@@ -15,25 +12,14 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     font-size: var(--binary-format-default-font-size);
 }
 
-
 .binary-format h5 {
     display: inline-block;
     margin-bottom: 0;
     text-transform: none;
 }
 
-.binary-format p {
+.binary-format p,.binary-format h5 {
     margin: 0;
-}
-
-.binary-format p span.bytes {
-    color: var(--binary-format-bytes-color);
-}
-
-.binary-format p span.bytes .sep {
-    color: var(--binary-format-fg-color-hex-separator);
-    display: inline-block;
-    font-weight: normal;
 }
 
 .binary-format h5 a {
@@ -51,7 +37,7 @@ div.binary-format p, div.binary-format span, div.binary-format a {
     margin-left: var(--binary-format-fields-indent);
 }
 
-div.type-with-comment, div.field-with-comment, div.type-with-comment-spaced, div.type-with-comment-spaced-alt {
+div.type-with-comment, div.field-with-comment {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -62,28 +48,10 @@ div.field-with-comment {
     padding-left: var(--binary-format-fields-indent);
 }
 
-
-
-.type-with-comment p {
-    margin-top: var(--binary-format-header-margin);
-}
-
-.type-with-comment p.endian, .type-with-comment-spaced p.endian, div.field-with-comment p.endian {
-    display:flex;
-    margin-left: auto;
-}
-
-
 div.column-align {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-
-div.comment-align {
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
 }
 
 div.field-and-comment-row {
@@ -91,27 +59,14 @@ div.field-and-comment-row {
     flex-direction: row;
 }
 
-
-p.comment-top, p.comment {
+p.comment-top, p.comment, div.comment-align p.spaced {
     display:flex;
     margin-left: auto;
-}
-
-
-div.comment-align p.spaced, div.column-align p.spaced, div.column-align p.spaced-or, div.field-and-comment-row p.spaced-or, div.field-and-comment-row p.comment {
-    margin-top: 0;
 }
 
 p.spaced-or {
     margin-left: -1em;
 }
-
-
-p.endian, div.comment-align p.spaced {
-    display:flex;
-    margin-left: auto;
-}
-
 
 div.type-with-comment h5 > a {
     display: flex;
