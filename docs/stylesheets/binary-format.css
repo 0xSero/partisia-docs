@@ -1,0 +1,67 @@
+:root {
+    --binary-format-font-family: 'Latin Modern Mono', 'Courier New', 'Courier', monospace;
+    --binary-format-header-font-size: 0.80rem;
+    --binary-format-default-font-size: 0.80rem;
+    --binary-format-separator-font-size: 0.70rem;
+    --binary-format-fields-indent: 2em;
+    --binary-format-header-margin: 0.95em;
+}
+
+div.binary-format p, div.binary-format span, div.binary-format a {
+    font-family: var(--binary-format-font-family);
+    font-size: var(--binary-format-default-font-size);
+}
+
+.binary-format h5 {
+    display: inline-block;
+    margin-bottom: 0;
+    text-transform: none;
+}
+
+.binary-format p,.binary-format h5 {
+    margin: 0;
+}
+
+.binary-format h5 a {
+    font-size: var(--binary-format-header-font-size);
+    font-weight: normal;
+    text-shadow: 0 0 0.1px var(--md-typeset-a-color);
+    display: inline;
+}
+
+.binary-format h5 + p {
+    display: inline;
+}
+
+.binary-format .fields + p {
+    margin-left: var(--binary-format-fields-indent);
+}
+
+div.type-with-comment, div.field-with-comment, div.type-with-comment-spaced {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 0.4em;
+}
+
+div.field-with-comment {
+    padding-left: var(--binary-format-fields-indent);
+}
+
+div.column-align, div.comment-align {
+    display: flex;
+    flex-direction: column;
+}
+
+p.spaced-or {
+    margin-left: -1em;
+}
+
+p.comment, div.comment-align, div.comment-align p.spaced {
+    display:flex;
+    margin-left: auto;
+}
+
+div.type-with-comment h5 > a {
+    width: max-content;
+}

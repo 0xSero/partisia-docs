@@ -61,7 +61,6 @@ a:hover {
     color: var(--md-primary-fg-color);
 }
 
-
 p,
 li,
 a,
@@ -77,11 +76,13 @@ h4 {
     font-family: "DM Sans";
     color: #000000 !important;
 }
+
 th, td {
     border-right: 1px solid var(--md-typeset-table-color);
 }
+
 table {
-    border-right: 0px!important;
+    border-right: 0px !important;
 }
 
 .md-typeset {
@@ -92,7 +93,6 @@ table {
     letter-spacing: 0em !important;
     font-weight: bold;
 }
-
 
 .md-typeset h2 {
     font-weight: bold;
@@ -128,7 +128,6 @@ table {
     align-items: center;
     margin-left: 9%;
 }
-
 
 .logo-text {
     font-size: 17px;
@@ -474,11 +473,12 @@ div.embed-video-wrapper {
 }
 
 @media (max-width: 1201px) {
-    .footer-menu-center{
+    .footer-menu-center {
         margin-left: 0%;
         margin-top: 4%;
     }
-    .footer-menu-right{
+
+    .footer-menu-right {
         margin-top: 4%;
     }
 }
@@ -731,7 +731,6 @@ label {
     border: 1px solid var(--md-typeset-a-color);
 }
 
-
 @-moz-document url-prefix() {
     .dot-navigation p a em {
         display: inline-block;
@@ -759,7 +758,6 @@ label {
 .dot-navigation__item--active {
     background-color: var(--md-typeset-a-color);
 }
-
 
 form.generator-form {
     margin-top: 5px;

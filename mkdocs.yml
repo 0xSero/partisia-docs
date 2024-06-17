@@ -74,6 +74,8 @@ nav:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/latinmodern-mono.css
+  - stylesheets/binary-format.css
 
 extra_javascript:
   - js/mermaid.min.js
