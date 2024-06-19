@@ -339,8 +339,8 @@ echo "$DATETIME"
 
 cd ~/pbc
 
-/usr/local/bin/docker compose pull pbc
-/usr/local/bin/docker compose up -d pbc
+/usr/bin/docker compose pull pbc
+/usr/bin/docker compose up -d pbc
 ````
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
