@@ -74,13 +74,13 @@ enables callbacks to manage multiple actions within the same callback.
 Contracts can create events leading to actions in other contracts, and these actions can share a single callback when
 initiated from the same action. Callbacks _aggregate_ status updates and responses.
 
-As an example, when the auction is won we need two things to happen, 1. transfer of the winning item to the winner. 2.
-Token transfer to the owner of the auction. In this case we would have three contracts, the auction contract, the
-token transfer and the winning item transfer, as an example this could be a NFT contract. The auction contract
-initiates the winning of the auction, this will create two events that will spawn two separate actions, one for token
-transfer and one for the NFT transfer, with the same callback. The resulting callbacks from the contracts are
-consolidated into a single event which is then relayed to the auction contract. This makes sense when you only want both
-of the actions happening if both are a success. This allows efficient error handling without the need for re-triggering
-the entire event chain.
+**NOTE**: This is advanced functionality, and can easily be misused! Partisia
+Blockchain only provides atomicity on individual events, not across callbacks
+and event trees. Individual events may succeed (and have their results
+persisted) while event groups containing those events may fail.
 
-![SmartContractMentalModelTwoActionsOneCallback.svg](mental-models%2FSmartContractMentalModelTwoActionsOneCallback.svg)
+**In the case of payment systems you need to check that the payment has been
+sent, and is in your possession before sending the bought asset. Such
+functionality should not be implemented by sending events that transfer payment
+assets and bought assets in the same event group. Doing so may result in
+serious exploits.**
