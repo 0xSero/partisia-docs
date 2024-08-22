@@ -80,6 +80,12 @@ saying:
 This error means your attempt to deregister failed. Note the start time of the challenge period you have entered, and
 wait an hour to try again. Send the contract interaction as close as possible to the passing of the one-hour-mark.
 
+#### Opting out from notifying price updates
+
+To make it easier to `deregister` from the price oracle contract, it is possible to opt out of notifying price updates for future rounds.
+To do this, invoke the contract action `optOut`. This stops price updates from the node, allowing you to deregister once the current round is over. This action can only be called if the node is registered.
+The effect of `optOut` can be reversed by calling the contract action `optIn`, which again allows price updates from the node. Note that `optIn` can only be called if the node has currently opted out.
+
 If you are planning to deregister from all node services, you should deregister in
 the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)
 first.
