@@ -130,11 +130,11 @@ MPC Tokens purchased in presales or allocated to the team are locked inside unlo
 
 This is the flow for MPC token unlocking
 
-![Unlock](unlock.png)
+![Unlock](img/mpc-token-model-and-account-elements-00.png)
 
 The following illustrates how the total is calculated based on locked/unlocked tokens or tokens inside/outside unlocking schedules.
 
-![Shcedule](schedule.png)
+![Schedule](img/mpc-token-model-and-account-elements-01.png)
 
 ### In Schedule
 
@@ -204,7 +204,7 @@ This is the flow for MPC tokens when staking to yourself and delegating to other
 
 The following illustrates how the total number of tokens can be calculated based on tokens that are in use and unused tokens.
 
-![UseOfMPC](use-of-mpc.png)
+![UseOfMPC](img/mpc-token-model-and-account-elements-02.png)
 
 ### InUse
 
@@ -342,7 +342,7 @@ When the account has enough staked MPC tokens it is possible to run a blockchain
 
 This is the flow for handling MPC tokens delegated from others.
 
-![NumberOfTokens](number-of-tokens.png)
+![NumberOfTokens](img/mpc-token-model-and-account-elements-03.png)
 
 ### DelegatedFromOthers
 

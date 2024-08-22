@@ -10,7 +10,7 @@ A blockchain is a public database where any update is added sequentially. Since 
 The name blockchain means that information added to the ledger comes in discrete bundles called blocks. A block points to the block before it. That way a chain is created that connects the changes on the ledger from the beginning to the present.
 The blocks are connected cryptographically. The hash of each block is produced as a function of the hash of the transactions and the hash of the previous block.
 
-![Diagram0](../pbc-fundamentals/blockchain.png)
+![Diagram0](img/introduction-to-the-fundamentals-00.png)
 
 A blockchain exists on a distributed network of computers called [nodes](../node-operations/start-running-a-node.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](../pbc-fundamentals/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
 Conversely, a blockchain is a decentralized database. Therefore, data on the blockchain remains secure even if a computer in the network is hacked, short circuits or loose connection to the internet.
@@ -20,12 +20,12 @@ Conversely, a blockchain is a decentralized database. Therefore, data on the blo
 In the following paragraph we will examine user interactions with the blockchain using a purchase of an non-fungible token(NFT) as our case example. We will explore how a user action like purchase of NFTs affect the blockchain on different levels.  
 On the surface level your phone or computer is connected to the internet. Apps and webpages can get you in contact with the blockchain through the internet just like using any other online service like e-mail.
 
-![Diagram1](../pbc-fundamentals/surface.png)
+![Diagram1](img/introduction-to-the-fundamentals-01.png)
 
 The Partisia blockchain lives on a network of computers connected to each other through the internet. The blockchain comes with a software architecture which allows for binding trackable transactions to happen very fast.
 A puchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](../smart-contracts/what-is-a-smart-contract.md).
 
-![Diagram2](../pbc-fundamentals/contract.png)
+![Diagram2](img/introduction-to-the-fundamentals-02.png)
 
 Smart contracts hold some information which can be changed, that information is called the state. The state of our NFT contract holds an inventory of NFTs and their owners. The contract action _Transfer_ can change the ownership of an NFT by changing an owner address in the inventory. Actions of contracts are themselves transactions on the blockchain. When they have been added to a block and executed, the resulting state change of the contract becomes part of the blockchain state. We now have a permanent timestamped record of the purchase.
 

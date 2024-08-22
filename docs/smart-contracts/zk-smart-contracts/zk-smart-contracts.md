@@ -86,7 +86,7 @@ a secret bid second price auction like above, we need to deploy two smart contra
 on PBC and a public smart contract on the layer one chain. The public functionality of the contracts will be very
 similar. But the contract on PBC will privately calculate the result of the auction using zero knowledge computation.
 
-![Diagram1](../second-layer-zksc.png)
+![Diagram1](../img/zk-smart-contracts-00.png)
 
 The contract owner controls the functions on the Zero knowledge smart contract on PBC, but the functions of the layer
 one public contract are open for all users. Naturally only the winner on PBC can successfully claim the win on the

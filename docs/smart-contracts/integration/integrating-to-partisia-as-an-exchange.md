@@ -313,7 +313,7 @@ shards, then the sender cannot know ahead of time whether the receiver will be a
 is no information about the receivers shard. Put differently, there has to be some synchronization logic in order to
 make sure transactions are executed correctly.
 
-![executionFlow.png](partisia-as-an-exchange-screenshots/executionFlow.png)
+![executionFlow.png](../img/integrating-to-partisia-as-an-exchange-00.png)
 
 On PBC we use 2-phase commits for transfers, other operations are used to alter the balance of two accounts, such
 as [delegated staking operations](../../pbc-fundamentals/mpc-token-model-and-account-elements.md). When the sender’s

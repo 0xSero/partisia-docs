@@ -20,7 +20,7 @@ Every account has the attributes defined below:
 
 The account state itself holds a single piece of information: The nonce. This is a number that is incremented each time a transaction signed by an account is executed. The rest of the account information resides in the account plugin.
 
-![Account_plugin](account-plugin.png)
+![Account_plugin](../pbc-fundamentals/img/create-an-account-00.png)
 
 Accounts are used when sending transactions to any contract on the blockchain.
 Since the account nonce is part of the signature it can be used only once. This means that an account holder can only execute one transaction for each block.
