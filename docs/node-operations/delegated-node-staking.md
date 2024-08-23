@@ -27,14 +27,15 @@ reduce the amount of tokens you want to accept.
 3. Click "Delegate"   
 4. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
    
-Your tokens will now be in the state of _pending acceptance_. The node operator has 14 days to accept or reject the offered delegation. If the node operator takes no action, the tokens will return your account.
+Your tokens will now be in the state of _pending acceptance_. The node operator has 14 days to accept or reject the 
+offered delegation. If the node operator takes no action, the tokens will return to your account.
 
 ### How to accept delegated tokens
 
 1. Go to [the node operation menu](https://browser.partisiablockchain.com/node-operation)
 2. Sign in
 3. Under the section **Delegated from others**, unfold the collapsed delegation table in the bottom of the page
-4. Click "SEE MORE", this unfolds a table showing specific instances of tokens delegated to your account
+4. Click "SEE MORE" to unfold a table showing specific instances of tokens delegated to your account
 5. In the column called **Amount**, you choose the checkmark to accept a delegation or click the minus to accept a reduced amount
 
 ### How to retract delegated MPC tokens
@@ -45,7 +46,7 @@ Your tokens will now be in the state of _pending acceptance_. The node operator 
 4. Click "Retract"
 5. Choose amount of MPC tokens and [account address](../pbc-fundamentals/dictionary.md#address) of the node operator
 
-Your tokens should now be retrieved to your account and full control. If this does not happen, the tokens are in use by a node service. Then go [here](#how-to-retract-delegated-mpc-tokens-locked-to-a-node-service)
+Your tokens should now be retrieved back to your account. If this does not happen, the tokens are in use by a node service. Then go [here](#how-to-retract-delegated-mpc-tokens-locked-to-a-node-service)
 
 ### How to retract delegated MPC tokens locked to a node service
 
