@@ -68,7 +68,7 @@ Step by step:
 
 ### Rewards for delegated tokens
 
-You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) when node operators associate your tokens to a node service. The rewards depend on
+You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) when the node operator associate your tokens to a node service. The rewards depend on
 the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-different-node-services-earn-fees-and-rewards)'s
 performance of the node you delegate to, and the amount of rewardable tokens delegated.
 
