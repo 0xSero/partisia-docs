@@ -29,7 +29,7 @@ Step by step:
 !!! success 
     
     Your tokens are now **available** for the node operator to use.
-    However, to reap any rewards the node operator needs to accept your tokens and associate them to a job.
+    However, to reap any rewards the node operator needs to associate your tokens to a job.
     You might need to contact them to make sure your tokens are being used.
     
 
@@ -54,8 +54,10 @@ Step by step:
 4. Locate the offer you wish to retract from. In the **Amount** column click on the "Retract" icon 
 5. Write the amount of MPC tokens you wish to retract  
 
-Your tokens should now be back into to your account. If this does not happen, the tokens are in use by a node service. 
-Then go to the [next section](#how-to-retract-delegated-mpc-tokens-locked-to-a-node-service)
+!!! success
+
+    Your tokens should now be back into to your account. If this does not happen, the tokens are in use by a node service. 
+    To retract your tokens follow the steps in the [next section](#how-to-retract-delegated-mpc-tokens-locked-to-a-node-service)
 
 ### How to retract delegated MPC tokens locked to a node service
 
@@ -66,7 +68,7 @@ Then go to the [next section](#how-to-retract-delegated-mpc-tokens-locked-to-a-n
 
 ### Rewards for delegated tokens
 
-You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) when node operators associate your delegated tokens to a node service. The rewards depend on
+You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) when node operators associate your tokens to a node service. The rewards depend on
 the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-different-node-services-earn-fees-and-rewards)'s
 performance of the node you delegate to, and the amount of rewardable tokens delegated.
 
