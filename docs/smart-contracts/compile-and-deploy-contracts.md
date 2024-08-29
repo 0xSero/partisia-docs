@@ -13,7 +13,7 @@ our [dApp playground](https://github.com/partisiablockchain/dapp-playground/) to
 ## 1) Compile a contract example
 
 The petition contract can be found in
-the [example contracts archive](https://gitlab.com/partisiablockchain/language/example-contracts). After cloning the repository in your machine,
+the [example contracts archive](https://gitlab.com/partisiablockchain/language/example-contracts). After cloning the repository to your machine,
 the following will compile it and generate an ABI for it:
 
 ```bash
