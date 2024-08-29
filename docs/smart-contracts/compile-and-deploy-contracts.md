@@ -40,7 +40,7 @@ The dashboard will then render a form for the initialization function. If you lo
 you will see that this matches the _initialize_ function.
 The _sign_ action will be available after successful deployment.
 
-You can give your petition contract any name by filling-in the Description field.
+You can give your petition contract any name by filling in the Description field.
 
 It should look like this before deployment:
 
