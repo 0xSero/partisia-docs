@@ -47,18 +47,14 @@ E.g. total supply: 1050 decimals: 3 will mint supply of 1.050 token.
 
 It should look like this before deployment:
 
-![compile-and-deploy-contracts-before-deploy.png](compile-and-deploy-contracts-before-deploy.png)
+![compile-and-deploy-contracts-before-deploy](img/compile-and-deploy-contracts-00.png)
 
 Successful deployment will look like
 this:
 
-![compile-and-deploy-contracts-after-deploy.png](compile-and-deploy-contracts-after-deploy.png)
+![compile-and-deploy-contracts-after-deploy](img/compile-and-deploy-contracts-01.png)
 
 You are now ready to interact with the contract. You can now click _Interact_ in the browser and start using the actions
 like mint and transfer of your tokens.
-
-<div class="embed-video-wrapper">
-<iframe width="711" height="400" src="https://www.youtube.com/embed/qV2grtWDxUE" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-</div>
 
 Congratulations! You have now created an active smart-contract on the Partisia Blockchain.

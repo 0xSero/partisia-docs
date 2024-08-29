@@ -27,7 +27,7 @@ _fails_
 in no state will change on the blockchain. There is no in between in the
 interaction layer on the blockchain.
 
-![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
+![diagram contract simple interaction](img/smart-contract-interactions-on-the-blockchain-00.png)
 
 ## Contract-to-contract interaction model
 
@@ -39,7 +39,7 @@ actions can fail and if it does, the atomicity of Partisia Blockchain will ensur
 change the state of the smart contract. If the bid action fails it will never spawn the escrow action-event, only
 successful actions can spawn events. Any action can spawn any number of events to other contracts.
 
-![SmartContractMentalModelcontract-to-contract.svg](mental-models%2FSmartContractMentalModelcontract-to-contract.svg)
+![diagram contract to contract interaction](img/smart-contract-interactions-on-the-blockchain-01.png)
 
 ## Contract-to-contract with callback
 
@@ -63,7 +63,7 @@ conclusion of the callback event. In the example you would only want to update t
 succeeded and do nothing if the bid failed. Callbacks, in essence, act as controllers of change when doing contract-to-contract
 interactions.
 
-![SmartContractMentalModelWithCallback.svg](mental-models%2FSmartContractMentalModelWithCallback.svg)
+![diagram contract to contract with callback](img/smart-contract-interactions-on-the-blockchain-02.png)
 
 ## Contract-to-two-contracts with one callback.
 
@@ -84,3 +84,6 @@ sent, and is in your possession before sending the bought asset. Such
 functionality should not be implemented by sending events that transfer payment
 assets and bought assets in the same event group. Doing so may result in
 serious exploits.**
+
+![diagram contract to two contracts with callback](img/smart-contract-interactions-on-the-blockchain-03.png)
+
