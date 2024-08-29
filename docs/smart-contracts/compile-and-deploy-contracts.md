@@ -35,7 +35,7 @@ Ensure that you have some gas. If you want to try for free, follow [these steps]
 gas to deploy a contract on [the testnet](https://browser.testnet.partisiablockchain.com/contracts/deploy).
 
 Navigate to the Contracts menu in the Browser and click on the "Deploy contract" button. 
-Upload the `petition.wasm` and the `petition.abi` files.
+Upload the `petition.wasm` and `petition.abi` files.
 The dashboard will then render a form for the initialization function. If you look at `lib.rs` file in your IDE,
 you will see that this matches the _initialize_ function.
 The _sign_ action will be available after successful deployment.
