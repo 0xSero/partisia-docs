@@ -71,6 +71,7 @@ spellcheck:
   - shopt -s globstar
   - |
     touch maybe-misspelled-words.txt
+    aspell --lang=en_US create master ./custom_dict < config/partisias_word_list.txt
     for file in **/*.md; do
       echo "Spellchecking $file"
       echo "------"
