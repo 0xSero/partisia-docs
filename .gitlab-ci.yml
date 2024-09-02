@@ -74,7 +74,7 @@ spellcheck:
     for file in **/*.md; do
       echo "Spellchecking $file"
       echo "------"
-      cat "$file" | aspell --mode markdown -d en_US --personal=/workspace/config/partisias_word_list.txt list | sort -f | uniq -i | tee -a maybe-misspelled-words.txt || true
+      cat "$file" | aspell --mode markdown -d en_US --personal=config/partisias_word_list.txt list -v | sort -f | uniq -i | tee -a maybe-misspelled-words.txt || true
       echo -e "\033[30m-\033[0m"
       echo -e "\033[30m-\033[0m"
     done
