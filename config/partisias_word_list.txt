@@ -132,6 +132,7 @@ keyshare
 LengthRpc
 LengthState
 Lixux
+localhost
 LocalPluginStateUpdate
 mathcolor
 mathgray
