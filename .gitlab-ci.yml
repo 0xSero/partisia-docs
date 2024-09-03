@@ -65,7 +65,6 @@ spellcheck:
   - build-site
   except:
   - main
-  when: manual
   allow_failure: true
   script:
   - apt update && apt install -y aspell
