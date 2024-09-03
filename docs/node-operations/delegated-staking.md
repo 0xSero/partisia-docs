@@ -6,14 +6,14 @@ a [node](../pbc-fundamentals/dictionary.md#node) yourself.
 Delegated staking begins with the delegation of MPC tokens to the account of a node operator. 
 If the node operator accepts the tokens, they have custodianship over the tokens. 
 This means that the node operator can associate the delegated tokens to a [node service](../node-operations/start-running-a-node.md#which-node-should-you-run). 
-You can only retract your tokens when the node operator releases the tokens and no longer uses them for a node service. 
+You can only retract your tokens when the node operator disassociates the tokens from node service. 
 
 As a delegator, it is your responsibility to communicate with the node operator using the tokens, 
-if you want them to release your tokens from node service.  
+if you want them to disassociate your tokens from node service.  
 
 !!! info
 
-    Delegation is a long-term commitment. Tokens delegated to a node operator can be locked to node services. [See restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
+    Delegation is a long-term commitment. Tokens delegated to a node operator can be locked to node services. See [restrictions on tokens and rules of retrieval](../node-operations/node-payment-rewards-and-risks.md)
 
 ### How to delegate MPC tokens
 
@@ -29,7 +29,7 @@ Step by step:
 !!! success 
     
     Your tokens are now **available** for the node operator to use.
-    However, to reap any rewards the node operator needs to associate your tokens to a job.
+    However, to reap any rewards the node operator needs to accept and associate your tokens to a job.
     You might need to contact them to make sure your tokens are being used.
     
 
@@ -79,16 +79,16 @@ performance of the node you delegate to, and the amount of rewardable tokens del
     **Variables:**
 
     - **T** is the total allocated rewards for the period. In this scenario 1,000,000 MPC tokens   
-    - **r<sub>i<sub>** is the rewardable delegated tokens of token holder _i_. Suppose token holder 4 delegates all his 20,000 MPC tokens to a node operator, and half the tokens are released. This means that 10,000 MPC tokens of the delegation is rewardable: $Delegated_{rewardable} = \frac{Released_{MPC}}{Total_{MPC}} Delegated = \frac{10,000}{20,000} 20,000 = 10,000$   
+    - **r<sub>i<sub>** is the rewardable delegated tokens of token holder _i_. Suppose token holder 4 delegates all his 20,000 MPC tokens to a node operator, and half the tokens are released. This means that 10,000 MPC tokens of the delegation is rewardable: $\mathsf{Delegated_{rewardable}} = \frac{\mathsf{Released_{MPC}}}{\mathsf{Total_{MPC}}} \mathsf{Delegated_{total}} = \frac{10,000}{20,000} 20{,}000 = 10{,}000$   
     - **p<sub>i<sub>** is the performance of the node using the tokens of token holder _i_. Suppose that in this  period, the performance of the node using token holder 4's tokens was 90%   
-    - $\sum_{i=0}^{n}r_{i} \cdot p_{i}$ is the sum of rewardable tokens adjusted for performance. In this scenario we imagine 100 nodes with an average of 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC tokens    
+    - $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$ is the sum of rewardable tokens adjusted for performance. In this scenario we imagine 100 nodes with an average of 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC tokens    
 
     **Calculation:**  
 
-    $RewardForDelegation = T \frac{r_{4} \cdot p_{4}}{\sum_{i=0}^{n}r_{i} \cdot p_{i}} = 1,000,000 \frac{10000 \cdot 90\%}{1,200,000} = 7,500$   
+    $\mathsf{RewardForDelegation} = \mathsf{T} \frac{\mathsf{r_{4}} \cdot \mathsf{p_{4}}}{\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}} = 1{,}000{,}000 \frac{10{,}000 \cdot 90\%}{1{,}200{,}000} = 7{,}500$ 
     Token holder 4's reward for the delegated stakes in the given period is 7,500 MPC tokens.   
     The node operator takes a 2% cut of the total rewards. Thus token holder 4 would get 7,350 of the 7,500.
 
-    This calculation is simplified by omitting the calculation of the sum $\sum_{i=0}^{n}r_{i} \cdot p_{i}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{n}r_{i} \cdot p_{i}$. 
+    This calculation is simplified by omitting the calculation of the sum $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$. 
 
 You can consult the calculation method for rewards, and the history of quarterly payouts [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards).
