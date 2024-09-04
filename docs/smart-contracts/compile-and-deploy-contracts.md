@@ -38,7 +38,7 @@ the [Partisia Blockchain browser](https://browser.partisiablockchain.com/contrac
 Navigate to the [Contracts](https://browser.partisiablockchain.com/contracts) menu in the Browser and click on the "
 Deploy contract" button.
 Upload the `petition.wasm` and `petition.abi` files.
-The dashboard will then render a form for the initialization function. If you inspect the `lib.rs` file in your IDE,
+The Browser's main panel will then render a form for the initialization function. If you inspect the `lib.rs` file in your IDE,
 you will see that this matches the _initialize_ function.
 
 You can give your petition contract any name by filling in the Description field.
