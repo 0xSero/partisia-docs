@@ -4,7 +4,7 @@ Delegation of MPC tokens to a node operator is a way to stake tokens and earn [r
 a [node](../pbc-fundamentals/dictionary.md#node) yourself.
 
 Delegated staking begins with the delegation of MPC tokens to the account of a node operator. 
-If the node operator accepts the tokens, they have custodianship over the tokens. 
+If the node operator accepts the tokens, they have control over the tokens. 
 This means that the node operator can associate the delegated tokens to a [node service](../node-operations/start-running-a-node.md#which-node-should-you-run). 
 You can only retract your tokens when the node operator disassociates the tokens from node service. 
 
