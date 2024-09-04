@@ -1,9 +1,9 @@
 # Compile and deploy contracts
 
-In the following sections we focus on the example petition contract included in the example contracts archive.
+In the following sections we focus on the example petition contract included in the example contracts repository.
 The contract utilizes two functions: _initialize_, and _sign_, which
-allow you to perform the basic operations needed start and sign a petition.
-After deployment the contract actions can be called from the dashboard. When you perform an action it
+allow you to perform the basic operations needed to create and sign a petition.
+After deployment the contract actions can be called from the dashboard. Performing an action
 changes the contract state. If you inspect the contract you can see the serialized data showing
 the contract state.
 
@@ -13,34 +13,32 @@ our [dApp playground](https://github.com/partisiablockchain/dapp-playground/) to
 ## 1) Compile a contract example
 
 The petition contract can be found in
-the [example contracts archive](https://gitlab.com/partisiablockchain/language/example-contracts). After cloning the
+the [example contracts repository](https://gitlab.com/partisiablockchain/language/example-contracts). After cloning the
 repository to your machine,
-the following will compile it and generate an ABI for it:
+the following command will compile the contract and generate an [ABI](../pbc-fundamentals/dictionary.md#abi) for it:
 
 ```bash
 cd example-contracts/rust/petition
 cargo pbc build --release
 ```
 
-Now you will find a .wasm file and an .abi file in:
+You will find a newly generated .wasm file and an .abi file in your local directory:
 `/target/wasm32-unknown-unknown/release`.
 
 ## 2) Upload the contract to the blockchain
 
 To deploy a smart contract you need an [account](../pbc-fundamentals/create-an-account.md)
-with [gas](gas/what-is-gas.md) to cover transaction costs.
-
-To deploy a contract you can visit
+with [gas](gas/what-is-gas.md) to cover transaction costs. You can deploy a contract through
 the [Partisia Blockchain browser](https://browser.partisiablockchain.com/contracts/deploy).
-Ensure that you have some gas. If you want to try for free, follow [these steps](./gas/how-to-get-testnet-gas.md) to get
-some testnet
-gas to deploy a contract on [the testnet](https://browser.testnet.partisiablockchain.com/contracts/deploy).
 
-Navigate to the Contracts menu in the Browser and click on the "Deploy contract" button.
+!!! Tip
+
+    You can also test deploying a contract for free on [the testnet](https://browser.testnet.partisiablockchain.com/contracts/deploy). To get some testnet gas follow [these steps](./gas/how-to-get-testnet-gas.md).
+
+Navigate to the [Contracts](https://browser.partisiablockchain.com/contracts) menu in the Browser and click on the "Deploy contract" button.
 Upload the `petition.wasm` and `petition.abi` files.
-The dashboard will then render a form for the initialization function. If you look at `lib.rs` file in your IDE,
+The dashboard will then render a form for the initialization function. If you look at the `lib.rs` file in your IDE,
 you will see that this matches the _initialize_ function.
-The _sign_ action will be available after successful deployment.
 
 You can give your petition contract any name by filling in the Description field.
 
