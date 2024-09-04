@@ -3,12 +3,12 @@
 In the following sections we focus on the example petition contract included in the example contracts repository.
 The contract utilizes two functions: _initialize_, and _sign_, which
 allow you to perform the basic operations needed to create and sign a petition.
-After deployment the contract actions can be called from the dashboard. Performing an action
+After deployment, the contract actions can be called from the dashboard. Performing an action
 changes the contract state. If you inspect the contract you can see the serialized data showing
 the contract state.
 
 If you want a developer environment without having to install the compiler yourself you can head over to
-our [dApp playground](https://github.com/partisiablockchain/dapp-playground/) to immediately start building
+our [dApp playground](https://github.com/partisiablockchain/dapp-playground/) to immediately start building.
 
 ## 1) Compile a contract example
 
@@ -35,9 +35,10 @@ the [Partisia Blockchain browser](https://browser.partisiablockchain.com/contrac
 
     You can also test deploying a contract for free on [the testnet](https://browser.testnet.partisiablockchain.com/contracts/deploy). To get some testnet gas follow [these steps](./gas/how-to-get-testnet-gas.md).
 
-Navigate to the [Contracts](https://browser.partisiablockchain.com/contracts) menu in the Browser and click on the "Deploy contract" button.
+Navigate to the [Contracts](https://browser.partisiablockchain.com/contracts) menu in the Browser and click on the "
+Deploy contract" button.
 Upload the `petition.wasm` and `petition.abi` files.
-The dashboard will then render a form for the initialization function. If you look at the `lib.rs` file in your IDE,
+The dashboard will then render a form for the initialization function. If you inspect the `lib.rs` file in your IDE,
 you will see that this matches the _initialize_ function.
 
 You can give your petition contract any name by filling in the Description field.
@@ -51,7 +52,7 @@ this:
 
 ![compile-and-deploy-contracts-after-deploy](img/compile-and-deploy-contracts-01.png)
 
-You are now ready to interact with the contract. You can now click _Interact_ in the browser and start using the sign
+You are now ready to interact with the contract. You can click _Interact_ in the browser and start using the sign
 action.
 
 Congratulations! You have now created an active smart-contract on the Partisia Blockchain.
