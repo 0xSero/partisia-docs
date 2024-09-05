@@ -272,7 +272,7 @@ saving gas cost.
 
 ### CopySerializable Binary Format
 
-A state type is said to be CopySerializable, if it's serialization is
+A state type is said to be CopySerializable, if its serialization is
 identical to its in-memory representation, and thus requires minimal
 serialization overhead. PBC have efficient handling for types that
 are CopySerializable. Internal pointers are the main reason that types are not
@@ -284,7 +284,7 @@ CopySerializable.
 ##### [CopySerializable](#copyserializable)
 ::= 
 <div class="column-align" markdown>
-<p markdown  >  0XXX => true </p>
+<p markdown  >  uXXX => true </p>
 <p markdown class="spaced-or" >| iXXX => true </p>
 <p markdown class="spaced-or" >| Boolean  => true </p>
 <p markdown class="spaced-or" >| Address  => true </p>
