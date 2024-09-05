@@ -106,10 +106,17 @@ The open secret variables fee is part of the basic fees detailed in the yellow p
 
 
 ### Attestation fees
-!!! info "Opening secret variables gas fees"
+!!! info "Attesting data gas fees"
     ATTESTATION_FEE = BASE_SERVICE_FEES
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some data needs to be attested.
 
 The attestation fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to use BASE_SERVICE_FEES.
 
+### EVM oracle fees
+!!! info "Receiving events from external EVM chain"
+    EVM_ORACLE_FEE = BASE_SERVICE_FEES
+
+A ZK contract needs to pay for the transactions that the ZK nodes must send when an event from an external EVM contract is moved to the ZK contract.
+
+The EVM oracle fee is part of the basic fees detailed in the yellow paper p. 16 and is currently hardcoded to use BASE_SERVICE_FEES.

@@ -366,7 +366,7 @@ edit the cron rule. If you have not already chosen a preference.
 Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
 
 ````bash
-m h * * * /home/pbc/update_docker.sh >> /home/pbc/update.log 2>&1
+m h * * * /home/userNameHere/pbc/update_docker.sh >> /home/userNameHere/pbc/update.log 2>&1
 ````
 
 For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23. If

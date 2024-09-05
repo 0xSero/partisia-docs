@@ -65,7 +65,7 @@ The modified docker compose handles two new services in addition to managing the
 server, and 2) _pbc-acme_ running an automated certificate manager. We first open the ports host ports used for the proxy server and
 certificate renewal, then we modify the `docker-compose.yml`.   
 
-![NewDockerCompose](ProxyServer.svg)
+![New Docker Compose Diagram](./img/run-a-zk-node-00.png)
 
 Our new docker services will utilize ports that are currently closed by your firewall.
 
@@ -235,3 +235,32 @@ At this point you should have a fully functioning ZK node. If any of the docker-
 then [go to the node health and maintenance section](node-health-and-maintenance.md#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 
 If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.    
+
+## ZK Node Scoring
+When your node is registered it can be selected as a ZK node for a newly deployed ZK contract. To incentivize having a 
+working node your ZK node is being scored on how well it performs the required actions for the allocated ZK contract.
+A ZK Node Score consists of three sub scores
+
+- **Allocated**: The total number of contracts your node has been allocated to.
+- **Success**: The number of contracts that has ended with your node having performed the necessary actions.
+- **Failure**: The number of contracts where some required actions have not been performed.
+
+It will always be the case that `Allocated = Success + Failure`.
+You can see your node's score in the [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state).
+
+### Calculating the score
+Whenever a ZK contract is finished computing, the participating nodes' scores are updated in the ZK Node Registry. 
+Which score that is updated depends on the way the ZK contract finishes its computation.
+
+- The contracts' calculation status gets moved to Done. All participating nodes gets Success.
+- The contracts' calculation status gets moved to Malicious. All participating nodes gets Failure.
+- The contract is deleted. All participating nodes gets Success.
+- The contract reaches its computation deadline. The score status for a node depends on whether there exists any 
+work that a node has not performed. If a node is missing any of the following its status will be Failure, otherwise 
+Success.
+    - Pending on-chain inputs.
+    - Pending on-chain opens.
+    - Attestations.
+    - Finished computations.
+    - Whether there is an ongoing computation. If so everyone gets Failure.
+

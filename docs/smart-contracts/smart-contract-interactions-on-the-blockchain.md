@@ -27,7 +27,7 @@ _fails_
 in no state will change on the blockchain. There is no in between in the
 interaction layer on the blockchain.
 
-![SmartContractMentalModelSimple.svg](mental-models/SmartContractMentalModelSimple.svg)
+![diagram contract simple interaction](img/smart-contract-interactions-on-the-blockchain-00.png)
 
 ## Contract-to-contract interaction model
 
@@ -39,7 +39,7 @@ actions can fail and if it does, the atomicity of Partisia Blockchain will ensur
 change the state of the smart contract. If the bid action fails it will never spawn the escrow action-event, only
 successful actions can spawn events. Any action can spawn any number of events to other contracts.
 
-![SmartContractMentalModelcontract-to-contract.svg](mental-models%2FSmartContractMentalModelcontract-to-contract.svg)
+![diagram contract to contract interaction](img/smart-contract-interactions-on-the-blockchain-01.png)
 
 ## Contract-to-contract with callback
 
@@ -63,7 +63,7 @@ conclusion of the callback event. In the example you would only want to update t
 succeeded and do nothing if the bid failed. Callbacks, in essence, act as controllers of change when doing contract-to-contract
 interactions.
 
-![SmartContractMentalModelWithCallback.svg](mental-models%2FSmartContractMentalModelWithCallback.svg)
+![diagram contract to contract with callback](img/smart-contract-interactions-on-the-blockchain-02.png)
 
 ## Contract-to-two-contracts with one callback.
 
@@ -74,13 +74,16 @@ enables callbacks to manage multiple actions within the same callback.
 Contracts can create events leading to actions in other contracts, and these actions can share a single callback when
 initiated from the same action. Callbacks _aggregate_ status updates and responses.
 
-As an example, when the auction is won we need two things to happen, 1. transfer of the winning item to the winner. 2.
-Token transfer to the owner of the auction. In this case we would have three contracts, the auction contract, the
-token transfer and the winning item transfer, as an example this could be a NFT contract. The auction contract
-initiates the winning of the auction, this will create two events that will spawn two separate actions, one for token
-transfer and one for the NFT transfer, with the same callback. The resulting callbacks from the contracts are
-consolidated into a single event which is then relayed to the auction contract. This makes sense when you only want both
-of the actions happening if both are a success. This allows efficient error handling without the need for re-triggering
-the entire event chain.
+**NOTE**: This is advanced functionality, and can easily be misused! Partisia
+Blockchain only provides atomicity on individual events, not across callbacks
+and event trees. Individual events may succeed (and have their results
+persisted) while event groups containing those events may fail.
 
-![SmartContractMentalModelTwoActionsOneCallback.svg](mental-models%2FSmartContractMentalModelTwoActionsOneCallback.svg)
+**In the case of payment systems you need to check that the payment has been
+sent, and is in your possession before sending the bought asset. Such
+functionality should not be implemented by sending events that transfer payment
+assets and bought assets in the same event group. Doing so may result in
+serious exploits.**
+
+![diagram contract to two contracts with callback](img/smart-contract-interactions-on-the-blockchain-03.png)
+
