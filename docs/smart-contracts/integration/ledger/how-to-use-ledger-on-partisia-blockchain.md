@@ -77,7 +77,7 @@ start moving assets around using the Ledger.
 
 3. Review the MPC transfer on the Ledger device by pressing the _right button_ on your Ledger Device and review the
    different transaction details.
-   ![interact(3)-review.jpg](interact%283%29-review.jpg)
+   ![interact(3)-review](interact%283%29-review.jpg)
 
     The review consists of:
 
@@ -89,13 +89,13 @@ start moving assets around using the Ledger.
       ![Interact(5)-Arguments](Interact%285%29-Arguments.png)
 
     * If you cannot verify the address of the amount you can reject the transaction on the Ledger.
-      ![interact(8)-reject.jpg](interact%288%29-reject.jpg)
+      ![interact(8)-reject](interact%288%29-reject.jpg)
 
 4. Accept the amount of [gas](../../../pbc-fundamentals/dictionary.md#gas) the transaction costs.
-   ![interact(6)-fee.jpg](interact%286%29-fee.jpg)
+   ![interact(6)-fee](interact%286%29-fee.jpg)
 
 5. If you want to approve after the review you should click on _Approve_ on the device. Alternatively you should click _Reject_.
-   ![interact(7)-approve.jpg](interact%287%29-approve.jpg)
+   ![interact(7)-approve](interact%287%29-approve.jpg)
 
 6. After approval, you can see that the Browser finishes the transaction and the transfer is complete.
    ![interact(9)-sending transaction](interact%289%29-sending%20transaction.png)
@@ -113,7 +113,7 @@ transfer to another address on PBC with a blind signed transaction.
    ![enabling-blindsigning(2)-default-not-enabled](enabling-blindsigning%282%29-default-not-enabled.png)
 
 3. To enable blind signing click on the right button for enabling blind signing on the Ledger device.
-   ![enabling-blindsigning(3)-enabled.jpg](enabling-blindsigning%283%29-enabled.jpg.png)
+   ![enabling-blindsigning(3)-enabled](enabling-blindsigning%283%29-enabled.jpg.png)
 
 This setting update changes how Ledger signs transactions on Partisia Blockchain. The following steps shows
 how a blind signed transaction looks like.
