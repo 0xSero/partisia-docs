@@ -274,7 +274,7 @@ The response we get back is a signed transaction:
 At this point, we can ask a Rosetta endpoint to submit our transfer, so it gets executed. This is done through the
 [/construction/submit](https://docs.cloud.coinbase.com/rosetta/reference/constructionsubmit) endpoint
 
-The request data is simply the network identifier for the sender’s account, and the signed transaction we got above.
+The request data is simply the network identifier for the sender's account, and the signed transaction we got above.
 
 ```json
 {
@@ -303,11 +303,11 @@ account on Shard1 and an account on Shard2. This means that we have to look in t
 all the relevant information about the transfer.
 
 However, and as we shall see, when looking at transactions through the rosetta endpoint, we will be told explicitly when
-a transaction resides on a shard different from the one we’re currently looking at.
+a transaction resides on a shard different from the one we're currently looking at.
 
 ### Execution flow
 
-We’ll take a short detour here and outline how a transfer is executed on PBC. Because the sender and receiver might
+We'll take a short detour here and outline how a transfer is executed on PBC. Because the sender and receiver might
 reside on two different shards, we cannot execute a transfer atomically. Indeed, if the accounts reside on two different
 shards, then the sender cannot know ahead of time whether the receiver will be able to receive the tokens, because there
 is no information about the receivers shard. Put differently, there has to be some synchronization logic in order to
@@ -316,7 +316,7 @@ make sure transactions are executed correctly.
 ![executionFlow.png](../img/integrating-to-partisia-as-an-exchange-00.png)
 
 On PBC we use 2-phase commits for transfers, other operations are used to alter the balance of two accounts, such
-as [delegated staking operations](../../pbc-fundamentals/mpc-token-model-and-account-elements.md). When the sender’s
+as [delegated staking operations](../../pbc-fundamentals/mpc-token-model-and-account-elements.md). When the sender's
 signed transaction is submitted, it will generate a
 number of events. Some of these events might need to be executed on a different shard than the sender. The flow of
 events involved in a transfer is shown above. The transfer contract is shown as residing on a separate shard than the
@@ -408,7 +408,7 @@ _SearchTransactions(shard, block, T)_
 
 1. Create a request object with shard, T and block
 2. Call [/block/transaction](https://docs.cloud.coinbase.com/rosetta/reference/blocktransaction)
-3. If “operations” is not empty, then we’re done. Output the operations
+3. If “operations” is not empty, then we're done. Output the operations
 4. Otherwise, for each transaction X in “related_transactions”
 5. If X has a network identifier S, call FindBlock(S, null, X)
 6. Else call SearchTransactions(shard, block, X)
@@ -419,7 +419,7 @@ transaction resulted in, in order to find the operations we are seeking.
 
 Because cross-shard transactions are included in a different block (they have to—each shard has its own blocks) we need
 to search from the top, as it were, if we find a related transaction that was executed on a different shard than the one
-we’re currently looking at.
+we're currently looking at.
 
 When the above search terminates, it is because we get a response of the following form:
 

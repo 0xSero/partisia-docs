@@ -7,7 +7,7 @@ Install the Partisia Blockchain app on your Ledger device to sign transactions a
 the [Partisia Blockchain Browser](https://browser.partisiablockchain.com/account). The Partisia Blockchain app is
 developed and supported by the [Partisia Blockchain Foundation](https://partisiablockchain.com/).
 
-!!! warning "Requirements: What’s needed before starting"
+!!! warning "Requirements: What's needed before starting"
 
     * You've initialized your Ledger hardware wallet.
     * The latest firmware is installed.
