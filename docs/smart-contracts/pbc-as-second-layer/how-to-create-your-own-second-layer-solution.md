@@ -66,7 +66,7 @@ The solidity contract can be built and the scripts can run with Node.js version 
 ### PBC private voting contract
 
 Explaining how the ZK computation in `src/zk_compute.rs` and how all the hooks in `src/contract.rs`
-works are beyond the scope of this walkthrough. We urge you to read the contract yourself carefully,
+works are beyond the scope of this walk-through. We urge you to read the contract yourself carefully,
 and refer to [this page](../zk-smart-contracts/zk-rust-language-zkrust.md) for understanding the ZK computation and
 [this page](../zk-smart-contracts/zk-smart-contracts.md) for the smart contract.
 
