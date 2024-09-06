@@ -45,7 +45,7 @@ be given. This would be equivalent to running the above commands in order.
 ````
 
 To run a single test class, use the maven option `-Dtest="Name of Test Class"`, and run it while standing in the test
-dir.
+directory.
 
 ```bash
 mvn test -Dtest="VotingTest"
