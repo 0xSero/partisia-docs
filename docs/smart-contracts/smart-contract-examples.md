@@ -28,7 +28,7 @@ humanitarian aid and confidential health statistics.
 You can read more about these pilot projects [here](https://partisiablockchain.com/ecosystem).
 
 By combining the functionality of different types of open sourced smart contracts it is possible to create applications
-on the public blockchain within the same areas as the successful pilot projects for quick MVPs.
+on the public blockchain within the same areas as the successful pilot projects for quick minimum viable products.
 
 ## MPC examples
 

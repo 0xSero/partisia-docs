@@ -28,8 +28,8 @@ Video tutorial
 
 To use the newly installed MetaMask snap with Partisia Blockchain
 
-1. Go to [Partisia Blockchain Browser TestNet](https://browser.testnet.partisiablockchain.com/)
-   or [Partisia Blockchain Browser MainNet](https://browser.partisiablockchain.com/)
+1. Go to [Partisia Blockchain Browser Testnet](https://browser.testnet.partisiablockchain.com/)
+   or [Partisia Blockchain Browser Mainnet](https://browser.partisiablockchain.com/)
 2. In the upper right corner click Sign In
 3. Click on the "MetaMask" button <br> ![img.png](../img/metamask-snap-integration-00.png)<br>
 4. Enter your password and click the blue unlock button
