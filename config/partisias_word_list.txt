@@ -38,6 +38,7 @@ BlsSignature
 bool
 booleans
 BNB
+bp
 BPO
 BPOC
 browserPBCAddress
@@ -60,6 +61,7 @@ commandline
 committeeId
 completedTransaction
 CompositeTypeSpec
+config
 ContractAbi
 contractAddress
 ContractBytes
@@ -90,6 +92,7 @@ DelegatedToOthers
 delegator
 DepositBridge
 Deregister
+deregister
 deregistration
 deserialization
 Deserialize
@@ -144,6 +147,7 @@ IOUs
 IPv
 js
 JSON
+json
 JUnit
 JunitContractTest
 Keccak
@@ -158,6 +162,7 @@ LocalPluginStateUpdate
 mainnet
 mathcolor
 mathgray
+MATIC
 MetaMask
 mintable
 minWithdrawal
@@ -182,6 +187,7 @@ originShard
 Parti
 Partisia
 PBC
+pbc
 PBCABI
 PBC's
 PbcHeader
@@ -203,6 +209,7 @@ Preprocess
 preprocessed
 Preprocesses
 Preprocessing
+preprocessing
 PublicKey
 ReadWriteRPC
 ReadWriteState
@@ -247,11 +254,14 @@ StakeForJobs
 stateStorage
 StateType
 Struct
+struct
 struct's
 Structs
+structs
 StructTypeSpec
 subdirectories
 subfield
+Synaps
 SyncEvent
 SystemEventType
 targetShard
@@ -271,6 +281,7 @@ uft
 UI
 unix
 Unstake
+unstake
 unstaked
 unstakes
 Unstaking
@@ -280,6 +291,7 @@ UpdateLocalPluginStateEvent
 UpdatePluginEvent
 UpgradeSystemContractEvent
 Uptime
+uptime
 URI
 URIs
 url
@@ -309,6 +321,7 @@ WithdrawAndDepositErc
 WithdrawAndDepositEth
 WithdrawBridge
 YAML
+YP
 ZK
 zk
 Zk
