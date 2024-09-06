@@ -112,14 +112,14 @@ the transaction and verify that this matches exactly the payload generated in th
 ## Configuration parameters
 
 The bytecode for the contracts on the Ethereum Virtual Machine (EVM) chain should be fetched
-from [Gitlab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth/-/packages/24646551).
+from [GitLab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth/-/packages/24646551).
 
 For all the files the value in 'bytecode' should be used.
 
 | Parameter                              | Value                                                                                                                                                               |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Implementation contract byte code      | For ERC20 tokens use _WithdrawAndDepositErc20.json_, for native token use _WithdrawAndDepositEth.json_ from the Gitlab link above                                   |
-| ERC1967Proxy                           | Use _ERC1967Proxy.json_ from the Gitlab link above                                                                                                                  |
+| Implementation contract byte code      | For ERC20 tokens use _WithdrawAndDepositErc20.json_, for native token use _WithdrawAndDepositEth.json_ from the GitLab link above                                   |
+| ERC1967Proxy                           | Use _ERC1967Proxy.json_ from the GitLab link above                                                                                                                  |
 | Current price in USD (price)           | Need to be supplied                                                                                                                                                 |
 | Maximum withdrawal                     | 200000 / price                                                                                                                                                      |
 | Minimum withdrawal                     | 25 / price                                                                                                                                                          |

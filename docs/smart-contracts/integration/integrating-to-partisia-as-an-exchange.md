@@ -340,7 +340,7 @@ A response might look something like this:
 ![blocks response](partisia-as-an-exchange-screenshots/blocksReponse.png)
 
 This block has no transactions, so we will look at the parent block instead. This requires adding a "block_identifier"
-to our request—namely that of the parent block—but is otherwise straightforward. The transaction we are looking for will
+to our request — namely that of the parent block — but is otherwise straightforward. The transaction we are looking for will
 show up under "other_transactions".
 
 ## Looking up transactions
@@ -383,7 +383,7 @@ This would be the result if we look up the transaction 49cad6…. The above resu
   of the events (e.g., the "withdraw") spawned by the signed transaction we submitted when creating the token transfer
   earlier.
 - We see that is a single related transaction to this transaction. Moreover, this related transaction is not located on
-  the shard we are currently looking at (Shard1) but on a different shard—Shard2.
+  the shard we are currently looking at (Shard1) but on a different shard — Shard2.
 
 ## Finding our transfer
 
@@ -417,7 +417,7 @@ The above two functions essentially start from the top of some shard and then se
 block with our transaction in it. After this, it searches through the events (related transactions) that this
 transaction resulted in, in order to find the operations we are seeking.
 
-Because cross-shard transactions are included in a different block (they have to—each shard has its own blocks) we need
+Because cross-shard transactions are included in a different block (they have to — each shard has its own blocks) we need
 to search from the top, as it were, if we find a related transaction that was executed on a different shard than the one
 we're currently looking at.
 
@@ -427,7 +427,7 @@ When the above search terminates, it is because we get a response of the followi
 
 This is a transaction (as returned
 by [/block/transaction](https://docs.cloud.coinbase.com/rosetta/reference/blocktransaction)) which contains one of the two
-operations of a transfer—here,
+operations of a transfer — here,
 the operation responsible for deducting the transfer amount from the sender.
 
 In the above, we see both the type (`DEDUCT`), the amount (4), that the transaction was successfully executed, as well
