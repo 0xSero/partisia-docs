@@ -56,6 +56,7 @@ CallbackToContract
 callbacktocontract
 ChainId
 chainId
+chainid
 Chainlink
 ChainPluginType
 chainplugintype
@@ -172,6 +173,7 @@ infty
 Init
 init
 Initializer
+initializer
 InnerEvent
 innerevent
 InnerSystemEvent
@@ -219,6 +221,7 @@ MetaMask
 mintable
 minWithdrawal
 MPC
+MPs
 mpcTokens
 MSVC
 NamedTypeRef
@@ -277,9 +280,11 @@ preprocessing
 programmatically
 PublicKey
 publicKey
+publishResult
 ReadWriteRPC
 ReadWriteState
 readme
+Receival
 recoveryId
 reentrancy
 reimplementation
@@ -292,6 +297,7 @@ requestNewOracle
 reselected
 ReturnEnvelope
 returnEnvelope
+returnenvelope
 returnValue
 RGB
 Rightarrow
@@ -320,6 +326,7 @@ Sharding
 sharding
 ShardRoute
 shardRoute
+shardroute
 shardsAndAddresses
 SharedObjectStore
 shortname
@@ -353,6 +360,7 @@ SyncEvent
 syncevent
 SystemEventType
 systemEventType
+systemeventtype
 targetShard
 Testnet
 testnet
