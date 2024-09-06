@@ -9,7 +9,7 @@ All nodes (unless explicitly turned off) will run a Rosetta API endpoint at
 https://node_hostname.tld/rosetta
 ```
 
-E.g., the query PBC’s network information, one can make a call
+E.g., the query PBC's network information, one can make a call
 to [/network/list](https://docs.cloud.coinbase.com/rosetta/reference/networklist) which is available at
 
 ```
