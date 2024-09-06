@@ -1,5 +1,6 @@
 personal_ws-1.1 en 490 utf-8
 Abi
+abi
 ABI
 abigen
 AcceptedFromOthers
@@ -38,6 +39,7 @@ bool
 booleans
 BNB
 BPO
+BPOC
 browserPBCAddress
 BYOC
 BYOCs
@@ -286,6 +288,7 @@ USDC
 USDT
 UseOfMPC
 UTF
+utf
 validator
 validToTime
 ValueOfService
@@ -305,6 +308,7 @@ WebAssembly
 WithdrawAndDepositErc
 WithdrawAndDepositEth
 WithdrawBridge
+YAML
 ZK
 zk
 Zk
