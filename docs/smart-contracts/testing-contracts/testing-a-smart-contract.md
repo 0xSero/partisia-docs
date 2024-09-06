@@ -13,7 +13,7 @@ After reading this page, you should be able to do the following:
 
 The tests are written in
 Java, utilizing our testing
-framework [Junit-contract-test](https://gitlab.com/partisiablockchain/language/junit-contract-test). During the test we
+framework [JUnit-contract-test](https://gitlab.com/partisiablockchain/language/junit-contract-test). During the test we
 are, provided a blockchain object,
 which allows us to deploy and interact with multiple different contracts.
 
@@ -29,7 +29,7 @@ Compile the contracts:
 cargo pbc build --release
 ```
 
-Go into the test dir, compile the tests and run them.
+Go into the test directory, compile the tests and run them.
 
 ```bash
 cd java-test
@@ -214,8 +214,8 @@ An example of the state serialization is in [the second test](#second-test-using
 
 ### How to build on top of an already existing test
 
-Smart contracts are great since the order of operations are clear, from the perspective of behavioural execution. This
-means that everytime we would have to test 2 different actions, meaning two different behaviours, on the same state.
+Smart contracts are great since the order of operations are clear, from the perspective of behavioral execution. This
+means that every time we would have to test 2 different actions, meaning two different behaviors, on the same state.
 Tests would have to perform all the actions up to that point, to then perform one of the actions,
 and then perform them all again for the other action.
 
@@ -274,8 +274,8 @@ to.
 The sender of
 the [action](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#action),
 and
-the [rpc](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#events)
-for the call. The rpc in this case contains the receiver of the transfer, and the amount to send.
+the [RPC](https://partisiablockchain.gitlab.io/documentation/smart-contracts/programmers-guide-to-smart-contracts.html#events)
+for the call. The RPC in this case contains the receiver of the transfer, and the amount to send.
 
 If you want to more examples of testing smart contracts, go to
 [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), where there are multiple tests.

@@ -79,7 +79,7 @@ the [Browser](https://browser.partisiablockchain.com/bridge).
 
 In practice, you should follow these steps:
 
-1. Go to the [byoc page](https://browser.partisiablockchain.com/bridge) and login to your PBC account
+1. Go to the [BYOC page](https://browser.partisiablockchain.com/bridge) and login to your PBC account
 2. Click _withdraw_, through the three dots menu, on the coin you want to transfer
 3. Click _Connect MetaMask_ to connect your external account
 4. Enter the amount you wish to withdraw in the dialog

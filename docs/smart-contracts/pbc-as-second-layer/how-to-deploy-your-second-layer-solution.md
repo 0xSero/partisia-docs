@@ -42,7 +42,7 @@ or use your own contracts.
 
 Note that the rest of this guide expects the constructor arguments of the solidity contract to
 match the one in the example, and uses the deployment scripts found in
-the [example repo](https://gitlab.com/partisiablockchain/language/contracts/zk-as-a-service/).
+the [example repository](https://gitlab.com/partisiablockchain/language/contracts/zk-as-a-service/).
 
 [Compile your PBC private smart contract](../zk-smart-contracts/compile-and-deploy-zk-contract.md).
 
@@ -68,7 +68,7 @@ If you deployed your contract on PBC through the dashboard app, you can grab it 
 Go to the contract info page
 e.g. [https://testnet.partisiablockchain.com/info/contract/030102030405060708090AA0908070605040302010](https://testnet.partisiablockchain.com/info/contract/030102030405060708090AA0908070605040302010)
 
-Find information about the ZK nodes by pressing the “ZK nodes” button. For each of the nodes, note down the Base64
+Find information about the ZK nodes by pressing the "ZK nodes" button. For each of the nodes, note down the Base64
 encoded "publicKey".
 
 **Note** that the order of the nodes in the list is important and should not be changed! You should take them from left

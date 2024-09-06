@@ -35,7 +35,7 @@ the [public repository](https://gitlab.com/partisiablockchain/language/contracts
 the two contracts to understand their
 common design, their differences, and how data is shared between them.
 
-We will not provide a line-by-line walkthrough of the code, as some knowledge of both PBC and EVM
+We will not provide a line-by-line walk-through of the code, as some knowledge of both PBC and EVM
 smart contract development is expected. We will briefly discuss the structure of the project and
 parts of the code, relevant for understanding how PBC as second layer works, in both contracts
 starting with the private PBC smart contract.

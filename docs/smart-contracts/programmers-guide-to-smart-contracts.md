@@ -163,7 +163,7 @@ reading: [init macro documentation](https://partisiablockchain.gitlab.io/languag
 
 ### `#[callback]`
 
-Has to be linked with an `#[action]` macro in order to be called. In practise this is done by combining the implicitly
+Has to be linked with an `#[action]` macro in order to be called. In practice this is done by combining the implicitly
 created constant of the corresponding callback-annotated function with a call to an event group builder's
 with_callback() function.
 
@@ -235,7 +235,7 @@ is available from every action, and contains some useful
 context information for the current transaction:
 
 - `Address` of the contract itself and the caller; the person or contract that caused the interaction.
-- The current block number, and time since some epoche.
+- The current block number, and time since some epoch.
 - Hashes of both the current transaction and the previous transaction.
 
 ### Events
