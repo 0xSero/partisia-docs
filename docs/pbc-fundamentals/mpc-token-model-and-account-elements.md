@@ -106,7 +106,7 @@ Computation (from on-chain information)
 
 ### Transferable
 
-MPC tokens become tradable when they are released from an unlocking schedule. However, they cannot be transferred to other accounts while they are in use.
+MPC tokens become tradeable when they are released from an unlocking schedule. However, they cannot be transferred to other accounts while they are in use.
 
 The total number of MPC tokens that can be transferred to another account, meaning that they are released and not in use. This number can be negative if more tokens are in use than the released amount (capped at zero in UI).
 
