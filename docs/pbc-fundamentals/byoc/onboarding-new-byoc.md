@@ -41,7 +41,7 @@ Before preparing the contracts on the integrated chain some information needs to
 - Which integrated chain does the coin reside on (Ethereum, Polygon or BNB Smart Chain)
 - What is the current USD value of a single coin
 
-For non-stable coins a ChainLink reference contract on Ethereum that tracks the current price needs
+For non-stable coins a Chainlink reference contract on Ethereum that tracks the current price needs
 to be available.
 See [Chainlink contracts on Ethereum mainnet](https://data.chain.link/ethereum/mainnet)
 
@@ -53,7 +53,7 @@ The below form helps generate the needed binary transactions for deploying on th
 proposing the update on Partisia Blockchain.
 
 The bytecode for the contracts have been populated from the compiled
-artifacts [on Gitlab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth/-/packages/8687576).
+artifacts [on GitLab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth/-/packages/8687576).
 
 These steps specify what information is needed in the below form, each number corresponds to the same number of a field.
 
@@ -73,7 +73,7 @@ These steps specify what information is needed in the below form, each number co
    them to verify your proposal.
 9. When node operators have voted, you need to execute the proposal this action costs ~260.000 gas. You can execute the proposal by using the check update interaction on the [system update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/checkUpdate). 
 
-For step 2 and 4 the form below allows using Metamask to send the transactions.
+For step 2 and 4 the form below allows using MetaMask to send the transactions.
 
 --8<-- "docs/snippets/byoc-onboarding-form.html"
 
