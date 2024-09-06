@@ -109,9 +109,9 @@ Rules:
 - Tokens must be retrieved to your account before you can [unstake](https://browser.partisiablockchain.com/node-operation). This means you change the state of the tokens back from staked to unstaked. Unstaking causes a 7-day pending state for the tokens. Afterwards you need to invoke [Check pending unstakes](https://browser.partisiablockchain.com/account). This operation returns the tokens to your balance
 
 
-### Dispute claims and malicious behaviour
+### Dispute claims and malicious behavior
 
-Malicious node behaviour can result in slashing of staked tokens (slashed tokens get burned). The purpose of slashing is to prevent malicious activity.
+Malicious node behavior can result in slashing of staked tokens (slashed tokens get burned). The purpose of slashing is to prevent malicious activity.
 
 !!! example "Examples of malicious activity"
     - A withdrawal oracle node signing a BYOC withdrawal that wasn't initiated on PBC   
@@ -121,5 +121,5 @@ Malicious node behaviour can result in slashing of staked tokens (slashed tokens
 
 It is possible to start a dispute against a node operator that has done a service for you. Dispute claims are
 audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible
-for the node's alleged malicious behaviour tokens staked on the service may be slashed. Filing an illegitimate dispute claim against another node can also be
-considered malicious behaviour and result in slashing.
+for the node's alleged malicious behavior tokens staked on the service may be slashed. Filing an illegitimate dispute claim against another node can also be
+considered malicious behavior and result in slashing.

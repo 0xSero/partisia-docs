@@ -152,7 +152,7 @@ BPOC). There is a field for each producer called "status": - after this you will
 Confirmed means you are registered as a block producer and are formally eligible to participate in the committee.
 Pending means your public information is still awaiting manual approval from the team cross-checking the information you
 have given. If you cannot find your address in the BPOC at all you need to resend your registration. Alternatively, if
-you are on the list of committee members and still get persistent “Not signing” then you almost certainly have some
+you are on the list of committee members and still get persistent "Not signing" then you almost certainly have some
 problem in your config.json Probably you have a wrong or no key in one of the fields: networkKey, accountKey or
 finalizationKey, or you forgot to add the host IP address.   
 
