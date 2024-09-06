@@ -306,11 +306,14 @@ WithdrawAndDepositErc
 WithdrawAndDepositEth
 WithdrawBridge
 ZK
+zk
+Zk
 ZkAttestationComplete
 ZkComputeComplete
 ZkContract
 ZkExternalEvent
 ZKRust
+ZkRust
 ZKSC
 ZkSecretInput
 ZkSecretInputWithExplicitType
@@ -319,6 +322,7 @@ ZkVarInputted
 ZkVarOpened
 ZkVarRejected
 ZKWA
+zkwa
 Df
 ECb
 EFb
