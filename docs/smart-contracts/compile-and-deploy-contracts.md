@@ -1,49 +1,47 @@
 # Compile and deploy contracts
 
-In the following sections we focus on the example token contract included in the example contract archive.
-The contract utilizes several functions. The main functions are _initialize_, and _transfer_ that
-allow you to perform the basic operations needed for a transfer.
-After deployment the contract actions can be called from the dashboard. When you perform an action it
+In the following sections we focus on the example petition contract included in the example contracts repository.
+The contract utilizes two functions: _initialize_, and _sign_, which
+allow you to perform the basic operations needed to create and sign a petition.
+After deployment, the contract actions can be called from the dashboard. Performing an action
 changes the contract state. If you inspect the contract you can see the serialized data showing
 the contract state.
 
 If you want a developer environment without having to install the compiler yourself you can head over to
-our [dApp playground](https://github.com/partisiablockchain/dapp-playground/) to immediately start building
+our [dApp playground](https://github.com/partisiablockchain/dapp-playground/) to immediately start building.
 
 ## 1) Compile a contract example
 
-The token contract can be found in
-the [example contract archive](https://gitlab.com/partisiablockchain/language/example-contracts)
-The following will compile it and generate an ABI for it:
+The petition contract can be found in
+the [example contracts repository](https://gitlab.com/partisiablockchain/language/example-contracts). After cloning the
+repository to your machine,
+the following command will compile the contract and generate an [ABI](../pbc-fundamentals/dictionary.md#abi) for it:
 
 ```bash
-cd example-contracts/petition
+cd example-contracts/rust/petition
 cargo pbc build --release
 ```
 
-Now you will find a .wasm-file and a .abi-file in:
+You will find a newly generated .wasm file and an .abi file in your local directory:
 `/target/wasm32-unknown-unknown/release`.
 
 ## 2) Upload the contract to the blockchain
 
 To deploy a smart contract you need an [account](../pbc-fundamentals/create-an-account.md)
-with [gas](gas/what-is-gas.md) to cover transaction costs.
-
-To deploy a contract you can visit
+with [gas](gas/what-is-gas.md) to cover transaction costs. You can deploy a contract through
 the [Partisia Blockchain browser](https://browser.partisiablockchain.com/contracts/deploy).
-Ensure that you have some gas, if you want to try for free you can get some testnet gas here and deploy
-through [the testnet](https://browser.testnet.partisiablockchain.com/contracts/deploy).
 
-Select the `token_contract.wasm` and the `token_contract.abi`.
-The dashboard will then render a form for the initialization function. If you look at `lib.rs` file in your IDE,
+!!! Tip
+
+    You can also test deploying a contract for free on [the testnet](https://browser.testnet.partisiablockchain.com/contracts/deploy). To get some testnet gas follow [these steps](./gas/how-to-get-testnet-gas.md).
+
+Navigate to the [Contracts](https://browser.partisiablockchain.com/contracts) menu in the Browser and click on the "
+Deploy contract" button.
+Upload the `petition.wasm` and `petition.abi` files.
+The Browser's main panel will then render a form for the initialization function. If you inspect the `lib.rs` file in your IDE,
 you will see that this matches the _initialize_ function.
-The other three actions will be available after successful deployment.
 
-You can give your token contract any name and symbol to reflect the token you are creating a mint for.
-In the _total_supply_ field you put the number of tokens you want minted for total supply of the contract
-from the moment of deployment.
-The _decimals_ field indicates placement of decimal point in total supply.
-E.g. total supply: 1050 decimals: 3 will mint supply of 1.050 token.
+You can give your petition contract any name by filling in the Description field.
 
 It should look like this before deployment:
 
@@ -54,7 +52,7 @@ this:
 
 ![compile-and-deploy-contracts-after-deploy](img/compile-and-deploy-contracts-01.png)
 
-You are now ready to interact with the contract. You can now click _Interact_ in the browser and start using the actions
-like mint and transfer of your tokens.
+You are now ready to interact with the contract. You can click _Interact_ in the browser and start using the sign
+action.
 
 Congratulations! You have now created an active smart-contract on the Partisia Blockchain.
