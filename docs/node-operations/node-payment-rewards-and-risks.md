@@ -96,7 +96,7 @@ see [MPC Token Model](../pbc-fundamentals/mpc-token-model-and-account-elements.m
 
 #### Retrieving stakes that are delegated
 
-If a node is using delegated stakes, the delegator has to reach out to the node operator using the tokens to ask for release, if they wish
+If a node is using [delegated stakes](./delegated-staking.md), the delegator has to reach out to the node operator using the tokens to ask for release, if they wish
 to retrieve them. Same locking mechanisms and pending times apply to tokens that come from delegated stakes. Delegated
 MPC tokens, that are not associated to a contract or locked to a service, can be retrieved without any pending period.
 
@@ -108,6 +108,31 @@ Rules:
 - Tokens retrieved from delegation are not immediately [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). The token owner must [unstake](https://browser.partisiablockchain.com/node-operation) the tokens after retrieval. If the tokens have passed the [release date](../pbc-fundamentals/mpc-token-model-and-account-elements.md#unlocking-schedules) the tokens will become transferable, when the 7-day pending period is over and the owner invokes [Check pending unstakes](https://browser.partisiablockchain.com/account)
 - Tokens must be retrieved to your account before you can [unstake](https://browser.partisiablockchain.com/node-operation). This means you change the state of the tokens back from staked to unstaked. Unstaking causes a 7-day pending state for the tokens. Afterwards you need to invoke [Check pending unstakes](https://browser.partisiablockchain.com/account). This operation returns the tokens to your balance
 
+#### Rewards for delegated tokens
+
+You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) when a node operator associates your [delegated](./delegated-staking.md) tokens to a node service. The rewards depend on
+the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-different-node-services-earn-fees-and-rewards)'s performance of the node you delegate to, and the amount of rewardable tokens delegated.
+
+!!! Example "Calculation example"
+
+    Consider a group of token holders indexed $i=0...n$. We want to calculate the rewards of the token holder with index 4.  
+
+    **Variables:**
+
+    - **T** is the total allocated rewards for the period. In this scenario 1,000,000 MPC tokens   
+    - **r<sub>i<sub>** is the rewardable delegated tokens of token holder _i_. Suppose token holder 4 delegates all his 20,000 MPC tokens to a node operator, and half the tokens are released. This means that 10,000 MPC tokens of the delegation is rewardable: $\mathsf{Delegated_{rewardable}} = \frac{\mathsf{Released_{MPC}}}{\mathsf{Total_{MPC}}} \mathsf{Delegated_{total}} = \frac{10,000}{20,000} 20{,}000 = 10{,}000$   
+    - **p<sub>i<sub>** is the performance of the node using the tokens of token holder _i_. Suppose that in this  period, the performance of the node using token holder 4's tokens was 90%   
+    - $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$ is the sum of rewardable tokens adjusted for performance. In this scenario we imagine 100 nodes with an average of 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC tokens    
+
+    **Calculation:**  
+
+    $\mathsf{RewardForDelegation} = \mathsf{T} \frac{\mathsf{r_{4}} \cdot \mathsf{p_{4}}}{\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}} = 1{,}000{,}000 \frac{10{,}000 \cdot 90\%}{1{,}200{,}000} = 7{,}500$ 
+    Token holder 4's reward for the delegated stakes in the given period is 7,500 MPC tokens.   
+    The node operator takes a 2% cut of the total rewards. Thus token holder 4 would get 7,350 of the 7,500.
+
+    This calculation is simplified by omitting the calculation of the sum $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$. 
+
+You can consult the calculation method for rewards, and the history of quarterly payouts [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards).
 
 ### Dispute claims and malicious behaviour
 

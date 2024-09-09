@@ -1,7 +1,7 @@
 # Delegated staking
 
 Delegation of MPC tokens to a node operator is a way to stake tokens and earn [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) without running
-a [node](../pbc-fundamentals/dictionary.md#node) yourself.
+a [node](../pbc-fundamentals/dictionary.md#node) yourself. You can see an example of how rewards are calculated [here](./node-payment-rewards-and-risks.md#rewards-for-delegated-tokens).
 
 Delegated staking begins with the delegation of MPC tokens to the account of a node operator. 
 If the node operator accepts the tokens, they have control over the tokens. 
@@ -22,7 +22,7 @@ Before delegating any tokens you should visit the [Staking Marketplace](https://
 Step by step:
 
 1. Sign in 
-2. Go to the [Your assets](https://browser.partisiablockchain.com/assets) menu in the browser left sidebar. If the menu is not visible, sign in
+2. Go to the [Your assets](https://browser.partisiablockchain.com/assets) menu in the browser left sidebar
 3. Click "Delegate"   
 4. Write the [account address](../pbc-fundamentals/dictionary.md#address) of the receiving node operator and amount of MPC tokens you wish to delegate 
 
@@ -40,16 +40,17 @@ As a node operator, you can choose to accept the full amount or only a partial a
 Step by step:
 
 1. Sign in
-2. Go to the [Node operation](https://browser.partisiablockchain.com/node-operation) menu in the browser left sidebar. If the menu is not visible, sign in
+2. Go to the [Node operation](https://browser.partisiablockchain.com/node-operation) menu in the browser left sidebar
 3. Click "SEE MORE" to unfold the collapsed delegation table located below the **Delegated from others** section
-4. Locate the offer you wish to respond to. In the **Amount** column, either click on the checkmark icon to accept the full amount, or click the minus icon to accept a partial amount
+4. In the **Amount** column of the offer you wish to respond to, either click on the checkmark icon to accept the full amount, 
+5. or click on the minus icon to accept a partial amount
 
 ### How to retract delegated MPC tokens
 
 Step by step:
 
 1. Sign in
-2. Go to the [Your assets](https://browser.partisiablockchain.com/assets) menu in the browser left sidebar. If the menu is not visible, sign in
+2. Go to the [Your assets](https://browser.partisiablockchain.com/assets) menu in the browser left sidebar
 3. Click "SEE MORE" to unfold the collapsed delegation table located below the **Available to delegate** section
 4. Locate the offer you wish to retract from. In the **Amount** column click on the "Retract" icon 
 5. Write the amount of MPC tokens you wish to retract  
@@ -65,30 +66,3 @@ Step by step:
 2. Wait for the [pending time](../node-operations/node-payment-rewards-and-risks.md) to be over
 3. Follow the steps in the previous section: [How to retract delegated MPC tokens](#how-to-retract-delegated-mpc-tokens) 
 
-
-### Rewards for delegated tokens
-
-You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) when the node operator associates your tokens to a node service. The rewards depend on
-the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-different-node-services-earn-fees-and-rewards)'s
-performance of the node you delegate to, and the amount of rewardable tokens delegated.
-
-!!! Example "Calculation example"
-
-    Consider a group of token holders indexed $i=0...n$. We want to calculate the rewards of the token holder with index 4.  
-
-    **Variables:**
-
-    - **T** is the total allocated rewards for the period. In this scenario 1,000,000 MPC tokens   
-    - **r<sub>i<sub>** is the rewardable delegated tokens of token holder _i_. Suppose token holder 4 delegates all his 20,000 MPC tokens to a node operator, and half the tokens are released. This means that 10,000 MPC tokens of the delegation is rewardable: $\mathsf{Delegated_{rewardable}} = \frac{\mathsf{Released_{MPC}}}{\mathsf{Total_{MPC}}} \mathsf{Delegated_{total}} = \frac{10,000}{20,000} 20{,}000 = 10{,}000$   
-    - **p<sub>i<sub>** is the performance of the node using the tokens of token holder _i_. Suppose that in this  period, the performance of the node using token holder 4's tokens was 90%   
-    - $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$ is the sum of rewardable tokens adjusted for performance. In this scenario we imagine 100 nodes with an average of 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC tokens    
-
-    **Calculation:**  
-
-    $\mathsf{RewardForDelegation} = \mathsf{T} \frac{\mathsf{r_{4}} \cdot \mathsf{p_{4}}}{\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}} = 1{,}000{,}000 \frac{10{,}000 \cdot 90\%}{1{,}200{,}000} = 7{,}500$ 
-    Token holder 4's reward for the delegated stakes in the given period is 7,500 MPC tokens.   
-    The node operator takes a 2% cut of the total rewards. Thus token holder 4 would get 7,350 of the 7,500.
-
-    This calculation is simplified by omitting the calculation of the sum $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$. 
-
-You can consult the calculation method for rewards, and the history of quarterly payouts [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards).
