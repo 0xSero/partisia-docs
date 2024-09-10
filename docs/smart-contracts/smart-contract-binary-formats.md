@@ -79,55 +79,55 @@ The argument binary format depends on the type of the argument. The argument typ
     <p class="comment-top" >(i8 is two's complement)</p>
   </div>
   <div class="field-and-comment-row">
-    <p class="spaced-or" >| 0xnn*2 => u16/i16 </p>
+    <p class="spaced-or" >| 0xnn×2 => u16/i16 </p>
     <p class="comment">(big-endian, i16 is two's complement)</p>
   </div>
   <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn*4 => u32/i32 </p>
+      <p class="spaced-or" >| 0xnn×4 => u32/i32 </p>
       <p class="comment">(big-endian, i32 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn*8 => u64/i64 </p>
+      <p class="spaced-or" >| 0xnn×8 => u64/i64 </p>
       <p class="comment">(big-endian, i64 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn*16 => u128/i128 </p>
+      <p class="spaced-or" >| 0xnn×16 => u128/i128 </p>
       <p class="comment">(big-endian, i128 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn*32 => u256 </p>
+      <p class="spaced-or" >| 0xnn×32 => u256 </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
       <p markdown class="spaced-or" >| b:0xnn => Boolean </p>
       <p class="comment">(false if b==0, true otherwise)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*21 => Address </p>
+      <p markdown class="spaced-or" >| 0xnn×21 => Address </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*32 => Hash </p>
+      <p markdown class="spaced-or" >| 0xnn×32 => Hash </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*33 => PublicKey </p>
+      <p markdown class="spaced-or" >| 0xnn×33 => PublicKey </p>
       <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*65 => Signature </p>
+      <p markdown class="spaced-or" >| 0xnn×65 => Signature </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*96 => BlsPublicKey </p>
+      <p markdown class="spaced-or" >| 0xnn×96 => BlsPublicKey </p>
       <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*48 => BlsSignature </p>
+      <p markdown class="spaced-or" >| 0xnn×48 => BlsSignature </p>
       <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*len => Array[u8;len] </p>
+      <p markdown class="spaced-or" >| 0xnn×len => Array[u8;len] </p>
       <p class="comment">(containing the len u8 values)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn*len => string </p>
+      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn×len => string </p>
       <p class="comment">(with len UTF-8 encoded bytes)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
@@ -155,7 +155,7 @@ For arguments with variable lengths, such as Vecs or Strings the number of eleme
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [LengthRpc](#lengthrpc)
-<p markdown>::= 0xnn*4 => u32 </p>
+<p markdown>::= 0xnn×4 => u32 </p>
 <p class="comment">(big-endian)</p>
 </div>
 </div>
@@ -176,59 +176,59 @@ complement. Note that lengths are also stored as little-endian.
     <p class="comment-top" >(i8 is two's complement)</p>
   </div>
   <div class="field-and-comment-row">
-    <p class="spaced-or" >| 0xnn*2 => u16/i16 </p>
+    <p class="spaced-or" >| 0xnn×2 => u16/i16 </p>
     <p class="comment">(little-endian, i16 is two's complement)</p>
   </div>
   <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn*4 => u32/i32 </p>
+      <p class="spaced-or" >| 0xnn×4 => u32/i32 </p>
       <p class="comment">(little-endian, i32 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn*8 => u64/i64 </p>
+      <p class="spaced-or" >| 0xnn×8 => u64/i64 </p>
       <p class="comment">(little-endian, i64 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn*16 => u128/i128 </p>
+      <p class="spaced-or" >| 0xnn×16 => u128/i128 </p>
       <p class="comment">(little-endian, i128 is two's complement)</p>
   </div>  
   <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn*32 => u256 </p>
+      <p class="spaced-or" >| 0xnn×32 => u256 </p>
   </div>  
    <div class="field-and-comment-row" markdown> 
       <p markdown class="spaced-or" >| b:0xnn => Boolean </p>
       <p class="comment">(false if b==0, true otherwise)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*21 => Address </p>
+      <p markdown class="spaced-or" >| 0xnn×21 => Address </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*32 => Hash </p>
+      <p markdown class="spaced-or" >| 0xnn×32 => Hash </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*33 => PublicKey </p>
+      <p markdown class="spaced-or" >| 0xnn×33 => PublicKey </p>
       <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*65 => Signature </p>
+      <p markdown class="spaced-or" >| 0xnn×65 => Signature </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*96 => BlsPublicKey </p>
+      <p markdown class="spaced-or" >| 0xnn×96 => BlsPublicKey </p>
       <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*48 => BlsSignature </p>
+      <p markdown class="spaced-or" >| 0xnn×48 => BlsSignature </p>
       <p class="comment">(point on an elliptic curve)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*len => Array[u8;len] </p>
+      <p markdown class="spaced-or" >| 0xnn×len => Array[u8;len] </p>
       <p class="comment">(containing the len u8 values)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn*len => String </p>
+      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn×len => String </p>
       <p class="comment">(with len UTF-8 encoded bytes)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)*len => Vec&lt;&gt; </p>
+      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)×len => Vec&lt;&gt; </p>
       <p class="comment">(containing the len elements)</p>
   </div>  
   <div class="field-and-comment-row" markdown> 
@@ -242,7 +242,7 @@ complement. Note that lengths are also stored as little-endian.
       <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => Enum{variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
   </div>  
   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn*4 => AvlTree{<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
+      <p markdown class="spaced-or" >| 0xnn×4 => AvlTree{<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
   </div>
 </div>
 </div>
@@ -256,7 +256,7 @@ For arguments with variable lengths, such as Vecs or Strings the number of eleme
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [LengthState](#lengthstate)
-<p markdown>::= 0xnn*4 => u32 </p>
+<p markdown>::= 0xnn×4 => u32 </p>
 <p class="comment">(little-endian)</p>
 </div>
 </div>
@@ -421,12 +421,12 @@ Only arrays of lengths between (including) 0 and 127 are supported. The high bit
 ##### [FileAbi](#fileabi) 
 ::= {
 <div class="field-with-comment" markdown>
-<p markdown> Header: 0xnn*6 </p>
+<p markdown> Header: 0xnn×6 </p>
 <p class="comment">(The header is always "PBCABI" in ASCII)</span> </p>
 </div>  
 <div class="fields"/>
-VersionBinder: 0xnn\*3 <br>
-VersionClient: 0xnn\*3 <br>
+VersionBinder: 0xnn×3 <br>
+VersionClient: 0xnn×3 <br>
 Contract: [ContractAbi](#contractabi)
 
 }
@@ -542,7 +542,7 @@ The [ArgumentAbi](#argumentabi) represents an argument. The argument is defined 
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Identifier](#identifier)
-<p markdown > ::= len:0xnn\*4 utf8:0xnn\*len </p>
+<p markdown > ::= len:0xnn×4 utf8:0xnn×len </p>
 <p class="comment">(utf8 must be Rust identifier, len is big-endian)</p>
 </div>
 </div>
@@ -633,7 +633,7 @@ A [Section](#section) is an indexed chunk of a binary file of dynamic length, wh
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Section](#section)
-<p markdown > ::= id:0xnn len:0xnn\*4 data:0xnn\*len </p>
+<p markdown > ::= id:0xnn len:0xnn×4 data:0xnn×len </p>
 <p class="comment">(len is big-endian)</p>
 </div>
 </div>
@@ -694,7 +694,7 @@ The file extension of Partisia Blockchain Contract Files is written as ".pbc". T
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [PbcFile](#pbcfile)
-<p markdown>::= PbcHeader:0xnn\*4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
+<p markdown>::= PbcHeader:0xnn×4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
 <p class="comment">(The header is always "PBSC" in ASCII)</p>
 </div>
 </div>
