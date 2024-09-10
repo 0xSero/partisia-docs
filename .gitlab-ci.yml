@@ -96,7 +96,7 @@ spellcheck-all:
     for file in **/*.md; do
       echo "Spellchecking $file"
       echo "------"
-      cat "$file" | aspell --mode html -d en_US --personal=config/partisias_word_list.txt --home-dir=. list -v | sort -f | uniq -i | tee -a maybe-misspelled-words.txt || true
+      cat "$file" | aspell --mode html markdown -d en_US --personal=config/partisias_word_list.txt --home-dir=. list -v | sort -f | uniq -i | tee -a maybe-misspelled-words.txt || true
       echo -e "\033[30m-\033[0m"
       echo -e "\033[30m-\033[0m"
     done
