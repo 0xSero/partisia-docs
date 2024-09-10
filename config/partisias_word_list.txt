@@ -1,4 +1,5 @@
 personal_ws-1.1 en 490 utf-8
+\(#\w+\)
 Abi
 abi
 ABI
@@ -12,7 +13,6 @@ activations
 addPendingWithdrawal
 AddressSanitizer
 AddressType
-addresstype
 addressType
 AllocatedToJobs
 arg
