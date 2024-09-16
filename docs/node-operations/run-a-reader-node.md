@@ -222,8 +222,8 @@ services:
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
-!!! Warning "Make sure your YAML file match the example"
-    It won't work if the indentation is off, because YAML is whitespace sensitive.
+!!! Warning "Make sure your .yml file match the example"
+    It won't work if the indentation is off, because .yml is whitespace sensitive.
 
 
 Keep an eye on the indentation  it won't work if the indentation is off.
