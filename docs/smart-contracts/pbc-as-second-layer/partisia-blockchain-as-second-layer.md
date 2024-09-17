@@ -15,7 +15,7 @@ We need to deploy two smart contracts: one zero-knowledge smart contract on PBC 
 
 The author of the contracts determines what information should be publicly available and what should be kept confidential across layer 1 and 2. The users of the smart contracts sends their input to the necessary contracts to either A) give input publicly for layer 1 or 2, or B) give input privately directly to the layer 2 contract on PBC.
 
-![ConceptPBCAsSecondLayer](concept-pbc-as-second-layer.png)
+![Diagram PBC as a second layer](../img/partisia-blockchain-as-second-layer-00.png)
 
 To illustrate PBC as a second layer, we will use the model outlined above and describe it with reference to an example that you can find on [the following page](live-example-of-pbc-as-second-layer.md). This example is based on using Ethereum as the first layer and PBC as the second layer. The scenario involves a voting system where the goal is to privately calculate the results of the votes without revealing how individual voters cast their ballots.
 
@@ -30,7 +30,7 @@ To illustrate PBC as a second layer, we will use the model outlined above and de
 5. Voters submit their votes directly to the PBC smart contract, ensuring confidentiality. The smart contract verifies the sender from the list of allowed voters.
 6. The votes secret input are being monitored by the four MPC nodes and individually they take their secret share out of the transaction and saves it to their local storage.
 
-   The MPC nodes are also known as zero-knowledge nodes. The ZK nodes will handle our computation privately without knowing what the vote is since none of the secret shares makes sense on an individual basis. You can read more about the MPC computation [in our dictionary]((../../pbc-fundamentals/dictionary.md#mpc) or read the [article series that explains the math behind MPC](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a).
+   The MPC nodes are also known as zero-knowledge nodes. The ZK nodes will handle our computation privately without knowing what the vote is since none of the secret shares makes sense on an individual basis. You can read more about the MPC computation [in our dictionary](../../pbc-fundamentals/dictionary.md#mpc) or read the [article series that explains the math behind MPC](https://medium.com/partisia-blockchain/mpc-techniques-series-part-1-secret-sharing-d8f98324674a).
 
 7. When the smart contract on PBC reaches its deadline the ZK computation for counting the votes can be started by any user.
 8. When the computation is complete, the nodes are asked to reveal the result, which is then signed by the nodes.

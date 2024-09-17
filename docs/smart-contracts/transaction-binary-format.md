@@ -34,11 +34,11 @@ transaction: [Transaction](#transaction)
 <div class="fields"/>
 recoveryId: 0xnn
 <div class="field-with-comment" markdown>
-valueR: 0xnn*32
+valueR: 0xnn×32
 <p class="comment">(big-endian)</p>
 </div>
 <div class="field-with-comment" markdown>
-valueS: 0xnn*32
+valueS: 0xnn×32
 <p class="comment">(big-endian)</p>
 </div>  
 
@@ -55,15 +55,15 @@ The [Signature](#signature) includes:
 ##### [Transaction](#transaction)
 ::= {
 <div class="field-with-comment">
-  <p>nonce: 0xnn*8</p>
+  <p>nonce: 0xnn×8</p>
   <p class="comment">(big-endian)</p>
 </div>
 <div class="field-with-comment">
-<p >validToTime: 0xnn*8</p>
+<p >validToTime: 0xnn×8</p>
 <p class="comment">(big-endian)</p>
 </div>
 <div class="field-with-comment" markdown>
-<p>gasCost:  0xnn*8</p>
+<p>gasCost:  0xnn×8</p>
 <p class="comment">(big-endian)</p>
 </div>
   <div class="fields"/>
@@ -129,7 +129,7 @@ inner: [InnerEvent](#innerevent)
 shardRoute: [ShardRoute](#shardroute)  
 committeeId: [Long](#long)  
 governanceVersion: [Long](#long)  
-height: [Byte](#byte)
+height: [Byte](#byte)  
 returnEnvelope: [Option](#optiont)<[ReturnEnvelope](#returnenvelope)>
 
 }
@@ -573,7 +573,7 @@ An [Address](#address) is encoded as 21 bytes. The first byte is the [AddressTyp
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Address](#address)
-<p markdown> ::= addressType:[AddressType](#addresstype) identifier:0xnn*20</p>
+<p markdown> ::= addressType:[AddressType](#addresstype) identifier:0xnn×20</p>
 <p class="comment">(identifier is big-endian)</p>
 </div>
 </div>
@@ -625,7 +625,7 @@ A [Byte](#byte) is encoded as a byte corresponding to its value.
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [DynamicBytes](#dynamicbytes)
-<p> ::= len:0xnn*4 payload:0xnn*len </p>
+<p> ::= len:0xnn×4 payload:0xnn×len </p>
 <p class="comment">(big-endian)</p>
 </div>
 </div>
@@ -638,7 +638,7 @@ A [Hash](#hash) is encoded as 32 bytes in big-endian order.
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Hash](#hash)
-<p> ::= 0xnn*32</p>
+<p> ::= 0xnn×32</p>
 <p class="comment">(big-endian)</p>
 </div>
 </div>
@@ -651,7 +651,7 @@ A [List<T\>](#listt) of len elements of type **T** are encoded as the len (4 byt
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [List<T\>](#listt)
-<p>::= len:0xnn*4 elems:<b>T</b>*len</p>
+<p>::= len:0xnn×4 elems:<b>T</b>×len</p>
 <p class="comment">(len is big-endian)</p>
 </div>
 </div>
@@ -664,7 +664,7 @@ A [Long](#long) is encoded as 8 bytes in big-endian order.
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [Long](#long)
-<p> ::= 0xnn*8</p>
+<p> ::= 0xnn×8</p>
 <p class="comment">(big-endian)</p>
 </div>
 </div>
@@ -678,16 +678,16 @@ An [Option<T\>](#optiont) is encoded as either one 0-byte if **T** is None, or a
 <div class="type-with-comment" markdown>
 ##### [Option<T\>](#optiont)
 ::= 
-<div class="column-align" markdown>
-<p> 0x00 => None </p>
-<p class="spaced-or">| b:0xnn t:<b>T</b> => Some(t) </p>
-</div>
-<div class="comment-align" markdown>
-<p class="comment">&nbsp;</p>
-<p class="spaced">(b != 0)</p>
-</div>
+<div class="column-align" markdown >
+  <p markdown > 0x00 => None </p>
+  <div class="field-and-comment-row" >
+    <p class="spaced-or" markdown > | b:0xnn t:<b>T</b> => Some(t) </p>
+    <p class="comment">(b != 0)</p>
+  </div>
 </div>
 </div>
+</div>
+
 
 #### Return Envelope
 
@@ -705,7 +705,7 @@ A [String](#string) is encoded as its length, len (4 bytes), and the UTF-8 of le
 <div class="binary-format" markdown>
 <div class="type-with-comment" markdown>
 ##### [String](#string)
-<p> ::= len:0xnn*4 uft8:0xnn*len</p> 
+<p> ::= len:0xnn×4 uft8:0xnn×len</p> 
 <p class="comment">(big-endian)</p>
 </div>
 </div>
