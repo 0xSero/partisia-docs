@@ -71,11 +71,11 @@ Below is an example of the on-chain account information for a given account take
 The fields of the [on-chain account information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/Balance.html) holds the following. The MPC token model described in the next section will give an overview and detailed computations for how the information can be aggregated meaningfully.
 
 - `mpcTokens`: The total amount of MPC tokens that are transferable. This number can be negative if more tokens are in use than the released amount. Example: An account has 100 free tokens and 250 released: mpcTokens = 100. After staking 150: mpcTokens = -50
-- `stakedTokens`: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract in See stakedToContract
-- `stakedToContract`: The amounts of staked MPC tokens that are associated with running specific blockchain jobs. Not all stake has to be associated with jobs, hence the sum of “stakedToContract” does not always equal “stakedTokens”
+- `stakedTokens`: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract. See stakedToContract
+- `stakedToContract`: The amounts of staked MPC tokens that are associated with running specific blockchain jobs. Not all staked tokens have to be associated with jobs, hence the sum of “stakedToContract” does not always equal “stakedTokens”
 - `pendingUnstakes`: MPC tokens which were staked, and are now being unstaked. When unstaking MPC tokens there is a 7 days waiting period during which they are kept here as pendingUnstakes
 - `spentFreeTransactions`: Keeps track of the number of free transactions used in each epoch. Irrelevant for MPC token calculations described in this document
-- `vestingAccounts`: MPC tokens that are locked which will become unlocked (freely transferable) after each unlock in the unlocking schedule. Note that the variable called “vestingAccounts” refers to “unlocking schedules”. The user’s receive all tokens but the token gradually becomes unlocked. Note that both locked and unlocked tokens can be used for Staking and for Delegated Staking.
+- `vestingAccounts`: MPC tokens that are locked which will become unlocked (freely transferable) after each unlock in the unlocking schedule. Note that the variable called “vestingAccounts” refers to “unlocking schedules”. The user receives all tokens locked, but they gradually become unlocked. Note that both locked and unlocked tokens can be used for Staking and for Delegated Staking.
 - `storedPendingTransfers`: Keeps track of incoming/outgoing transfers of MPC tokens and BYOC coins while a two-phase commit protocol is being executed
 - `storedPendingStakeDelegations`: Keeps track of incoming/outgoing delegated MPC tokens while a two-phase commit protocol is being executed
 - `delegatedStakesFromOthers`: MPC tokens delegated from other users. If they are accepted MPC tokens delegated from others can be used for running on-chain jobs
@@ -136,11 +136,11 @@ MPC Tokens purchased in presales or allocated to the team are locked inside unlo
 
 This is the flow for MPC token unlocking
 
-![Unlock](unlock.png)
+![Unlock](img/mpc-token-model-and-account-elements-00.png)
 
 The following illustrates how the total is calculated based on locked/unlocked tokens or tokens inside/outside unlocking schedules.
 
-![Shcedule](schedule.png)
+![Schedule](img/mpc-token-model-and-account-elements-01.png)
 
 ### In Schedule
 
@@ -210,7 +210,7 @@ This is the flow for MPC tokens when staking to yourself and delegating to other
 
 The following illustrates how the total number of tokens can be calculated based on tokens that are in use and unused tokens.
 
-![UseOfMPC](use-of-mpc.png)
+![UseOfMPC](img/mpc-token-model-and-account-elements-02.png)
 
 ### InUse
 
@@ -348,7 +348,7 @@ When the account has enough staked MPC tokens it is possible to run a blockchain
 
 This is the flow for handling MPC tokens delegated from others.
 
-![NumberOfTokens](number-of-tokens.png)
+![NumberOfTokens](img/mpc-token-model-and-account-elements-03.png)
 
 ### DelegatedFromOthers
 
