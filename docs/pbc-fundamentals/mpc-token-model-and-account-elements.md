@@ -85,8 +85,9 @@ The fields of the [on-chain account information](https://partisiablockchain.gitl
 
 ### MPC tokens on contracts
 
-Contracts can hold MPC tokens as well. These are stored in the field `mpcTokens` that can be found in the [on-chain contract information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html).
+Contracts can hold MPC tokens, by transferring MPC tokens to them from another account or contract. The MPC tokens are stored in the field `mpcTokens` that can be seen in the [on-chain contract information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html).
 If a contract is deleted, the MPC tokens it may have held, are placed in the [context-free state](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/AccountStateLocal.html).
+The token model described in this document *does not* apply to contracts. Contracts can only hold tokens with the purpose of transferring them, and this amount can not be negative. 
 
 ## Definition of token amounts
 
