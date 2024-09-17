@@ -6,7 +6,7 @@ The MPC Token is the native token of the Partisia Blockchain used for staking an
 
 - The following terminology is used in this document
 - Account: A Partisia Blockchain address (the public key)
-- Contract: A Partisia Blockchain address (the public key)
+- Contract: A Partisia Blockchain address
 - Token Holder: A user who owns MPC Tokens
 - Node Operator: A user who runs a blockchain Node
 - Stake: The use of MPC tokens as collateral for running on-chain services on Partisia Blockchain
