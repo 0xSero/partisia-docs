@@ -48,9 +48,9 @@ The **receiver** is `0054556c213b1a1d4e081fc2aec67d5f88e05cbca4`
 Addresses can be generated using a small piece of Java, as seen below:
 
 ```java
-KeyPair privateKey=new KeyPair(privateKeyBigInt);
-        BlockchainPublicKey publicKey=privateKey.getPublic();
-        BlockchainAddress address=publicKey.createAddress();
+KeyPair privateKey = new KeyPair(privateKeyBigInt);
+BlockchainPublicKey publicKey = privateKey.getPublic();
+BlockchainAddress address = publicKey.createAddress();
 ```
 
 The [address](../../pbc-fundamentals/dictionary.md#address) on PBC is nothing more than
