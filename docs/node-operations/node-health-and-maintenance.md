@@ -158,7 +158,7 @@ finalizationKey, or you forgot to add the host IP address.
 
 **Got a message with wrong protocol identifier** - This message comes every time a shutdown has occurred (in other words
 whenever a producer has not produced the block he is supposed to). So, on its own that message does not indicate a
-problem. But, if the log just repeats and don't change to a new message saying Executing Block… it could suggest you are
+problem. But, if the log just repeats and don't change to a new message saying Executing Block... it could suggest you are
 running an outdated version of our software, a version that does not pull the newest docker image automatically.   
 
 **WebApplicationException. Status=404** - You may assume all is well. You may encounter different types of not found
