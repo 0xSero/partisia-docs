@@ -28,13 +28,15 @@ To fill out the config.json for a block producing node you need to add the follo
 
 - Account private key (the account you've staked MPC with)
 - IPv4 address of the server hosting your node (You get this from your VPS service provider)
-- Ethereum, BNB and Polygon API endpoint. This is a URL address pointing to an Ethereum reader node on the Ethereum Mainnet (
+- Ethereum, BNB and Polygon API endpoints. These are URL addresses pointing to a reader node on the mainnet for the respective blockchains (
   You should use a source you find trustworthy)
   . [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0)
-  has a provider list and further information about endpoints.
+  has a provider list and further information about endpoints. **Note** that this config structure has been updated to a map `chainConfigs`, that maps a chain to its endpoint, see the example below for details.
 - The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
   producers should be obtained by reaching out to the community.
+
+The source code for the configuration structure can be found [here](https://gitlab.com/partisiablockchain/main/-/blob/main/src/main/java/com/partisiablockchain/server/CompositeNodeConfigDto.java)
 
 To fill out the needed information we will use the `node-register.sh` tool:
 
@@ -73,10 +75,15 @@ Your file should have similar contents to the one in the example below.
         "producerConfig": {
             "accountKey": "YOUR ACCOUNT KEY",
             "finalizationKey": "YOUR FINALIZATION KEY",
-            "ethereumUrl": "https://example.com",
-            "polygonUrl": "https://example.com",
-            "bnbSmartChainUrl": "https://example.com",
-            "host": "YOUR IP"
+            "ethereumUrl": "Old endpoint config, should not be used anymore",
+            "polygonUrl": "Old endpoint config, should not be used anymore",
+            "bnbSmartChainUrl": "Old endpoint config, should not be used anymore",
+            "host": "YOUR IP",
+            "chainConfigs: {
+                "Ethereum" : "https://example.com",
+                "Polygon" : "https://example.com",
+                "BnbSmartChain" : "https://example.com",
+                }"
         }
     }
     ```
