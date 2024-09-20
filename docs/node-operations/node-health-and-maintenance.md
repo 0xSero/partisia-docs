@@ -281,6 +281,61 @@ curl -X POST "ENDPOINT_YOU_WANT_TO_CHECK" \
 If the block number is way off, or if you don't get anything with either command, there is likely a problem with the
 endpoint, replace it!
 
+### Updating your BYOC chain configuration to the new version
+
+The block producer config, `config.json`, has been updated to contain the supported chains and their endpoints in a map. Below is a comparison of the old config and the new:
+
+The old config:
+
+```
+    {
+        "restPort": 8080,
+        "floodingPort": 9888,
+        "knownPeers": [
+            // your known peers
+        ],
+        "networkKey": "YOUR NETWORK KEY",
+        "producerConfig": {
+            "accountKey": "YOUR ACCOUNT KEY",
+            "finalizationKey": "YOUR FINALIZATION KEY",
+            "ethereumUrl": "https://example.com",
+            "polygonUrl": "https://example.com",
+            "bnbSmartChainUrl": "https://example.com",
+            "host": "YOUR IP"
+        }
+    }
+    
+```
+The new config, with the new map, `chainConfigs`, that maps a supported chain to an endpoint:
+```
+    {
+        "restPort": 8080,
+        "floodingPort": 9888,
+        "knownPeers": [
+            // your known peers
+        ],
+        "networkKey": "YOUR NETWORK KEY",
+        "producerConfig": {
+            "accountKey": "YOUR ACCOUNT KEY",
+            "finalizationKey": "YOUR FINALIZATION KEY",
+            "ethereumUrl": "Old endpoint config, should not be used anymore",
+            "polygonUrl": "Old endpoint config, should not be used anymore",
+            "bnbSmartChainUrl": "Old endpoint config, should not be used anymore",
+            "host": "YOUR IP",
+            "chainConfigs: {
+                "Ethereum": "https://example.com",
+                "Polygon": "https://example.com",
+                "BnbSmartChain": "https://example.com",
+                }"
+        }
+    }
+```
+To migrate an old config to the new style, the easiest way is to simply run the config tool again, and step through all the steps. This will migrate it automatically:
+```bash
+./node-register.sh create-config
+```
+Alternatively, `config.json`, can be edited manually to be as shown in the example above.
+
 ### How to migrate your node to a different VPS
 
 When changing VPS there are a few important precautions you take ensuring a problem free migration.

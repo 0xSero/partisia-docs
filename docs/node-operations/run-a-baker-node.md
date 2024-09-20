@@ -80,9 +80,9 @@ Your file should have similar contents to the one in the example below.
             "bnbSmartChainUrl": "Old endpoint config, should not be used anymore",
             "host": "YOUR IP",
             "chainConfigs: {
-                "Ethereum" : "https://example.com",
-                "Polygon" : "https://example.com",
-                "BnbSmartChain" : "https://example.com",
+                "Ethereum": "https://example.com",
+                "Polygon": "https://example.com",
+                "BnbSmartChain": "https://example.com",
                 }"
         }
     }
