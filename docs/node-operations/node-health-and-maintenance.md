@@ -330,7 +330,7 @@ The new config, with the new map, `chainConfigs`, that maps a supported chain to
         }
     }
 ```
-To migrate an old config to the new style, the easiest way is to simply run the config tool again, and step through all the steps. This will migrate it automatically:
+To migrate an old config to the new style, the easiest way is to simply run the config tool again, and step through it. This will migrate it automatically:
 ```bash
 ./node-register.sh create-config
 ```
