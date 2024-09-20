@@ -4,7 +4,7 @@ The transfer of cryptocurrencies to and from PBC is facilitated by deposit and w
 Deposit and withdrawal oracles are a type of [small oracle](../pbc-fundamentals/dictionary.md#small-oracle) and are constituted by three nodes.
 
 A minimum of 275k MPC tokens must be staked as collateral to provide deposit and withdrawal oracle services.
-In turn, deposit and withdrawal oracles receive 1% (minimum 25 USD cents) of the value of any transfer as a reward. 
+In turn, deposit and withdrawal oracles receive 1% of the value of any transfer as a reward. 
 These rewards are then split evenly between the three nodes that form the oracle.
 
 Below we explain how to make your node eligible to join a withdrawal and deposit oracle, and how to leave an oracle if you wish to 
@@ -21,14 +21,14 @@ stop providing the service.
 ## How to register your node for oracle service
 
 To join a deposit and withdrawal oracle first you have to register your interest in joining one. This can be done in [Browser](https://browser.partisiablockchain.com/blocks)
-from the _Jobs_ section of the [Node operation menu](https://browser.partisiablockchain.com/node-operation). This section should show that 25K MPC are already
-allocated as stake for running a [baker node](../pbc-fundamentals/dictionary.md#baker-node). 
+from the **Jobs** section of the [Node operation menu](https://browser.partisiablockchain.com/node-operation). This section should show that 25K MPC are already
+allocated as stake for running a [baker node](../pbc-fundamentals/dictionary.md#baker-node).
 
 Step-by-step: 
 
 1. Go to  [Node operation](https://browser.partisiablockchain.com/node-operation) 
 2. Sign in
-3. Click "REGISTER" beneath _Oracle_ in the _Jobs_ section
+3. Click "REGISTER" beneath _Oracle_ in the **Jobs** section
 4. A registration menu will be displayed. Assign 250K MPC tokens as a stake and click on the REGISTER button
 
 Now your stake has been associated to the large oracle contract and your node is eligible to join a deposit or withdrawal oracle. You can confirm the amount staked to oracle 
@@ -40,8 +40,8 @@ Deposit and withdrawal oracles are randomly selected from nodes with 250K staked
 contract. If your tokens are already locked to a deposit or withdrawal oracle, you will not be selected to a new oracle until the [epoch](../pbc-fundamentals/dictionary.md#epoch) ends and the [pending period](node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) is over.  
 
 When the deposit or withdrawal limit has been met, three new nodes will be selected. The tokens of the three nodes
-associated with a specific oracle will get pending status for 14 days. Your node can at any time serve in one oracle for each 250K tokens associated to [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)  and be
-reselected to same oracle if you have enough tokens associated.
+associated with a specific oracle will get pending status for 14 days. Your node can at any time serve in one oracle for each 250K tokens associated to the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract) and
+it can be reselected to the same oracle if you have enough tokens associated.
 
 
 ## How to leave a deposit or withdrawal oracle
@@ -52,16 +52,17 @@ you [disassociate](https://browser.partisiablockchain.com/contracts/04f1ab744630
 the tokens from the large oracle contract, your node will no longer be eligible to serve in deposit and withdrawal
 oracles.
 
-If the node is currently [serving](#how-to-find-out-which-small-oracle-your-node-serves) in a deposit or withdrawal oracle. You can disassociate the tokens after the oracle rotates. This happens when the deposit of 25 ETH or withdrawal limit of 50 ETH has been met.
+If the node is currently [serving](#how-to-find-out-which-small-oracle-your-node-serves) in a deposit or withdrawal oracle, you must wait for the oracle to rotate to disassociate your tokens.
+The oracle rotates either when it reaches either the deposit limit of 25 ETH or the withdrawal limit of 50 ETH.
 
-If you cannot wait for the deposit or withdrawal rotation, or if your node has to be shut down for
-maintenance. You can request a new oracle if the oracle is at least 14 days old. This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the
+If you cannot wait for the oracle to rotate, or if your node has to be shut down for
+maintenance, you can request a new oracle if the oracle is at least 14 days old. This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the
 oracle and three new nodes will be selected. The tokens of the three nodes associated with a specific oracle will get pending
 status for 14 days. 
 
 If you have enough tokens available the node can be reselected for the same oracle. This can be prevented by
 [disassociating](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
-unused tokens in the large oracle contract. Only do this action, if you want your node to leave all oracle services.
+unused tokens in the large oracle contract. Only do this if you want your node to leave all oracle services.
 
 ### How to find out which small oracle your node serves
 
