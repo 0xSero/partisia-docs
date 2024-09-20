@@ -46,16 +46,17 @@ dead-link-check:
   image: registry.gitlab.com/partisia/dockerimages/shellscripting
   stage: deploy
   dependencies:
-  - build-site
+    - build-site
   except:
-  - main
+    - main
   allow_failure: true
   script:
-  - apt update && apt install -y linkchecker
-  - linkchecker -t 8 --no-robots --check-extern -ignore-url="https://reader\.partisiablockchain\.com.*" --ignore-url="/builds/partisiablockchain.*" --ignore-url="/documentation/node-operations/what-is-a-node-operator.html" --ignore-url="/documentation/index.html" --ignore-url="https://twitter.com/partisiampc" --ignore-url="/documentation/smart-contracts/introduction-to-smart-contracts.html" public/index.html
+    - apt update && apt install -y linkchecker
+    - linkchecker -t 8 --no-robots --check-extern --ignore-url="https://reader\.partisiablockchain\.com.*" --ignore-url="/builds/partisiablockchain.*" --ignore-url="/documentation/node-operations/what-is-a-node-operator.html" --ignore-url="/documentation/index.html" --ignore-url="https://twitter.com/partisiampc" --ignore-url="/documentation/smart-contracts/introduction-to-smart-contracts.html" public/index.html
   artifacts:
     paths:
-    - public
+      - public
+
 
 spellcheck:
   image: registry.gitlab.com/partisia/dockerimages/shellscripting
