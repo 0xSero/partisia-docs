@@ -2,9 +2,10 @@
 
 The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../pbc-fundamentals/dictionary.md#oracle-node).
 Deposit and withdrawal oracles are a type of [small oracle](../pbc-fundamentals/dictionary.md#small-oracle) and are constituted by three nodes.
+
 A minimum of 275k MPC tokens must be staked as collateral to provide deposit and withdrawal oracle services.
-In turn, deposit and withdrawal oracles receive 1% (minimum 25 USD cents) of value of any transfer. Which is then split evenly
-between the three nodes that form the oracle.
+In turn, deposit and withdrawal oracles receive 1% (minimum 25 USD cents) of the value of any transfer as a reward. 
+These rewards are then split evenly between the three nodes that form the oracle.
 
 Below we explain how to make your node eligible to join a withdrawal and deposit oracle, and how to leave an oracle if you wish to 
 stop providing the service.
