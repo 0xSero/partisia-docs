@@ -318,9 +318,9 @@ The new config, with the new map, `chainConfigs`, that maps a supported chain to
         "producerConfig": {
             "accountKey": "YOUR ACCOUNT KEY",
             "finalizationKey": "YOUR FINALIZATION KEY",
-            "ethereumUrl": "Old endpoint config, should not be used anymore",
-            "polygonUrl": "Old endpoint config, should not be used anymore",
-            "bnbSmartChainUrl": "Old endpoint config, should not be used anymore",
+            "ethereumUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
+            "polygonUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
+            "bnbSmartChainUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
             "host": "YOUR IP",
             "chainConfigs: {
                 "Ethereum": "https://example.com",

@@ -31,7 +31,12 @@ To fill out the config.json for a block producing node you need to add the follo
 - Ethereum, BNB and Polygon API endpoints. These are URL addresses pointing to a reader node on the mainnet for the respective blockchains (
   You should use a source you find trustworthy)
   . [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0)
-  has a provider list and further information about endpoints. **Note** that this config structure has been updated to a map `chainConfigs`, that maps a chain to its endpoint, see the example below for details.
+  has a provider list and further information about endpoints.
+  
+???+ note
+
+    The chain endpoints config has been updated such that the chain endpoints now reside in a map, `chainConfigs`, see the config example below for details.
+
 - The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
   producers should be obtained by reaching out to the community.
@@ -75,9 +80,9 @@ Your file should have similar contents to the one in the example below.
         "producerConfig": {
             "accountKey": "YOUR ACCOUNT KEY",
             "finalizationKey": "YOUR FINALIZATION KEY",
-            "ethereumUrl": "Old endpoint config, should not be used anymore",
-            "polygonUrl": "Old endpoint config, should not be used anymore",
-            "bnbSmartChainUrl": "Old endpoint config, should not be used anymore",
+            "ethereumUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
+            "polygonUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
+            "bnbSmartChainUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
             "host": "YOUR IP",
             "chainConfigs: {
                 "Ethereum": "https://example.com",
