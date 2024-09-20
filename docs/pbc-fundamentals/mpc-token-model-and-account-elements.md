@@ -83,11 +83,11 @@ The fields of the [on-chain account information](https://partisiablockchain.gitl
 - `pendingRetractedDelegatedStakes`: MPC tokens, which were delegated to another user and are now being retracted and freed. Retraction of delegated MPC tokens has a 7 days waiting period during which they are kept here
 - `stakeable`: Specifies if this account is allowed to stake MPC tokens. Irrelevant for MPC token calculations
 
-### MPC tokens on contracts
+### On-chain contract information
 
-Contracts can hold MPC tokens, by transferring MPC tokens to them from another account or contract. The MPC tokens are stored in the field `mpcTokens` that can be seen in the [on-chain contract information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html).
-If a contract is deleted, the MPC tokens it may have held, are placed in the [context-free state](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/AccountStateLocal.html).
-The token model described in this document *does not* apply to contracts. Contracts can only hold tokens with the purpose of transferring them, and this amount can not be negative. 
+Contracts can hold MPC tokens, by transferring MPC tokens to them from another account or contract. The on-chain contract information is defined in the account-plugin [source code](https://gitlab.com/partisiablockchain/governance/account-plugin). The MPC tokens on contracts are stored in the field `mpcTokens` that can be seen in the `ContractStorage` [source code](https://gitlab.com/partisiablockchain/governance/account-plugin/-/blob/main/src/main/java/com/partisiablockchain/governance/account/ContractStorage.java).
+If a contract is deleted, the MPC tokens it may have held, are added to the context-free field `removedContractsMpcTokens` which can be seen in the `AccountStateLocal` [source code](https://gitlab.com/partisiablockchain/governance/account-plugin/-/blob/main/src/main/java/com/partisiablockchain/governance/account/AccountStateLocal.java).
+Contracts are simpler than accounts in the token model, since their tokens are always transferable, they can not be staked, and the amount is always non-negative.
 
 ## Definition of token amounts
 
