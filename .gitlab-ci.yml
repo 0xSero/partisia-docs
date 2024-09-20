@@ -46,13 +46,42 @@ dead-link-check:
   image: registry.gitlab.com/partisia/dockerimages/shellscripting
   stage: deploy
   dependencies:
+    - build-site
+  except:
+    - main
+  allow_failure: true
+  script:
+    - apt update && apt install -y linkchecker
+    - linkchecker -t 8 --no-robots --check-extern --ignore-url="https://reader\.partisiablockchain\.com.*" --ignore-url="/builds/partisiablockchain.*" --ignore-url="/documentation/node-operations/what-is-a-node-operator.html" --ignore-url="/documentation/index.html" --ignore-url="https://twitter.com/partisiampc" --ignore-url="/documentation/smart-contracts/introduction-to-smart-contracts.html" public/index.html
+  artifacts:
+    paths:
+      - public
+
+
+spellcheck:
+  image: registry.gitlab.com/partisia/dockerimages/shellscripting
+  stage: build
+  dependencies:
   - build-site
   except:
   - main
-  allow_failure: true
   script:
-  - apt update && apt install -y linkchecker
-  - linkchecker -t 8 --no-robots --check-extern --ignore-url="https://reader\.partisiablockchain\.com.*" --ignore-url="/builds/partisiablockchain.*" --ignore-url="/documentation/node-operations/what-is-a-node-operator.html" --ignore-url="/documentation/index.html" --ignore-url="https://twitter.com/partisiampc" --ignore-url="/documentation/smart-contracts/introduction-to-smart-contracts.html" public/index.html
-  artifacts:
-    paths:
-    - public
+  - apt update && apt install -y aspell
+  - shopt -s globstar
+  - |
+    touch maybe-misspelled-words.txt
+    for file in **/*.md; do
+      echo "Spellchecking $file"
+      echo "------"
+      cat "$file" | aspell --mode markdown -d en_US --personal=config/partisias_word_list.txt --home-dir=. list -v | sort -f | uniq -i | tee -a maybe-misspelled-words.txt || true
+      echo -e "\033[30m-\033[0m"
+      echo -e "\033[30m-\033[0m"
+    done
+
+    echo -e "\033[30m-\033[0m"
+    echo -e "\033[30m-\033[0m"
+
+    echo "All unique potentially misspelled words, sorted:"
+    echo "------"
+    cat maybe-misspelled-words.txt | sort -f | uniq -i
+

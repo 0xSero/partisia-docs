@@ -42,7 +42,7 @@ Step by step:
 1. Go to [Node operation](https://browser.partisiablockchain.com/node-operation)
 2. Sign in
 3. Click "SEE MORE" to unfold the collapsed delegation table located below the **Delegated from others** section
-4. In the **Amount** column of the offer you wish to respond to, either click on the checkmark icon to accept the full amount, 
+4. In the **Amount** column of the offer you wish to respond to, either click on the check mark icon to accept the full amount, 
 5. or click on the minus icon to accept a partial amount
 
 ### How to retract delegated MPC tokens

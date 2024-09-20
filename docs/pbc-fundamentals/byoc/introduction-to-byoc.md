@@ -1,6 +1,6 @@
 # BYOC
 
-In this article we will explain what byoc is, how to bring your own coins to the mainnet and the testnet.
+In this article we will explain what BYOC is, how to bring your own coins to the mainnet and the testnet.
 
 ### What is BYOC and gas
 
@@ -50,7 +50,7 @@ In practice, you can follow these steps:
 
 | Deposit native coin                                                                                                                                                                         | Deposit token based coin                                                                                                                                                         |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Go to the [byoc page](https://browser.partisiablockchain.com/bridge) and login to your PBC account                                                                             | 1. Go to the [byoc page](https://browser.partisiablockchain.com/bridge) and login to your PBC account                                                                  |
+| 1. Go to the [BYOC page](https://browser.partisiablockchain.com/bridge) and login to your PBC account                                                                             | 1. Go to the [BYOC page](https://browser.partisiablockchain.com/bridge) and login to your PBC account                                                                  |
 | 2. Click _deposit_, either directly or through the three dots menu, on the coin you want to transfer                                                                                        | 2. Click approve, through the three dots menu, on the coin you want to transfer                                                                                                  |
 | 3. Click _Connect MetaMask_ to connect your external account                                                                                                                                | 3. Click _Connect MetaMask_ to connect your external account                                                                                                                     |
 | 4. Enter the amount you wish to transfer in the dialog                                                                                                                                      | 4. Enter the amount you wish to approve in the dialog                                                                                                                            |
@@ -79,7 +79,7 @@ the [Browser](https://browser.partisiablockchain.com/bridge).
 
 In practice, you should follow these steps:
 
-1. Go to the [byoc page](https://browser.partisiablockchain.com/bridge) and login to your PBC account
+1. Go to the [BYOC page](https://browser.partisiablockchain.com/bridge) and login to your PBC account
 2. Click _withdraw_, through the three dots menu, on the coin you want to transfer
 3. Click _Connect MetaMask_ to connect your external account
 4. Enter the amount you wish to withdraw in the dialog
@@ -96,6 +96,6 @@ You need coins from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d
 recommend you to find a faucet. This can be found using a simple web search.
 
 To see the GoerliETH in MetaMask you need to change the network to the Goerli Test Network.
-After having deposited GoerliETH to your Metamask account you can use
+After having deposited GoerliETH to your MetaMask account you can use
 the [PBC testnet Token Bridge](https://browser.partisiablockchain.com/bridge)
 to [deposit](#how-to-deposit-using-the-bridge) GoerliETH and get gas on the testnet.
