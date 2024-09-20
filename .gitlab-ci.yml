@@ -49,11 +49,10 @@ dead-link-check:
   - build-site
   except:
   - main
-  when: manual
   allow_failure: true
   script:
   - apt update && apt install -y linkchecker
-  - linkchecker -t 8 --no-robots --check-extern public/index.html
+  - linkchecker -t 8 --no-robots --check-extern -ignore-url="https://reader\.partisiablockchain\.com.*" --ignore-url="/builds/partisiablockchain.*" --ignore-url="/documentation/node-operations/what-is-a-node-operator.html" --ignore-url="/documentation/index.html" --ignore-url="https://twitter.com/partisiampc" --ignore-url="/documentation/smart-contracts/introduction-to-smart-contracts.html" public/index.html
   artifacts:
     paths:
     - public
