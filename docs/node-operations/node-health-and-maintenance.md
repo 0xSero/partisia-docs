@@ -334,7 +334,7 @@ To migrate an old config to the new style, the easiest way is to simply run the 
 ```bash
 ./node-register.sh create-config
 ```
-Alternatively, `config.json`, can be edited manually to be as shown in the example above.
+Alternatively, `config.json` can be edited manually to be as shown in the example above.
 
 ### How to migrate your node to a different VPS
 
