@@ -136,7 +136,8 @@ We see that our sender account has 9996790 MPC tokens in their account.
 
 Let us say we wish to transfer 4 MPC tokens from the sender account to the receiver account.
 
-We are going to be following the flow described [here](https://docs.cloud.coinbase.com/rosetta/docs/flow-of-operations#construction-api)
+We are going to be following the flow
+described [here](https://docs.cloud.coinbase.com/rosetta/docs/flow-of-operations#construction-api)
 
 ### Preprocessing
 
@@ -236,8 +237,15 @@ c9aaa...
 
 ### Creating the signed transaction
 
-Signing the above unsigned transaction hash is done somewhere else. The result is going to be a "signing_payload" object
-as described here. Concretely, the data we will send to the /[construction/combine](https://docs.cloud.coinbase.com/rosetta/reference/constructioncombine) endpoint will look something like:
+The signature format expected is {r, s, v} where {r, s} are 32 bytes each, and v is one byte. The signature takes up 65
+bytes and must be hex encoded. 
+
+One way to construct such a signature is to sign the message with any library that can
+produce signatures for Ethereum. This produces a signature {r, s, w} where w - 27 = v. The result is going to be a
+“signing_payload” object
+as described here. Specifically, the data sent to
+the /[construction/combine](https://docs.cloud.coinbase.com/rosetta/reference/constructioncombine) endpoint will look
+something like:
 
 ```json
 {
