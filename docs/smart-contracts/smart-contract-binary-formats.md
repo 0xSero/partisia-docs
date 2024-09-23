@@ -46,221 +46,125 @@ The _ABI Format_ holds exactly the meta-data needed for finding types of the arg
 
 The RPC payload contains the short name identifying the action being called followed by each of the arguments for the action.
 
+<!-- Define mathjax macros -->
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [PayloadRpc](#payloadrpc)
-<p markdown>::= action:[Shortname](#shortname) arguments:[ArgumentRpc](#argumentrpc)* => action(arguments) </p>
-</div>
-</div>
+$$
+\definecolor{mathcolor}{RGB}{33,33,33}
+\definecolor{mathgray}{RGB}{100,100,100}
+\newcommand{\Rightarrowx}{{\color{mathgray} \  \Rightarrow \ \ }}
+\newcommand{\hexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor}\mathtt{#1}}}
+\newcommand{\nnhexi}[1]{{\color{mathcolor}\mathtt{0x}}{\color{mathgray}}{\color{mathcolor} #1}}
+\newcommand{\repeat}[2]{#1\text{*}#2}
+\newcommand{\byte}{\nnhexi{nn}}
+\newcommand{\bytes}[1]{\repeat{\byte{}}{\text{#1}}}
+$$
+
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<PayloadRpc>} \ := \ & \text{action:}\text{ShortName}\ \text{arguments:}\text{ArgumentRpc}\text{*}  \Rightarrowx \text{action(arguments)}  \\
+\end{align*}
+}
+$$
 
 The short name of an action is an u32 integer identifier that uniquely identifies the action within the smart contract.
 The short name is encoded as [unsigned LEB128 format](https://en.wikipedia.org/wiki/LEB128#Unsigned_LEB128), which means that short names have variable lengths.
 It is easy to determine how many bytes a LEB128 encoded number contains by examining bit 7 of each byte.
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [ShortName](#shortname)
-<p markdown> ::= pre:0xnn* last:0xnn => action </p>
-<p class="comment"> (where pre is 0-4 bytes that are &ge;0x80 and last &lt;0x80)</span></p>
-</div>
-</div>
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<ShortName>} \ := \ & \text{pre:}\nnhexi{nn}\text{*}\ \text{last:}\nnhexi{nn}\ \Rightarrowx \text{Action}  &\text{(where pre is 0-4 bytes that are &ge;0x80 and last&lt;0x80)} \\
+\end{align*}
+}
+$$
 
 The argument binary format depends on the type of the argument. The argument types for each action is defined by the contract, and can be read from the ABI format.
 
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [ArgumentRpc](#argumentrpc) 
-::= 
-<div class="column-align" markdown>
-  <div class="field-and-comment-row">
-    <p >  0xnn => u8/i8 </p>
-    <p class="comment-top" >(i8 is two's complement)</p>
-  </div>
-  <div class="field-and-comment-row">
-    <p class="spaced-or" >| 0xnn×2 => u16/i16 </p>
-    <p class="comment">(big-endian, i16 is two's complement)</p>
-  </div>
-  <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn×4 => u32/i32 </p>
-      <p class="comment">(big-endian, i32 is two's complement)</p>
-  </div>  
-  <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn×8 => u64/i64 </p>
-      <p class="comment">(big-endian, i64 is two's complement)</p>
-  </div>  
-  <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn×16 => u128/i128 </p>
-      <p class="comment">(big-endian, i128 is two's complement)</p>
-  </div>  
-  <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn×32 => u256 </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn => Boolean </p>
-      <p class="comment">(false if b==0, true otherwise)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×21 => Address </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×32 => Hash </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×33 => PublicKey </p>
-      <p class="comment">(point on an elliptic curve)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×65 => Signature </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×96 => BlsPublicKey </p>
-      <p class="comment">(point on an elliptic curve)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×48 => BlsSignature </p>
-      <p class="comment">(point on an elliptic curve)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×len => Array[u8;len] </p>
-      <p class="comment">(containing the len u8 values)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) utf8:0xnn×len => string </p>
-      <p class="comment">(with len UTF-8 encoded bytes)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthRpc](#lengthrpc) elems:[ArgumentRpc](#argumentrpc) *len => Vec&lt;&gt; </p>
-      <p class="comment">(containing the len elements)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn arg:[ArgumentRpc](#argumentrpc)  => Option&lt;&gt; </p>
-      <p class="comment">(None if b==0, Some(arg) otherwise)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc)  ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc)  => Struct S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[ArgumentRpc](#argumentrpc)  ... <i>f<sub>n</sub></i>:[ArgumentRpc](#argumentrpc)  => Enum{variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-  </div>
-</div>
-</div>
-</div>
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<ArgumentRpc>} \ :=
+  \ & \byte{} \ \Rightarrowx \text{u8/i8} & \text{(i8 is twos complement)} \\
+| \ & \bytes{2} \ \Rightarrowx \text{u16/i16} & \text{(big endian, i16 is two's complement)} \\
+| \ & \bytes{4} \ \Rightarrowx \text{u32/i32} & \text{(big endian, i32 is two's complement)} \\
+| \ & \bytes{8} \ \Rightarrowx \text{u64/i64} & \text{(big endian, i64 is two's complement)} \\
+| \ & \bytes{16} \ \Rightarrowx \text{u128/i128} & \text{(big endian, i128 is two's complement)} \\
+| \ & \bytes{32} \ \Rightarrowx \text{u256} \\
+| \ & \text{b:}\byte{} \ \Rightarrowx \text{bool} & \text{(false if b==0, true otherwise)} \\
+| \ & \bytes{21} \ \Rightarrowx \text{Address} \\
+| \ & \bytes{32} \ \Rightarrowx \text{Hash} \\
+| \ & \bytes{33} \ \Rightarrowx \text{PublicKey} \\
+| \ & \bytes{65} \ \Rightarrowx \text{Signature} \\
+| \ & \bytes{96} \ \Rightarrowx \text{BlsPublicKey} \\
+| \ & \bytes{48} \ \Rightarrowx \text{BlsSignature} \\
+| \ & \bytes{len} \ \Rightarrowx \text{Array }\text{[u8;len]} & \text{(containing the len u8 values)} \\
+| \ & \text{len:}\text{LengthRpc} \ \text{utf8:}\bytes{len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
+| \ & \text{len:}\text{LengthRpc} \ \text{elems:}\repeat{\text{ArgumentRpc}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
+| \ & \text{b:}\byte{} \ \text{arg:}\text{ArgumentRpc} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
+| \ & f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
+| \ & \text{variant:} \byte{} \ f_1 \text{:ArgumentRpc} \dots f_n \text{:ArgumentRpc} \Rightarrowx \text{Enum}\ \{ \text{variant}, f_1, f_2, \dots, f_n \} & \\
+\end{align*}
+}
+$$
 
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
-For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a big-endian 32-bit unsigned integer.
+For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a big endian 32-bit unsigned integer.
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [LengthRpc](#lengthrpc)
-<p markdown>::= 0xnn×4 => u32 </p>
-<p class="comment">(big-endian)</p>
-</div>
-</div>
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<LengthRpc>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  \text{(big endian)} \\
+\end{align*}
+}
+$$
+
+<!-- fix syntax highlighting* -->
 
 ## State Binary Format
 
 Integers are stored as little-endian. Signed integers are stored as two's
 complement. Note that lengths are also stored as little-endian.
 
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [State](#state)
-::= 
-<div class="column-align" markdown>
-  <div class="field-and-comment-row">
-    <p >  0xnn => u8/i8 </p>
-    <p class="comment-top" >(i8 is two's complement)</p>
-  </div>
-  <div class="field-and-comment-row">
-    <p class="spaced-or" >| 0xnn×2 => u16/i16 </p>
-    <p class="comment">(little-endian, i16 is two's complement)</p>
-  </div>
-  <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn×4 => u32/i32 </p>
-      <p class="comment">(little-endian, i32 is two's complement)</p>
-  </div>  
-  <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn×8 => u64/i64 </p>
-      <p class="comment">(little-endian, i64 is two's complement)</p>
-  </div>  
-  <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn×16 => u128/i128 </p>
-      <p class="comment">(little-endian, i128 is two's complement)</p>
-  </div>  
-  <div class="field-and-comment-row">
-      <p class="spaced-or" >| 0xnn×32 => u256 </p>
-  </div>  
-   <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn => Boolean </p>
-      <p class="comment">(false if b==0, true otherwise)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×21 => Address </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×32 => Hash </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×33 => PublicKey </p>
-      <p class="comment">(point on an elliptic curve)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×65 => Signature </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×96 => BlsPublicKey </p>
-      <p class="comment">(point on an elliptic curve)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×48 => BlsSignature </p>
-      <p class="comment">(point on an elliptic curve)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×len => Array[u8;len] </p>
-      <p class="comment">(containing the len u8 values)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) utf8:0xnn×len => String </p>
-      <p class="comment">(with len UTF-8 encoded bytes)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| len:[LengthState](#lengthstate) elems:[State](#state)×len => Vec&lt;&gt; </p>
-      <p class="comment">(containing the len elements)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| b:0xnn arg:[State](#state) => Option&lt;&gt; </p>
-      <p class="comment">(None if b==0, Some(arg) otherwise)</p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => Struct S {<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| variant:0xnn <i>f<sub>1</sub></i>:[State](#state) ... <i>f<sub>n</sub></i>:[State](#state) => Enum{variant,<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-  </div>  
-  <div class="field-and-comment-row" markdown> 
-      <p markdown class="spaced-or" >| 0xnn×4 => AvlTree{<i>f<sub>1</sub></i>,<i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} </p>
-  </div>
-</div>
-</div>
-</div>
-
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<State>} \ := \ & \nnhexi{nn} \ \Rightarrowx \text{u8/i8} & \text{(i8 is twos complement)} \\
+| \ & \bytes{2} \ \Rightarrowx \text{u16/i16} & \text{(little endian, i16 is two's complement)} \\
+| \ & \bytes{4} \ \Rightarrowx \text{u32/i32} & \text{(little endian, i32 is two's complement)} \\
+| \ & \bytes{8} \ \Rightarrowx \text{u64/i64} & \text{(little endian, i64 is two's complement)} \\
+| \ & \bytes{16} \ \Rightarrowx \text{u128/i128} & \text{(little endian, i128 is two's complement)} \\
+| \ & \bytes{32} \ \Rightarrowx \text{u256} \\
+| \ & \text{b:}\byte{} \ \Rightarrowx \text{bool} & \text{(false if b==0, true otherwise)} \\
+| \ & \bytes{21} \ \Rightarrowx \text{Address} \\
+| \ & \bytes{32} \ \Rightarrowx \text{Hash} \\
+| \ & \bytes{33} \ \Rightarrowx \text{PublicKey} \\
+| \ & \bytes{65} \ \Rightarrowx \text{Signature} \\
+| \ & \bytes{96} \ \Rightarrowx \text{BlsPublicKey} \\
+| \ & \bytes{48} \ \Rightarrowx \text{BlsSignature} \\
+| \ & \bytes{len} \ \Rightarrowx \text{Array }\text{[u8;len]} & \text{(containing the len u8 values)} \\
+| \ & \text{len:}\text{LengthState} \ \text{utf8:}\bytes{len} \ \Rightarrowx \text{String} & \text{(with len UTF-8 encoded bytes)} \\
+| \ & \text{len:}\text{LengthState} \ \text{elems:}\repeat{\text{State}}{\text{len}} \ \Rightarrowx \text{Vec&lt;&gt;} & \text{(containing the len elements)} \\
+| \ & \text{b:}\byte{} \ \text{arg:}\text{State} \ \Rightarrowx \text{Option&lt;&gt;} & \text{(None if b==0, Some(arg) otherwise)} \\
+| \ & f_1 \text{:State} \dots f_n \text{:State} \Rightarrowx \text{Struct S}\ \{ f_1, f_2, \dots, f_n \} & \\
+| \ & \text{variant:} \byte{} \ f_1 \text{:State} \dots f_n \text{:State} \Rightarrowx \text{Enum}\ \{ \text{variant}, f_1, f_2, \dots, f_n \} & \\
+| \ & \bytes{4} \ \Rightarrowx \text{AvlTreeMap} \\
+\end{align*}
+}
+$$
 
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
-For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a little-endian 32-bit unsigned integer.
+For arguments with variable lengths, such as Vecs or Strings the number of elements is represented as a little endian 32-bit unsigned integer.
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [LengthState](#lengthstate)
-<p markdown>::= 0xnn×4 => u32 </p>
-<p class="comment">(little-endian)</p>
-</div>
-</div>
-
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<LengthState>} \ := \ & \bytes{4} \ \Rightarrowx \text{u32}  &\text{(little endian)} \\
+\end{align*}
+}
+$$
 
 **Note:** An AvlTreeMap is only stored in wasm state as an integer. The actual content of the AvlTreeMap is stored
 outside the wasm code. The content of the AvlTreeMap is accessed using external calls to the java code. 
@@ -268,47 +172,44 @@ The integer stored is the tree id of the AvlTreeMap and is used as a pointer to 
 This is done to avoid having to serialize and deserialize the entire content of the Map for every invocation
 saving gas cost.
 
+<!-- fix syntax highlighting* -->
 
+### CopySerializable
 
-### CopySerializable Binary Format
-
-A state type is said to be CopySerializable, if its serialization is
-identical to its in-memory representation, and thus requires minimal
+A state type is said to be CopySerializable, if it's serialization is
+identical to it's in-memory representation, and thus require minimal
 serialization overhead. PBC have efficient handling for types that
 are CopySerializable. Internal pointers are the main reason that types are not
 CopySerializable.
 
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<CopySerializable>} \ :=
+  \ & \text{uXXX} \Rightarrowx \text{true}\\
+| \ & \text{iXXX} \Rightarrowx \text{true}\\
+| \ & \text{bool} \Rightarrowx \text{true}\\
+| \ & \text{Address} \Rightarrowx \text{true}\\
+| \ & \text{[u8;N]} \Rightarrowx \text{true}\\
+| \ & \text{String} \Rightarrowx \text{false}\\
+| \ & \text{Vec<T>} \Rightarrowx \text{false}\\
+| \ & \text{Option<T>} \Rightarrowx \text{false}\\
+| \ & \text{SortedVecMap<K, V>} \Rightarrowx \text{false}\\
+| \ & \text{SortedVecSet<K, V>} \Rightarrowx \text{false}\\
+| \ & \text{AvlTreeMap<K, V>} \Rightarrowx \text{false}\\
+| \ & \text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \} \Rightarrowx \text{CopySerializable}(T_1) \wedge \dots \wedge \text{CopySerializable}(T_n) \wedge \text{WellAligned(S)} \\
+| \ & \text{Enum} \ \{ \text{variant}, f_1, f_2, \dots, f_n \} \Rightarrowx \text{false}\\
+\end{align*}
+}
+$$
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [CopySerializable](#copyserializable)
-::= 
-<div class="column-align" markdown>
-<p markdown  >  uXXX => true </p>
-<p markdown class="spaced-or" >| iXXX => true </p>
-<p markdown class="spaced-or" >| Boolean  => true </p>
-<p markdown class="spaced-or" >| Address  => true </p>
-<p markdown class="spaced-or" >| [u8;n] => true </p>
-<p markdown class="spaced-or" >| String => false </p>
-<p markdown class="spaced-or" >| Vec&lt;T&gt; => false </p>
-<p markdown class="spaced-or" >| Option&lt;T&gt; => false </p>
-<p markdown class="spaced-or" >| SortedVecMap&lt;K,V&gt; => false </p>
-<p markdown class="spaced-or" >| SortedVecSet&lt;K,V&gt; => false </p>
-<p markdown class="spaced-or" >| AvlTreeMap&lt;K,V&gt; => false </p>
-<p markdown class="spaced-or" >| Struct S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>} =>
-[CopySerializable](#copyserializable)(<i>T<sub>1</sub></i>) &wedge; ... &wedge; [CopySerializable](#copyserializable)(<i>T<sub>n</sub></i>) &wedge; WellAligned(S) </p>
-<p markdown class="spaced-or" >| Enum{variant, <i>f<sub>1</sub></i>, <i>f<sub>2</sub></i>,...,<i>f<sub>n</sub></i>} => false </p>
-</div>
-</div>
-</div>
-
-
-The WellAligned constraint on Struct CopySerializable is to guarentee that struct layouts are identical to serialization.<div class="binary-format" style="display: inline" markdown><p style="display: inline" >Struct S {<i>f<sub>1</sub></i>:<i>T<sub>1</sub></i>,...,<i>f<sub>n</sub></i>:<i>T<sub>n</sub></i></sub></i>}</p></div>  is WellAligned if following points hold:
+The WellAligned constraint on Struct CopySerializable is to guarantee that
+struct layouts are identical to serialization.  \(\text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \}\) is WellAligned if following points hold:
 
 1. Annotated with `#[repr(C)]`. Read the [Rust Specification](https://doc.rust-lang.org/reference/type-layout.html#reprc-structs)
    for details on this representation.
-2. No padding: <div class="binary-format" style="display: inline" markdown><p  style="display: inline" >size_of(<i>S</i>) = size_of(<i>T<sub>1</sub></i>) + ... + size_of(<i>T<sub>n</sub></i>).</p></div>
-3. No wasted bytes when stored in array: <div class="binary-format" style="display: inline"><p  style="display: inline" markdown>size_of(<i>S</i>) mod align_of(<i>T<sub>n</sub></i>) = 0.</p></div>
+2. No padding: \(\text{size_of}(S) = \text{size_of}(T_1) + ... + \text{size_of}(T_n)\)
+3. No wasted bytes when stored in array: \(\text{size_of}(S) \mod \text{align_of}(T_n) = 0\)
 
 It may be desirable to manually add "padding" fields structs in order to
 achieve CopySerializable. While this will use extra unneeded bytes for the
@@ -329,314 +230,145 @@ These structs are not CopySerializable:
 - `Struct E5 { f1: u16, f2: u8 }` due to alignment not dividing size.
 - `Struct E6 { f1: Vec<u8> }` due to non-CopySerializable subfield.
 
-
 ## ABI Binary Format
 
 ### Type Specifier binary format
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [TypeSpec](#typespec) 
-::= 
-<div class="column-align" markdown>
-<p markdown > [SimpleTypeSpec](#simpletypespec)  </p>
-<p markdown class="spaced-or">| [CompositeTypeSpec](#compositetypespec) </p>
-<p markdown class="spaced-or">| [NamedTypeRef](#namedtyperef) </p>
-</div>
-</div>
-</div>
-
-[TypeSpec](#typespec) is an interface for the possible types of the contract. Subtypes implement this interface to mark them as valid TypeSpec types as specified by the abi grammar.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [NamedTypeRef](#namedtyperef) 
-<p markdown > ::= 0x00 Index:0xnn => NamedTypes(Index)  </p>
-</div>
-</div>
-
-The [NamedTypeRef](#namedtyperef) is a reference to locate a named type specification in the list of named types. 
-The index denotes the position in the list in which the specification is stored in.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [SimpleTypeSpec](#simpletypespec)
-::= 
-<div class="column-align" markdown>
-<p markdown > 0x01 => u8  </p>
-<p markdown class="spaced-or">| 0x02 => u16 </p>
-<p markdown class="spaced-or">| 0x03 => u32 </p>
-<p markdown class="spaced-or">| 0x04 => u64 </p>
-<p markdown class="spaced-or">| 0x05 => u128 </p>
-<p markdown class="spaced-or">| 0x18 => u256 </p>
-<p markdown class="spaced-or">| 0x06 => i8 </p>
-<p markdown class="spaced-or">| 0x07 => i16 </p>
-<p markdown class="spaced-or">| 0x08 => i32 </p>
-<p markdown class="spaced-or">| 0x09 => i64 </p>
-<p markdown class="spaced-or">| 0x0a => i128 </p>
-<p markdown class="spaced-or">| 0x0b => String  </p>
-<p markdown class="spaced-or">| 0x0c => Boolean </p>
-<p markdown class="spaced-or">| 0x0d => Address </p>
-<p markdown class="spaced-or">| 0x13 => Hash </p>
-<p markdown class="spaced-or">| 0x14 => PublicKey </p>
-<p markdown class="spaced-or">| 0x15 => Signature </p>
-<p markdown class="spaced-or">| 0x16 => BlsPublicKey </p>
-<p markdown class="spaced-or">| 0x17 => BlsSignature </p>
-</div>
-</div>
-</div>
-
-The [SimpleTypeSpec](#simpletypespec) represents the possible simple types in the contract.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [CompositeTypeSpec](#compositetypespec) 
-::= 
-<div class="column-align" markdown >
-  <p markdown > 0x0e T:[TypeSpec](#typespec) => Vec&lt;T&gt; </p>
-  <p class="spaced-or" markdown > | 0x0f K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => Map&lt;V,K&gt; </p>
-  <p class="spaced-or" markdown > | 0x10 T:[TypeSpec](#typespec) => Set&lt;T&gt; </p>
-  <div class="field-and-comment-row" >
-    <p class="spaced-or" > | 0x11 L:0xnn => Array[u8;L] </p>
-    <p class="comment">(0x00 &le; L &le; 0x7F)</p>
-  </div>
-  <p class="spaced-or" markdown > | 0x12 T:[TypeSpec](#typespec) => Option&lt;T&gt; </p>
-  <p class="spaced-or" markdown > | 0x19 K:[TypeSpec](#typespec) V:[TypeSpec](#typespec) => AvlTreeMap&lt;V,K&gt; </p>
-</div>
-</div>
-</div>
-
-The [CompositeTypeSpec](#compositetypespec) represents the possible composite types in the contract, such as vecs, sets and maps.
-
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<TypeSpec>} \ := \ &\text{SimpleTypeSpec} \\
+| \ &\text{CompositeTypeSpec} \\
+| \ &\text{NamedTypeRef} \\
+\\
+\text{<NamedTypeRef>} \ := \ &\hexi{00} \ \text{Index}:\nnhexi{nn} \Rightarrowx NamedTypes(\text{Index}) \\
+\\
+\text{<SimpleTypeSpec>} \ := \ &\hexi{01} \ \Rightarrowx \text{u8} \\
+| \ &\hexi{02} \ \Rightarrowx \text{u16} \\
+| \ &\hexi{03} \ \Rightarrowx \text{u32} \\
+| \ &\hexi{04} \ \Rightarrowx \text{u64} \\
+| \ &\hexi{05} \ \Rightarrowx \text{u128} \\
+| \ &\hexi{18} \ \Rightarrowx \text{u256} \\
+| \ &\hexi{06} \ \Rightarrowx \text{i8} \\
+| \ &\hexi{07} \ \Rightarrowx \text{i16} \\
+| \ &\hexi{08} \ \Rightarrowx \text{i32} \\
+| \ &\hexi{09} \ \Rightarrowx \text{i64} \\
+| \ &\hexi{0a} \ \Rightarrowx \text{i128} \\
+| \ &\hexi{0b} \ \Rightarrowx \text{String} \\
+| \ &\hexi{0c} \ \Rightarrowx \text{bool} \\
+| \ &\hexi{0d} \ \Rightarrowx \text{Address} \\
+| \ &\hexi{13} \ \Rightarrowx \text{Hash} \\
+| \ &\hexi{14} \ \Rightarrowx \text{PublicKey} \\
+| \ &\hexi{15} \ \Rightarrowx \text{Signature} \\
+| \ &\hexi{16} \ \Rightarrowx \text{BlsPublicKey} \\
+| \ &\hexi{17} \ \Rightarrowx \text{BlsSignature} \\
+\\
+\text{<CompositeTypeSpec>} \ := \ &\hexi{0e} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Vec<}\text{T>} \\
+| \ &\hexi{0f} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{Map <}\text{K}, \text{V>} \\
+| \ &\hexi{10} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Set<}\text{T>} \\
+| \ &\hexi{11} \text{ L:}\nnhexi{nn} \Rightarrowx \text{[u8; }\text{L}\text{]}  (\hexi{00} \leq L \leq \hexi{7F}) \\
+| \ &\hexi{12} \text{ T:}\text{TypeSpec} \Rightarrowx \text{Option<}\text{T>} \\
+| \ &\hexi{19} \text{ K:}\text{TypeSpec}\text{ V:}\text{TypeSpec} \Rightarrowx \text{AvlTreeMap <}\text{K}, \text{V>} \\
+\\
+\end{align*}
+}
+$$
 
 **NOTE:** `Map` and `Set` cannot be used as RPC arguments since it's not possible for a
 caller to check equality and sort order of the elements without running the code.
 
 Only arrays of lengths between (including) 0 and 127 are supported. The high bit in length is reserved for later extensions.
 
-### ABI File binary format
+#### ABI File binary format
 
+All `Identifier` names must be [valid Java identifiers](https://docs.oracle.com/javase/specs/jls/se20/html/jls-3.html#jls-3.8); other strings are reserved for future extensions.
 
-<div class="binary-format" markdown>
-##### [FileAbi](#fileabi) 
-::= {
-<div class="field-with-comment" markdown>
-<p markdown> Header: 0xnn×6 </p>
-<p class="comment">(The header is always "PBCABI" in ASCII)</span> </p>
-</div>  
-<div class="fields"/>
-VersionBinder: 0xnn×3 <br>
-VersionClient: 0xnn×3 <br>
-Contract: [ContractAbi](#contractabi)
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<FileAbi>} \ := \ \{ \
+&\text{Header: } \bytes{6},\text{The header is always "PBCABI" in ASCII}\\
+&\text{VersionBinder: } \bytes{3} \ \\
+&\text{VersionClient: } \bytes{3} \ \\
+&\text{Contract: ContractAbi} \ \} \\
+\\
+\text{<ContractAbi>} \ := \ \{ \
+&\text{NamedTypes: List<NamedTypeSpec>}, \\
+&\text{Hooks: List<FnAbi>}, \\
+&\text{StateType: TypeSpec} \ \} \\
+\\
+\text{<NamedTypeSpec>} \ := \
+&\hexi{01} \ \text{StructTypeSpec}\\
+|\ & \hexi{02} \ \text{EnumTypeSpec} \\
+\\
+\text{<StructTypeSpec>} \ := \ \{ \
+&\text{Name: Identifier}, \\
+&\text{Fields: List<FieldAbi>} \ \} \\
+\\
+\text{<EnumTypeSpec>} \ := \ \{ \
+&\text{Name: Identifier}, \\
+&\text{Variants: List<EnumVariant>} \ \} \\
+\\
+\text{<EnumVariant>} \ := \ \{ \
+&\text{Discriminant: } \nnhexi{nn} \ \text{def: NamedTypeRef} \ \} \\
+\\
+\text{<FnAbi>} \ := \ \{ \
+&\text{Kind: FnKind}, \\
+&\text{Name: Identifier}, \\
+&\text{Shortname: LEB128}, \\
+&\text{Arguments: List<ArgumentAbi>}  \\
+&\text{SecretArgument: ArgumentAbi} \ \} &\text{Only present if Kind is } \hexi{17} \\
+\\
+\text{<FieldAbi>} \ := \ \{ \
+&\text{Name: Identifier}, \\
+&\text{Type: TypeSpec} \ \} \\
+\\
+\text{<ArgumentAbi>} \ := \ \{ \
+&\text{Name: Identifier}, \\
+&\text{Type: TypeSpec} \ \} \\
+\\
+\text{<Identifier>} \ := \ \phantom{\{} \
+&\text{len:}\bytes{4} \ \text{utf8:}\bytes{len}  \text{ utf8 must be Rust identifier, len is big endian} \\
+\\
+\text{<LEB128>} \ := \ \phantom{\{} \
+&\text{A LEB128 encoded unsigned 32 bit integer (1-5 bytes).} \\
+\\
+\text{<FnKind>} \ := \ \
+&\hexi{01} \ \Rightarrowx \text{Init} &\text{(Num allowed: 1)} \\
+|\ &\hexi{02} \ \Rightarrowx \text{Action}  &\text{(0..}\infty\text{)}\\
+|\ &\hexi{03} \ \Rightarrowx \text{Callback}  &\text{(0..}\infty\text{)}\\
+|\ &\hexi{10} \ \Rightarrowx \text{ZkSecretInput}  &\text{(0..}\infty\text{)}\\
+|\ &\hexi{11} \ \Rightarrowx \text{ZkVarInputted}  &\text{(0..}\infty\text{))}\\
+|\ &\hexi{12} \ \Rightarrowx \text{ZkVarRejected}  &\text{(0..1)}\\
+|\ &\hexi{13} \ \Rightarrowx \text{ZkComputeComplete}  &\text{(0..}\infty\text{))}\\
+|\ &\hexi{14} \ \Rightarrowx \text{ZkVarOpened}  &\text{(0..1)}\\
+|\ &\hexi{15} \ \Rightarrowx \text{ZkUserVarOpened} &\text{(0..1)}\\
+|\ &\hexi{16} \ \Rightarrowx \text{ZkAttestationComplete} &\text{(0..1)} \\
+|\ &\hexi{17} \ \Rightarrowx \text{ZkSecretInputWithExplicitType} &\text{(0..}\infty\text{)} \\
+|\ &\hexi{18} \ \Rightarrowx \text{ZkExternalEvent} &\text{(0..1} \\
+\end{align*}
+} \\
+$$
 
-}
-</div>
+Note that a `ContractAbi` is only valid if the `Hooks` list contains a specific
+number of hooks of each type, as specified in `FnKind`.
 
-The [FileAbi](#fileabi) holds all information concerning the contract, as well as metadata about versioning and headers.
+Also note that if a function has the deprecated kind `ZkSecretInput`, the default 
+secret argument associated with it is of type i32. 
 
-<div class="binary-format" markdown>
-##### [ContractAbi](#contractabi) 
-::= {
-<div class="fields"/>
-NamedTypes: List&lt;[NamedTypeSpec](#namedtypespec)&gt; <br>
-Hooks: List&lt;[FnAbi](#fnabi)&gt;<br>
-StateType: [TypeSpec](#typespec)<br>
-
-}
-</div>  
-
-The [ContractAbi](#contractabi) represents a contract. A contract is defined by the length of the shortnames 
-(Null if using LEB128), a list of structs, the init function, a list of invocable functions and the type of the state.
-
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [NamedTypeSpec](#namedtypespec) 
-::= 
-<div class="column-align" markdown>
-<p markdown > 0x01 [StructTypeSpec](#structtypespec) </p>
-<p markdown class="spaced-or"> | 0x02 [EnumTypeSpec](#enumtypespec) </p>
-</div>
-</div>
-</div>
-
-The [NamedTypeSpec](#namedtypespec) is an interface for the possible named types of the contract. 
-
-<div class="binary-format" markdown>
-##### [StructTypeSpec](#structtypespec) 
-::= {
-<div class="fields"/>
-Name: [Identifier](#identifier) <br>
-Fields: List&lt;[FieldAbi](#fieldabi)&gt;
-
-}
-</div>  
-
-The [StructTypeSpec](#structtypespec)  is a representation of a struct, specified by a name and a list of fields. 
-Each field is responsible for storing its own type.
-
-<div class="binary-format" markdown>
-##### [EnumTypeSpec](#enumtypespec)
-::= {
-<div class="fields"/>
-Name: [Identifier](#identifier) <br>
-Variants: List&lt;[EnumVariant](#enumvariant)&gt;
-
-}
-</div>  
-
-The [EnumTypeSpec](#enumtypespec) represents an enum specified by a name and a list of [EnumVariants](#enumvariant).
-Each variant should be a reference to a struct defining the name and fields of the variant.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [EnumVariant](#enumvariant)
-<p markdown > ::= discriminant:0xnn def:[NamedTypeRef](#namedtyperef) </p>
-</div>
-</div>
-
-Each [EnumVariant](#enumvariant) is specified by a discriminant and a reference to a struct defining the name and fields of the variant.
-
-<div class="binary-format" markdown>
-##### [FnAbi](#fnabi)
-::= {
-<div class="fields"/>
-Kind: [FnKind](#fnkind) <br>
-Name: [Identifier](#identifier) <br>
-Shortname: [LEB128](#leb128) <br>
-Arguments: List&lt;[ArgumentAbi](#argumentabi)&gt;
-<div class="field-with-comment" markdown>
-<p markdown>SecretArgument: [ArgumentAbi](#argumentabi)</p>
-<p class="comment">(Only present if Kind is 0x17) </p>
-</div>  
-
-}
-</div>
-
-The [FnKind](#fnkind) represents a function with a name, a shortname representation used for invocations and a list of arguments.
-
-<div class="binary-format" markdown>
-##### [FieldAbi](#fieldabi)
-::= {
-<div class="fields"/>
-Name: [Identifier](#identifier) <br>
-Type: [TypeSpec](#typespec)
-
-}
-</div>
-
-The [FieldAbi](#fieldabi) represents a field for a struct, specified by a name and a type.
-
-<div class="binary-format" markdown>
-##### [ArgumentAbi](#argumentabi)
-::= {
-<div class="fields"/>
-Name: [Identifier](#identifier) <br>
-Type: [TypeSpec](#typespec)
-
-}
-</div>  
-
-The [ArgumentAbi](#argumentabi) represents an argument. The argument is defined using a name and a type of the argument.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [Identifier](#identifier)
-<p markdown > ::= len:0xnn×4 utf8:0xnn×len </p>
-<p class="comment">(utf8 must be Rust identifier, len is big-endian)</p>
-</div>
-</div>
-
-All [Identifier](#identifier) names must be [valid Java identifiers](https://docs.oracle.com/javase/specs/jls/se20/html/jls-3.html#jls-3.8); other strings are reserved for future extensions.
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [LEB128](#leb128)
-<p markdown > ::= A LEB128 encoded unsigned 32 bit integer </p>
-<p class="comment">(1-5 bytes)</p>
-</div>
-</div>
-
-<p style="margin:0;">&nbsp;</p>
-
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [FnKind](#fnkind)
-::= 
-<div class="column-align" markdown >
-  <div class="field-and-comment-row" >
-    <p > 0x01 => <b>Init</b> </p>
-    <p class="comment">(Num allowed: 1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x02 => <b>Action</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x03 => <b>Callback</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x10 => <b>ZkSecretInput</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x11 => <b>ZkVarInputted</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x12 => <b>ZkVarRejected</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x13 => <b>ZkComputeComplete</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x14 => <b>ZkVarOpened</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x15 => <b>ZkUserVarOpened</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x16 => <b>ZkAttestationComplete</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x17 => <b>ZkSecretInputWithExplicitType</b> </p>
-  <p markdown class="comment">(0..&infin;)</p>
-  </div>
-  <div class="field-and-comment-row" >
-  <p markdown class="spaced-or"> | 0x18 => <b>ZkExternalEvent</b> </p>
-  <p markdown class="comment">(0..1)</p>
-  </div>
-</div>
-</div>
-</div>
-
-The [FnKind](#fnkind) represents all valid types of functions.  
-
-
-Note that a [ContractAbi](#contractabi) is only valid if the `Hooks` list contains a specific
-number of hooks of each type, as specified in [FnKind](#fnkind).
-
-Also note that if a function has the deprecated kind <b>ZkSecretInput</b>, the default 
-secret argument associated with it is of type `i32`. 
-
-
+<!-- fix syntax highlighting* -->
 ## Section format
 
-A [Section](#section) is an indexed chunk of a binary file of dynamic length, which is defined as follows:
+A section is an indexed chunk of a binary file of dynamic length, which is defined as follows:
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [Section](#section)
-<p markdown > ::= id:0xnn len:0xnn×4 data:0xnn×len </p>
-<p class="comment">(len is big-endian)</p>
-</div>
-</div>
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<Section >} \ :=
+\ & \text{id:}\byte{} \ \text{len:}\bytes{4} \ \text{data:}\bytes{len}  \ \text{(len is big endian)} \\
+\end{align*}
+}
+$$
 
 The id of a section is a single, leading byte that identifies the section.
 The section's length then follows and is given as a 32-bit, big-endian,
@@ -647,14 +379,14 @@ of the section should match this length.
 
 The format used by Wasm contracts to return results is a [section format](#section-format) defined as follows:
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [Result](#result)
-<p markdown > ::= section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
-</div>
-</div>
-
-
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<Result>} \ :=
+  \ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
+\end{align*}
+}
+$$
 <!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. Two ids are
@@ -672,13 +404,14 @@ ZK-contracts have their own binary file format  with the extension ".zkwa"
 that contains their compiled WASM code and ZK-circuit byte code. 
 This is a [section format](#section-format) defined as:
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [ZKWA](#result)
-<p markdown > ::= section<sub>0</sub>:[Section](#section) section<sub>1</sub>:[Section](#section) </p>
-</div>
-</div>
-
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<ZKWA>} \ :=
+\ & \text{section}_0\text{: Section} \ \text{section}_1\text{: Section} \\
+\end{align*}
+}
+$$
 <!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. The .zkwa format consists
@@ -691,13 +424,16 @@ of two sections indexed by the following ids:
 
 The file extension of Partisia Blockchain Contract Files is written as ".pbc". This is a [section format](#section-format) defined as:
 
-<div class="binary-format" markdown>
-<div class="type-with-comment" markdown>
-##### [PbcFile](#pbcfile)
-<p markdown>::= PbcHeader:0xnn×4 section<sub>0</sub>:[Section](#section) ... section<sub>n</sub>:[Section](#section) </p>
-<p class="comment">(The header is always "PBSC" in ASCII)</p>
-</div>
-</div>
+$$
+\textcolor{mathcolor}{
+\begin{align*}
+\text{<PbcFile>} \ :=
+\ & \text{PbcHeader:}\bytes{4},\text{The header is always "PBSC" in ASCII}\ \\
+\ & \text{section}_0\text{: Section} \ \dots \ \text{section}_n\text{: Section} \\
+\end{align*}
+}
+$$
+<!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. The .pbc format can
 consist of up to three sections indexed by the following ids:

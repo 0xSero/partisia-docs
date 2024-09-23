@@ -152,13 +152,13 @@ BPOC). There is a field for each producer called "status": - after this you will
 Confirmed means you are registered as a block producer and are formally eligible to participate in the committee.
 Pending means your public information is still awaiting manual approval from the team cross-checking the information you
 have given. If you cannot find your address in the BPOC at all you need to resend your registration. Alternatively, if
-you are on the list of committee members and still get persistent “Not signing” then you almost certainly have some
+you are on the list of committee members and still get persistent "Not signing" then you almost certainly have some
 problem in your config.json Probably you have a wrong or no key in one of the fields: networkKey, accountKey or
 finalizationKey, or you forgot to add the host IP address.   
 
 **Got a message with wrong protocol identifier** - This message comes every time a shutdown has occurred (in other words
 whenever a producer has not produced the block he is supposed to). So, on its own that message does not indicate a
-problem. But, if the log just repeats and don't change to a new message saying Executing Block… it could suggest you are
+problem. But, if the log just repeats and don't change to a new message saying Executing Block... it could suggest you are
 running an outdated version of our software, a version that does not pull the newest docker image automatically.   
 
 **WebApplicationException. Status=404** - You may assume all is well. You may encounter different types of not found

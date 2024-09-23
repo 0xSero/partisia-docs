@@ -18,7 +18,7 @@ consisting of three nodes.
    the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
    with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Sign in (upper right corner)
-3. Invoke the contract action _AssociateTokenstoContract_ with a minimum amount of 250K MPC token
+3. Invoke the contract action _AssociateTokensToContract_ with a minimum amount of 250K MPC token
 4. Submit transaction
 
 Deposit and withdrawal oracles are randomly selected from nodes with 250K staked MPC tokens associated to the [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation)

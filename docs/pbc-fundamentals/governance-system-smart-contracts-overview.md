@@ -58,7 +58,7 @@ transfers, withdrawals, deposits, price monitoring, staking of nodes and the aud
 Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablockchain.gitlab.io/documentation/node-operations/oracles-on-partisia-blockchain.html#what-is-a-small-oracle)) or check prices ([Price Oracles](../pbc-fundamentals/dictionary.md#price-oracle)). Each deposit and withdrawal oracle consist of 3 nodes selected by the Large oracle. There is a small oracle contract for each deposit and withdrawal oracle corresponding to the different coins supported on PBC. Price oracles can be supported by a large number of nodes, there is likewise a small oracle contract for each price oracle monitoring a price of a specific BYOC.
 
 ??? info "[Price Oracles](../pbc-fundamentals/dictionary.md#price-oracle)"
-    Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [ChainLink nodes](https://docs.chain.link/data-feeds/price-feeds). [Price oracle explanation](../pbc-fundamentals/dictionary.md#price-oracle). The contracts responsible for the price oracles are below.    
+    Price oracles ensures accurate prices for specific BYOC. The nodes serving in price oracles get price data from [Chainlink nodes](https://docs.chain.link/data-feeds/price-feeds). [Price oracle explanation](../pbc-fundamentals/dictionary.md#price-oracle). The contracts responsible for the price oracles are below.    
     [ETH Price Oracle](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d)    
     [BNB Price Oracle](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39)
 
@@ -84,7 +84,7 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
 ## MPC tokens
 
 [MPC tokens](dictionary.md#mpc-token) are the native tokens of PBC, they are used by node operators and other token holders for staking on a service
-provided by a node. Tokens can be confiscated in case of malicious behaviour and be used for dispute settlement. Staked
+provided by a node. Tokens can be confiscated in case of malicious behavior and be used for dispute settlement. Staked
 tokens incentives honest and reliable node services. [Read more about MPC tokens](dictionary.md#mpc-token)
 
 ??? info "[MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)"
@@ -126,7 +126,7 @@ operators in form of token rewards. The incentives depend on initial time and si
 by following system contracts. [Read more about PBC foundation](https://partisiablockchain.com/foundation)
 
 ??? info "[Foundation Eco-System](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)"
-    Allows foundation members to release remaining tokens from the eco-system pool to incentivise further growth of the
+    Allows foundation members to release remaining tokens from the Eco-system pool to incentivize further growth of the
     infrastructure and expansion of services. [See contract in browser](https://browser.partisiablockchain.com/contracts/01ad44bb0277a8df16408006c375a6fa015bb22c97)
 
     [Foundation eco-system contract documentation](https://partisiablockchain.gitlab.io/governance/foundation-contract/com/partisiablockchain/governance/foundationcontract/FoundationContract.html)
