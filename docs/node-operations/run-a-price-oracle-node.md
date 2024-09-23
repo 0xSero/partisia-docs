@@ -24,7 +24,7 @@ at one of the price oracles:
    with the address `04f1ab744630e57fb9cfcd42e6ccbf386977680014`
 2. Sign in (upper right corner)
 3. Invoke the contract
-   action [AssociateTokenstoContract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
+   action [AssociateTokensToContract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/associateTokensToContract)
    with a minimum amount of 5000 MPC tokens. You need 5000 tokens per price oracle you register for.
 4. Go to
    [ETH Price Oracle contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d/register),

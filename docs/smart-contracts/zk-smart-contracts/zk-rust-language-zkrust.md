@@ -16,15 +16,15 @@ Further reading:
 Zk-Rust's most significant difference from Rust, is it's support for
 representing [Secret-shared values](https://en.wikipedia.org/wiki/Secret_sharing),
 the basic building blocks for writing Zero-knowledge computations.
-This secret-sharing support extends from new syntax to types to runtime behaviour.
+This secret-sharing support extends from new syntax to types to runtime behavior.
 
 ### Secret-shared integers
 
 The secret-sharing supported in Zk-Rust is an alternative method of
 representing integers. This representation is used when working with
 the [`Sbi`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_zk_core/struct.Sbi.html)
-types (`Sbi1`, `Sbi8`, `Sbi16`, etc.,) which stands for "**S**ecret-shared
-**B**inary **I**nteger". These types are fully fledged integer types,
+types (`Sbi1`, `Sbi8`, `Sbi16`, etc.,) which stands for "Secret-shared
+Binary Integer". These types are fully fledged integer types,
 supporting a variety of infix operations (`+`, `-`, `^`, `|`, etc.) All of
 these operations are performed through secret-sharing, ensuring that the result
 is itself secret-shared:
@@ -87,11 +87,11 @@ pub fn my_computation() -> i32 {
 ```
 
 The above program is disallowed by ZkRust, because it is trying to assign to
-a public value while braching upon a secret. This is clearly a break of IFC,
+a public value while branching upon a secret. This is clearly a break of IFC,
 as the value of `public` after the branch would be based upon the value of
 `secret`, which again is a break of IFC.
 
-It is possible to assign secrets in secret-braches:
+It is possible to assign secrets in secret-branches:
 
 ```rust
 use pbc_zk::Sbi32;

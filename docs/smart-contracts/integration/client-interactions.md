@@ -25,7 +25,7 @@ manually.
 ## Clients / Wallets (Off-chain to on-chain)
 
 Most blockchain interactions does not originate on the blockchain, but are
-rather triggered by outside actions. Clients are the triggeres of these
+rather triggered by outside actions. Clients are the triggers of these
 transactions, and can either happen directly due to user actions, such as
 wallets, or automatically due to secondary systems.
 

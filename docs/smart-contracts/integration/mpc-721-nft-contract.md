@@ -1,6 +1,6 @@
 # MPC-721 NFT Contract
 
-A NFT (Non-Fungible Token) is a unique digital asset on the Partisia blockchain, the nft standard is inspired from the guidelines outlined in the [Ethereum Improvement Proposal (EIP) 721](https://eips.ethereum.org/EIPS/eip-721). Unlike fungible tokens, each NFT possesses distinct characteristics and cannot be exchanged on a one-to-one basis with other tokens. This standard provides basic functionality to track, transfer and approve NFTs.
+A NFT (Non-Fungible Token) is a unique digital asset on the Partisia blockchain, the NFT standard is inspired from the guidelines outlined in the [Ethereum Improvement Proposal (EIP) 721](https://eips.ethereum.org/EIPS/eip-721). Unlike fungible tokens, each NFT possesses distinct characteristics and cannot be exchanged on a one-to-one basis with other tokens. This standard provides basic functionality to track, transfer and approve NFTs.
 
 ## Version 1
 

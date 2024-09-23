@@ -9,7 +9,7 @@ The MPC Token is the native token of the Partisia Blockchain used for staking an
 - Token Holder: A user who owns MPC Tokens
 - Node Operator: A user who runs a blockchain Node
 - Stake: The use of MPC tokens as collateral for running on-chain services on Partisia Blockchain
-- Delegated Staking: The action of delegating Token holders’ own MPC tokens to a node operator that can use the Delegated Stakes for running jobs
+- Delegated Staking: The action of delegating Token holders' own MPC tokens to a node operator that can use the Delegated Stakes for running jobs
 - Retract Delegated Stakes: The request by a token holder to terminate Delegated Staking
 - Community Staking: The service that simplifies Delegated Staking
 
@@ -71,10 +71,10 @@ The fields of the [on-chain account information](https://partisiablockchain.gitl
 
 - `mpcTokens`: The total amount of MPC tokens that are transferable. This number can be negative if more tokens are in use than the released amount. Example: An account has 100 free tokens and 250 released: mpcTokens = 100. After staking 150: mpcTokens = -50
 - `stakedTokens`: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract. See stakedToContract
-- `stakedToContract`: The amounts of staked MPC tokens that are associated with running specific blockchain jobs. Not all staked tokens have to be associated with jobs, hence the sum of “stakedToContract” does not always equal “stakedTokens”
+- `stakedToContract`: The amounts of staked MPC tokens that are associated with running specific blockchain jobs. Not all staked tokens have to be associated with jobs, hence the sum of "stakedToContract" does not always equal "stakedTokens"
 - `pendingUnstakes`: MPC tokens which were staked, and are now being unstaked. When unstaking MPC tokens there is a 7 days waiting period during which they are kept here as pendingUnstakes
 - `spentFreeTransactions`: Keeps track of the number of free transactions used in each epoch. Irrelevant for MPC token calculations described in this document
-- `vestingAccounts`: MPC tokens that are locked which will become unlocked (freely transferable) after each unlock in the unlocking schedule. Note that the variable called “vestingAccounts” refers to “unlocking schedules”. The user receives all tokens locked, but they gradually become unlocked. Note that both locked and unlocked tokens can be used for Staking and for Delegated Staking.
+- `vestingAccounts`: MPC tokens that are locked which will become unlocked (freely transferable) after each unlock in the unlocking schedule. Note that the variable called "vestingAccounts" refers to "unlocking schedules". The user receives all tokens locked, but they gradually become unlocked. Note that both locked and unlocked tokens can be used for Staking and for Delegated Staking.
 - `storedPendingTransfers`: Keeps track of incoming/outgoing transfers of MPC tokens and BYOC coins while a two-phase commit protocol is being executed
 - `storedPendingStakeDelegations`: Keeps track of incoming/outgoing delegated MPC tokens while a two-phase commit protocol is being executed
 - `delegatedStakesFromOthers`: MPC tokens delegated from other users. If they are accepted MPC tokens delegated from others can be used for running on-chain jobs
@@ -110,7 +110,7 @@ MPC tokens become tradeable when they are released from an unlocking schedule. H
 
 The total number of MPC tokens that can be transferred to another account, meaning that they are released and not in use. This number can be negative if more tokens are in use than the released amount (capped at zero in UI).
 
-The mental model for computing the number of transferable MPR Tokens is
+The mental model for computing the number of transferable MPC Tokens is
 
 ```
 #Transferable = #Released - #InUse
@@ -126,7 +126,7 @@ Computation (from on-chain information)
 
 ### Unlocking Schedules
 
-MPC Tokens purchased in presales or allocated to the team are locked inside unlocking schedules for a period of time before they become transferable. Unlocking schedules for most token holders are 4 years and tokens gradually become releasable from the schedules. Eventually all tokens will be released.
+MPC Tokens purchased in pre-sales or allocated to the team are locked inside unlocking schedules for a period of time before they become transferable. Unlocking schedules for most token holders are 4 years and tokens gradually become releasable from the schedules. Eventually all tokens will be released.
 
 This is the flow for MPC token unlocking
 
