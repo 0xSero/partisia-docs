@@ -7,7 +7,7 @@ Questions for non-ZK contracts:
 - **How does sharding and interactions work?**: PBC does not run in a single memory space, in contrast to EVM-based
   blockchains. Instead each contract is isolated from every other contract, and can only view it's own internal state.
   This eliminates common reentrancy issues and allows significant optimizations for scheduling and memory management,
-  but introduces delay when calling other contracts. All contracts are thus inherently asyncronous.
+  but introduces delay when calling other contracts. All contracts are thus inherently asynchronous.
 - **What is the latency between each operation?**: The block rate is dynamic, and the current block producer will
   publish a new block when needed. The expected block rate is at least 1 block/10 seconds.
 - **How does callbacks work?**: A callback is an interaction that expects a reply. For example if contract A sends a
@@ -19,7 +19,7 @@ Questions for non-ZK contracts:
     2. `#[action]`: Sender of the transaction. Some contract address if from
        a contract, user address if from a user.
     3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to
-       contract B, which then performed a callback to contract C. When the return message is recieved by contract B, the
+       contract B, which then performed a callback to contract C. When the return message is received by contract B, the
        sender of the interaction will be set to A. Events are explained more
        in-depth [here](../smart-contracts/programmers-guide-to-smart-contracts.md#events)
     4. `#[zk_on_secret_input]`: Sender of the input.
@@ -50,7 +50,7 @@ Questions for ZK contracts:
   metadata.
 - **ZkContract: Can I access secret variable data outside of the ZK computation?**: Secret variable data access is very
   restricted, and is only viewable in these cases:
-    1. By everyone, when opened by the contract using `ZkState::OpenVariables`. The data will be available as a byte vec
+    1. By everyone, when opened by the contract using `ZkState::OpenVariables`. The data will be available as a byte Vec
        in `ZkClosed::data`. This is not possible for user inputs.
     2. By the owner, when the variable have not been sealed (see question above.)
     3. By the ZK program (but not ZK nodes!), during ZK computation.

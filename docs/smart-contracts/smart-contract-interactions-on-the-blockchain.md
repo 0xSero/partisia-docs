@@ -21,7 +21,7 @@ forwarded to the smart contract. The event carries the information about which _
 contract.
 When receiving the event the smart contract will execute the action. This executes the _code_ of the smart contract,
 which
-results in updating the _state_ of the smart contract. The action code is executed atomicly as explained above, meaning
+results in updating the _state_ of the smart contract. The action code is executed atomically as explained above, meaning
 that if the action is _successful_ the state changes are committed to the blockchain and visible for everyone, if it
 _fails_
 in no state will change on the blockchain. There is no in between in the

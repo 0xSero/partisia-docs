@@ -35,7 +35,7 @@ the [public repository](https://gitlab.com/partisiablockchain/language/contracts
 the two contracts to understand their
 common design, their differences, and how data is shared between them.
 
-We will not provide a line-by-line walkthrough of the code, as some knowledge of both PBC and EVM
+We will not provide a line-by-line walk-through of the code, as some knowledge of both PBC and EVM
 smart contract development is expected. We will briefly discuss the structure of the project and
 parts of the code, relevant for understanding how PBC as second layer works, in both contracts
 starting with the private PBC smart contract.
@@ -66,7 +66,7 @@ The solidity contract can be built and the scripts can run with Node.js version 
 ### PBC private voting contract
 
 Explaining how the ZK computation in `src/zk_compute.rs` and how all the hooks in `src/contract.rs`
-works are beyond the scope of this walkthrough. We urge you to read the contract yourself carefully,
+works are beyond the scope of this walk-through. We urge you to read the contract yourself carefully,
 and refer to [this page](../zk-smart-contracts/zk-rust-language-zkrust.md) for understanding the ZK computation and
 [this page](../zk-smart-contracts/zk-smart-contracts.md) for the smart contract.
 
