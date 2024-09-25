@@ -89,6 +89,24 @@ Contracts can hold MPC tokens, by transferring MPC tokens to them from another a
 If a contract is deleted, the MPC tokens it may have held, are added to the context-free field `removedContractsMpcTokens` which can be seen in [AccountStateLocal](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/AccountStateLocal.html).
 Contracts are simpler than accounts in the token model, since their tokens are always transferable, they can not be staked, and the amount is always non-negative.
 
+Below is an example of the on-chain contract information for a given contract that has received 1 MPC token and can be found [here](https://browser.testnet.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
+
+```json
+{
+  "accountCoins": [],
+  "balance": {
+    "sign":true,
+    "value":"17337783"
+  },
+  "iceStakes": [],
+  "mpcTokens":"1",
+  "storedPendingIceStakes": [],
+  "storedPendingTransfers": []
+}
+
+```
+
+
 ## Definition of token amounts
 
 Each defined key amount has a unique name starting with a number sign (#), a short description and a computation. The computations use numbers directly from the on-chain account information and other key amounts.
