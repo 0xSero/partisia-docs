@@ -318,9 +318,6 @@ The new config, with the new map, `chainConfigs`, that maps a supported chain to
         "producerConfig": {
             "accountKey": "YOUR ACCOUNT KEY",
             "finalizationKey": "YOUR FINALIZATION KEY",
-            "ethereumUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
-            "polygonUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
-            "bnbSmartChainUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
             "host": "YOUR IP",
             "chainConfigs: {
                 "Ethereum": "https://example.com",
@@ -330,6 +327,8 @@ The new config, with the new map, `chainConfigs`, that maps a supported chain to
         }
     }
 ```
+Note that the old endpoints have been removed from the config file entirely.
+
 To migrate an old config to the new style, the easiest way is to simply run the config tool again, and step through it. This will migrate it automatically:
 ```bash
 ./node-register.sh create-config
