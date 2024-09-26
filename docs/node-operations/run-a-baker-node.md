@@ -80,9 +80,6 @@ Your file should have similar contents to the one in the example below.
         "producerConfig": {
             "accountKey": "YOUR ACCOUNT KEY",
             "finalizationKey": "YOUR FINALIZATION KEY",
-            "ethereumUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
-            "polygonUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
-            "bnbSmartChainUrl": "OLD ENDPOINT CONFIG, SHOULD NOT BE USED",
             "host": "YOUR IP",
             "chainConfigs: {
                 "Ethereum": "https://example.com",
