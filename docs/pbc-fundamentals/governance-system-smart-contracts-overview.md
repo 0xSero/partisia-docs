@@ -97,7 +97,7 @@ tokens incentives honest and reliable node services. [Read more about MPC tokens
 
     [MPC token contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-token/com/partisiablockchain/governance/mpctoken/package-summary.html).
     
-    [MPC MPC20 contract documentation*](https://partisiablockchain.gitlab.io/documentation)
+    [MPC MPC20 contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-mpc20-contract/com/partisiablockchain/governance/mpcmpc20/package-summary.html)
 
 ## Public smart contracts and Zero Knowledge smart contract
 
