@@ -34,8 +34,8 @@ To fill out the config.json for a block producing node you need to add the follo
   has a provider list and further information about endpoints.
   
 ???+ note
-
-    The chain endpoints now reside in a collection of key-value pairs denoted `chainConfigs`. See the config example below for details.
+    
+    As new external chains become supported, the chain endpoints configuration should be updated to support these. See [here](node-health-and-maintenance.md#updating-your-byoc-chain-configuration) for information on updating your chain endpoints configuration.
 
 - The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known

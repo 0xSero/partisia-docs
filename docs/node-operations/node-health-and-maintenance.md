@@ -281,34 +281,12 @@ curl -X POST "ENDPOINT_YOU_WANT_TO_CHECK" \
 If the block number is way off, or if you don't get anything with either command, there is likely a problem with the
 endpoint, replace it!
 
-### Updating your BYOC chain configuration to the new version
+### Updating your BYOC chain configuration
 
-The block producer config, `config.json`, has been updated to have the supported external chains and their corresponding endpoints in a collection of key-value pairs, denoted `chainConfigs`. Below is a comparison example of the old and the new config:
+The supported external chains and their corresponding endpoints reside in a collection of key-value pairs, denoted `chainConfigs`. As new external chains become supported, this configuration should be updated accordingly. Below is an example of a config with external chain endpoints.
 
 ??? Example
 
-    The old config:
-
-    ```
-        {
-            "restPort": 8080,
-            "floodingPort": 9888,
-            "knownPeers": [
-                // your known peers
-            ],
-            "networkKey": "YOUR NETWORK KEY",
-            "producerConfig": {
-                "accountKey": "YOUR ACCOUNT KEY",
-                "finalizationKey": "YOUR FINALIZATION KEY",
-                "ethereumUrl": "https://example.com",
-                "polygonUrl": "https://example.com",
-                "bnbSmartChainUrl": "https://example.com",
-                "host": "YOUR IP"
-            }
-        }
-        
-    ```
-    The new config:
     ```
         {
             "restPort": 8080,
@@ -329,9 +307,8 @@ The block producer config, `config.json`, has been updated to have the supported
             }
         }
     ```
-    Note that the old endpoints have been removed from the config file entirely.
 
-To migrate an old config to the new style, the easiest way is to simply run the config tool again, and step through it. This will migrate it automatically:
+To update a config, the easiest way is to simply run the config tool again:
 ```bash
 ./node-register.sh create-config
 ```
