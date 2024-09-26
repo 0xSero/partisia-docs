@@ -306,7 +306,7 @@ The old config:
     }
     
 ```
-The new config, with the new collection, `chainConfigs`, that associates a supported chain to an endpoint:
+The new config:
 ```
     {
         "restPort": 8080,
