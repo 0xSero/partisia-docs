@@ -283,7 +283,7 @@ endpoint, replace it!
 
 ### Updating your BYOC chain configuration to the new version
 
-The block producer config, `config.json`, has been updated to contain the supported chains and their endpoints in a map. Below is a comparison of the old config and the new:
+The block producer config, `config.json`, has been updated to have the supported external chains and their corresponding endpoints in a collection of key-value pairs, denoted `chainConfigs`. Below is a comparison of the old config and the new:
 
 The old config:
 
@@ -306,7 +306,7 @@ The old config:
     }
     
 ```
-The new config, with the new map, `chainConfigs`, that maps a supported chain to an endpoint:
+The new config, with the new collection, `chainConfigs`, that associates a supported chain to an endpoint:
 ```
     {
         "restPort": 8080,
