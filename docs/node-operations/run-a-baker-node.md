@@ -35,7 +35,7 @@ To fill out the config.json for a block producing node you need to add the follo
   
 ???+ note
 
-    The chain endpoints config has been updated such that the chain endpoints now reside in a map, `chainConfigs`, see the config example below for details.
+    The chain endpoints now reside in a collection of key-value pairs denoted `chainConfigs`. See the config example below for details.
 
 - The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
