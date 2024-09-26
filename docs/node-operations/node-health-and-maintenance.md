@@ -283,57 +283,59 @@ endpoint, replace it!
 
 ### Updating your BYOC chain configuration to the new version
 
-The block producer config, `config.json`, has been updated to have the supported external chains and their corresponding endpoints in a collection of key-value pairs, denoted `chainConfigs`. Below is a comparison of the old config and the new:
+The block producer config, `config.json`, has been updated to have the supported external chains and their corresponding endpoints in a collection of key-value pairs, denoted `chainConfigs`. Below is a comparison example of the old and the new config:
 
-The old config:
+??? Example
 
-```
-    {
-        "restPort": 8080,
-        "floodingPort": 9888,
-        "knownPeers": [
-            // your known peers
-        ],
-        "networkKey": "YOUR NETWORK KEY",
-        "producerConfig": {
-            "accountKey": "YOUR ACCOUNT KEY",
-            "finalizationKey": "YOUR FINALIZATION KEY",
-            "ethereumUrl": "https://example.com",
-            "polygonUrl": "https://example.com",
-            "bnbSmartChainUrl": "https://example.com",
-            "host": "YOUR IP"
+    The old config:
+
+    ```
+        {
+            "restPort": 8080,
+            "floodingPort": 9888,
+            "knownPeers": [
+                // your known peers
+            ],
+            "networkKey": "YOUR NETWORK KEY",
+            "producerConfig": {
+                "accountKey": "YOUR ACCOUNT KEY",
+                "finalizationKey": "YOUR FINALIZATION KEY",
+                "ethereumUrl": "https://example.com",
+                "polygonUrl": "https://example.com",
+                "bnbSmartChainUrl": "https://example.com",
+                "host": "YOUR IP"
+            }
         }
-    }
-    
-```
-The new config:
-```
-    {
-        "restPort": 8080,
-        "floodingPort": 9888,
-        "knownPeers": [
-            // your known peers
-        ],
-        "networkKey": "YOUR NETWORK KEY",
-        "producerConfig": {
-            "accountKey": "YOUR ACCOUNT KEY",
-            "finalizationKey": "YOUR FINALIZATION KEY",
-            "host": "YOUR IP",
-            "chainConfigs: {
-                "Ethereum": "https://example.com",
-                "Polygon": "https://example.com",
-                "BnbSmartChain": "https://example.com",
-                }"
+        
+    ```
+    The new config:
+    ```
+        {
+            "restPort": 8080,
+            "floodingPort": 9888,
+            "knownPeers": [
+                // your known peers
+            ],
+            "networkKey": "YOUR NETWORK KEY",
+            "producerConfig": {
+                "accountKey": "YOUR ACCOUNT KEY",
+                "finalizationKey": "YOUR FINALIZATION KEY",
+                "host": "YOUR IP",
+                "chainConfigs: {
+                    "Ethereum": "https://example.com",
+                    "Polygon": "https://example.com",
+                    "BnbSmartChain": "https://example.com",
+                    }"
+            }
         }
-    }
-```
-Note that the old endpoints have been removed from the config file entirely.
+    ```
+    Note that the old endpoints have been removed from the config file entirely.
 
 To migrate an old config to the new style, the easiest way is to simply run the config tool again, and step through it. This will migrate it automatically:
 ```bash
 ./node-register.sh create-config
 ```
-Alternatively, `config.json` can be edited manually to be as shown in the example above.
+Alternatively, `config.json` can be edited manually as shown in the example above.
 
 ### How to migrate your node to a different VPS
 
