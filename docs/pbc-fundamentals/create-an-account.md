@@ -27,4 +27,4 @@ Since the account nonce is part of the signature it can be used only once. This 
 
 ### Relevant pages
 
-[Bring Your Own Coin (BYOC), Gas and generel pricing](../pbc-fundamentals/byoc/introduction-to-byoc.md)
+[Bring Your Own Coin (BYOC), Gas and general pricing](../pbc-fundamentals/byoc/introduction-to-byoc.md)

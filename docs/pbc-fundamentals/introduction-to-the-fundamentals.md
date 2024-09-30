@@ -12,18 +12,18 @@ The blocks are connected cryptographically. The hash of each block is produced a
 
 ![Diagram0](img/introduction-to-the-fundamentals-00.png)
 
-A blockchain exists on a distributed network of computers called [nodes](../node-operations/start-running-a-node.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](../pbc-fundamentals/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrety of all content on that database would be in jeopardy.  
+A blockchain exists on a distributed network of computers called [nodes](../node-operations/start-running-a-node.md). Changes to the database happens to all the computers on the network through a secure [consensus mechanism](../pbc-fundamentals/consensus.md). In a traditional centralized database you just need to hack or compromise one computer and the integrity of all content on that database would be in jeopardy.  
 Conversely, a blockchain is a decentralized database. Therefore, data on the blockchain remains secure even if a computer in the network is hacked, short circuits or loose connection to the internet.
 
 ### What happens when I use a blockchain
 
 In the following paragraph we will examine user interactions with the blockchain using a purchase of an non-fungible token(NFT) as our case example. We will explore how a user action like purchase of NFTs affect the blockchain on different levels.  
-On the surface level your phone or computer is connected to the internet. Apps and webpages can get you in contact with the blockchain through the internet just like using any other online service like e-mail.
+On the surface level your phone or computer is connected to the internet. Apps and websites can get you in contact with the blockchain through the internet just like using any other online service like e-mail.
 
 ![Diagram1](img/introduction-to-the-fundamentals-01.png)
 
 The Partisia blockchain lives on a network of computers connected to each other through the internet. The blockchain comes with a software architecture which allows for binding trackable transactions to happen very fast.
-A puchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](../smart-contracts/what-is-a-smart-contract.md).
+A purchase of an NFT is a transaction on the blockchain. Specifically it is an action of an active [smart contract](../smart-contracts/what-is-a-smart-contract.md).
 
 ![Diagram2](img/introduction-to-the-fundamentals-02.png)
 

@@ -22,7 +22,7 @@
    to [https://browser.testnet.partisiablockchain.com/contracts/03e5161cd8d3aa2de10392c5bb9607f68916158a45?tab=transactions](https://browser.testnet.partisiablockchain.com/contracts/03e5161cd8d3aa2de10392c5bb9607f68916158a45?tab=transactions).
    If the deployed contract is expired you need to [deploy a new example](how-to-deploy-your-second-layer-solution.md)
    to test the live solution.
-2. Press the "Interact" dropdown in top right corner followed by the “Cast Vote” button to input your secret vote.
+2. Press the "Interact" drop-down in top right corner followed by the "Cast Vote" button to input your secret vote.
    Choose the "True" option for casting a "yes" vote, or the "False" option for casting a "no" vote.
    Press the "Submit" button to send the secret vote.
 3. Your cast vote is now pending confirmation by the computation nodes. This may take a minute or two depending on the
@@ -69,8 +69,8 @@ integrity.
 
 1. Go
    to [https://goerli.etherscan.io/address/0x591D89F2D1c8869e5cDE32619AA6410DE492D0b3#writeContract](https://goerli.etherscan.io/address/0x591D89F2D1c8869e5cDE32619AA6410DE492D0b3#writeContract).
-2. Press the “Contract” button and then the “Write Contract” button to interact with the public contract.
-3. Find the “publishResult” action.
+2. Press the "Contract" button and then the "Write Contract" button to interact with the public contract.
+3. Find the "publishResult" action.
 4. Fill in the values of the vote result and the proof of the result shown in PBC.
 5. Try and alter the result to see for yourself that it is tamper-proof when trying to add votes or other kinds of
    manipulation. You will see that the transaction will fail when doing so.

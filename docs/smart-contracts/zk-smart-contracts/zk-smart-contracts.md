@@ -1,6 +1,6 @@
 # ZK smart contracts
 
-One of the main features which set Particia Blockchain(PBC) apart from other blockchains is that PBC supports zero
+One of the main features which set Partisia Blockchain(PBC) apart from other blockchains is that PBC supports zero
 knowledge computations, notably secure multiparty computation (MPC).
 You can utilize PBC's capacity for ZK computations through zero knowledge smart contracts (ZKSC).
 

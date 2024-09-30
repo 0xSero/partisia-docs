@@ -18,10 +18,10 @@ Partisia blockchain browser can be used to:
 - Manage your own account, including your MPC tokens and becoming a Node Operator.
 - Create local references of contracts and accounts to help you keep track of already deployed contracts.
 
-Partisia Blockchain browser can be used with the TestNet and the MainNet:
+Partisia Blockchain browser can be used with the Testnet and the Mainnet:
 
-- [TestNet](https://browser.testnet.partisiablockchain.com)
-- [MainNet](https://browser.partisiablockchain.com)
+- [Testnet](https://browser.testnet.partisiablockchain.com)
+- [Mainnet](https://browser.partisiablockchain.com)
 
 ## Command-line tools
 
@@ -36,7 +36,7 @@ a short description and use case for each of these sub-tools.
 
 ### The Compiler `build`
 
-This is a primary part of developings smart contracts. The `build` command
+This is a primary part of developing smart contracts. The `build` command
 compiles [rust smart contracts](compile-and-deploy-contracts.md)
 and [ZK Rust smart contracts](zk-smart-contracts/compile-and-deploy-zk-contract.md). It compiles and returns `.abi` file
 and a `.wasm` for
@@ -369,7 +369,7 @@ zk-client is available in the following programming languages:
 
 ### Example client
 
-This is a front end and a backend example of how to integrate you application with Partisia Blockchain, specifically it
+This is a front end and a back end example of how to integrate you application with Partisia Blockchain, specifically it
 uses the [client](#client) and the [abi-client](#abi-client) to send transactions and read states of the contracts.
 
 Example client is available in the following programming languages:
