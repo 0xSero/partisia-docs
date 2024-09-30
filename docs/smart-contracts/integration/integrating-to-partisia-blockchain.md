@@ -31,7 +31,7 @@ using the REST API.
 
 Below is a collection of commonly used rest endpoints.
 
-In our [rest server source repo](https://gitlab.com/partisiablockchain/core/server), you can find all the different
+In our [rest server source repository](https://gitlab.com/partisiablockchain/core/server), you can find all the different
 endpoints and all returned data types.
 
 ### Transaction information

@@ -16,7 +16,7 @@ for the zero knowledge computations performed.
         - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
         - A modified `docker-compose.yml` defining a docker service acting as proxy
 
-    4. Verify that your ZK node domain maps to the ipv4 address of your host VPS, use <https://www.nslookup.io/> or similar
+    4. Verify that your ZK node domain maps to the IPv4 address of your host VPS, use <https://www.nslookup.io/> or similar
 
 ## Set up a reverse proxy
 
@@ -61,7 +61,7 @@ is one of the key benefits of running a service in a docker container.
 
 ### Modify `docker-compose.yml`
 
-The modified docker compose handles two new services in addition to managing the pbc-mainet container: 1) _pbc-nginx_ an nginx proxy
+The modified docker compose handles two new services in addition to managing the pbc-mainnet container: 1) _pbc-nginx_ an nginx proxy
 server, and 2) _pbc-acme_ running an automated certificate manager. We first open the ports host ports used for the proxy server and
 certificate renewal, then we modify the `docker-compose.yml`.   
 
@@ -88,7 +88,7 @@ sudo ufw allow 80
 ```
 
 HTTP traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service requests a
-certificate. The certificate provider demands a proof of control of the domain. The proof consist of the webserver
+certificate. The certificate provider demands a proof of control of the domain. The proof consist of the server
 (nginx) placing a token on a specified path using HTTP on port 80.   
 
    

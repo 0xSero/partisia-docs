@@ -1,6 +1,6 @@
 # Introduction to Standard Contract Interfaces
 
-Welcome to Partisia Blockchain's collection of standard contract interfaces for smart contracts!The standardized interfaces enable seamless integration and compatibility with existing decentralized applications (DApps) and the broader blockchain ecosystem. The standard contract interfaces ensure interoperability and simplify the development process for different needs.
+Welcome to Partisia Blockchain's collection of standard contract interfaces for smart contracts!The standardized interfaces enable seamless integration and compatibility with existing decentralized applications (dApps) and the broader blockchain ecosystem. The standard contract interfaces ensure interoperability and simplify the development process for different needs.
 
 ## Benefits of Standard Contract Interfaces
 

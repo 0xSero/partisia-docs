@@ -1,7 +1,7 @@
 # Smart Contract examples
 
 The Partisia Blockchain Foundation provides the following reviewed smart contracts, as examples of real world problems
-with a blockchain solution. This page is created to explain the usecases of our example contracts and the titles reflect
+with a blockchain solution. This page is created to explain the use cases of our example contracts and the titles reflect
 the name of the smart contract one-to-one.
 
 We have two sets of open source examples, one is a general introduction to different world problems and the contracts
@@ -13,7 +13,7 @@ and [the NFT standard](https://partisiablockchain.gitlab.io/documentation/smart-
 
 [Visit our repository of standalone open source examples](https://gitlab.com/partisiablockchain/language/example-contracts)
 
-[Visit our DeFi suite of contracts to explore the token contract, liquidity swap, nfts and more](https://gitlab.com/partisiablockchain/language/contracts/defi)
+[Visit our DeFi suite of contracts to explore the token contract, liquidity swap, NFTS and more](https://gitlab.com/partisiablockchain/language/contracts/defi)
 
 The easiest way to get started coding your own smart contracts is to learn
 from concrete examples of other smart contracts solving problems similar to the one you need to solve. The examples
@@ -28,7 +28,7 @@ humanitarian aid and confidential health statistics.
 You can read more about these pilot projects [here](https://partisiablockchain.com/ecosystem).
 
 By combining the functionality of different types of open sourced smart contracts it is possible to create applications
-on the public blockchain within the same areas as the successful pilot projects for quick MVPs.
+on the public blockchain within the same areas as the successful pilot projects for quick minimum viable products.
 
 ## MPC examples
 

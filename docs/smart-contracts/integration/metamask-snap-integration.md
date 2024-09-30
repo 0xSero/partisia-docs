@@ -20,7 +20,7 @@ Blockchain address of the key and to sign transactions.
 3. Go [to Partisia MetaMask Snap](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/)
 4. Click add to MetaMask
 5. Sign in with your MetaMask account and accept the terms and conditions for the snap
-6. Click "Connect Metamask Snap" - this installs the PBC Snap (Protocol 3757).
+6. Click "Connect MetaMask Snap" - this installs the PBC Snap (Protocol 3757).
 7. You now have access to the MetaMask snap
 
 Video tutorial
@@ -28,10 +28,10 @@ Video tutorial
 
 To use the newly installed MetaMask snap with Partisia Blockchain
 
-1. Go to [Partisia Blockchain Browser TestNet](https://browser.testnet.partisiablockchain.com/)
-   or [Partisia Blockchain Browser MainNet](https://browser.partisiablockchain.com/)
+1. Go to [Partisia Blockchain Browser Testnet](https://browser.testnet.partisiablockchain.com/)
+   or [Partisia Blockchain Browser Mainnet](https://browser.partisiablockchain.com/)
 2. In the upper right corner click Sign In
-3. Click on the "MetaMask" button <br> ![img.png](../img/metamask-snap-integration-00.png)<br>
+3. Click on the "MetaMask" button <br> ![browser login popup](../img/metamask-snap-integration-00.png)<br>
 4. Enter your password and click the blue unlock button
 5. You have now successfully signed in to your MetaMask account through Partisia Blockchain Browser tool and can use the
    MetaMask Partisia Blockchain snap to sign transactions to the blockchain
@@ -48,7 +48,7 @@ appear with the Action named "Mint" in the browser.
 When [signing a transaction](../compile-and-deploy-contracts.md) while logged in with the MetaMask extension you will
 get prompted with a approval window from the extension with all the details of the transaction.
 
-![img.png](../img/metamask-snap-integration-01.png)
+![MetaMask integration](../img/metamask-snap-integration-01.png)
 
 ## Developing dApps with the MetaMask Partisia Blockchain Snap
 

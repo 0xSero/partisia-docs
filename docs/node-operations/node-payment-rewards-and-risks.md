@@ -134,9 +134,9 @@ the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-dif
 
 You can consult the calculation method for rewards, and the history of quarterly payouts [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards).
 
-### Dispute claims and malicious behaviour
+### Dispute claims and malicious behavior
 
-Malicious node behaviour can result in slashing of staked tokens (slashed tokens get burned). The purpose of slashing is to prevent malicious activity.
+Malicious node behavior can result in slashing of staked tokens (slashed tokens get burned). The purpose of slashing is to prevent malicious activity.
 
 !!! example "Examples of malicious activity"
     - A withdrawal oracle node signing a BYOC withdrawal that wasn't initiated on PBC   
@@ -146,5 +146,5 @@ Malicious node behaviour can result in slashing of staked tokens (slashed tokens
 
 It is possible to start a dispute against a node operator that has done a service for you. Dispute claims are
 audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible
-for the node's alleged malicious behaviour tokens staked on the service may be slashed. Filing an illegitimate dispute claim against another node can also be
-considered malicious behaviour and result in slashing.
+for the node's alleged malicious behavior tokens staked on the service may be slashed. Filing an illegitimate dispute claim against another node can also be
+considered malicious behavior and result in slashing.
