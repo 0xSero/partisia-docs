@@ -63,6 +63,13 @@ has reported. You can deregister in the time window from the finalized price to 
 To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered.
 
 You cannot deregister in the `challengePeriod` lasting one hour from the starting time `startedAt`. The starting time is given as a [unix timestamp](https://www.unixtimestamp.com/).
+To avoid automatically notifying a price for the next price round, it is possible to opt out of notifying price updates for future rounds.
+To do this, invoke the contract action _optOut_. This stops price updates from the node, allowing you to deregister once the current round is over.
+The effect of `optOut` can be reversed by calling the contract action `optIn`, which again allows price updates from the node.
+
+If you are planning to deregister from all node services, you should deregister in
+the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)
+first.
 
 1. Go to the contract of the price oracle your node serves:
     - [Deregister from ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d?tab=state)
@@ -70,7 +77,7 @@ You cannot deregister in the `challengePeriod` lasting one hour from the startin
     - [Deregister MATIC Price Oracle contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33?tab=state)
 2. Check the timestamp of the `challengePeriod` called `startedAt`  
 3. Sign in to the browser   
-4. Invoke the contract action _Deregister_ at exactly one hour after the time stamp   
+4. Invoke the contract action _Deregister_ one hour after the time stamp   
 
 If your node has already reported a price in the current round, your invocation of _Deregister_ will result in an error
 saying: 
@@ -78,14 +85,4 @@ saying:
 ```Cannot deregister an oracle node that has notified a price update on an ongoing round```
 
 This error means your attempt to deregister failed. Note the start time of the challenge period you have entered, and
-wait an hour to try again. Send the contract interaction as close as possible to the passing of the one-hour-mark.
-
-#### Opting out from notifying price updates
-
-To make it easier to `deregister` from the price oracle contract, it is possible to opt out of notifying price updates for future rounds.
-To do this, invoke the contract action `optOut`. This stops price updates from the node, allowing you to deregister once the current round is over. This action can only be called if the node is registered.
-The effect of `optOut` can be reversed by calling the contract action `optIn`, which again allows price updates from the node. Note that `optIn` can only be called if the node has currently opted out.
-
-If you are planning to deregister from all node services, you should deregister in
-the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)
-first.
+wait an hour to try again. You can opt out of sending future price updates as mentioned above, to avoid participating in the next round.
