@@ -1,13 +1,13 @@
-# Join a deposit and withdrawal oracle
+# Join a deposit or withdrawal oracle
 
-The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../pbc-fundamentals/dictionary.md#oracle-node).
+The transfer of cryptocurrencies to and from PBC is facilitated by deposit [oracles](../pbc-fundamentals/dictionary.md#oracle-node) and withdrawal oracles.
 Deposit and withdrawal oracles are a type of [small oracle](../pbc-fundamentals/dictionary.md#small-oracle) and are constituted by three nodes.
 
-A minimum of 275k MPC tokens must be staked as collateral to provide deposit and withdrawal services.
+A minimum of 275k MPC tokens must be staked as collateral to provide deposit or withdrawal services.
 In turn, deposit and withdrawal oracles receive 1% of the value of any transfer as a reward. 
 These rewards are then split evenly between the three nodes that form the oracle.
 
-Below we explain how to make your node eligible to join a withdrawal and deposit oracle, and how to leave an oracle if you wish to 
+Below we explain how to make your node eligible to join a withdrawal or deposit oracle, and how to leave an oracle if you wish to 
 stop providing the service.
 
 !!! Warning " You must complete these requirements before you can continue"    
@@ -21,7 +21,7 @@ stop providing the service.
 
 ## How to register your node for oracle service
 
-To join a deposit and withdrawal oracle first you have to register your interest in joining one. This can be done in [Browser](https://browser.partisiablockchain.com/blocks)
+To join a deposit or withdrawal oracle first you have to register your interest in joining one. This can be done in [Browser](https://browser.partisiablockchain.com/blocks)
 from the **Jobs** section of the [Node operation menu](https://browser.partisiablockchain.com/node-operation). This section should show that 25K MPC are already
 allocated as stake for running a [baker node](../pbc-fundamentals/dictionary.md#baker-node).
 
@@ -39,7 +39,7 @@ services in the Jobs section.
 
 ## How a node is selected for a deposit or withdrawal oracle
 
-Nodes with 250K staked MPC tokens associated to the [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation) contract are randomly selected to join deposit and withdrawal oracles. 
+Nodes with 250K staked MPC tokens associated to the [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation) contract are randomly selected to join deposit or withdrawal oracles. 
 If your tokens are already locked to a deposit or withdrawal oracle, you will not be selected to a new oracle until 
 the [epoch](../pbc-fundamentals/dictionary.md#epoch) ends and the [pending period](node-payment-rewards-and-risks.md#how-long-does-it-take-to-retrieve-stakes-from-a-node-service) is over.  
 
@@ -82,8 +82,8 @@ If you know which oracle your node is serving, you should skip ahead to [request
 
 ### Request new oracle   
 
-- Invoke the contract action _requestNewOracle_ [List of oracle contracts](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet) (you must be logged in to perform this action)   
- 
+Navigate to the deposit or withdrawal contract your node is serving.
+Invoke the contract action _requestNewOracle_ from the list of [available actions](../pbc-fundamentals/governance-system-smart-contracts-overview.md#small-oracles).
 
 !!! note "Note"
 
