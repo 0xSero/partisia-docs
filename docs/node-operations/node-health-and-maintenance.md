@@ -285,7 +285,7 @@ endpoint, replace it!
 
 The supported external chains and their corresponding endpoints reside in a collection of key-value pairs, denoted `chainConfigs`. As new external chains become supported, this configuration should be updated accordingly. Below is an example of a config with external chain endpoints.
 
-??? Example
+??? Example "Example config.json"
 
     ```
         {
