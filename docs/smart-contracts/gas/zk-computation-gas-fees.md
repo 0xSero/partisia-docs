@@ -29,7 +29,7 @@ the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY
 ### Network fees
 
 !!! info "Network gas price"
-NETWORK_FEE = NETWORK_BYTES * 5,000 / 1,000
+    NETWORK_FEE = NETWORK_BYTES * 5,000 / 1,000
 
 When sending transactions to a ZK contract, a network fee is paid by the calling user in the same way as for
 regular transactions in public contracts.
