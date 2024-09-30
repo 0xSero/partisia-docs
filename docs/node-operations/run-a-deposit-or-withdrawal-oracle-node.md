@@ -97,7 +97,7 @@ to [request new oracle](./run-a-deposit-or-withdrawal-oracle-node.md#request-new
 7. Copy the address of the oracle you want to leave (you can distinguish the price oracles from deposit and withdrawal
    oracles by looking at the amount of MPC tokes they have "locked"; price oracles have 5,000, deposit and withdrawal
    oracles 250,000)
-8. Paste the address to the search field of the browser, to navigate to the contract
+8. Paste the address to the search field of the browser, to navigate to the contract your node is serving
 
 ### Request new oracle
 
