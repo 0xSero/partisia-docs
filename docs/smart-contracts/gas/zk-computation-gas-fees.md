@@ -79,7 +79,7 @@ During a computation transactions are sent from each computation node.
 For an optimistic computation each node sends 1 transaction to the binder.
 If the optimistic attempt fails, a pessimistic computation must be executed which
 entails each node sending 1 additional transaction to the binder. The cost of each of these
-transactions is covered using BASE_SERVICE_FEES, which is currently hardcoded to 25,000.
+transactions is covered using BASE_SERVICE_FEES, which is set to 25,000.
 
 Besides this, the multiplications done during the computation must also be paid for.
 According to the yellow paper the price for this is 5 USD cent per 1000 multiplications.
