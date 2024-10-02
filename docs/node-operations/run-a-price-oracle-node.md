@@ -56,10 +56,7 @@ skip to [deregistration](#deregister-from-a-price-oracle).
 
 ### Deregister from a price oracle   
 
-To leave a price oracle see the step-by-step guide below. 
-If you are planning to deregister from all node services, you should deregister in
-the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)
-first.
+To leave a price oracle see the step-by-step guide below.
 
 1. Sign in to the browser
 2. Opt out of notifying price updates by invoking the contract action _Opt out_ on the price oracle your node serves:
