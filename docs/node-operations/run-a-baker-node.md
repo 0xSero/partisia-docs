@@ -41,7 +41,7 @@ To fill out the config.json for a block producing node you need to add the follo
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
   producers should be obtained by reaching out to the community.
 
-The source code for the configuration structure can be found [here](https://gitlab.com/partisiablockchain/main/-/blob/main/src/main/java/com/partisiablockchain/server/CompositeNodeConfigDto.java)
+You can read more about different fields in the `config.json` in the source code [here](https://gitlab.com/partisiablockchain/main/-/blob/main/src/main/java/com/partisiablockchain/server/CompositeNodeConfigDto.java)
 
 To fill out the needed information we will use the `node-register.sh` tool:
 
