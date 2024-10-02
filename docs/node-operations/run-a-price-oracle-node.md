@@ -56,13 +56,7 @@ skip to [deregistration](#deregister-from-a-price-oracle).
 
 ### Deregister from a price oracle   
 
-To leave the price oracle, invoke the action _Deregister_ at the price oracle contract where you registered.
-
-You cannot deregister in the `challengePeriod` lasting one hour from the starting time `startedAt`. The starting time is given as a [unix timestamp](https://www.unixtimestamp.com/).
-To avoid automatically notifying a price for the next price round, it is possible to opt out of notifying price updates for future rounds.
-To do this, invoke the contract action _Opt out_. This stops price updates from the node, allowing you to deregister once the current round is over.
-The effect of _Opt out_ can be reversed by calling the contract action _Opt in_, which again allows price updates from the node.
-
+To leave a price oracle see the step-by-step guide below. 
 If you are planning to deregister from all node services, you should deregister in
 the [block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/removeBp)
 first.
@@ -79,4 +73,6 @@ If your node has already reported a price in the current round, your invocation 
 saying: 
 
 ```Cannot deregister an oracle node that has notified a price update on an ongoing round```
+
+This means that you did not wait long enough (step 3), _or_ that you did not opt out of notifying price updates for future rounds (step 2). Please make sure that you have opted out, and that you have waited an hour from when you opted out.
 
