@@ -283,7 +283,7 @@ endpoint, replace it!
 
 ### Updating your BYOC chain configuration
 
-The supported external chains and their corresponding endpoints reside in a collection of key-value pairs, denoted `chainConfigs`. As new external chains become supported, this configuration should be updated accordingly. Below is an example of a config with external chain endpoints.
+The endpoints used for communicating with supported external blockchains are defined in the `config.json` file under the tag `chainConfigs`. As new external chains become supported, this configuration should be updated. It should also be updated if you decide to switch to a different endpoint supplier for some of the chains. Below is an example of a config with external chain endpoints.
 
 ??? Example "Example config.json"
 
