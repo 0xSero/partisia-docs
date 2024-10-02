@@ -85,8 +85,13 @@ The fields of the [on-chain account information](https://partisiablockchain.gitl
 
 ### On-chain contract information
 
-Contracts can hold MPC tokens, by transferring MPC tokens to them from another account or contract. The on-chain contract information is defined, like accounts, in the blockchain account-plugin [source code](https://gitlab.com/partisiablockchain/governance/account-plugin). The MPC tokens on contracts are stored in the field `mpcTokens` that can be seen in [ContractStorage](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html).
-If a contract is deleted, the MPC tokens it may have held, are added to the context-free field `removedContractsMpcTokens` which can be seen in [AccountStateLocal](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/AccountStateLocal.html).
+Contracts can hold MPC tokens similar to accounts. The on-chain contract information is defined, in the [source code](https://gitlab.com/partisiablockchain/governance/account-plugin) for the blockchain.
+The fields of the [on-chain contract information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html) hold the following:    
+- `mpcTokens`: The total amount of MPC tokens this contract holds. This number is always non-negative and transferable. 
+
+If a contract is deleted, the MPC tokens it may have held, are added to the [on-chain context-free information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/AccountStateLocal.html) which hold the following information:
+- `removedContractsMpcTokens`: The total amount of MPC tokens that have been collected from deleted contracts that held MPC tokens.
+
 Contracts are simpler than accounts in the token model, since their tokens are always transferable, they can not be staked, and the amount is always non-negative.
 
 Below is an example of the on-chain contract information for a given contract that has received 1 MPC token and can be found [here](https://browser.testnet.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
