@@ -10,7 +10,8 @@ The maintenance page takes you through the following node issues:
 - [For ZK and reader nodes: Sorting logs of nginx proxy and acme](#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 - [Confirm that your BYOC endpoints are working](#confirm-that-your-byoc-endpoints-are-working)   
 - [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)   
-- [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)   
+- [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)
+- [Inactivity](#Inactivity)
 
 ## Is your baker node working?
 
@@ -338,3 +339,16 @@ sudo service ntp start
 ````bash
 sudo systemctl status ntp
 ````
+
+## Inactivity
+
+If a confirmed baker node is unresponsive when a new committee is forming, it will be marked as `inactive`. Nodes that have
+been marked as `inactive` will not be considered for future committees.
+
+To mark a node as active again first make sure the node is up-to-date and working correctly, then use the following
+command
+in `node-register.sh` tool:
+
+```bash
+./node-register.sh report-active
+```
