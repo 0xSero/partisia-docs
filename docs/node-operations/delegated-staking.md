@@ -21,10 +21,12 @@ Before delegating any tokens you should visit the [Staking Marketplace](https://
 
 Step by step:
 
-1. Go to [Your assets](https://browser.partisiablockchain.com/assets)
+1. Go to the [Delegations](https://browser.partisiablockchain.com/delegations) menu
 2. Sign in
-3. Click "Delegate"   
-4. Write the [account address](../pbc-fundamentals/dictionary.md#address) of the receiving node operator and amount of MPC tokens you wish to delegate 
+3. Locate the node operator you'd like to delegate to
+4. Select the row of to your chosen node operator
+5. Click the DELEGATE button on the top box in the right-hand panel
+6. Enter the amount of MPC tokens you wish to delegate and click CONFIRM
 
 !!! success 
     
@@ -49,11 +51,12 @@ Step by step:
 
 Step by step:
 
-1. Go to [Your assets](https://browser.partisiablockchain.com/assets)
+1. Go to the [Delegations](https://browser.partisiablockchain.com/delegations) menu
 2. Sign in
-3. Click "SEE MORE" to unfold the collapsed delegation table located below the **Available to delegate** section
-4. Locate the offer you wish to retract from. In the **Amount** column click on the "Retract" icon 
-5. Write the amount of MPC tokens you wish to retract  
+3. Locate the node operator you'd like to delegate to
+4. Select the row of to your chosen node operator
+5. Click the RETRACT button on the top box in the right-hand panel
+6. Enter the amount of MPC tokens you wish to retract and click CONFIRM
 
 !!! success
 
