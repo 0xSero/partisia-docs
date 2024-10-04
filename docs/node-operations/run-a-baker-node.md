@@ -139,13 +139,11 @@ Verify that the account key you have in the `config.json` file matches the block
 
 If it still fails then reach out to the [community](../get-support-from-pbc-community.md).
 
-## Sending in node version
+## Maintaining latest version
 
-The [Block producer orchestration contract](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation) has a minimum version of the node software which is required to join future committees. 
-A node will automatically send in its node version when starting the node software.
-It is therefore important to update the software frequently. 
+Using out-of-date software can prevent your node from joining future committees.
 
-To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates).
+If you have already not setup automatic updates you can follow the guide [here](run-a-reader-node.md#get-automatic-updates).
 
 ## Conditions for inclusion
 
