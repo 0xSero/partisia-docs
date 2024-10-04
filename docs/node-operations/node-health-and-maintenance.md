@@ -342,7 +342,7 @@ sudo systemctl status ntp
 
 ## Inactivity
 
-If a confirmed baker node is unresponsive when a new committee is forming, it will be marked as `inactive`. Nodes that have
+If a confirmed baker node is unresponsive when a new committee is forming, it will be marked as `inactive`. Nodes that 
 are marked as `inactive` will not be considered for future committees.
 
 To mark your node as active again first make sure the node is up-to-date and working correctly, then use the following
