@@ -94,7 +94,7 @@ If a contract is deleted, the MPC tokens it may have held, are added to the [on-
 
 Contracts are simpler than accounts in the token model, since their tokens are always transferable, they can not be staked, and the amount is always non-negative.
 
-Below is an example of the on-chain contract information for a given contract that has received 1 MPC token and can be found [here](https://browser.testnet.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
+Below is an example of the on-chain contract information for a given contract that has received 0.001 MPC token and can be found [here](https://browser.testnet.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
 
 ```json
 {
