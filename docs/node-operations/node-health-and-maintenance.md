@@ -287,7 +287,7 @@ The endpoints used for communicating with supported external blockchains are def
 
 Updating your `config.json` should happen when:
 
-  - External chains become supported
+  - New external chains become supported
   - Switching to a different endpoint supplier
 
 Below is an example of a config with external chain endpoints.
