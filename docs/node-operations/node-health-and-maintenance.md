@@ -342,7 +342,7 @@ sudo systemctl status ntp
 ## Keeping your node software up-to-date
 
 New versions of the node software is released periodically. 
-If you are running out-of-date node software you may not be able to join future committees. 
+If you are running out-of-date node software you may not be able to join committees. 
 To prevent this make sure to stay up-to-date with new node software versions.
 
 To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates). 
