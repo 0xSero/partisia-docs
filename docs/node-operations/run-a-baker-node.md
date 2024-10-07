@@ -28,9 +28,8 @@ To fill out the config.json for a block producing node you need to add the follo
 
 - Account private key (the account you've staked MPC with)
 - IPv4 address of the server hosting your node (You get this from your VPS service provider)
-- Ethereum, BNB and Polygon API endpoints. These are URL addresses pointing to a reader node on the mainnet for the respective blockchains (
-  You should use a source you find trustworthy)
-  . [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0)
+- Ethereum, BNB and Polygon API endpoints. These are URL addresses pointing to a reader node on the mainnet for the respective blockchains (you should use a source you find trustworthy). 
+  [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0)
   has a provider list and further information about endpoints.
   
 ???+ note
