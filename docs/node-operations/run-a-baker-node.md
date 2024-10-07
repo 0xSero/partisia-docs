@@ -139,9 +139,9 @@ Verify that the account key you have in the `config.json` file matches the block
 
 If it still fails then reach out to the [community](../get-support-from-pbc-community.md).
 
-## Maintaining latest version
+## Keeping your node software up to date
 
-Using out-of-date software can prevent your node from joining future committees.
+Using out-of-date node software can prevent your node from joining future committees.
 
 If you have already not setup automatic updates you can follow the guide [here](run-a-reader-node.md#get-automatic-updates).
 

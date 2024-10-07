@@ -339,14 +339,15 @@ sudo service ntp start
 sudo systemctl status ntp
 ````
 
-## Staying up-to-date
+## Keeping your node software up-to-date
 
-New versions of the node software releases periodically. 
-A node can therefore become quickly become out-of-date. 
-Out-of-date versions of node software will prevent producers from joining future committees. 
+New versions of the node software is released periodically. 
+If you are running out-of-date node software you may not be able to join future committees. 
 To prevent this make sure to stay up-to-date with new node software versions.
 
-To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates).
+To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates). 
 
-The minimum required version can be found in the [Block producer orchestration contract](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation).
+You can also choose to manually update your node software by following the guide [here](#updating-your-node-manually). 
+
+The node software version of your own node and the minimum required node software version to be part of the committee can be found in the [Block producer orchestration contract](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation).
 
