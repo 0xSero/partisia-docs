@@ -352,3 +352,15 @@ in `node-register.sh` tool:
 ```bash
 ./node-register.sh report-active
 ```
+
+The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
+
+```shell
+curl https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh --output node-register.sh
+```
+
+Once it is downloaded you need to make it executable:
+
+```shell
+chmod +x node-register.sh
+```
