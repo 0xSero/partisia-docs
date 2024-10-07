@@ -286,8 +286,9 @@ endpoint, replace it!
 The endpoints used for communicating with supported external blockchains are defined in the `config.json` file under the tag `chainConfigs`. 
 
 Updating your `config.json` should happen when:
-- External chains become supported
-- Switching to a different endpoint supplier
+
+  - External chains become supported
+  - Switching to a different endpoint supplier
 
 Below is an example of a config with external chain endpoints.
 
