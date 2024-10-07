@@ -60,9 +60,9 @@ To leave a price oracle see the step-by-step guide below.
 
 1. Sign in to the browser
 2. Opt out of notifying price updates by invoking the contract action _Opt out_ on the price oracle your node serves:
-   - [ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d?tab=state)
-   - [BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39?tab=state)
-   - [MATIC Price Oracle contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33?tab=state)
+      - [ETH Price Oracle Contract](https://browser.partisiablockchain.com/contracts/0485010babcdb7aa56a0da57a840d81e2ea5f5705d?tab=state)
+      - [BNB Price Oracle Contract](https://browser.partisiablockchain.com/contracts/049abfc6e763e8115e886fd1f7811944f43b533c39?tab=state)
+      - [MATIC Price Oracle contract](https://browser.partisiablockchain.com/contracts/042a9dcb0c96b9875f529e3a51ddc02473c1a78d33?tab=state)
 3. Wait an hour to ensure any ongoing round is finished. 
 4. Invoke the contract action _Deregister_ on the contract.   
 
