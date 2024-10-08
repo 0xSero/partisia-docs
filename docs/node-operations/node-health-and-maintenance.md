@@ -315,7 +315,7 @@ Below is an example of a config with external chain endpoints.
         }
     ```
 
-To update a config, the easiest way is to simply run the config tool again:
+To update a config, the easiest way is to simply run the node-register tool again:
 ```bash
 ./node-register.sh create-config
 ```
