@@ -315,7 +315,11 @@ Below is an example of a config with external chain endpoints.
         }
     ```
 
-To update a config, the easiest way is to simply run the [node config tool](../node-operations/run-a-reader-node.md#the-node-registersh-script) again. Alternatively, `config.json` can be edited manually as shown in the example above.
+To update a config, the easiest way is to simply run the config tool again:
+```bash
+./node-register.sh create-config
+```
+Alternatively, `config.json` can be edited manually as shown in the example above.
 
 ### How to migrate your node to a different VPS
 

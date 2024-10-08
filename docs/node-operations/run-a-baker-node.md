@@ -42,7 +42,11 @@ To fill out the config.json for a block producing node you need to add the follo
 
 You can read more about different fields in the `config.json` in the source code [here](https://gitlab.com/partisiablockchain/main/-/blob/main/src/main/java/com/partisiablockchain/server/CompositeNodeConfigDto.java)
 
-To fill out the needed information we will use the [node config tool](../node-operations/run-a-reader-node.md#the-node-registersh-script).
+To fill out the needed information we will use the `node-register.sh` tool:
+
+```bash
+./node-register.sh create-config
+```
 
 When asked if the node is a block producing node, answer `yes`.
 The tool validates your inputs, and you will not be able to finish the configuration generation without inputting *all*
