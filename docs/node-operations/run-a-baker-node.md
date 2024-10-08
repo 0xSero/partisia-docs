@@ -105,21 +105,19 @@ associated with your node. It also creates a profile with public information abo
     Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
 
 The node REST server will respond with a code `204 No Content` if it is up-to-date with the network.
-You can check the status by running the tool with the `status` command.
+You can check the status by running the node-register tool with the `status` command.
 
 You need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
 [Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
 gas balance is shown. You can add gas to your account with the [bridge]( https://browser.partisiablockchain.com/bridge).
 
-To send the register transaction you need to log in to your node and go to the `~/pbc` folder.
+To send the register transaction you need to log in to your node and go to the `~/pbc` folder:
 
 ```bash
 cd ~/pbc
 ```
 
-Then run the `register-node` command on the node-register tool.
-
-Follow the on-screen instructions until the registration is completed.
+Then run the node-register tool with the `register-node` command and follow the on-screen instructions until the registration is completed.
 
 ???+ note
 
