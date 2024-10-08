@@ -284,6 +284,10 @@ logs [here](https://docs.docker.com/config/containers/logging/configure/).
 The storage of the node is based on RocksDB. It is write-heavy and will increase in size for the foreseeable future. The
 number and size of reads and writes is entirely dependent on the traffic on the network.
 
+## Updating your node
+
+Make sure your node is set up for getting automatic updates by following the instructions in the [Get automatic updates section](node-health-and-maintenance.md#get-automatic-updates)
+
 ## Final step
 
 If you are a developer making an application on PBC, and the application needs to reliably query the state of the

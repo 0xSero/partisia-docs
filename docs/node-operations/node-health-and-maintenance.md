@@ -1,6 +1,6 @@
 # Node health and maintenance
 
-The maintenance page takes you through the following node issues:
+The maintenance page takes you through the following node-related topics:
 
 - [The node-register.sh tool](#the-node-registersh-tool)
 - [Is your baker node working?](#is-your-baker-node-working)   
@@ -60,7 +60,7 @@ regularly.
   in [How to monitor node performance](#how-to-monitor-node-performance) below   
 - Your node is signing blocks. Can be checked in the logs as explained below
 - Your node is running the newest version of Partisia Software. The easiest way to ensure this is by
-  implementing [automatic updates](run-a-reader-node.md#get-automatic-updates)
+  implementing [automatic updates](#get-automatic-updates)
 
 You can confirm that your node software is up-to-date with the following command:
 
