@@ -12,6 +12,20 @@ The maintenance page takes you through the following node issues:
 - [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)   
 - [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)   
 
+## The `node-register.sh` tool
+
+The `node-register.sh` tool can help you set up and maintain your node. 
+This includes initializing and updating your node configuration, as well as registering your node for block production and signing.
+The tool accepts the following arguments:
+
+- `create-config`: Used to set up the initial config, `config.json`, for your node, or for updating an existing config. This will take you through the step-by-step tutorial of filling out the information needed for your config.
+- `register-node`: Used to register your node for producing and signing blocks. This will take your thorugh the step-by-step tutorial for registering for block production and signing.
+- `status`: Checks whether your node is up to date with the rest of the network.
+- `validate-kyc`: Checks whether your Synaps KYC registration is valid and approved.
+- `report-active`: Used to mark your node as _ACTIVE_ if it was previously set to _INACTIVE_ on the Block Producer Orchestration contract.
+
+The commands can be run with `--help` for additional information.
+
 ## Is your baker node working?
 
 If your node is unattended for to long it can run into problems. Problems that may affect your node's earning potential
