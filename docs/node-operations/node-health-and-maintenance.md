@@ -25,6 +25,8 @@ The tool accepts the following arguments:
 - `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
 - `report-active`: Used to mark your node as _ACTIVE_ if it was previously set to _INACTIVE_ on the Block Producer Orchestration contract.
 
+Example usage: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
+
 The commands can be run with `--help` for additional information.
 
 The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).

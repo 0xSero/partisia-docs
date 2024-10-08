@@ -239,15 +239,10 @@ To generate the `config.json` for a reader node you need following information:
   producers should be obtained by reaching out to the community. You can see how to reach the
   community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
 
-### Generating your `config.json` file
 
 The tool ensures your `config.json` is well-formed and that it is stored in the correct folder on the machine.
 
-Start the tool:
-
-```shell
-./node-register.sh create-config
-```
+Start the tool by running it with the `create-config` command.
 
 We are creating a reader node. Therefore, your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
 
