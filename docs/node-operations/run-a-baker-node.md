@@ -36,11 +36,7 @@ To fill out the config.json for a block producing node you need to add the follo
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
   producers should be obtained by reaching out to the community.
 
-To fill out the needed information we will use the [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool):
-
-```bash
-./node-register.sh create-config
-```
+To fill out the needed information we will use the [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool). Run the tool with the `create-config` command.
 
 When asked if the node is a block producing node, answer `yes`.
 The tool validates your inputs, and you will not be able to finish the configuration generation without inputting *all*

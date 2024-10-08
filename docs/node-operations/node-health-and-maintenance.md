@@ -20,12 +20,12 @@ This includes initializing and updating your node configuration, as well as regi
 The tool accepts the following arguments:
 
 - `create-config`: Used to set up the initial config, `config.json`, for your node, or for updating an existing config. This will take you through the step-by-step tutorial of filling out the information needed for your config.
+    - Example: `./node-register.sh create-config` 
 - `register-node`: Used to register your node for producing and signing blocks. This will take your thorugh the step-by-step tutorial for registering for block production and signing.
 - `status`: Checks whether your node is up to date with the rest of the network.
 - `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
+    - Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
 - `report-active`: Used to mark your node as _ACTIVE_ if it was previously set to _INACTIVE_ on the Block Producer Orchestration contract.
-
-Example usage: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
 
 The commands can be run with `--help` for additional information.
 
