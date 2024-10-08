@@ -4,6 +4,7 @@ The maintenance page takes you through the following node issues:
 
 - [The node-register.sh tool](#the-node-registersh-tool)
 - [Is your baker node working?](#is-your-baker-node-working)   
+- [Get automatic updates](#get-automatic-updates)
 - [Update your node manually](#updating-your-node-manually)   
 - [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)   
 - [How to monitor node performance](#how-to-monitor-node-performance)   
@@ -17,7 +18,7 @@ The maintenance page takes you through the following node issues:
 
 The `node-register.sh` utility tool can help you set up and maintain your node. 
 This includes initializing and updating your node configuration, as well as registering your node for block production and signing.
-The tool accepts the following arguments:
+The tool can be used with the following commands:
 
 - `create-config`: Used to set up the initial config, `config.json`, for your node, or for updating an existing config. This will take you through the step-by-step tutorial of filling out the information needed for your config.
     - Example: `./node-register.sh create-config` 
@@ -70,9 +71,107 @@ docker inspect --format='{{.Image}}' YOUR_CONTAINER_NAME
 The number must match the
 latest [configuration digest](https://gitlab.com/partisiablockchain/mainnet/container_registry/3175145).
 
+## Get automatic updates
+
+All nodes independent of type should be set up to update their software automatically. To set up automatic updates you
+will need to install Cron, a time based job scheduler:
+
+````bash
+apt-get install cron
+````
+
+Now you are ready to start.
+
+**1. Create the auto update script:**
+
+Go to the directory where `docker-compose.yml` is located.
+
+````bash
+cd ~/pbc
+````
+
+Open the file in nano:
+
+````bash
+nano update_docker.sh
+````
+
+Paste the following content into the file:
+
+````bash
+#!/usr/bin/env bash
+
+DATETIME=$(date -u)
+echo "$DATETIME"
+
+cd ~/pbc
+
+/usr/bin/docker compose pull pbc
+/usr/bin/docker compose up -d pbc
+````
+
+Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+
+**2. Make the file executable:**
+
+````bash
+chmod +x update_docker.sh
+````
+
+Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now
+executable.
+
+**3. Set update frequency to once a day at a random time:**
+
+````bash
+crontab -e
+````
+
+This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to
+edit the cron rule. If you have not already chosen a preference.
+
+Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
+
+````bash
+m h * * * /home/userNameHere/pbc/update_docker.sh >> /home/userNameHere/pbc/update.log 2>&1
+````
+
+For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23. If
+you are in doubt about what the cron rule means you can use this page:
+<https://crontab.guru/> to see the rule expressed in words.
+
+Press `CTRL+X` and then `Y` and then `ENTER`.
+
+This rule will make the script run and thereby check for available updates once every day.
+
+To see if the script is working you can read the update log with the *cat command*:
+
+````bash
+cat update.log
+````
+
+You can change the time of the first update if you don't want to wait a day to confirm that it works.
+
+If your version is up-to-date, you should see:
+
+````
+YOUR_CONTAINER_NAME is up-to-date
+````
+
+If you are currently updating you should see:
+
+````
+Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
+````
+
+!!! Warning "Warning"
+
+    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for
+    updates.
+
 ## Updating your node manually
 
-You should always have enabled [automatic updates](run-a-reader-node.md#get-automatic-updates) on your node. But, there
+You should always have enabled [automatic updates](#get-automatic-updates) on your node. But, there
 can be situation where you want to update it manually if you have had a problem on the node.
 
 In the following it is assumed you are using `~/pbc` as directory for your `docker-compose.yml`.
@@ -175,9 +274,9 @@ produce a block, a reset block is made, and then a new node is chosen for the ro
 
 **Not signing** - This is not a good sign, you are not signing blocks. First, check if you are on the list
 of [current committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators), if you are not, and you have already sent the
-Register Transaction, then you should search for your PBC account address in the state
-the [Block Producer Orchestration Contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91) (
-BPOC). There is a field for each producer called "status": - after this you will see either "CONFIRMED" or "PENDING".
+Register Transaction, then you should search for your PBC account address in the state on
+the [Block Producer Orchestration Contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91) (BPOC). 
+There is a field for each producer called "status": - after this you will see either "CONFIRMED" or "PENDING".
 Confirmed means you are registered as a block producer and are formally eligible to participate in the committee.
 Pending means your public information is still awaiting manual approval from the team cross-checking the information you
 have given. If you cannot find your address in the BPOC at all you need to resend your registration. Alternatively, if
@@ -315,7 +414,7 @@ endpoint, replace it!
 When changing VPS there are a few important precautions you take ensuring a problem free migration.
 
 **You may never run two nodes performing baker services at the same time**   
-Running two nodes with same config can be interpreted as malicious behavior.You can start
+Running two nodes with same config can be interpreted as malicious behavior. You can start
 a [reader node](../node-operations/run-a-reader-node.md) on the new VPS. Then, when you are ready to change
 the `config.json` to the BP version, you stop the node from running on the old server:
 
