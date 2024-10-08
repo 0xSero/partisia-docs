@@ -2,6 +2,7 @@
 
 The maintenance page takes you through the following node issues:
 
+- [The node-register.sh tool](#the-node-registersh-tool)
 - [Is your baker node working?](#is-your-baker-node-working)   
 - [Update your node manually](#updating-your-node-manually)   
 - [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)   
@@ -14,7 +15,7 @@ The maintenance page takes you through the following node issues:
 
 ## The `node-register.sh` tool
 
-The `node-register.sh` tool can help you set up and maintain your node. 
+The `node-register.sh` utility tool can help you set up and maintain your node. 
 This includes initializing and updating your node configuration, as well as registering your node for block production and signing.
 The tool accepts the following arguments:
 
@@ -25,6 +26,18 @@ The tool accepts the following arguments:
 - `report-active`: Used to mark your node as _ACTIVE_ if it was previously set to _INACTIVE_ on the Block Producer Orchestration contract.
 
 The commands can be run with `--help` for additional information.
+
+The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
+
+```shell
+curl https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh --output node-register.sh
+```
+
+Once it is downloaded you need to make it executable:
+
+```shell
+chmod +x node-register.sh
+```
 
 ## Is your baker node working?
 
