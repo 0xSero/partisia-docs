@@ -36,7 +36,12 @@ To fill out the config.json for a block producing node you need to add the follo
   e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
   producers should be obtained by reaching out to the community.
 
-To fill out the needed information we will use the [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool). Run the tool with the `create-config` command.
+To fill out the needed information we will use the [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool):
+
+```bash
+./node-register.sh create-config
+```
+
 
 When asked if the node is a block producing node, answer `yes`.
 The tool validates your inputs, and you will not be able to finish the configuration generation without inputting *all*
@@ -105,19 +110,26 @@ associated with your node. It also creates a profile with public information abo
     Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
 
 The node REST server will respond with a code `204 No Content` if it is up-to-date with the network.
-You can check the status by running the node-register tool with the `status` command.
+You can check the status by running the node-register tool with the `status` command:
+
+```bash
+./node-register.sh status
+```
+
 
 You need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
 [Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
 gas balance is shown. You can add gas to your account with the [bridge]( https://browser.partisiablockchain.com/bridge).
 
-To send the register transaction you need to log in to your node and go to the `~/pbc` folder:
+To send the register transaction you need to log in to your node and go to the `~/pbc` folder,
+and run the node-register tool with the `register-node` command:
 
 ```bash
 cd ~/pbc
+./node-register.sh register-node
 ```
 
-Then run the node-register tool with the `register-node` command and follow the on-screen instructions until the registration is completed.
+Follow the on-screen instructions until the registration is completed.
 
 ???+ note
 
