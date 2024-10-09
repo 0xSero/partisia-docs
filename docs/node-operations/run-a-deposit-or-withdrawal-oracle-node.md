@@ -1,4 +1,4 @@
-# Join a deposit or withdrawal oracle
+# Run a deposit or withdrawal oracle
 
 The transfer of cryptocurrencies to and from PBC is facilitated by
 deposit [oracles](../pbc-fundamentals/dictionary.md#oracle-node) and withdrawal oracles.
@@ -28,7 +28,7 @@ from the **Jobs** section of the [Node operation menu](https://browser.partisiab
 section should show that 25K MPC are already
 allocated as stake for running a [baker node](../pbc-fundamentals/dictionary.md#baker-node).
 
-![Oracle Node registration](./img/run-a-deposit-or-withdrawal-oracle-node-01.png)
+![Oracle Node registration](./img/run-a-deposit-or-withdrawal-oracle-node-00.png)
 
 Step-by-step:
 
