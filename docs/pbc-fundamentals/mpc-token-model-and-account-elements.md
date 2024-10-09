@@ -1,11 +1,12 @@
 # $MPC token model and Account Elements
 
-The MPC Token is the native token of the Partisia Blockchain used for staking and bootstrapping the ecosystem via MPC tokens as rewards. All Accounts on the blockchain can own MPC tokens. Staking in the context of MPC tokens means, that a stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services. The staking requirements for different tasks can be read [here](../node-operations/start-running-a-node.md). The stake of a node can be used to pay compensation for misconduct committed with the node.
+The MPC Token is the native token of the Partisia Blockchain used for staking and bootstrapping the ecosystem via MPC tokens as rewards. All Accounts and contracts on the blockchain can own MPC tokens. Staking in the context of MPC tokens means, that a stake of MPC tokens works as the entry ticket to becoming a node operator and allows them to take fees for services. The staking requirements for different tasks can be read [here](../node-operations/start-running-a-node.md). The stake of a node can be used to pay compensation for misconduct committed with the node.
 
 ## Terminology
 
 - The following terminology is used in this document
 - Account: A Partisia Blockchain address (the public key)
+- Contract: A Partisia Blockchain address
 - Token Holder: A user who owns MPC Tokens
 - Node Operator: A user who runs a blockchain Node
 - Stake: The use of MPC tokens as collateral for running on-chain services on Partisia Blockchain
@@ -81,6 +82,35 @@ The fields of the [on-chain account information](https://partisiablockchain.gitl
 - `delegatedStakesToOthers`: MPC tokens delegated to other users for them to use as stake
 - `pendingRetractedDelegatedStakes`: MPC tokens, which were delegated to another user and are now being retracted and freed. Retraction of delegated MPC tokens has a 7 days waiting period during which they are kept here
 - `stakeable`: Specifies if this account is allowed to stake MPC tokens. Irrelevant for MPC token calculations
+
+### On-chain contract information
+
+Contracts can hold MPC tokens similar to accounts. The on-chain contract information is defined, in the [source code](https://gitlab.com/partisiablockchain/governance/account-plugin) for the blockchain.
+The [on-chain contract information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html) hold the following:    
+- `mpcTokens`: The total amount of MPC tokens this contract holds. This number is always non-negative and transferable. 
+
+If a contract is deleted, the MPC tokens it may have held, are added to the [on-chain context-free information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/AccountStateLocal.html) which hold the following:
+- `removedContractsMpcTokens`: The total amount of MPC tokens that have been collected from deleted contracts that held MPC tokens.
+
+Contracts are simpler than accounts in the token model, since their tokens are always transferable, they can not be staked, and the amount is always non-negative.
+
+Below is an example of the on-chain contract information for a given contract that has received 0.001 MPC token and can be found [here](https://browser.testnet.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)
+
+```json
+{
+  "accountCoins": [],
+  "balance": {
+    "sign":true,
+    "value":"17337783"
+  },
+  "iceStakes": [],
+  "mpcTokens":"1",
+  "storedPendingIceStakes": [],
+  "storedPendingTransfers": []
+}
+
+```
+
 
 ## Definition of token amounts
 
