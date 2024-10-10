@@ -378,3 +378,19 @@ sudo service ntp start
 ````bash
 sudo systemctl status ntp
 ````
+
+## Keeping your node software up-to-date
+
+New versions of the node software is released periodically.
+If you are running out-of-date node software you may not be able to join committees.
+To prevent this make sure to stay up-to-date with new node software versions.
+
+To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates).
+
+You can also choose to manually update your node software by following the guide [here](#updating-your-node-manually).
+
+The node software version of your own node `nodeVersion` and the minimum required node software version to be part of
+the committee `minimumNodeVersion`
+can be found in
+the [Block producer orchestration contract state](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+
