@@ -239,9 +239,6 @@ To generate the `config.json` for a reader node you need following information:
   producers should be obtained by reaching out to the community. You can see how to reach the
   community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
 
-
-The tool ensures your `config.json` is well-formed and that it is stored in the correct folder on the machine.
-
 Start the tool:
 
 ```shell
