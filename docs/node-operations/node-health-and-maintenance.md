@@ -20,9 +20,9 @@ The `node-register.sh` utility tool can help you set up and maintain your node.
 This includes initializing and updating your node configuration, as well as registering your node for block production and signing.
 The tool can be used with the following commands:
 
-- `create-config`: Used to set up the initial config, `config.json`, for your node, or for updating an existing config. This will take you through the step-by-step tutorial of filling out the information needed for your config.
+- `create-config`: Used to set up the initial config file for your node, or to update an existing config file. This command will take you through a step-by-step process for filling out the information needed for your config.
     - Example: `./node-register.sh create-config` 
-- `register-node`: Used to register your node for producing and signing blocks. This will take your thorugh the step-by-step tutorial for registering for block production and signing.
+- `register-node`: Used to register your node for producing and signing blocks. This command will take you through a step-by-step process to register for block production and signing.
 - `status`: Checks whether your node is up to date with the rest of the network.
 - `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
     - Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
@@ -30,7 +30,8 @@ The tool can be used with the following commands:
 
 The commands can be run with `--help` for additional information.
 
-The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
+The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh). 
+To download the tool run:
 
 ```shell
 curl https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh --output node-register.sh
@@ -73,7 +74,7 @@ latest [configuration digest](https://gitlab.com/partisiablockchain/mainnet/cont
 
 ## Get automatic updates
 
-All nodes independent of type should be set up to update their software automatically. To set up automatic updates you
+All nodes, independent of type, should be set up to update their software automatically. To set up automatic updates you
 will need to install Cron, a time based job scheduler:
 
 ````bash
@@ -128,7 +129,7 @@ crontab -e
 ````
 
 This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to
-edit the cron rule. If you have not already chosen a preference.
+edit the cron rule, if you have not already chosen a preference.
 
 Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
 
@@ -171,8 +172,8 @@ Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
 
 ## Updating your node manually
 
-You should always have enabled [automatic updates](#get-automatic-updates) on your node. But, there
-can be situation where you want to update it manually if you have had a problem on the node.
+You should always have [automatic updates](#get-automatic-updates) enabled  on your node. But there
+can be situations where you might want to update it manually, for instance if you are experiencing problems with the node.
 
 In the following it is assumed you are using `~/pbc` as directory for your `docker-compose.yml`.
 

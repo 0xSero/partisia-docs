@@ -245,7 +245,7 @@ Start the tool:
 ./node-register.sh create-config
 ```
 
-We are creating a reader node. Therefore, your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
+We are creating a reader node. Therefore, when asked if the node is a block producing node respond `no`, otherwise the node will attempt to (unsuccessfully) produce blocks.
 
 The config should look like the example below.
 
@@ -287,7 +287,7 @@ number and size of reads and writes is entirely dependent on the traffic on the 
 
 ## Updating your node
 
-Make sure your node is set up for getting automatic updates by following the instructions in the [Get automatic updates section](node-health-and-maintenance.md#get-automatic-updates)
+Make sure your node is set up to update automatically by following the instructions in the [Get automatic updates section](node-health-and-maintenance.md#get-automatic-updates)
 
 ## Final step
 
