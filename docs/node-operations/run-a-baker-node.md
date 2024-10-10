@@ -139,6 +139,12 @@ Verify that the account key you have in the `config.json` file matches the block
 
 If it still fails then reach out to the [community](../get-support-from-pbc-community.md).
 
+## Keeping your node software up to date
+
+Using out-of-date node software can prevent your node from joining future committees.
+
+If you have already not setup automatic updates you can follow the guide [here](run-a-reader-node.md#get-automatic-updates).
+
 ## Conditions for inclusion
 
 Formal conditions for inclusion in the network is stipulated in the Yellow Paper [YP_0.98 Ch. 2.3.1 pp. 11-12](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view):

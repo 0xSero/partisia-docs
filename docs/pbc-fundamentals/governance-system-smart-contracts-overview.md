@@ -15,8 +15,7 @@ confirmed block producers, as well as for payment to node operators for the serv
 
 ??? info "[Block producer orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)"
     The Block producer orchestration (BPO) contract holds the information about block producers. In the state you can see
-    the current and previous committees. You can see the timestamp showing the last committee change. Invoking the
-    contract will change the committee if the current committee is more than a month old. [See contract in browser](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
+    the current and previous committees, the timestamp of the last committee change and the minimum required node software version. Invoking the contract will change the committee if the current committee is more than a month old. [See contract in browser](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91)
     
     [Block producer orchestration contract documentation](https://partisiablockchain.gitlab.io/governance/bp-orchestration-contract/com/partisiablockchain/governance/bporchestration/BpOrchestrationContract.html)
 
