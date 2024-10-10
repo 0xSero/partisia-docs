@@ -82,16 +82,21 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
 
 ## MPC tokens
 
-[MPC tokens](dictionary.md#mpc-token) are the native tokens of PBC, they are used by node operators and other token holders for staking on a service
+[MPC tokens](dictionary.md#mpc-token) are the native tokens of PBC. They are used by node operators and other token holders for staking on a service
 provided by a node. Tokens can be confiscated in case of malicious behavior and be used for dispute settlement. Staked
 tokens incentives honest and reliable node services. [Read more about MPC tokens](dictionary.md#mpc-token)
 
 ??? info "[MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)"
     Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC
-    tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account. You can
-    learn more about MPC tokens and their properties in the [MPC token model](mpc-token-model-and-account-elements.md). The MPC Token contract uses [the standard of MPC-20](../smart-contracts/integration/mpc-20-token-contract.md). 
+    tokens between accounts. MPC tokens are always associated with the MPC token balance of a specific account or contract. You can
+    learn more about MPC tokens and their properties in the [MPC token model](mpc-token-model-and-account-elements.md).
+    
+    [MPC token contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-token/com/partisiablockchain/governance/mpctoken/package-summary.html).    
 
-    [MPC token contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-token/com/partisiablockchain/governance/mpctoken/package-summary.html).
+??? info "[MPC MPC20 contract](https://browser.partisiablockchain.com/contracts/01615beb1c2bf57e45fcd1c4e67ef35b8735a685b1)"
+    Facilitates transfers of MPC tokens between accounts *or* contracts. Note that the "MPC token" contract does not allow transfers to and from contracts. This contract uses [the standard of MPC-20](../smart-contracts/integration/mpc-20-token-contract.md)
+    
+    [MPC MPC20 contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-mpc20-contract/com/partisiablockchain/governance/mpcmpc20/package-summary.html)
 
 ## Public smart contracts and Zero Knowledge smart contract
 
