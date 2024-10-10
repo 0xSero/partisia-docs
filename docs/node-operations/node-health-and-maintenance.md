@@ -410,6 +410,46 @@ curl -X POST "ENDPOINT_YOU_WANT_TO_CHECK" \
 If the block number is way off, or if you don't get anything with either command, there is likely a problem with the
 endpoint, replace it!
 
+### Updating your BYOC chain configuration
+
+The endpoints used for communicating with supported external blockchains are defined in the `config.json` file under the tag `chainConfigs`. 
+
+Updating your `config.json` should happen when:
+
+  - New external chains become supported
+  - Switching to a different endpoint supplier
+
+Below is an example of a config with external chain endpoints.
+
+??? Example "Example config.json"
+
+    ```
+        {
+            "restPort": 8080,
+            "floodingPort": 9888,
+            "knownPeers": [
+                // your known peers
+            ],
+            "networkKey": "YOUR NETWORK KEY",
+            "producerConfig": {
+                "accountKey": "YOUR ACCOUNT KEY",
+                "finalizationKey": "YOUR FINALIZATION KEY",
+                "host": "YOUR IP",
+                "chainConfigs: {
+                    "Ethereum": "https://example.com",
+                    "Polygon": "https://example.com",
+                    "BnbSmartChain": "https://example.com",
+                    }"
+            }
+        }
+    ```
+
+To update a config, the easiest way is to simply run the node-register tool again:
+```bash
+./node-register.sh create-config
+```
+Alternatively, `config.json` can be edited manually as shown in the example above.
+
 ### How to migrate your node to a different VPS
 
 When changing VPS there are a few important precautions you take ensuring a problem free migration.
@@ -467,3 +507,19 @@ sudo service ntp start
 ````bash
 sudo systemctl status ntp
 ````
+
+## Keeping your node software up-to-date
+
+New versions of the node software is released periodically.
+If you are running out-of-date node software you may not be able to join committees.
+To prevent this make sure to stay up-to-date with new node software versions.
+
+To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates).
+
+You can also choose to manually update your node software by following the guide [here](#updating-your-node-manually).
+
+The node software version of your own node `nodeVersion` and the minimum required node software version to be part of
+the committee `minimumNodeVersion`
+can be found in
+the [Block producer orchestration contract state](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+
