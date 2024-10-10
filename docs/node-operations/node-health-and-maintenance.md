@@ -281,6 +281,46 @@ curl -X POST "ENDPOINT_YOU_WANT_TO_CHECK" \
 If the block number is way off, or if you don't get anything with either command, there is likely a problem with the
 endpoint, replace it!
 
+### Updating your BYOC chain configuration
+
+The endpoints used for communicating with supported external blockchains are defined in the `config.json` file under the tag `chainConfigs`. 
+
+Updating your `config.json` should happen when:
+
+  - New external chains become supported
+  - Switching to a different endpoint supplier
+
+Below is an example of a config with external chain endpoints.
+
+??? Example "Example config.json"
+
+    ```
+        {
+            "restPort": 8080,
+            "floodingPort": 9888,
+            "knownPeers": [
+                // your known peers
+            ],
+            "networkKey": "YOUR NETWORK KEY",
+            "producerConfig": {
+                "accountKey": "YOUR ACCOUNT KEY",
+                "finalizationKey": "YOUR FINALIZATION KEY",
+                "host": "YOUR IP",
+                "chainConfigs: {
+                    "Ethereum": "https://example.com",
+                    "Polygon": "https://example.com",
+                    "BnbSmartChain": "https://example.com",
+                    }"
+            }
+        }
+    ```
+
+To update a config, the easiest way is to simply run the node-register tool again:
+```bash
+./node-register.sh create-config
+```
+Alternatively, `config.json` can be edited manually as shown in the example above.
+
 ### How to migrate your node to a different VPS
 
 When changing VPS there are a few important precautions you take ensuring a problem free migration.
