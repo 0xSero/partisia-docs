@@ -230,7 +230,7 @@ Keep an eye on the indentation  it won't work if the indentation is off.
 
 ### Generating a config file for a reader node
 
-The [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool) will help you generate a valid node configuration file and store in the correct folder on the machine.
+The [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool) will help you generate a valid node configuration file and store it in the correct folder on the machine.
 
 To generate the `config.json` for a reader node you need following information:
 
@@ -245,7 +245,7 @@ Start the tool:
 ./node-register.sh create-config
 ```
 
-We are creating a reader node. Therefore, when asked if the node is a block producing node respond `no`, otherwise the node will attempt to (unsuccessfully) produce blocks.
+We are creating a reader node. Therefore, respond `no` when asked if the node is a block producing node. Otherwise the node will attempt to (unsuccessfully) produce blocks.
 
 The config should look like the example below.
 
