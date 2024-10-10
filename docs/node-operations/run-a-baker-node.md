@@ -107,7 +107,7 @@ associated with your node. It also creates a profile with public information abo
 
 ???+ note
 
-    Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
+    Your node _must_ be up-to-date with the rest of the network and you _must_ have at least 25,000 gas in your account. Otherwise you will not be able to send the register transaction.
 
 You can check the status by running the node-register tool with the `status` command:
 

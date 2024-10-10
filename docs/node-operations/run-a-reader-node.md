@@ -228,9 +228,9 @@ Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 Keep an eye on the indentation  it won't work if the indentation is off.
 
-### Generating a config for a reader node
+### Generating a config file for a reader node
 
-The [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool) will help you generate a valid node configuration file.
+The [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool) will help you generate a valid node configuration file and store in the correct folder on the machine.
 
 To generate the `config.json` for a reader node you need following information:
 
