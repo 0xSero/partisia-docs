@@ -109,13 +109,14 @@ associated with your node. It also creates a profile with public information abo
 
     Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
 
-The node REST server will respond with a code `204 No Content` if it is up-to-date with the network.
 You can check the status by running the node-register tool with the `status` command:
 
 ```bash
 ./node-register.sh status
 ```
 
+The node REST server will respond with a code `204 No Content` if it is up-to-date with the network, and the tool will print a message saying `Your node is up to date with the rest of the network`. 
+Otherwise, a message saying `Your node is NOT up to date` will be printed.
 
 You need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
 [Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
