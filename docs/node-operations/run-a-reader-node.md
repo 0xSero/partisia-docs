@@ -228,9 +228,9 @@ Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 Keep an eye on the indentation  it won't work if the indentation is off.
 
-### The `node-register.sh` script
+### Generating a config file for a reader node
 
-The `node-register.sh` script will help you generate a valid node configuration file.
+The [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool) will help you generate a valid node configuration file and store it in the correct folder on the machine.
 
 To generate the `config.json` for a reader node you need following information:
 
@@ -239,32 +239,13 @@ To generate the `config.json` for a reader node you need following information:
   producers should be obtained by reaching out to the community. You can see how to reach the
   community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
 
-
-The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
-
-```shell
-curl https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh --output node-register.sh
-```
-
-Once it is downloaded you need to make it executable:
-
-```shell
-chmod +x node-register.sh
-```
-
-You are now ready to generate your `config.json` file.
-
-### Generating your `config.json` file
-
-The tool ensures your `config.json` is well-formed and that it is stored in the correct folder on the machine.
-
 Start the tool:
 
 ```shell
 ./node-register.sh create-config
 ```
 
-We are creating a reader node. Therefore, your first response needs to be a `no` when creating the config, otherwise the node will attempt to (unsuccessfully) produce blocks.
+We are creating a reader node. Therefore, respond `no` when asked if the node is a block producing node. Otherwise the node will attempt to (unsuccessfully) produce blocks.
 
 The config should look like the example below.
 
@@ -304,103 +285,9 @@ logs [here](https://docs.docker.com/config/containers/logging/configure/).
 The storage of the node is based on RocksDB. It is write-heavy and will increase in size for the foreseeable future. The
 number and size of reads and writes is entirely dependent on the traffic on the network.
 
-## Get automatic updates
+## Updating your node
 
-All nodes independent of type should be set up to update their software automatically. To set up automatic updates you
-will need to install Cron, a time based job scheduler:
-
-````bash
-apt-get install cron
-````
-
-Now you are ready to start.
-
-**1. Create the auto update script:**
-
-Go to the directory where `docker-compose.yml` is located.
-
-````bash
-cd ~/pbc
-````
-
-Open the file in nano:
-
-````bash
-nano update_docker.sh
-````
-
-Paste the following content into the file:
-
-````bash
-#!/usr/bin/env bash
-
-DATETIME=$(date -u)
-echo "$DATETIME"
-
-cd ~/pbc
-
-/usr/bin/docker compose pull pbc
-/usr/bin/docker compose up -d pbc
-````
-
-Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
-
-**2. Make the file executable:**
-
-````bash
-chmod +x update_docker.sh
-````
-
-Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now
-executable.
-
-**3. Set update frequency to once a day at a random time:**
-
-````bash
-crontab -e
-````
-
-This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to
-edit the cron rule. If you have not already chosen a preference.
-
-Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
-
-````bash
-m h * * * /home/userNameHere/pbc/update_docker.sh >> /home/userNameHere/pbc/update.log 2>&1
-````
-
-For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23. If
-you are in doubt about what the cron rule means you can use this page:
-<https://crontab.guru/> to see the rule expressed in words.
-
-Press `CTRL+X` and then `Y` and then `ENTER`.
-
-This rule will make the script run and thereby check for available updates once every day.
-
-To see if the script is working you can read the update log with the *cat command*:
-
-````bash
-cat update.log
-````
-
-You can change the time of the first update if you don't want to wait a day to confirm that it works.
-
-If your version is up-to-date, you should see:
-
-````
-YOUR_CONTAINER_NAME is up-to-date
-````
-
-If you are currently updating you should see:
-
-````
-Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
-````
-
-!!! Warning "Warning"
-
-    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for
-    updates.
+Make sure your node is set up to update automatically by following the instructions in the [Get automatic updates section](node-health-and-maintenance.md#get-automatic-updates)
 
 ## Final step
 

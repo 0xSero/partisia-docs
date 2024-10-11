@@ -1,8 +1,10 @@
 # Node health and maintenance
 
-The maintenance page takes you through the following node issues:
+The maintenance page takes you through the following node-related topics:
 
+- [The node-register.sh tool](#the-node-registersh-tool)
 - [Is your baker node working?](#is-your-baker-node-working)   
+- [Get automatic updates](#get-automatic-updates)
 - [Update your node manually](#updating-your-node-manually)   
 - [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)   
 - [How to monitor node performance](#how-to-monitor-node-performance)   
@@ -12,6 +14,35 @@ The maintenance page takes you through the following node issues:
 - [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)   
 - [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)
 - [Inactivity](#Inactivity)
+
+## The `node-register.sh` tool
+
+The `node-register.sh` utility tool can help you set up and maintain your node. 
+This includes initializing and updating your node configuration, as well as registering your node for block production and signing.
+The tool can be used with the following commands:
+
+- `create-config`: Used to set up the initial config file for your node, or to update an existing config file. This command will take you through a step-by-step process for filling out the information needed for your config.
+    - Example: `./node-register.sh create-config` 
+- `register-node`: Used to register your node for producing and signing blocks. This command will take you through a step-by-step process to register for block production and signing.
+- `status`: Checks whether your node is up to date with the rest of the network.
+- `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
+    - Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
+- `report-active`: Used to mark your node as _CONFIRMED_ if it was previously set to _INACTIVE_ on the [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+
+The commands can be run with `--help` for additional information.
+
+The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh). 
+To download the tool run:
+
+```shell
+curl https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh --output node-register.sh
+```
+
+Once it is downloaded you need to make it executable:
+
+```shell
+chmod +x node-register.sh
+```
 
 ## Is your baker node working?
 
@@ -31,7 +62,7 @@ regularly.
   in [How to monitor node performance](#how-to-monitor-node-performance) below   
 - Your node is signing blocks. Can be checked in the logs as explained below
 - Your node is running the newest version of Partisia Software. The easiest way to ensure this is by
-  implementing [automatic updates](run-a-reader-node.md#get-automatic-updates)
+  implementing [automatic updates](#get-automatic-updates)
 
 You can confirm that your node software is up-to-date with the following command:
 
@@ -42,10 +73,108 @@ docker inspect --format='{{.Image}}' YOUR_CONTAINER_NAME
 The number must match the
 latest [configuration digest](https://gitlab.com/partisiablockchain/mainnet/container_registry/3175145).
 
+## Get automatic updates
+
+All nodes, independent of type, should be set up to update their software automatically. To set up automatic updates you
+will need to install Cron, a time based job scheduler:
+
+````bash
+apt-get install cron
+````
+
+Now you are ready to start.
+
+**1. Create the auto update script:**
+
+Go to the directory where `docker-compose.yml` is located.
+
+````bash
+cd ~/pbc
+````
+
+Open the file in nano:
+
+````bash
+nano update_docker.sh
+````
+
+Paste the following content into the file:
+
+````bash
+#!/usr/bin/env bash
+
+DATETIME=$(date -u)
+echo "$DATETIME"
+
+cd ~/pbc
+
+/usr/bin/docker compose pull pbc
+/usr/bin/docker compose up -d pbc
+````
+
+Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
+
+**2. Make the file executable:**
+
+````bash
+chmod +x update_docker.sh
+````
+
+Type ``ls -l`` and confirm *update_docker.sh*  has an x in its first group of attributes, that means it is now
+executable.
+
+**3. Set update frequency to once a day at a random time:**
+
+````bash
+crontab -e
+````
+
+This command allows you to add a rule for a scheduled event. You will be asked to choose your preferred text editor to
+edit the cron rule, if you have not already chosen a preference.
+
+Paste and add the rule to the scheduler. Make sure to have no "#" in front of the rule:
+
+````bash
+m h * * * /home/userNameHere/pbc/update_docker.sh >> /home/userNameHere/pbc/update.log 2>&1
+````
+
+For minutes (m) choose a random number between 0 and 59, and for hours (h) choose a random number between 0 and 23. If
+you are in doubt about what the cron rule means you can use this page:
+<https://crontab.guru/> to see the rule expressed in words.
+
+Press `CTRL+X` and then `Y` and then `ENTER`.
+
+This rule will make the script run and thereby check for available updates once every day.
+
+To see if the script is working you can read the update log with the *cat command*:
+
+````bash
+cat update.log
+````
+
+You can change the time of the first update if you don't want to wait a day to confirm that it works.
+
+If your version is up-to-date, you should see:
+
+````
+YOUR_CONTAINER_NAME is up-to-date
+````
+
+If you are currently updating you should see:
+
+````
+Pulling YOUR_CONTAINER_NAME ... pulling from privacyblockchain/de...
+````
+
+!!! Warning "Warning"
+
+    Never include a shutdown command in your update script, otherwise your node will go offline every time it checks for
+    updates.
+
 ## Updating your node manually
 
-You should always have enabled [automatic updates](run-a-reader-node.md#get-automatic-updates) on your node. But, there
-can be situation where you want to update it manually if you have had a problem on the node.
+You should always have [automatic updates](#get-automatic-updates) enabled  on your node. But there
+can be situations where you might want to update it manually, for instance if you are experiencing problems with the node.
 
 In the following it is assumed you are using `~/pbc` as directory for your `docker-compose.yml`.
 
@@ -147,9 +276,9 @@ produce a block, a reset block is made, and then a new node is chosen for the ro
 
 **Not signing** - This is not a good sign, you are not signing blocks. First, check if you are on the list
 of [current committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators), if you are not, and you have already sent the
-Register Transaction, then you should search for your PBC account address in the state
-the [Block Producer Orchestration Contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91) (
-BPOC). There is a field for each producer called "status": - after this you will see either "CONFIRMED" or "PENDING".
+Register Transaction, then you should search for your PBC account address in the state on
+the [Block Producer Orchestration Contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91) (BPOC). 
+There is a field for each producer called "status": - after this you will see either "CONFIRMED" or "PENDING".
 Confirmed means you are registered as a block producer and are formally eligible to participate in the committee.
 Pending means your public information is still awaiting manual approval from the team cross-checking the information you
 have given. If you cannot find your address in the BPOC at all you need to resend your registration. Alternatively, if
@@ -282,12 +411,52 @@ curl -X POST "ENDPOINT_YOU_WANT_TO_CHECK" \
 If the block number is way off, or if you don't get anything with either command, there is likely a problem with the
 endpoint, replace it!
 
+### Updating your BYOC chain configuration
+
+The endpoints used for communicating with supported external blockchains are defined in the `config.json` file under the tag `chainConfigs`. 
+
+Updating your `config.json` should happen when:
+
+  - New external chains become supported
+  - Switching to a different endpoint supplier
+
+Below is an example of a config with external chain endpoints.
+
+??? Example "Example config.json"
+
+    ```
+        {
+            "restPort": 8080,
+            "floodingPort": 9888,
+            "knownPeers": [
+                // your known peers
+            ],
+            "networkKey": "YOUR NETWORK KEY",
+            "producerConfig": {
+                "accountKey": "YOUR ACCOUNT KEY",
+                "finalizationKey": "YOUR FINALIZATION KEY",
+                "host": "YOUR IP",
+                "chainConfigs: {
+                    "Ethereum": "https://example.com",
+                    "Polygon": "https://example.com",
+                    "BnbSmartChain": "https://example.com",
+                    }"
+            }
+        }
+    ```
+
+To update a config, the easiest way is to simply run the node-register tool again:
+```bash
+./node-register.sh create-config
+```
+Alternatively, `config.json` can be edited manually as shown in the example above.
+
 ### How to migrate your node to a different VPS
 
 When changing VPS there are a few important precautions you take ensuring a problem free migration.
 
 **You may never run two nodes performing baker services at the same time**   
-Running two nodes with same config can be interpreted as malicious behavior.You can start
+Running two nodes with same config can be interpreted as malicious behavior. You can start
 a [reader node](../node-operations/run-a-reader-node.md) on the new VPS. Then, when you are ready to change
 the `config.json` to the BP version, you stop the node from running on the old server:
 
@@ -339,6 +508,23 @@ sudo service ntp start
 ````bash
 sudo systemctl status ntp
 ````
+
+## Keeping your node software up-to-date
+
+New versions of the node software is released periodically.
+If you are running out-of-date node software you may not be able to join committees.
+To prevent this make sure to stay up-to-date with new node software versions.
+
+To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates).
+
+You can also choose to manually update your node software by following the guide [here](#updating-your-node-manually).
+
+The node software version of your own node `nodeVersion` and the minimum required node software version to be part of
+the committee `minimumNodeVersion`
+can be found in
+the [Block producer orchestration contract state](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+
+
 
 ## Inactivity
 
