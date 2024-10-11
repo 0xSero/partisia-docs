@@ -515,7 +515,7 @@ New versions of the node software is released periodically.
 If you are running out-of-date node software you may not be able to join committees.
 To prevent this make sure to stay up-to-date with new node software versions.
 
-To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates).
+To get automatic updates please follow the guide [here](#get-automatic-updates).
 
 You can also choose to manually update your node software by following the guide [here](#updating-your-node-manually).
 
