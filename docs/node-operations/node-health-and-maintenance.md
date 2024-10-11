@@ -17,21 +17,27 @@ The maintenance page takes you through the following node-related topics:
 
 ## The `node-register.sh` tool
 
-The `node-register.sh` utility tool can help you set up and maintain your node. 
-This includes initializing and updating your node configuration, as well as registering your node for block production and signing.
+The `node-register.sh` utility tool can help you set up and maintain your node.
+This includes initializing and updating your node configuration, as well as registering your node for block production
+and signing.
 The tool can be used with the following commands:
 
-- `create-config`: Used to set up the initial config file for your node, or to update an existing config file. This command will take you through a step-by-step process for filling out the information needed for your config.
-    - Example: `./node-register.sh create-config` 
-- `register-node`: Used to register your node for producing and signing blocks. This command will take you through a step-by-step process to register for block production and signing.
+- `create-config`: Used to set up the initial config file for your node, or to update an existing config file. This
+  command will take you through a step-by-step process for filling out the information needed for your config.
+  - Example: `./node-register.sh create-config`
+- `register-node`: Used to register your node for producing and signing blocks. This command will take you through a
+  step-by-step process to register for block production and signing.
 - `status`: Checks whether your node is up to date with the rest of the network.
-- `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
-    - Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
-- `report-active`: Used to mark your node as _CONFIRMED_ if it was previously set to _INACTIVE_ on the [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+- `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid
+  and approved.
+  - Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
+- `report-active`: Used to mark your node as _CONFIRMED_ if it was previously set to [_INACTIVE_](#Inactivity) on
+  the [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
 
 The commands can be run with `--help` for additional information.
 
-The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh). 
+The newest version of `node-register.sh` is located
+on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
 To download the tool run:
 
 ```shell
