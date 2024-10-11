@@ -524,29 +524,16 @@ the committee `minimumNodeVersion`
 can be found in
 the [Block producer orchestration contract state](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
 
-
-
 ## Inactivity
 
-If a confirmed baker node is unresponsive when a new committee is forming, it will be marked as `inactive`. Nodes that 
+If a confirmed baker node is unresponsive when a new committee is forming, it will be marked as `inactive`. Nodes that
 are marked as `inactive` will not be considered for future committees.
 
 To mark your node as active again first make sure the node is up-to-date and working correctly, then use the following
 command
-in `node-register.sh` tool:
+in [node-register.sh tool](#the-node-registersh-tool):
 
 ```bash
 ./node-register.sh report-active
 ```
 
-The newest version of `node-register.sh` is located on [GitLab](https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh).
-
-```shell
-curl https://gitlab.com/partisiablockchain/main/-/raw/main/scripts/node-register.sh --output node-register.sh
-```
-
-Once it is downloaded you need to make it executable:
-
-```shell
-chmod +x node-register.sh
-```
