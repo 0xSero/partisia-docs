@@ -42,7 +42,7 @@ To fill out the config.json for a block producing node you need to add the follo
 
 You can read more about different fields in the `config.json` in the source code [here](https://gitlab.com/partisiablockchain/main/-/blob/main/src/main/java/com/partisiablockchain/server/CompositeNodeConfigDto.java)
 
-To fill out the needed information we will use the `node-register.sh` tool:
+To fill out the needed information we will use the [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool):
 
 ```bash
 ./node-register.sh create-config
@@ -109,31 +109,31 @@ In the [maintenance section](../node-operations/node-health-and-maintenance.md) 
 
 ## Register your node
 
-Registration of the node via the `node-register.sh` script. The registration ensures that your account and tokens are
+Registration of the node happens via the [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool). The registration ensures that your account and tokens are
 associated with your node. It also creates a profile with public information about your node.
 
 ???+ note
 
-    Your node _must_ be up-to-date with the rest of the network, otherwise the next part won't work.
+    Your node _must_ be up-to-date with the rest of the network and you _must_ have at least 25,000 gas in your account. Otherwise you will not be able to send the register transaction.
 
-The node REST server will respond with a code `204 No Content` if it is up-to-date with the network.
-You can check the status by running the following command:
+You can check the status by running the node-register tool with the `status` command:
 
 ```bash
 ./node-register.sh status
 ```
 
+The node REST server will respond with a code `204 No Content` if it is up-to-date with the network, and the tool will print a message saying `Your node is up to date with the rest of the network`. 
+Otherwise, a message saying `Your node is NOT up to date` will be printed.
+
 You need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
 [Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
 gas balance is shown. You can add gas to your account with the [bridge]( https://browser.partisiablockchain.com/bridge).
 
-To send the register transaction you need to log in to your node and go to the `~/pbc` folder and call the `node-register.sh` script.
+To send the register transaction you need to log in to your node and go to the `~/pbc` folder,
+and run the node-register tool with the `register-node` command:
 
 ```bash
 cd ~/pbc
-```
-
-```bash
 ./node-register.sh register-node
 ```
 
