@@ -12,7 +12,8 @@ The maintenance page takes you through the following node-related topics:
 - [For ZK and reader nodes: Sorting logs of nginx proxy and acme](#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 - [Confirm that your BYOC endpoints are working](#confirm-that-your-byoc-endpoints-are-working)   
 - [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)   
-- [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)   
+- [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)
+- [Inactivity](#Inactivity)
 
 ## The `node-register.sh` tool
 
@@ -26,7 +27,7 @@ The tool can be used with the following commands:
 - `status`: Checks whether your node is up to date with the rest of the network.
 - `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
     - Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
-- `report-active`: Used to mark your node as _CONFIRMED_ if it was previously set to _INACTIVE_ on the [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+- `report-active`: Used to mark your node as _CONFIRMED_ if it was previously set to [_INACTIVE_](#Inactivity) on the [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
 
 The commands can be run with `--help` for additional information.
 
@@ -514,7 +515,7 @@ New versions of the node software is released periodically.
 If you are running out-of-date node software you may not be able to join committees.
 To prevent this make sure to stay up-to-date with new node software versions.
 
-To get automatic updates please follow the guide [here](run-a-reader-node.md#get-automatic-updates).
+To get automatic updates please follow the guide [here](#get-automatic-updates).
 
 You can also choose to manually update your node software by following the guide [here](#updating-your-node-manually).
 
@@ -522,4 +523,17 @@ The node software version of your own node `nodeVersion` and the minimum require
 the committee `minimumNodeVersion`
 can be found in
 the [Block producer orchestration contract state](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+
+## Inactivity
+
+If a confirmed baker node is unresponsive when a new committee is forming, it will be marked as `inactive`. Nodes that
+are marked as `inactive` will not be considered for future committees.
+
+To mark your node as active again first make sure the node is up-to-date and working correctly, then use the following
+command
+in [node-register.sh tool](#the-node-registersh-tool):
+
+```bash
+./node-register.sh report-active
+```
 
