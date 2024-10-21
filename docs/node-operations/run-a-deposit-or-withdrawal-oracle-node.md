@@ -1,4 +1,4 @@
-# Run a deposit or withdrawal oracle
+# Run BYOC oracle node
 
 The transfer of cryptocurrencies to and from PBC is facilitated by
 deposit [oracles](../pbc-fundamentals/dictionary.md#oracle-node) and withdrawal oracles.
@@ -20,7 +20,7 @@ stop providing the service.
     3. Ensure you have working BYOC endpoints in your `config.json` - [see how to confirm this](node-health-and-maintenance.md#confirm-that-your-byoc-endpoints-are-working) 
     4. Ensure your baker node is [running](node-health-and-maintenance.md#is-your-baker-node-working)
 
-## How to register your node for oracle service
+## Register as a BYOC oracle node
 
 To join a deposit or withdrawal oracle first you have to register your interest in joining one. This can be done
 in [Browser](https://browser.partisiablockchain.com/blocks)
@@ -58,37 +58,47 @@ the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f
 and
 it can be reselected to the same oracle if you have enough tokens associated.
 
-## How to leave a deposit or withdrawal oracle
+## Deregister as a BYOC oracle node
 
-Oracle nodes have a stake of MPC tokens associated to
-the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014).
-If
-you [disassociate](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
-the tokens from the large oracle contract, your node will no longer be eligible to serve in deposit and withdrawal
-oracles.
+To deregister as a BYOC oracle you need to disassociate your tokens from the Large Oracle contract.
+After disassociating tokens from the Large Oracle contract the tokens will no longer be available
+when selecting nodes for a new oracle. 
 
-If the node is currently [serving](#how-to-find-out-which-small-oracle-your-node-serves) in a deposit or withdrawal
-oracle, you must wait for the oracle to rotate to disassociate your tokens.
+However, when disassociating tokens you might not immediately
+be able to do so if too many tokens are currently allocated to a BYOC oracle or pending being unlocked. If
+the node is currently a part of a BYOC oracle
+(see [How to find out which small oracle your node serves](#how-to-find-out-which-small-oracle-your-node-serves)),
+you must wait for the oracle to rotate before being able to disassociate the tokens locked to that
+oracle.
 The oracle rotates when it reaches either the deposit limit of 25 ETH or the withdrawal limit of 50 ETH.
-
 If you cannot wait for the oracle to rotate, or if your node has to be shut down for
-maintenance, you can request a new oracle if the oracle is at least 14 days old. This will end
-the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the
-oracle and three new nodes will be selected. The tokens of the three nodes associated with a specific oracle will get
-pending
-status for 14 days.
+maintenance, you can [request a new oracle](#request-new-oracle) if the current oracle is at least 14 days old. This will
+end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the oracle and new oracle nodes will be
+selected.
 
-If you have enough tokens available the node can be reselected for the same oracle. This can be prevented by
-[disassociating](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract)
-unused tokens in the large oracle contract. Only do this if you want your node to leave all oracle services.
+After the oracle rotates the tokens will be pending unlock for 14 days before being
+unlocked. To ensure tokens will be available for disassociation after being unlocked you can reserve
+an amount of tokens for disassociation.
 
-### How to find out which small oracle your node serves
+!!! info
 
-If you know which oracle your node is serving, you should skip ahead
-to [request new oracle](./run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle).
+    Reserving tokens for disassociation prevents a node from being selected for new BYOC oracles if the allocation results
+    in the amount of free tokens becoming less than the amount reserved for disassociation.
+    When tokens are disassociated the reserved amount is automatically reduced by this amount.
+
+### How to reserve tokens for disassociation
+1. Sign in to the browser
+2. Call [
+   'Set reserved tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/setReservedTokens) on the Large Oracle contract to update the amount of reserved tokens
+
+### How to disassociate tokens
+1. Sign in to the browser
+2. Call ['Disassociate tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens) on the Large Oracle contract to disassociate the amount of tokens
+
+## How to find out which small oracles your node serves
 
 1. Open
-   the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
+   the [Large Oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
 2. Open the map `stakedTokens`
 3. Search for your blockchain address `CTRL+f`
 4. Open the struct next to your blockchain address
@@ -99,7 +109,7 @@ to [request new oracle](./run-a-deposit-or-withdrawal-oracle-node.md#request-new
    oracles 250,000)
 8. Paste the address to the search field of the browser, to navigate to the contract your node is serving
 
-### Request new oracle
+## Request new oracle
 
 Navigate to the deposit or withdrawal contract your node is serving.
 Invoke the contract action _requestNewOracle_ from the list
