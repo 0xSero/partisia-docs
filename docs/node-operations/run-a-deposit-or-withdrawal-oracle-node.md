@@ -1,7 +1,7 @@
-# Run BYOC oracle node
+# Run a deposit or withdrawal oracle
 
 The transfer of cryptocurrencies to and from PBC is facilitated by
-deposit [oracles](../pbc-fundamentals/dictionary.md#oracle-node) and withdrawal oracles.
+deposit and withdrawal [oracles](../pbc-fundamentals/dictionary.md#oracle-node).
 Deposit and withdrawal oracles are a type of [small oracle](../pbc-fundamentals/dictionary.md#small-oracle) and are
 constituted by three nodes.
 
@@ -20,7 +20,7 @@ stop providing the service.
     3. Ensure you have working BYOC endpoints in your `config.json` - [see how to confirm this](node-health-and-maintenance.md#confirm-that-your-byoc-endpoints-are-working) 
     4. Ensure your baker node is [running](node-health-and-maintenance.md#is-your-baker-node-working)
 
-## Register as a BYOC oracle node
+## Register as a deposit or withdrawal oracle node
 
 To join a deposit or withdrawal oracle first you have to register your interest in joining one. This can be done
 in [Browser](https://browser.partisiablockchain.com/blocks)
@@ -58,15 +58,14 @@ the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f
 and
 it can be reselected to the same oracle if you have enough tokens associated.
 
-## Deregister as a BYOC oracle node
+## Deregister as a deposit or withdrawal oracle node
 
-To deregister as a BYOC oracle you need to disassociate your tokens from the Large Oracle contract.
+To deregister as a deposit or withdrawal oracle node you need to disassociate your tokens from the Large Oracle contract.
 After disassociating tokens from the Large Oracle contract the tokens will no longer be available
 when selecting nodes for a new oracle. 
 
-However, when disassociating tokens you might not immediately
-be able to do so if too many tokens are currently allocated to a BYOC oracle or pending being unlocked. If
-the node is currently a part of a BYOC oracle
+However, you might not be able to immediately disassociate tokens if the tokens are currently allocated to an oracle or pending being unlocked. If
+the node is currently a part of an oracle
 (see [How to find out which small oracle your node serves](#how-to-find-out-which-small-oracle-your-node-serves)),
 you must wait for the oracle to rotate before being able to disassociate the tokens locked to that
 oracle.
