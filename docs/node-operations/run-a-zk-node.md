@@ -260,11 +260,11 @@ an amount of tokens for disassociation.
 ### How to reserve tokens for disassociation
 1. Sign in to the browser
 2. Call [
-   'Set reserved tokens'](https://browser.testnet.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/setReservedTokens) on the ZK Node Registry contract to update the amount of reserved tokens
+   'Set reserved tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/setReservedTokens) on the ZK Node Registry contract to update the amount of reserved tokens
 
 ### How to disassociate tokens
 1. Sign in to the browser
-2. Call ['Disassociate tokens'](https://browser.testnet.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens) on the ZK Node Registry contract to disassociate the amount of tokens
+2. Call ['Disassociate tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens) on the ZK Node Registry contract to disassociate the amount of tokens
 
 ## How to find out what ZK work your node is selected for
 To find out the ZK contracts the node is allocated to and when the allocation ends follow these steps:
