@@ -32,5 +32,4 @@ ZK nodes. It is, however, only the services and/or the users of the service runn
 truly know the value of the confidential information involved. To accommodate for this asymmetric information problem
 the users can
 adjust stakes to meet an appropriate level of
-insurance ([Yellow Paper pp. 40-41](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)).   
-
+insurance ([Yellow Paper pp. 40-41](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view)).

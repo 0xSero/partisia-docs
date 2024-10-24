@@ -238,7 +238,7 @@ c9aaa...
 ### Creating the signed transaction
 
 The signature format expected is {r, s, v} where {r, s} are 32 bytes each, and v is one byte. The signature takes up 65
-bytes and must be hex encoded. 
+bytes and must be hex encoded.
 
 One way to construct such a signature is to sign the message with any library that can
 produce signatures for Ethereum. This produces a signature {r, s, w} where w - 27 = v. The result is going to be a
@@ -408,7 +408,7 @@ _FindBlock(shard, block, TX)_
 1. Create a request object for /block with the _shard_ (a network identifier object)
 2. If _block_ (a block identifier object) is not null, we will include this as well
 3. Call [/block](https://docs.cloud.coinbase.com/rosetta/reference/block)
-4. For each transaction _T_ in "other_transactions" in the response, if _T=TX_ call _SearchTransactions(shard, block,
+4. For each transaction _T_ in "other*transactions" in the response, if \_T=TX* call _SearchTransactions(shard, block,
    T)_
 5. Otherwise, call _FindBlock(shard, B, TX)_ where _B_ is the "parent_block_identifier" in the response
 

@@ -35,8 +35,8 @@ In our [rest server source repository](https://gitlab.com/partisiablockchain/cor
 endpoints and all returned data types.
 
 ### Transaction information
-[https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5)
 
+[https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5)
 
 Where
 
@@ -81,4 +81,3 @@ Where
 ### Blockchain global information
 
 [https://reader.partisiablockchain.com/chain](https://reader.partisiablockchain.com/chain)
-

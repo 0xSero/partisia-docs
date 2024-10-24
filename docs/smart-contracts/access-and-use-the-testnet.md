@@ -13,7 +13,7 @@ the following:
   the [PBC wallet extension](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
 - Get [testnet gas](gas/how-to-get-testnet-gas.md)
 - [Download the PBC example smart contracts](https://gitlab.com/partisiablockchain/language/example-contracts)
-  and [try to deploy a contract on the testnet](compile-and-deploy-contracts.md). 
+  and [try to deploy a contract on the testnet](compile-and-deploy-contracts.md).
 
 ## How to deploy contracts on the testnet
 
@@ -24,4 +24,4 @@ the following:
   computation you upload a ZKWA-file as contract file and an ABI-file. Keep in mind that you need to add enough gas for
   your contract to run.
   You need to compile your rust contract to get access to these
-  files, [you can see here how to do that](compile-and-deploy-contracts.md) 
+  files, [you can see here how to do that](compile-and-deploy-contracts.md)

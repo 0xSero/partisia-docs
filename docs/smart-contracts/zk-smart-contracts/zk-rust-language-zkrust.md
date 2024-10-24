@@ -46,7 +46,7 @@ a secret-shared type produces a new secret-shared type.
 
 This comes from the more general rule that _it must be impossible to learn any
 secret information at the public level_, a kind of rule known as [Information Flow
-Control](https://en.wikipedia.org/wiki/Information_flow_(information_theory))
+Control](<https://en.wikipedia.org/wiki/Information_flow_(information_theory)>)
 (IFC). The secret-sharing IFC rule is enforced by The Partisia Blockchain,
 which prevents leakage of sensitive information.
 
@@ -117,7 +117,7 @@ Each contract possess a list of secret variables. These variables possess:
 - A unique id.
 - Secret data, secret-shared between contract's computation nodes. Loadable in
   the computation by `load_sbi::<S: SecretBinary>(id: i32): S`.
-- Public information called __metadata__. Loadable in the computation by
+- Public information called **metadata**. Loadable in the computation by
   `load_metadata::<T: Public>(id: i32): T`.
 - An owner (blockchain account), who uploaded the variable, or in the case of
   computation outputs, the contract itself. This information is not available for zk-computation.
@@ -196,4 +196,3 @@ exception, as it would attempt to load `(16 + 16)*3 = 96` bits, which variable
 As shown in the previous examples, it is possible to import functions and data
 structures from the `pbc_zk` module. See [Zero-knowledge Language
 Reference](zk-rust-reference.md) for what is available.
-

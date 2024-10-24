@@ -25,15 +25,15 @@ run the zk-compiler.
 
 If Working from a Windows machine you
 must [get Visual Studio with C++ build tools](https://visualstudio.microsoft.com/downloads/) - In Visual Studio
-Installer choose *Desktop development with C++*.
+Installer choose _Desktop development with C++_.
 
-* We recommend you make sure these optionals are marked:
-    * MSVC x64/x86 build tools
-    * Windows 11 SDK
-    * C++ CMake tools for Windows
-    * Testing tools core features
-    * Build Tools
-    * C++ AddressSanitizer
+- We recommend you make sure these optionals are marked:
+  - MSVC x64/x86 build tools
+  - Windows 11 SDK
+  - C++ CMake tools for Windows
+  - Testing tools core features
+  - Build Tools
+  - C++ AddressSanitizer
 
 ### 2) Installing the cargo `partisia-contract`/`pbc` command
 
@@ -44,8 +44,9 @@ To compile it and install it using cargo run:
 ```bash
 cargo install cargo-partisia-contract
 ```
-The `cargo partisia-contract` and `cargo pbc` are interchangeable commands, the `cargo pbc` is just an alias. 
-To verify the tool you can locally execute: `cargo partisia-contract --version` and `cargo pbc --version`. 
+
+The `cargo partisia-contract` and `cargo pbc` are interchangeable commands, the `cargo pbc` is just an alias.
+To verify the tool you can locally execute: `cargo partisia-contract --version` and `cargo pbc --version`.
 This command prints the version of the tool. If you want to learn more about the partisia contract tool you
 can [visit our tooling page](smart-contract-tools-overview.md#command-line-tools).
 
@@ -53,4 +54,3 @@ can [visit our tooling page](smart-contract-tools-overview.md#command-line-tools
 
 We supply a small archive with example contracts which can be compiled using the tooling from above.
 The example contracts are [available here](../smart-contracts/smart-contract-examples.md).
-

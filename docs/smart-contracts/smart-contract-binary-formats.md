@@ -7,34 +7,35 @@ A Partisia Smart Contract utilizes three distinct binary formats, which are desc
 - _ABI Format_: Meta-information about the smart contract is also stored as binary data, The ABI holds the list of available actions and their parameters and information about the different state variables.
 
 ## ABI Version changes
+
 - Version **5.4** to **5.5**:
-    * Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x11`.
-    * Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x13`.
-    * `FnKind 0x11` now requires a Shortname.
-    * `FnKind 0x13` now requires a Shortname.
+  - Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x11`.
+  - Smart contracts now support \(\text{(0..}\infty\text{)}\) of `FnKind: 0x13`.
+  - `FnKind 0x11` now requires a Shortname.
+  - `FnKind 0x13` now requires a Shortname.
 - Version **5.3** to **5.4**:
-    * Added new `FnKind: 0x18` called `ZkExternalEvent`.
+  - Added new `FnKind: 0x18` called `ZkExternalEvent`.
 - Version **5.2** to **5.3**:
-    * Added new type `AvlTreeMap`, a map whose content is not serialized to the wasm state format, but instead allows
-  for lazy access to its contents.
+  - Added new type `AvlTreeMap`, a map whose content is not serialized to the wasm state format, but instead allows
+    for lazy access to its contents.
 - Version **5.1** to **5.2**:
-    * Added new `FnKind: 0x17` called `ZkSecretInputWithExplicitType`.
-    * Added `SecretArgument` field to `FnAbi` to support ZK inputs. Only present when `FnKind` is `ZkSecretInputWithExplicitType`.
-    * `FnKind: 0x10` is now deprecated.
+  - Added new `FnKind: 0x17` called `ZkSecretInputWithExplicitType`.
+  - Added `SecretArgument` field to `FnAbi` to support ZK inputs. Only present when `FnKind` is `ZkSecretInputWithExplicitType`.
+  - `FnKind: 0x10` is now deprecated.
 - Version **5.0** to **5.1**:
-    * Added additional abi types: `U256`, `Hash`, `PublicKey`, `Signature`, `BlsPublicKey`, `BlsSignature`.
+  - Added additional abi types: `U256`, `Hash`, `PublicKey`, `Signature`, `BlsPublicKey`, `BlsSignature`.
 - Version **4.1** to **5.0**:
-    * Added support for enum with struct items.
-    * Changed `StructTypeSpec` to `NamedTypeSpec` which is either an `EnumTypeSpec` or `StructTypeSpec`.
-      This means that there is an additional byte when reading the list of `NamedTypeSpec` in `ContractAbi`.
+  - Added support for enum with struct items.
+  - Changed `StructTypeSpec` to `NamedTypeSpec` which is either an `EnumTypeSpec` or `StructTypeSpec`.
+    This means that there is an additional byte when reading the list of `NamedTypeSpec` in `ContractAbi`.
 - Version **3.1** to **4.1**:
-    * Added `Kind: FnKind` field to `FnAbi`.
-    * Removed `Init` field from `ContractAbi`.
-    * Added zero-knowledge related `FnKind`s, for use in Zk contracts.
+  - Added `Kind: FnKind` field to `FnAbi`.
+  - Removed `Init` field from `ContractAbi`.
+  - Added zero-knowledge related `FnKind`s, for use in Zk contracts.
 - Version **2.0** to **3.1**:
-    * Shortnames are now encoded as LEB128; `ShortnameLength` field have been
-      removed.
-    * Added explicit, easily extensible return result format.
+  - Shortnames are now encoded as LEB128; `ShortnameLength` field have been
+    removed.
+  - Added explicit, easily extensible return result format.
 
 ## RPC Binary Format
 
@@ -167,7 +168,7 @@ $$
 $$
 
 **Note:** An AvlTreeMap is only stored in wasm state as an integer. The actual content of the AvlTreeMap is stored
-outside the wasm code. The content of the AvlTreeMap is accessed using external calls to the java code. 
+outside the wasm code. The content of the AvlTreeMap is accessed using external calls to the java code.
 The integer stored is the tree id of the AvlTreeMap and is used as a pointer to find the correct AvlTreeMap.
 This is done to avoid having to serialize and deserialize the entire content of the Map for every invocation
 saving gas cost.
@@ -204,7 +205,7 @@ $$
 $$
 
 The WellAligned constraint on Struct CopySerializable is to guarantee that
-struct layouts are identical to serialization.  \(\text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \}\) is WellAligned if following points hold:
+struct layouts are identical to serialization. \(\text{Struct S}\ \{ f_1: T_1, \dots, f_n: T_n \}\) is WellAligned if following points hold:
 
 1. Annotated with `#[repr(C)]`. Read the [Rust Specification](https://doc.rust-lang.org/reference/type-layout.html#reprc-structs)
    for details on this representation.
@@ -353,10 +354,11 @@ $$
 Note that a `ContractAbi` is only valid if the `Hooks` list contains a specific
 number of hooks of each type, as specified in `FnKind`.
 
-Also note that if a function has the deprecated kind `ZkSecretInput`, the default 
-secret argument associated with it is of type i32. 
+Also note that if a function has the deprecated kind `ZkSecretInput`, the default
+secret argument associated with it is of type i32.
 
 <!-- fix syntax highlighting* -->
+
 ## Section format
 
 A section is an indexed chunk of a binary file of dynamic length, which is defined as follows:
@@ -387,6 +389,7 @@ $$
 \end{align*}
 }
 $$
+
 <!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. Two ids are
@@ -400,8 +403,8 @@ are passed through the interpreter without modification.
 
 ## ZKWA format
 
-ZK-contracts have their own binary file format  with the extension ".zkwa"
-that contains their compiled WASM code and ZK-circuit byte code. 
+ZK-contracts have their own binary file format with the extension ".zkwa"
+that contains their compiled WASM code and ZK-circuit byte code.
 This is a [section format](#section-format) defined as:
 
 $$
@@ -412,6 +415,7 @@ $$
 \end{align*}
 }
 $$
+
 <!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. The .zkwa format consists
@@ -433,6 +437,7 @@ $$
 \end{align*}
 }
 $$
+
 <!-- fix syntax highlighting* -->
 
 Note that sections must occur in order of increasing ids. The .pbc format can

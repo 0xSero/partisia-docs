@@ -3,10 +3,10 @@
 Baker nodes sign and produce blocks. This page describes how to change your node configuration from reader to baker.
 When you have completed the steps below, you have a node that is signing and producing blocks.
 
-!!! Warning "You must complete these requirements before you can continue"   
-    1. Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with and [run a reader node](run-a-reader-node.md)
-    2. Complete Synaps  [KYC](complete-synaps-kyb.md#verification-process-for-individuals-kyc) / [KYB](complete-synaps-kyb.md#verification-process-for-businesses-kyb)   
-    3. [Stake 25K MPC tokens](https://browser.partisiablockchain.com/node-operation)    
+!!! Warning "You must complete these requirements before you can continue"
+
+1.  Get a [VPS](../pbc-fundamentals/dictionary.md#vps) with and [run a reader node](run-a-reader-node.md) 2. Complete Synaps [KYC](complete-synaps-kyb.md#verification-process-for-individuals-kyc) / [KYB](complete-synaps-kyb.md#verification-process-for-businesses-kyb)
+2.  [Stake 25K MPC tokens](https://browser.partisiablockchain.com/node-operation)
 
 ### Stop your reader node
 
@@ -28,12 +28,12 @@ To fill out the config.json for a block producing node you need to add the follo
 
 - Account private key (the account you've staked MPC with)
 - IPv4 address of the server hosting your node (You get this from your VPS service provider)
-- Ethereum, BNB and Polygon API endpoints. These are URL addresses pointing to a reader node on the mainnet for the respective blockchains (you should use a source you find trustworthy). 
+- Ethereum, BNB and Polygon API endpoints. These are URL addresses pointing to a reader node on the mainnet for the respective blockchains (you should use a source you find trustworthy).
   [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0)
   has a provider list and further information about endpoints.
-  
+
 ???+ note
-    
+
     As new external chains become supported, the chain endpoints configuration should be updated to support these. See [here](node-health-and-maintenance.md#updating-your-byoc-chain-configuration) for information on updating your chain endpoints configuration.
 
 - The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
@@ -49,7 +49,7 @@ To fill out the needed information we will use the [node-register tool](node-hea
 ```
 
 When asked if the node is a block producing node, answer `yes`.
-The tool validates your inputs, and you will not be able to finish the configuration generation without inputting *all*
+The tool validates your inputs, and you will not be able to finish the configuration generation without inputting _all_
 the required information.
 
 !!! warning
@@ -97,9 +97,9 @@ docker compose up -d
 
 This pulls the latest image and starts the reader node in the background. If the command was executed successfully it won't print anything. To verify that the node is running:
 
-````bash
+```bash
 docker logs -f pbc-mainnet
-````
+```
 
 This prints a sequence of log statements. The node needs hours to process the existing blocks in the ledger and catch up
 to the present. All the timestamps are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and can
@@ -122,12 +122,12 @@ You can check the status by running the node-register tool with the `status` com
 ./node-register.sh status
 ```
 
-The node REST server will respond with a code `204 No Content` if it is up-to-date with the network, and the tool will print a message saying `Your node is up to date with the rest of the network`. 
+The node REST server will respond with a code `204 No Content` if it is up-to-date with the network, and the tool will print a message saying `Your node is up to date with the rest of the network`.
 Otherwise, a message saying `Your node is NOT up to date` will be printed.
 
 You need at least 25,000 gas to send the register transaction. To check your gas balance log in to the
-[Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to *Your Account* and then *BYOC*, where your
-gas balance is shown. You can add gas to your account with the [bridge]( https://browser.partisiablockchain.com/bridge).
+[Partisia Blockchain Browser](https://browser.partisiablockchain.com/account?tab=byoc), go to _Your Account_ and then _BYOC_, where your
+gas balance is shown. You can add gas to your account with the [bridge](https://browser.partisiablockchain.com/bridge).
 
 To send the register transaction you need to log in to your node and go to the `~/pbc` folder,
 and run the node-register tool with the `register-node` command:

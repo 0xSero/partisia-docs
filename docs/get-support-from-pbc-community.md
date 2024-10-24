@@ -1,4 +1,4 @@
-# Get support from the  PBC community
+# Get support from the PBC community
 
 <a target="_blank" href="https://discord.com/invite/5HX7j9xFS7">
   <svg width="64" height="64" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -24,14 +24,13 @@ Consider for example a basic public voting contract:
 
 > - Voters should be able to vote.
 > - Anybody should be able to retrieve how many votes have been cast, and
-    > whether the vote is complete yet.
+>   whether the vote is complete yet.
 > - Anybody should be able to retrieve the result of the vote.
 
 > **Initializer:**
 
 > - Vote subject, Voters and Deadline are all permanent attributes of the vote,
-    > and so should be set in the initializer.
-
+>   and so should be set in the initializer.
 
 Contracts' state and actions must be declared in
 an [Contract ABI file](../smart-contracts/smart-contract-binary-formats.md#abi-binary-format);
@@ -176,17 +175,17 @@ pub fn call_bob(
 ) -> (ContractState, Vec<EventGroup>) {
     // 0x42 being the shortname of the action to call at 'contract' Bob
     let SHORTNAME_CALL_BOB: Shortname = Shortname::from_be_bytes(&[0x42]).unwrap();
-    let mut event_group_builder = EventGroup::builder(); 
-  
+    let mut event_group_builder = EventGroup::builder();
+
     event_group_builder.call(address, SHORTNAME_CALL_BOB)
                        .done();
 
-    // Ask for callback. Notice that the constant provided has not been explicitly created. 
+    // Ask for callback. Notice that the constant provided has not been explicitly created.
     event_group_builder.with_callback(SHORTNAME_CALL_BOB_CALLBACK)
                        .argument(some_argument)
                        .with_cost(10000)
                        .done()
-            
+
     (state, vec![event_group_builder.build()])
 }
 
@@ -263,16 +262,16 @@ All interactions in an `EventGroup` shares gas costs uniformly.
 
 To see how Bob might pass along some return data, see the following example:
 
-```rust 
+```rust
 #[action(shortname=0x42)]
 pub fn provide_information_for_alice(
-  context: ContractContext, 
+  context: ContractContext,
   state: ContractState
 ) -> (ContractState, Vec<EventGroup>) {
   let mut event_group_builder = EventGroup::builder();
   event_group_builder.return_data(state.information);
-  
-  (state, vec![event_group_builder.build()]) 
+
+  (state, vec![event_group_builder.build()])
 }
 ```
 
@@ -288,13 +287,13 @@ pub fn call_bob_callback(
   // ... RPC arguments
 ) -> (ContractState, Vec<EventGroup>) {
   assert!(callback_context.success, "Bob failed to reply");
-  
+
   // Index into the information related to the first event
   let first_event = callback_context.results[0];
 
   // Provide the expected type of the returned data and return it.
-  let bobs_information = first_event.get_return_data::<expected_type>(); 
-  
+  let bobs_information = first_event.get_return_data::<expected_type>();
+
   // Do something with Bob's information...
 }
 ```
@@ -305,7 +304,7 @@ reading: [events module documentation](https://partisiablockchain.gitlab.io/lang
 ### CallbackContext
 
 The additional context struct that all callback-annotated functions receive as a parameter. It holds information about
-all events in the `EventGroup` linked to the callback. This information denotes whether *all* events successfully
+all events in the `EventGroup` linked to the callback. This information denotes whether _all_ events successfully
 executed, the individual execution success-status of each event and optional return data linked to the event.
 
 Further

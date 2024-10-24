@@ -34,8 +34,8 @@ The cost of bringing your own coin is 0,1% of the value transferred with a thres
 
 To be able to bridge your coins you will need:
 
-* An account on PBC.
-* An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
+- An account on PBC.
+- An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
   extension for interacting with other chains.
 
 ### How to deposit using the Bridge
@@ -49,8 +49,8 @@ for you.
 In practice, you can follow these steps:
 
 | Deposit native coin                                                                                                                                                                         | Deposit token based coin                                                                                                                                                         |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Go to the [BYOC page](https://browser.partisiablockchain.com/bridge) and login to your PBC account                                                                             | 1. Go to the [BYOC page](https://browser.partisiablockchain.com/bridge) and login to your PBC account                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Go to the [BYOC page](https://browser.partisiablockchain.com/bridge) and login to your PBC account                                                                                       | 1. Go to the [BYOC page](https://browser.partisiablockchain.com/bridge) and login to your PBC account                                                                            |
 | 2. Click _deposit_, either directly or through the three dots menu, on the coin you want to transfer                                                                                        | 2. Click approve, through the three dots menu, on the coin you want to transfer                                                                                                  |
 | 3. Click _Connect MetaMask_ to connect your external account                                                                                                                                | 3. Click _Connect MetaMask_ to connect your external account                                                                                                                     |
 | 4. Enter the amount you wish to transfer in the dialog                                                                                                                                      | 4. Enter the amount you wish to approve in the dialog                                                                                                                            |
@@ -69,13 +69,14 @@ Read more about smart contracts [here](../../smart-contracts/what-is-a-smart-con
 
 To withdraw a coin from PBC to your external account, you can use
 the [PBC Token Bridge](https://browser.partisiablockchain.com/bridge).
-The withdrawal process has two steps: 
+The withdrawal process has two steps:
+
 1. First, you have to make a pending withdrawal on the PBC chain.
-When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
-withdrawal contract. 
+   When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
+   withdrawal contract.
 2. Second, after the signed withdrawal the coins can be transferred to your external account by withdrawing on
-the withdrawal contract. Both steps are performed in
-the [Browser](https://browser.partisiablockchain.com/bridge).
+   the withdrawal contract. Both steps are performed in
+   the [Browser](https://browser.partisiablockchain.com/bridge).
 
 In practice, you should follow these steps:
 

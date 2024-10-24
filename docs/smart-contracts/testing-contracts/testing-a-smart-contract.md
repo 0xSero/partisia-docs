@@ -40,9 +40,9 @@ You can also run the provided script `run-java-tests.sh`, where a build flag, `-
 test run, can
 be given. This would be equivalent to running the above commands in order.
 
-````bash
+```bash
 ./run-java-tests.sh -b
-````
+```
 
 To run a single test class, use the maven option `-Dtest="Name of Test Class"`, and run it while standing in the test
 directory.
@@ -58,9 +58,9 @@ The tests will generate coverage information, which can be compiled into a repor
 enabled,
 execute `run-java-tests.sh` with the build flag, `-b`, and the coverage flag, `-c`.
 
-````bash
+```bash
 ./run-java-tests.sh -c -b
-````
+```
 
 This will create the instrumented executable, and run the test with coverage enabled. The coverage report will
 be located in the `java-test/target/coverage/html`, where the `index.html` can be opened in your browser.
@@ -71,7 +71,7 @@ The following section is the JUnit test of
 our [voting smart contract](https://gitlab.com/partisiablockchain/language/example-contracts/-/blob/main/java-test/src/test/java/examples/VotingTest.java?ref_type=heads).
 This example will be explained in the following sections.
 
-````java
+```java
 import com.partisiablockchain.BlockchainAddress;
 import com.partisiablockchain.language.abicodegen.Voting;
 import com.partisiablockchain.language.junit.ContractBytes;
@@ -114,7 +114,7 @@ public final class VotingTest extends JunitContractTest {
         byte[] votingRpc = Voting.vote(true);
         // An eligible voter casts a vote
         blockchain.sendAction(voter1, voting, votingRpc);
-        // Get the current state of the voting contract 
+        // Get the current state of the voting contract
         Voting.VoteState state = Voting.VoteState.deserialize(blockchain.getContractState(voting));
 
         // One vote should be cast, and it should be "true"
@@ -123,7 +123,7 @@ public final class VotingTest extends JunitContractTest {
     }
 }
 
-````
+```
 
 ### Abstract Test Class
 
@@ -178,11 +178,11 @@ the bytecode to deploy and the arguments for the initialize call, creating the i
     voter1 = blockchain.newAccount(2); // Create an account with secret key '2' and return the related BlockchainAddress.
     voter2 = blockchain.newAccount(3); // Create an account with secret key '3' and return the related BlockchainAddress.
     voter3 = blockchain.newAccount(4); // Create an account with secret key '4' and return the related BlockchainAddress.
-    
-    byte[] initRpc = 
-        Voting.initialize(10, List.of(voter1, voter2, voter3), 60 * 60 * 1000); // The rpc for the init function when creating a contract. 
-    
-    voting = 
+
+    byte[] initRpc =
+        Voting.initialize(10, List.of(voter1, voter2, voter3), 60 * 60 * 1000); // The rpc for the init function when creating a contract.
+
+    voting =
         blockchain.deployContract(voter1, VOTING_CONTRACT_BYTES, initRpc); // Deployment of a contract, returns the address the contract is deployed at.
     ````
 
@@ -205,7 +205,7 @@ An example of the state serialization is in [the second test](#second-test-using
 ???+ State deserialization
 
     ````java
-    Voting.VoteState state = // The state variable created from the deserialization. 
+    Voting.VoteState state = // The state variable created from the deserialization.
         Voting.VoteState.deserialize(blockchain.getContractState(voting)); // The call to the generated deserialize state method
 
     Assertions.assertThat(state.votes().size()).isEqualTo(1); // Assertion on the amount of votes currently.
@@ -225,11 +225,11 @@ can be used as setup for other tests.
 ???+ "@ContractTest and previous"
 
     ````java
-    @ContractTest // The annotation with no previous, means the test is independent of other test, also called 'root-test'. 
+    @ContractTest // The annotation with no previous, means the test is independent of other test, also called 'root-test'.
     void setUp() {
     // Omitted
     }
-    
+
     /** An eligible voter can cast a vote. */
     @ContractTest(previous = "setUp") // The previous for the test, is the 'setUp', so for the test to succeed the 'setUp' test must be run before this test.
     public void castVote() {
@@ -252,12 +252,12 @@ for the action call.
     byte[] votingRpc = Voting.vote(true); // Create the RPC with the generated code.
     blockchain.sendAction(voter1, voting, votingRpc); // Send the action, with the sender, the target contract and the RPC.
     Voting.VoteState state = Voting.VoteState.deserialize(blockchain.getContractState(voting)); // Get the state of the contract and deserialize.
-    
+
     Assertions.assertThat(state.votes().size()).isEqualTo(1); // Assert the vote is registered.
     Assertions.assertThat(state.votes().get(voter1)).isTrue(); // Assert the registered vote is from 'voter1'.
-    
+
     }
-    
+
     ````
 
 ### Second test using the first test as a setup
@@ -279,5 +279,3 @@ for the call. The RPC in this case contains the receiver of the transfer, and th
 
 If you want to more examples of testing smart contracts, go to
 [example contracts](https://gitlab.com/partisiablockchain/language/example-contracts), where there are multiple tests.
-
-

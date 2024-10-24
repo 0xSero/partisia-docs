@@ -4,43 +4,43 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 stages:
-- prepare
-- build
-- deploy
+  - prepare
+  - build
+  - deploy
 
 build-site:
   stage: build
   script:
-  - mkdocs build --site-dir public --strict
+    - mkdocs build --site-dir public --strict
   artifacts:
     paths:
-    - public
+      - public
 
 pages:
   image: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
   stage: deploy
   dependencies:
-  - build-site
+    - build-site
   script:
-  - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
+    - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   only:
-  - main
+    - main
   artifacts:
     paths:
-    - public
+      - public
 
 pages-dev:
   image: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
   stage: deploy
   dependencies:
-  - build-site
+    - build-site
   script:
-  - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
+    - 'echo "Pages URL: ${CI_JOB_URL}/artifacts/file/public/index.html"'
   except:
-  - main
+    - main
   artifacts:
     paths:
-    - public
+      - public
 
 dead-link-check:
   image: registry.gitlab.com/partisia/dockerimages/shellscripting
@@ -57,31 +57,72 @@ dead-link-check:
     paths:
       - public
 
-
 spellcheck:
   image: registry.gitlab.com/partisia/dockerimages/shellscripting
   stage: build
   dependencies:
-  - build-site
+    - build-site
   except:
-  - main
+    - main
   script:
-  - apt update && apt install -y aspell
-  - shopt -s globstar
-  - |
-    touch maybe-misspelled-words.txt
-    for file in **/*.md; do
-      echo "Spellchecking $file"
+    - apt update && apt install -y aspell
+    - shopt -s globstar
+    - |
+      touch maybe-misspelled-words.txt
+      for file in **/*.md; do
+        echo "Spellchecking $file"
+        echo "------"
+        cat "$file" | aspell --mode markdown -d en_US --personal=config/partisias_word_list.txt --home-dir=. list -v | sort -f | uniq -i | tee -a maybe-misspelled-words.txt || true
+        echo -e "\033[30m-\033[0m"
+        echo -e "\033[30m-\033[0m"
+      done
+
+      echo -e "\033[30m-\033[0m"
+      echo -e "\033[30m-\033[0m"
+
+      echo "All unique potentially misspelled words, sorted:"
       echo "------"
-      cat "$file" | aspell --mode markdown -d en_US --personal=config/partisias_word_list.txt --home-dir=. list -v | sort -f | uniq -i | tee -a maybe-misspelled-words.txt || true
-      echo -e "\033[30m-\033[0m"
-      echo -e "\033[30m-\033[0m"
-    done
+      cat maybe-misspelled-words.txt | sort -f | uniq -i
 
-    echo -e "\033[30m-\033[0m"
-    echo -e "\033[30m-\033[0m"
+.npm:
+  image: registry.gitlab.com/partisia/dockerimages/node-20
+  before_script:
+    - cd "$NPM_WORK_DIR" || exit
+    - echo -e "$NPM_CI_CONFIG" > .npmrc
+  needs:
+    - job: before-typescript
+      optional: true
+  cache:
+    key: npm-cache
+    policy: pull-push
+    paths:
+      - npm-cache
 
-    echo "All unique potentially misspelled words, sorted:"
-    echo "------"
-    cat maybe-misspelled-words.txt | sort -f | uniq -i
+npm-install:
+  extends: .npm
+  stage: build
+  script:
+    - npm ci --cache npm-cache --prefer-offline
+    - '[[ -d "node_modules/" ]]'
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - "${NPM_WORK_DIR}/node_modules/"
 
+prettier:
+  extends: .npm
+  stage: test
+  needs:
+    - job: before-typescript
+      optional: true
+    - job: npm-install
+  script:
+    - npx prettier
+      --print-width 100
+      --tab-width 2
+      --quote-props as-needed
+      --trailing-comma es5
+      --bracket-same-line
+      --prose-wrap preserve
+      --end-of-line lf
+      --check src

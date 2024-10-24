@@ -31,8 +31,7 @@ within `cargo pbc`, enabling you to explore their capabilities inside `cargo pbc
 a short description and use case for each of these sub-tools.
 
 !!! warning "Pre requisite to use any cargo PBC commands"
-    If you want to use any of the command-line tools or below commands you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
-
+If you want to use any of the command-line tools or below commands you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
 
 ### The Compiler `build`
 
@@ -183,52 +182,52 @@ cargo pbc abi codegen --ts mySmartContract/target/wasm32-unknown-unknown/release
     BlsSignature
     } from "@privacyblockchain/ts-abi";
     import {BigEndianByteOutput} from "@secata-public/bitmanipulation-ts";
-    
+
     const fileAbi: FileAbi = new AbiParser(Buffer.from(
     "50424341424909040005020000000004010000000342696400000002000000066269646465720d00000006616d6f756e7405010000000a546f6b656e436c61696d0000000200000012746f6b656e735f666f725f62696464696e67050000000f746f6b656e735f666f725f73616c6505010000001441756374696f6e436f6e747261637453746174650000000b0000000e636f6e74726163745f6f776e65720d0000001173746172745f74696d655f6d696c6c6973090000000f656e645f74696d655f6d696c6c69730900000015746f6b656e5f616d6f756e745f666f725f73616c65050000000e746f6b656e5f666f725f73616c650d00000011746f6b656e5f666f725f62696464696e670d0000000e686967686573745f62696464657200000000000d726573657276655f7072696365050000000d6d696e5f696e6372656d656e740500000009636c61696d5f6d61700f0d00010000000673746174757301010000000b536563726574566172496400000001000000067261775f69640300000008010000000a696e697469616c697a65ffffffff0f0000000600000015746f6b656e5f616d6f756e745f666f725f73616c65050000000e746f6b656e5f666f725f73616c650d00000011746f6b656e5f666f725f62696464696e670d0000000d726573657276655f7072696365050000000d6d696e5f696e6372656d656e74050000001661756374696f6e5f6475726174696f6e5f686f75727303020000000573746172740100000000030000000e73746172745f63616c6c6261636b0200000000020000000362696403000000010000000a6269645f616d6f756e7405030000000c6269645f63616c6c6261636b04000000010000000362696400000200000005636c61696d05000000000200000007657865637574650600000000020000000663616e63656c07000000000002",
     "hex"
     )).parseAbi();
-    
+
     type Option<K> = K | undefined;
-    
+
     export interface Bid {
     bidder: BlockchainAddress;
     amount: BN;
     }
-    
+
     export function newBid(bidder: BlockchainAddress, amount: BN): Bid {
     return {bidder, amount}
     }
-    
+
     function fromScValueBid(structValue: ScValueStruct): Bid {
     return {
     bidder: BlockchainAddress.fromBuffer(structValue.getFieldValue("bidder")!.addressValue().value),
     amount: structValue.getFieldValue("amount")!.asBN(),
     };
     }
-    
+
     function buildRpcBid(value: Bid, builder: AbstractBuilder) {
     const structBuilder = builder.addStruct();
     structBuilder.addAddress(value.bidder.asBuffer());
     structBuilder.addU128(value.amount);
     }
-    
+
     export interface TokenClaim {
     tokensForBidding: BN;
     tokensForSale: BN;
     }
-    
+
     export function newTokenClaim(tokensForBidding: BN, tokensForSale: BN): TokenClaim {
     return {tokensForBidding, tokensForSale}
     }
-    
+
     function fromScValueTokenClaim(structValue: ScValueStruct): TokenClaim {
     return {
     tokensForBidding: structValue.getFieldValue("tokens_for_bidding")!.asBN(),
     tokensForSale: structValue.getFieldValue("tokens_for_sale")!.asBN(),
     };
     }
-    
+
     export interface AuctionContractState {
     contractOwner: BlockchainAddress;
     startTimeMillis: BN;
@@ -242,11 +241,11 @@ cargo pbc abi codegen --ts mySmartContract/target/wasm32-unknown-unknown/release
     claimMap: Map<BlockchainAddress, TokenClaim>;
     status: number;
     }
-    
+
     export function newAuctionContractState(contractOwner: BlockchainAddress, startTimeMillis: BN, endTimeMillis: BN, tokenAmountForSale: BN, tokenForSale: BlockchainAddress, tokenForBidding: BlockchainAddress, highestBidder: Bid, reservePrice: BN, minIncrement: BN, claimMap: Map<BlockchainAddress, TokenClaim>, status: number): AuctionContractState {
     return {contractOwner, startTimeMillis, endTimeMillis, tokenAmountForSale, tokenForSale, tokenForBidding, highestBidder, reservePrice, minIncrement, claimMap, status}
     }
-    
+
     function fromScValueAuctionContractState(structValue: ScValueStruct): AuctionContractState {
     return {
     contractOwner: BlockchainAddress.fromBuffer(structValue.getFieldValue("contract_owner")!.addressValue().value),
@@ -262,26 +261,26 @@ cargo pbc abi codegen --ts mySmartContract/target/wasm32-unknown-unknown/release
     status: structValue.getFieldValue("status")!.asNumber(),
     };
     }
-    
+
     export function deserializeAuctionContractState(bytes: Buffer): AuctionContractState {
     const scValue = new StateReader(bytes, fileAbi.contract).readState();
     return fromScValueAuctionContractState(scValue);
     }
-    
+
     export interface SecretVarId {
     rawId: number;
     }
-    
+
     export function newSecretVarId(rawId: number): SecretVarId {
     return {rawId}
     }
-    
+
     function fromScValueSecretVarId(structValue: ScValueStruct): SecretVarId {
     return {
     rawId: structValue.getFieldValue("raw_id")!.asNumber(),
     };
     }
-    
+
     export function initialize(tokenAmountForSale: BN, tokenForSale: BlockchainAddress, tokenForBidding: BlockchainAddress, reservePrice: BN, minIncrement: BN, auctionDurationHours: number): Buffer {
     const fnBuilder = new FnRpcBuilder("initialize", fileAbi.contract);
     fnBuilder.addU128(tokenAmountForSale);
@@ -292,28 +291,28 @@ cargo pbc abi codegen --ts mySmartContract/target/wasm32-unknown-unknown/release
     fnBuilder.addU32(auctionDurationHours);
     return fnBuilder.getBytes();
     }
-    
+
     export function start(): Buffer {
     const fnBuilder = new FnRpcBuilder("start", fileAbi.contract);
     return fnBuilder.getBytes();
     }
-    
+
     export function bid(bidAmount: BN): Buffer {
     const fnBuilder = new FnRpcBuilder("bid", fileAbi.contract);
     fnBuilder.addU128(bidAmount);
     return fnBuilder.getBytes();
     }
-    
+
     export function claim(): Buffer {
     const fnBuilder = new FnRpcBuilder("claim", fileAbi.contract);
     return fnBuilder.getBytes();
     }
-    
+
     export function execute(): Buffer {
     const fnBuilder = new FnRpcBuilder("execute", fileAbi.contract);
     return fnBuilder.getBytes();
     }
-    
+
     export function cancel(): Buffer {
     const fnBuilder = new FnRpcBuilder("cancel", fileAbi.contract);
     return fnBuilder.getBytes();

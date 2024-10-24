@@ -47,9 +47,9 @@ passed.
 **Minimum criteria of the epochs in important system contracts:**
 
 - Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members. Alternatively, minimum time of 28 days have passed and [trigger new committee](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/triggerNewCommittee) has been invoked
-- [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and [request new oracle](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle) has been invoked    
-- ZK contract: when the calculations specified in the contract have been completed, or the lifetime paid for by the contract owner runs out   
-- [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks 
+- [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and [request new oracle](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle) has been invoked
+- ZK contract: when the calculations specified in the contract have been completed, or the lifetime paid for by the contract owner runs out
+- [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks
 
 ### ETH
 
@@ -129,9 +129,8 @@ The immutable record or ledger, that keeps track of transactions that have alrea
 
 ### Price oracle
 
-The price oracles on PBC help to keep the BYOC price up to date by using data from nodes on Chainlink. This means that the price you get when bridging ETH or other BYOC to and from PBC has been checked for accuracy within the last hour. Each price oracle consist of at least three nodes. Every hour each node in the price oracle performs a price check. The node operator is paid a reward for performing this service. If three nodes in the price oracle agree on the price they report the price.    
+The price oracles on PBC help to keep the BYOC price up to date by using data from nodes on Chainlink. This means that the price you get when bridging ETH or other BYOC to and from PBC has been checked for accuracy within the last hour. Each price oracle consist of at least three nodes. Every hour each node in the price oracle performs a price check. The node operator is paid a reward for performing this service. If three nodes in the price oracle agree on the price they report the price.  
 In addition to checking and reporting prices a price oracle node also compares its own checks with the reports of the other price oracles. If it sees a discrepancy in price the price oracle node starts a dispute. The party found to be responsible in a price oracle dispute will have their 5000 MPC slashed. Types of malicious behavior can include reporting incorrect prices or incorrect dispute claims against other oracle nodes.
-
 
 ### Public-key cryptography
 
@@ -151,10 +150,9 @@ PBC distributes the workload to a number of parallel shards. This allows for sca
 
 ### Small oracle
 
-There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit), 
+There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit),
 [withdrawal oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-withdrawal)
- and [price oracles](../pbc-fundamentals/dictionary.md#price-oracle).
-
+and [price oracles](../pbc-fundamentals/dictionary.md#price-oracle).
 
 ### Smart Contracts
 
@@ -170,7 +168,7 @@ Staking requires that the node operator buys the required stake of MPC Tokens. S
 - ZK Node 75,000 MPC Tokens
 - Oracle Node 250,000 MPC Tokens
 - Price Oracle Node 5,000 MPC Tokens
-Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
+  Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
 
 ### Transactions
 
@@ -185,6 +183,7 @@ A transaction is valid when:
 - The nonce in the transaction matches the account nonce in the blockchain state
 - The transaction has not expired
 - The account can cover the cost of the transaction
+
 ### VPS
 
 A VPS is a Virtual Private server. Just like you can have a virtual machines on your PC, it is possible to rent server space for virtual machine from an internet hosting service (IHS). That is called a VPS. You choose a VPS just like you would choose a PC. You decide on an operating system (OS), for running nodes on Partisia Blockchain you choose Linux based OS (In this guide we used Ubuntu). Your VPS is physically capable of running the node if you align it with the [recommended machine specs](../node-operations/start-running-a-node.md#which-node-should-you-run).

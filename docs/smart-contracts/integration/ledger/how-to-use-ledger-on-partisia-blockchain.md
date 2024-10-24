@@ -27,11 +27,11 @@ developed and supported by the [Partisia Blockchain Foundation](https://partisia
 To connect your device with the Browser you need to have gone through all steps in the above guide.
 
 1. Enter the pin on your Ledger device
-    ![login(1)-enter-pin](login%281%29-enter-pin.png)
+   ![login(1)-enter-pin](login%281%29-enter-pin.png)
 
 2. Choose Partisia Blockchain in the Choose app setting
 
-    ![login(2)-choose-app](login%282%29-choose-app.png)
+   ![login(2)-choose-app](login%282%29-choose-app.png)
 
 3. App is now ready on the Ledger and Ledger can now login using [the Browser](https://browser.partisiablockchain.com)
 
@@ -79,17 +79,17 @@ start moving assets around using the Ledger.
    different transaction details.
    ![interact(3)-review](interact%283%29-review.jpg)
 
-    The review consists of:
+   The review consists of:
 
-    * Are you using the correct chain? Ledger will show which chain you are using: "Partisia Blockchain mainnet" or "Partisia Blockchain testnet".
-      ![Interact(4)-Chain](Interact%284%29-Chain.png)
+   - Are you using the correct chain? Ledger will show which chain you are using: "Partisia Blockchain mainnet" or "Partisia Blockchain testnet".
+     ![Interact(4)-Chain](Interact%284%29-Chain.png)
 
-    * Are you using the correct arguments? Its important that you verify the receiving addresses on the device as to
-      ensure you are doing the transaction you wanted with the amount you wanted to transfer.
-      ![Interact(5)-Arguments](Interact%285%29-Arguments.png)
+   - Are you using the correct arguments? Its important that you verify the receiving addresses on the device as to
+     ensure you are doing the transaction you wanted with the amount you wanted to transfer.
+     ![Interact(5)-Arguments](Interact%285%29-Arguments.png)
 
-    * If you cannot verify the address of the amount you can reject the transaction on the Ledger.
-      ![interact(8)-reject](interact%288%29-reject.jpg)
+   - If you cannot verify the address of the amount you can reject the transaction on the Ledger.
+     ![interact(8)-reject](interact%288%29-reject.jpg)
 
 4. Accept the amount of [gas](../../../pbc-fundamentals/dictionary.md#gas) the transaction costs.
    ![interact(6)-fee](interact%286%29-fee.jpg)
@@ -126,7 +126,7 @@ how a blind signed transaction looks like.
    You need to fill out the receiving [address](../../../pbc-fundamentals/dictionary.md) and the amount of ETH tokens
    you want to send to another address on Partisia Blockchain.
 
-    Remember the amount of ETH tokens needs to
+   Remember the amount of ETH tokens needs to
    have [18 decimals](https://partisiablockchain.gitlab.io/documentation/pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet)
    behind, e.g. if you want to transfer 10 ETH BYOC Tokens you would type: 10000000000000000000 in the transfer action.
    ![blindsign(1)-transfer-ETH](blindsign%281%29-transfer-eth.png)
@@ -157,6 +157,6 @@ how a blind signed transaction looks like.
 
 If you need help in any of the above explained steps, you should go to
 the [community Discord](../../../get-support-from-pbc-community.md) where you are able to create support tickets and get
-help from the Partisia Blockchain community. 
+help from the Partisia Blockchain community.
 
-If you want to integrate Ledger with your dApp we urge you to reach out in the dev-chat on [Discord](../../../get-support-from-pbc-community.md). 
+If you want to integrate Ledger with your dApp we urge you to reach out in the dev-chat on [Discord](../../../get-support-from-pbc-community.md).

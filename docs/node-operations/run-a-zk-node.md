@@ -8,10 +8,7 @@ for the zero knowledge computations performed.
 
 ## Requirements of a ZK node
 
-!!! Warning "You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)"
-    1. [Run baker node](run-a-baker-node.md)
-    2. [Stake 75K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total staking balance of 100K for both ZK and baker node.
-    3. You have set up a reverse proxy. This includes:
+!!! Warning "You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)" 1. [Run baker node](run-a-baker-node.md) 2. [Stake 75K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total staking balance of 100K for both ZK and baker node. 3. You have set up a reverse proxy. This includes:
 
         - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
         - A modified `docker-compose.yml` defining a docker service acting as proxy
@@ -25,7 +22,7 @@ it to be able to give and receive secret inputs. Reader nodes need to set rate l
 denial-of-service-attacks (DDOS).
 
 Your node is running a docker image with the pbc-mainnet software. The source of the image and name of the container is
-defined in the "service:"-field of  `docker-compose.yml`. In this example we will set up a reverse proxy by modifying
+defined in the "service:"-field of `docker-compose.yml`. In this example we will set up a reverse proxy by modifying
 the `docker-compose.yml`. You add additional services to act as a proxy server for incoming and outgoing traffic.
 
 !!! Info "If input for ZK contracts are safe, why do I need an HTTPS REST endpoint?"
@@ -38,7 +35,7 @@ the `docker-compose.yml`. You add additional services to act as a proxy server f
 
 Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
 does not match something proprietary.
-It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.   
+It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.  
 Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
 infrastructure node and a reader node. Avoid names which give the impression that your node is run by the company
 Partisia.
@@ -47,10 +44,10 @@ When you have purchased a domain make an address record (A-record) for a subdoma
 
 !!! Example "You have purchased domain "pbcnode.com" and have VPS host IP 123.123.123.123"
 
-    1. Sign in to your domain control panel and find DNS records   
-    2. Make an A-record pointing a subdomain (e.g. zk.pbcnode.com) to 123.123.123.123   
+    1. Sign in to your domain control panel and find DNS records
+    2. Make an A-record pointing a subdomain (e.g. zk.pbcnode.com) to 123.123.123.123
 
-### How nginx and acme run as services in docker containers 
+### How nginx and acme run as services in docker containers
 
 This example uses [nginx](https://hub.docker.com/r/nginxproxy/nginx-proxy) for the proxy server and [acme-companion](https://hub.docker.com/r/nginxproxy/acme-companion) handles automated creation and renewal of the SSL
 certificate. Both services are manged by the `docker-compose.yml`.
@@ -63,7 +60,7 @@ is one of the key benefits of running a service in a docker container.
 
 The modified docker compose handles two new services in addition to managing the pbc-mainnet container: 1) _pbc-nginx_ an nginx proxy
 server, and 2) _pbc-acme_ running an automated certificate manager. We first open the ports host ports used for the proxy server and
-certificate renewal, then we modify the `docker-compose.yml`.   
+certificate renewal, then we modify the `docker-compose.yml`.
 
 ![New Docker Compose Diagram](./img/run-a-zk-node-00.png)
 
@@ -73,7 +70,6 @@ Our new docker services will utilize ports that are currently closed by your fir
 
     In this guide we have assumed that you use the standard port 443 as host port for HTTPS traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
     If you use a non-standard port for HTTPS (8443), then the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
-
 
 We allow HTTPS traffic through the firewall on port 443:
 
@@ -89,9 +85,8 @@ sudo ufw allow 80
 
 HTTP traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service requests a
 certificate. The certificate provider demands a proof of control of the domain. The proof consist of the server
-(nginx) placing a token on a specified path using HTTP on port 80.   
+(nginx) placing a token on a specified path using HTTP on port 80.
 
-   
 We stop docker compose before we make modifications:
 
 ```BASH
@@ -120,7 +115,7 @@ services:
       - "8080"
     ports:
       - "9888-9897:9888-9897"
-    command: [ "/conf/config.json", "/storage/" ]
+    command: ["/conf/config.json", "/storage/"]
     volumes:
       - /opt/pbc-mainnet/conf:/conf
       - /opt/pbc-mainnet/storage:/storage
@@ -156,11 +151,11 @@ services:
       - DEFAULT_EMAIL=your@email.address
 
 volumes:
-   conf:
-   vhost:
-   html:
-   certs:
-   acme:
+  conf:
+  vhost:
+  html:
+  certs:
+  acme:
 ```
 
 [Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and
@@ -180,6 +175,7 @@ Normally, nginx has new releases monthly, therefore you do not need to check for
 do with pbc software. You can add cron rules to your auto-update script or update the nginx and acme service manually
 
 Update the nginx proxy:
+
 ```BASH
 docker compose pull nginx-proxy
 ```
@@ -197,6 +193,7 @@ docker compose pull acme-companion
 ```BASH
 docker compose up -d acme-companion
 ```
+
 !!! note "If you used different names for your docker services than the `docker-compose.yml` template"
 
     Correct the command by using the name of your docker service:
@@ -204,16 +201,15 @@ docker compose up -d acme-companion
     docker compose pull nameOfService
     docker compose up -d nameOfService
     ```
-     
 
 ## Register your ZK node
 
 Complete the following steps:
 
 1. [Register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode)
-   as a ZK node (You need to have your HTTPS REST endpoint ready)   
+   as a ZK node (You need to have your HTTPS REST endpoint ready)
 2. [Associate](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/associateTokens)
-   75 K MPC tokens to the ZK Node Registry contract   
+   75 K MPC tokens to the ZK Node Registry contract
 3. Restart your node
 
 ### Confirm that proxy server, certificate renewal and blockchain image are running
@@ -234,10 +230,11 @@ You can see the running logs of each service by calling for the logs and specify
 At this point you should have a fully functioning ZK node. If any of the docker-containers are not running or shut down unexpectedly,
 then [go to the node health and maintenance section](node-health-and-maintenance.md#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 
-If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.    
+If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.
 
 ## ZK Node Scoring
-When your node is registered it can be selected as a ZK node for a newly deployed ZK contract. To incentivize having a 
+
+When your node is registered it can be selected as a ZK node for a newly deployed ZK contract. To incentivize having a
 working node your ZK node is being scored on how well it performs the required actions for the allocated ZK contract.
 A ZK Node Score consists of three sub scores
 
@@ -249,18 +246,13 @@ It will always be the case that `Allocated = Success + Failure`.
 You can see your node's score in the [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state).
 
 ### Calculating the score
-Whenever a ZK contract is finished computing, the participating nodes' scores are updated in the ZK Node Registry. 
+
+Whenever a ZK contract is finished computing, the participating nodes' scores are updated in the ZK Node Registry.
 Which score that is updated depends on the way the ZK contract finishes its computation.
 
 - The contracts' calculation status gets moved to Done. All participating nodes gets Success.
 - The contracts' calculation status gets moved to Malicious. All participating nodes gets Failure.
 - The contract is deleted. All participating nodes gets Success.
-- The contract reaches its computation deadline. The score status for a node depends on whether there exists any 
-work that a node has not performed. If a node is missing any of the following its status will be Failure, otherwise 
-Success.
-    - Pending on-chain inputs.
-    - Pending on-chain opens.
-    - Attestations.
-    - Finished computations.
-    - Whether there is an ongoing computation. If so everyone gets Failure.
-
+- The contract reaches its computation deadline. The score status for a node depends on whether there exists any
+  work that a node has not performed. If a node is missing any of the following its status will be Failure, otherwise
+  Success. - Pending on-chain inputs. - Pending on-chain opens. - Attestations. - Finished computations. - Whether there is an ongoing computation. If so everyone gets Failure.

@@ -10,28 +10,30 @@
    [](contract-to-contract-gas-estimation.md)
 </div>
 
-When working with smart contracts, the testnet is the best way to upload your smart contracts and estimate their gas cost. To test a smart contract you need gas, this article is here to get you started on getting gas on the testnet. By testing your contract on the testnet and verify its cost on the blockchain you can implement exact costs when doing [contract-to-contract](contract-to-contract-gas-estimation.md) or signed transactions to contract transactions. 
+When working with smart contracts, the testnet is the best way to upload your smart contracts and estimate their gas cost. To test a smart contract you need gas, this article is here to get you started on getting gas on the testnet. By testing your contract on the testnet and verify its cost on the blockchain you can implement exact costs when doing [contract-to-contract](contract-to-contract-gas-estimation.md) or signed transactions to contract transactions.
 
 ### How to see your gas balance
+
 We recommend using the testnet the [browser](https://browser.testnet.partisiablockchain.com). To see your testnet gas balance you can log into the [the browser](https://browser.testnet.partisiablockchain.com/) or the [dashboard](https://testnet.partisiablockchain.com/). Under your account you can see how many TEST_COINs you have. If you are logged into browser you can simply go to your account tab and see your balance.
 
 ### How to get gas on the testnet
+
 You can create an account with gas by calling the following command.
 
-````shell
+```shell
 cargo pbc account create
-````
+```
 
 The command create a new account, and print the account address and the private key for the account.
 The account will also be filled with gas.
 
 To get gas on an account already created, run the following command.
 
-````shell
+```shell
 cargo partisia-contract account mintgas <account-address>
-````
+```
 
-To get even more gas you can do the following: 
+To get even more gas you can do the following:
 
 - Sign in to the [testnet browser](https://browser.testnet.partisiablockchain.com) (Icon in upper right corner).
 - Follow this [link](https://browser.testnet.partisiablockchain.com/contracts/02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd) to the [Feed Me contract interaction](https://browser.testnet.partisiablockchain.com/contracts/02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd/feed_me)

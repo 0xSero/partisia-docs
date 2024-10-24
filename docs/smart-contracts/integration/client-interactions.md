@@ -51,23 +51,22 @@ needed. Point (5) can be done with most http(s) capable web clients/libraries.
 Libraries:
 
 - [abi-client (TypeScript)](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts):
-    TypeScript ABI client, allowing automatic reading of contract state, and
-    reading/writing invocations.
+  TypeScript ABI client, allowing automatic reading of contract state, and
+  reading/writing invocations.
 - [abi-client (Java)](https://gitlab.com/partisiablockchain/language/abi/abi-client):
-    Java ABI client, allowing automatic reading of contract state, and
-    reading/writing invocations.
+  Java ABI client, allowing automatic reading of contract state, and
+  reading/writing invocations.
 - [abigen Maven Plugin](https://gitlab.com/partisiablockchain/language/abi/abigen-maven-plugin):
-    Advanced ABI client for Java, which creates data structures and code
-    for reading state, and reading/writing invocations. Better experience
-    when ABI is known beforehand, as it enforces compile-time typing.
+  Advanced ABI client for Java, which creates data structures and code
+  for reading state, and reading/writing invocations. Better experience
+  when ABI is known beforehand, as it enforces compile-time typing.
 - [zk-client](https://gitlab.com/partisiablockchain/language/abi/zk-client):
-    Advanced ABI client for Java with support for Zero-knowledge inputs.
+  Advanced ABI client for Java with support for Zero-knowledge inputs.
 
 Examples:
 
 - [partisia-cli](https://gitlab.com/partisiablockchain/language/partisia-cli):
-    General command-line tool for interacting with PBC contracts. Can perform
-    all interaction steps mentioned above.  Meant for manual usage, but nothing
-    prevents usage from other scripts. The best example of how to interact with
-    the blockchain.
-
+  General command-line tool for interacting with PBC contracts. Can perform
+  all interaction steps mentioned above. Meant for manual usage, but nothing
+  prevents usage from other scripts. The best example of how to interact with
+  the blockchain.

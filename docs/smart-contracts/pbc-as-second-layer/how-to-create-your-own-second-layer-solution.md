@@ -14,15 +14,15 @@ layer.
 We will use the code from the voting example, but it should be evident that is possible to use PBC
 as second layer for any type of application.
 
-!!! note 
-    We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure
-    we suggest you to read up on how to do the following when trying to recreate the example contract of ours:
+!!! note
+We recommend you to have some knowledge in creating smarts contracts on both layer one and layer two. If you are unsure
+we suggest you to read up on how to do the following when trying to recreate the example contract of ours:
 
-    1. How to create smart contracts on PBC. Our documentation starts on this page: 
+    1. How to create smart contracts on PBC. Our documentation starts on this page:
     [What is a smart contract](/docs/contract-development.md)
     2. How to create smart contracts in ETH (or another layer one chain for this case).
-    We recommend you go to soliditys own documentation to understand how to make smart contracts in 
-    ETH if you are new to this specific case: 
+    We recommend you go to soliditys own documentation to understand how to make smart contracts in
+    ETH if you are new to this specific case:
     [https://docs.soliditylang.org/en/latest/](https://docs.soliditylang.org/en/latest/)
 
 ## Voting example code
@@ -108,7 +108,7 @@ fn build_and_attest_voting_result(
    let vote_result = determine_result(&state, &zk_state, computation_result_variable_id);
    // Add the result to the open state. The result is still missing the proof.
    state.vote_results.push(vote_result.clone());
-   // Return the tuple with the modified state, no events, and with a request that the computation 
+   // Return the tuple with the modified state, no events, and with a request that the computation
    // nodes sign the serialized bytes of the result.
    (
       state,
@@ -157,7 +157,7 @@ fn save_attestation_on_result_and_start_next_vote(
    attestation_id: AttestationId,
 ) -> (ContractState, Vec<EventGroup>, Vec<ZkStateChange>) {
    // Get ids of all secret variables, to delete all votes cast in the previous vote before
-   // starting the next one. 
+   // starting the next one.
    let variables_to_delete: Vec<SecretVarId> = ...;
 
    // Find the result of the vote that was just concluded.
@@ -192,14 +192,14 @@ fn save_attestation_on_result_and_start_next_vote(
 }
 
 fn as_evm_string(signature: &Signature) -> String {
-   // Ethereum expects that the recovery id has value 0x1B or 0x1C, but the algorithm used by PBC 
-   // outputs 0x00 or 0x01. Add 27 to the recovery id to ensure it has an expected value, and 
+   // Ethereum expects that the recovery id has value 0x1B or 0x1C, but the algorithm used by PBC
+   // outputs 0x00 or 0x01. Add 27 to the recovery id to ensure it has an expected value, and
    // format as a hexidecimal string.
    let recovery_id = signature.recovery_id + 27;
    let recovery_id = format!("{recovery_id:02x}");
    // The r value is 32 bytes, i.e. a string of 64 characters when represented in hexidecimal.
    let mut r = String::with_capacity(64);
-   // For each byte in the r value format is a hexidecimal string of length 2 to ensure zero 
+   // For each byte in the r value format is a hexidecimal string of length 2 to ensure zero
    // padding, and write it to the output string defined above.
    for byte in signature.value_r {
       write!(r, "{byte:02x}").unwrap();

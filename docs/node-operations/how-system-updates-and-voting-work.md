@@ -13,7 +13,7 @@ Votes are decided by a two-thirds-plus-one majority, e.g. for a baker node commi
 
 ## How the default yes-vote works
 
-Nodes vote yes to on-chain updates by default. This is expedient in case of bugs. Votes on controversial changes can be proposed as a manual votes. 
+Nodes vote yes to on-chain updates by default. This is expedient in case of bugs. Votes on controversial changes can be proposed as a manual votes.
 
 ## How to change the config.json in order to cast a no-vote
 
@@ -45,13 +45,14 @@ sudo cat /opt/pbc-mainnet/conf/config.json
 
 Always shut down your node before making changes to the `config.json`. You first navigate to the directory of your `docker-compose.yml` and shut down the container running the image for pbc-mainnet:
 
-````bash
+```bash
 cd pbc
-````
+```
 
-````bash
+```bash
 docker stop pbc-mainnet
-````
+```
+
 Now you can edit the `config.json`, open it with nano:
 
 ```bash
@@ -67,6 +68,7 @@ You need to add an override map field to the `config.json`. You put `systemupdat
 You can find the ID in the `CHANGELOG.md` in latest [merge request to mainnet](https://gitlab.com/partisiablockchain/mainnet/-/merge_requests).
 
 Example:
+
 ```JSON
     {
         "restPort": 8080,
@@ -89,6 +91,7 @@ Example:
         }
     }
 ```
+
 The result of this change is an automatic no-vote on votes with poll id f38987b9ceed396fbe0a33041e4f5c41ad0d781d2bea641b4b31d31d4501b5e5 and 981dee91405a4f60fcfdfd41e88b04a1e5e9023d4c49449228a9f9207bb4ba39 from your node.
 
 Make sure the JSON you made is valid. You can download a JSON editor or use a free online [validator](https://jsonlint.com/). If you use an online validator, you should for safety remove the account private account key between the quotation marks before you paste it into a validator. This does not affect the validity of the JSON. Save the file in nano by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
@@ -108,12 +111,12 @@ docker logs -f pbc-mainnet
 You can leave the override maps in the `config.json`, besides the specific vote they do not affect the node. After the vote has passed and the result is on chain you consider removing the override maps. A long list of overrides might make your `config.json` hard to read.
 
 ## Updates with manual voting
- 
-Vote responsibly! Voting on a system update means that you are voting on an irreversible change to on-chain components like system contracts and plugins. Anyone with sufficient tokens can propose a vote. If you are unable to verify a votes content we recommend you to think twice before voting for it.  
+
+Vote responsibly! Voting on a system update means that you are voting on an irreversible change to on-chain components like system contracts and plugins. Anyone with sufficient tokens can propose a vote. If you are unable to verify a votes content we recommend you to think twice before voting for it.
 
 Cast a manual vote:
 
-1. Go to the [System Update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/vote) in the Partisia Blockchain Browser and sign in   
-2. Enter Poll id (you can find it in the state of the [System Update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620?tab=state) in the field named `key:`   
-3. Choose _True_ or _False_   
-4. Click _Vote_   
+1. Go to the [System Update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/vote) in the Partisia Blockchain Browser and sign in
+2. Enter Poll id (you can find it in the state of the [System Update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620?tab=state) in the field named `key:`
+3. Choose _True_ or _False_
+4. Click _Vote_

@@ -38,7 +38,7 @@ First we need to include a few libraries to get access to the functions and type
 programming our smart contract. It is not necessary to understand exactly what the library includes here or what they do
 in order to create your first smart contract.
 
-````rust
+```rust
 #![allow(unused_variables)]
 
 #[macro_use]
@@ -48,7 +48,7 @@ extern crate pbc_contract_common;
 use pbc_contract_common::address::Address;
 use pbc_contract_common::context::ContractContext;
 use pbc_contract_common::sorted_vec_map::SortedVecMap;
-````
+```
 
 ### 2) Defining the contract state
 
@@ -80,7 +80,7 @@ action where the chairman of the parliament closes the vote after some deadline.
 result to the contract state if we want to make the contract more informative. The idea here was a
 simple voting record, so what we have now will suffice.
 
-````rust
+```rust
 #[state]
 pub struct VotingContractState {
   proposal_id: u64,
@@ -100,7 +100,7 @@ impl VotingContractState {
     };
   }
 }
-````
+```
 
 ### 3) Defining the initialization of the contract
 
@@ -118,7 +118,7 @@ creates the initial state object for the contract from the input.
 
 After successful initialization, the contract state becomes live on the blockchain.
 
-````rust
+```rust
 #[init]
 pub fn initialize(
   _ctx: ContractContext,
@@ -139,7 +139,7 @@ pub fn initialize(
     closed: 0,
   }
 }
-````
+```
 
 ### 4) Defining the actions of the contract
 
@@ -162,7 +162,7 @@ the delivered vote is one of the allowed voting options. If the checks succeed t
 new state where the vote of the sender is registered in the vote map. Also, if this vote was the
 last one and everyone has now voted, then voting is closed.
 
-````rust
+```rust
 #[action]
 pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> VotingContractState {
   assert_eq!(state.closed, 0, "The poll is closed");
@@ -174,7 +174,7 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
   new_state.close_if_finished();
   new_state
 }
-````
+```
 
 ## Building and testing the voting contract
 

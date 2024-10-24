@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "prettier": "3.3.3"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "endOfLine": "auto",
+    "bracketSameLine": true,
+    "trailingComma": "es5"
+  },
+  "scripts": {
+    "prettier": "npx prettier --write ."
+  }
+}

@@ -15,14 +15,14 @@ Questions for non-ZK contracts:
   can be multiple levels of callbacks, similar to a call stack, which the blockchain will keep track of.
 - **What is the value of [`Context::sender`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_common/context/struct.ContractContext.html)?**: The `sender` field in `Context` contains the address of the caller. The
   caller will depend upon the current context, though the following guarantees are made:
-    1. `#[init]`: Creator of the contract.
-    2. `#[action]`: Sender of the transaction. Some contract address if from
-       a contract, user address if from a user.
-    3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to
-       contract B, which then performed a callback to contract C. When the return message is received by contract B, the
-       sender of the interaction will be set to A. Events are explained more
-       in-depth [here](../smart-contracts/programmers-guide-to-smart-contracts.md#events)
-    4. `#[zk_on_secret_input]`: Sender of the input.
+  1. `#[init]`: Creator of the contract.
+  2. `#[action]`: Sender of the transaction. Some contract address if from
+     a contract, user address if from a user.
+  3. `#[callback]`: The sender of the interaction that triggered the callback. So if user A sent an interaction to
+     contract B, which then performed a callback to contract C. When the return message is received by contract B, the
+     sender of the interaction will be set to A. Events are explained more
+     in-depth [here](../smart-contracts/programmers-guide-to-smart-contracts.md#events)
+  4. `#[zk_on_secret_input]`: Sender of the input.
 - **Action macros complains about `pbc_lib`**: Ensure that `abi` features are correctly imported. When depending upon
   other crates, you must never use `features = ["abi"]`, as this will result in malformed contracts. Abi features must
   only ever be enabled conditionally. Crates must propagate the `abi` feature by placing
@@ -50,10 +50,10 @@ Questions for ZK contracts:
   metadata.
 - **ZkContract: Can I access secret variable data outside of the ZK computation?**: Secret variable data access is very
   restricted, and is only viewable in these cases:
-    1. By everyone, when opened by the contract using `ZkState::OpenVariables`. The data will be available as a byte Vec
-       in `ZkClosed::data`. This is not possible for user inputs.
-    2. By the owner, when the variable have not been sealed (see question above.)
-    3. By the ZK program (but not ZK nodes!), during ZK computation.
+  1. By everyone, when opened by the contract using `ZkState::OpenVariables`. The data will be available as a byte Vec
+     in `ZkClosed::data`. This is not possible for user inputs.
+  2. By the owner, when the variable have not been sealed (see question above.)
+  3. By the ZK program (but not ZK nodes!), during ZK computation.
 - **ZkContract: When can I access secret variable data for user inputs?**: It is never possible for the contract to
   access the secret variable data of inputs.
 - **ZkContract: Is it possible to perform validation of secret user input data in `#[zk_on_secret_input]`?**: No, it is

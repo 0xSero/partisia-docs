@@ -86,10 +86,12 @@ The fields of the [on-chain account information](https://partisiablockchain.gitl
 ### On-chain contract information
 
 Contracts can hold MPC tokens similar to accounts. The on-chain contract information is defined, in the [source code](https://gitlab.com/partisiablockchain/governance/account-plugin) for the blockchain.
-The [on-chain contract information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html) hold the following:    
-- `mpcTokens`: The total amount of MPC tokens this contract holds. This number is always non-negative and transferable. 
+The [on-chain contract information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html) hold the following:
+
+- `mpcTokens`: The total amount of MPC tokens this contract holds. This number is always non-negative and transferable.
 
 If a contract is deleted, the MPC tokens it may have held, are added to the [on-chain context-free information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/AccountStateLocal.html) which hold the following:
+
 - `removedContractsMpcTokens`: The total amount of MPC tokens that have been collected from deleted contracts that held MPC tokens.
 
 Contracts are simpler than accounts in the token model, since their tokens are always transferable, they can not be staked, and the amount is always non-negative.
@@ -100,17 +102,15 @@ Below is an example of the on-chain contract information for a given contract th
 {
   "accountCoins": [],
   "balance": {
-    "sign":true,
-    "value":"17337783"
+    "sign": true,
+    "value": "17337783"
   },
   "iceStakes": [],
-  "mpcTokens":"1",
+  "mpcTokens": "1",
   "storedPendingIceStakes": [],
   "storedPendingTransfers": []
 }
-
 ```
-
 
 ## Definition of token amounts
 
@@ -189,10 +189,10 @@ with the following functions, where divisions use integer math (rounding down)
 
 ```
 amountPerBatch(v) = v.tokens / (v.releaseDuration / v.releaseInterval )
-batchesReleased(v) = max( 0,  effectiveProductionTime(v) - v.tokenGenerationEvent ) / v.releaseInterval 
-effectiveProductionTime(v) = 
+batchesReleased(v) = max( 0,  effectiveProductionTime(v) - v.tokenGenerationEvent ) / v.releaseInterval
+effectiveProductionTime(v) =
     blockProductionTime                                                                                    if p.releaseDuration==62899200000 and p.releaseInterval==7862400000
-    max( min( 1684540800000, blockProductionTime), blockProductionTime - (1747699200000 - 1684540800000))  otherwise 
+    max( min( 1684540800000, blockProductionTime), blockProductionTime - (1747699200000 - 1684540800000))  otherwise
 ```
 
 ### Locked
@@ -427,7 +427,7 @@ Computation (from on-chain information)
 ## Overview
 
 | Name                         | Computation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Total                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `#Total`                     | `#Released + #InSchedule`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `#Total`                     | `#Locked + #Unlocked`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -450,7 +450,7 @@ Computation (from on-chain information)
 | `#PendingRetractedDelegated` | `sum(pendingRetractedDelegatedStakes.value)`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `#InTransit`                 | `#InTransitTransfer + #InTransitDelegated`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `#InTransitTransfer`         | `#InTransitTransfer = sum( transferValue(p)) where p in storedPendingTransfers`<br>`where `<br>`transferValue(p) =`<br>`p.amount if`<br> `p.coinIndex==-1 and`<br>`p.addTokensOrCoinsIfTransferSuccessful==false`<br>`0 otherwise`                                                                                                                                                                                                                                                                                                               |
-| `#InTransitDelegated`        | `#InTransitDelegations  = sum( delegationValue(p)) where p in storedPendingStakeDelegations`<br>`where`<br>`delegationValue(p) =`<br>`p.amount if`<br>`p.delegationType==DELEGATE_STAKES or`<br>`p.delegationType==RETURN_DELEGATED_STAKES`<br>`0 otherwise`                                                                                                                                                                                                                                                                                    |
+| `#InTransitDelegated`        | `#InTransitDelegations  = sum( delegationValue(p)) where p in storedPendingStakeDelegations`<br>`where`<br>`delegationValue(p) =`<br>`p.amount if`<br>`p.delegationType==DELEGATE_STAKES or`<br>`p.delegationType==RETURN_DELEGATED_STAKES`<br>`0 otherwise`                                                                                                                                                                                                                                                                                     |
 | `#Unused`                    | `#InSchedule + #Transferable`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Running on-chain jobs        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `#DelegatedFromOthers`       | `#AcceptedFromOthers + #PendingFromOthers`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -458,4 +458,3 @@ Computation (from on-chain information)
 | `#PendingFromOthers`         | `sum(delegatedStakesFromOthers.value.pendingDelegatedStakes)`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `#StakeForJobs`              | `#StakedToSelf + #AcceptedFromOthers`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `#AllocatedToJobs`           | `sum(stakedToContract.value)`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-                                                               
