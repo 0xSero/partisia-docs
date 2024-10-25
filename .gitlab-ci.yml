@@ -122,4 +122,4 @@ prettier:
       --end-of-line auto
       --bracket-same-line
       --trailing-comma es5
-      --check
+      --check .
