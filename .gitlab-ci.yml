@@ -111,7 +111,7 @@ npm-install:
 
 prettier:
   extends: .npm
-  stage: test
+  stage: build
   needs:
     - job: before-typescript
       optional: true
