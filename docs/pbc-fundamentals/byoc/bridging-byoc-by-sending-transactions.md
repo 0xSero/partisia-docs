@@ -2,7 +2,7 @@
 
 
 
-This guide explains how to use transactions to bridge liquid cryptocurrencies recognized by PBC (generally referred to as BYOC bring your own coin) from and to outside chains. 
+This guide explains how to use transactions to bridge liquid cryptocurrencies recognized by PBC (generally referred to as BYOC (Bring Your Own Coin)) from and to external chains. 
 
 For a guide to the bridging of BYOC with the bridge's UI see [here](introduction-to-byoc.md)
 
@@ -14,14 +14,14 @@ The idea behind the bridge is to move cryptocurrencies to and from PBC.
 In the deposit and withdrawal examples below, we will show how to bridge ETH. The method works for all BYOCs on PBC. Currently, BYOCs include ETH, BNB, and USDC.
 
 Below you will learn which contracts and invocations are used for deposits and withdrawals.
-PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC, in the case of a withdrawal the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain.
+PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC. In the case of a withdrawal, the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain.
 The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../dictionary.md#small-oracle).    
 
-Every time the bridge is used 0.1% of transferred value is subtracted as a fee to pay for the service provided by oracle nodes. If you bridge 1 ETH, then 0.999 ETH is transferred and 0.001 ETH is paid to the oracle nodes.
+Every time the bridge is used, 0.1% of transferred value is subtracted as a fee to pay for the service provided by oracle nodes. If you bridge 1 ETH, then 0.999 ETH is transferred and 0.001 ETH is paid to the oracle nodes.
 
 ### How to make a deposit
 
-BYOC acts as IOUs that can only be created when the equal sum of value is locked on the chain where the deposit comes from. The deposited coins are locked to the oracle contract on that chain. A deposit oracle consists of three PBC nodes, they monitor the BYOC contract for activity. When activity is detected and two out of three nodes of the oracle confirms a users locked funds, it invokes a contract action resulting in the minting of equivalent funds on PBC called BYOC.
+BYOC acts as IOUs that can only be created when the equal sum of value is locked on the chain where the deposit comes from. The deposited coins are locked to the oracle contract on that chain. A deposit oracle consists of three PBC nodes, who monitor the BYOC contract for activity. When activity is detected and two out of three nodes of the oracle confirms a users locked funds, it invokes a contract action resulting in the minting of equivalent funds on PBC called BYOC.
 
 ![DepositBridge](../img/bridging-byoc-by-sending-transactions-00.png)
 
