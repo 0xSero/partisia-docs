@@ -119,10 +119,7 @@ prettier:
   script:
     - npx prettier
       --print-width 100
-      --tab-width 2
-      --quote-props as-needed
-      --trailing-comma es5
+      --end-of-line auto
       --bracket-same-line
-      --prose-wrap preserve
-      --end-of-line lf
-      --check src
+      --trailing-comma es5
+      --check
