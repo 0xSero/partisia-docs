@@ -128,6 +128,7 @@ the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-dif
 
     $\mathsf{RewardForDelegation} = \mathsf{T} \frac{\mathsf{r_{4}} \cdot \mathsf{p_{4}}}{\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}} = 1{,}000{,}000 \frac{10{,}000 \cdot 90\%}{1{,}200{,}000} = 7{,}500$
     Token holder 4's reward for the delegated stakes in the given period is 7,500 MPC tokens.
+
     The node operator takes a 2% cut of the total rewards. Thus token holder 4 would get 7,350 of the 7,500.
 
     This calculation is simplified by omitting the calculation of the sum $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$.
