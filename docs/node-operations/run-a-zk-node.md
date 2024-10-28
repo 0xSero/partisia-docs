@@ -8,7 +8,11 @@ for the zero knowledge computations performed.
 
 ## Requirements of a ZK node
 
-!!! Warning "You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)" 1. [Run baker node](run-a-baker-node.md) 2. [Stake 75K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total staking balance of 100K for both ZK and baker node. 3. You have set up a reverse proxy. This includes:
+!!! Warning "You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)"
+
+    1. [Run baker node](run-a-baker-node.md)
+    2. [Stake 75K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total staking balance of 100K for both ZK and baker node.
+    3. You have set up a reverse proxy. This includes:
 
         - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
         - A modified `docker-compose.yml` defining a docker service acting as proxy
@@ -255,4 +259,9 @@ Which score that is updated depends on the way the ZK contract finishes its comp
 -   The contract is deleted. All participating nodes gets Success.
 -   The contract reaches its computation deadline. The score status for a node depends on whether there exists any
     work that a node has not performed. If a node is missing any of the following its status will be Failure, otherwise
-    Success. - Pending on-chain inputs. - Pending on-chain opens. - Attestations. - Finished computations. - Whether there is an ongoing computation. If so everyone gets Failure.
+    Success.
+    -   Pending on-chain inputs.
+    -   Pending on-chain opens.
+    -   Attestations.
+    -   Finished computations.
+    -   Whether there is an ongoing computation. If so everyone gets Failure.
