@@ -2,18 +2,18 @@
 
 The maintenance page takes you through the following node-related topics:
 
-- [The node-register.sh tool](#the-node-registersh-tool)
-- [Is your baker node working?](#is-your-baker-node-working)
-- [Get automatic updates](#get-automatic-updates)
-- [Update your node manually](#updating-your-node-manually)
-- [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)
-- [How to monitor node performance](#how-to-monitor-node-performance)
-- [Interpret log messages and debugging problems - See if your node is signing blocks](#logs-and-storage)
-- [For ZK and reader nodes: Sorting logs of nginx proxy and acme](#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
-- [Confirm that your BYOC endpoints are working](#confirm-that-your-byoc-endpoints-are-working)
-- [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)
-- [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)
-- [Inactivity](#Inactivity)
+-   [The node-register.sh tool](#the-node-registersh-tool)
+-   [Is your baker node working?](#is-your-baker-node-working)
+-   [Get automatic updates](#get-automatic-updates)
+-   [Update your node manually](#updating-your-node-manually)
+-   [Check your IP accessibility and peers](#check-your-connection-to-the-peers-in-the-network-and-your-uptime)
+-   [How to monitor node performance](#how-to-monitor-node-performance)
+-   [Interpret log messages and debugging problems - See if your node is signing blocks](#logs-and-storage)
+-   [For ZK and reader nodes: Sorting logs of nginx proxy and acme](#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
+-   [Confirm that your BYOC endpoints are working](#confirm-that-your-byoc-endpoints-are-working)
+-   [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)
+-   [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)
+-   [Inactivity](#Inactivity)
 
 ## The `node-register.sh` tool
 
@@ -21,13 +21,13 @@ The `node-register.sh` utility tool can help you set up and maintain your node.
 This includes initializing and updating your node configuration, as well as registering your node for block production and signing.
 The tool can be used with the following commands:
 
-- `create-config`: Used to set up the initial config file for your node, or to update an existing config file. This command will take you through a step-by-step process for filling out the information needed for your config.
-  - Example: `./node-register.sh create-config`
-- `register-node`: Used to register your node for producing and signing blocks. This command will take you through a step-by-step process to register for block production and signing.
-- `status`: Checks whether your node is up to date with the rest of the network.
-- `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
-  - Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
-- `report-active`: Used to mark your node as _CONFIRMED_ if it was previously set to [_INACTIVE_](#Inactivity) on the [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+-   `create-config`: Used to set up the initial config file for your node, or to update an existing config file. This command will take you through a step-by-step process for filling out the information needed for your config.
+    -   Example: `./node-register.sh create-config`
+-   `register-node`: Used to register your node for producing and signing blocks. This command will take you through a step-by-step process to register for block production and signing.
+-   `status`: Checks whether your node is up to date with the rest of the network.
+-   `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
+    -   Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
+-   `report-active`: Used to mark your node as _CONFIRMED_ if it was previously set to [_INACTIVE_](#Inactivity) on the [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
 
 The commands can be run with `--help` for additional information.
 
@@ -57,12 +57,12 @@ regularly.
 
 **Your baker node is working when:**
 
-- Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the
-  list of [committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators). This can be affirmed
-  in [How to monitor node performance](#how-to-monitor-node-performance) below
-- Your node is signing blocks. Can be checked in the logs as explained below
-- Your node is running the newest version of Partisia Software. The easiest way to ensure this is by
-  implementing [automatic updates](#get-automatic-updates)
+-   Your node is producing blocks when chosen as producer. At the moment nodes take turns based on their index from the
+    list of [committee members](https://browser.partisiablockchain.com/accounts?tab=node_operators). This can be affirmed
+    in [How to monitor node performance](#how-to-monitor-node-performance) below
+-   Your node is signing blocks. Can be checked in the logs as explained below
+-   Your node is running the newest version of Partisia Software. The easiest way to ensure this is by
+    implementing [automatic updates](#get-automatic-updates)
 
 You can confirm that your node software is up-to-date with the following command:
 
@@ -214,18 +214,18 @@ showing a JSON, with the following information:
 
 ```json
 {
-  "versionIdentifier": "Version number of PBC",
-  "uptime": 11552567,
-  "systemTime": 1700491419888,
-  "knownPeersNetworkKeys": ["network addresses (Base64) of connected baker nodes"],
-  "networkKey": "Network address(Base64)",
-  "blockchainAddress": "account address (Hex)",
-  "finalizationKey": "finalization publicKey (base64)",
-  "numberOfProcessors": 8,
-  "systemLoad": 0.51,
-  "freeMemory": 1574211176,
-  "totalMemory": 2701131776,
-  "maxMemory": 17179869184
+    "versionIdentifier": "Version number of PBC",
+    "uptime": 11552567,
+    "systemTime": 1700491419888,
+    "knownPeersNetworkKeys": ["network addresses (Base64) of connected baker nodes"],
+    "networkKey": "Network address(Base64)",
+    "blockchainAddress": "account address (Hex)",
+    "finalizationKey": "finalization publicKey (base64)",
+    "numberOfProcessors": 8,
+    "systemLoad": 0.51,
+    "freeMemory": 1574211176,
+    "totalMemory": 2701131776,
+    "maxMemory": 17179869184
 }
 ```
 
@@ -247,13 +247,13 @@ The node operator community has made several tools that can help you monitor the
 
 Check block production and finalization time with MPC Node Stats:
 
-- [Browser Version](https://mpcnodestats.dreamhosters.com/)
-- [iPhone](https://apps.apple.com/gr/app/mpc-node-stats/id1661132518)
-- [Android](https://play.google.com/store/apps/details?id=com.mpcnodeio.mpcstats&pli=1)
+-   [Browser Version](https://mpcnodestats.dreamhosters.com/)
+-   [iPhone](https://apps.apple.com/gr/app/mpc-node-stats/id1661132518)
+-   [Android](https://play.google.com/store/apps/details?id=com.mpcnodeio.mpcstats&pli=1)
 
 Compare your received stake delegations with that of other committee members:
 
-- [Parti Scan](https://partiscan.io/)
+-   [Parti Scan](https://partiscan.io/)
 
 ## Logs and storage
 
@@ -413,8 +413,8 @@ The endpoints used for communicating with supported external blockchains are def
 
 Updating your `config.json` should happen when:
 
-- New external chains become supported
-- Switching to a different endpoint supplier
+-   New external chains become supported
+-   Switching to a different endpoint supplier
 
 Below is an example of a config with external chain endpoints.
 

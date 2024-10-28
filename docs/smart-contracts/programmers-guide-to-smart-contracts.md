@@ -13,24 +13,24 @@ Consider for example a basic public voting contract:
 
 > **State:**
 
-> - What are we voting on? (if applicable)
-> - Who are allowed to vote?
-> - Deadline (if applicable)
-> - Who have voted?
-> - Are we done yet?
-> - What is the result if we are done?
+> -   What are we voting on? (if applicable)
+> -   Who are allowed to vote?
+> -   Deadline (if applicable)
+> -   Who have voted?
+> -   Are we done yet?
+> -   What is the result if we are done?
 
 > **Actions:**
 
-> - Voters should be able to vote.
-> - Anybody should be able to retrieve how many votes have been cast, and
->   whether the vote is complete yet.
-> - Anybody should be able to retrieve the result of the vote.
+> -   Voters should be able to vote.
+> -   Anybody should be able to retrieve how many votes have been cast, and
+>     whether the vote is complete yet.
+> -   Anybody should be able to retrieve the result of the vote.
 
 > **Initializer:**
 
-> - Vote subject, Voters and Deadline are all permanent attributes of the vote,
->   and so should be set in the initializer.
+> -   Vote subject, Voters and Deadline are all permanent attributes of the vote,
+>     and so should be set in the initializer.
 
 Contracts' state and actions must be declared in
 an [Contract ABI file](../smart-contracts/smart-contract-binary-formats.md#abi-binary-format);
@@ -46,14 +46,14 @@ code for your actions.
 Smart contract elements can be declared using
 these [macros](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/index.html#partisia-blockchain-sdk-macros):
 
-- [`#[state]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.state.html) declares
-  how the contract represents its state.
-- [`#[action]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.action.html)
-  declares an endpoint that the contract can be interacted with by.
-- [`#[init]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.init.html) declares
-  the code to run when the contract is initialized.
-- [`#[callback]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.callback.html)
-  declares the code to run after a corresponding `action` has been called.
+-   [`#[state]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.state.html) declares
+    how the contract represents its state.
+-   [`#[action]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.action.html)
+    declares an endpoint that the contract can be interacted with by.
+-   [`#[init]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.init.html) declares
+    the code to run when the contract is initialized.
+-   [`#[callback]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc_contract_codegen/attr.callback.html)
+    declares the code to run after a corresponding `action` has been called.
 
 ### `#[state]`
 
@@ -212,12 +212,12 @@ provides serialization methods. These traits are
 important for the operation of PBC contracts, but should rarely be implemented
 manually; prefer using the built-in derive methods.
 
-- ReadWriteState: Serialization
-  for [State serialization format](../smart-contracts/smart-contract-binary-formats.md#state-binary-format).
-- ReadWriteRPC: Serialization
-  for [RPC argument serialization format](../smart-contracts/smart-contract-binary-formats.md#rpc-binary-format).
-- CreateTypeSpec: Serialization
-  for [ABI serialization format](../smart-contracts/smart-contract-binary-formats.md#abi-binary-format).
+-   ReadWriteState: Serialization
+    for [State serialization format](../smart-contracts/smart-contract-binary-formats.md#state-binary-format).
+-   ReadWriteRPC: Serialization
+    for [RPC argument serialization format](../smart-contracts/smart-contract-binary-formats.md#rpc-binary-format).
+-   CreateTypeSpec: Serialization
+    for [ABI serialization format](../smart-contracts/smart-contract-binary-formats.md#abi-binary-format).
 
 ## Data Structures
 
@@ -233,9 +233,9 @@ the type of the address (account, system contract, public contract or zk contrac
 is available from every action, and contains some useful
 context information for the current transaction:
 
-- `Address` of the contract itself and the caller; the person or contract that caused the interaction.
-- The current block number, and time since some epoch.
-- Hashes of both the current transaction and the previous transaction.
+-   `Address` of the contract itself and the caller; the person or contract that caused the interaction.
+-   The current block number, and time since some epoch.
+-   Hashes of both the current transaction and the previous transaction.
 
 ### Events
 
@@ -245,12 +245,12 @@ only occur "between" action calls.
 
 For example:
 
-- Zeno calls Alice in transaction 1: Alice determines she needs some information from Bob, and exits
-  while telling the blockchain: "Call Bob for me, I want a reply, and let me pay for the reply"
-- Alice calls Bob in transaction 2: Bob performs it's computation, and exists
-  with "Here's the reply to Alice, she said she'd pay for this reply".
-- Bob calls Alice in transaction 3: Alice finally got the necessary information to perform her own
-  computation...
+-   Zeno calls Alice in transaction 1: Alice determines she needs some information from Bob, and exits
+    while telling the blockchain: "Call Bob for me, I want a reply, and let me pay for the reply"
+-   Alice calls Bob in transaction 2: Bob performs it's computation, and exists
+    with "Here's the reply to Alice, she said she'd pay for this reply".
+-   Bob calls Alice in transaction 3: Alice finally got the necessary information to perform her own
+    computation...
 
 To accommodate this model, the compiler requires each `action` annotated function to
 return a (possibly empty) `Vec` of `EventGroup`s, which represents the "Call X for me" information.

@@ -24,7 +24,7 @@ To work with Partisia Blockchain's standard contract interfaces, follow these ge
 
 3. **Implement the Standard:** Start from one of the [example contracts](../smart-contract-examples.md) and build your own smart contract using the standard contract interface as a guide.
 
-   If the contracts already satisfy what you need, feel free to just grab them and start using them. Ensure that you incorporate all the necessary actions, state fields, and other requirements specified in the standard and then expand from there. Starting from an example contract helps you uphold and use those requirements from the start.
+    If the contracts already satisfy what you need, feel free to just grab them and start using them. Ensure that you incorporate all the necessary actions, state fields, and other requirements specified in the standard and then expand from there. Starting from an example contract helps you uphold and use those requirements from the start.
 
 4. **Test and Deploy:** Thoroughly test your contract to ensure its functionality and security. Once satisfied, deploy your contract to the desired blockchain network. You can always verify on the [testnet](../../smart-contracts/access-and-use-the-testnet.md) that your integration was successful.
 

@@ -34,9 +34,9 @@ The cost of bringing your own coin is 0,1% of the value transferred with a thres
 
 To be able to bridge your coins you will need:
 
-- An account on PBC.
-- An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
-  extension for interacting with other chains.
+-   An account on PBC.
+-   An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
+    extension for interacting with other chains.
 
 ### How to deposit using the Bridge
 

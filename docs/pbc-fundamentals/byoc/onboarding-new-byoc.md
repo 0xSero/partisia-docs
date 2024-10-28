@@ -38,8 +38,8 @@ and [proxy contract](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea0
 
 Before preparing the contracts on the integrated chain some information needs to be collected:
 
-- Which integrated chain does the coin reside on (Ethereum, Polygon or BNB Smart Chain)
-- What is the current USD value of a single coin
+-   Which integrated chain does the coin reside on (Ethereum, Polygon or BNB Smart Chain)
+-   What is the current USD value of a single coin
 
 For non-stable coins a Chainlink reference contract on Ethereum that tracks the current price needs
 to be available.
@@ -98,12 +98,12 @@ is shared with the community, verifying the proposal is very difficult.
 
 When validating the proposal ensure that the parameters match what is expected:
 
-- Does the supplied price match the price of the token?
-- Is the name of the token correct?
-- Is the supplied reference contract a chain link reference for the bridged symbol? And does the
-  decimal count match the ones on the contract?
-- Is the supplied ERC20 contract a valid ERC20 contract for the token? And does the decimal count
-  match the decimals on the ERC20 contract?
+-   Does the supplied price match the price of the token?
+-   Is the name of the token correct?
+-   Is the supplied reference contract a chain link reference for the bridged symbol? And does the
+    decimal count match the ones on the contract?
+-   Is the supplied ERC20 contract a valid ERC20 contract for the token? And does the decimal count
+    match the decimals on the ERC20 contract?
 
 To sum up, you need to find both of the deployed contracts, lookup the transaction that deployed them, find the payload
 of

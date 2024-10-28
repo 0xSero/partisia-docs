@@ -4,15 +4,15 @@ The MPC Token is the native token of the Partisia Blockchain used for staking an
 
 ## Terminology
 
-- The following terminology is used in this document
-- Account: A Partisia Blockchain address (the public key)
-- Contract: A Partisia Blockchain address
-- Token Holder: A user who owns MPC Tokens
-- Node Operator: A user who runs a blockchain Node
-- Stake: The use of MPC tokens as collateral for running on-chain services on Partisia Blockchain
-- Delegated Staking: The action of delegating Token holders' own MPC tokens to a node operator that can use the Delegated Stakes for running jobs
-- Retract Delegated Stakes: The request by a token holder to terminate Delegated Staking
-- Community Staking: The service that simplifies Delegated Staking
+-   The following terminology is used in this document
+-   Account: A Partisia Blockchain address (the public key)
+-   Contract: A Partisia Blockchain address
+-   Token Holder: A user who owns MPC Tokens
+-   Node Operator: A user who runs a blockchain Node
+-   Stake: The use of MPC tokens as collateral for running on-chain services on Partisia Blockchain
+-   Delegated Staking: The action of delegating Token holders' own MPC tokens to a node operator that can use the Delegated Stakes for running jobs
+-   Retract Delegated Stakes: The request by a token holder to terminate Delegated Staking
+-   Community Staking: The service that simplifies Delegated Staking
 
 ## On-chain account information
 
@@ -24,75 +24,75 @@ Below is an example of the on-chain account information for a given account take
 
 ```json
 {
-  "accountCoins": [
-    {
-      "balance": "0"
+    "accountCoins": [
+        {
+            "balance": "0"
+        },
+        {
+            "balance": "960"
+        }
+    ],
+    "delegatedStakesFromOthers": [],
+    "delegatedStakesToOthers": [
+        {
+            "key": "009dc1601d9a0d8ef4dca2a975dec56abca3b000f3",
+            "value": "650000"
+        }
+    ],
+    "mpcTokens": "-900000",
+    "pendingRetractedDelegatedStakes": [
+        {
+            "key": "1667550993833",
+            "value": "250000"
+        }
+    ],
+    "pendingUnstakes": [],
+    "spentFreeTransactions": {
+        "epoch": "0",
+        "spentFreeTransactions": "0"
     },
-    {
-      "balance": "960"
-    }
-  ],
-  "delegatedStakesFromOthers": [],
-  "delegatedStakesToOthers": [
-    {
-      "key": "009dc1601d9a0d8ef4dca2a975dec56abca3b000f3",
-      "value": "650000"
-    }
-  ],
-  "mpcTokens": "-900000",
-  "pendingRetractedDelegatedStakes": [
-    {
-      "key": "1667550993833",
-      "value": "250000"
-    }
-  ],
-  "pendingUnstakes": [],
-  "spentFreeTransactions": {
-    "epoch": "0",
-    "spentFreeTransactions": "0"
-  },
-  "stakeable": true,
-  "stakedToContract": [],
-  "stakedTokens": "0",
-  "storedPendingStakeDelegations": [],
-  "storedPendingTransfers": [],
-  "vestingAccounts": [
-    {
-      "releaseDuration": "60000",
-      "releaseInterval": "60000",
-      "releasedTokens": "0",
-      "tokenGenerationEvent": "1664582400000",
-      "tokens": "1000000"
-    }
-  ]
+    "stakeable": true,
+    "stakedToContract": [],
+    "stakedTokens": "0",
+    "storedPendingStakeDelegations": [],
+    "storedPendingTransfers": [],
+    "vestingAccounts": [
+        {
+            "releaseDuration": "60000",
+            "releaseInterval": "60000",
+            "releasedTokens": "0",
+            "tokenGenerationEvent": "1664582400000",
+            "tokens": "1000000"
+        }
+    ]
 }
 ```
 
 The fields of the [on-chain account information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/Balance.html) holds the following. The MPC token model described in the next section will give an overview and detailed computations for how the information can be aggregated meaningfully.
 
-- `mpcTokens`: The total amount of MPC tokens that are transferable. This number can be negative if more tokens are in use than the released amount. Example: An account has 100 free tokens and 250 released: mpcTokens = 100. After staking 150: mpcTokens = -50
-- `stakedTokens`: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract. See stakedToContract
-- `stakedToContract`: The amounts of staked MPC tokens that are associated with running specific blockchain jobs. Not all staked tokens have to be associated with jobs, hence the sum of "stakedToContract" does not always equal "stakedTokens"
-- `pendingUnstakes`: MPC tokens which were staked, and are now being unstaked. When unstaking MPC tokens there is a 7 days waiting period during which they are kept here as pendingUnstakes
-- `spentFreeTransactions`: Keeps track of the number of free transactions used in each epoch. Irrelevant for MPC token calculations described in this document
-- `vestingAccounts`: MPC tokens that are locked which will become unlocked (freely transferable) after each unlock in the unlocking schedule. Note that the variable called "vestingAccounts" refers to "unlocking schedules". The user receives all tokens locked, but they gradually become unlocked. Note that both locked and unlocked tokens can be used for Staking and for Delegated Staking.
-- `storedPendingTransfers`: Keeps track of incoming/outgoing transfers of MPC tokens and BYOC coins while a two-phase commit protocol is being executed
-- `storedPendingStakeDelegations`: Keeps track of incoming/outgoing delegated MPC tokens while a two-phase commit protocol is being executed
-- `delegatedStakesFromOthers`: MPC tokens delegated from other users. If they are accepted MPC tokens delegated from others can be used for running on-chain jobs
-- `delegatedStakesToOthers`: MPC tokens delegated to other users for them to use as stake
-- `pendingRetractedDelegatedStakes`: MPC tokens, which were delegated to another user and are now being retracted and freed. Retraction of delegated MPC tokens has a 7 days waiting period during which they are kept here
-- `stakeable`: Specifies if this account is allowed to stake MPC tokens. Irrelevant for MPC token calculations
+-   `mpcTokens`: The total amount of MPC tokens that are transferable. This number can be negative if more tokens are in use than the released amount. Example: An account has 100 free tokens and 250 released: mpcTokens = 100. After staking 150: mpcTokens = -50
+-   `stakedTokens`: The total amount of MPC tokens that are staked to the account itself. To run on-chain jobs the staked MPC tokens must be associated with a specific contract. See stakedToContract
+-   `stakedToContract`: The amounts of staked MPC tokens that are associated with running specific blockchain jobs. Not all staked tokens have to be associated with jobs, hence the sum of "stakedToContract" does not always equal "stakedTokens"
+-   `pendingUnstakes`: MPC tokens which were staked, and are now being unstaked. When unstaking MPC tokens there is a 7 days waiting period during which they are kept here as pendingUnstakes
+-   `spentFreeTransactions`: Keeps track of the number of free transactions used in each epoch. Irrelevant for MPC token calculations described in this document
+-   `vestingAccounts`: MPC tokens that are locked which will become unlocked (freely transferable) after each unlock in the unlocking schedule. Note that the variable called "vestingAccounts" refers to "unlocking schedules". The user receives all tokens locked, but they gradually become unlocked. Note that both locked and unlocked tokens can be used for Staking and for Delegated Staking.
+-   `storedPendingTransfers`: Keeps track of incoming/outgoing transfers of MPC tokens and BYOC coins while a two-phase commit protocol is being executed
+-   `storedPendingStakeDelegations`: Keeps track of incoming/outgoing delegated MPC tokens while a two-phase commit protocol is being executed
+-   `delegatedStakesFromOthers`: MPC tokens delegated from other users. If they are accepted MPC tokens delegated from others can be used for running on-chain jobs
+-   `delegatedStakesToOthers`: MPC tokens delegated to other users for them to use as stake
+-   `pendingRetractedDelegatedStakes`: MPC tokens, which were delegated to another user and are now being retracted and freed. Retraction of delegated MPC tokens has a 7 days waiting period during which they are kept here
+-   `stakeable`: Specifies if this account is allowed to stake MPC tokens. Irrelevant for MPC token calculations
 
 ### On-chain contract information
 
 Contracts can hold MPC tokens similar to accounts. The on-chain contract information is defined, in the [source code](https://gitlab.com/partisiablockchain/governance/account-plugin) for the blockchain.
 The [on-chain contract information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/ContractStorage.html) hold the following:
 
-- `mpcTokens`: The total amount of MPC tokens this contract holds. This number is always non-negative and transferable.
+-   `mpcTokens`: The total amount of MPC tokens this contract holds. This number is always non-negative and transferable.
 
 If a contract is deleted, the MPC tokens it may have held, are added to the [on-chain context-free information](https://partisiablockchain.gitlab.io/governance/account-plugin/com/partisiablockchain/governance/account/AccountStateLocal.html) which hold the following:
 
-- `removedContractsMpcTokens`: The total amount of MPC tokens that have been collected from deleted contracts that held MPC tokens.
+-   `removedContractsMpcTokens`: The total amount of MPC tokens that have been collected from deleted contracts that held MPC tokens.
 
 Contracts are simpler than accounts in the token model, since their tokens are always transferable, they can not be staked, and the amount is always non-negative.
 
@@ -100,15 +100,15 @@ Below is an example of the on-chain contract information for a given contract th
 
 ```json
 {
-  "accountCoins": [],
-  "balance": {
-    "sign": true,
-    "value": "17337783"
-  },
-  "iceStakes": [],
-  "mpcTokens": "1",
-  "storedPendingIceStakes": [],
-  "storedPendingTransfers": []
+    "accountCoins": [],
+    "balance": {
+        "sign": true,
+        "value": "17337783"
+    },
+    "iceStakes": [],
+    "mpcTokens": "1",
+    "storedPendingIceStakes": [],
+    "storedPendingTransfers": []
 }
 ```
 
@@ -122,9 +122,9 @@ The total number of MPC tokens owned by an account.
 
 There are three ways of computing the total number of tokens
 
-- The number of tokens that are currently in use plus the number of unused tokens
-- The number of tokens released from an unlocking schedule plus the number of tokens still in schedule
-- The number of locked tokens plus the number of unlocked tokens
+-   The number of tokens that are currently in use plus the number of unused tokens
+-   The number of tokens released from an unlocking schedule plus the number of tokens still in schedule
+-   The number of locked tokens plus the number of unlocked tokens
 
 Computation (from on-chain information)
 

@@ -27,13 +27,13 @@ If Working from a Windows machine you
 must [get Visual Studio with C++ build tools](https://visualstudio.microsoft.com/downloads/) - In Visual Studio
 Installer choose _Desktop development with C++_.
 
-- We recommend you make sure these optionals are marked:
-  - MSVC x64/x86 build tools
-  - Windows 11 SDK
-  - C++ CMake tools for Windows
-  - Testing tools core features
-  - Build Tools
-  - C++ AddressSanitizer
+-   We recommend you make sure these optionals are marked:
+    -   MSVC x64/x86 build tools
+    -   Windows 11 SDK
+    -   C++ CMake tools for Windows
+    -   Testing tools core features
+    -   Build Tools
+    -   C++ AddressSanitizer
 
 ### 2) Installing the cargo `partisia-contract`/`pbc` command
 

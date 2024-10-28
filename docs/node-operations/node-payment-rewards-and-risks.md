@@ -6,13 +6,13 @@ Here you can read about [paid services nodes can perform](start-running-a-node.m
 
 Node operators get paid fees for running four [types of services](../node-operations/start-running-a-node.md#which-node-should-you-run):
 
-- Baker services - signing and producing
-  blocks. Baker fees depend on performance measured by peers
-- ZK services - preprocessing data, executing ZK
-  computations. [See the fees paid for different ZK operations](../smart-contracts/gas/zk-computation-gas-fees.md)
-- Oracle services - services related to BYOC, signing transfers. Deposit and withdrawal
-  oracle nodes receive 0.1% of transferred value
-- Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories
+-   Baker services - signing and producing
+    blocks. Baker fees depend on performance measured by peers
+-   ZK services - preprocessing data, executing ZK
+    computations. [See the fees paid for different ZK operations](../smart-contracts/gas/zk-computation-gas-fees.md)
+-   Oracle services - services related to BYOC, signing transfers. Deposit and withdrawal
+    oracle nodes receive 0.1% of transferred value
+-   Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories
 
 A node service earns rewards when a user commits a transaction on the blockchain and pays a gas cost
 in [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). The gas spent covers the fee of the service performed by the nodes, this designs ensures that node operators get paid in BYOC tokens and not MPC tokens.
@@ -102,11 +102,11 @@ MPC tokens, that are not associated to a contract or locked to a service, can be
 
 Rules:
 
-- If [delegated to an account](../pbc-fundamentals/mpc-token-model-and-account-elements.md#delegatedtoothers) of a node operator, but not [associated to a contract](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs), token owner can retrieve with no issues
-- If [delegated to an account](../pbc-fundamentals/mpc-token-model-and-account-elements.md#delegatedtoothers) of a node operator, and [associated to a contract](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) but not being used for a job, token owner cannot retrieve before the node operator has disassociated the token from the job
-- If [delegated to the account](../pbc-fundamentals/mpc-token-model-and-account-elements.md#delegatedtoothers) of a node operator, [associated to a contract](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) and being used for a job, token owner cannot retrieve until the job completes, pending period is over, and the node operator has disassociated the tokens from the job
-- Tokens retrieved from delegation are not immediately [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). The token owner must [unstake](https://browser.partisiablockchain.com/node-operation) the tokens after retrieval. If the tokens have passed the [release date](../pbc-fundamentals/mpc-token-model-and-account-elements.md#unlocking-schedules) the tokens will become transferable, when the 7-day pending period is over and the owner invokes [Check pending unstakes](https://browser.partisiablockchain.com/account)
-- Tokens must be retrieved to your account before you can [unstake](https://browser.partisiablockchain.com/node-operation). This means you change the state of the tokens back from staked to unstaked. Unstaking causes a 7-day pending state for the tokens. Afterwards you need to invoke [Check pending unstakes](https://browser.partisiablockchain.com/account). This operation returns the tokens to your balance
+-   If [delegated to an account](../pbc-fundamentals/mpc-token-model-and-account-elements.md#delegatedtoothers) of a node operator, but not [associated to a contract](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs), token owner can retrieve with no issues
+-   If [delegated to an account](../pbc-fundamentals/mpc-token-model-and-account-elements.md#delegatedtoothers) of a node operator, and [associated to a contract](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) but not being used for a job, token owner cannot retrieve before the node operator has disassociated the token from the job
+-   If [delegated to the account](../pbc-fundamentals/mpc-token-model-and-account-elements.md#delegatedtoothers) of a node operator, [associated to a contract](../pbc-fundamentals/mpc-token-model-and-account-elements.md#allocatedtojobs) and being used for a job, token owner cannot retrieve until the job completes, pending period is over, and the node operator has disassociated the tokens from the job
+-   Tokens retrieved from delegation are not immediately [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). The token owner must [unstake](https://browser.partisiablockchain.com/node-operation) the tokens after retrieval. If the tokens have passed the [release date](../pbc-fundamentals/mpc-token-model-and-account-elements.md#unlocking-schedules) the tokens will become transferable, when the 7-day pending period is over and the owner invokes [Check pending unstakes](https://browser.partisiablockchain.com/account)
+-   Tokens must be retrieved to your account before you can [unstake](https://browser.partisiablockchain.com/node-operation). This means you change the state of the tokens back from staked to unstaked. Unstaking causes a 7-day pending state for the tokens. Afterwards you need to invoke [Check pending unstakes](https://browser.partisiablockchain.com/account). This operation returns the tokens to your balance
 
 #### Rewards for delegated tokens
 
@@ -140,9 +140,9 @@ Malicious node behavior can result in slashing of staked tokens (slashed tokens 
 
 !!! example "Examples of malicious activity" - A withdrawal oracle node signing a BYOC withdrawal that wasn't initiated on PBC
 
-- A deposit oracle node signing a BYOC deposit that wasn't initiated on the external chain
-- A price oracle node signing a wrong price
-- An account starting an incorrect dispute
+-   A deposit oracle node signing a BYOC deposit that wasn't initiated on the external chain
+-   A price oracle node signing a wrong price
+-   An account starting an incorrect dispute
 
 It is possible to start a dispute against a node operator that has done a service for you. Dispute claims are
 audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible

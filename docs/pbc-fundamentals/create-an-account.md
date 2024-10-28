@@ -11,10 +11,10 @@ create a new account. Accounts and contracts reside on a specific [shard](shardi
 
 Every account has the attributes defined below:
 
-- Address (a unique identity derived from the [public key](../pbc-fundamentals/dictionary.md#public-key-cryptography))
-- Balance (the balance of [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md))
-- MPC tokens (the balance of[MPC Tokens](../pbc-fundamentals/mpc-token-model-and-account-elements.md))
-- [Nonce (number used only once)](../pbc-fundamentals/dictionary.md#nonce) (the account nonce is incremented when transactions are signed)
+-   Address (a unique identity derived from the [public key](../pbc-fundamentals/dictionary.md#public-key-cryptography))
+-   Balance (the balance of [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md))
+-   MPC tokens (the balance of[MPC Tokens](../pbc-fundamentals/mpc-token-model-and-account-elements.md))
+-   [Nonce (number used only once)](../pbc-fundamentals/dictionary.md#nonce) (the account nonce is incremented when transactions are signed)
 
 The account state itself holds a single piece of information: The nonce. This is a number that is incremented each time a transaction signed by an account is executed. The rest of the account information resides in the account plugin.
 

@@ -106,56 +106,56 @@ Paste the new docker compose. Change each `environment` of the services to fit w
 ```yaml
 version: "2.0"
 services:
-  pbc:
-    image: registry.gitlab.com/partisiablockchain/mainnet:latest
-    container_name: pbc-mainnet
-    user: "1500:1500"
-    restart: always
-    expose:
-      - "8080"
-    ports:
-      - "9888-9897:9888-9897"
-    command: ["/conf/config.json", "/storage/"]
-    volumes:
-      - /opt/pbc-mainnet/conf:/conf
-      - /opt/pbc-mainnet/storage:/storage
-    environment:
-      - JAVA_TOOL_OPTIONS="-Xmx8G"
-      - VIRTUAL_HOST=your_sub.domain.com
-      - VIRTUAL_PORT=8080
-      - LETSENCRYPT_HOST=your_sub.domain.com
-  nginx-proxy:
-    image: nginxproxy/nginx-proxy:alpine
-    container_name: pbc-nginx
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - conf:/etc/nginx/conf.d
-      - vhost:/etc/nginx/vhost.d
-      - html:/usr/share/nginx/html
-      - certs:/etc/nginx/certs:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-  acme-companion:
-    image: nginxproxy/acme-companion
-    container_name: pbc-acme
-    restart: always
-    volumes_from:
-      - nginx-proxy
-    volumes:
-      - certs:/etc/nginx/certs:rw
-      - acme:/etc/acme.sh
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    environment:
-      - DEFAULT_EMAIL=your@email.address
+    pbc:
+        image: registry.gitlab.com/partisiablockchain/mainnet:latest
+        container_name: pbc-mainnet
+        user: "1500:1500"
+        restart: always
+        expose:
+            - "8080"
+        ports:
+            - "9888-9897:9888-9897"
+        command: ["/conf/config.json", "/storage/"]
+        volumes:
+            - /opt/pbc-mainnet/conf:/conf
+            - /opt/pbc-mainnet/storage:/storage
+        environment:
+            - JAVA_TOOL_OPTIONS="-Xmx8G"
+            - VIRTUAL_HOST=your_sub.domain.com
+            - VIRTUAL_PORT=8080
+            - LETSENCRYPT_HOST=your_sub.domain.com
+    nginx-proxy:
+        image: nginxproxy/nginx-proxy:alpine
+        container_name: pbc-nginx
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - conf:/etc/nginx/conf.d
+            - vhost:/etc/nginx/vhost.d
+            - html:/usr/share/nginx/html
+            - certs:/etc/nginx/certs:ro
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+    acme-companion:
+        image: nginxproxy/acme-companion
+        container_name: pbc-acme
+        restart: always
+        volumes_from:
+            - nginx-proxy
+        volumes:
+            - certs:/etc/nginx/certs:rw
+            - acme:/etc/acme.sh
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        environment:
+            - DEFAULT_EMAIL=your@email.address
 
 volumes:
-  conf:
-  vhost:
-  html:
-  certs:
-  acme:
+    conf:
+    vhost:
+    html:
+    certs:
+    acme:
 ```
 
 [Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by pressing `CTRL+O` and
@@ -238,9 +238,9 @@ When your node is registered it can be selected as a ZK node for a newly deploye
 working node your ZK node is being scored on how well it performs the required actions for the allocated ZK contract.
 A ZK Node Score consists of three sub scores
 
-- **Allocated**: The total number of contracts your node has been allocated to.
-- **Success**: The number of contracts that has ended with your node having performed the necessary actions.
-- **Failure**: The number of contracts where some required actions have not been performed.
+-   **Allocated**: The total number of contracts your node has been allocated to.
+-   **Success**: The number of contracts that has ended with your node having performed the necessary actions.
+-   **Failure**: The number of contracts where some required actions have not been performed.
 
 It will always be the case that `Allocated = Success + Failure`.
 You can see your node's score in the [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state).
@@ -250,9 +250,9 @@ You can see your node's score in the [ZK Node Registry](https://browser.partisia
 Whenever a ZK contract is finished computing, the participating nodes' scores are updated in the ZK Node Registry.
 Which score that is updated depends on the way the ZK contract finishes its computation.
 
-- The contracts' calculation status gets moved to Done. All participating nodes gets Success.
-- The contracts' calculation status gets moved to Malicious. All participating nodes gets Failure.
-- The contract is deleted. All participating nodes gets Success.
-- The contract reaches its computation deadline. The score status for a node depends on whether there exists any
-  work that a node has not performed. If a node is missing any of the following its status will be Failure, otherwise
-  Success. - Pending on-chain inputs. - Pending on-chain opens. - Attestations. - Finished computations. - Whether there is an ongoing computation. If so everyone gets Failure.
+-   The contracts' calculation status gets moved to Done. All participating nodes gets Success.
+-   The contracts' calculation status gets moved to Malicious. All participating nodes gets Failure.
+-   The contract is deleted. All participating nodes gets Success.
+-   The contract reaches its computation deadline. The score status for a node depends on whether there exists any
+    work that a node has not performed. If a node is missing any of the following its status will be Failure, otherwise
+    Success. - Pending on-chain inputs. - Pending on-chain opens. - Attestations. - Finished computations. - Whether there is an ongoing computation. If so everyone gets Failure.

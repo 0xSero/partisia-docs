@@ -10,11 +10,11 @@ giving all citizens access to the official legal code.
 
 **The setup of our scenario**
 
-- The parliament has 197 MPs.
-- Each MP has a key set. The public key enables the public to follow the MP's voting record on the
-  blockchain. The private key is known only by the individual MP and is used to sign their vote.
-- Each time the parliament votes on an issue they do it through a smart contract vote. Laws that
-  passed are therefore also added to the immutable record.
+-   The parliament has 197 MPs.
+-   Each MP has a key set. The public key enables the public to follow the MP's voting record on the
+    blockchain. The private key is known only by the individual MP and is used to sign their vote.
+-   Each time the parliament votes on an issue they do it through a smart contract vote. Laws that
+    passed are therefore also added to the immutable record.
 
 **NB.** No ZK computation is necessary since the both individual votes and voting results are
 supposed to be public.
@@ -58,22 +58,22 @@ with [`#[state]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc
 
 For our voting contract the contract state has the following parts:
 
-- `proposal_id` A proposal id, so you can identify what proposal the vote is concerned with.
-- `mp_addresses` The list of people that are allowed to vote on the proposal. Only people with
-  voting rights in the parliament should be allowed to vote, so the contract also needs a list of MP
-  addresses.
-- `votes` The actual votes cast are contained in a map pairing each person with their vote.
-- `closed` Finally, when the voting ends people must no longer be able to change their vote.
-  Therefore, the contract the state also includes information about whether the voting is open or
-  closed.
+-   `proposal_id` A proposal id, so you can identify what proposal the vote is concerned with.
+-   `mp_addresses` The list of people that are allowed to vote on the proposal. Only people with
+    voting rights in the parliament should be allowed to vote, so the contract also needs a list of MP
+    addresses.
+-   `votes` The actual votes cast are contained in a map pairing each person with their vote.
+-   `closed` Finally, when the voting ends people must no longer be able to change their vote.
+    Therefore, the contract the state also includes information about whether the voting is open or
+    closed.
 
 We can also define methods associated with the state struct that read or write to the state. In Rust
 these methods are defined inside an `impl` block associated with the state struct.
 
 For our voting contract we have defined two state methods:
 
-- `register_vote` When an MP cast her vote, it is recorded in the votes map.
-- `close_if_finished_vote` The voting process automatically closes after everybody has voted.
+-   `register_vote` When an MP cast her vote, it is recorded in the votes map.
+-   `close_if_finished_vote` The voting process automatically closes after everybody has voted.
 
 We could have chosen to make closing the vote depend on when the majority was reached, or to make an
 action where the chairman of the parliament closes the vote after some deadline. We could also add a

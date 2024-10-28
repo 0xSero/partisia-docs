@@ -46,10 +46,10 @@ passed.
 
 **Minimum criteria of the epochs in important system contracts:**
 
-- Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members. Alternatively, minimum time of 28 days have passed and [trigger new committee](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/triggerNewCommittee) has been invoked
-- [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and [request new oracle](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle) has been invoked
-- ZK contract: when the calculations specified in the contract have been completed, or the lifetime paid for by the contract owner runs out
-- [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks
+-   Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members. Alternatively, minimum time of 28 days have passed and [trigger new committee](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/triggerNewCommittee) has been invoked
+-   [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and [request new oracle](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle) has been invoked
+-   ZK contract: when the calculations specified in the contract have been completed, or the lifetime paid for by the contract owner runs out
+-   [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks
 
 ### ETH
 
@@ -100,10 +100,10 @@ Nodes are the computers in the blockchain network. The nodes run the blockchain 
 
 A node operator is a person who runs and maintains a node on Partisia Blockchain. PBC has four types of nodes:
 
-- Reader node: A node that only reads the information on the chain and does not perform paid services.
-- Baker Node: A node that produces and validates blocks. Revenue is generated from user payment on transactions in the blocks produced and validated by the node.
-- ZK Node: A node that performs zero knowledge computations in addition to baker node services.
-- Oracle Node: A node that performs oracle services in addition to ZK and baker services.
+-   Reader node: A node that only reads the information on the chain and does not perform paid services.
+-   Baker Node: A node that produces and validates blocks. Revenue is generated from user payment on transactions in the blocks produced and validated by the node.
+-   ZK Node: A node that performs zero knowledge computations in addition to baker node services.
+-   Oracle Node: A node that performs oracle services in addition to ZK and baker services.
 
 See requirements of a node operator and how to run a node [here](../node-operations/start-running-a-node.md).
 
@@ -163,12 +163,12 @@ A smart contract is a program you run on the blockchain. The conditions of the c
 If you want to be a node operator you are required to have a stake in the network. A stake is basically a deposit strengthening the security and user confidence of the network. The stake means that the node operator has something to lose should they try to cheat or damage the network.
 Staking requires that the node operator buys the required stake of MPC Tokens. Services have a hierarchy of cost and security as well as payment. Therefore, higher paid services require a higher stake. To acquire MPC Tokens go through this [contact page](https://kyc.partisiablockchain.com/). The current stake requirements are:
 
-- Reader Node is free, since it does not perform paid services
-- Baker Node 25,000 MPC Tokens
-- ZK Node 75,000 MPC Tokens
-- Oracle Node 250,000 MPC Tokens
-- Price Oracle Node 5,000 MPC Tokens
-  Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
+-   Reader Node is free, since it does not perform paid services
+-   Baker Node 25,000 MPC Tokens
+-   ZK Node 75,000 MPC Tokens
+-   Oracle Node 250,000 MPC Tokens
+-   Price Oracle Node 5,000 MPC Tokens
+    Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
 
 ### Transactions
 
@@ -179,10 +179,10 @@ Each transaction defines how long into the future it is valid and what the cost 
 
 A transaction is valid when:
 
-- It has as a valid signature
-- The nonce in the transaction matches the account nonce in the blockchain state
-- The transaction has not expired
-- The account can cover the cost of the transaction
+-   It has as a valid signature
+-   The nonce in the transaction matches the account nonce in the blockchain state
+-   The transaction has not expired
+-   The account can cover the cost of the transaction
 
 ### VPS
 

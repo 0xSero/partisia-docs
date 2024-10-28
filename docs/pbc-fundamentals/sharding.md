@@ -6,14 +6,14 @@ Except for the governance shard, all shards serve the same role of distributing 
 
 **Local changes to governance:**
 
-- Update of a single system smart contract
+-   Update of a single system smart contract
 
 **Updates to the global governance structure:**
 
-- Changes to which nodes are in committee
-- Distribution of fees
-- Current active shards and their routing
-- Feature flag activations
+-   Changes to which nodes are in committee
+-   Distribution of fees
+-   Current active shards and their routing
+-   Feature flag activations
 
 ![Sharding](img/sharding-00.png)
 

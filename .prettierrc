@@ -6,6 +6,12 @@
   "plugins": ["prettier-plugin-jinja-template"],
   "overrides": [
     {
+      "files": ["*.md"],
+      "options": {
+        "tabWidth": 4
+      }
+    },
+    {
       "files": ["*.html"],
       "options": {
         "parser": "jinja-template"

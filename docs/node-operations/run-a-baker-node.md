@@ -26,19 +26,19 @@ docker compose down
 
 To fill out the config.json for a block producing node you need to add the following information:
 
-- Account private key (the account you've staked MPC with)
-- IPv4 address of the server hosting your node (You get this from your VPS service provider)
-- Ethereum, BNB and Polygon API endpoints. These are URL addresses pointing to a reader node on the mainnet for the respective blockchains (you should use a source you find trustworthy).
-  [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0)
-  has a provider list and further information about endpoints.
+-   Account private key (the account you've staked MPC with)
+-   IPv4 address of the server hosting your node (You get this from your VPS service provider)
+-   Ethereum, BNB and Polygon API endpoints. These are URL addresses pointing to a reader node on the mainnet for the respective blockchains (you should use a source you find trustworthy).
+    [This user made guide](https://docs.google.com/spreadsheets/d/1Eql-c0tGo5hDqUcFNPDx9v-6-rCYHzZGbITz2QKCljs/edit#gid=0)
+    has a provider list and further information about endpoints.
 
 ???+ note
 
     As new external chains become supported, the chain endpoints configuration should be updated to support these. See [here](node-health-and-maintenance.md#updating-your-byoc-chain-configuration) for information on updating your chain endpoints configuration.
 
-- The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
-  e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
-  producers should be obtained by reaching out to the community.
+-   The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
+    e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999`. The location of other known
+    producers should be obtained by reaching out to the community.
 
 You can read more about different fields in the `config.json` in the source code [here](https://gitlab.com/partisiablockchain/main/-/blob/main/src/main/java/com/partisiablockchain/server/CompositeNodeConfigDto.java)
 
@@ -157,9 +157,9 @@ If you have already not setup automatic updates you can follow the guide [here](
 
 Formal conditions for inclusion in the network is stipulated in the Yellow Paper [YP_0.98 Ch. 2.3.1 pp. 11-12](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view):
 
-- The public information regarding the node given by the operator must be verified by Synaps
-- Sufficient stakes committed
-- The transaction fees of _Register_ and _Staking_ transaction have been paid
+-   The public information regarding the node given by the operator must be verified by Synaps
+-   Sufficient stakes committed
+-   The transaction fees of _Register_ and _Staking_ transaction have been paid
 
 You now have a baker node running on your VPS. When your node has caught up to the ledger, you should be able to confirm
 in your docker logs, that your node is signing and producing blocks. It is a good idea to keep a look at your node's

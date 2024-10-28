@@ -200,21 +200,21 @@ Copy and paste content below into the file:
 ```yaml
 version: "2.0"
 services:
-  pbc:
-    image: registry.gitlab.com/partisiablockchain/mainnet:latest
-    container_name: pbc-mainnet
-    user: "1500:1500"
-    restart: always
-    expose:
-      - "8080"
-    ports:
-      - "9888-9897:9888-9897"
-    command: ["/conf/config.json", "/storage/"]
-    volumes:
-      - /opt/pbc-mainnet/conf:/conf
-      - /opt/pbc-mainnet/storage:/storage
-    environment:
-      - JAVA_TOOL_OPTIONS="-Xmx8G"
+    pbc:
+        image: registry.gitlab.com/partisiablockchain/mainnet:latest
+        container_name: pbc-mainnet
+        user: "1500:1500"
+        restart: always
+        expose:
+            - "8080"
+        ports:
+            - "9888-9897:9888-9897"
+        command: ["/conf/config.json", "/storage/"]
+        volumes:
+            - /opt/pbc-mainnet/conf:/conf
+            - /opt/pbc-mainnet/storage:/storage
+        environment:
+            - JAVA_TOOL_OPTIONS="-Xmx8G"
 ```
 
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
@@ -230,10 +230,10 @@ The [node-register tool](node-health-and-maintenance.md#the-node-registersh-tool
 
 To generate the `config.json` for a reader node you need following information:
 
-- The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
-  e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999` (give the public key as hexadecimal or Base64). The location of other known
-  producers should be obtained by reaching out to the community. You can see how to reach the
-  community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
+-   The IP, port and network public key of at least one other producer on the format `networkPublicKey:ip:port`,
+    e.g. `02fe8d1eb1bcb3432b1db5833ff5f2226d9cb5e65cee430558c18ed3a3c86ce1af:172.2.3.4:9999` (give the public key as hexadecimal or Base64). The location of other known
+    producers should be obtained by reaching out to the community. You can see how to reach the
+    community [here](https://partisiablockchain.gitlab.io/documentation/node-operations/what-is-a-node-operator.html#onboarding).
 
 Start the tool:
 

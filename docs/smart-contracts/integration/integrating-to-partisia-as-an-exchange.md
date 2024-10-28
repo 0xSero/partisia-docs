@@ -82,17 +82,17 @@ following payload:
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Gov"
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Gov"
+        }
+    },
+    "method": "get_shard_for_account",
+    "parameters": {
+        "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
     }
-  },
-  "method": "get_shard_for_account",
-  "parameters": {
-    "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
-  }
 }
 ```
 
@@ -112,16 +112,16 @@ Here we will use the following query data.
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
+        }
+    },
+    "account_identifier": {
+        "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
     }
-  },
-  "account_identifier": {
-    "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
-  }
 }
 ```
 
@@ -151,50 +151,50 @@ The request will contain the below information
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
-    }
-  },
-  "operations": [
-    {
-      "operation_identifier": {
-        "index": 0
-      },
-      "type": "DEDUCT",
-      "account": {
-        "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
-      },
-      "amount": {
-        "value": "-4",
-        "currency": {
-          "symbol": "MPC",
-          "decimals": 4
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
         }
-      }
     },
-    {
-      "operation_identifier": {
-        "index": 1
-      },
-      "type": "ADD",
-      "account": {
-        "address": "0054556c213b1a1d4e081fc2aec67d5f88e05cbca4"
-      },
-      "amount": {
-        "value": "4",
-        "currency": {
-          "symbol": "MPC",
-          "decimals": 4
+    "operations": [
+        {
+            "operation_identifier": {
+                "index": 0
+            },
+            "type": "DEDUCT",
+            "account": {
+                "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
+            },
+            "amount": {
+                "value": "-4",
+                "currency": {
+                    "symbol": "MPC",
+                    "decimals": 4
+                }
+            }
+        },
+        {
+            "operation_identifier": {
+                "index": 1
+            },
+            "type": "ADD",
+            "account": {
+                "address": "0054556c213b1a1d4e081fc2aec67d5f88e05cbca4"
+            },
+            "amount": {
+                "value": "4",
+                "currency": {
+                    "symbol": "MPC",
+                    "decimals": 4
+                }
+            }
         }
-      }
+    ],
+    "metadata": {
+        "memo": "This is a memo"
     }
-  ],
-  "metadata": {
-    "memo": "This is a memo"
-  }
 }
 ```
 
@@ -249,27 +249,27 @@ something like:
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
-    }
-  },
-  "unsigned_transaction": " UNSIGNED TX BYTES ",
-  "signatures": [
-    {
-      "signing_payload": {
-        "hex_bytes": " HASH TO SIGN ",
-        "account_identifier": {
-          "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
-        },
-        "signature_type": "ecdsa_recovery"
-      },
-      "signature_type": "ecdsa_recovery",
-      "hex_bytes": " SIGNATURE BYTES "
-    }
-  ]
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
+        }
+    },
+    "unsigned_transaction": " UNSIGNED TX BYTES ",
+    "signatures": [
+        {
+            "signing_payload": {
+                "hex_bytes": " HASH TO SIGN ",
+                "account_identifier": {
+                    "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
+                },
+                "signature_type": "ecdsa_recovery"
+            },
+            "signature_type": "ecdsa_recovery",
+            "hex_bytes": " SIGNATURE BYTES "
+        }
+    ]
 }
 ```
 
@@ -286,14 +286,14 @@ The request data is simply the network identifier for the sender's account, and 
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
-    }
-  },
-  "signed_transaction": " SIGNED TX BYTES "
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
+        }
+    },
+    "signed_transaction": " SIGNED TX BYTES "
 }
 ```
 
@@ -362,20 +362,20 @@ hash) and an integer (the block height), as seen in the image above. A typical p
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
+        }
+    },
+    "block_identifier": {
+        "hash": "a73994ab42c410b7e7c628f5e9966dc279f7ed68de83b0877decbcd2f96a56d5",
+        "index": 1433208
+    },
+    "transaction_identifier": {
+        "hash": "008574f7e30acd8f7e68329eee09371bd014d11ffced489ffa4c13dd3fe45e5d"
     }
-  },
-  "block_identifier": {
-    "hash": "a73994ab42c410b7e7c628f5e9966dc279f7ed68de83b0877decbcd2f96a56d5",
-    "index": 1433208
-  },
-  "transaction_identifier": {
-    "hash": "008574f7e30acd8f7e68329eee09371bd014d11ffced489ffa4c13dd3fe45e5d"
-  }
 }
 ```
 
@@ -385,13 +385,13 @@ A response may look like the picture below:
 
 This would be the result if we look up the transaction 49cad6…. The above result has several interesting facets:
 
-- We see that it is a transaction related to another transaction, namely the one with the hash 33389… This in particular
-  tells us that this transaction was spawned as part of the other transaction. For example, this transaction could be
-  one
-  of the events (e.g., the "withdraw") spawned by the signed transaction we submitted when creating the token transfer
-  earlier.
-- We see that is a single related transaction to this transaction. Moreover, this related transaction is not located on
-  the shard we are currently looking at (Shard1) but on a different shard — Shard2.
+-   We see that it is a transaction related to another transaction, namely the one with the hash 33389… This in particular
+    tells us that this transaction was spawned as part of the other transaction. For example, this transaction could be
+    one
+    of the events (e.g., the "withdraw") spawned by the signed transaction we submitted when creating the token transfer
+    earlier.
+-   We see that is a single related transaction to this transaction. Moreover, this related transaction is not located on
+    the shard we are currently looking at (Shard1) but on a different shard — Shard2.
 
 ## Finding our transfer
 

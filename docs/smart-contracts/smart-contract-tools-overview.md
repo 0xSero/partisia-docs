@@ -11,17 +11,17 @@ application. Partisia blockchain browser is essentially a complete UI for Partis
 
 Partisia blockchain browser can be used to:
 
-- Display details for the entire ledger: blocks and transactions.
-- Display details for all accounts and smart contracts.
-- Interact with any smart contract.
-- Deploy your own new smart contracts.
-- Manage your own account, including your MPC tokens and becoming a Node Operator.
-- Create local references of contracts and accounts to help you keep track of already deployed contracts.
+-   Display details for the entire ledger: blocks and transactions.
+-   Display details for all accounts and smart contracts.
+-   Interact with any smart contract.
+-   Deploy your own new smart contracts.
+-   Manage your own account, including your MPC tokens and becoming a Node Operator.
+-   Create local references of contracts and accounts to help you keep track of already deployed contracts.
 
 Partisia Blockchain browser can be used with the Testnet and the Mainnet:
 
-- [Testnet](https://browser.testnet.partisiablockchain.com)
-- [Mainnet](https://browser.partisiablockchain.com)
+-   [Testnet](https://browser.testnet.partisiablockchain.com)
+-   [Mainnet](https://browser.partisiablockchain.com)
 
 ## Command-line tools
 
@@ -48,15 +48,15 @@ contracts or `.zkwa` for ZK rust contracts.
 To interact with the blockchain you can use the command line tool: `cargo pbc`.
 There are 3 main commands:
 
-- `transaction`
-- `account`
-- `contract`
+-   `transaction`
+-   `account`
+-   `contract`
 
 It can help you specifically with:
 
-- Sending transactions to smart contracts
-- Deploying your own smart contracts
-- Showing smart contracts state
+-   Sending transactions to smart contracts
+-   Deploying your own smart contracts
+-   Showing smart contracts state
 
 To start using the CLI you can try minting some test_coin with the following command:
 
@@ -331,21 +331,21 @@ Facilitates communication with a blockchain node. It helps you to interact with 
 programmatically. It can get data about blocks, transactions, smart contracts, accounts etc. It has the functionality to
 create and send transactions.
 
-- [Client library](https://gitlab.com/partisiablockchain/core/client)
+-   [Client library](https://gitlab.com/partisiablockchain/core/client)
 
 ### abi-client
 
 Our Smart Contract Binary Interface Client Library. It offers a standard binary interface for deploying contracts and
 creating transactions, making it ideal for several use cases:
 
-- Creating binary RPC, which calls an action with parameters on a smart contract.
-- Decode binary contract states to readable types.
-- Decode binary parts of transactions and events.
+-   Creating binary RPC, which calls an action with parameters on a smart contract.
+-   Decode binary contract states to readable types.
+-   Decode binary parts of transactions and events.
 
 ABI-Client is available in the following programming languages:
 
-- [Java](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main?ref_type=heads)
-- [TypeScript](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts)
+-   [Java](https://gitlab.com/partisiablockchain/language/abi/abi-client/-/tree/main?ref_type=heads)
+-   [TypeScript](https://gitlab.com/partisiablockchain/language/abi/abi-client-ts)
 
 When using the abi-client using codegen can help you as a developer to create a plug-and-play interactions with the
 blockchain. Abi-client can be used to read from contracts that is not necessarily
@@ -364,8 +364,8 @@ it works and start from there.
 
 zk-client is available in the following programming languages:
 
-- [Java](https://gitlab.com/partisiablockchain/language/abi/zk-client/)
-- [TypeScript](https://gitlab.com/partisiablockchain/language/abi/zk-client-ts)
+-   [Java](https://gitlab.com/partisiablockchain/language/abi/zk-client/)
+-   [TypeScript](https://gitlab.com/partisiablockchain/language/abi/zk-client-ts)
 
 ### Example client
 
@@ -374,5 +374,5 @@ uses the [client](#client) and the [abi-client](#abi-client) to send transaction
 
 Example client is available in the following programming languages:
 
-- [Java](https://gitlab.com/partisiablockchain/language/example-client)
-- [TypeScript](https://gitlab.com/partisiablockchain/language/example-web-client)
+-   [Java](https://gitlab.com/partisiablockchain/language/example-client)
+-   [TypeScript](https://gitlab.com/partisiablockchain/language/example-web-client)

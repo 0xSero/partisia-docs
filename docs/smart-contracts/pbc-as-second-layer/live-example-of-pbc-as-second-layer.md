@@ -46,8 +46,8 @@ Before counting votes you should note the id of the current vote. This is requir
    the ZK computation and new votes cannot be cast while it is running. The computation can take a minute or two to
    finish.
 
-   If the action fails it might be because another has started the voting before you. You can see if the result shows
-   up, otherwise you can retry the Start Vote Counting after a couple of minutes.
+    If the action fails it might be because another has started the voting before you. You can see if the result shows
+    up, otherwise you can retry the Start Vote Counting after a couple of minutes.
 
 2. Once the computation has ended, the result of the vote is added to the list of "vote_results". You may have to
    refresh the page to update the state.
@@ -129,9 +129,9 @@ _k_ in the "engines" list.
    the [example code zk-as-a-service](https://gitlab.com/partisiablockchain/language/contracts/zk-as-a-service/)
 2. In the command line, navigate to the `public-voting` directory
 3. Run the command
-   ```shell
-   npx run-func scripts/pbc.js testKey "<PUBLIC_KEY>"
-   ```
-   Substitute the <PUBLIC*KEY> part with the value of \_k*.
+    ```shell
+    npx run-func scripts/pbc.js testKey "<PUBLIC_KEY>"
+    ```
+    Substitute the <PUBLIC*KEY> part with the value of \_k*.
 4. Read the Ethereum address from the output and check that it matches one of the addresses in the
    Ethereum smart contract's state.
