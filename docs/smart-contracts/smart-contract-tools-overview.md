@@ -31,7 +31,8 @@ within `cargo pbc`, enabling you to explore their capabilities inside `cargo pbc
 a short description and use case for each of these sub-tools.
 
 !!! warning "Pre requisite to use any cargo PBC commands"
-If you want to use any of the command-line tools or below commands you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
+
+    If you want to use any of the command-line tools or below commands you need to install [the smart contract compiler](install-the-smart-contract-compiler.md).
 
 ### The Compiler `build`
 
