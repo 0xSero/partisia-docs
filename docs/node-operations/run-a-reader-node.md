@@ -8,7 +8,7 @@ The reader gives you access to information about accounts, contracts and specifi
 or a front-end you will often need to run your own reader node. When many parties query the same reader, it creates load on the server and can cause slowdowns. Run
 your own reader to avoid this.
 
-!!! Warning "You must complete this requirement before you can continue" 
+!!! Warning "You must complete this requirement before you can continue"
 
     1. Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
 
