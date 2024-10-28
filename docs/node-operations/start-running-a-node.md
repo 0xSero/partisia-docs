@@ -44,4 +44,5 @@ other services, including multiple oracles on the same node.
 
 !!! note "All nodes require a [VPS](../pbc-fundamentals/dictionary.md#vps) with these specs or better"
 
--   8 vCPU or 8 cores, 10 GB RAM (8 GB allocated Java Virtual Machine), 128 GB SSD, publicly accessible IPv4 with ports 9888-9897 open - Recommended software: Docker, Docker Compose V2, Ubuntu 20.04, nano or other text editors
+    -   8 vCPU or 8 cores, 10 GB RAM (8 GB allocated Java Virtual Machine), 128 GB SSD, publicly accessible IPv4 with ports 9888-9897 open
+    - Recommended software: Docker, Docker Compose V2, Ubuntu 20.04, nano or other text editors
