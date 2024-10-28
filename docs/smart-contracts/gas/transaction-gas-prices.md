@@ -10,7 +10,9 @@
    [](contract-to-contract-gas-estimation.md)
 </div>
 !!! info inline end "Basic fees"
+
     **Network fee:** 5 USD cents/kb.
+
     **CPU fee:** 5 USD cents per 1000 instructions.
 
 Here, we will explore the factors that determine the gas cost for deploying or interaction with a contract in the Partisia blockchain. By considering the network, CPU, and storage aspects, developers can effectively estimate and manage the gas costs associated with their smart contract transactions to understand the specifics of gas pricing.
