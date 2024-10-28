@@ -4,6 +4,7 @@
     "prettier-plugin-jinja-template": "^2.0.0"
   },
   "scripts": {
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write .",
+    "serve": "docker run --rm -p 8000:8000 -v ${PWD}:/docs registry.gitlab.com/partisia/dockerimages/mkdocs:latest mkdocs serve -a 0.0.0.0:8000"
   }
 }
