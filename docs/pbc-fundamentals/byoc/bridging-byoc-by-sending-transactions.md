@@ -27,12 +27,12 @@ BYOC acts as IOUs that can only be created when the equal sum of value is locked
 
 1. Invoke the contract action _deposit_ on the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract):
 
-```SOL
-deposit(bytes21 destination, uint amount)
-```
+    ```SOL
+    deposit(bytes21 destination, uint amount)
+    ```
 
-    * _destination_ is the receiving PBC address decoded to bytes
-    * _amount_ is ETH converted to Wei, minimum amount is 0.01 ETH
+    - _destination_ is the receiving PBC address decoded to bytes
+    - _amount_ is ETH converted to Wei, minimum amount is 0.01 ETH
 
 2. The contract locks n ETH
 3. The oracle nodes read the incoming transaction on the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract)
@@ -53,10 +53,10 @@ When you withdraw funds from PBC the BYOCs are first burned on PBC, then when th
 
 ```JAVA
  public ByocOutgoingContractState addPendingWithdrawal(
-      SysContractContext context,
-      ByocOutgoingContractState state,
-      EthereumAddressRpc receiver,
-      Unsigned256 amount)
+    SysContractContext context,
+    ByocOutgoingContractState state,
+    EthereumAddressRpc receiver,
+    Unsigned256 amount)
 ```
 
 2. The ETH Withdrawal contract burns n ETH twins minus the fee to pay the oracle nodes
@@ -64,18 +64,18 @@ When you withdraw funds from PBC the BYOCs are first burned on PBC, then when th
 4. You retrieve the [nonce](https://partisiablockchain.gitlab.io/-/documentation/-/jobs/5230191090/artifacts/public/pbc-fundamentals/dictionary.html#nonce), signatures and bitmask from the [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) waits until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
 5. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 
-```SOL
-withdraw(uint64 withdrawNonce,
-   address destination,
-   uint amount,
-   uint32 bitmask,
-   bytes calldata signatures)
-```
+    ```SOL
+    withdraw(uint64 withdrawNonce,
+       address destination,
+       uint amount,
+       uint32 bitmask,
+       bytes calldata signatures)
+    ```
 
-    * _withdrawNonce_ is found in the JSON state field named "key"
-    * you must subtract 0.1% (fee for oracle services) of the _uint amount_ compared with the amount in step 1
-    * _uint32 bitmask_ express which oracle nodes that have signed the withdrawal, e.g. 101 first and last node signed, input the three bits as the equivalent decimal number: (101)<sub>2</sub> = 5
-    * For each signature, 27 is added to the recovery id of the PBC-signature. This id needs to be moved to the end of the signature. e.g. a PBC-signature with a hex value of 01/.../ gives ETH-signature /.../1c
+    - _withdrawNonce_ is found in the JSON state field named "key"
+    - you must subtract 0.1% (fee for oracle services) of the _uint amount_ compared with the amount in step 1
+    - _uint32 bitmask_ express which oracle nodes that have signed the withdrawal, e.g. 101 first and last node signed, input the three bits as the equivalent decimal number: (101)<sub>2</sub> = 5
+    - For each signature, 27 is added to the recovery id of the PBC-signature. This id needs to be moved to the end of the signature. e.g. a PBC-signature with a hex value of 01/.../ gives ETH-signature /.../1c
 
 6. (n - fee) ETH are released from the [Small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract) and again available for use by the owner the ETH account
 
