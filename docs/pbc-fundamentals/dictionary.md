@@ -168,7 +168,8 @@ Staking requires that the node operator buys the required stake of MPC Tokens. S
 -   ZK Node 75,000 MPC Tokens
 -   Oracle Node 250,000 MPC Tokens
 -   Price Oracle Node 5,000 MPC Tokens
-    Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
+
+Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
 
 ### Transactions
 
