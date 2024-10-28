@@ -117,7 +117,6 @@ prettier:
       optional: true
     - job: npm-install
   script:
-    - npm ci prettier-plugin-jinja-template
     - npx prettier
       --print-width 100
       --end-of-line auto
