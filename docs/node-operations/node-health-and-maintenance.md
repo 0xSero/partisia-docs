@@ -465,8 +465,8 @@ docker stop  nameOfDockerContainer
 **If you change host IP, you need to correct your `config.json`**  
 In `config.json` correct the IPv4:
 
-```json
-"host": "PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE",
+```
+  "host": "PUBLIC_IP_OF_SERVER_HOSTING_THIS_NODE"
 ```
 
 **You must migrate certain files for your node to participate in voting on a new committee (Large Oracle)**  
