@@ -8,7 +8,9 @@ The reader gives you access to information about accounts, contracts and specifi
 or a front-end you will often need to run your own reader node. When many parties query the same reader, it creates load on the server and can cause slowdowns. Run
 your own reader to avoid this.
 
-!!! Warning "You must complete this requirement before you can continue" 1. Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
+!!! Warning "You must complete this requirement before you can continue" 
+
+    1. Get a [VPS](../pbc-fundamentals/dictionary.md#vps) that satisfies the [minimum specifications](start-running-a-node.md#which-node-should-you-run)
 
 ## Secure your [VPS](../pbc-fundamentals/dictionary.md#vps)
 
@@ -220,7 +222,8 @@ services:
 Save the file by pressing `CTRL+O` and then `ENTER` and then `CTRL+X`.
 
 !!! Warning "Make sure your .yml file match the example"
-It won't work if the indentation is off, because .yml is whitespace sensitive.
+
+    It won't work if the indentation is off, because .yml is whitespace sensitive.
 
 Keep an eye on the indentation it won't work if the indentation is off.
 
