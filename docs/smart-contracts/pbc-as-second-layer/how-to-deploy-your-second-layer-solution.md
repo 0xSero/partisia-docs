@@ -9,8 +9,9 @@
 </div>
 
 !!! note
-We recommend that you read the [walk-through of the example contracts](how-to-create-your-own-second-layer-solution.md)
-to understand the contracts being deployed in this guide.
+
+    We recommend that you read the [walk-through of the example contracts](how-to-create-your-own-second-layer-solution.md)
+    to understand the contracts being deployed in this guide.
 
 ## Deploying a PBC as second layer solution
 
