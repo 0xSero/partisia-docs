@@ -3,25 +3,6 @@
     "prettier": "^3.3.3",
     "prettier-plugin-jinja-template": "^2.0.0"
   },
-  "prettier": {
-    "printWidth": 100,
-    "endOfLine": "auto",
-    "bracketSameLine": true,
-    "trailingComma": "es5",
-    "plugins": [
-      "prettier-plugin-jinja-template"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "*.html"
-        ],
-        "options": {
-          "parser": "jinja-template"
-        }
-      }
-    ]
-  },
   "scripts": {
     "prettier": "npx prettier --write ."
   }
