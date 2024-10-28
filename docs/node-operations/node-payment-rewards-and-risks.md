@@ -138,11 +138,12 @@ You can consult the calculation method for rewards, and the history of quarterly
 
 Malicious node behavior can result in slashing of staked tokens (slashed tokens get burned). The purpose of slashing is to prevent malicious activity.
 
-!!! example "Examples of malicious activity" - A withdrawal oracle node signing a BYOC withdrawal that wasn't initiated on PBC
+!!! example "Examples of malicious activity"
 
--   A deposit oracle node signing a BYOC deposit that wasn't initiated on the external chain
--   A price oracle node signing a wrong price
--   An account starting an incorrect dispute
+    - A withdrawal oracle node signing a BYOC withdrawal that wasn't initiated on PBC
+    - A deposit oracle node signing a BYOC deposit that wasn't initiated on the external chain
+    - A price oracle node signing a wrong price
+    - An account starting an incorrect dispute
 
 It is possible to start a dispute against a node operator that has done a service for you. Dispute claims are
 audited by the [large oracle](../pbc-fundamentals/dictionary.md#large-oracle). If the node operator is found responsible
