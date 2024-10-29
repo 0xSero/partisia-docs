@@ -84,7 +84,7 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
 
 [MPC tokens](dictionary.md#mpc-token) are the native tokens of PBC. They are used by node operators and other token holders for staking on a service
 provided by a node. Tokens can be confiscated in case of malicious behavior and be used for dispute settlement. Staked
-tokens incentives honest and reliable node services. [Read more about MPC tokens](dictionary.md#mpc-token)
+tokens incentives honest and reliable node services. They can also be exchanged for WMPC (Wrapped MPC), the [BYOC](#byoc-the-system-of-liquidity) equivalent of MPC tokens. [Read more about MPC tokens](dictionary.md#mpc-token)
 
 ??? info "[MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)"
     Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC
@@ -97,6 +97,11 @@ tokens incentives honest and reliable node services. [Read more about MPC tokens
     Facilitates transfers of MPC tokens between accounts *or* contracts. Note that the "MPC token" contract does not allow transfers to and from contracts. This contract uses [the standard of MPC-20](../smart-contracts/integration/mpc-20-token-contract.md)
     
     [MPC MPC20 contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-mpc20-contract/com/partisiablockchain/governance/mpcmpc20/package-summary.html)
+
+??? info "[MPC wrap contract (link pending)]()"
+    Facilitates the exchange, or *wrapping*, of MPC tokens into their BYOC equivalent, WMPC, as well as *unwrapping*, the process of exchanging WMPC for MPC tokens.
+
+    [MPC wrap contract documentation (link pending)]()
 
 ## Public smart contracts and Zero Knowledge smart contract
 
