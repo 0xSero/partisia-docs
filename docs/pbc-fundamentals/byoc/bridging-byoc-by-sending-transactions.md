@@ -81,7 +81,7 @@ You can use the [MetaMask wallet](https://metamask.io/download/) to sign and sen
 
 On Partisia Blockchain the easiest solution is to use [Partisia MetaMask Snap](https://snaps.metamask.io/snap/npm/partisiablockchain/snap/) to sign your transaction.  Alternatively you can use the [Partisia Wallet](https://chrome.google.com/webstore/detail/partisia-wallet/gjkdbeaiifkpoencioahhcilildpjhgh).
 
-Besides the wallets, you will need the addresses of the [oracle](../dictionary.md#small-oracle) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet, test BYOC from the ETH Goerli testnet is available, but no other BYOC test coins from other chains.
+Besides the wallets, you will need the addresses of the [oracle](../dictionary.md#small-oracle) contracts you want to interact with. Below is a complete list of our BYOC contracts on PBC and connected chains. On the testnet, test BYOC from the ETH Sepolia testnet is available to bridge in.
 
 To use a standardized digital asset on PBC you need to align with the [MPC-20 standard format](../../smart-contracts/integration/mpc-20-token-contract.md).
 
