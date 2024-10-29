@@ -90,6 +90,11 @@ In practice, you should follow these steps:
 Once the withdrawal transaction has gone through on the external chain, the coins will be available for you in the
 MetaMask wallet.
 
+### Converting MPC token to BYOC
+
+The native token on PBC, MPC token, can be exchanged, or *wrapped*, using the system smart contract [mpc-wrap (link pending)](), into its BYOC equivalent, WMPC (Wrapped MPC). 
+WMPC can then be used similar to any other BYOC, e.g. as gas for paying transactions, or to bridge out to an external chain. Using the same contract, WMPC can be *unwrapped* back into MPC token.
+
 ### How to test BYOC?
 
 You need coins from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we
