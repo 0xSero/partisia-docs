@@ -14,7 +14,7 @@ The idea behind the bridge is to move cryptocurrencies to and from PBC.
 In the deposit and withdrawal examples below, we will show how to bridge ETH. The method works for all BYOCs on PBC. Currently, BYOCs include ETH, BNB, USDC, MATIC, USDT and WMPC.
 
 Below you will learn which contracts and invocations are used for deposits and withdrawals.
-PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC. In the case of a withdrawal, the user needs to provide information from the state of withdraw contract on PBC to the small oracle contract on the foreign chain.
+PBC nodes can read information on the native chains of the cryptocurrencies used for BYOC. In the case of a withdrawal, the user needs to provide information from the state of the withdrawal contract on PBC to the small oracle contract on the foreign chain.
 The transfer of cryptocurrencies to and from PBC is facilitated by deposit and withdrawal [oracles](../dictionary.md#small-oracle).    
 
 Every time the bridge is used, 0.1% of transferred value is subtracted as a fee to pay for the service provided by oracle nodes. If you bridge 1 ETH, then 0.999 ETH is transferred and 0.001 ETH is paid to the oracle nodes.
