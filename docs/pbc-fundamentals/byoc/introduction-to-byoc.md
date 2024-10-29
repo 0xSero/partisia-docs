@@ -95,5 +95,5 @@ MetaMask wallet.
 To test BYOC you need to.
 1. Get ETH Sepolia into your MetaMask account, you need to change the network to the Sepolia test network in MetaMask to see it.
 2. [Deposit](#how-to-deposit-using-the-bridge) ETH Sepolia from your MetaMask account to your testnet account, we recommend using the [PBC testnet Token Bridge](https://browser.partisiablockchain.com/bridge)
-3. After successfully depositing ETH Sepolia on your PBC account you now have access to gas on the testnet through the BYOC. 
+3. After successfully depositing ETH Sepolia on your PBC account you now have access to gas on the testnet through the coins value that was deposited. 
 
