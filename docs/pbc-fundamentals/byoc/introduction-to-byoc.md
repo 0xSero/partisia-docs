@@ -93,10 +93,11 @@ MetaMask wallet.
 
 ### How to test BYOC?
 
-You need coins from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we
-recommend you to find a faucet. This can be found using a simple web search.
+To test BYOC you need to:
 
-To see the GoerliETH in MetaMask you need to change the network to the Goerli Test Network.
-After having deposited GoerliETH to your MetaMask account you can use
-the [PBC testnet Token Bridge](https://browser.partisiablockchain.com/bridge)
-to [deposit](#how-to-deposit-using-the-bridge) GoerliETH and get gas on the testnet.
+1. Get ETH Sepolia into your MetaMask account. 
+    - You need to change the network to the Sepolia test network in MetaMask to see it.
+2. [Deposit](#how-to-deposit-using-the-bridge) ETH Sepolia from your MetaMask account to your testnet account. 
+    - We recommend using the [PBC testnet Token Bridge](https://browser.partisiablockchain.com/bridge)
+3. After successfully depositing ETH Sepolia on your PBC account you now have access to gas on the testnet through the coins value that was deposited. 
+
