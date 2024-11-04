@@ -1,6 +1,5 @@
 # Start running a node
 
-This page explains what a node is, how to join the node operator community and an
 overview of what type of node you can run with the amount of MPC tokens you have.
 
 ## What is a node?
@@ -43,5 +42,5 @@ other services, including multiple oracles on the same node.
 | 275K                                 | [Deposit or withdrawal oracle](run-a-deposit-or-withdrawal-oracle-node.md) | 25K stake: Baker node service<br />250K stake: Moving BYOC on and off chain |
 
 !!! note "All nodes require a [VPS](../pbc-fundamentals/dictionary.md#vps) with these specs or better"   
-    - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated Java Virtual Machine), 128 GB SSD, publicly accessible IPv4 with ports 9888-9897 open 
+    - 8 vCPU or 8 cores, 10 GB RAM (8 GB allocated Java Virtual Machine), 256 GB SSD, publicly accessible IPv4 with ports 9888-9897 open 
     - Recommended software: Docker, Docker Compose V2, Ubuntu 20.04, nano or other text editors
