@@ -42,7 +42,7 @@ above as an example of MPC being used.
 
 ### Data collaboration
 
-- [Voting](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/voting)
+- [Voting](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/rust/voting)
   Voting on a public blockchain comes with the inbuilt advantage of getting an accurate result on an unalterable public
   ledger. However, it used to entail the disadvantage that you could not preserve the privacy of the voters while
   proving the accuracy of the vote count. Voting on PBC allows you to use MPC to preserve privacy. That enables you to
@@ -51,10 +51,10 @@ above as an example of MPC being used.
 
 - [Millionaires problem](https://en.wikipedia.org/wiki/Yao%27s_Millionaires%27_problem)  
   The millionaires problem is a famous MPC problem. Whom of two parties is the richest? So, euphemism for the comparing
-  the size of to numbers without revealing the numbers. You can see how some of these issues are handled by visiting
-  our [average salary example](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/zk-average-salary).
+  the size of two numbers without revealing the numbers. You can see how some of these issues are handled by visiting
+  our [average salary example](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/rust/zk-average-salary).
 
-- [Surveys](https://partisia.com/better-data-solutions/surveys/)  
+- Surveys
   Individual answers are encrypted at the moment of submission and stay encrypted at all times. Only aggregated
   statistics are decrypted and revealed.
 
