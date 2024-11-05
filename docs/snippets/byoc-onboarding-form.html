@@ -99,10 +99,14 @@
     </label>
   </p>
   <p class="price-oracle-info">
-    <label for="byoc-onboarding-data-feed-chain">
+    <label>
       <span>(6) Chainlink data feed chain:</span>
+      <select id="byoc-onboarding-data-feed-chain">
+        <option value="Ethereum">Ethereum</option>
+        <option value="Polygon">Polygon</option>
+        <option value="BnbSmartChain">BNB Smart Chain</option>
+      </select>
     </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-data-feed-chain">
   </p>
   <p class="price-oracle-info">
     <label for="byoc-onboarding-data-feed-contract">
@@ -301,7 +305,7 @@
       const proxyAddress = readInputValue("byoc-onboarding-proxy-address");
       const tokenName = readInputValue("byoc-onboarding-token-name");
       const priceInformationSupplied = isStableCoin()
-          || (!isNullOrUndefined(referenceChain) && isAddress(referenceContract) && isInteger(referenceDecimals));
+          || (isAddress(referenceContract) && isInteger(referenceDecimals));
       if (isAddress(proxyAddress) && priceInformationSupplied && tokenName !== "") {
         const symbol = (isNativeToken() ? tokenName : chain + "_" + tokenName).toUpperCase();
 
