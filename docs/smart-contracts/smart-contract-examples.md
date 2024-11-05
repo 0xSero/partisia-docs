@@ -54,6 +54,11 @@ above as an example of MPC being used.
   the size of two numbers without revealing the numbers. You can see how some of these issues are handled by visiting
   our [average salary example](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/rust/zk-average-salary).
 
+- Machine learning  
+  You can do decision tree classification, pattern recognition and regression analysis on secret-shared data. There are a myriad of use cases for this
+  on big data sets, where you still want to keep the data private. An example that uses [decision tree classification](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/rust/zk-classification)
+  to predict an individual's income could be used by a bank in their loan approval process.
+
 - Surveys
   Individual answers are encrypted at the moment of submission and stay encrypted at all times. Only aggregated
   statistics are decrypted and revealed.
@@ -61,8 +66,3 @@ above as an example of MPC being used.
 - Confidential statistics  
   MPC allows for combination and statistical analysis of sensitive data in separate registries. The data can be pulled
   into a virtual MPC sandbox where you do the analysis on secret-shared inputs.
-
-- Machine learning  
-  You can do pattern recognition and regression analysis on secret-shared data. There are a myriad of use cases for this
-  on big data sets, where you still want to keep the data private. For example detection of fraud or dangerous market
-  anomalies.
