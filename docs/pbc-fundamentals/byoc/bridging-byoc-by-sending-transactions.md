@@ -2,7 +2,7 @@
 
 
 
-This guide explains how to use transactions to bridge liquid cryptocurrencies recognized by PBC (generally referred to as BYOC (Bring Your Own Coin)) from and to external chains. 
+This guide explains how to use transactions to bridge liquid cryptocurrencies recognized by PBC, generally referred to as Bring Your Own Coin (BYOC), from and to external chains. 
 
 For a guide to the bridging of BYOC with the bridge's UI see [here](introduction-to-byoc.md)
 
