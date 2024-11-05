@@ -42,7 +42,7 @@ above as an example of MPC being used.
 
 ### Data collaboration
 
-- [Voting](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/rust/voting)
+- [Voting](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/rust/voting)  
   Voting on a public blockchain comes with the inbuilt advantage of getting an accurate result on an unalterable public
   ledger. However, it used to entail the disadvantage that you could not preserve the privacy of the voters while
   proving the accuracy of the vote count. Voting on PBC allows you to use MPC to preserve privacy. That enables you to
@@ -59,7 +59,7 @@ above as an example of MPC being used.
   on big data sets, where you still want to keep the data private. An example that uses [decision tree classification](https://gitlab.com/partisiablockchain/language/example-contracts/-/tree/main/rust/zk-classification)
   to predict an individual's income could be used by a bank in their loan approval process.
 
-- Surveys
+- Surveys  
   Individual answers are encrypted at the moment of submission and stay encrypted at all times. Only aggregated
   statistics are decrypted and revealed.
 
