@@ -295,12 +295,13 @@
           + encodedInit
           + "00000000000000000000000000000000000000000000000000000000";
 
-      const referenceContract = readInputValue("byoc-onboarding-reference-contract");
-      const referenceDecimals = readInputValue("byoc-onboarding-reference-decimals");
+      const referenceChain = readInputValue("byoc-onboarding-data-feed-chain");
+      const referenceContract = readInputValue("byoc-onboarding-data-feed-contract");
+      const referenceDecimals = readInputValue("byoc-onboarding-data-feed-decimals");
       const proxyAddress = readInputValue("byoc-onboarding-proxy-address");
       const tokenName = readInputValue("byoc-onboarding-token-name");
       const priceInformationSupplied = isStableCoin()
-          || (isAddress(referenceContract) && isInteger(referenceDecimals));
+          || (!isNullOrUndefined(referenceChain) && isAddress(referenceContract) && isInteger(referenceDecimals));
       if (isAddress(proxyAddress) && priceInformationSupplied && tokenName !== "") {
         const symbol = (isNativeToken() ? tokenName : chain + "_" + tokenName).toUpperCase();
 
@@ -315,7 +316,7 @@
         const priceOracleConfig = isStableCoin()
             ? "00"
             : "01" + stringAsHex(pad(referenceContract, 40)) + pad(decimals.toString(16), 8) + pad(
-            referenceDecimals.toString(16), 8);
+            referenceDecimals.toString(16), 8) + stringAsHex(referenceChain);
 
         const addByocRpc = "00"
             + stringAsHex(symbol)
