@@ -69,13 +69,13 @@ Read more about smart contracts [here](../../smart-contracts/what-is-a-smart-con
 
 To withdraw a coin from PBC to your external account, you can use
 the [PBC Token Bridge](https://browser.partisiablockchain.com/bridge).
-The withdrawal process has two steps: 
+The withdrawal process has two steps:
 1. First, you have to make a pending withdrawal on the PBC chain.
-When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
-withdrawal contract. 
+   When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
+   withdrawal contract.
 2. Second, after the signed withdrawal the coins can be transferred to your external account by withdrawing on
-the withdrawal contract. Both steps are performed in
-the [Browser](https://browser.partisiablockchain.com/bridge).
+   the withdrawal contract. Both steps are performed in
+   the [Browser](https://browser.partisiablockchain.com/bridge).
 
 In practice, you should follow these steps:
 
@@ -97,10 +97,11 @@ WMPC can then be used similar to other BYOC, e.g. as gas, or to bridge out to an
 
 ### How to test BYOC?
 
-You need coins from [GoerliETH](https://goerli.etherscan.io/address/0x4818370f9d55fb34de93e200076533696c4531f3), we
-recommend you to find a faucet. This can be found using a simple web search.
+To test BYOC you need to:
 
-To see the GoerliETH in MetaMask you need to change the network to the Goerli Test Network.
-After having deposited GoerliETH to your MetaMask account you can use
-the [PBC testnet Token Bridge](https://browser.partisiablockchain.com/bridge)
-to [deposit](#how-to-deposit-using-the-bridge) GoerliETH and get gas on the testnet.
+1. Get ETH Sepolia into your MetaMask account. 
+    - You need to change the network to the Sepolia test network in MetaMask to see it.
+2. [Deposit](#how-to-deposit-using-the-bridge) ETH Sepolia from your MetaMask account to your testnet account. 
+    - We recommend using the [PBC testnet Token Bridge](https://browser.partisiablockchain.com/bridge)
+3. After successfully depositing ETH Sepolia on your PBC account you now have access to gas on the testnet through the coins value that was deposited. 
+
