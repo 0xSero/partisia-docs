@@ -1,9 +1,6 @@
 include:
-- project: "secata/pom/gitlab-ci"
+- project: "secata-public/pom/shared-ci"
   file: "root.yml"
-  ref: "v.2.84.0"
-- project: "secata/pom/gitlab-ci"
-  file: "generic-checks.yml"
   ref: "v.2.84.0"
 
 image:
