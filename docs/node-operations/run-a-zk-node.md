@@ -238,7 +238,7 @@ If you have additional tokens you can read how to run a deposit or withdrawal or
 
 ## Deregister as a ZK node
 
-To deregister as a ZK node you need to disassociate your tokens from the ZK node registry contract.
+To deregister as a ZK node you need to [disassociate your tokens from the ZK node registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens).
 After being disassociated the tokens will no longer be available when selecting nodes for new ZK work.
 
 However, you might not be able to immediately disassociate tokens if the tokens are currently allocated to ZK work or pending being unlocked. 
