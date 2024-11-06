@@ -242,10 +242,8 @@ To deregister as a ZK node you need to [disassociate your tokens from the ZK nod
 After being disassociated the tokens will no longer be available when selecting nodes for new ZK work.
 
 However, you might not be able to immediately disassociate tokens if the tokens are currently allocated to ZK work or pending being unlocked. 
-If the node currently has tokens allocated to ZK work
-(see [How to find out what ZK work your node is selected for](#how-to-find-out-what-zk-work-your-node-is-selected-for)),
-you must wait for the node allocation end data of the contract before being able to disassociate the tokens locked to that
-ZK contract.
+If your node currently has tokens allocated to ZK work (see [How to find out what ZK work your node is selected for](#how-to-find-out-what-zk-work-your-node-is-selected-for)),
+you must wait for the "node allocation end data" of that contract before being able to disassociate the tokens.
 
 After tokens have been deallocated from a ZK contract they will be pending unlock for 14 days before being
 unlocked. To ensure tokens will be available for disassociation after being unlocked you can reserve
