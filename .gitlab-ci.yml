@@ -2,6 +2,9 @@ include:
   - project: "secata-public/pom/shared-ci"
     file: "root.yml"
     ref: "v.2.84.0"
+  - project: "secata-public/pom/shared-ci"
+    file: "generic-checks.yml"
+    ref: "v.2.84.0"
 
 image:
   name: registry.gitlab.com/partisia/dockerimages/mkdocs:latest
