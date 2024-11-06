@@ -37,7 +37,7 @@ regular transactions in public contracts.
 ### WASM execution fees
 
 !!! info "WASM execution gas price"
-    WASM_EXECUTION_FEE = NO_OF_INSTRUCTIONS * 5,000 / 1,000
+    WASM_EXECUTION_FEE = NO_OF_INSTRUCTIONS / 1,000
 
 For regular actions, gas is paid by the calling user, in the same way as for public contracts.
 
@@ -70,7 +70,7 @@ the gas costs incurred by the nodes by processing this transaction. In addition,
 ### ZK computation fees
 
 !!! info "ZK computation gas fees"
-    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
+    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + NO_OF_MULTIPLICATIONS / 1000
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when a ZK computation is executed as well as
 for the multiplications in the computation.
@@ -82,15 +82,12 @@ entails each node sending 1 additional transaction to the binder. The cost of ea
 transactions is covered using BASE_SERVICE_FEES, which is set to 25,000.
 
 Besides this, the multiplications done during the computation must also be paid for.
-According to the yellow paper the price for this is 5 USD cent per 1000 multiplications.
-Since this is multiplied by 1000 to convert to gas, the price for the multiplications is:
-
-NO_OF_MULTIPLICATIONS / 1000 * 5 * 1000 = NO_OF_MULTIPLICATIONS * 5
+As one multiplication is one instruction the cost is 1 gas per 1000 multiplications.
 
 ### ZK preprocessing fees
 
 !!! info "ZK preprocessing gas fees"
-    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
+    ZK_PREPROCESSING_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_PREPROCESSING_MATERIAL
 
 A ZK contract needs to pay for the preprocessing triples which the preprocessing nodes generate at various points during
 ZK computation.
@@ -123,7 +120,7 @@ Fees need to be paid for transactions that ZK nodes must send when secret variab
 
 The open secret variables fee is calculated taking into account the size of the variable to open. The fee calculation
 follows
-the same rules than the [secret input fee](./zk-computation-gas-fees.md#secret-input-fees).
+the same rules as [secret input fee](./zk-computation-gas-fees.md#secret-input-fees).
 
 ### Attestation fees
 
