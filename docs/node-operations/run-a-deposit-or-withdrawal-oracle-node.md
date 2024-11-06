@@ -20,7 +20,7 @@ stop providing the service.
     3. Ensure you have working BYOC endpoints in your `config.json` - [see how to confirm this](node-health-and-maintenance.md#confirm-that-your-byoc-endpoints-are-working) 
     4. Ensure your baker node is [running](node-health-and-maintenance.md#is-your-baker-node-working)
 
-## Register as a deposit or withdrawal oracle node
+## Register as a deposit or a withdrawal oracle node
 
 To join a deposit or withdrawal oracle first you have to register your interest in joining one. This can be done
 in [Browser](https://browser.partisiablockchain.com/blocks)
@@ -58,7 +58,7 @@ the [large oracle contract](https://browser.partisiablockchain.com/contracts/04f
 and
 it can be reselected to the same oracle if you have enough tokens associated.
 
-## Deregister as a deposit or withdrawal oracle node
+## Deregister as a deposit or a withdrawal oracle node
 
 To deregister as a deposit or withdrawal oracle node you need to disassociate your tokens from the Large Oracle contract.
 After disassociating tokens from the Large Oracle contract the tokens will no longer be available
