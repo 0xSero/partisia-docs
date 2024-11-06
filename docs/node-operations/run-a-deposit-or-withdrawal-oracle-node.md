@@ -60,8 +60,8 @@ it can be reselected to the same oracle if you have enough tokens associated.
 
 ## Deregister as a deposit or a withdrawal oracle node
 
-To deregister as a deposit or withdrawal oracle node you need to disassociate your tokens from the Large Oracle contract.
-After disassociating tokens from the Large Oracle contract the tokens will no longer be available
+To deregister as a deposit or withdrawal oracle node you need to [disassociate your tokens from the large oracle contract](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokensFromContract).
+After disassociating tokens from the large oracle contract the tokens will no longer be available
 when selecting nodes for a new oracle. 
 
 However, you might not be able to immediately disassociate tokens if the tokens are currently allocated to an oracle or pending being unlocked. If
