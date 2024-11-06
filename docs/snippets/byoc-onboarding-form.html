@@ -322,7 +322,7 @@
             : "01" + stringAsHex(pad(referenceContract, 40)) + pad(decimals.toString(16), 8) + pad(
             referenceDecimals.toString(16), 8) + stringAsHex(referenceChain);
 
-        const addByocRpc = "00"
+        const addByocRpc = "02"
             + stringAsHex(symbol)
             + stringAsHex(chain)
             + pad(numerator.toString(16), 16)
