@@ -66,7 +66,7 @@ node selection in future oracle assignments. This effectively ensures that your 
 for participation in the oracle.
 
 However, you might not be able to immediately disassociate tokens if the tokens are currently allocated to an oracle or pending being unlocked. If
-the node is currently a part of an oracle
+the node is currently part of an oracle
 (see [How to find out which small oracle your node serves](#how-to-find-out-which-small-oracle-your-node-serves)),
 you must wait for the oracle to rotate before being able to disassociate the tokens locked to that
 oracle.
