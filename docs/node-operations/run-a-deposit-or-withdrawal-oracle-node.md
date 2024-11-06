@@ -88,16 +88,16 @@ an amount of tokens for disassociation.
 ### How to reserve tokens for disassociation
 1. Sign in to the browser
 2. Call [
-   'Set reserved tokens'](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/setReservedTokens) on the Large Oracle contract to update the amount of reserved tokens
+   'Set reserved tokens'](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/setReservedTokens) on the large oracle contract to update the amount of reserved tokens
 
 ### How to disassociate tokens
 1. Sign in to the browser
-2. Call ['Disassociate tokens'](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokens) on the Large Oracle contract to disassociate the amount of tokens
+2. Call ['Disassociate tokens'](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014/disassociateTokens) on the large oracle contract to disassociate the amount of tokens
 
 ## How to find out which small oracles your node serves
 
 1. Open
-   the [Large Oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
+   the [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state)
 2. Open the map `stakedTokens`
 3. Search for your blockchain address `CTRL+f`
 4. Open the struct next to your blockchain address

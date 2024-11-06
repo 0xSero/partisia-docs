@@ -72,7 +72,7 @@ Our new docker services will utilize ports that are currently closed by your fir
 ??? note "Using a non-standard HTTPS port"
 
     In this guide we have assumed that you use the standard port 443 as host port for HTTPS traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    If you use a non-standard port for HTTPS (8443), then the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
+    If you use a non-standard port for HTTPS (8443), then the endpoint you register with the [ZK node registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
 
 
 We allow HTTPS traffic through the firewall on port 443:
@@ -213,7 +213,7 @@ Complete the following steps:
 1. [Register](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/registerAsZkNode)
    as a ZK node (You need to have your HTTPS REST endpoint ready)   
 2. [Associate](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/associateTokens)
-   75 K MPC tokens to the ZK Node Registry contract   
+   75 K MPC tokens to the ZK node registry contract   
 3. Restart your node
 
 ### Confirm that proxy server, certificate renewal and blockchain image are running
@@ -238,7 +238,7 @@ If you have additional tokens you can read how to run a deposit or withdrawal or
 
 ## Deregister as a ZK node
 
-To deregister as a ZK node you need to disassociate your tokens from the ZK Node Registry contract.
+To deregister as a ZK node you need to disassociate your tokens from the ZK node registry contract.
 After being disassociated the tokens will no longer be available when selecting nodes for new ZK work.
 
 However, you might not be able to immediately disassociate tokens if the tokens are currently allocated to ZK work or pending being unlocked. 
@@ -260,17 +260,17 @@ an amount of tokens for disassociation.
 ### How to reserve tokens for disassociation
 1. Sign in to the browser
 2. Call [
-   'Set reserved tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/setReservedTokens) on the ZK Node Registry contract to update the amount of reserved tokens
+   'Set reserved tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/setReservedTokens) on the ZK node registry contract to update the amount of reserved tokens
 
 ### How to disassociate tokens
 1. Sign in to the browser
-2. Call ['Disassociate tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens) on the ZK Node Registry contract to disassociate the amount of tokens
+2. Call ['Disassociate tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens) on the ZK node registry contract to disassociate the amount of tokens
 
 ## How to find out what ZK work your node is selected for
 To find out the ZK contracts the node is allocated to and when the allocation ends follow these steps:
 
 1. Open
-   the [ZK Node Registry contract state](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state)
+   the [ZK node registry contract state](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state)
 2. Open the map `stakedTokens`
 3. Search for your blockchain address `CTRL+f`
 4. Open the object next to your blockchain address
@@ -289,10 +289,10 @@ A ZK Node Score consists of three sub scores
 - **Failure**: The number of contracts where some required actions have not been performed.
 
 It will always be the case that `Allocated = Success + Failure`.
-You can see your node's score in the [ZK Node Registry](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state).
+You can see your node's score in the [ZK node registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state).
 
 ### Calculating the score
-Whenever a ZK contract is finished computing, the participating nodes' scores are updated in the ZK Node Registry. 
+Whenever a ZK contract is finished computing, the participating nodes' scores are updated in the ZK node registry contract. 
 Which score that is updated depends on the way the ZK contract finishes its computation.
 
 - The contracts' calculation status gets moved to Done. All participating nodes gets Success.
