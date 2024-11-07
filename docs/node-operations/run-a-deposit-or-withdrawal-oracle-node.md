@@ -82,8 +82,9 @@ an amount of tokens for disassociation.
 
 !!! info
 
-    Reserving tokens for disassociation prevents a node from being selected for new BYOC oracles if the allocation results
-    in the amount of free tokens becoming less than the amount reserved for disassociation.
+    Reserving tokens for disassociation can prevent a node from being selected for new deposit and withdrawal oracles.
+    If allocating tokens to a deposit orwithdaral oracle would cause the number of free tokens to fall below the 
+    amount reserved for disassociation, the node will not be selected for a deposit or withdaral oracle.
     When tokens are disassociated the reserved amount is automatically reduced by this amount.
 
 ### How to reserve tokens for disassociation

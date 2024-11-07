@@ -251,8 +251,9 @@ an amount of tokens for disassociation.
 
 !!! info
 
-    Reserving tokens for disassociation prevents a node from being allocated to new ZK work if the allocation results
-    in the amount of free tokens becoming less than the amount reserved for disassociation.
+    Reserving tokens for disassociation can prevent a node from being allocated to new ZK work.
+    If allocating tokens to ZK work would cause the number of free tokens to fall below the 
+    amount reserved for disassociation, the node will not be selected for ZK work.
     When tokens are disassociated the reserved amount is automatically reduced by this amount.
 
 ### How to reserve tokens for disassociation
