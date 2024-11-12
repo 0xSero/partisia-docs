@@ -154,9 +154,9 @@ new oracle nodes will be selected.
 #### Request new oracle
 
 1. Sign in to the browser.
-2. Navigate to the deposit or withdrawal contract you want to request a new oracle for. See a list
-   of deposit- and withdraw contracts
-   [here](pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.html#bridgeable-coins-on-mainnet).
+2. Navigate to the deposit or withdrawal contract you want to request a new oracle for. See the full
+   list of deposit- and withdrawal contracts
+   [here](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet).
 3. Press `INTERACT` to open the list of actions and press `Request new oracle`.
 4. Confirm by pressing `REQUEST NEW ORACLE`.
 
@@ -164,7 +164,7 @@ new oracle nodes will be selected.
 
     You can only invoke this action if you are part of the oracle and
     14 days have passed since the oracle was last changed. Confirm this in the contract state by checking the unix
-    timestamp in the field named `"oracleTimestamp"`
+    timestamp in the field named `"oracleTimestamp"`.
 
 ### How long does it take for pending tokens to become unlocked
 
