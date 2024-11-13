@@ -98,10 +98,10 @@ tokens incentives honest and reliable node services. They can also be exchanged 
     
     [MPC MPC20 contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-mpc20-contract/com/partisiablockchain/governance/mpcmpc20/package-summary.html)
 
-??? info "[MPC wrap contract (link pending)]()"
+??? info "[MPC wrap contract](https://browser.partisiablockchain.com/contracts/017d9dacdd01f0b2bd4de40da37f545e89b7faa149)"
     Facilitates the exchange, or *wrapping*, of MPC tokens into their BYOC equivalent, WMPC, as well as *unwrapping*, the process of exchanging WMPC for MPC tokens.
 
-    [MPC wrap contract documentation (link pending)]()
+    [MPC wrap contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-wrap/com/partisiablockchain/governance/mpcwrap/MpcWrapContract.html)
 
 ## Public smart contracts and Zero Knowledge smart contract
 
