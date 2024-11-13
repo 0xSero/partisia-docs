@@ -95,7 +95,7 @@ flowchart TD
     wait-for-tokens-unlock --> disassociate-tokens
 
     click are-tokens-locked "#how-to-check-if-your-tokens-are-locked-to-oracles" _self
-    click are-tokens-pending-unlock "how-to-check-if-your-tokens-are-pending-unlock" _self
+    click are-tokens-pending-unlock "#how-to-check-if-your-tokens-are-pending-unlock" _self
     click reserve-tokens-locked "#how-to-reserve-tokens-for-disassociation" _self
     click reserve-tokens-pending-unlock "#how-to-reserve-tokens-for-disassociation" _self
     click wait-for-oracle-rotation "#how-long-does-it-take-for-the-oracle-to-rotate" _self
@@ -108,24 +108,23 @@ flowchart TD
 1. Open the
    [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state).
 2. Open the map `stakedTokens`.
-3. Search for your blockchain address `CTRL+f`.
+3. Search for your blockchain address using `CTRL+f`.
 4. Open the struct next to your blockchain address.
 5. Open the map `lockedToOracle`.
 6. You can see the addresses of the oracles your node serves and the amount of MPC tokens allocated
    to them (you can distinguish the price oracles from deposit and withdrawal oracles by looking at
-   the amount of MPC tokes they have "locked"; price oracles have 5,000, deposit and withdrawal
-   oracles 250,000).
+   the amount of MPC tokes they have "locked": price oracles have 5,000; deposit and withdrawal
+   oracles, 250,000).
 
 ### How to check if your tokens are pending unlock
 
 1. Open the
    [large oracle contract state](https://browser.partisiablockchain.com/contracts/04f1ab744630e57fb9cfcd42e6ccbf386977680014?tab=state).
 2. Open the map `stakedTokens`.
-3. Search for your blockchain address `CTRL+f`.
+3. Search for your blockchain address using `CTRL+f`.
 4. Open the struct next to your blockchain address.
 5. Open the map `pendingTokens`.
-6. You can see the addresses of the oracles your node has tokens pending being unlocked for and the
-   timestamp indicating when the tokens were released from an oracle.
+6. You can view the oracle addresses for which your node has tokens pending unlock, along with the timestamp showing when tokens were released from each oracle.
 
 ### How to reserve tokens for disassociation
 
@@ -134,7 +133,6 @@ flowchart TD
     Reserving tokens for disassociation can prevent a node from being selected for new deposit and withdrawal oracles.
     If allocating tokens to a deposit or withdrawal oracle would cause the number of free tokens to fall below the
     amount reserved for disassociation, the node will not be selected for a deposit or withdaral oracle.
-    When tokens are disassociated the reserved amount is automatically reduced by this amount.
 
 1. Sign in to the browser.
 2. Navigate to
@@ -143,12 +141,12 @@ flowchart TD
 3. Specify the new amount of tokens you want to reserve.
 4. Confirm by pressing `SET RESERVED TOKENS`.
 
-### How long does it take for the oracle to rotate
+### How long does it take for the oracle to rotate?
 
 The oracle rotates when it reaches either the deposit limit of 25 ETH or the withdrawal limit of 50
-ETH. If you cannot wait for the oracle to rotate, or if your node has to be shut down for
-maintenance, you can [request a new oracle](#request-new-oracle) if the current oracle is at least
-14 days old. This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the oracle and
+ETH. If you cannot wait for the oracle to rotate or need to shut down your node for maintenance, 
+you can [request a new oracle](#request-new-oracle). However, this is only allowed if the current oracle is at least 14 days old.
+This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the oracle and
 new oracle nodes will be selected.
 
 #### Request new oracle
@@ -166,9 +164,9 @@ new oracle nodes will be selected.
     14 days have passed since the oracle was last changed. Confirm this in the contract state by checking the unix
     timestamp in the field named `"oracleTimestamp"`.
 
-### How long does it take for pending tokens to become unlocked
+### How long does it take for pending tokens to become unlocked?
 
-After being released from an oracle allocated tokens will be pending for 14 days before being
+After being released from an oracle, allocated tokens will be pending for 14 days before being
 unlocked.
 
 ### How to disassociate tokens
