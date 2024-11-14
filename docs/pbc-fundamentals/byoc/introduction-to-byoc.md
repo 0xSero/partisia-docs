@@ -41,10 +41,8 @@ To be able to bridge your coins you will need:
 ### How to deposit using the Bridge
 
 To make a deposit, you can use the [PBC Token Bridge](https://browser.partisiablockchain.com/bridge).
-Depending on whether the coin you want to transfer is a native coin (e.g. ETH or BNB) or a token based coin (e.g. USDC)
-the steps to transfer
-differ. This is because tokens needs to be approved, such that the external BYOC contract is able to transfer the tokens
-for you.
+Depending on whether the coin you want to transfer is a native coin (e.g. ETH or BNB) or a token based coin (e.g. WMPC or USDC) the steps to transfer differ. 
+This is because tokens needs to be approved, such that the external BYOC contract is able to transfer the tokens for you.
 
 In practice, you can follow these steps:
 
