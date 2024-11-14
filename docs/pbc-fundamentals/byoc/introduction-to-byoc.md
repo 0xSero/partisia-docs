@@ -30,18 +30,19 @@ Bridging has a small fee, since transferring coins between chains requires the n
 The cost of bringing your own coin is 0,1% of the value transferred with a threshold of 25 USD as minimum transfer
 (equal to a minimum BYOC fee of 2,5 USD cents).
 
+### Converting MPC token to BYOC
+
+The native token on PBC, MPC token, can be used as BYOC. To do this, it must first be *wrapped*, using the system smart contract [mpc-wrap](https://browser.partisiablockchain.com/contracts/017d9dacdd01f0b2bd4de40da37f545e89b7faa149), into its BYOC equivalent, WMPC (Wrapped MPC).
+WMPC can then be used similar to other BYOC, e.g. as gas, or to bridge out to an external chain. Using the same contract, WMPC can be *unwrapped* back into MPC token.
+
 ### Requirements
 
 To be able to bridge your coins you will need:
 
 * An account on PBC.
 * An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
-  extension for interacting with other chains.
+extension for interacting with other chains.
 
-### Converting MPC token to BYOC
-
-The native token on PBC, MPC token, can be used as BYOC. To do this, it must first be *wrapped*, using the system smart contract [mpc-wrap](https://browser.partisiablockchain.com/contracts/017d9dacdd01f0b2bd4de40da37f545e89b7faa149), into its BYOC equivalent, WMPC (Wrapped MPC).
-WMPC can then be used similar to other BYOC, e.g. as gas, or to bridge out to an external chain. Using the same contract, WMPC can be *unwrapped* back into MPC token.
 
 ### How to deposit using the Bridge
 
