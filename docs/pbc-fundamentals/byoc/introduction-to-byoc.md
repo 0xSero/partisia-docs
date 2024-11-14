@@ -90,7 +90,7 @@ MetaMask wallet.
 
 ### Converting MPC token to BYOC
 
-The native token on PBC, MPC token, can be used as BYOC. To do this, it must first be *wrapped*, using the system smart contract [mpc-wrap (link pending)](), into its BYOC equivalent, WMPC (Wrapped MPC). 
+The native token on PBC, MPC token, can be used as BYOC. To do this, it must first be *wrapped*, using the system smart contract [mpc-wrap](https://browser.partisiablockchain.com/contracts/017d9dacdd01f0b2bd4de40da37f545e89b7faa149), into its BYOC equivalent, WMPC (Wrapped MPC). 
 WMPC can then be used similar to other BYOC, e.g. as gas, or to bridge out to an external chain. Using the same contract, WMPC can be *unwrapped* back into MPC token.
 ### How to test BYOC?
 
