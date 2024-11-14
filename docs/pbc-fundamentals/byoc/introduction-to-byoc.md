@@ -1,6 +1,6 @@
 # BYOC
 
-In this article we will explain what BYOC is, and how to bring your own coins to the mainnet and the testnet.
+In this article we will explain what BYOC is, and how to bring your own coins to the mainnet and to the testnet.
 
 ### What is BYOC and gas
 
@@ -24,7 +24,7 @@ In essence, you can deposit, withdraw and transfer ETH or other cryptocurrencies
 You can see what bridges are available on our
 page: [Bridging BYOC by sending transactions](bridging-byoc-by-sending-transactions.md).
 
-**BYOC fee(tentative):** <br/>
+**BYOC fee (tentative):** <br/>
 Bridging has a small fee, since transferring coins between chains requires the nodes to sign the transfers.
 
 The cost of bringing your own coin is 0,1% of the value transferred with a threshold of 25 USD as minimum transfer
@@ -92,9 +92,8 @@ MetaMask wallet.
 
 ### Converting MPC token to BYOC
 
-The native token on PBC, MPC token, can be exchanged, or *wrapped*, using the system smart contract [mpc-wrap (link pending)](), into its BYOC equivalent, WMPC (Wrapped MPC). 
+The native token on PBC, MPC token, can be used as BYOC. To do this, it must first be *wrapped*, using the system smart contract [mpc-wrap (link pending)](), into its BYOC equivalent, WMPC (Wrapped MPC). 
 WMPC can then be used similar to other BYOC, e.g. as gas, or to bridge out to an external chain. Using the same contract, WMPC can be *unwrapped* back into MPC token.
-
 ### How to test BYOC?
 
 To test BYOC you need to:

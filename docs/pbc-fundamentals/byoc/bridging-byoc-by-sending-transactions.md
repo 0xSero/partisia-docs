@@ -21,7 +21,7 @@ Every time the bridge is used, 0.1% of transferred value is subtracted as a fee 
 
 ### How to make a deposit
 
-BYOC acts as IOUs that can only be created when the equal sum of value is locked on the chain where the deposit comes from. The deposited coins are locked to the oracle contract on that chain. A deposit oracle consists of three PBC nodes, who monitor the BYOC contract for activity. When activity is detected and two out of three nodes of the oracle confirms a users locked funds, it invokes a contract action resulting in the minting of equivalent funds on PBC called BYOC.
+BYOC acts as IOUs that can only be created when the equal sum of value is locked on the chain where the deposit comes from. The deposited coins are locked to the oracle contract on that chain. A deposit oracle consists of three PBC nodes, which monitor the BYOC contract for activity. When activity is detected and two out of three nodes of the oracle confirms a users locked funds, it invokes a contract action resulting in the minting of equivalent funds on PBC called BYOC.
 
 ![DepositBridge](../img/bridging-byoc-by-sending-transactions-00.png)
 
@@ -59,7 +59,7 @@ When you withdraw funds from PBC the BYOCs are first burned on PBC, then when th
 ```
 2. The ETH Withdrawal contract burns n ETH twins minus the fee to pay the oracle nodes
 3. When the ETH Withdrawal oracle confirms the ETH twins have been burned, they generate the signatures necessary for a release from the ETH contract. The signatures are available in the state of [ETH Withdraw](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state)
-4. You retrieve the [nonce](../dictionary.md#nonce), signatures and bitmask from the [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) waits until withdrawal have received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
+4. Retrieve the withdrawal [nonce](../dictionary.md#nonce), signatures and bitmask from the ETH Withdrawal contract [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) and waits until your withdrawal has received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
 5. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce, 
