@@ -4,7 +4,7 @@
 
 This guide explains how to use transactions to bridge liquid cryptocurrencies recognized by PBC, generally referred to as Bring Your Own Coin (BYOC), from and to external chains. 
 
-For a guide to the bridging of BYOC with the bridge's UI see [here](introduction-to-byoc.md)
+For a guide to the bridging of BYOC with the bridge's UI see [here](introduction-to-byoc.md).
 
 A Partisia Blockchain [account](../create-an-account.md) holds the necessary information enabling the user to perform transactions. Among other fields the account state includes a balance of BYOC. Users can transfer BYOC between accounts internally on PBC, we call this BYOC transfer. It is also possible to transfer BYOC from and to other chains, we call this action bridging.   
 
@@ -59,7 +59,7 @@ When you withdraw funds from PBC the BYOCs are first burned on PBC, then when th
 ```
 2. The ETH Withdrawal contract burns n ETH twins minus the fee to pay the oracle nodes
 3. When the ETH Withdrawal oracle confirms the ETH twins have been burned, they generate the signatures necessary for a release from the ETH contract. The signatures are available in the state of [ETH Withdraw](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state)
-4. Retrieve the withdrawal [nonce](../dictionary.md#nonce), signatures and bitmask from the ETH Withdrawal contract [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state) and waits until your withdrawal has received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
+4. Retrieve the withdrawal [nonce](../dictionary.md#nonce), signatures and bitmask from the ETH Withdrawal contract [state](https://browser.partisiablockchain.com/contracts/043b1822925da011657f9ab3d6ff02cf1e0bfe0146?tab=state), and wait until your withdrawal has received at least two out of three signatures (this takes from zero to a few minutes, depending on activity level of the bridge)
 5. Invoke the contract action _withdraw_ on the [small oracle contract on Ethereum](https://etherscan.io/address/0xf393d008077c97f2632fa04a910969ac58f88e3c#writeProxyContract), the action take an account address and the transferred amount:
 ```SOL
 withdraw(uint64 withdrawNonce, 
