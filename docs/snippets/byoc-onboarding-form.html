@@ -99,16 +99,26 @@
     </label>
   </p>
   <p class="price-oracle-info">
-    <label for="byoc-onboarding-reference-contract">
-      <span>(6) Chain link reference contract:</span>
+    <label>
+      <span>(6) Chainlink data feed chain:</span>
+      <select id="byoc-onboarding-data-feed-chain">
+        <option value="Ethereum">Ethereum</option>
+        <option value="Polygon">Polygon</option>
+        <option value="BnbSmartChain">BNB Smart Chain</option>
+      </select>
     </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-reference-contract">
   </p>
   <p class="price-oracle-info">
-    <label for="byoc-onboarding-reference-decimals">
-      <span>(6) Chain link contract decimals:</span>
+    <label for="byoc-onboarding-data-feed-contract">
+      <span>(6) Chainlink data feed contract:</span>
     </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-reference-decimals">
+    <input class="md-input md-input--stretch" id="byoc-onboarding-data-feed-contract">
+  </p>
+  <p class="price-oracle-info">
+    <label for="byoc-onboarding-data-feed-decimals">
+      <span>(6) Chainlink data feed contract decimals:</span>
+    </label>
+    <input class="md-input md-input--stretch" id="byoc-onboarding-data-feed-decimals">
   </p>
 
   <div>
@@ -289,8 +299,9 @@
           + encodedInit
           + "00000000000000000000000000000000000000000000000000000000";
 
-      const referenceContract = readInputValue("byoc-onboarding-reference-contract");
-      const referenceDecimals = readInputValue("byoc-onboarding-reference-decimals");
+      const referenceChain = readInputValue("byoc-onboarding-data-feed-chain");
+      const referenceContract = readInputValue("byoc-onboarding-data-feed-contract");
+      const referenceDecimals = readInputValue("byoc-onboarding-data-feed-decimals");
       const proxyAddress = readInputValue("byoc-onboarding-proxy-address");
       const tokenName = readInputValue("byoc-onboarding-token-name");
       const priceInformationSupplied = isStableCoin()
@@ -309,9 +320,9 @@
         const priceOracleConfig = isStableCoin()
             ? "00"
             : "01" + stringAsHex(pad(referenceContract, 40)) + pad(decimals.toString(16), 8) + pad(
-            referenceDecimals.toString(16), 8);
+            referenceDecimals.toString(16), 8) + stringAsHex(referenceChain);
 
-        const addByocRpc = "00"
+        const addByocRpc = "02"
             + stringAsHex(symbol)
             + stringAsHex(chain)
             + pad(numerator.toString(16), 16)
