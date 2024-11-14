@@ -32,7 +32,7 @@ The CPU cost reflects the computational resources consumed during the execution 
 
 **3. Serialize State:** After the work is completed, the contract state is serialized back into a format suitable for storage on the blockchain. The gas cost associated with serialization depends on the size and complexity of the updated contract state.
 
-It's a good practice to consider your gas consumption during the architecture and design of smart contracts. By implementing these strategies, optimizing gas usage and improving the efficiency of smart contracts can be achieved. You can find more best practice on our article of [efficient gas practices](efficient-gas-practices.md)
+It's a good practice to consider your gas consumption during the architecture and design of smart contracts. By implementing these strategies, optimizing gas usage and improving the efficiency of smart contracts can be achieved. You can find more best practice on our article of [efficient gas practices](efficient-gas-practices.md).
 
 ### Network cost
 The network cost is associated with the transmission of the transaction across the blockchain network. It takes into account the bandwidth and other networking resources utilized during the transaction's propagation.
