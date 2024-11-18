@@ -35,10 +35,10 @@ cargo partisia-contract account mintgas <account-address>
 
 To get even more gas you can do the following:
 
-- Sign in to the [testnet browser](https://browser.testnet.partisiablockchain.com) (Icon in upper right corner).
-- Follow this [link](https://browser.testnet.partisiablockchain.com/contracts/02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd) to the [Feed Me contract interaction](https://browser.testnet.partisiablockchain.com/contracts/02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd/feed_me)
-- The contract action takes an account address as receiver of our test coin (A [BYOC](../../pbc-fundamentals/byoc/byoc.md) that only exists on the testnet). You should use your own account address as the receiver.
-- By default, the browser sets the transaction cost to 100k gas which is excessive for this transaction. The transaction should take approximately 60000 gas.
-- Execute the transaction - the specified account should now have gained approximately 1,000,000,000 gas which has a value of 10,000 TEST_COIN.
+-   Sign in to the [testnet browser](https://browser.testnet.partisiablockchain.com) (Icon in upper right corner).
+-   Follow this [link](https://browser.testnet.partisiablockchain.com/contracts/02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd) to the [Feed Me contract interaction](https://browser.testnet.partisiablockchain.com/contracts/02c14c29b2697f3c983ada0ee7fac83f8a937e2ecd/feed_me)
+-   The contract action takes an account address as receiver of our test coin (A [BYOC](../../pbc-fundamentals/byoc/byoc.md) that only exists on the testnet). You should use your own account address as the receiver.
+-   By default, the browser sets the transaction cost to 100k gas which is excessive for this transaction. The transaction should take approximately 60000 gas.
+-   Execute the transaction - the specified account should now have gained approximately 1,000,000,000 gas which has a value of 10,000 TEST_COIN.
 
 You have now successfully learned how to acquire gas on the testnet and see your account balance. By utilizing the testnet, you can safely experiment with your contracts without incurring any real costs or affecting the main blockchain network. If you need gas on the mainnet you should follow the method described in [BYOC](../../pbc-fundamentals/byoc/byoc.md).

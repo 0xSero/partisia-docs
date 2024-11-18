@@ -4,7 +4,7 @@ This page teaches you to register your baker node for the additional service of 
 the service in case you want to use the tokens for something else.
 
 Price oracles monitor and report prices of the [BYOC](../pbc-fundamentals/byoc/byoc.md).
-Any node with sufficient tokens associated to the large oracle contract can register as a price oracle.   
+Any node with sufficient tokens associated to the large oracle contract can register as a price oracle.  
 You can learn
 more about the price oracles [here](../pbc-fundamentals/dictionary.md#price-oracle).
 

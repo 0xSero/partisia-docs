@@ -117,13 +117,13 @@
     <label for="byoc-onboarding-data-feed-contract">
       <span>(6) Chainlink data feed contract:</span>
     </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-data-feed-contract">
+    <input class="md-input md-input--stretch" id="byoc-onboarding-data-feed-contract" />
   </p>
   <p class="price-oracle-info">
     <label for="byoc-onboarding-data-feed-decimals">
       <span>(6) Chainlink data feed contract decimals:</span>
     </label>
-    <input class="md-input md-input--stretch" id="byoc-onboarding-data-feed-decimals">
+    <input class="md-input md-input--stretch" id="byoc-onboarding-data-feed-decimals" />
   </p>
 
   <div>
@@ -340,20 +340,24 @@
         }
 
         const priceOracleConfig = isStableCoin()
-            ? "00"
-            : "01" + stringAsHex(pad(referenceContract, 40)) + pad(decimals.toString(16), 8) + pad(
-            referenceDecimals.toString(16), 8) + stringAsHex(referenceChain);
+          ? "00"
+          : "01" +
+            stringAsHex(pad(referenceContract, 40)) +
+            pad(decimals.toString(16), 8) +
+            pad(referenceDecimals.toString(16), 8) +
+            stringAsHex(referenceChain);
 
-        const addByocRpc = "02"
-            + stringAsHex(symbol)
-            + stringAsHex(chain)
-            + pad(numerator.toString(16), 16)
-            + pad(denominator.toString(16), 16)
-            + withdrawMax
-            + withdrawMin
-            + depositMax
-            + pad(proxyAddress, 40)
-            + priceOracleConfig;
+        const addByocRpc =
+          "02" +
+          stringAsHex(symbol) +
+          stringAsHex(chain) +
+          pad(numerator.toString(16), 16) +
+          pad(denominator.toString(16), 16) +
+          withdrawMax +
+          withdrawMin +
+          depositMax +
+          pad(proxyAddress, 40) +
+          priceOracleConfig;
         votePayload =
           "0458ff0a290e2fe847b23a364925799d1c53c8b36b" +
           pad((addByocRpc.length / 2).toString(16), 8) +

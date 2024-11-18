@@ -150,7 +150,7 @@ PBC distributes the workload to a number of parallel shards. This allows for sca
 
 ### Small oracle
 
-There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc/byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit), 
+There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc/byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit),
 [withdrawal oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-withdrawal)
 and [price oracles](../pbc-fundamentals/dictionary.md#price-oracle).
 

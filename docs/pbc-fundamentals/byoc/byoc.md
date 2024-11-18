@@ -32,23 +32,22 @@ The cost of bringing your own coin is 0,1% of the value transferred with a thres
 
 ### Converting MPC token to BYOC
 
-The native token on PBC, MPC token, can be used as BYOC. To do this, it must first be *wrapped*, using the system smart contract [mpc-wrap](https://browser.partisiablockchain.com/contracts/017d9dacdd01f0b2bd4de40da37f545e89b7faa149), into its BYOC equivalent, WMPC (Wrapped MPC).
-Alternatively, a shortcut to wrapping your MPC tokens can be found [here](https://browser.partisiablockchain.com/assets) by clicking the *Wrap to WMPC* button in the top right corner.
-WMPC can then be used similar to other BYOC, e.g. as gas, or to bridge out to an external chain. Using the same contract, WMPC can be *unwrapped* back into MPC token.
+The native token on PBC, MPC token, can be used as BYOC. To do this, it must first be _wrapped_, using the system smart contract [mpc-wrap](https://browser.partisiablockchain.com/contracts/017d9dacdd01f0b2bd4de40da37f545e89b7faa149), into its BYOC equivalent, WMPC (Wrapped MPC).
+Alternatively, a shortcut to wrapping your MPC tokens can be found [here](https://browser.partisiablockchain.com/assets) by clicking the _Wrap to WMPC_ button in the top right corner.
+WMPC can then be used similar to other BYOC, e.g. as gas, or to bridge out to an external chain. Using the same contract, WMPC can be _unwrapped_ back into MPC token.
 
 ### Requirements
 
 To be able to bridge your coins you will need:
 
-* An account on PBC.
-* An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
-extension for interacting with other chains.
-
+-   An account on PBC.
+-   An account on MetaMask holding the coins you want to transfer into PBC. The bridge only supports the MetaMask wallet
+    extension for interacting with other chains.
 
 ### How to deposit using the Bridge
 
 To make a deposit, you can use the [PBC Token Bridge](https://browser.partisiablockchain.com/bridge).
-Depending on whether the coin you want to transfer is a native coin (e.g. ETH or BNB) or a token based coin (e.g. WMPC or USDC) the steps to transfer differ. 
+Depending on whether the coin you want to transfer is a native coin (e.g. ETH or BNB) or a token based coin (e.g. WMPC or USDC) the steps to transfer differ.
 This is because tokens needs to be approved, such that the external BYOC contract is able to transfer the tokens for you.
 
 In practice, you can follow these steps:
@@ -77,11 +76,11 @@ the [PBC Token Bridge](https://browser.partisiablockchain.com/bridge).
 The withdrawal process has two steps:
 
 1. First, you have to make a pending withdrawal on the PBC chain.
-When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
-withdrawal contract.
+   When the nodes have seen and signed this pending withdrawal, the coins will be unlocked on the external
+   withdrawal contract.
 2. Second, after the signed withdrawal the coins can be transferred to your external account by withdrawing on
-the withdrawal contract. Both steps are performed in
-the [Browser](https://browser.partisiablockchain.com/bridge).
+   the withdrawal contract. Both steps are performed in
+   the [Browser](https://browser.partisiablockchain.com/bridge).
 
 In practice, you should follow these steps:
 
@@ -90,12 +89,11 @@ In practice, you should follow these steps:
 3. Click _Connect MetaMask_ to connect your external account
 4. Enter the amount you wish to withdraw in the dialog
 5. Wait for the nodes to sign the pending withdrawal (Pending withdrawals on the connected chain can be seen in the top
-right notification menu, this menu only shows if you have pending transactions)
+   right notification menu, this menu only shows if you have pending transactions)
 6. Click the _withdraw button_ in the notification menu
 
 Once the withdrawal transaction has gone through on the external chain, the coins will be available for you in the
 MetaMask wallet.
-
 
 ### How to test BYOC?
 
