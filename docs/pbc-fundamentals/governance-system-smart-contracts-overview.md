@@ -40,7 +40,7 @@ confirmed block producers, as well as for payment to node operators for the serv
 
     [Synaps KYC / KYB contract documentation](https://partisiablockchain.gitlab.io/governance/synaps-kycb-contract/com/partisiablockchain/governance/SynapsKycbContract.html)
 
-## [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md) - The system of liquidity
+## [BYOC](../pbc-fundamentals/byoc/byoc.md) - The system of liquidity
 
 On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users to
 transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC system contracts controls allocations of nodes handling the
