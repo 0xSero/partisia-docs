@@ -70,7 +70,7 @@ the gas costs incurred by the nodes by processing this transaction. In addition,
 ### ZK computation fees
 
 !!! info "ZK computation gas fees"
-    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + NO_OF_MULTIPLICATIONS / 1000
+    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when a ZK computation is executed as well as
 for the multiplications in the computation.

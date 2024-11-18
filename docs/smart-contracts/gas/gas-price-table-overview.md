@@ -8,7 +8,7 @@
 | AVL execution (CPU)      | 100 per 1 instructions                                                                                           | Calling user (Actions)                         |
 | Staking                  | 1% of locked stakes (minimum 2,000) multiplied by 40,000                                                         | Calling user                                   |
 | Secret input             | 8,000 + 40 per bit of input                                                                                      | Calling user                                   |
-| ZK computation           | 50,000 plus 1 per 1,000 multiplication                                                                           | Contract                                       |
+| ZK computation           | 50,000 plus 5 per multiplication                                                                                 | Contract                                       |
 | ZK preprocessing         | 550,000 per multiplication triple batch (batch size 100,000) <br> 55,000 per input mask batch (batch size 1,000) | Contract                                       |
 | Opening secret variables | 8,000 + 40 per bit of input                                                                                      | Contract (Contract variables)                  |
 | Attestation              | 25,000                                                                                                           | Contract                                       |
