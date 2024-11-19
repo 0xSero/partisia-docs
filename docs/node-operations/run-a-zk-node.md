@@ -28,10 +28,9 @@ ZK nodes and [reader nodes for development](run-a-reader-node.md#final-step) nee
 server. ZK nodes need it to be able to give and receive secret inputs. Reader nodes need to set rate
 limits to prevent denial-of-service-attacks (DDOS).
 
-Your node is running a docker image with the pbc-mainnet software. The source of the image and name
-of the container is defined in the "service:"-field of `docker-compose.yml`. In this example we will
-set up a reverse proxy by modifying the `docker-compose.yml`. You add additional services to act as
-a proxy server for incoming and outgoing traffic.
+Your node is running a docker image with the pbc-mainnet software. The source of the image and name of the container is
+defined in the "service:"-field of `docker-compose.yml`. In this example we will set up a reverse proxy by modifying
+the `docker-compose.yml`. You add additional services to act as a proxy server for incoming and outgoing traffic.
 
 !!! Info "If input for ZK contracts are safe, why do I need an HTTPS REST endpoint?"
 
@@ -41,13 +40,12 @@ a proxy server for incoming and outgoing traffic.
 
 ### Get Domain and create a Domain Name Service Address record (DNS A-record)
 
-Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose
-a domain name that does not match something proprietary. It is allowed to associate your domain name
-with Partisia Blockchain since it is a public network where your node participates, e.g. you can
-name the domain pbcnode.com or similar.  
-Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company.
-Partisia provides software and infrastructure for PBC by running an infrastructure node and a reader
-node. Avoid names which give the impression that your node is run by the company Partisia.
+Buy a web domain either from your VPS provider or from another reputable source. Make sure to choose a domain name that
+does not match something proprietary.
+It is allowed to associate your domain name with Partisia Blockchain since it is a public network where your node participates, e.g. you can name the domain pbcnode.com or similar.  
+Avoid the name Partisia as a stand-alone term. Partisia is an independent privately owned company. Partisia provides software and infrastructure for PBC by running an
+infrastructure node and a reader node. Avoid names which give the impression that your node is run by the company
+Partisia.
 
 When you have purchased a domain make an address record (A-record) for a subdomain and point it to
 your node.
@@ -69,10 +67,9 @@ on your host machine. This is one of the key benefits of running a service in a 
 
 ### Modify `docker-compose.yml`
 
-The modified docker compose handles two new services in addition to managing the pbc-mainnet
-container: 1) _pbc-nginx_ an nginx proxy server, and 2) _pbc-acme_ running an automated certificate
-manager. We first open the ports host ports used for the proxy server and certificate renewal, then
-we modify the `docker-compose.yml`.
+The modified docker compose handles two new services in addition to managing the pbc-mainnet container: 1) _pbc-nginx_ an nginx proxy
+server, and 2) _pbc-acme_ running an automated certificate manager. We first open the ports host ports used for the proxy server and
+certificate renewal, then we modify the `docker-compose.yml`.
 
 ![New Docker Compose Diagram](./img/run-a-zk-node-00.png)
 
@@ -81,7 +78,7 @@ Our new docker services will utilize ports that are currently closed by your fir
 ??? note "Using a non-standard HTTPS port"
 
     In this guide we have assumed that you use the standard port 443 as host port for HTTPS traffic. The commands for the firewall and the `docker-compose.yml` reflect this.
-    If you use a non-standard port for HTTPS (8443), then the endpoint you register with the [ZK node registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
+    If you use a non-standard port for HTTPS (8443), then the endpoint you register with the [ZK Node Registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65) should also point to 8443, e.g. zk.pbcnode.com:8443, and you must adjust the firewall settings and the `docker-compose.yml` template to fit your choice.
 
 We allow HTTPS traffic through the firewall on port 443:
 
@@ -95,9 +92,9 @@ We allow HTTP traffic through the firewall on port 80:
 sudo ufw allow 80
 ```
 
-HTTP traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme
-service requests a certificate. The certificate provider demands a proof of control of the domain.
-The proof consist of the server (nginx) placing a token on a specified path using HTTP on port 80.
+HTTP traffic is necessary for getting and renewing SSL/TSL certificate of your domain. The acme service requests a
+certificate. The certificate provider demands a proof of control of the domain. The proof consist of the server
+(nginx) placing a token on a specified path using HTTP on port 80.
 
 We stop docker compose before we make modifications:
 
@@ -119,56 +116,56 @@ zk.pbcnode.com:
 ```yaml
 version: "2.0"
 services:
-  pbc:
-    image: registry.gitlab.com/partisiablockchain/mainnet:latest
-    container_name: pbc-mainnet
-    user: "1500:1500"
-    restart: always
-    expose:
-      - "8080"
-    ports:
-      - "9888-9897:9888-9897"
-    command: ["/conf/config.json", "/storage/"]
-    volumes:
-      - /opt/pbc-mainnet/conf:/conf
-      - /opt/pbc-mainnet/storage:/storage
-    environment:
-      - JAVA_TOOL_OPTIONS="-Xmx8G"
-      - VIRTUAL_HOST=your_sub.domain.com
-      - VIRTUAL_PORT=8080
-      - LETSENCRYPT_HOST=your_sub.domain.com
-  nginx-proxy:
-    image: nginxproxy/nginx-proxy:alpine
-    container_name: pbc-nginx
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - conf:/etc/nginx/conf.d
-      - vhost:/etc/nginx/vhost.d
-      - html:/usr/share/nginx/html
-      - certs:/etc/nginx/certs:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-  acme-companion:
-    image: nginxproxy/acme-companion
-    container_name: pbc-acme
-    restart: always
-    volumes_from:
-      - nginx-proxy
-    volumes:
-      - certs:/etc/nginx/certs:rw
-      - acme:/etc/acme.sh
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    environment:
-      - DEFAULT_EMAIL=your@email.address
+    pbc:
+        image: registry.gitlab.com/partisiablockchain/mainnet:latest
+        container_name: pbc-mainnet
+        user: "1500:1500"
+        restart: always
+        expose:
+            - "8080"
+        ports:
+            - "9888-9897:9888-9897"
+        command: ["/conf/config.json", "/storage/"]
+        volumes:
+            - /opt/pbc-mainnet/conf:/conf
+            - /opt/pbc-mainnet/storage:/storage
+        environment:
+            - JAVA_TOOL_OPTIONS="-Xmx8G"
+            - VIRTUAL_HOST=your_sub.domain.com
+            - VIRTUAL_PORT=8080
+            - LETSENCRYPT_HOST=your_sub.domain.com
+    nginx-proxy:
+        image: nginxproxy/nginx-proxy:alpine
+        container_name: pbc-nginx
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - conf:/etc/nginx/conf.d
+            - vhost:/etc/nginx/vhost.d
+            - html:/usr/share/nginx/html
+            - certs:/etc/nginx/certs:ro
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+    acme-companion:
+        image: nginxproxy/acme-companion
+        container_name: pbc-acme
+        restart: always
+        volumes_from:
+            - nginx-proxy
+        volumes:
+            - certs:/etc/nginx/certs:rw
+            - acme:/etc/acme.sh
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        environment:
+            - DEFAULT_EMAIL=your@email.address
 
 volumes:
-  conf:
-  vhost:
-  html:
-  certs:
-  acme:
+    conf:
+    vhost:
+    html:
+    certs:
+    acme:
 ```
 
 [Check that your file is valid yml-format](https://www.yamllint.com/), then save the file by
@@ -208,8 +205,7 @@ docker compose pull acme-companion
 docker compose up -d acme-companion
 ```
 
-!!! note "If you used different names for your docker services than the `docker-compose.yml`
-template"
+!!! note "If you used different names for your docker services than the `docker-compose.yml` template"
 
     Correct the command by using the name of your docker service:
     ```BASH
@@ -246,19 +242,17 @@ At this point you should have a fully functioning ZK node. If any of the docker-
 running or shut down unexpectedly, then
 [go to the node health and maintenance section](node-health-and-maintenance.md#for-zk-and-reader-nodes-sorting-logs-of-nginx-proxy-and-acme)
 
-If you have additional tokens you can read how to run a deposit or withdrawal oracle on the
-following page.
+If you have additional tokens you can read how to run a deposit or withdrawal oracle on the following page.
 
 ## ZK Node Scoring
 
-When your node is registered it can be selected as a ZK node for a newly deployed ZK contract. To
-incentivize having a working node your ZK node is being scored on how well it performs the required
-actions for the allocated ZK contract. A ZK Node Score consists of three sub scores
+When your node is registered it can be selected as a ZK node for a newly deployed ZK contract. To incentivize having a
+working node your ZK node is being scored on how well it performs the required actions for the allocated ZK contract.
+A ZK Node Score consists of three sub scores
 
-- **Allocated**: The total number of contracts your node has been allocated to.
-- **Success**: The number of contracts that has ended with your node having performed the necessary
-  actions.
-- **Failure**: The number of contracts where some required actions have not been performed.
+-   **Allocated**: The total number of contracts your node has been allocated to.
+-   **Success**: The number of contracts that has ended with your node having performed the necessary actions.
+-   **Failure**: The number of contracts where some required actions have not been performed.
 
 It will always be the case that `Allocated = Success + Failure`. You can see your node's score in
 the
@@ -266,21 +260,20 @@ the
 
 ### Calculating the score
 
-Whenever a ZK contract is finished computing, the participating nodes' scores are updated in the ZK
-node registry contract. Which score that is updated depends on the way the ZK contract finishes its
-computation.
+Whenever a ZK contract is finished computing, the participating nodes' scores are updated in the ZK node registry.
+Which score that is updated depends on the way the ZK contract finishes its computation.
 
-- The contracts' calculation status gets moved to Done. All participating nodes gets Success.
-- The contracts' calculation status gets moved to Malicious. All participating nodes gets Failure.
-- The contract is deleted. All participating nodes gets Success.
-- The contract reaches its computation deadline. The score status for a node depends on whether
-  there exists any work that a node has not performed. If a node is missing any of the following its
-  status will be Failure, otherwise Success.
-  - Pending on-chain inputs.
-  - Pending on-chain opens.
-  - Attestations.
-  - Finished computations.
-  - Whether there is an ongoing computation. If so everyone gets Failure.
+-   The contracts' calculation status gets moved to Done. All participating nodes gets Success.
+-   The contracts' calculation status gets moved to Malicious. All participating nodes gets Failure.
+-   The contract is deleted. All participating nodes gets Success.
+-   The contract reaches its computation deadline. The score status for a node depends on whether there exists any
+    work that a node has not performed. If a node is missing any of the following its status will be Failure, otherwise
+    Success.
+    -   Pending on-chain inputs.
+    -   Pending on-chain opens.
+    -   Attestations.
+    -   Finished computations.
+    -   Whether there is an ongoing computation. If so everyone gets Failure.
 
 ## Deregister as a ZK node
 

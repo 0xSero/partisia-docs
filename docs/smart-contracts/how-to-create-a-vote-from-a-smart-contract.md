@@ -10,11 +10,11 @@ giving all citizens access to the official legal code.
 
 **The setup of our scenario**
 
-- The parliament has 197 MPs.
-- Each MP has a key set. The public key enables the public to follow the MP's voting record on the
-  blockchain. The private key is known only by the individual MP and is used to sign their vote.
-- Each time the parliament votes on an issue they do it through a smart contract vote. Laws that
-  passed are therefore also added to the immutable record.
+-   The parliament has 197 MPs.
+-   Each MP has a key set. The public key enables the public to follow the MP's voting record on the
+    blockchain. The private key is known only by the individual MP and is used to sign their vote.
+-   Each time the parliament votes on an issue they do it through a smart contract vote. Laws that
+    passed are therefore also added to the immutable record.
 
 **NB.** No ZK computation is necessary since the both individual votes and voting results are
 supposed to be public.
@@ -38,7 +38,7 @@ First we need to include a few libraries to get access to the functions and type
 programming our smart contract. It is not necessary to understand exactly what the library includes here or what they do
 in order to create your first smart contract.
 
-````rust
+```rust
 #![allow(unused_variables)]
 
 #[macro_use]
@@ -48,7 +48,7 @@ extern crate pbc_contract_common;
 use pbc_contract_common::address::Address;
 use pbc_contract_common::context::ContractContext;
 use pbc_contract_common::sorted_vec_map::SortedVecMap;
-````
+```
 
 ### 2) Defining the contract state
 
@@ -58,29 +58,29 @@ with [`#[state]`](https://partisiablockchain.gitlab.io/language/contract-sdk/pbc
 
 For our voting contract the contract state has the following parts:
 
-- `proposal_id` A proposal id, so you can identify what proposal the vote is concerned with.
-- `mp_addresses` The list of people that are allowed to vote on the proposal. Only people with
-  voting rights in the parliament should be allowed to vote, so the contract also needs a list of MP
-  addresses.
-- `votes` The actual votes cast are contained in a map pairing each person with their vote.
-- `closed` Finally, when the voting ends people must no longer be able to change their vote.
-  Therefore, the contract the state also includes information about whether the voting is open or
-  closed.
+-   `proposal_id` A proposal id, so you can identify what proposal the vote is concerned with.
+-   `mp_addresses` The list of people that are allowed to vote on the proposal. Only people with
+    voting rights in the parliament should be allowed to vote, so the contract also needs a list of MP
+    addresses.
+-   `votes` The actual votes cast are contained in a map pairing each person with their vote.
+-   `closed` Finally, when the voting ends people must no longer be able to change their vote.
+    Therefore, the contract the state also includes information about whether the voting is open or
+    closed.
 
 We can also define methods associated with the state struct that read or write to the state. In Rust
 these methods are defined inside an `impl` block associated with the state struct.
 
 For our voting contract we have defined two state methods:
 
-- `register_vote` When an MP cast her vote, it is recorded in the votes map.
-- `close_if_finished_vote` The voting process automatically closes after everybody has voted.
+-   `register_vote` When an MP cast her vote, it is recorded in the votes map.
+-   `close_if_finished_vote` The voting process automatically closes after everybody has voted.
 
 We could have chosen to make closing the vote depend on when the majority was reached, or to make an
 action where the chairman of the parliament closes the vote after some deadline. We could also add a
 result to the contract state if we want to make the contract more informative. The idea here was a
 simple voting record, so what we have now will suffice.
 
-````rust
+```rust
 #[state]
 pub struct VotingContractState {
   proposal_id: u64,
@@ -100,7 +100,7 @@ impl VotingContractState {
     };
   }
 }
-````
+```
 
 ### 3) Defining the initialization of the contract
 
@@ -118,7 +118,7 @@ creates the initial state object for the contract from the input.
 
 After successful initialization, the contract state becomes live on the blockchain.
 
-````rust
+```rust
 #[init]
 pub fn initialize(
   _ctx: ContractContext,
@@ -139,7 +139,7 @@ pub fn initialize(
     closed: 0,
   }
 }
-````
+```
 
 ### 4) Defining the actions of the contract
 
@@ -162,7 +162,7 @@ the delivered vote is one of the allowed voting options. If the checks succeed t
 new state where the vote of the sender is registered in the vote map. Also, if this vote was the
 last one and everyone has now voted, then voting is closed.
 
-````rust
+```rust
 #[action]
 pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> VotingContractState {
   assert_eq!(state.closed, 0, "The poll is closed");
@@ -174,7 +174,7 @@ pub fn vote(context: ContractContext, state: VotingContractState, vote: u8) -> V
   new_state.close_if_finished();
   new_state
 }
-````
+```
 
 ## Building and testing the voting contract
 

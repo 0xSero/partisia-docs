@@ -9,8 +9,9 @@
 </div>
 
 !!! note
-        We recommend that you read the [walk-through of the example contracts](how-to-create-your-own-second-layer-solution.md)
-        to understand the contracts being deployed in this guide.
+
+    We recommend that you read the [walk-through of the example contracts](how-to-create-your-own-second-layer-solution.md)
+    to understand the contracts being deployed in this guide.
 
 ## Deploying a PBC as second layer solution
 
@@ -140,4 +141,4 @@ npx hardhat run scripts/verify.js --network goerli
 
 To test that the deployment of the PBC as second layer solution works, you can run a test similar to
 what is described in the
-[live voting example walk-through](live-example-of-pbc-as-second-layer.md). 
+[live voting example walk-through](live-example-of-pbc-as-second-layer.md).

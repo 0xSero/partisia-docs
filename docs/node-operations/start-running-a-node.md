@@ -19,9 +19,9 @@ To start your journey becoming a node operator on the Partisia Blockchain comple
 
 Joining the Discord server and completing the survey gives you the following benefits:
 
-- Support and notification in case we or community members register a problem with your node
-- News of updates subject to node operator votes, for example when node operators can support a new coin on the
-  chain ([oracle service](../pbc-fundamentals/dictionary.md#small-oracle))
+-   Support and notification in case we or community members register a problem with your node
+-   News of updates subject to node operator votes, for example when node operators can support a new coin on the
+    chain ([oracle service](../pbc-fundamentals/dictionary.md#small-oracle))
 
 ## Which node should you run?
 
@@ -37,7 +37,7 @@ If you have completed the reader and baker part of the guide you can perform (gi
 of the other services, including multiple oracles on the same node.
 
 | **Required total MPC token balance** | **Available Node service**                                                 | **Service consist of**                                                      |
-|--------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| ------------------------------------ | -------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | 0                                    | [Reader node](run-a-reader-node.md)                                        | Free: Reading the blockchain state                                          |
 | 25K                                  | [Baker node](run-a-baker-node.md)                                          | Free: Reader node service<br />25K stake: Signing and producing blocks      |
 | 30K                                  | [Price oracle](run-a-price-oracle-node.md)                                 | 25K stake: Baker node service<br />5K stake: Price monitoring               |

@@ -10,7 +10,7 @@
    [*.*](contract-to-contract-gas-estimation.md)
 </div>
 
-When creating a contract that sends transactions to other contracts, a developer need to adequately account for the gas required for these transactions. There are two important factors to consider in this process: 
+When creating a contract that sends transactions to other contracts, a developer need to adequately account for the gas required for these transactions. There are two important factors to consider in this process:
 
 1. Total Number of Transactions: Determine the total number of transactions that need to be covered by the gas.
 2. Gas Price per Transaction: [Identify the exact gas price for each transaction.](how-to-get-testnet-gas.md#test-your-contract-on-the-testnet)

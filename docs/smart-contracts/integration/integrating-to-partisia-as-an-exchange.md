@@ -82,17 +82,17 @@ following payload:
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Gov"
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Gov"
+        }
+    },
+    "method": "get_shard_for_account",
+    "parameters": {
+        "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
     }
-  },
-  "method": "get_shard_for_account",
-  "parameters": {
-    "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
-  }
 }
 ```
 
@@ -112,16 +112,16 @@ Here we will use the following query data.
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
+        }
+    },
+    "account_identifier": {
+        "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
     }
-  },
-  "account_identifier": {
-    "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
-  }
 }
 ```
 
@@ -151,50 +151,50 @@ The request will contain the below information
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
-    }
-  },
-  "operations": [
-    {
-      "operation_identifier": {
-        "index": 0
-      },
-      "type": "DEDUCT",
-      "account": {
-        "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
-      },
-      "amount": {
-        "value": "-4",
-        "currency": {
-          "symbol": "MPC",
-          "decimals": 4
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
         }
-      }
     },
-    {
-      "operation_identifier": {
-        "index": 1
-      },
-      "type": "ADD",
-      "account": {
-        "address": "0054556c213b1a1d4e081fc2aec67d5f88e05cbca4"
-      },
-      "amount": {
-        "value": "4",
-        "currency": {
-          "symbol": "MPC",
-          "decimals": 4
+    "operations": [
+        {
+            "operation_identifier": {
+                "index": 0
+            },
+            "type": "DEDUCT",
+            "account": {
+                "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
+            },
+            "amount": {
+                "value": "-4",
+                "currency": {
+                    "symbol": "MPC",
+                    "decimals": 4
+                }
+            }
+        },
+        {
+            "operation_identifier": {
+                "index": 1
+            },
+            "type": "ADD",
+            "account": {
+                "address": "0054556c213b1a1d4e081fc2aec67d5f88e05cbca4"
+            },
+            "amount": {
+                "value": "4",
+                "currency": {
+                    "symbol": "MPC",
+                    "decimals": 4
+                }
+            }
         }
-      }
+    ],
+    "metadata": {
+        "memo": "This is a memo"
     }
-  ],
-  "metadata": {
-    "memo": "This is a memo"
-  }
 }
 ```
 
@@ -238,7 +238,7 @@ c9aaa...
 ### Creating the signed transaction
 
 The signature format expected is {r, s, v} where {r, s} are 32 bytes each, and v is one byte. The signature takes up 65
-bytes and must be hex encoded. 
+bytes and must be hex encoded.
 
 One way to construct such a signature is to sign the message with any library that can
 produce signatures for Ethereum. This produces a signature {r, s, w} where w - 27 = v. The result is going to be a
@@ -249,27 +249,27 @@ something like:
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
-    }
-  },
-  "unsigned_transaction": " UNSIGNED TX BYTES ",
-  "signatures": [
-    {
-      "signing_payload": {
-        "hex_bytes": " HASH TO SIGN ",
-        "account_identifier": {
-          "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
-        },
-        "signature_type": "ecdsa_recovery"
-      },
-      "signature_type": "ecdsa_recovery",
-      "hex_bytes": " SIGNATURE BYTES "
-    }
-  ]
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
+        }
+    },
+    "unsigned_transaction": " UNSIGNED TX BYTES ",
+    "signatures": [
+        {
+            "signing_payload": {
+                "hex_bytes": " HASH TO SIGN ",
+                "account_identifier": {
+                    "address": "00e93705fee5c86b30a940fd42398893972a1339ff"
+                },
+                "signature_type": "ecdsa_recovery"
+            },
+            "signature_type": "ecdsa_recovery",
+            "hex_bytes": " SIGNATURE BYTES "
+        }
+    ]
 }
 ```
 
@@ -286,14 +286,14 @@ The request data is simply the network identifier for the sender's account, and 
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
-    }
-  },
-  "signed_transaction": " SIGNED TX BYTES "
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
+        }
+    },
+    "signed_transaction": " SIGNED TX BYTES "
 }
 ```
 
@@ -362,20 +362,20 @@ hash) and an integer (the block height), as seen in the image above. A typical p
 
 ```json
 {
-  "network_identifier": {
-    "blockchain": "PartisiaBlockchain",
-    "network": "Partisia Blockchain Testnet",
-    "sub_network_identifier": {
-      "network": "Shard1"
+    "network_identifier": {
+        "blockchain": "PartisiaBlockchain",
+        "network": "Partisia Blockchain Testnet",
+        "sub_network_identifier": {
+            "network": "Shard1"
+        }
+    },
+    "block_identifier": {
+        "hash": "a73994ab42c410b7e7c628f5e9966dc279f7ed68de83b0877decbcd2f96a56d5",
+        "index": 1433208
+    },
+    "transaction_identifier": {
+        "hash": "008574f7e30acd8f7e68329eee09371bd014d11ffced489ffa4c13dd3fe45e5d"
     }
-  },
-  "block_identifier": {
-    "hash": "a73994ab42c410b7e7c628f5e9966dc279f7ed68de83b0877decbcd2f96a56d5",
-    "index": 1433208
-  },
-  "transaction_identifier": {
-    "hash": "008574f7e30acd8f7e68329eee09371bd014d11ffced489ffa4c13dd3fe45e5d"
-  }
 }
 ```
 
@@ -385,13 +385,13 @@ A response may look like the picture below:
 
 This would be the result if we look up the transaction 49cad6…. The above result has several interesting facets:
 
-- We see that it is a transaction related to another transaction, namely the one with the hash 33389… This in particular
-  tells us that this transaction was spawned as part of the other transaction. For example, this transaction could be
-  one
-  of the events (e.g., the "withdraw") spawned by the signed transaction we submitted when creating the token transfer
-  earlier.
-- We see that is a single related transaction to this transaction. Moreover, this related transaction is not located on
-  the shard we are currently looking at (Shard1) but on a different shard — Shard2.
+-   We see that it is a transaction related to another transaction, namely the one with the hash 33389… This in particular
+    tells us that this transaction was spawned as part of the other transaction. For example, this transaction could be
+    one
+    of the events (e.g., the "withdraw") spawned by the signed transaction we submitted when creating the token transfer
+    earlier.
+-   We see that is a single related transaction to this transaction. Moreover, this related transaction is not located on
+    the shard we are currently looking at (Shard1) but on a different shard — Shard2.
 
 ## Finding our transfer
 
@@ -401,25 +401,25 @@ transfers.
 Let TX be the hash of the signed transaction. This is the hash returned
 by [/construction/submit](https://docs.cloud.coinbase.com/rosetta/reference/constructionsubmit). We submitted this
 transaction on Shard1, so that is where we will start. The "algorithm" for finding our operations will use two functions
-_"FindBlock"_ and _"SearchTransactions"_.
+`FindBlock` and `SearchTransactions`.
 
-_FindBlock(shard, block, TX)_
+`FindBlock(shard, block, TX)`
 
-1. Create a request object for /block with the _shard_ (a network identifier object)
-2. If _block_ (a block identifier object) is not null, we will include this as well
+1. Create a request object for _/block_ with the `shard` (a network identifier object)
+2. If `block` (a block identifier object) is not null, we will include this as well
 3. Call [/block](https://docs.cloud.coinbase.com/rosetta/reference/block)
-4. For each transaction _T_ in "other_transactions" in the response, if _T=TX_ call _SearchTransactions(shard, block,
-   T)_
-5. Otherwise, call _FindBlock(shard, B, TX)_ where _B_ is the "parent_block_identifier" in the response
+4. For each transaction `T` in "other_transactions" in the response, if `T=TX` call `SearchTransactions(shard, block,
+T)`
+5. Otherwise, call `FindBlock(shard, B, TX)` where `B` is the "parent_block_identifier" in the response
 
-_SearchTransactions(shard, block, T)_
+`SearchTransactions(shard, block, T)`
 
-1. Create a request object with shard, T and block
+1. Create a request object with `shard`, `T` and `block`
 2. Call [/block/transaction](https://docs.cloud.coinbase.com/rosetta/reference/blocktransaction)
 3. If "operations" is not empty, then we're done. Output the operations
-4. Otherwise, for each transaction X in "related_transactions"
-5. If X has a network identifier S, call FindBlock(S, null, X)
-6. Else call SearchTransactions(shard, block, X)
+4. Otherwise, for each transaction `X` in "related_transactions":
+    - If `X` has a network identifier `S`, call `FindBlock(S, null, X)`
+    - Else call `SearchTransactions(shard, block, X)`
 
 The above two functions essentially start from the top of some shard and then searches through blocks until it finds the
 block with our transaction in it. After this, it searches through the events (related transactions) that this

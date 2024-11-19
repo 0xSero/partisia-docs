@@ -38,8 +38,8 @@ and [proxy contract](https://bscscan.com/address/0x05ee4eee70452dd555ecc3f997ea0
 
 Before preparing the contracts on the integrated chain some information needs to be collected:
 
-- Which integrated chain does the coin reside on (Ethereum, Polygon or BNB Smart Chain)
-- What is the current USD value of a single coin
+-   Which integrated chain does the coin reside on (Ethereum, Polygon or BNB Smart Chain)
+-   What is the current USD value of a single coin
 
 For non-stable coins a Chainlink data feed that tracks the current price needs
 to be available on one of the supported integrated chains.
@@ -71,7 +71,7 @@ These steps specify what information is needed in the below form, each number co
 8. After the creation of the proposal, we suggest you share your forms details
    with [the community](../../get-support-from-pbc-community.md) to make it easier for
    them to verify your proposal.
-9. When node operators have voted, you need to execute the proposal this action costs ~260.000 gas. You can execute the proposal by using the check update interaction on the [system update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/checkUpdate). 
+9. When node operators have voted, you need to execute the proposal this action costs ~260.000 gas. You can execute the proposal by using the check update interaction on the [system update contract](https://browser.partisiablockchain.com/contracts/04c5f00d7c6d70c3d0919fd7f81c7b9bfe16063620/checkUpdate).
 
 For step 2 and 4 the form below allows using MetaMask to send the transactions.
 
@@ -98,12 +98,12 @@ is shared with the community, verifying the proposal is very difficult.
 
 When validating the proposal ensure that the parameters match what is expected:
 
-- Does the supplied price match the price of the token?
-- Is the name of the token correct?
-- Is the supplied reference contract a chain link reference for the bridged symbol? And does the
-  decimal count match the ones on the contract?
-- Is the supplied ERC20 contract a valid ERC20 contract for the token? And does the decimal count
-  match the decimals on the ERC20 contract?
+-   Does the supplied price match the price of the token?
+-   Is the name of the token correct?
+-   Is the supplied reference contract a chain link reference for the bridged symbol? And does the
+    decimal count match the ones on the contract?
+-   Is the supplied ERC20 contract a valid ERC20 contract for the token? And does the decimal count
+    match the decimals on the ERC20 contract?
 
 To sum up, you need to find both of the deployed contracts, lookup the transaction that deployed them, find the payload
 of
@@ -117,7 +117,7 @@ from [GitLab](https://gitlab.com/partisiablockchain/governance/byoc-contract-eth
 For all the files the value in 'bytecode' should be used.
 
 | Parameter                              | Value                                                                                                                                                               |
-|----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Implementation contract byte code      | For ERC20 tokens use _WithdrawAndDepositErc20.json_, for native token use _WithdrawAndDepositEth.json_ from the GitLab link above                                   |
 | ERC1967Proxy                           | Use _ERC1967Proxy.json_ from the GitLab link above                                                                                                                  |
 | Current price in USD (price)           | Need to be supplied                                                                                                                                                 |
