@@ -15,7 +15,7 @@ Node operators get paid fees for running four [types of services](../node-operat
 - Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories   
 
 A node service earns rewards when a user commits a transaction on the blockchain and pays a gas cost
-in [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md). The gas spent covers the fee of the service performed by the nodes, this designs ensures that node operators get paid in BYOC tokens and not MPC tokens.
+in [BYOC](../pbc-fundamentals/byoc/byoc.md). The gas spent covers the fee of the service performed by the nodes, this designs ensures that node operators get paid in BYOC tokens and not MPC tokens.
 
 In addition to the fees paid for services, nodes receive rewards in the form of MPC tokens from staking. Rewards are distributed according to node performance
 measured by block production as well as tokens staked and their vesting

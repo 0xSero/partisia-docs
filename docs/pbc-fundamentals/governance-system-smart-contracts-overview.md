@@ -40,7 +40,7 @@ confirmed block producers, as well as for payment to node operators for the serv
 
     [Synaps KYC / KYB contract documentation](https://partisiablockchain.gitlab.io/governance/synaps-kycb-contract/com/partisiablockchain/governance/SynapsKycbContract.html)
 
-## [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md) - The system of liquidity
+## [BYOC](../pbc-fundamentals/byoc/byoc.md) - The system of liquidity
 
 On Partisia Blockchain you use coins from other chains (BYOC) as payment for transactions. PBC also allows users to
 transfer BYOC between [accounts](create-an-account.md) and contracts. BYOC system contracts controls allocations of nodes handling the
@@ -84,7 +84,7 @@ Small oracles move funds ([Deposit and withdrawal oracles](https://partisiablock
 
 [MPC tokens](dictionary.md#mpc-token) are the native tokens of PBC. They are used by node operators and other token holders for staking on a service
 provided by a node. Tokens can be confiscated in case of malicious behavior and be used for dispute settlement. Staked
-tokens incentives honest and reliable node services. [Read more about MPC tokens](dictionary.md#mpc-token)
+tokens incentives honest and reliable node services. They can also be exchanged for Wrapped MPC (WMP), the [BYOC](#byoc-the-system-of-liquidity) equivalent of MPC tokens. [Read more about MPC tokens](dictionary.md#mpc-token)
 
 ??? info "[MPC token contract](https://browser.partisiablockchain.com/contracts/01a4082d9d560749ecd0ffa1dcaaaee2c2cb25d881)"
     Facilitates the change of state (location, association, staking, vesting) of MPC tokens as well as transfer of MPC
@@ -97,6 +97,11 @@ tokens incentives honest and reliable node services. [Read more about MPC tokens
     Facilitates transfers of MPC tokens between accounts *or* contracts. Note that the "MPC token" contract does not allow transfers to and from contracts. This contract uses [the standard of MPC-20](../smart-contracts/integration/mpc-20-token-contract.md)
     
     [MPC MPC20 contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-mpc20-contract/com/partisiablockchain/governance/mpcmpc20/package-summary.html)
+
+??? info "[MPC wrap contract](https://browser.partisiablockchain.com/contracts/017d9dacdd01f0b2bd4de40da37f545e89b7faa149)"
+    Facilitates the exchange, or *wrapping*, of MPC tokens into their BYOC equivalent, WMPC. It also handles *unwrapping*, which is the process of exchanging WMPC for MPC tokens.
+
+    [MPC wrap contract documentation](https://partisiablockchain.gitlab.io/governance/mpc-wrap/com/partisiablockchain/governance/mpcwrap/MpcWrapContract.html)
 
 ## Public smart contracts and Zero Knowledge smart contract
 
