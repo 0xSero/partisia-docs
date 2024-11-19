@@ -284,21 +284,69 @@ computation.
 
 ## Deregister as a ZK node
 
-To deregister as a ZK node you need to
-[disassociate your tokens from the ZK node registry contract](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens).
-After being disassociated the tokens will no longer be available when selecting nodes for new ZK
-work.
+To deregister as a ZK node you need to disassociate your tokens from the ZK node registry contract.
+In some cases your tokens might not be immediately available for disassociation. Please follow the
+[flowchart](#flowchart-how-to-deregister-as-zk-node) below in order to disassociate your tokens.
 
-However, you might not be able to immediately disassociate tokens if the tokens are currently
-allocated to ZK work or pending being unlocked. If your node currently has tokens allocated to ZK
-work (see
-[How to find out what ZK work your node is selected for](#how-to-find-out-what-zk-work-your-node-is-selected-for)),
-you must wait for the "node allocation end date" of that contract before being able to disassociate
-the tokens.
+After disassociating token from the ZK node registry, these tokens will no longer be available when
+selecting nodes for new ZK work.
 
-After tokens have been deallocated from a ZK contract they will be pending unlock for 14 days before
-being unlocked. To ensure tokens will be available for disassociation after being unlocked you can
-reserve an amount of tokens for disassociation.
+<span id="flowchart-how-to-deregister-as-zk-node"></>
+
+!!!tip
+
+    The steps in flowchart are clickable.
+
+```mermaid
+flowchart TD
+    are-tokens-allocated[Are the tokens allocated to ZK work?]
+    are-tokens-pending-unlock[Are the tokens pending being unlocked?]
+    reserve-tokens-locked[Reserve tokens for disassociation]
+    reserve-tokens-pending-unlock[Reserve tokens for disassociation]
+    wait-for-allocation-enddate[Wait for the node allocation end date]
+    wait-for-tokens-unlock[Wait for pending tokens being unlocked]
+    disassociate-tokens[Disassociate tokens]
+
+    are-tokens-allocated-- Yes --> reserve-tokens-locked
+    are-tokens-allocated-- No --> are-tokens-pending-unlock
+    are-tokens-pending-unlock-- Yes --> reserve-tokens-pending-unlock
+    are-tokens-pending-unlock -- No --> disassociate-tokens
+    reserve-tokens-locked --> wait-for-allocation-enddate
+    reserve-tokens-pending-unlock --> wait-for-tokens-unlock
+    wait-for-allocation-enddate --> wait-for-tokens-unlock
+    wait-for-tokens-unlock --> disassociate-tokens
+
+    click are-tokens-allocated "#how-to-check-if-your-tokens-are-allocated-to-zk-work" _self
+    click are-tokens-pending-unlock "#how-to-check-if-your-tokens-are-pending-unlock" _self
+    click reserve-tokens-locked "#how-to-reserve-tokens-for-disassociation" _self
+    click reserve-tokens-pending-unlock "#how-to-reserve-tokens-for-disassociation" _self
+    click wait-for-allocation-enddate "#how-long-does-it-take-for-allocated-tokens-to-become-released" _self
+    click wait-for-tokens-unlock "#how-long-does-it-take-for-pending-tokens-to-become-unlocked" _self
+    click disassociate-tokens "#how-to-disassociate-tokens" _self
+```
+
+### How to check if your tokens are allocated to ZK work
+
+1. Open the
+   [ZK node registry contract state](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state)
+2. Open the map `stakedTokens`
+3. Search for your blockchain address `CTRL+f`
+4. Open the struct next to your blockchain address
+5. Open the map `allocatedTokens`
+6. You can see the addresses of the ZK contracts your node is selected for
+
+### How to check if your tokens are pending unlock
+
+1. Open the
+   [ZK node registry contract state](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state).
+2. Open the map `stakedTokens`.
+3. Search for your blockchain address `CTRL+f`.
+4. Open the struct next to your blockchain address.
+5. Open the map `pendingUnlock`.
+6. You can see the amount of tokens and the timestamp indicating when the tokens were released from
+   ZK work.
+
+### How to reserve tokens for disassociation
 
 !!! info
 
@@ -307,31 +355,33 @@ reserve an amount of tokens for disassociation.
     amount reserved for disassociation, the node will not be selected for ZK work.
     When tokens are disassociated the reserved amount is automatically reduced by this amount.
 
-### How to reserve tokens for disassociation
+1. Sign in to the browser.
+2. Navigate to
+   ['Set reserved tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/setReservedTokens)
+   on the ZK node registry contract.
+3. Specify the new amount of tokens you want to reserve.
+4. Confirm by pressing `SET RESERVED TOKENS`.
 
-1. Sign in to the browser
-2. Call
-   [ 'Set reserved tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/setReservedTokens)
-   on the ZK node registry contract to update the amount of reserved tokens
+### How long does it take for allocated tokens to become released
+
+After being allocated the tokes will be locked for ZK work until the node allocation end date.
+Please follow the steps below to find the node allocation end date for a ZK contract:
+
+1. Open the browser.
+2. Paste the address of the ZK contract into the search field.
+3. Press enter to navigate to the contract.
+4. Open the 'ZK nodes' tab and find the 'Allocation end date'.
+
+### How long does it take for pending tokens to become unlocked
+
+After being released from ZK work allocated tokens will be pending for 14 days before being
+unlocked.
 
 ### How to disassociate tokens
 
-1. Sign in to the browser
-2. Call
+1. Sign in to the browser.
+2. Navigate to
    ['Disassociate tokens'](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65/disassociateTokens)
-   on the ZK node registry contract to disassociate the amount of tokens
-
-## How to find out what ZK work your node is selected for
-
-To find out the ZK contracts the node is allocated to and when the allocation ends follow these
-steps:
-
-1. Open the
-   [ZK node registry contract state](https://browser.partisiablockchain.com/contracts/01a2020bb33ef9e0323c7a3210d5cb7fd492aa0d65?tab=state)
-2. Open the map `stakedTokens`
-3. Search for your blockchain address `CTRL+f`
-4. Open the object next to your blockchain address
-5. Open the map `allocatedTokens`
-6. You can see the addresses of the ZK contracts your node is selected for
-7. Copy the address of a contract and paste it to the search field to navigate to the contract
-8. Open the 'ZK nodes' tab and find the allocation end date
+   on the ZK node registry contract.
+3. Specify the amount you want to disassociate.
+4. Confirm by pressing `DISASSOCIATE TOKENS`.
