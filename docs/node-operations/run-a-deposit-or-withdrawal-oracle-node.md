@@ -144,7 +144,7 @@ flowchart TD
 ### How long does it take for the oracle to rotate?
 
 The oracle rotates when it reaches either the deposit limit of 25 ETH or the withdrawal limit of 50
-ETH. If you cannot wait for the oracle to rotate or need to shut down your node for maintenance, 
+ETH. If you cannot wait for the oracle to rotate or need to shut down your node for maintenance,
 you can [request a new oracle](#request-new-oracle). However, this is only allowed if the current oracle is at least 14 days old.
 This will end the [epoch](../pbc-fundamentals/dictionary.md#epoch) of the oracle and
 new oracle nodes will be selected.
