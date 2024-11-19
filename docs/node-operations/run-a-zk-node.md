@@ -10,11 +10,12 @@ revenue for the zero knowledge computations performed.
 
 ## Requirements of a ZK node
 
-!!! Warning "You must complete these requirements before you can go to
-[registration](run-a-zk-node.md#register-your-zk-node)" 1. [Run baker node](run-a-baker-node.md) 2.
-[Stake 75K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total
-staking balance of 100K for both ZK and baker node. 3. You have set up a reverse proxy. This
-includes:
+<!-- prettier-ignore -->
+!!! Warning "You must complete these requirements before you can go to [registration](run-a-zk-node.md#register-your-zk-node)"
+
+    1. [Run baker node](run-a-baker-node.md)
+    2. [Stake 75K MPC tokens](https://browser.partisiablockchain.com/node-operation). You need a total staking balance of 100K for both ZK and baker node.
+    3. You have set up a reverse proxy. This includes:
 
         - Web domain with a valid SSL/TSL certificate for an HTTPS REST endpoint
         - A modified `docker-compose.yml` defining a docker service acting as proxy
