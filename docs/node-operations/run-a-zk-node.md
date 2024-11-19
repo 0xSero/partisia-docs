@@ -216,7 +216,6 @@ template"
     docker compose up -d nameOfService
     ```
 
-
 ## Register as a ZK node
 
 Complete the following steps:
