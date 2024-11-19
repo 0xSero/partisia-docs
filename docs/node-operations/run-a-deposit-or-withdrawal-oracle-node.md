@@ -95,7 +95,7 @@ flowchart TD
     wait-for-tokens-unlock --> disassociate-tokens
 
     click are-tokens-locked "#how-to-check-if-your-tokens-are-locked-to-oracles" _self
-    click are-tokens-pending-unlock "how-to-check-if-your-tokens-are-pending-unlock" _self
+    click are-tokens-pending-unlock "#how-to-check-if-your-tokens-are-pending-unlock" _self
     click reserve-tokens-locked "#how-to-reserve-tokens-for-disassociation" _self
     click reserve-tokens-pending-unlock "#how-to-reserve-tokens-for-disassociation" _self
     click wait-for-oracle-rotation "#how-long-does-it-take-for-the-oracle-to-rotate" _self
