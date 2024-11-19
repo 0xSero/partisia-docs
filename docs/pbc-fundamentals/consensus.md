@@ -8,10 +8,10 @@ works.
 ## Why a consensus mechanism is needed
 
 As described in the [Introduction to the fundamentals](./introduction-to-the-fundamentals.md#what-is-a-blockchain), the
-core functionality of a blockchain is that it is a decentralized database. The fact that it is *decentralized* simply
+core functionality of a blockchain is that it is a decentralized database. The fact that it is _decentralized_ simply
 means that no single node controls access to the database. That is, multiple nodes have a copy of the database (in fact
 any party that would like to have a copy of the database is free to obtain it) and all these copies must be
-*consistent*.
+_consistent_.
 
 To gain some intuition for what this entails let us consider a simple example of a naive (inconsistent) implementation
 of a decentralized database. Consider a database that is supposed to contain non-overdraft bank account balances at two
@@ -20,7 +20,7 @@ consider 3 parties, each with a bank account in the decentralized database: Alic
 let the initial state of the database at both $N_1$ and $N_2$ be:
 
 | Account | Balance |
-|---------|---------|
+| ------- | ------- |
 | Alice   | \$50    |
 | Bob     | \$0     |
 | Charlie | \$0     |
@@ -34,7 +34,7 @@ could choose to send the transaction only to $N_1$, and convince Bob to check hi
 then show:
 
 | Account | Balance |
-|---------|---------|
+| ------- | ------- |
 | Alice   | \$0     |
 | Bob     | \$50    |
 | Charlie | \$0     |
@@ -44,22 +44,22 @@ transaction $T_{AC}$ in which she sends \$50 to Charlie, send the transaction to
 his balance at $N_2$ which would then show:
 
 | Account | Balance |
-|---------|---------|
+| ------- | ------- |
 | Alice   | \$0     |
 | Bob     | \$0     |
 | Charlie | \$50    |
 
 As a result, the databases would end up in an inconsistent state and the non-overdraft policy of the system would have
-been violated, since the protocol allowed Alice to *double-spend* her savings.
+been violated, since the protocol allowed Alice to _double-spend_ her savings.
 
 To prevent such a scenario it must be ensured that the decentralized database is consistent i.e., it must be ensured
-that *all transactions are executed in the same order* at all nodes holding a copy of the database. This is exactly what
+that _all transactions are executed in the same order_ at all nodes holding a copy of the database. This is exactly what
 a consensus mechanism ensures.
 
 ## What is a consensus mechanism
 
 A consensus mechanism protocol ensures that all nodes participating in the protocol execute all transactions in the same
-order. That is, a consensus mechanism provides a *total order of input transactions* agreed upon by all nodes
+order. That is, a consensus mechanism provides a _total order of input transactions_ agreed upon by all nodes
 participating in the protocol.
 
 Here, we will not go into the technical definition of what it means that transactions are totally ordered. Interested
@@ -69,7 +69,7 @@ where a detailed characterization of this is provided.
 
 ## FastTrack: The consensus mechanism of PBC
 
-Partisia Blockchain uses a tailor-made consensus mechanism called *FastTrack*.
+Partisia Blockchain uses a tailor-made consensus mechanism called _FastTrack_.
 
 The FastTrack consensus protocol is an optimistic protocol with built-in failure recovery. When running optimistically,
 a single block producer (proposer) continuously produces new blocks whilst the rest of the committee verifies the
@@ -78,13 +78,13 @@ Consensus is achieved using Proof-of-Justification (PoJ) and Proof-of-Finalizati
 members in the current committee. A PoJ is then a list of at least $\lfloor n\cdot \frac{2}{3}\rfloor + 1$ signatures
 confirming the validity of a
 block. This PoJ then becomes PoF for the previous block. When a PoJ exists for a block, we refer to it as being
-*justified*, and when a PoF exists for a block we refer to it as being *final*.
+_justified_, and when a PoF exists for a block we refer to it as being _final_.
 
 After a fixed number of blocks have been proposed by a single producer a new proposer is chosen by the rules of the
 protocol. As long as the proposer is honest and produces sufficiently many valid blocks that become justified (which
 also ensures that new blocks are consistently being finalized), the committee is satisfied with this flow.
 If the proposer fails to produce valid blocks, either by losing network connectivity or by malicious intent, the
-protocol enters what is called the *Shutdown state*. In this state the entire committee votes on which block is the
+protocol enters what is called the _Shutdown state_. In this state the entire committee votes on which block is the
 newest. Once the committee has agreed on a block the next block proposer is chosen. To ensure that honest proposers are
 not shut down because of a calm day with not many transactions input to the chain, an empty "heartbeat" block is
 produced every 30 seconds if no transactions are received. This ensures that an honest proposer with good connectivity

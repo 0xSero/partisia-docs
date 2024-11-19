@@ -17,14 +17,14 @@ your identity and the on-chain data you have uploaded.
 2. Fill out the form and submit it
 3. Go to the [Synaps portal](https://partisiablockchain-kyc.synaps.me/). It is important that the information you
    provide matches what you sent in the previous step.
-4. Click on *Signup Now*
+4. Click on _Signup Now_
 5. Upload documents in the order they are requested
 6. You will receive a confirmation email when the documents have been approved
 
 ## Verification process for businesses (KYB)
 
 1. Go to the [Synaps portal](https://partisiablockchain.synaps.me/)
-2. Click the *Sign Up* button
+2. Click the _Sign Up_ button
 3. Upload documents in the order they are requested
 4. You will receive a confirmation email when the documents have been approved
 

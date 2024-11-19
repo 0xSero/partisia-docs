@@ -17,7 +17,7 @@ stop providing the service.
 
     1. [Run a baker node](run-a-baker-node.md)
     2. [Stake 250K MPC tokens](https://browser.partisiablockchain.com/node-operation). In addition to the 25K MPC tokens required to run a baker node.
-    3. Ensure you have working BYOC endpoints in your `config.json` - [see how to confirm this](node-health-and-maintenance.md#confirm-that-your-byoc-endpoints-are-working) 
+    3. Ensure you have working BYOC endpoints in your `config.json` - [see how to confirm this](node-health-and-maintenance.md#confirm-that-your-byoc-endpoints-are-working)
     4. Ensure your baker node is [running](node-health-and-maintenance.md#is-your-baker-node-working)
 
 ## How to register your node for oracle service
@@ -32,7 +32,7 @@ allocated as stake for running a [baker node](../pbc-fundamentals/dictionary.md#
 
 Step-by-step:
 
-1. Go to  [Node operation](https://browser.partisiablockchain.com/node-operation)
+1. Go to [Node operation](https://browser.partisiablockchain.com/node-operation)
 2. Sign in
 3. Click "REGISTER" beneath _Oracle_ in the **Jobs** section
 4. A registration menu will be displayed. Assign 250K MPC tokens as a stake and click on the REGISTER button

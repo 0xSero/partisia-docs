@@ -24,6 +24,7 @@ Blockchain address of the key and to sign transactions.
 7. You now have access to the MetaMask snap
 
 Video tutorial
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cdMVVQmyASU?si=u93J9vvArpPhxJgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 To use the newly installed MetaMask snap with Partisia Blockchain
@@ -119,4 +120,3 @@ should be a hex encoded transaction. The method will return a hex encoded signat
           },
       });
       ```
-
