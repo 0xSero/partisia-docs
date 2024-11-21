@@ -12,7 +12,7 @@
 | ZK preprocessing         | 550,000 per multiplication triple batch (batch size 100,000) <br> 55,000 per input mask batch (batch size 1,000) | Contract                                       |
 | Opening secret variables | 8,000 + 40 per bit of input                                                                                      | Contract (Contract variables)                  |
 | Attestation              | 25,000                                                                                                           | Contract                                       |
-| EVN oracle               | 25,000                                                                                                           | Contract                                       |
+| EVM oracle               | 25,000                                                                                                           | Contract                                       |
 
 The source for the fees are
 the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view).
