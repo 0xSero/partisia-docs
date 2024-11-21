@@ -29,7 +29,8 @@ the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY
 ### Network fees
 
 !!! info "Network gas price"
-    NETWORK_FEE = NETWORK_BYTES * 5,000 / 1,000
+
+    NETWORK_FEE = NETWORK_BYTES \* 5,000 / 1,000
 
 When sending transactions to a ZK contract, a network fee is paid by the calling user in the same way as for
 regular transactions in public contracts.
@@ -37,6 +38,7 @@ regular transactions in public contracts.
 ### WASM execution fees
 
 !!! info "WASM execution gas price"
+
     WASM_EXECUTION_FEE = NO_OF_INSTRUCTIONS / 1,000
 
 For regular actions, gas is paid by the calling user, in the same way as for public contracts.
@@ -46,7 +48,8 @@ Special ZK specific actions which are called when ZK nodes complete some work ar
 ### Staking fees
 
 !!! info "Staking gas price"
-    STAKING_FEE = (LOCKED_STAKES(Minimum 2,000 MPC tokens) / 100) * 40,000
+
+    STAKING_FEE = (LOCKED_STAKES(Minimum 2,000 MPC tokens) / 100) \* 40,000
 
 A ZK contract needs to pay 1% of the total locked stakes per month, see yellow paper p. 16.
 
@@ -59,7 +62,8 @@ are a minimum of 2,000 MPC tokens. To convert to gas the staking fee is multipli
 ### Secret input fees
 
 !!! info "Secret input gas fees"
-    SECRET_INPUT_FEE = 4 * (700 + 10 * (BIT_LENGTH_OF_INPUT + 5)) + 5000
+
+    SECRET*INPUT_FEE = 4 * (700 + 10 \_ (BIT_LENGTH_OF_INPUT + 5)) + 5000
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some variable is inputted.
 
@@ -70,7 +74,8 @@ the gas costs incurred by the nodes by processing this transaction. In addition,
 ### ZK computation fees
 
 !!! info "ZK computation gas fees"
-    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
+
+    ZK*COMPUTATION_FEE = 2 * BASE*SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when a ZK computation is executed as well as
 for the multiplications in the computation.
@@ -87,6 +92,7 @@ As one multiplication is one instruction the cost is 1 gas per 1000 multiplicati
 ### ZK preprocessing fees
 
 !!! info "ZK preprocessing gas fees"
+
     ZK_PREPROCESSING_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_PREPROCESSING_MATERIAL
 
 A ZK contract needs to pay for the preprocessing triples which the preprocessing nodes generate at various points during
@@ -103,17 +109,18 @@ Preprocessing material is requested in batches of 100,000 triples for multiplica
 triples for input masks.
 This means the material for each batch of multiplication triples costs
 
-100,000 / 1,000 * 5 = 5,000 USD cents
+100,000 / 1,000 \* 5 = 5,000 USD cents
 
 while the material for each input mask batch costs
 
-1,000 / 1,000 * 5 = 5 USD cents
+1,000 / 1,000 \* 5 = 5 USD cents
 
 which is multiplied by 1,000 to get the price in gas.
 
 ### Opening secret variables fees
 
 !!! info "Opening secret variables gas fees"
+
     OPEN_SECRET_VARIABLES_FEE = SECRET_INPUT_FEE
 
 Fees need to be paid for transactions that ZK nodes must send when secret variables are opened.
@@ -124,6 +131,7 @@ The fee calculation follows the same rules as those applied to the
 ### Attestation fees
 
 !!! info "Attesting data gas fees"
+
     ATTESTATION_FEE = BASE_SERVICE_FEES
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some data needs to be attested.
@@ -134,6 +142,7 @@ BASE_SERVICE_FEES.
 ### EVM oracle fees
 
 !!! info "Receiving events from external EVM chain"
+
     EVM_ORACLE_FEE = BASE_SERVICE_FEES
 
 A ZK contract needs to pay for the transactions that the ZK nodes must send when an event from an external EVM contract

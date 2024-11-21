@@ -6,7 +6,7 @@ prevents updates to the blockchain occurring only partially.
 Consequently an atomic action is either _successful_ in which case the changes are committed to the blockchain and
 visible
 for everyone or it _fails_ in which case no state changes on the
-blockchain. [Atomicity](https://en.wikipedia.org/wiki/Atomicity_(database_systems)) on the Partisia Blockchain works in
+blockchain. [Atomicity](<https://en.wikipedia.org/wiki/Atomicity_(database_systems)>) on the Partisia Blockchain works in
 the same way as in a database system.
 
 ## Simple interaction model
@@ -86,4 +86,3 @@ assets and bought assets in the same event group. Doing so may result in
 serious exploits.**
 
 ![diagram contract to two contracts with callback](img/smart-contract-interactions-on-the-blockchain-03.png)
-

@@ -28,11 +28,11 @@ On each shard blocks have a number being incremented since the first block. This
 
 ### Bridge
 
-Cross-chain bridges connect the Partisia Blockchain with other blockchains, enabling information and assets to flow between the two chains. One example of a bridge is the [BYOC bridge](https://bridge.mpcexplorer.com/), the feature that allows you to deposit and withdraw BYOC. Partisia Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. For more information see [BYOC](byoc/introduction-to-byoc.md). Or to go directly to the bridge - click [here](https://bridge.mpcexplorer.com/).
+Cross-chain bridges connect the Partisia Blockchain with other blockchains, enabling information and assets to flow between the two chains. One example of a bridge is the [BYOC bridge](https://bridge.mpcexplorer.com/), the feature that allows you to deposit and withdraw BYOC. Partisia Blockchain has a decoupled token economy. That means services are paid for using liquid tokens from other blockchains. You can deposit these outside cryptocurrencies on your account using the token bridge. This allows you to pay the gas cost of transaction. You need gas when you deploy or interact with contracts. Doing a token transfer, staking MPC tokens are examples of transaction you can do from the MPC Explorer and Dashboard. To perform these types of actions you first need to deposit gas into your wallet. For more information see [BYOC](byoc/byoc.md). Or to go directly to the bridge - click [here](https://bridge.mpcexplorer.com/).
 
 ### BYOC
 
-The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](../pbc-fundamentals/byoc/introduction-to-byoc.md).
+The Partisia blockchain has a decoupled token economy this means that the native token (MPC Token) is not used to pay for on chain services, consequently price of MPC tokens do not affect the cost of using PBC. Instead, you pay with liquid cryptocurrencies from other blockchains, which is aptly name "bring your own coin" (BYOC). When you deposit the BYOC a twin is minted, which can interact with PBC. Oracle nodes ensures that BYOC twins match actual coins on the native chain. When a transaction is paid for by a user that payment covers the fee for the node operators which implement the change on the chain. Read more [here](../pbc-fundamentals/byoc/byoc.md).
 
 ### Committee
 
@@ -46,14 +46,14 @@ passed.
 
 **Minimum criteria of the epochs in important system contracts:**
 
-- Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members. Alternatively, minimum time of 28 days have passed and [trigger new committee](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/triggerNewCommittee) has been invoked
-- [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and [request new oracle](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle) has been invoked    
-- ZK contract: when the calculations specified in the contract have been completed, or the lifetime paid for by the contract owner runs out   
-- [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks 
+-   Committee epoch in [BPO contract](governance-system-smart-contracts-overview.md#node-operation): 5% new members. Alternatively, minimum time of 28 days have passed and [trigger new committee](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91/triggerNewCommittee) has been invoked
+-   [Small oracle](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#bridgeable-coins-on-mainnet): Deposit limit of 25 ETH or withdrawal limit of 50 ETH have been met. Alternatively, 14 days have passed and [request new oracle](../node-operations/run-a-deposit-or-withdrawal-oracle-node.md#request-new-oracle) has been invoked
+-   ZK contract: when the calculations specified in the contract have been completed, or the lifetime paid for by the contract owner runs out
+-   [Fee distribution](governance-system-smart-contracts-overview.md#node-operation): when all baker nodes in committee has attempted to produce 100 blocks
 
 ### ETH
 
-The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](../pbc-fundamentals/byoc/introduction-to-byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
+The name of the native token of the Ethereum blockchain. It is a liquid cryptocurrency. On Partisia Blockchain you can pay for transactions using outside cryptocurrencies [(BYOC)](../pbc-fundamentals/byoc/byoc.md). ETH was the first BYOC on PBC, but soon USDC will also be available.
 
 ### Event transactions
 
@@ -100,10 +100,10 @@ Nodes are the computers in the blockchain network. The nodes run the blockchain 
 
 A node operator is a person who runs and maintains a node on Partisia Blockchain. PBC has four types of nodes:
 
-- Reader node: A node that only reads the information on the chain and does not perform paid services.
-- Baker Node: A node that produces and validates blocks. Revenue is generated from user payment on transactions in the blocks produced and validated by the node.
-- ZK Node: A node that performs zero knowledge computations in addition to baker node services.
-- Oracle Node: A node that performs oracle services in addition to ZK and baker services.
+-   Reader node: A node that only reads the information on the chain and does not perform paid services.
+-   Baker Node: A node that produces and validates blocks. Revenue is generated from user payment on transactions in the blocks produced and validated by the node.
+-   ZK Node: A node that performs zero knowledge computations in addition to baker node services.
+-   Oracle Node: A node that performs oracle services in addition to ZK and baker services.
 
 See requirements of a node operator and how to run a node [here](../node-operations/start-running-a-node.md).
 
@@ -129,9 +129,8 @@ The immutable record or ledger, that keeps track of transactions that have alrea
 
 ### Price oracle
 
-The price oracles on PBC help to keep the BYOC price up to date by using data from nodes on Chainlink. This means that the price you get when bridging ETH or other BYOC to and from PBC has been checked for accuracy within the last hour. Each price oracle consist of at least three nodes. Every hour each node in the price oracle performs a price check. The node operator is paid a reward for performing this service. If three nodes in the price oracle agree on the price they report the price.    
+The price oracles on PBC help to keep the BYOC price up to date by using data from nodes on Chainlink. This means that the price you get when bridging ETH or other BYOC to and from PBC has been checked for accuracy within the last hour. Each price oracle consist of at least three nodes. Every hour each node in the price oracle performs a price check. The node operator is paid a reward for performing this service. If three nodes in the price oracle agree on the price they report the price.  
 In addition to checking and reporting prices a price oracle node also compares its own checks with the reports of the other price oracles. If it sees a discrepancy in price the price oracle node starts a dispute. The party found to be responsible in a price oracle dispute will have their 5000 MPC slashed. Types of malicious behavior can include reporting incorrect prices or incorrect dispute claims against other oracle nodes.
-
 
 ### Public-key cryptography
 
@@ -151,10 +150,9 @@ PBC distributes the workload to a number of parallel shards. This allows for sca
 
 ### Small oracle
 
-There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc/introduction-to-byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit), 
+There are oracles handling tasks related to [BYOC](../pbc-fundamentals/byoc/byoc.md), these oracles are referred to as small oracles. The small oracles facilitate bridging of liquid cryptocurrencies to and from the chain as well as price monitoring. Small oracles include [deposit oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-deposit),
 [withdrawal oracles](../pbc-fundamentals/byoc/bridging-byoc-by-sending-transactions.md#how-to-make-a-withdrawal)
- and [price oracles](../pbc-fundamentals/dictionary.md#price-oracle).
-
+and [price oracles](../pbc-fundamentals/dictionary.md#price-oracle).
 
 ### Smart Contracts
 
@@ -165,11 +163,12 @@ A smart contract is a program you run on the blockchain. The conditions of the c
 If you want to be a node operator you are required to have a stake in the network. A stake is basically a deposit strengthening the security and user confidence of the network. The stake means that the node operator has something to lose should they try to cheat or damage the network.
 Staking requires that the node operator buys the required stake of MPC Tokens. Services have a hierarchy of cost and security as well as payment. Therefore, higher paid services require a higher stake. To acquire MPC Tokens go through this [contact page](https://kyc.partisiablockchain.com/). The current stake requirements are:
 
-- Reader Node is free, since it does not perform paid services
-- Baker Node 25,000 MPC Tokens
-- ZK Node 75,000 MPC Tokens
-- Oracle Node 250,000 MPC Tokens
-- Price Oracle Node 5,000 MPC Tokens
+-   Reader Node is free, since it does not perform paid services
+-   Baker Node 25,000 MPC Tokens
+-   ZK Node 75,000 MPC Tokens
+-   Oracle Node 250,000 MPC Tokens
+-   Price Oracle Node 5,000 MPC Tokens
+
 Staking is done in the [browser's node operator page](https://browser.partisiablockchain.com/node-operation) by clicking the stake button.
 
 ### Transactions
@@ -181,10 +180,11 @@ Each transaction defines how long into the future it is valid and what the cost 
 
 A transaction is valid when:
 
-- It has as a valid signature
-- The nonce in the transaction matches the account nonce in the blockchain state
-- The transaction has not expired
-- The account can cover the cost of the transaction
+-   It has as a valid signature
+-   The nonce in the transaction matches the account nonce in the blockchain state
+-   The transaction has not expired
+-   The account can cover the cost of the transaction
+
 ### VPS
 
 A VPS is a Virtual Private server. Just like you can have a virtual machines on your PC, it is possible to rent server space for virtual machine from an internet hosting service (IHS). That is called a VPS. You choose a VPS just like you would choose a PC. You decide on an operating system (OS), for running nodes on Partisia Blockchain you choose Linux based OS (In this guide we used Ubuntu). Your VPS is physically capable of running the node if you align it with the [recommended machine specs](../node-operations/start-running-a-node.md#which-node-should-you-run).

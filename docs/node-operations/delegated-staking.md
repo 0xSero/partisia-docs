@@ -3,13 +3,13 @@
 Delegation of MPC tokens to a node operator is a way to stake tokens and earn [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) without running
 a [node](../pbc-fundamentals/dictionary.md#node) yourself. You can see an example of how rewards are calculated [here](./node-payment-rewards-and-risks.md#rewards-for-delegated-tokens).
 
-Delegated staking begins with the delegation of MPC tokens to the account of a node operator. 
-If the node operator accepts the tokens, they have control over the tokens. 
-This means that the node operator can associate the delegated tokens to a [node service](../node-operations/start-running-a-node.md#which-node-should-you-run). 
-You can only retract your tokens when the node operator disassociates the tokens from node service. 
+Delegated staking begins with the delegation of MPC tokens to the account of a node operator.
+If the node operator accepts the tokens, they have control over the tokens.
+This means that the node operator can associate the delegated tokens to a [node service](../node-operations/start-running-a-node.md#which-node-should-you-run).
+You can only retract your tokens when the node operator disassociates the tokens from node service.
 
-As a delegator, it is your responsibility to communicate with the node operator using the tokens, 
-if you want them to disassociate your tokens from node service.  
+As a delegator, it is your responsibility to communicate with the node operator using the tokens,
+if you want them to disassociate your tokens from node service.
 
 !!! info
 
@@ -28,12 +28,11 @@ Step by step:
 5. Click the DELEGATE button on the top box in the right-hand panel
 6. Enter the amount of MPC tokens you wish to delegate and click CONFIRM
 
-!!! success 
-    
+!!! success
+
     Your tokens are now **available** for the node operator to use.
     However, to reap any rewards the node operator needs to accept and associate your tokens to a job.
     You might need to contact them to make sure your tokens are being used.
-    
 
 ### How to accept delegated tokens
 
@@ -44,7 +43,7 @@ Step by step:
 1. Go to [Node operation](https://browser.partisiablockchain.com/node-operation)
 2. Sign in
 3. Click "SEE MORE" to unfold the collapsed delegation table located below the **Delegated from others** section
-4. In the **Amount** column of the offer you wish to respond to, either click on the check mark icon to accept the full amount, 
+4. In the **Amount** column of the offer you wish to respond to, either click on the check mark icon to accept the full amount,
 5. or click on the minus icon to accept a partial amount
 
 ### How to retract delegated MPC tokens
@@ -60,12 +59,11 @@ Step by step:
 
 !!! success
 
-    Your tokens should now be back into to your account. If this does not happen, the tokens are in use by a node service. 
+    Your tokens should now be back into to your account. If this does not happen, the tokens are in use by a node service.
     To retract your tokens follow the steps in the [next section](#how-to-retract-delegated-mpc-tokens-locked-to-a-node-service)
 
 ### How to retract delegated MPC tokens locked to a node service
 
-1. Contact the node operator and ask them to disassociate your tokens from node service   
+1. Contact the node operator and ask them to disassociate your tokens from node service
 2. Wait for the [pending time](../node-operations/node-payment-rewards-and-risks.md) to be over
-3. Follow the steps in the previous section: [How to retract delegated MPC tokens](#how-to-retract-delegated-mpc-tokens) 
-
+3. Follow the steps in the previous section: [How to retract delegated MPC tokens](#how-to-retract-delegated-mpc-tokens)

@@ -21,8 +21,8 @@ Notice, that the public reader is rate limited.
 
 The public reader node is available at
 
-- [https://reader.partisiablockchain.com](https://reader.partisiablockchain.com) (mainnet)
-- [https://node1.testnet.partisiablockchain.com](https://node1.testnet.partisiablockchain.com) (testnet)
+-   [https://reader.partisiablockchain.com](https://reader.partisiablockchain.com) (mainnet)
+-   [https://node1.testnet.partisiablockchain.com](https://node1.testnet.partisiablockchain.com) (testnet)
 
 We also publish a number of [libraries](../smart-contract-tools-overview.md#libraries) that help create transactions and
 using the REST API.
@@ -35,13 +35,13 @@ In our [rest server source repository](https://gitlab.com/partisiablockchain/cor
 endpoints and all returned data types.
 
 ### Transaction information
-[https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5)
 
+[https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5)
 
 Where
 
-- `Shard1` is the shard
-- `11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5` is the transaction identifier
+-   `Shard1` is the shard
+-   `11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5` is the transaction identifier
 
 ### List of transactions from point in time
 
@@ -49,9 +49,9 @@ Where
 
 Where
 
-- `Shard0` is the shard
-- `10`is the number of transactions to return
-- `2018112` is the block number on the shard
+-   `Shard0` is the shard
+-   `10`is the number of transactions to return
+-   `2018112` is the block number on the shard
 
 ### Block Information
 
@@ -59,8 +59,8 @@ Where
 
 Where
 
-- `Shard0` is the shard
-- `6132deae77e2f2576e450b82cc681a363e064637443b736f841f2b99256f5926` is the block identifier
+-   `Shard0` is the shard
+-   `6132deae77e2f2576e450b82cc681a363e064637443b736f841f2b99256f5926` is the block identifier
 
 ### Smart Contract Information
 
@@ -68,7 +68,7 @@ Where
 
 Where
 
-- `02c63dc725bfce5abc5b019d14ac84b4aaf8747e9f` is the smart contract address
+-   `02c63dc725bfce5abc5b019d14ac84b4aaf8747e9f` is the smart contract address
 
 ### Account Information
 
@@ -76,9 +76,8 @@ Where
 
 Where
 
-- `00803c974202d4dd8db22bd3833b8d123f89ea199b` is the address of the account
+-   `00803c974202d4dd8db22bd3833b8d123f89ea199b` is the address of the account
 
 ### Blockchain global information
 
 [https://reader.partisiablockchain.com/chain](https://reader.partisiablockchain.com/chain)
-
