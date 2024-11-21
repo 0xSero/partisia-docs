@@ -125,8 +125,8 @@ which is multiplied by 1,000 to get the price in gas.
 
 Fees need to be paid for transactions that ZK nodes must send when secret variables are opened.
 
-The fee calculation follows the same rules as those applied to the 
- [secret input fee](./zk-computation-gas-fees.md#secret-input-fees).
+The fee calculation follows the same rules as those applied to the
+[secret input fee](./zk-computation-gas-fees.md#secret-input-fees).
 
 ### Attestation fees
 
