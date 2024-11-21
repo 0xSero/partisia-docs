@@ -87,7 +87,7 @@ entails each node sending 1 additional transaction to the binder. The cost of ea
 transactions is covered using BASE_SERVICE_FEES, which is set to 25,000.
 
 Besides this, the multiplications done during the computation must also be paid for.
-As one multiplication is one instruction the cost is 1 gas per 1000 multiplications.
+Each multiplication cost 5 gas or 5 USD cents for 1000 multiplications.
 
 ### ZK preprocessing fees
 
