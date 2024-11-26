@@ -41,7 +41,7 @@ Now your stake has been associated to the large oracle contract and your node is
 deposit or withdrawal oracle. You can confirm the amount staked to oracle services in the Jobs
 section.
 
-## How a node is selected for a deposit or withdrawal oracle
+## How is a node selected for a deposit or withdrawal oracle?
 
 Nodes with 250K staked MPC tokens associated to the
 [large oracle](../pbc-fundamentals/governance-system-smart-contracts-overview.md#node-operation)

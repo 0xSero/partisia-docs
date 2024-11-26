@@ -346,7 +346,6 @@ flowchart TD
     Reserving tokens for disassociation can prevent a node from being allocated to new ZK work.
     If allocating tokens to ZK work would cause the number of free tokens to fall below the
     amount reserved for disassociation, the node will not be selected for ZK work.
-    When tokens are disassociated the reserved amount is automatically reduced by this amount.
 
 1. Sign in to the browser.
 2. Navigate to
@@ -355,7 +354,7 @@ flowchart TD
 3. Specify the new amount of tokens you want to reserve.
 4. Confirm by pressing `SET RESERVED TOKENS`.
 
-### How long does it take for allocated tokens to become released
+### How long does it take for allocated tokens to become released?
 
 After being allocated the tokes will be locked for ZK work until the node allocation end date.
 Please follow the steps below to find the node allocation end date for a ZK contract:
@@ -365,7 +364,7 @@ Please follow the steps below to find the node allocation end date for a ZK cont
 3. Press enter to navigate to the contract.
 4. Open the 'ZK nodes' tab and find the 'Allocation end date'.
 
-### How long does it take for pending tokens to become unlocked
+### How long does it take for pending tokens to become unlocked?
 
 After being released from ZK work allocated tokens will be pending for 14 days before being
 unlocked.
