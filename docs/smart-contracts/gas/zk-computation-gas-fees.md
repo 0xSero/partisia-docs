@@ -60,7 +60,7 @@ are a minimum of 2,000 MPC tokens. To convert to gas the staking fee is multipli
 
 !!! info "Secret input gas fees"
 
-    SECRET*INPUT_FEE = 4 * (700 + 10 \_ (BIT_LENGTH_OF_INPUT + 5)) + 5000
+    SECRET_INPUT_FEE = 4 * (700 + 10 \_ (BIT_LENGTH_OF_INPUT + 5)) + 5000
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when some variable is inputted.
 
@@ -72,7 +72,7 @@ the gas costs incurred by the nodes by processing this transaction. In addition,
 
 !!! info "ZK computation gas fees"
 
-    ZK*COMPUTATION_FEE = 2 * BASE*SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
+    ZK_COMPUTATION_FEE = 2 * BASE_SERVICE_FEES + 5 * NO_OF_MULTIPLICATIONS
 
 A ZK contract needs to pay for the transactions that ZK nodes must send when a ZK computation is executed as well as
 for the multiplications in the computation.
