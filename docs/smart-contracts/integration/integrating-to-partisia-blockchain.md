@@ -37,7 +37,7 @@ endpoints and all returned data types.
 ## Open API
 
 The reader nodes and baker nodes expose an API that is defined by an OpenAPI spec.
-You can view the endpoints available from here: [OpenAPI UI](https://gitlab.com/partisiablockchain/core/server/-/blob/main/java/server/src/main/resources/openapi.json).
+You can view the endpoints available here: [OpenAPI UI](https://gitlab.com/partisiablockchain/core/server/-/blob/main/java/server/src/main/resources/openapi.json).
 
 ### Transaction information
 
