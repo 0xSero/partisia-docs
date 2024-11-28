@@ -34,6 +34,11 @@ Below is a collection of commonly used rest endpoints.
 In our [rest server source repository](https://gitlab.com/partisiablockchain/core/server), you can find all the different
 endpoints and all returned data types.
 
+## Open API
+
+The reader nodes and baker nodes expose an API that is defined by an OpenAPI spec.
+You can view the endpoints available from here: [OpenAPI UI](https://gitlab.com/partisiablockchain/core/server/-/blob/main/java/server/src/main/resources/openapi.json).
+
 ### Transaction information
 
 [https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5](https://reader.partisiablockchain.com/shards/Shard1/blockchain/transaction/11d09178b39c10520aec717200a4a5cd229e948bc15c4a87e65d682008f86db5)
