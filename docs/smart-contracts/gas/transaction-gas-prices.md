@@ -25,8 +25,6 @@ When a transaction is sent, the transaction needs to have enough gas to cover al
 
 Gas on Partisia Blockchain is fixed, you pay for what you use. Gas units are pegged to the USD. The fixed ratio is 100,000 gas units to 1 USD.
 
-The price for different services on the blockchain has been decided in [the yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view) (Page 16).
-
 ### CPU Cost in Gas Pricing: Understanding the Three CPU Stages to optimization
 
 The CPU cost reflects the computational resources consumed during the execution of a smart contract transaction. It consists of three primary stages: deserializing the contract state, performing the required work or computations, and serializing the updated contract state.

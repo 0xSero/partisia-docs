@@ -14,9 +14,6 @@
 | Attestation              | 25,000                                                                                                           | Contract                                       |
 | EVM oracle               | 25,000                                                                                                           | Contract                                       |
 
-The source for the fees are
-the [Partisia Blockchain yellow paper](https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view).
-
 ### Where is the payment ultimately allocated?
 
 When network, storage, WASM- and AVL execution fees are paid, the gas is distributed among the block producers based on
