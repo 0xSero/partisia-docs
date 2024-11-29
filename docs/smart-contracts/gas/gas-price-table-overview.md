@@ -16,6 +16,5 @@
 
 ### Where is the payment ultimately allocated?
 
-When network, storage, WASM- and AVL execution fees are paid, the gas is distributed among the block producers based on
-performance. When ZK fees are paid, the gas is distributed equally among the contract's associated ZK nodes on the
+When network, storage, WASM- and AVL execution fees are paid, the gas is distributed equally among the block producers that actively participated in the justification of blocks during the epoch. When ZK fees are paid, the gas is distributed equally among the contract's associated ZK nodes on the
 blockchain.
