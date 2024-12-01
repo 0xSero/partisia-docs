@@ -29,7 +29,7 @@ The tool can be used with the following commands:
 -   `validate-kyc <session-id>`: Checks whether your Synaps KYC registration, based on the supplied `session-id`, is valid and approved.
     -   Example: `./node-register.sh validate-kyc 3bca023e-abc1-12a1-bdab-5fa1c3b7b9b3`
 -   `report-active`: Used to mark your node as _CONFIRMED_ if it was previously set to [_INACTIVE_](#Inactivity) on the [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
--   `compute-rewards <rewards-quarter>`: Compute quarterly rewards for staking. [Block Producer Orchestration contract](https://browser.partisiablockchain.com/contracts/04203b77743ad0ca831df9430a6be515195733ad91?tab=state).
+-   `compute-rewards <rewards-quarter>`: Compute quarterly rewards for staking. See [Voting for Quarterly Rewards](#voting-for-quarterly-rewards).
 
 The commands can be run with `--help` for additional information.
 
