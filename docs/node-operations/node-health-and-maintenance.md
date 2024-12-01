@@ -14,7 +14,7 @@ The maintenance page takes you through the following node-related topics:
 -   [How to migrate your node to a different VPS](#how-to-migrate-your-node-to-a-different-vps)
 -   [Install Network Time Protocol (NTP) to avoid time drift](#install-network-time-protocol)
 -   [Inactivity](#Inactivity)
--   [Voting for quarterly Rewards](#rewards)
+-   [Voting for quarterly Rewards](#voting-for-quarterly-rewards)
 
 ## The `node-register.sh` tool
 
