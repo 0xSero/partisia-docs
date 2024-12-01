@@ -110,7 +110,7 @@ Rules:
 
 Every quarter rewards are given to delegated stakers and node operators based on the amount of tokens staked and node performance.
 
-When you delegate tokens to a node operator you get rewards when a node operator associates your [delegated](./delegated-staking.md) tokens to a node service. 
+When you delegate tokens to a node operator you get rewards when a node operator associates your [delegated](./delegated-staking.md) tokens to a node service.
 
 When each quarter ends the node operators decentrally calculate the amount of rewards to pay out and vote on-chain to pay out the rewards. See [Voting for QuarterlyRewards](node-health-and-maintenance.md#voting-for-quarterly-rewards)
 

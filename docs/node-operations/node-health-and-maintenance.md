@@ -545,17 +545,18 @@ As a node operator you must participate in the quarterly decentralized calculati
 
 To calculate rewards for a quarter, and vote for the payout do the following:
 
-1. Run the reward calculation for the quarter on your own node by executing the following, where `rewards-quarter` is the index of the quarter since mainnet launch. Rewards quarter *1* started on 1. june 2022 and ended on 31. aug 2022.  
+1. Run the reward calculation for the quarter on your own node by executing the following, where `rewards-quarter` is the index of the quarter since mainnet launch. Rewards quarter _1_ started on 1. june 2022 and ended on 31. aug 2022.
+
 ```bash
 ./node-register.sh compute-rewards <rewards-quarter>
 ```
+
 2. The rewards calculation will use your nodes local data to calculate the rewards for the quarter. It takes some minutes to run. The command will output all the relevant rewards information into a directory in the storage directory of the node. It also outputs a hash value that is used when voting on-chain.
 3. Vote for the payout of the rewards on-chain
-     1. Go the the [Rewards Vote Contract](https://browser.partisiablockchain.com/contracts/02722d2a7b82a619303df8fd9e9248355f217513ef/vote)
-     2. Sign in with the account that runs your node.
-     3. Enter the hash and rewards quarter index and send the transaction by clicking "VOTE". 5000 gas is enough to send your vote.
+    1. Go the the [Rewards Vote Contract](https://browser.partisiablockchain.com/contracts/02722d2a7b82a619303df8fd9e9248355f217513ef/vote)
+    2. Sign in with the account that runs your node.
+    3. Enter the hash and rewards quarter index and send the transaction by clicking "VOTE". 5000 gas is enough to send your vote.
 
 When enough votes has been cast for the same rewards hash, the rewards will be paid out according to the calculated distribution.
 
 You can consult the calculation method for rewards, and the history of quarterly payouts [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards).
-
