@@ -14,12 +14,10 @@ Node operators get paid fees for running four [types of services](../node-operat
     oracle nodes receive 0.1% of transferred value
 -   Price oracle nodes get a steady fee per signed price. The fee is 50K gas divided equally between the price signatories
 
-A node service earns rewards when a user commits a transaction on the blockchain and pays a gas cost
-in [BYOC](../pbc-fundamentals/byoc/byoc.md). The gas spent covers the fee of the service performed by the nodes, this designs ensures that node operators get paid in BYOC tokens and not MPC tokens.
+A node operator earns fees when a user commits a transaction on the blockchain and pays a gas cost
+in [BYOC](../pbc-fundamentals/byoc/byoc.md). The gas spent covers the fee of the service performed by the nodes, this designs ensures that node operators get paid in BYOC tokens.
 
-In addition to the fees paid for services, nodes receive rewards in the form of MPC tokens from staking. Rewards are distributed according to node performance
-measured by block production as well as tokens staked and their vesting
-schedule. [See how rewards are calculated and distributed](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main/mainnet?ref_type=heads#computing-rewards)
+In addition to the fees paid for services, node operators and delegated stakers receive rewards in the form of MPC tokens from staking. Rewards are distributed according to the amount of tokens staked and node performance. [See how rewards are calculated and distributed](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main/mainnet?ref_type=heads#computing-rewards)
 
 ### How are baker fees calculated
 
@@ -108,30 +106,13 @@ Rules:
 -   Tokens retrieved from delegation are not immediately [transferable](../pbc-fundamentals/mpc-token-model-and-account-elements.md#transferable). The token owner must [unstake](https://browser.partisiablockchain.com/node-operation) the tokens after retrieval. If the tokens have passed the [release date](../pbc-fundamentals/mpc-token-model-and-account-elements.md#unlocking-schedules) the tokens will become transferable, when the 7-day pending period is over and the owner invokes [Check pending unstakes](https://browser.partisiablockchain.com/account)
 -   Tokens must be retrieved to your account before you can [unstake](https://browser.partisiablockchain.com/node-operation). This means you change the state of the tokens back from staked to unstaked. Unstaking causes a 7-day pending state for the tokens. Afterwards you need to invoke [Check pending unstakes](https://browser.partisiablockchain.com/account). This operation returns the tokens to your balance
 
-#### Rewards for delegated tokens
+#### Rewards for staked tokens
 
-You get [rewards](https://gitlab.com/partisiablockchain/node-operators-rewards/-/tree/main?ref_type=heads) when a node operator associates your [delegated](./delegated-staking.md) tokens to a node service. The rewards depend on
-the [baker service](../node-operations/node-payment-rewards-and-risks.md#how-different-node-services-earn-fees-and-rewards)'s performance of the node you delegate to, and the amount of rewardable tokens delegated.
+Every quarter rewards are given to delegated stakers and node operators based on the amount of tokens staked and node performance.
 
-!!! Example "Calculation example"
+When you delegate tokens to a node operator you get rewards when a node operator associates your [delegated](./delegated-staking.md) tokens to a node service.
 
-    Consider a group of token holders indexed $i=0...n$. We want to calculate the rewards of the token holder with index 4.
-
-    **Variables:**
-
-    - **T** is the total allocated rewards for the period. In this scenario 1,000,000 MPC tokens
-    - **r<sub>i<sub>** is the rewardable delegated tokens of token holder _i_. Suppose token holder 4 delegates all his 20,000 MPC tokens to a node operator, and half the tokens are released. This means that 10,000 MPC tokens of the delegation is rewardable: $\mathsf{Delegated_{rewardable}} = \frac{\mathsf{Released_{MPC}}}{\mathsf{Total_{MPC}}} \mathsf{Delegated_{total}} = \frac{10,000}{20,000} 20{,}000 = 10{,}000$
-    - **p<sub>i<sub>** is the performance of the node using the tokens of token holder _i_. Suppose that in this  period, the performance of the node using token holder 4's tokens was 90%
-    - $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$ is the sum of rewardable tokens adjusted for performance. In this scenario we imagine 100 nodes with an average of 12,000 MPC rewardable adjusted for performance, bringing the total to 1,200,000 MPC tokens
-
-    **Calculation:**
-
-    $\mathsf{RewardForDelegation} = \mathsf{T} \frac{\mathsf{r_{4}} \cdot \mathsf{p_{4}}}{\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}} = 1{,}000{,}000 \frac{10{,}000 \cdot 90\%}{1{,}200{,}000} = 7{,}500$
-    Token holder 4's reward for the delegated stakes in the given period is 7,500 MPC tokens.
-
-    The node operator takes a 2% cut of the total rewards. Thus token holder 4 would get 7,350 of the 7,500.
-
-    This calculation is simplified by omitting the calculation of the sum $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$. In an actual case, you need to know rewardables and performance scores of each and every node in the network for the given period to calculate $\sum_{i=0}^{\mathsf{n}} \mathsf{r_{i}} \cdot \mathsf{p_{i}}$.
+When each quarter ends the node operators decentrally calculate the amount of rewards to pay out and vote on-chain to pay out the rewards. See [Voting for QuarterlyRewards](node-health-and-maintenance.md#voting-for-quarterly-rewards)
 
 You can consult the calculation method for rewards, and the history of quarterly payouts [here](https://gitlab.com/partisiablockchain/node-operators-rewards/-/blob/main/mainnet/README.md#computing-rewards).
 
