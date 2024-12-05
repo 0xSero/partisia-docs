@@ -93,6 +93,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.details
   - admonition
+  - sane_lists
   - pymdownx.superfences:
       # make exceptions to highlighting of code:
       custom_fences:
@@ -125,7 +126,7 @@ plugins:
   - mermaid2:
       arguments:
         securityLevel: "loose"
-        theme: forest # we want also that to work
+        theme: forest
 
 theme:
   logo: assets/pbclogo.png
