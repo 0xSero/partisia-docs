@@ -70,7 +70,7 @@ nav:
       - node-operations/node-payment-rewards-and-risks.md
       - node-operations/delegated-staking.md
       - node-operations/how-system-updates-and-voting-work.md
-  - REST API documentation: https://partisiablockchain.gitlab.io/documentation/rest
+  - REST API documentation: https://gitlab.com/partisiablockchain/core/server/-/blob/main/java/server/src/main/resources/openapi.json
   - get-support-from-pbc-community.md
 
 extra_css:
